@@ -32033,4 +32033,12 @@ input[type=email]:focus::-webkit-input-placeholder {
   font-size: 16px;
   color: #777;
 }
+
+.btn-secondary{
+  padding-bottom: 40px;
+}
+.btn-primary{
+ padding-bottom: 40px;
+}
+
 /*# sourceMappingURL=style.css.map */
