@@ -506,6 +506,182 @@ function ecCheckCookie() {
 
     })();
 
+    /*----------------add to cart --------*/
+    $("body").on("click", ".ec-single-cart", function () {
+
+        $(".ec-cart-float").fadeIn();
+
+        var count = $(".cart-count-lable").html();
+        count++;
+
+        $(".cart-count-lable").html(count);
+
+        // Remove Empty message    
+        $(".emp-cart-msg").parent().remove();
+
+        setTimeout(function () {
+            $(".ec-cart-float").fadeOut();
+        }, 5000);
+
+        // get an image url
+        var img_url = $(this).parents().parents().children(".image").find(".main-image").attr("src");
+        var p_name = $(this).parents().parents().parents().children(".ec-pro-content").children("h5").children("a").html();
+        var p_price = $(this).parents().parents().parents().children(".ec-pro-content").children(".ec-price").children(".new-price").html();
+
+        var p_html = '<li>' +
+            '<a href="product-left-sidebar.html" class="sidekka_pro_img"><img src="' + img_url + '" alt="product"></a>' +
+            '<div class="ec-pro-content">' +
+            '<a href="product-left-sidebar.html" class="cart_pro_title">' + p_name + '</a>' +
+            '<span class="cart-price"><span>' + p_price + '</span> x 1</span>' +
+            '<div class="qty-plus-minus"><div class="dec ec_qtybtn">-</div>' +
+            '<input class="qty-input" type="text" name="ec_qtybtn" value="1">' +
+            '<div class="inc ec_qtybtn">+</div></div>' +
+            '<a href="javascript:void(0)" class="remove">×</a>' +
+            '</div>' +
+            '</li>';
+
+        $('.eccart-pro-items').append(p_html);
+
+    });
+
+    (function () {
+        var $ekkaToggle = $(".ec-side-toggle"),
+            $ekka = $(".ec-side-cart"),
+            $ecMenuToggle = $(".mobile-menu-toggle");
+
+        $ekkaToggle.on("click", function (e) {
+            e.preventDefault();
+            var $this = $(this),
+                $target = $this.attr("href");
+            // $("body").addClass("ec-open");
+            $(".ec-side-cart-overlay").fadeIn();
+            $($target).addClass("ec-open");
+            if ($this.parent().hasClass("mobile-menu-toggle")) {
+                $this.addClass("close");
+                $(".ec-side-cart-overlay").fadeOut();
+            }
+        });
+
+        $(".ec-side-cart-overlay").on("click", function (e) {
+            $(".ec-side-cart-overlay").fadeOut();
+            $ekka.removeClass("ec-open");
+            $ecMenuToggle.find("a").removeClass("close");
+        });
+
+        $(".ec-close").on("click", function (e) {
+            e.preventDefault();
+            $(".ec-side-cart-overlay").fadeOut();
+            $ekka.removeClass("ec-open");
+            $ecMenuToggle.find("a").removeClass("close");
+        });
+
+        $("body").on("click", ".ec-pro-content .remove", function () {
+
+            // $(".ec-pro-content .remove").on("click", function () {
+
+            var cart_product_count = $(".eccart-pro-items li").length;
+
+            $(this).closest("li").remove();
+            if (cart_product_count == 1) {
+                $('.eccart-pro-items').html('<li><p class="emp-cart-msg">Your cart is empty!</p></li>');
+            }
+
+            var count = $(".cart-count-lable").html();
+            count--;
+            $(".cart-count-lable").html(count);
+
+            cart_product_count--;
+        });
+
+    })();
+
+    /*----------------------------- wishlist---------------------------------*/
+    $("body").on("click", ".ec-btn-group.wishlist", function () {
+
+        $(".ec-cart-float-wishlist").fadeIn();
+    
+        // Lấy số lượng sản phẩm trong wishlist và tăng lên
+        var wishlistCount = $(".wishlist-count-label").html();
+        wishlistCount++;
+        $(".wishlist-count-label").html(wishlistCount);
+    
+        // Xóa thông báo "Wishlist trống" nếu có
+        $(".emp-wishlist-msg").parent().remove();
+    
+        setTimeout(function () {
+            $(".ec-cart-float-wishlist").fadeOut();
+        }, 5000);
+    
+        // Lấy thông tin sản phẩm
+        var img_url = $(this).closest(".ec-pro-content").siblings(".image").find(".main-image").attr("src");
+        var p_name = $(this).closest(".ec-pro-content").find("h5 a").html();
+        var p_price = $(this).closest(".ec-pro-content").find(".ec-price .new-price").html();
+    
+        // Tạo HTML cho wishlist
+        var wishlistItem = '<li>' +
+            '<a href="product-left-sidebar.html" class="sidekka_pro_img"><img src="' + img_url + '" alt="product"></a>' +
+            '<div class="ec-pro-content">' +
+            '<a href="product-left-sidebar.html" class="wishlist_pro_title">' + p_name + '</a>' +
+            '<span class="wishlist-price"><span>' + p_price + '</span></span>' +
+            '<a href="javascript:void(0)" class="remove-wishlist">×</a>' +
+            '</div>' +
+            '</li>';
+    
+        $('.ec-wishlist-items').append(wishlistItem);
+    });
+    
+    // Xử lý xóa sản phẩm khỏi wishlist
+    $("body").on("click", ".ec-pro-content .remove-wishlist", function () {
+        var wishlist_product_count = $(".ec-wishlist-items li").length;
+    
+        $(this).closest("li").remove();
+    
+        if (wishlist_product_count == 1) {
+            $('.ec-wishlist-items').html('<li><p class="emp-wishlist-msg">Your wishlist is empty!</p></li>');
+        }
+    
+        var wishlistCount = $(".wishlist-count-label").html();
+        wishlistCount--;
+        $(".wishlist-count-label").html(wishlistCount);
+    });
+    
+    // Xử lý mở/đóng menu wishlist
+    (function () {
+        var $wishlistToggle = $(".ec-wishlist-toggle"),
+            $wishlist = $(".ec-side-wishlist"),
+            $wishlistOverlay = $(".ec-side-wishlist-overlay");
+    
+        $wishlistToggle.on("click", function (e) {
+            // Kiểm tra nếu người dùng bấm vào phần tử <a> để chuyển hướng
+            if ($(e.target).closest("a").length) {
+                // Nếu bấm vào liên kết wishlist, cho phép chuyển hướng
+                return; // Không cần gọi e.preventDefault() nữa
+            }
+    
+            // Nếu bấm vào bất kỳ phần tử nào ngoài <a>, mở/đóng wishlist menu
+            e.preventDefault();
+            $(".ec-side-wishlist-overlay").fadeIn();
+            $wishlist.addClass("ec-open");
+        });
+    
+        $wishlistOverlay.on("click", function () {
+            $(".ec-side-wishlist-overlay").fadeOut();
+            $wishlist.removeClass("ec-open");
+        });
+    
+        $(".ec-close-wishlist").on("click", function (e) {
+            e.preventDefault();
+            $(".ec-side-wishlist-overlay").fadeOut();
+            $wishlist.removeClass("ec-open");
+        });
+    })();
+
+
+/*-------------cập nhật wishlist-------------*/
+
+
+   
+    
     /*----------------------------- ekka Responsive Menu -----------------------------------*/
     function ResponsiveMobileekkaMenu() {
         var $ekkaNav = $(".ec-menu-content, .overlay-menu"),
@@ -1248,40 +1424,52 @@ function ecCheckCookie() {
     });
 
     /*----------------------------- Slider Price -------------------------------- */
-    const slider = document.getElementById('ec-sliderPrice');
-    if (slider) {
-        const rangeMin = parseInt(slider.dataset.min);
-        const rangeMax = parseInt(slider.dataset.max);
-        const step = parseInt(slider.dataset.step);
-        const filterInputs = document.querySelectorAll('input.filter__input');
-
-        noUiSlider.create(slider, {
-            start: [rangeMin, rangeMax],
-            connect: true,
-            step: step,
-            range: {
-                'min': rangeMin,
-                'max': rangeMax
-            },
-
-            // make numbers whole
-            format: {
-                to: value => value,
-                from: value => value
-            }
-        });
-
-        // bind inputs with noUiSlider 
-        slider.noUiSlider.on('update', (values, handle) => {
-            filterInputs[handle].value = values[handle];
-        });
-
-        filterInputs.forEach((input, indexInput) => {
-            input.addEventListener('change', () => {
-                slider.noUiSlider.setHandle(indexInput, input.value);
-            })
-        });
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+        const slider = document.getElementById("ec-sliderPrice");
+    
+        if (slider) {
+            const rangeMin = parseInt(slider.dataset.min);
+            const rangeMax = parseInt(slider.dataset.max);
+            const step = parseInt(slider.dataset.step);
+            const filterInputs = document.querySelectorAll(".filter__input");
+    
+            noUiSlider.create(slider, {
+                start: [rangeMin, rangeMax],
+                connect: true,
+                step: step,
+                range: {
+                    min: rangeMin,
+                    max: rangeMax
+                },
+                format: {
+                    to: value => Math.round(value), // Làm tròn số
+                    from: value => Number(value)
+                }
+            });
+    
+            // Cập nhật giá trị input khi kéo thanh trượt
+            slider.noUiSlider.on("update", (values, handle) => {
+                filterInputs[handle].value = values[handle];
+            });
+    
+            // Cập nhật thanh trượt khi người dùng thay đổi input
+            filterInputs.forEach((input, index) => {
+                input.addEventListener("change", () => {
+                    let minValue = parseFloat(filterInputs[0].value);
+                    let maxValue = parseFloat(filterInputs[1].value);
+    
+                    // Kiểm tra nếu giá trị nhập vào nằm ngoài phạm vi
+                    if (minValue < rangeMin) minValue = rangeMin;
+                    if (maxValue > rangeMax) maxValue = rangeMax;
+                    if (minValue > maxValue) minValue = maxValue; // Đảm bảo giá trị min không lớn hơn max
+    
+                    // Cập nhật lại thanh trượt
+                    slider.noUiSlider.set([minValue, maxValue]);
+                });
+            });
+        }
+    });
+    
 
     /*----------------------------- Cart Page Qty Plus Minus Button  ------------------------------ */
     var CartQtyPlusMinus = $(".cart-qty-plus-minus");

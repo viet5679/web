@@ -65,16 +65,7 @@
                      <div class="col text-left header-top-left d-none d-lg-block">
                          <div class="header-top-social">
                              <span class="social-text text-upper">Follow us on:</span>
-                             <ul class="mb-0">
-                                 <li class="list-inline-item"><a class="hdr-facebook" href="#"><i
-                                             class="ecicon eci-facebook"></i></a></li>
-                                 <li class="list-inline-item"><a class="hdr-twitter" href="#"><i
-                                             class="ecicon eci-twitter"></i></a></li>
-                                 <li class="list-inline-item"><a class="hdr-instagram" href="#"><i
-                                             class="ecicon eci-instagram"></i></a></li>
-                                 <li class="list-inline-item"><a class="hdr-linkedin" href="#"><i
-                                             class="ecicon eci-linkedin"></i></a></li>
-                             </ul>
+                             
                          </div>
                      </div>
                      <!-- Header Top social End -->
@@ -95,24 +86,25 @@
                              </div>
                              <!-- Header User End -->
                              <!-- Header Cart Start -->
-                             <a href="wishlist.html" class="ec-header-btn ec-header-wishlist">
-                                 <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                                 <span class="ec-header-count">0</span>
-                             </a>
-                             <!-- Header Cart End -->
-                             <!-- Header Cart Start -->
-                             <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                 <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
-                                 <span class="ec-header-count cart-count-lable">0</span>
-                             </a>
-                             <!-- Header Cart End -->
-                             <a href="javascript:void(0)" class="ec-header-btn ec-sidebar-toggle">
-                                 <i class="fi fi-rr-apps"></i>
-                             </a>
-                             <!-- Header menu Start -->
-                             <a href="#ec-mobile-menu" class="ec-header-btn ec-side-toggle d-lg-none">
-                                 <i class="fi fi-rr-menu-burger"></i>
-                             </a>
+                            <a href="wishlist.html" class="ec-header-btn ec-header-wishlist">
+                                <div class="header-icon"><i class="fi-rr-heart"></i></div>
+                                <span class="ec-header-count wishlist-count-label">0</span>
+                            </a>
+                            <!-- Header Cart End -->
+
+                            <!-- Header Cart Start -->
+                            <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
+                                <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
+                                <span class="ec-header-count cart-count-lable">0</span>
+                            </a>
+                            <!-- Header Cart End -->
+                            <a href="javascript:void(0)" class="ec-header-btn ec-sidebar-toggle">
+                                <i class="fi fi-rr-apps"></i>
+                            </a>
+                            <!-- Header menu Start -->
+                            <a href="#ec-mobile-menu" class="ec-header-btn ec-side-toggle d-lg-none">
+                                <i class="fi fi-rr-menu-burger"></i>
+                            </a>
                              <!-- Header menu End -->
                          </div>
                      </div>
@@ -165,9 +157,9 @@
                                  <!-- Header User End -->
                                  <!-- Header wishlist Start -->
                                  <a href="wishlist.html" class="ec-header-btn ec-header-wishlist">
-                                     <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                                     <span class="ec-header-count">0</span>
-                                 </a>
+                                    <div class="header-icon"><i class="fi-rr-heart"></i></div>
+                                    <span class="ec-header-count wishlist-count-label">0</span>
+                                </a>
                                  <!-- Header wishlist End -->
                                  <!-- Header Cart Start -->
                                  <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
@@ -302,16 +294,7 @@
                      <!-- Social Start -->
                      <div class="header-res-social">
                          <div class="header-top-social">
-                             <ul class="mb-0">
-                                 <li class="list-inline-item"><a class="hdr-facebook" href="#"><i
-                                             class="ecicon eci-facebook"></i></a></li>
-                                 <li class="list-inline-item"><a class="hdr-twitter" href="#"><i
-                                             class="ecicon eci-twitter"></i></a></li>
-                                 <li class="list-inline-item"><a class="hdr-instagram" href="#"><i
-                                             class="ecicon eci-instagram"></i></a></li>
-                                 <li class="list-inline-item"><a class="hdr-linkedin" href="#"><i
-                                             class="ecicon eci-linkedin"></i></a></li>
-                             </ul>
+                             
                          </div>
                      </div>
                      <!-- Social End -->
@@ -737,7 +720,7 @@
                                                 <span class="new-price">$68.00</span>
                                             </div>
                                             <div class="ec-single-stoke">
-                                                <span class="ec-single-ps-title">IN STOCK</span>
+                                                
                                                 <span class="ec-single-sku">SKU#: WH12</span>
                                             </div>
                                         </div>
@@ -770,9 +753,7 @@
                                             <div class="ec-single-cart ">
                                                 <button class="btn btn-primary">Add To Cart</button>
                                             </div>
-                                            <div class="ec-single-wishlist">
-                                                <a class="ec-btn-group wishlist" title="Wishlist"><i class="fi-rr-heart"></i></a>
-                                            </div>
+                                           
                                             <div class="ec-single-quickview">
                                                 <a href="#" class="ec-btn-group quickview" data-link-action="quickview"
                                                     title="Quick view" data-bs-toggle="modal"
@@ -1622,10 +1603,20 @@
         <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
             <div class="header-icon"><i class="fi-rr-shopping-basket"></i>
             </div>
-            <span class="ec-cart-count cart-count-lable">3</span>
+            <span class="ec-cart-count cart-count-lable">0</span>
         </a>
     </div>
     <!-- Cart Floating Button end -->
+
+    <!-- Floating Button wishlist-->
+    <div class="ec-cart-float-wishlist">
+        <a href="wishlist.html" class="ec-header-btn ec-wishlist-toggle">
+            <div class="header-icon">
+                <i class="fi-rr-heart"></i>
+            </div>
+            <span class="ec-cart-count wishlist-count-label">0</span>
+        </a>
+    </div>
 
     <!-- Whatsapp -->
     <div class="ec-style ec-right-bottom">

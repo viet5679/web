@@ -15105,6 +15105,54 @@ h2, h3, h4, h5, h6 {
           justify-content: center;
 }
 
+.ec-cart-float-wishlist {
+  display: none;
+  position: fixed;
+  bottom: 15px;
+  right: 70px;
+  padding: 15px;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  z-index: 15;
+  background: #ffffff;
+}
+.ec-cart-float-wishlist .ec-header-btn {
+  position: relative;
+  display: block;
+  line-height: 5px;
+}
+.ec-cart-float-wishlist .ec-header-btn .svg_img {
+  width: 45px;
+  height: 45px;
+}
+.ec-cart-float-wishlist .ec-header-btn .ec-cart-count {
+  position: absolute;
+  top: -37px;
+  right: -12px;
+  left: auto;
+  bottom: 0;
+  background: #3474d4;
+  color: #ffffff;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  font-size: 12px;
+  line-height: 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+
+
+
 .ec-tools-sidebar-overlay {
   display: none;
   width: 100%;
@@ -20141,6 +20189,13 @@ select::-ms-expand {
   border: 1px solid #eeeeee;
 }
 
+/* Global adjustments to avoid overflow while keeping slider functionality */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /*-----  No UI Target  -----*/
 .noUi-target {
   cursor: pointer;
@@ -20151,7 +20206,7 @@ select::-ms-expand {
 
 .noUi-horizontal {
   height: 4px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 .noUi-horizontal .noUi-handle {
   top: -6px;
@@ -20177,6 +20232,8 @@ select::-ms-expand {
 .noUi-base {
   background: #777777;
 }
+
+
 
 .noUi-handle.noUi-handle-upper {
   right: 0;
@@ -20387,14 +20444,6 @@ select::-ms-expand {
   gap: 10px; /* Khoảng cách giữa hai nút */
 
 }
-
-.ec-forgot-btn a{
-  display: flex;
- margin-top: 10px;
- 
-}
-
-
 
 input[type="email"] {
   width: 100%;
@@ -21701,6 +21750,35 @@ h4.ec-faq-title::after {
   min-width: 160px;
   letter-spacing: 0.02rem;
 }
+
+.ec-single-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Đảm bảo chiếm toàn bộ chiều rộng */
+}
+
+.ec-single-cart .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Để nút có chiều rộng tối đa */
+    height: 50px; /* Điều chỉnh chiều cao tùy theo giao diện */
+    font-size: 16px; /* Cỡ chữ */
+    font-weight: bold;
+    text-align: center;
+    background-color: #007bff; /* Màu nền */
+    color: white; /* Màu chữ */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ec-single-cart .btn:hover {
+    background-color: #0056b3; /* Hiệu ứng hover */
+}
+
+
 .single-pro-content .ec-single-qty .ec-single-cart .btn svg {
   margin-right: 8px;
 }
@@ -26130,7 +26208,44 @@ i.ecicon.eci-star-o {
           box-shadow: 0px 0px 5px 0px #ccc;
 }
 
-/* -----------/ END Product-DS -----------*/
+
+
+
+
+/* -----------/wishlist -----------*/
+.ec-product-ds .ec-add-to-wishlist {
+  position: absolute;
+  bottom: 13px;
+  left: 50%;
+  width: 130px;
+  height: 35px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 33px;
+  opacity: 0;
+  color: rgba(68, 68, 68, 0.7);
+  background-color: #ffffff;
+  border: 2px solid #eeeeee;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.ec-product-ds .ec-add-to-wishlist:hover {
+  -webkit-box-shadow: 0px 0px 5px 0px #ccc;
+  box-shadow: 0px 0px 5px 0px #ccc;
+}
+
+/* Hiển thị Wishlist button khi hover */
+.ec-product-ds:hover .ec-add-to-wishlist {
+  opacity: 1;
+  bottom: 13px;
+  text-decoration: none;
+}
+
+
 /* ----------- START Product-csc -----------*/
 .ec-product-csc {
   font-family: "Poppins", sans-serif;
@@ -32040,5 +32155,68 @@ input[type=email]:focus::-webkit-input-placeholder {
 .btn-primary{
  padding-bottom: 40px;
 }
+
+
+
+
+.ec-forgot-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.ec-forgot-container {
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.ec-forgot-form {
+  width: 100%;
+}
+
+.ec-forgot-wrap {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.ec-forgot-wrap input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.ec-forgot-btn {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+
+}
+
+.ec-forgot-btn a{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+ padding-bottom: 50px;
+
+}
+
+.ec-forgot-btn button{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+ padding-bottom: 50px;
+
+}
+
+
+
+
 
 /*# sourceMappingURL=style.css.map */
