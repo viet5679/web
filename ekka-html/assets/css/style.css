@@ -15203,57 +15203,7 @@ h2, h3, h4, h5, h6 {
   font-weight: 700;
   text-transform: uppercase;
 }
-.ec-tools-sidebar .ec-tools-sidebar-toggle {
-  position: absolute;
-  top: 30%;
-  right: 202px;
-  width: 40px;
-  height: 40px;
-  color: #000;
-  background-color: #373840;
-  -webkit-transition: all ease-in 0.3s;
-  transition: all ease-in 0.3s;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  font-size: 25px;
-  z-index: -1;
-  text-decoration: none;
-  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-}
-.ec-tools-sidebar .ec-tools-sidebar-toggle img {
-  width: 27px;
-  -webkit-animation: rotation 3s infinite linear;
-          animation: rotation 3s infinite linear;
-}
-@-webkit-keyframes rotation {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(359deg);
-            transform: rotate(359deg);
-  }
-}
-@keyframes rotation {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(359deg);
-            transform: rotate(359deg);
-  }
-}
+
 .ec-tools-sidebar .ec-tools-sidebar-content {
   padding: 15px;
   border-bottom: 1px solid #f3f3f3;
@@ -16465,7 +16415,7 @@ h2, h3, h4, h5, h6 {
   text-align: left;
 }
 .header-logo img {
-  width: 215px;
+  width: 130px;
 }
 
 /*----  Header Button Actions  ----*/
@@ -16994,6 +16944,13 @@ h2, h3, h4, h5, h6 {
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
+
+.ec-sb-pro-sl-item > a:before {
+    background: #3474d4;
+    width: 100%;
+}
+
+
 .ec-main-menu > ul > li:hover > a:before {
   background: #3474d4;
   width: 100%;
@@ -19013,7 +18970,7 @@ section.ec-instagram-section {
   margin-bottom: 20px;
 }
 .ec-footer-logo img {
-  width: 130px;
+  width: 40px;
 }
 
 .ec-subscribe-form {
@@ -21730,6 +21687,7 @@ h4.ec-faq-title::after {
   outline: none;
   font-weight: 700;
 }
+
 .single-pro-content .ec-single-qty .qty-plus-minus .dec.ec_qtybtn {
   border-right: 1px solid #eeeeee;
 }
@@ -21755,20 +21713,24 @@ h4.ec-faq-title::after {
           align-items: center;
   min-width: 160px;
   letter-spacing: 0.02rem;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
 }
 
 .ec-single-cart {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%; /* Đảm bảo chiếm toàn bộ chiều rộng */
+    width: 50%; /* Đảm bảo chiếm toàn bộ chiều rộng */
+    height: 50%;
 }
 
 .ec-single-cart .btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%; /* Để nút có chiều rộng tối đa */
+    width: 60%; /* Để nút có chiều rộng tối đa */
     height: 50px; /* Điều chỉnh chiều cao tùy theo giao diện */
     font-size: 16px; /* Cỡ chữ */
     font-weight: bold;
@@ -22985,7 +22947,7 @@ i.ecicon.eci-star-o {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 40px;
+  height: 30px;
   line-height: 40px;
   text-align: center;
   font-size: 16px;
@@ -22998,6 +22960,9 @@ i.ecicon.eci-star-o {
       -ms-flex-align: center;
           align-items: center;
   min-width: 150px;
+padding-top: 20px;
+padding-bottom: 20px;
+
 }
 
 .ec-cart-form {
@@ -23326,6 +23291,8 @@ i.ecicon.eci-star-o {
 #ec-progressbar {
   overflow: hidden;
   margin: 58px -9% 5px;
+  display: flex;
+  justify-content: center;
 }
 #ec-progressbar li {
   list-style-type: none;
@@ -23333,7 +23300,7 @@ i.ecicon.eci-star-o {
   width: 20%;
   float: left;
   position: relative;
-  font-weight: 400;
+  font-weight: 500;
   text-align: center;
 }
 #ec-progressbar li .ec-progressbar-track {
@@ -32220,6 +32187,8 @@ input[type=email]:focus::-webkit-input-placeholder {
  padding-bottom: 50px;
 
 }
+
+
 
 
 

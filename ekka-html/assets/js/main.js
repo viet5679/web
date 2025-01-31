@@ -1755,3 +1755,4 @@ function ecCheckCookie() {
     document.getElementById("copyright_year").innerHTML = date;
 
 })(jQuery);
+

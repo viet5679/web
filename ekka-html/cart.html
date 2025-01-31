@@ -628,6 +628,23 @@
         </div>
     </section>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select all remove buttons (trash icons)
+            const removeButtons = document.querySelectorAll('.ec-cart-pro-remove a');
+    
+            // Loop through each button and add a click event listener
+            removeButtons.forEach(function(button) {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent the default action (if any)
+                    const row = button.closest('tr'); // Find the parent row of the button
+                    row.remove(); // Remove the row from the table
+                });
+            });
+        });
+    </script>
+    
+
     <!-- New Product Start -->
     <section class="section ec-new-product section-space-p">
         <div class="container">
