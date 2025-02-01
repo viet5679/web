@@ -1042,7 +1042,7 @@
                             <!-- Footer Copyright Start -->
                             <div class="col text-center footer-copy">
                                 <div class="footer-bottom-copy ">
-                                    <div class="ec-copy">Copyright Â© <span id="copyright_year"></span> <a class="site-name text-upper"
+                                    <div class="ec-copy">Copyright ©<span id="copyright_year"></span> <a class="site-name text-upper"
                                                                                                            href="#">NYFS<span>.</span></a>. All Rights Reserved</div>
                                 </div>
                             </div>
