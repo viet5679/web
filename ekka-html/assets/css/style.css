@@ -19372,7 +19372,8 @@ div#ec_news_signup {
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center;
+         
+  padding-top: 20px;
 }
 .quickview-pro-content .ec-quickview-qty .ec-quickview-cart .btn i {
   margin-right: 8px;
@@ -32187,6 +32188,141 @@ input[type=email]:focus::-webkit-input-placeholder {
  padding-bottom: 50px;
 
 }
+
+
+/*------------------------customer service--------------------*/
+/* General Styles */
+.ec-customer-service {
+  background-color: #f8f9fa;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.ec-service-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.ec-service-text {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Contact Info */
+.ec-service-contact {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.ec-service-item {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+.ec-service-item h4 {
+  font-size: 20px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.ec-service-item p {
+  font-size: 14px;
+  color: #444;
+}
+
+.ec-service-item a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.ec-service-item a:hover {
+  text-decoration: underline;
+}
+
+/* Contact Form */
+.ec-contact-form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ec-contact-form h4 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.ec-contact-form input,
+.ec-contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.ec-contact-form textarea {
+  height: 120px;
+  resize: none;
+}
+
+.btn-submit {
+  background: #007bff;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  padding-bottom: 50px;
+
+}
+
+.btn-submit:hover {
+  background: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ec-service-contact {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .ec-service-item {
+      width: 90%;
+  }
+}
+
+
+/*--------------view-detail--------------*/
+.view-detail {
+  display: flex;
+  justify-content: end;
+  font-weight: bold; /* Make the text bold */
+}
+
+.view-detail a {
+  text-decoration: underline; /* Add underline */
+}
+
+
 
 
 

@@ -421,24 +421,24 @@ function ecCheckCookie() {
     $("body").on("click", ".add-to-cart", function () {
 
         $(".ec-cart-float").fadeIn();
-
-        var count = $(".cart-count-lable").html();
+    
+        var count = parseInt($(".cart-count-lable").html());
         count++;
-
+    
         $(".cart-count-lable").html(count);
-
+    
         // Remove Empty message    
         $(".emp-cart-msg").parent().remove();
-
+    
         setTimeout(function () {
             $(".ec-cart-float").fadeOut();
         }, 5000);
-
-        // get an image url
+    
+        // Get an image URL
         var img_url = $(this).parents().parents().children(".image").find(".main-image").attr("src");
         var p_name = $(this).parents().parents().parents().children(".ec-pro-content").children("h5").children("a").html();
         var p_price = $(this).parents().parents().parents().children(".ec-pro-content").children(".ec-price").children(".new-price").html();
-
+    
         var p_html = '<li>' +
             '<a href="product-left-sidebar.html" class="sidekka_pro_img"><img src="' + img_url + '" alt="product"></a>' +
             '<div class="ec-pro-content">' +
@@ -450,21 +450,19 @@ function ecCheckCookie() {
             '<a href="javascript:void(0)" class="remove">×</a>' +
             '</div>' +
             '</li>';
-
+    
         $('.eccart-pro-items').append(p_html);
-
     });
-
+    
     (function () {
         var $ekkaToggle = $(".ec-side-toggle"),
             $ekka = $(".ec-side-cart"),
             $ecMenuToggle = $(".mobile-menu-toggle");
-
+    
         $ekkaToggle.on("click", function (e) {
             e.preventDefault();
             var $this = $(this),
                 $target = $this.attr("href");
-            // $("body").addClass("ec-open");
             $(".ec-side-cart-overlay").fadeIn();
             $($target).addClass("ec-open");
             if ($this.parent().hasClass("mobile-menu-toggle")) {
@@ -472,128 +470,125 @@ function ecCheckCookie() {
                 $(".ec-side-cart-overlay").fadeOut();
             }
         });
-
+    
         $(".ec-side-cart-overlay").on("click", function (e) {
             $(".ec-side-cart-overlay").fadeOut();
             $ekka.removeClass("ec-open");
             $ecMenuToggle.find("a").removeClass("close");
         });
-
+    
         $(".ec-close").on("click", function (e) {
             e.preventDefault();
             $(".ec-side-cart-overlay").fadeOut();
             $ekka.removeClass("ec-open");
             $ecMenuToggle.find("a").removeClass("close");
         });
-
+    
         $("body").on("click", ".ec-pro-content .remove", function () {
-
-            // $(".ec-pro-content .remove").on("click", function () {
-
             var cart_product_count = $(".eccart-pro-items li").length;
-
+    
+            // Decrease cart count only if products exist
+            var count = parseInt($(".cart-count-lable").html());
+            count = (count > 0) ? count - 1 : 0; // Ensure count doesn't go below 0
+            $(".cart-count-lable").html(count);
+    
+            // Remove the clicked product
             $(this).closest("li").remove();
-            if (cart_product_count == 1) {
+    
+            // If no products are left, show empty message
+            if (cart_product_count <= 1) {
                 $('.eccart-pro-items').html('<li><p class="emp-cart-msg">Your cart is empty!</p></li>');
             }
-
-            var count = $(".cart-count-lable").html();
-            count--;
-            $(".cart-count-lable").html(count);
-
-            cart_product_count--;
         });
-
+    
     })();
+    
 
+    
     /*----------------add to cart --------*/
-    $("body").on("click", ".ec-single-cart", function () {
+$("body").on("click", ".ec-single-cart", function () {
+    $(".ec-cart-float").fadeIn();
 
-        $(".ec-cart-float").fadeIn();
+    var count = $(".cart-count-lable").html();
+    count++;
 
-        var count = $(".cart-count-lable").html();
-        count++;
+    $(".cart-count-lable").html(count);
 
-        $(".cart-count-lable").html(count);
+    // Remove Empty message    
+    $(".emp-cart-msg").parent().remove();
 
-        // Remove Empty message    
-        $(".emp-cart-msg").parent().remove();
+    setTimeout(function () {
+        $(".ec-cart-float").fadeOut();
+    }, 5000);
 
-        setTimeout(function () {
-            $(".ec-cart-float").fadeOut();
-        }, 5000);
+    // Get product details
+    var img_url = $(this).closest(".single-pro-block").find(".single-pro-img .single-product-scroll .single-slide img").first().attr("src");
+    var p_name = $(this).closest(".single-pro-block").find(".single-pro-desc .ec-single-title").html();
+    var p_price = $(this).closest(".single-pro-block").find(".single-pro-desc .new-price").html();
 
-        // get an image url
-        var img_url = $(this).parents().parents().children(".image").find(".main-image").attr("src");
-        var p_name = $(this).parents().parents().parents().children(".ec-pro-content").children("h5").children("a").html();
-        var p_price = $(this).parents().parents().parents().children(".ec-pro-content").children(".ec-price").children(".new-price").html();
+    var p_html = '<li>' +
+        '<a href="product-left-sidebar.html" class="sidekka_pro_img"><img src="' + img_url + '" alt="product"></a>' +
+        '<div class="ec-pro-content">' +
+        '<a href="product-left-sidebar.html" class="cart_pro_title">' + p_name + '</a>' +
+        '<span class="cart-price"><span>' + p_price + '</span> x 1</span>' +
+        '<div class="qty-plus-minus"><div class="dec ec_qtybtn">-</div>' +
+        '<input class="qty-input" type="text" name="ec_qtybtn" value="1">' +
+        '<div class="inc ec_qtybtn">+</div></div>' +
+        '<a href="javascript:void(0)" class="remove">×</a>' +
+        '</div>' +
+        '</li>';
 
-        var p_html = '<li>' +
-            '<a href="product-left-sidebar.html" class="sidekka_pro_img"><img src="' + img_url + '" alt="product"></a>' +
-            '<div class="ec-pro-content">' +
-            '<a href="product-left-sidebar.html" class="cart_pro_title">' + p_name + '</a>' +
-            '<span class="cart-price"><span>' + p_price + '</span> x 1</span>' +
-            '<div class="qty-plus-minus"><div class="dec ec_qtybtn">-</div>' +
-            '<input class="qty-input" type="text" name="ec_qtybtn" value="1">' +
-            '<div class="inc ec_qtybtn">+</div></div>' +
-            '<a href="javascript:void(0)" class="remove">×</a>' +
-            '</div>' +
-            '</li>';
+    $('.eccart-pro-items').append(p_html);
+});
 
-        $('.eccart-pro-items').append(p_html);
+(function () {
+    var $ekkaToggle = $(".ec-side-toggle"),
+        $ekka = $(".ec-side-cart"),
+        $ecMenuToggle = $(".mobile-menu-toggle");
 
+    $ekkaToggle.on("click", function (e) {
+        e.preventDefault();
+        var $this = $(this),
+            $target = $this.attr("href");
+        // $("body").addClass("ec-open");
+        $(".ec-side-cart-overlay").fadeIn();
+        $($target).addClass("ec-open");
+        if ($this.parent().hasClass("mobile-menu-toggle")) {
+            $this.addClass("close");
+            $(".ec-side-cart-overlay").fadeOut();
+        }
     });
 
-    (function () {
-        var $ekkaToggle = $(".ec-side-toggle"),
-            $ekka = $(".ec-side-cart"),
-            $ecMenuToggle = $(".mobile-menu-toggle");
+    $(".ec-side-cart-overlay").on("click", function (e) {
+        $(".ec-side-cart-overlay").fadeOut();
+        $ekka.removeClass("ec-open");
+        $ecMenuToggle.find("a").removeClass("close");
+    });
 
-        $ekkaToggle.on("click", function (e) {
-            e.preventDefault();
-            var $this = $(this),
-                $target = $this.attr("href");
-            // $("body").addClass("ec-open");
-            $(".ec-side-cart-overlay").fadeIn();
-            $($target).addClass("ec-open");
-            if ($this.parent().hasClass("mobile-menu-toggle")) {
-                $this.addClass("close");
-                $(".ec-side-cart-overlay").fadeOut();
-            }
-        });
+    $(".ec-close").on("click", function (e) {
+        e.preventDefault();
+        $(".ec-side-cart-overlay").fadeOut();
+        $ekka.removeClass("ec-open");
+        $ecMenuToggle.find("a").removeClass("close");
+    });
 
-        $(".ec-side-cart-overlay").on("click", function (e) {
-            $(".ec-side-cart-overlay").fadeOut();
-            $ekka.removeClass("ec-open");
-            $ecMenuToggle.find("a").removeClass("close");
-        });
+    $("body").on("click", ".ec-pro-content .remove", function () {
+        var cart_product_count = $(".eccart-pro-items li").length;
 
-        $(".ec-close").on("click", function (e) {
-            e.preventDefault();
-            $(".ec-side-cart-overlay").fadeOut();
-            $ekka.removeClass("ec-open");
-            $ecMenuToggle.find("a").removeClass("close");
-        });
+        $(this).closest("li").remove();
+        if (cart_product_count == 1) {
+            $('.eccart-pro-items').html('<li><p class="emp-cart-msg">Your cart is empty!</p></li>');
+        }
 
-        $("body").on("click", ".ec-pro-content .remove", function () {
+        var count = $(".cart-count-lable").html();
+        count--;
+        $(".cart-count-lable").html(count);
 
-            // $(".ec-pro-content .remove").on("click", function () {
+        cart_product_count--;
+    });
 
-            var cart_product_count = $(".eccart-pro-items li").length;
+})();
 
-            $(this).closest("li").remove();
-            if (cart_product_count == 1) {
-                $('.eccart-pro-items').html('<li><p class="emp-cart-msg">Your cart is empty!</p></li>');
-            }
-
-            var count = $(".cart-count-lable").html();
-            count--;
-            $(".cart-count-lable").html(count);
-
-            cart_product_count--;
-        });
-
-    })();
 
     /*----------------------------- wishlist---------------------------------*/
     $("body").on("click", ".ec-btn-group.wishlist", function () {
@@ -1755,4 +1750,9 @@ function ecCheckCookie() {
     document.getElementById("copyright_year").innerHTML = date;
 
 })(jQuery);
+
+
+
+/*------------------------------------------*/
+
 
