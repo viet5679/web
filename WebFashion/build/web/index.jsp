@@ -23,9 +23,9 @@
         <meta name="author" content="ashishmaraviya">
 
         <!-- site Favicon -->
-        <link rel="icon" href="assets/images/favicon/favicon.png" sizes="32x32" />
-        <link rel="apple-touch-icon" href="assets/images/favicon/favicon.png" />
-        <meta name="msapplication-TileImage" content="assets/images/favicon/favicon.png" />
+        <link rel="icon" href="assets/images/logo/logo4.png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="assets/images/logo/logo4.png" />
+        <meta name="msapplication-TileImage" content="assets/images/logo/logo4.png" />
 
         <!-- css Icon Font -->
         <link rel="stylesheet" href="assets/css/vendor/ecicons.min.css" />
