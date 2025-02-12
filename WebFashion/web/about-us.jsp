@@ -2,30 +2,34 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
     <!-- Mirrored from maraviyainfotech.com/projects/ekka/ekka-v37/ekka-html/about-us.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 18 Jan 2025 14:32:21 GMT -->
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
-        <title>Ekka - Ecommerce HTML Template + Admin Dashboard.</title>
+        <title>Louis Vuitton</title>
         <meta name="keywords"
-              content="apparel, catalog, clean, ecommerce, ecommerce HTML, electronics, fashion, html eCommerce, html store, minimal, multipurpose, multipurpose ecommerce, online store, responsive ecommerce template, shops" />
-        <meta name="description" content="Best ecommerce html template for single and multi vendor store.">
+            content="apparel, catalog, clean, ecommerce, ecommerce HTML, electronics, fashion, html eCommerce, html store, minimal, multipurpose, multipurpose ecommerce, online store, responsive ecommerce template, shops" />
+        <meta name="description"
+            content="Best ecommerce html template for single and multi vendor store.">
         <meta name="author" content="ashishmaraviya">
 
         <!-- site Favicon -->
-        <link rel="icon" href="assets/images/favicon/favicon.png" sizes="32x32" />
+        <link rel="icon" href="assets/images/favicon/favicon.png"
+            sizes="32x32" />
         <link rel="apple-touch-icon" href="assets/images/favicon/favicon.png" />
-        <meta name="msapplication-TileImage" content="assets/images/favicon/favicon.png" />
+        <meta name="msapplication-TileImage"
+            content="assets/images/favicon/favicon.png" />
 
         <!-- css Icon Font -->
         <link rel="stylesheet" href="assets/css/vendor/ecicons.min.css" />
 
         <!-- css All Plugins Files -->
         <link rel="stylesheet" href="assets/css/plugins/animate.css" />
-        <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css" />
+        <link rel="stylesheet"
+            href="assets/css/plugins/swiper-bundle.min.css" />
         <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css" />
         <link rel="stylesheet" href="assets/css/plugins/countdownTimer.css" />
         <link rel="stylesheet" href="assets/css/plugins/slick.min.css" />
@@ -36,7 +40,8 @@
         <link rel="stylesheet" href="assets/css/responsive.css" />
 
         <!-- Background css -->
-        <link rel="stylesheet" id="bg-switcher-css" href="assets/css/backgrounds/bg-4.css">
+        <link rel="stylesheet" id="bg-switcher-css"
+            href="assets/css/backgrounds/bg-4.css">
     </head>
     <body class="aboutus_page">
         <div id="ec-overlay">
@@ -55,9 +60,11 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <!-- Header Top social Start -->
-                        <div class="col text-left header-top-left d-none d-lg-block">
+                        <div
+                            class="col text-left header-top-left d-none d-lg-block">
                             <div class="header-top-social">
-                                <span class="social-text text-upper">Follow us on:</span>
+                                <span class="social-text text-upper">Follow us
+                                    on:</span>
                                 <!-- facebook, insta,... -->
                             </div>
                         </div>
@@ -66,35 +73,45 @@
 
                         <!-- Header Top Message End -->
 
-
                         <!-- Header Top responsive Action -->
                         <div class="col d-lg-none ">
                             <div class="ec-header-bottons">
                                 <!-- Header User Start -->
                                 <div class="ec-header-user dropdown">
-                                    <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
+                                    <button class="dropdown-toggle"
+                                        data-bs-toggle="dropdown"><i
                                             class="fi-rr-user"></i></button>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a class="dropdown-item" href="register.jsp">Register</a></li>
-                                        <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                        <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                    <ul
+                                        class="dropdown-menu dropdown-menu-right">
+                                        <li><a class="dropdown-item"
+                                                href="register.jsp">Register</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="checkout.jsp">Checkout</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="login.jsp">Login</a></li>
                                     </ul>
                                 </div>
                                 <!-- Header User End -->
                                 <!-- Header Cart Start -->
-                                <a href="wishlist.jsp" class="ec-header-btn ec-header-wishlist">
-                                    <div class="header-icon"><i class="fi-rr-heart"></i></div>
+                                <a href="wishlist.jsp"
+                                    class="ec-header-btn ec-header-wishlist">
+                                    <div class="header-icon"><i
+                                            class="fi-rr-heart"></i></div>
                                     <span class="ec-header-count">0</span>
                                 </a>
                                 <!-- Header Cart End -->
                                 <!-- Header Cart Start -->
-                                <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                    <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
-                                    <span class="ec-header-count cart-count-lable">0</span>
+                                <a href="#ec-side-cart"
+                                    class="ec-header-btn ec-side-toggle">
+                                    <div class="header-icon"><i
+                                            class="fi-rr-shopping-bag"></i></div>
+                                    <span
+                                        class="ec-header-count cart-count-lable">0</span>
                                 </a>
                                 <!-- Header Cart End -->
                                 <!-- Header menu Start -->
-                                <a href="#ec-mobile-menu" class="ec-header-btn ec-side-toggle d-lg-none">
+                                <a href="#ec-mobile-menu"
+                                    class="ec-header-btn ec-side-toggle d-lg-none">
                                     <i class="fi fi-rr-menu-burger"></i>
                                 </a>
                                 <!-- Header menu End -->
@@ -113,8 +130,12 @@
                             <!-- Ec Header Logo Start -->
                             <div class="align-self-center">
                                 <div class="header-logo">
-                                    <a href="index.jsp"><img src="assets/images/logo/logo4.png" alt="Site Logo" /><img
-                                            class="dark-logo" src="assets/images/logo/logo4.png" alt="Site Logo"
+                                    <a href="index.jsp"><img
+                                            src="assets/images/logo/logo4.png"
+                                            alt="Site Logo" /><img
+                                            class="dark-logo"
+                                            src="assets/images/logo/logo4.png"
+                                            alt="Site Logo"
                                             style="display: none;" /></a>
                                 </div>
                             </div>
@@ -124,9 +145,12 @@
                             <div class="align-self-center">
                                 <div class="header-search">
                                     <form class="ec-btn-group-form" action="#">
-                                        <input class="form-control ec-search-bar" placeholder="Search products..."
-                                               type="text">
-                                        <button class="submit" type="submit"><i class="fi-rr-search"></i></button>
+                                        <input
+                                            class="form-control ec-search-bar"
+                                            placeholder="Search products..."
+                                            type="text">
+                                        <button class="submit" type="submit"><i
+                                                class="fi-rr-search"></i></button>
                                     </form>
                                 </div>
                             </div>
@@ -138,25 +162,35 @@
 
                                     <!-- Header User Start -->
                                     <div class="ec-header-user dropdown">
-                                        <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
+                                        <button class="dropdown-toggle"
+                                            data-bs-toggle="dropdown"><i
                                                 class="fi-rr-user"></i></button>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a class="dropdown-item" href="register.jsp">Register</a></li>
-                                            <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                            <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                        <ul
+                                            class="dropdown-menu dropdown-menu-right">
+                                            <li><a class="dropdown-item"
+                                                    href="register.jsp">Register</a></li>
+                                            <li><a class="dropdown-item"
+                                                    href="checkout.jsp">Checkout</a></li>
+                                            <li><a class="dropdown-item"
+                                                    href="login.jsp">Login</a></li>
                                         </ul>
                                     </div>
                                     <!-- Header User End -->
                                     <!-- Header wishlist Start -->
-                                    <a href="wishlist.jsp" class="ec-header-btn ec-header-wishlist">
-                                        <div class="header-icon"><i class="fi-rr-heart"></i></div>
+                                    <a href="wishlist.jsp"
+                                        class="ec-header-btn ec-header-wishlist">
+                                        <div class="header-icon"><i
+                                                class="fi-rr-heart"></i></div>
                                         <span class="ec-header-count">0</span>
                                     </a>
                                     <!-- Header wishlist End -->
                                     <!-- Header Cart Start -->
-                                    <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                        <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
-                                        <span class="ec-header-count cart-count-lable">0</span>
+                                    <a href="#ec-side-cart"
+                                        class="ec-header-btn ec-side-toggle">
+                                        <div class="header-icon"><i
+                                                class="fi-rr-shopping-bag"></i></div>
+                                        <span
+                                            class="ec-header-count cart-count-lable">0</span>
                                     </a>
                                     <!-- Header Cart End -->
                                 </div>
@@ -174,8 +208,12 @@
                         <!-- Ec Header Logo Start -->
                         <div class="col">
                             <div class="header-logo">
-                                <a href="index.jsp"><img src="assets/images/logo/logo4.png" alt="Site Logo" /><img
-                                        class="dark-logo" src="assets/images/logo/logo4.png" alt="Site Logo"
+                                <a href="index.jsp"><img
+                                        src="assets/images/logo/logo4.png"
+                                        alt="Site Logo" /><img
+                                        class="dark-logo"
+                                        src="assets/images/logo/logo4.png"
+                                        alt="Site Logo"
                                         style="display: none;" /></a>
                             </div>
                         </div>
@@ -184,8 +222,11 @@
                         <div class="col">
                             <div class="header-search">
                                 <form class="ec-btn-group-form" action="#">
-                                    <input class="form-control ec-search-bar" placeholder="Search products..." type="text">
-                                    <button class="submit" type="submit"><i class="fi-rr-search"></i></button>
+                                    <input class="form-control ec-search-bar"
+                                        placeholder="Search products..."
+                                        type="text">
+                                    <button class="submit" type="submit"><i
+                                            class="fi-rr-search"></i></button>
                                 </form>
                             </div>
                         </div>
@@ -202,28 +243,34 @@
                             <div class="ec-main-menu">
                                 <ul>
                                     <li><a href="index.jsp">Home</a></li>
-                                    <li><a href="shop-left-sidebar-col-3.jsp">Categories</a></li>
+                                    <li><a
+                                            href="shop-left-sidebar-col-3.jsp">Categories</a></li>
 
+                                    <li><a
+                                            href="product-full-width.jsp">Product</a></li>
 
-
-
-                                    <li><a href="product-full-width.jsp">Product</a></li>
-
-
-                                    <li class="dropdown"><a href="javascript:void(0)">Pages</a>
+                                    <li class="dropdown"><a
+                                            href="javascript:void(0)">Pages</a>
                                         <ul class="sub-menu">
 
                                             <li><a href="cart.jsp">Cart</a></li>
-                                            <li><a href="checkout.jsp">Checkout</a></li>                                
+                                            <li><a
+                                                    href="checkout.jsp">Checkout</a></li>
                                             <li><a href="faq.jsp">FAQ</a></li>
-                                            <li><a href="track-order.jsp">Track Order</a></li>
-                                            <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                            <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
+                                            <li><a href="track-order.jsp">Track
+                                                    Order</a></li>
+                                            <li><a
+                                                    href="terms-condition.jsp">Terms
+                                                    Condition</a></li>
+                                            <li><a
+                                                    href="privacy-policy.jsp">Privacy
+                                                    Policy</a></li>
                                         </ul>
                                     </li>
 
                                     <li><a href="about-us.jsp">About Us</a></li>
-                                    <li><a href="contact-us.jsp">Contact Us</a></li>
+                                    <li><a href="contact-us.jsp">Contact
+                                            Us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -241,21 +288,24 @@
                     <div class="ec-menu-content">
                         <ul>
                             <li><a href="index.jsp">Home</a></li>
-                            <li><a href="shop-full-width.jsp">Categories</a></li>
-                            <li><a href="product-full-width.jsp">Product</a></li>
+                            <li><a
+                                    href="shop-full-width.jsp">Categories</a></li>
+                            <li><a
+                                    href="product-full-width.jsp">Product</a></li>
 
-
-
-
-                            <li class="dropdown"><a href="javascript:void(0)">Pages</a>
+                            <li class="dropdown"><a
+                                    href="javascript:void(0)">Pages</a>
                                 <ul class="sub-menu">
 
                                     <li><a href="cart.jsp">Cart</a></li>
-                                    <li><a href="checkout.jsp">Checkout</a></li>                                
+                                    <li><a href="checkout.jsp">Checkout</a></li>
                                     <li><a href="faq.jsp">FAQ</a></li>
-                                    <li><a href="track-order.jsp">Track Order</a></li>
-                                    <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                    <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
+                                    <li><a href="track-order.jsp">Track
+                                            Order</a></li>
+                                    <li><a href="terms-condition.jsp">Terms
+                                            Condition</a></li>
+                                    <li><a href="privacy-policy.jsp">Privacy
+                                            Policy</a></li>
                                 </ul>
                             </li>
 
@@ -285,7 +335,8 @@
                 <div class="ec-cart-top">
                     <div class="ec-cart-title">
                         <span class="cart_title">My Cart</span>
-                        <button class="ec-close" onclick="closeCart()">&times;</button>
+                        <button class="ec-close"
+                            onclick="closeCart()">&times;</button>
                     </div>
                     <ul class="eccart-pro-items" id="cart-items">
                         <!-- Items will be dynamically added here -->
@@ -297,7 +348,8 @@
                             <tbody>
                                 <tr>
                                     <td class="text-left">Sub-Total :</td>
-                                    <td class="text-right" id="sub-total">$0.00</td>
+                                    <td class="text-right"
+                                        id="sub-total">$0.00</td>
                                 </tr>
                                 <tr>
                                     <td class="text-left">VAT (20%) :</td>
@@ -305,14 +357,16 @@
                                 </tr>
                                 <tr>
                                     <td class="text-left">Total :</td>
-                                    <td class="text-right primary-color" id="total">$0.00</td>
+                                    <td class="text-right primary-color"
+                                        id="total">$0.00</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="cart_btn">
                         <a href="cart.jsp" class="btn btn-primary">View Cart</a>
-                        <a href="checkout.jsp" class="btn btn-secondary">Checkout</a>
+                        <a href="checkout.jsp"
+                            class="btn btn-secondary">Checkout</a>
                     </div>
                 </div>
             </div>
@@ -402,8 +456,6 @@
         </script>
         <!-- ekka Cart End -->
 
-
-
         <!-- Ec breadcrumb start -->
         <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
             <div class="container">
@@ -416,8 +468,10 @@
                             <div class="col-md-6 col-sm-12">
                                 <!-- ec-breadcrumb-list start -->
                                 <ul class="ec-breadcrumb-list">
-                                    <li class="ec-breadcrumb-item"><a href="index.jsp">Home</a></li>
-                                    <li class="ec-breadcrumb-item active">About Us</li>
+                                    <li class="ec-breadcrumb-item"><a
+                                            href="index.jsp">Home</a></li>
+                                    <li class="ec-breadcrumb-item active">About
+                                        Us</li>
                                 </ul>
                                 <!-- ec-breadcrumb-list end -->
                             </div>
@@ -435,29 +489,51 @@
                     <div class="col-md-12 text-center">
                         <div class="section-title">
 
-                            <p class="sub-title mb-3">About our business Firm</p>
+                            <p class="sub-title mb-3">About our business
+                                Firm</p>
                         </div>
                     </div>
                     <div class="ec-common-wrapper">
                         <div class="row">
-                            <div class="col-md-6 ec-cms-block ec-abcms-block text-center">
+                            <div
+                                class="col-md-6 ec-cms-block ec-abcms-block text-center">
                                 <div class="ec-cms-block-inner">
-                                    <img class="a-img" src="assets/images/offer-image/1.jpg" alt="about">
+                                    <img class="a-img"
+                                        src="assets/images/offer-image/1.jpg"
+                                        alt="about">
                                 </div>
                             </div>
-                            <div class="col-md-6 ec-cms-block ec-abcms-block text-center">
+                            <div
+                                class="col-md-6 ec-cms-block ec-abcms-block text-center">
                                 <div class="ec-cms-block-inner">
-                                    <h3 class="ec-cms-block-title">What is the ekka?</h3>
-                                    <p>Electronic typesetting text of the printing and typesetting industry. when an unknown printer took a galley of type
-                                        and scrambled it to make a type specimen book. Lorem Ipsum is
-                                        simply dutmmy text ever since the 1500s, It has survived not only,
-                                        but also the leap into electronic typesetting.</p>
-                                    <p>Lorem Ipsum is simply dummy text of the printing. It has survived not only five centuries,
-                                        but also the leap into electronic typesetting.</p>
-                                    <p>Also the leap into electronic typesetting printing and typesetting industry. It has survived not only five centuries,
-                                        but also the leap into electronic typesetting, when an unknown printer took a galley of type
-                                        and scrambled it to make a type specimen book. It has survived not only five centuries,
-                                        but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                                    <h3 class="ec-cms-block-title">What is the
+                                        ekka?</h3>
+                                    <p>Electronic typesetting text of the
+                                        printing and typesetting industry. when
+                                        an unknown printer took a galley of type
+                                        and scrambled it to make a type specimen
+                                        book. Lorem Ipsum is
+                                        simply dutmmy text ever since the 1500s,
+                                        It has survived not only,
+                                        but also the leap into electronic
+                                        typesetting.</p>
+                                    <p>Lorem Ipsum is simply dummy text of the
+                                        printing. It has survived not only five
+                                        centuries,
+                                        but also the leap into electronic
+                                        typesetting.</p>
+                                    <p>Also the leap into electronic typesetting
+                                        printing and typesetting industry. It
+                                        has survived not only five centuries,
+                                        but also the leap into electronic
+                                        typesetting, when an unknown printer
+                                        took a galley of type
+                                        and scrambled it to make a type specimen
+                                        book. It has survived not only five
+                                        centuries,
+                                        but also the leap into electronic
+                                        typesetting, remaining essentially
+                                        unchanged.</p>
                                 </div>
                             </div>
                         </div>
@@ -467,14 +543,17 @@
         </section>
 
         <!-- ec testmonial Start -->
-        <section class="section ec-test-section section-space-ptb-100 section-space-m" id="reviews">
+        <section
+            class="section ec-test-section section-space-ptb-100 section-space-m"
+            id="reviews">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <div class="section-title mb-0">
                             <h2 class="ec-bg-title">Testimonial</h2>
                             <h2 class="ec-title">Client Review</h2>
-                            <p class="sub-title mb-3">What say client about us</p>
+                            <p class="sub-title mb-3">What say client about
+                                us</p>
                         </div>
                     </div>
                 </div>
@@ -484,15 +563,25 @@
                             <li class="ec-test-item">
                                 <i class="fi-rr-quote-right top"></i>
                                 <div class="ec-test-inner">
-                                    <div class="ec-test-img"><img alt="testimonial" title="testimonial"
-                                                                  src="assets/images/testimonial/1.jpg" /></div>
+                                    <div class="ec-test-img"><img
+                                            alt="testimonial"
+                                            title="testimonial"
+                                            src="assets/images/testimonial/1.jpg" /></div>
                                     <div class="ec-test-content">
-                                        <div class="ec-test-desc">Lorem Ipsum is simply dummy text of the printing and
-                                            typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-                                            ever since the 1500s, when an unknown printer took a galley of type and
-                                            scrambled it to make a type specimen</div>
+                                        <div class="ec-test-desc">Lorem Ipsum is
+                                            simply dummy text of the printing
+                                            and
+                                            typesetting industry. Lorem Ipsum
+                                            has been the industry's standard
+                                            dummy text
+                                            ever since the 1500s, when an
+                                            unknown printer took a galley of
+                                            type and
+                                            scrambled it to make a type
+                                            specimen</div>
                                         <div class="ec-test-name">John Doe</div>
-                                        <div class="ec-test-designation">General Manager</div>
+                                        <div class="ec-test-designation">General
+                                            Manager</div>
                                         <div class="ec-test-rating">
                                             <i class="ecicon eci-star fill"></i>
                                             <i class="ecicon eci-star fill"></i>
@@ -507,15 +596,25 @@
                             <li class="ec-test-item ">
                                 <i class="fi-rr-quote-right top"></i>
                                 <div class="ec-test-inner">
-                                    <div class="ec-test-img"><img alt="testimonial" title="testimonial"
-                                                                  src="assets/images/testimonial/2.jpg" /></div>
+                                    <div class="ec-test-img"><img
+                                            alt="testimonial"
+                                            title="testimonial"
+                                            src="assets/images/testimonial/2.jpg" /></div>
                                     <div class="ec-test-content">
-                                        <div class="ec-test-desc">Lorem Ipsum is simply dummy text of the printing and
-                                            typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-                                            ever since the 1500s, when an unknown printer took a galley of type and
-                                            scrambled it to make a type specimen</div>
+                                        <div class="ec-test-desc">Lorem Ipsum is
+                                            simply dummy text of the printing
+                                            and
+                                            typesetting industry. Lorem Ipsum
+                                            has been the industry's standard
+                                            dummy text
+                                            ever since the 1500s, when an
+                                            unknown printer took a galley of
+                                            type and
+                                            scrambled it to make a type
+                                            specimen</div>
                                         <div class="ec-test-name">John Doe</div>
-                                        <div class="ec-test-designation">General Manager</div>
+                                        <div class="ec-test-designation">General
+                                            Manager</div>
                                         <div class="ec-test-rating">
                                             <i class="ecicon eci-star fill"></i>
                                             <i class="ecicon eci-star fill"></i>
@@ -530,15 +629,25 @@
                             <li class="ec-test-item">
                                 <i class="fi-rr-quote-right top"></i>
                                 <div class="ec-test-inner">
-                                    <div class="ec-test-img"><img alt="testimonial" title="testimonial"
-                                                                  src="assets/images/testimonial/3.jpg" /></div>
+                                    <div class="ec-test-img"><img
+                                            alt="testimonial"
+                                            title="testimonial"
+                                            src="assets/images/testimonial/3.jpg" /></div>
                                     <div class="ec-test-content">
-                                        <div class="ec-test-desc">Lorem Ipsum is simply dummy text of the printing and
-                                            typesetting industry. Lorem Ipsum has been the industry's standard dummy text
-                                            ever since the 1500s, when an unknown printer took a galley of type and
-                                            scrambled it to make a type specimen</div>
+                                        <div class="ec-test-desc">Lorem Ipsum is
+                                            simply dummy text of the printing
+                                            and
+                                            typesetting industry. Lorem Ipsum
+                                            has been the industry's standard
+                                            dummy text
+                                            ever since the 1500s, when an
+                                            unknown printer took a galley of
+                                            type and
+                                            scrambled it to make a type
+                                            specimen</div>
                                         <div class="ec-test-name">John Doe</div>
-                                        <div class="ec-test-designation">General Manager</div>
+                                        <div class="ec-test-designation">General
+                                            Manager</div>
                                         <div class="ec-test-rating">
                                             <i class="ecicon eci-star fill"></i>
                                             <i class="ecicon eci-star fill"></i>
@@ -558,22 +667,28 @@
         <!-- ec testmonial end -->
 
         <!--  services Section Start -->
-        <section class="section ec-services-section section-space-p" id="services">
+        <section class="section ec-services-section section-space-p"
+            id="services">
             <h2 class="d-none">Services</h2>
             <div class="container">
                 <div class="row">
-                    <div class="ec_ser_content ec_ser_content_1 col-sm-12 col-md-6 col-lg-3" data-animation="zoomIn">
+                    <div
+                        class="ec_ser_content ec_ser_content_1 col-sm-12 col-md-6 col-lg-3"
+                        data-animation="zoomIn">
                         <div class="ec_ser_inner">
                             <div class="ec-service-image">
                                 <i class="fi fi-ts-truck-moving"></i>
                             </div>
                             <div class="ec-service-desc">
                                 <h2>Free Shipping</h2>
-                                <p>Free shipping on all US order or order above $200</p>
+                                <p>Free shipping on all US order or order above
+                                    $200</p>
                             </div>
                         </div>
                     </div>
-                    <div class="ec_ser_content ec_ser_content_2 col-sm-12 col-md-6 col-lg-3" data-animation="zoomIn">
+                    <div
+                        class="ec_ser_content ec_ser_content_2 col-sm-12 col-md-6 col-lg-3"
+                        data-animation="zoomIn">
                         <div class="ec_ser_inner">
                             <div class="ec-service-image">
                                 <i class="fi fi-ts-hand-holding-seeding"></i>
@@ -584,18 +699,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ec_ser_content ec_ser_content_3 col-sm-12 col-md-6 col-lg-3" data-animation="zoomIn">
+                    <div
+                        class="ec_ser_content ec_ser_content_3 col-sm-12 col-md-6 col-lg-3"
+                        data-animation="zoomIn">
                         <div class="ec_ser_inner">
                             <div class="ec-service-image">
                                 <i class="fi fi-ts-badge-percent"></i>
                             </div>
                             <div class="ec-service-desc">
                                 <h2>30 Days Return</h2>
-                                <p>Simply return it within 30 days for an exchange</p>
+                                <p>Simply return it within 30 days for an
+                                    exchange</p>
                             </div>
                         </div>
                     </div>
-                    <div class="ec_ser_content ec_ser_content_4 col-sm-12 col-md-6 col-lg-3" data-animation="zoomIn">
+                    <div
+                        class="ec_ser_content ec_ser_content_4 col-sm-12 col-md-6 col-lg-3"
+                        data-animation="zoomIn">
                         <div class="ec_ser_inner">
                             <div class="ec-service-image">
                                 <i class="fi fi-ts-donate"></i>
@@ -631,53 +751,60 @@
                             <!-- instagram item -->
                             <div class="ec-insta-item">
                                 <div class="ec-insta-inner">
-                                    <a href="#" target="_blank"><img src="assets/images/instragram-image/1.jpg"
-                                                                     alt="insta"></a>
+                                    <a href="#" target="_blank"><img
+                                            src="assets/images/instragram-image/1.jpg"
+                                            alt="insta"></a>
                                 </div>
                             </div>
                             <!-- instagram item -->
                             <div class="ec-insta-item">
                                 <div class="ec-insta-inner">
-                                    <a href="#" target="_blank"><img src="assets/images/instragram-image/2.jpg"
-                                                                     alt="insta"></a>
+                                    <a href="#" target="_blank"><img
+                                            src="assets/images/instragram-image/2.jpg"
+                                            alt="insta"></a>
                                 </div>
                             </div>
                             <!-- instagram item -->
                             <div class="ec-insta-item">
                                 <div class="ec-insta-inner">
-                                    <a href="#" target="_blank"><img src="assets/images/instragram-image/3.jpg"
-                                                                     alt="insta"></a>
+                                    <a href="#" target="_blank"><img
+                                            src="assets/images/instragram-image/3.jpg"
+                                            alt="insta"></a>
                                 </div>
                             </div>
                             <!-- instagram item -->
                             <div class="ec-insta-item">
                                 <div class="ec-insta-inner">
-                                    <a href="#" target="_blank"><img src="assets/images/instragram-image/4.jpg"
-                                                                     alt="insta"></a>
-                                </div>
-                            </div>
-                            <!-- instagram item -->
-                            <!-- instagram item -->
-                            <div class="ec-insta-item">
-                                <div class="ec-insta-inner">
-                                    <a href="#" target="_blank"><img src="assets/images/instragram-image/5.jpg"
-                                                                     alt="insta"></a>
+                                    <a href="#" target="_blank"><img
+                                            src="assets/images/instragram-image/4.jpg"
+                                            alt="insta"></a>
                                 </div>
                             </div>
                             <!-- instagram item -->
                             <!-- instagram item -->
                             <div class="ec-insta-item">
                                 <div class="ec-insta-inner">
-                                    <a href="#" target="_blank"><img src="assets/images/instragram-image/6.jpg"
-                                                                     alt="insta"></a>
+                                    <a href="#" target="_blank"><img
+                                            src="assets/images/instragram-image/5.jpg"
+                                            alt="insta"></a>
                                 </div>
                             </div>
                             <!-- instagram item -->
                             <!-- instagram item -->
                             <div class="ec-insta-item">
                                 <div class="ec-insta-inner">
-                                    <a href="#" target="_blank"><img src="assets/images/instragram-image/7.jpg"
-                                                                     alt="insta"></a>
+                                    <a href="#" target="_blank"><img
+                                            src="assets/images/instragram-image/6.jpg"
+                                            alt="insta"></a>
+                                </div>
+                            </div>
+                            <!-- instagram item -->
+                            <!-- instagram item -->
+                            <div class="ec-insta-item">
+                                <div class="ec-insta-inner">
+                                    <a href="#" target="_blank"><img
+                                            src="assets/images/instragram-image/7.jpg"
+                                            alt="insta"></a>
                                 </div>
                             </div>
                             <!-- instagram item -->
@@ -704,15 +831,26 @@
                         <div class="row">
                             <div class="col-sm-12 col-lg-3 ec-footer-contact">
                                 <div class="ec-footer-widget">
-                                    <div class="ec-footer-logo"><a href="#"><img src="assets/images/logo/logo4.png"
-                                                                                 alt=""><img class="dark-footer-logo" src="assets/images/logo/logo4.png"
-                                                                                 alt="Site Logo" style="display: none;" /></a></div>
-                                    <h4 class="ec-footer-heading">Contact us</h4>
+                                    <div class="ec-footer-logo"><a href="#"><img
+                                                src="assets/images/logo/logo4.png"
+                                                alt><img
+                                                class="dark-footer-logo"
+                                                src="assets/images/logo/logo4.png"
+                                                alt="Site Logo"
+                                                style="display: none;" /></a></div>
+                                    <h4 class="ec-footer-heading">Contact
+                                        us</h4>
                                     <div class="ec-footer-links">
                                         <ul class="align-items-center">
-                                            <li class="ec-footer-link">Hoa Lac Hi-tech Park, km 29, Đại lộ Thăng Long, Hà Nội, Vietnam</li>
-                                            <li class="ec-footer-link"><span>Call Us:</span><a href="tel:+440123456789">0967870138</a></li>
-                                            <li class="ec-footer-link"><span>Email:</span><a
+                                            <li class="ec-footer-link">Hoa Lac
+                                                Hi-tech Park, km 29, Đại lộ
+                                                Thăng Long, Hà Nội, Vietnam</li>
+                                            <li
+                                                class="ec-footer-link"><span>Call
+                                                    Us:</span><a
+                                                    href="tel:+440123456789">0967870138</a></li>
+                                            <li
+                                                class="ec-footer-link"><span>Email:</span><a
                                                     href="mailto:example@ec-email.com">vietpthe180666@fpt.edu.vn</a></li>
                                         </ul>
                                     </div>
@@ -720,13 +858,21 @@
                             </div>
                             <div class="col-sm-12 col-lg-2 ec-footer-info">
                                 <div class="ec-footer-widget">
-                                    <h4 class="ec-footer-heading">Information</h4>
+                                    <h4
+                                        class="ec-footer-heading">Information</h4>
                                     <div class="ec-footer-links">
                                         <ul class="align-items-center">
-                                            <li class="ec-footer-link"><a href="about-us.jsp">About us</a></li>
-                                            <li class="ec-footer-link"><a href="faq.jsp">FAQ</a></li>
-                                            <li class="ec-footer-link"><a href="track-order.jsp">Delivery Information</a></li>
-                                            <li class="ec-footer-link"><a href="contact-us.jsp">Contact us</a></li>
+                                            <li class="ec-footer-link"><a
+                                                    href="about-us.jsp">About
+                                                    us</a></li>
+                                            <li class="ec-footer-link"><a
+                                                    href="faq.jsp">FAQ</a></li>
+                                            <li class="ec-footer-link"><a
+                                                    href="track-order.jsp">Delivery
+                                                    Information</a></li>
+                                            <li class="ec-footer-link"><a
+                                                    href="contact-us.jsp">Contact
+                                                    us</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -738,12 +884,17 @@
                                     <div class="ec-footer-links">
                                         <ul class="align-items-center">
 
-
-                                            <li class="ec-footer-link"><a href="privacy-policy.jsp">Private & policy </a>
+                                            <li class="ec-footer-link"><a
+                                                    href="privacy-policy.jsp">Private
+                                                    & policy </a>
                                             </li>
-                                            <li class="ec-footer-link"><a href="customer-service.jsp">Customer Service</a>
+                                            <li class="ec-footer-link"><a
+                                                    href="customer-service.jsp">Customer
+                                                    Service</a>
                                             </li>
-                                            <li class="ec-footer-link"><a href="terms-condition.jsp">Term & condition</a>
+                                            <li class="ec-footer-link"><a
+                                                    href="terms-condition.jsp">Term
+                                                    & condition</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -751,21 +902,33 @@
                             </div>
                             <div class="col-sm-12 col-lg-3 ec-footer-news">
                                 <div class="ec-footer-widget">
-                                    <h4 class="ec-footer-heading">Newsletter</h4>
+                                    <h4
+                                        class="ec-footer-heading">Newsletter</h4>
                                     <div class="ec-footer-links">
                                         <ul class="align-items-center">
-                                            <li class="ec-footer-link">Get instant updates about our new products and
+                                            <li class="ec-footer-link">Get
+                                                instant updates about our new
+                                                products and
                                                 special promos!</li>
                                         </ul>
                                         <div class="ec-subscribe-form">
-                                            <form id="ec-newsletter-form" name="ec-newsletter-form" method="post"
-                                                  action="#">
-                                                <div id="ec_news_signup" class="ec-form">
-                                                    <input class="ec-email" type="email" required=""
-                                                           placeholder="Enter your email here..." name="ec-email" value="" />
-                                                    <button id="ec-news-btn" class="button btn-primary" type="submit"
-                                                            name="subscribe" value=""><i class="ecicon eci-paper-plane-o"
-                                                                                 aria-hidden="true"></i></button>
+                                            <form id="ec-newsletter-form"
+                                                name="ec-newsletter-form"
+                                                method="post"
+                                                action="#">
+                                                <div id="ec_news_signup"
+                                                    class="ec-form">
+                                                    <input class="ec-email"
+                                                        type="email" required
+                                                        placeholder="Enter your email here..."
+                                                        name="ec-email" value />
+                                                    <button id="ec-news-btn"
+                                                        class="button btn-primary"
+                                                        type="submit"
+                                                        name="subscribe"
+                                                        value><i
+                                                            class="ecicon eci-paper-plane-o"
+                                                            aria-hidden="true"></i></button>
                                                 </div>
                                             </form>
                                         </div>
@@ -781,7 +944,8 @@
                             <!-- Footer social Start -->
                             <div class="col text-left footer-bottom-left">
                                 <div class="footer-bottom-social">
-                                    <span class="social-text text-upper">Follow us on:</span>
+                                    <span class="social-text text-upper">Follow
+                                        us on:</span>
 
                                 </div>
                             </div>
@@ -789,16 +953,22 @@
                             <!-- Footer Copyright Start -->
                             <div class="col text-center footer-copy">
                                 <div class="footer-bottom-copy ">
-                                    <div class="ec-copy">Copyright © <span id="copyright_year"></span><a class="site-name text-upper"
-                                                                                                          href="#">NYFS<span>.</span></a>. All Rights Reserved</div>
+                                    <div class="ec-copy">Copyright © <span
+                                            id="copyright_year"></span><a
+                                            class="site-name text-upper"
+                                            href="#">NYFS<span>.</span></a>. All
+                                        Rights Reserved</div>
                                 </div>
                             </div>
                             <!-- Footer Copyright End -->
                             <!-- Footer payment -->
                             <div class="col footer-bottom-right">
-                                <div class="footer-bottom-payment d-flex justify-content-end">
+                                <div
+                                    class="footer-bottom-payment d-flex justify-content-end">
                                     <div class="payment-link">
-                                        <img src="assets/images/icons/payment.png" alt="">
+                                        <img
+                                            src="assets/images/icons/payment.png"
+                                            alt>
                                     </div>
 
                                 </div>
@@ -816,23 +986,28 @@
             <div class="container">
                 <div class="ec-nav-panel">
                     <div class="ec-nav-panel-icons">
-                        <a href="#ec-mobile-menu" class="navbar-toggler-btn ec-header-btn ec-side-toggle"><i
+                        <a href="#ec-mobile-menu"
+                            class="navbar-toggler-btn ec-header-btn ec-side-toggle"><i
                                 class="fi-rr-menu-burger"></i></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="#ec-side-cart" class="toggle-cart ec-header-btn ec-side-toggle"><i
+                        <a href="#ec-side-cart"
+                            class="toggle-cart ec-header-btn ec-side-toggle"><i
                                 class="fi-rr-shopping-bag"></i><span
                                 class="ec-cart-noti ec-header-count cart-count-lable">0</span></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="index.jsp" class="ec-header-btn"><i class="fi-rr-home"></i></a>
+                        <a href="index.jsp" class="ec-header-btn"><i
+                                class="fi-rr-home"></i></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="wishlist.jsp" class="ec-header-btn"><i class="fi-rr-heart"></i><span
+                        <a href="wishlist.jsp" class="ec-header-btn"><i
+                                class="fi-rr-heart"></i><span
                                 class="ec-cart-noti">0</span></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="login.jsp" class="ec-header-btn"><i class="fi-rr-user"></i></a>
+                        <a href="login.jsp" class="ec-header-btn"><i
+                                class="fi-rr-user"></i></a>
                     </div>
 
                 </div>
@@ -877,12 +1052,14 @@
                         <!-- Start Single Contact List -->
                         <li>
                             <a class="ec-list" data-number="918866774266"
-                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                                data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                                 <div class="d-flex bd-highlight">
                                     <!-- Profile Picture -->
                                     <div class="ec-img-cont">
-                                        <img src="assets/images/whatsapp/profile_01.jpg" class="ec-user-img"
-                                             alt="Profile image">
+                                        <img
+                                            src="assets/images/whatsapp/profile_01.jpg"
+                                            class="ec-user-img"
+                                            alt="Profile image">
                                         <span class="ec-status-icon"></span>
                                     </div>
                                     <!-- Display Name & Last Seen -->
@@ -901,13 +1078,16 @@
                         <!-- Start Single Contact List -->
                         <li>
                             <a class="ec-list" data-number="918866774266"
-                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                                data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                                 <div class="d-flex bd-highlight">
                                     <!-- Profile Picture -->
                                     <div class="ec-img-cont">
-                                        <img src="assets/images/whatsapp/profile_02.jpg" class="ec-user-img"
-                                             alt="Profile image">
-                                        <span class="ec-status-icon ec-online"></span>
+                                        <img
+                                            src="assets/images/whatsapp/profile_02.jpg"
+                                            class="ec-user-img"
+                                            alt="Profile image">
+                                        <span
+                                            class="ec-status-icon ec-online"></span>
                                     </div>
                                     <!-- Display Name & Last Seen -->
                                     <div class="ec-user-info">
@@ -925,13 +1105,16 @@
                         <!-- Start Single Contact List -->
                         <li>
                             <a class="ec-list" data-number="918866774266"
-                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                                data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                                 <div class="d-flex bd-highlight">
                                     <!-- Profile Picture -->
                                     <div class="ec-img-cont">
-                                        <img src="assets/images/whatsapp/profile_03.jpg" class="ec-user-img"
-                                             alt="Profile image">
-                                        <span class="ec-status-icon ec-offline"></span>
+                                        <img
+                                            src="assets/images/whatsapp/profile_03.jpg"
+                                            class="ec-user-img"
+                                            alt="Profile image">
+                                        <span
+                                            class="ec-status-icon ec-offline"></span>
                                     </div>
                                     <!-- Display Name & Last Seen -->
                                     <div class="ec-user-info">
@@ -949,13 +1132,16 @@
                         <!-- Start Single Contact List -->
                         <li>
                             <a class="ec-list" data-number="918866774266"
-                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                                data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                                 <div class="d-flex bd-highlight">
                                     <!-- Profile Picture -->
                                     <div class="ec-img-cont">
-                                        <img src="assets/images/whatsapp/profile_04.jpg" class="ec-user-img"
-                                             alt="Profile image">
-                                        <span class="ec-status-icon ec-offline"></span>
+                                        <img
+                                            src="assets/images/whatsapp/profile_04.jpg"
+                                            class="ec-user-img"
+                                            alt="Profile image">
+                                        <span
+                                            class="ec-status-icon ec-offline"></span>
                                     </div>
                                     <!-- Display Name & Last Seen -->
                                     <div class="ec-user-info">
@@ -978,15 +1164,15 @@
             <div class="ec-right-bottom">
                 <div class="ec-box">
                     <div class="ec-button rotateBackward">
-                        <img class="whatsapp" src="assets/images/common/whatsapp.png" alt="whatsapp icon" />
+                        <img class="whatsapp"
+                            src="assets/images/common/whatsapp.png"
+                            alt="whatsapp icon" />
                     </div>
                 </div>
             </div>
             <!--/ End Right Floating Button-->
         </div>
         <!-- Whatsapp end -->
-
-
 
         <!-- Vendor JS -->
         <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>

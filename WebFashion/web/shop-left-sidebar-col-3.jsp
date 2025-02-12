@@ -1,5 +1,5 @@
 <!--========================================================= 
-    Item Name: Ekka - Ecommerce HTML Template + Admin Dashboard.
+    Item Name: Louis Vuitton
     Author: ashishmaraviya
     Version: 3.7
     Copyright 2024
@@ -9,36 +9,39 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
     <!-- Mirrored from maraviyainfotech.com/projects/ekka/ekka-v37/ekka-html/index.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 18 Jan 2025 14:30:52 GMT -->
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
-        <title>Ekka - Ecommerce HTML Template + Admin Dashboard.</title>
+        <title>Louis Vuitton</title>
         <meta name="keywords"
-              content="apparel, catalog, clean, ecommerce, ecommerce HTML, electronics, fashion, html eCommerce, html store, minimal, multipurpose, multipurpose ecommerce, online store, responsive ecommerce template, shops" />
-        <meta name="description" content="Best ecommerce html template for single and multi vendor store.">
+            content="apparel, catalog, clean, ecommerce, ecommerce HTML, electronics, fashion, html eCommerce, html store, minimal, multipurpose, multipurpose ecommerce, online store, responsive ecommerce template, shops" />
+        <meta name="description"
+            content="Best ecommerce html template for single and multi vendor store.">
         <meta name="author" content="ashishmaraviya">
 
         <!-- site Favicon -->
-        <link rel="icon" href="assets/images/favicon/favicon.png" sizes="32x32" />
+        <link rel="icon" href="assets/images/favicon/favicon.png"
+            sizes="32x32" />
         <link rel="apple-touch-icon" href="assets/images/favicon/favicon.png" />
-        <meta name="msapplication-TileImage" content="assets/images/favicon/favicon.png" />
+        <meta name="msapplication-TileImage"
+            content="assets/images/favicon/favicon.png" />
 
         <!-- css Icon Font -->
         <link rel="stylesheet" href="assets/css/vendor/ecicons.min.css" />
 
         <!-- css All Plugins Files -->
         <link rel="stylesheet" href="assets/css/plugins/animate.css" />
-        <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css" />
+        <link rel="stylesheet"
+            href="assets/css/plugins/swiper-bundle.min.css" />
         <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css" />
         <link rel="stylesheet" href="assets/css/plugins/countdownTimer.css" />
         <link rel="stylesheet" href="assets/css/plugins/slick.min.css" />
         <link rel="stylesheet" href="assets/css/plugins/bootstrap.css" />
         <link rel="stylesheet" href="assets/css/plugins/nouislider.css" />
-
 
         <!-- Main Style -->
         <link rel="stylesheet" href="assets/css/demo1.css" />
@@ -46,7 +49,8 @@
         <link rel="stylesheet" href="assets/css/responsive.css" />
 
         <!-- Background css -->
-        <link rel="stylesheet" id="bg-switcher-css" href="assets/css/backgrounds/bg-4.css">
+        <link rel="stylesheet" id="bg-switcher-css"
+            href="assets/css/backgrounds/bg-4.css">
     </head>
 
     <body>
@@ -65,48 +69,62 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <!-- Header Top social Start -->
-                        <div class="col text-left header-top-left d-none d-lg-block">
+                        <div
+                            class="col text-left header-top-left d-none d-lg-block">
                             <div class="header-top-social">
-                                <span class="social-text text-upper">Follow us on:</span>
+                                <span class="social-text text-upper">Follow us
+                                    on:</span>
 
                             </div>
                         </div>
                         <!-- Header Top social End -->
-
 
                         <!-- Header Top responsive Action -->
                         <div class="col d-lg-none ">
                             <div class="ec-header-bottons">
                                 <!-- Header User Start -->
                                 <div class="ec-header-user dropdown">
-                                    <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
+                                    <button class="dropdown-toggle"
+                                        data-bs-toggle="dropdown"><i
                                             class="fi-rr-user"></i></button>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a class="dropdown-item" href="register.jsp">Register</a></li>
-                                        <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                        <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                    <ul
+                                        class="dropdown-menu dropdown-menu-right">
+                                        <li><a class="dropdown-item"
+                                                href="register.jsp">Register</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="checkout.jsp">Checkout</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="login.jsp">Login</a></li>
                                     </ul>
                                 </div>
                                 <!-- Header User End -->
 
                                 <!-- Header Cart Start -->
-                                <a href="wishlist.jsp" class="ec-header-btn ec-header-wishlist">
-                                    <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                                    <span class="ec-header-count wishlist-count-label">0</span>
+                                <a href="wishlist.jsp"
+                                    class="ec-header-btn ec-header-wishlist">
+                                    <div class="header-icon"><i
+                                            class="fi-rr-heart"></i></div>
+                                    <span
+                                        class="ec-header-count wishlist-count-label">0</span>
                                 </a>
                                 <!-- Header Cart End -->
 
                                 <!-- Header Cart Start -->
-                                <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                    <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
-                                    <span class="ec-header-count cart-count-lable">0</span>
+                                <a href="#ec-side-cart"
+                                    class="ec-header-btn ec-side-toggle">
+                                    <div class="header-icon"><i
+                                            class="fi-rr-shopping-bag"></i></div>
+                                    <span
+                                        class="ec-header-count cart-count-lable">0</span>
                                 </a>
                                 <!-- Header Cart End -->
-                                <a href="javascript:void(0)" class="ec-header-btn ec-sidebar-toggle">
+                                <a href="javascript:void(0)"
+                                    class="ec-header-btn ec-sidebar-toggle">
                                     <i class="fi fi-rr-apps"></i>
                                 </a>
                                 <!-- Header menu Start -->
-                                <a href="#ec-mobile-menu" class="ec-header-btn ec-side-toggle d-lg-none">
+                                <a href="#ec-mobile-menu"
+                                    class="ec-header-btn ec-side-toggle d-lg-none">
                                     <i class="fi fi-rr-menu-burger"></i>
                                 </a>
                                 <!-- Header menu End -->
@@ -125,8 +143,12 @@
                             <!-- Ec Header Logo Start -->
                             <div class="align-self-center">
                                 <div class="header-logo">
-                                    <a href="index.jsp"><img src="assets/images/logo/logo4.png" alt="Site Logo" /><img
-                                            class="dark-logo" src="assets/images/logo/logo4.png" alt="Site Logo"
+                                    <a href="index.jsp"><img
+                                            src="assets/images/logo/logo4.png"
+                                            alt="Site Logo" /><img
+                                            class="dark-logo"
+                                            src="assets/images/logo/logo4.png"
+                                            alt="Site Logo"
                                             style="display: none;" /></a>
                                 </div>
                             </div>
@@ -136,9 +158,12 @@
                             <div class="align-self-center">
                                 <div class="header-search">
                                     <form class="ec-btn-group-form" action="#">
-                                        <input class="form-control ec-search-bar" placeholder="Search products..."
-                                               type="text">
-                                        <button class="submit" type="submit"><i class="fi-rr-search"></i></button>
+                                        <input
+                                            class="form-control ec-search-bar"
+                                            placeholder="Search products..."
+                                            type="text">
+                                        <button class="submit" type="submit"><i
+                                                class="fi-rr-search"></i></button>
                                     </form>
                                 </div>
                             </div>
@@ -150,25 +175,36 @@
 
                                     <!-- Header User Start -->
                                     <div class="ec-header-user dropdown">
-                                        <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
+                                        <button class="dropdown-toggle"
+                                            data-bs-toggle="dropdown"><i
                                                 class="fi-rr-user"></i></button>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a class="dropdown-item" href="register.jsp">Register</a></li>
-                                            <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                            <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                        <ul
+                                            class="dropdown-menu dropdown-menu-right">
+                                            <li><a class="dropdown-item"
+                                                    href="register.jsp">Register</a></li>
+                                            <li><a class="dropdown-item"
+                                                    href="checkout.jsp">Checkout</a></li>
+                                            <li><a class="dropdown-item"
+                                                    href="login.jsp">Login</a></li>
                                         </ul>
                                     </div>
                                     <!-- Header User End -->
                                     <!-- Header wishlist Start -->
-                                    <a href="wishlist.jsp" class="ec-header-btn ec-header-wishlist">
-                                        <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                                        <span class="ec-header-count wishlist-count-label">0</span>
+                                    <a href="wishlist.jsp"
+                                        class="ec-header-btn ec-header-wishlist">
+                                        <div class="header-icon"><i
+                                                class="fi-rr-heart"></i></div>
+                                        <span
+                                            class="ec-header-count wishlist-count-label">0</span>
                                     </a>
                                     <!-- Header wishlist End -->
                                     <!-- Header Cart Start -->
-                                    <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                        <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
-                                        <span class="ec-header-count cart-count-lable">0</span>
+                                    <a href="#ec-side-cart"
+                                        class="ec-header-btn ec-side-toggle">
+                                        <div class="header-icon"><i
+                                                class="fi-rr-shopping-bag"></i></div>
+                                        <span
+                                            class="ec-header-count cart-count-lable">0</span>
                                     </a>
                                     <!-- Header Cart End -->
                                 </div>
@@ -186,8 +222,12 @@
                         <!-- Ec Header Logo Start -->
                         <div class="col">
                             <div class="header-logo">
-                                <a href="index.jsp"><img src="assets/images/logo/logo4.png" alt="Site Logo" /><img
-                                        class="dark-logo" src="assets/images/logo/logo4.png" alt="Site Logo"
+                                <a href="index.jsp"><img
+                                        src="assets/images/logo/logo4.png"
+                                        alt="Site Logo" /><img
+                                        class="dark-logo"
+                                        src="assets/images/logo/logo4.png"
+                                        alt="Site Logo"
                                         style="display: none;" /></a>
                             </div>
                         </div>
@@ -196,8 +236,11 @@
                         <div class="col">
                             <div class="header-search">
                                 <form class="ec-btn-group-form" action="#">
-                                    <input class="form-control ec-search-bar" placeholder="Search products..." type="text">
-                                    <button class="submit" type="submit"><i class="fi-rr-search"></i></button>
+                                    <input class="form-control ec-search-bar"
+                                        placeholder="Search products..."
+                                        type="text">
+                                    <button class="submit" type="submit"><i
+                                            class="fi-rr-search"></i></button>
                                 </form>
                             </div>
                         </div>
@@ -212,30 +255,39 @@
                     <div class="row">
                         <div class="col-md-12 align-self-center">
                             <div class="ec-main-menu">
-                                <a href="javascript:void(0)" class="ec-header-btn ec-sidebar-toggle">
+                                <a href="javascript:void(0)"
+                                    class="ec-header-btn ec-sidebar-toggle">
                                     <i class="fi fi-rr-apps"></i>
                                 </a>
                                 <ul>
                                     <li><a href="index.jsp">Home</a></li>
-                                    <li><a href="shop-left-sidebar-col-3.jsp">Categories</a></li>
+                                    <li><a
+                                            href="shop-left-sidebar-col-3.jsp">Categories</a></li>
 
-                                    <li><a href="product-full-width.jsp">Products</a></li>
-                                    <li class="dropdown"><a href="javascript:void(0)">Pages</a>
+                                    <li><a
+                                            href="product-full-width.jsp">Products</a></li>
+                                    <li class="dropdown"><a
+                                            href="javascript:void(0)">Pages</a>
                                         <ul class="sub-menu">
 
                                             <li><a href="cart.jsp">Cart</a></li>
-                                            <li><a href="checkout.jsp">Checkout</a></li>                                
+                                            <li><a
+                                                    href="checkout.jsp">Checkout</a></li>
                                             <li><a href="faq.jsp">FAQ</a></li>
-                                            <li><a href="track-order.jsp">Track Order</a></li>
-                                            <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                            <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
+                                            <li><a href="track-order.jsp">Track
+                                                    Order</a></li>
+                                            <li><a
+                                                    href="terms-condition.jsp">Terms
+                                                    Condition</a></li>
+                                            <li><a
+                                                    href="privacy-policy.jsp">Privacy
+                                                    Policy</a></li>
                                         </ul>
                                     </li>
 
                                     <li><a href="about-us.jsp">About Us</a></li>
-                                    <li><a href="contact-us.jsp">Contact Us</a></li>
-
-
+                                    <li><a href="contact-us.jsp">Contact
+                                            Us</a></li>
 
                                 </ul>
                             </div>
@@ -254,18 +306,24 @@
                     <div class="ec-menu-content">
                         <ul>
                             <li><a href="index.jsp">Home</a></li>
-                            <li><a href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-                            <li><a href="product-full-width.jsp">Products</a></li>
+                            <li><a
+                                    href="shop-left-sidebar-col-3.jsp">Categories</a></li>
+                            <li><a
+                                    href="product-full-width.jsp">Products</a></li>
 
-                            <li class="dropdown"><a href="javascript:void(0)">Pages</a>
+                            <li class="dropdown"><a
+                                    href="javascript:void(0)">Pages</a>
                                 <ul class="sub-menu">
 
                                     <li><a href="cart.jsp">Cart</a></li>
-                                    <li><a href="checkout.jsp">Checkout</a></li>                                
+                                    <li><a href="checkout.jsp">Checkout</a></li>
                                     <li><a href="faq.jsp">FAQ</a></li>
-                                    <li><a href="track-order.jsp">Track Order</a></li>
-                                    <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                    <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
+                                    <li><a href="track-order.jsp">Track
+                                            Order</a></li>
+                                    <li><a href="terms-condition.jsp">Terms
+                                            Condition</a></li>
+                                    <li><a href="privacy-policy.jsp">Privacy
+                                            Policy</a></li>
                                 </ul>
                             </li>
                             <li><a href="blog-full-width.jsp">Blog</a></li>
@@ -296,7 +354,8 @@
                 <div class="ec-cart-top">
                     <div class="ec-cart-title">
                         <span class="cart_title">My Cart</span>
-                        <button class="ec-close" onclick="closeCart()">&times;</button>
+                        <button class="ec-close"
+                            onclick="closeCart()">&times;</button>
                     </div>
                     <ul class="eccart-pro-items" id="cart-items">
                         <!-- Items will be dynamically added here -->
@@ -308,7 +367,8 @@
                             <tbody>
                                 <tr>
                                     <td class="text-left">Sub-Total :</td>
-                                    <td class="text-right" id="sub-total">$0.00</td>
+                                    <td class="text-right"
+                                        id="sub-total">$0.00</td>
                                 </tr>
                                 <tr>
                                     <td class="text-left">VAT (20%) :</td>
@@ -316,14 +376,16 @@
                                 </tr>
                                 <tr>
                                     <td class="text-left">Total :</td>
-                                    <td class="text-right primary-color" id="total">$0.00</td>
+                                    <td class="text-right primary-color"
+                                        id="total">$0.00</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="cart_btn">
                         <a href="cart.jsp" class="btn btn-primary">View Cart</a>
-                        <a href="checkout.jsp" class="btn btn-secondary">Checkout</a>
+                        <a href="checkout.jsp"
+                            class="btn btn-secondary">Checkout</a>
                     </div>
                 </div>
             </div>
@@ -413,14 +475,6 @@
         </script>
         <!-- ekka Cart End -->
 
-
-
-
-
-
-
-
-
         <!-- Category Sidebar start -->
         <div class="ec-side-cat-overlay"></div>
         <div class="col-lg-3 category-sidebar" data-animation="fadeIn">
@@ -436,10 +490,14 @@
                     <div class="ec-sb-pro-sl">
                         <div>
                             <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp" class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/1.jpg" alt="product" /></a>
+                                <a href="product-left-sidebar.jsp"
+                                    class="sidekka_pro_img"><img
+                                        src="assets/images/product-image/1.jpg"
+                                        alt="product" /></a>
                                 <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a href="product-left-sidebar.jsp">baby fabric shoes</a></h5>
+                                    <h5 class="ec-pro-title"><a
+                                            href="product-left-sidebar.jsp">baby
+                                            fabric shoes</a></h5>
                                     <div class="ec-pro-rating">
                                         <i class="ecicon eci-star fill"></i>
                                         <i class="ecicon eci-star fill"></i>
@@ -456,10 +514,14 @@
                         </div>
                         <div>
                             <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp" class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/2.jpg" alt="product" /></a>
+                                <a href="product-left-sidebar.jsp"
+                                    class="sidekka_pro_img"><img
+                                        src="assets/images/product-image/2.jpg"
+                                        alt="product" /></a>
                                 <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a href="product-left-sidebar.jsp">Men's hoodies t-shirt</a>
+                                    <h5 class="ec-pro-title"><a
+                                            href="product-left-sidebar.jsp">Men's
+                                            hoodies t-shirt</a>
                                     </h5>
                                     <div class="ec-pro-rating">
                                         <i class="ecicon eci-star fill"></i>
@@ -477,10 +539,14 @@
                         </div>
                         <div>
                             <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp" class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/3.jpg" alt="product" /></a>
+                                <a href="product-left-sidebar.jsp"
+                                    class="sidekka_pro_img"><img
+                                        src="assets/images/product-image/3.jpg"
+                                        alt="product" /></a>
                                 <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a href="product-left-sidebar.jsp">Girls t-shirt</a></h5>
+                                    <h5 class="ec-pro-title"><a
+                                            href="product-left-sidebar.jsp">Girls
+                                            t-shirt</a></h5>
                                     <div class="ec-pro-rating">
                                         <i class="ecicon eci-star fill"></i>
                                         <i class="ecicon eci-star fill"></i>
@@ -497,10 +563,14 @@
                         </div>
                         <div>
                             <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp" class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/4.jpg" alt="product" /></a>
+                                <a href="product-left-sidebar.jsp"
+                                    class="sidekka_pro_img"><img
+                                        src="assets/images/product-image/4.jpg"
+                                        alt="product" /></a>
                                 <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a href="product-left-sidebar.jsp">woolen hat for men</a></h5>
+                                    <h5 class="ec-pro-title"><a
+                                            href="product-left-sidebar.jsp">woolen
+                                            hat for men</a></h5>
                                     <div class="ec-pro-rating">
                                         <i class="ecicon eci-star fill"></i>
                                         <i class="ecicon eci-star fill"></i>
@@ -517,10 +587,14 @@
                         </div>
                         <div>
                             <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp" class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/5.jpg" alt="product" /></a>
+                                <a href="product-left-sidebar.jsp"
+                                    class="sidekka_pro_img"><img
+                                        src="assets/images/product-image/5.jpg"
+                                        alt="product" /></a>
                                 <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a href="product-left-sidebar.jsp">Womens purse</a></h5>
+                                    <h5 class="ec-pro-title"><a
+                                            href="product-left-sidebar.jsp">Womens
+                                            purse</a></h5>
                                     <div class="ec-pro-rating">
                                         <i class="ecicon eci-star fill"></i>
                                         <i class="ecicon eci-star fill"></i>
@@ -537,10 +611,14 @@
                         </div>
                         <div>
                             <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp" class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/6.jpg" alt="product" /></a>
+                                <a href="product-left-sidebar.jsp"
+                                    class="sidekka_pro_img"><img
+                                        src="assets/images/product-image/6.jpg"
+                                        alt="product" /></a>
                                 <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a href="product-left-sidebar.jsp">Baby toy doctor kit</a>
+                                    <h5 class="ec-pro-title"><a
+                                            href="product-left-sidebar.jsp">Baby
+                                            toy doctor kit</a>
                                     </h5>
                                     <div class="ec-pro-rating">
                                         <i class="ecicon eci-star fill"></i>
@@ -558,10 +636,14 @@
                         </div>
                         <div>
                             <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp" class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/7.jpg" alt="product" /></a>
+                                <a href="product-left-sidebar.jsp"
+                                    class="sidekka_pro_img"><img
+                                        src="assets/images/product-image/7.jpg"
+                                        alt="product" /></a>
                                 <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a href="product-left-sidebar.jsp">teddy bear baby toy</a>
+                                    <h5 class="ec-pro-title"><a
+                                            href="product-left-sidebar.jsp">teddy
+                                            bear baby toy</a>
                                     </h5>
                                     <div class="ec-pro-rating">
                                         <i class="ecicon eci-star fill"></i>
@@ -579,10 +661,14 @@
                         </div>
                         <div>
                             <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp" class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/2.jpg" alt="product" /></a>
+                                <a href="product-left-sidebar.jsp"
+                                    class="sidekka_pro_img"><img
+                                        src="assets/images/product-image/2.jpg"
+                                        alt="product" /></a>
                                 <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a href="product-left-sidebar.jsp">Mens hoodies blue</a></h5>
+                                    <h5 class="ec-pro-title"><a
+                                            href="product-left-sidebar.jsp">Mens
+                                            hoodies blue</a></h5>
                                     <div class="ec-pro-rating">
                                         <i class="ecicon eci-star fill"></i>
                                         <i class="ecicon eci-star fill"></i>
@@ -614,8 +700,10 @@
                             <div class="col-md-6 col-sm-12">
                                 <!-- ec-breadcrumb-list start -->
                                 <ul class="ec-breadcrumb-list">
-                                    <li class="ec-breadcrumb-item"><a href="index.jsp">Home</a></li>
-                                    <li class="ec-breadcrumb-item active">Shop</li>
+                                    <li class="ec-breadcrumb-item"><a
+                                            href="index.jsp">Home</a></li>
+                                    <li
+                                        class="ec-breadcrumb-item active">Shop</li>
                                 </ul>
                                 <!-- ec-breadcrumb-list end -->
                             </div>
@@ -630,25 +718,31 @@
         <section class="ec-page-content section-space-p">
             <div class="container">
                 <div class="row">
-                    <div class="ec-shop-rightside col-lg-9 order-lg-last col-md-12 order-md-first margin-b-30">
+                    <div
+                        class="ec-shop-rightside col-lg-9 order-lg-last col-md-12 order-md-first margin-b-30">
                         <!-- Shop Top Start -->
                         <div class="ec-pro-list-top d-flex">
                             <div class="col-md-6 ec-grid-list">
                                 <div class="ec-gl-btn">
-                                    <button class="btn btn-grid active"><i class="fi-rr-apps"></i></button>
-                                    <button class="btn btn-list"><i class="fi-rr-list"></i></button>
+                                    <button class="btn btn-grid active"><i
+                                            class="fi-rr-apps"></i></button>
+                                    <button class="btn btn-list"><i
+                                            class="fi-rr-list"></i></button>
                                 </div>
                             </div>
                             <div class="col-md-6 ec-sort-select">
                                 <span class="sort-by">Sort by</span>
                                 <div class="ec-select-inner">
                                     <select name="ec-select" id="ec-select">
-                                        <option selected disabled>Position</option>
+                                        <option selected
+                                            disabled>Position</option>
                                         <option value="1">Relevance</option>
                                         <option value="2">Name, A to Z</option>
                                         <option value="3">Name, Z to A</option>
-                                        <option value="4">Price, low to high</option>
-                                        <option value="5">Price, high to low</option>
+                                        <option value="4">Price, low to
+                                            high</option>
+                                        <option value="5">Price, high to
+                                            low</option>
                                     </select>
                                 </div>
                             </div>
@@ -659,632 +753,847 @@
                         <div class="shop-pro-content">
                             <div class="shop-pro-inner">
                                 <div class="row">
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                    <div
+                                        class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                                         <div class="ec-product-inner">
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.jsp" class="image">
+                                                    <a
+                                                        href="product-left-sidebar.jsp"
+                                                        class="image">
                                                         <img class="main-image"
-                                                             src="assets/images/product-image/6_1.jpg" alt="Product" />
+                                                            src="assets/images/product-image/6_1.jpg"
+                                                            alt="Product" />
                                                         <img class="hover-image"
-                                                             src="assets/images/product-image/6_2.jpg" alt="Product" />
+                                                            src="assets/images/product-image/6_2.jpg"
+                                                            alt="Product" />
                                                     </a>
-                                                    <span class="percentage">20%</span>
-                                                    <a href="#" class="quickview" data-link-action="quickview"
-                                                       title="Quick view" data-bs-toggle="modal"
-                                                       data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
+                                                    <span
+                                                        class="percentage">20%</span>
+                                                    <a href="#"
+                                                        class="quickview"
+                                                        data-link-action="quickview"
+                                                        title="Quick view"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#ec_quickview_modal"><i
+                                                            class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
-                                                        <a href="compare.jsp" class="ec-btn-group compare"
-                                                           title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a>
-                                                        <button title="Add To Cart" class="add-to-cart"><i
-                                                                class="fi-rr-shopping-basket"></i> Add To Cart</button>
-                                                        <a class="ec-btn-group wishlist" title="Wishlist"><i
+                                                        <a href="compare.jsp"
+                                                            class="ec-btn-group compare"
+                                                            title="Compare"><i
+                                                                class="fi fi-rr-arrows-repeat"></i></a>
+                                                        <button
+                                                            title="Add To Cart"
+                                                            class="add-to-cart"><i
+                                                                class="fi-rr-shopping-basket"></i>
+                                                            Add To Cart</button>
+                                                        <a
+                                                            class="ec-btn-group wishlist"
+                                                            title="Wishlist"><i
                                                                 class="fi-rr-heart"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-full-width.jsp">Round Neck T-Shirt</a></h5>
+                                                <h5 class="ec-pro-title"><a
+                                                        href="product-full-width.jsp">Round
+                                                        Neck T-Shirt</a></h5>
                                                 <div class="ec-pro-rating">
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star"></i>
                                                 </div>
-                                                <div class="ec-pro-list-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dutmmy text ever since the 1500s, when an unknown printer took a galley.</div>
+                                                <div
+                                                    class="ec-pro-list-desc">Lorem
+                                                    Ipsum is simply dummy text
+                                                    of the printing and
+                                                    typesetting industry. Lorem
+                                                    Ipsum is simply dutmmy text
+                                                    ever since the 1500s, when
+                                                    an unknown printer took a
+                                                    galley.</div>
                                                 <span class="ec-price">
-                                                    <span class="old-price">$27.00</span>
-                                                    <span class="new-price">$22.00</span>
+                                                    <span
+                                                        class="old-price">$27.00</span>
+                                                    <span
+                                                        class="new-price">$22.00</span>
                                                 </span>
                                                 <div class="ec-pro-option">
-                                                    <div class="ec-pro-color">
-                                                        <span class="ec-pro-opt-label">Color</span>
-                                                        <ul class="ec-opt-swatch ec-change-img">
-                                                            <li class="active"><a href="#" class="ec-opt-clr-img"
-                                                                                  data-src="assets/images/product-image/6_1.jpg"
-                                                                                  data-src-hover="assets/images/product-image/6_1.jpg"
-                                                                                  data-tooltip="Gray"><span
-                                                                        style="background-color:#e8c2ff;"></span></a></li>
-                                                            <li><a href="#" class="ec-opt-clr-img"
-                                                                   data-src="assets/images/product-image/6_2.jpg"
-                                                                   data-src-hover="assets/images/product-image/6_2.jpg"
-                                                                   data-tooltip="Orange"><span
-                                                                        style="background-color:#9cfdd5;"></span></a></li>
-                                                        </ul>
-                                                    </div>
+
                                                     <div class="ec-pro-size">
-                                                        <span class="ec-pro-opt-label">Size</span>
+                                                        <span
+                                                            class="ec-pro-opt-label">Size</span>
                                                         <ul class="ec-opt-size">
-                                                            <li class="active"><a href="#" class="ec-opt-sz"
-                                                                                  data-old="$25.00" data-new="$20.00"
-                                                                                  data-tooltip="Small">S</a></li>
-                                                            <li><a href="#" class="ec-opt-sz" data-old="$27.00"
-                                                                   data-new="$22.00" data-tooltip="Medium">M</a></li>
-                                                            <li><a href="#" class="ec-opt-sz" data-old="$30.00"
-                                                                   data-new="$25.00" data-tooltip="Large">X</a></li>
-                                                            <li><a href="#" class="ec-opt-sz" data-old="$35.00"
-                                                                   data-new="$30.00" data-tooltip="Extra Large">XL</a></li>
+                                                            <li
+                                                                class="active"><a
+                                                                    href="#"
+                                                                    class="ec-opt-sz"
+                                                                    data-old="$25.00"
+                                                                    data-new="$20.00"
+                                                                    data-tooltip="Small">S</a></li>
+                                                            <li><a href="#"
+                                                                    class="ec-opt-sz"
+                                                                    data-old="$27.00"
+                                                                    data-new="$22.00"
+                                                                    data-tooltip="Medium">M</a></li>
+                                                            <li><a href="#"
+                                                                    class="ec-opt-sz"
+                                                                    data-old="$30.00"
+                                                                    data-new="$25.00"
+                                                                    data-tooltip="Large">X</a></li>
+                                                            <li><a href="#"
+                                                                    class="ec-opt-sz"
+                                                                    data-old="$35.00"
+                                                                    data-new="$30.00"
+                                                                    data-tooltip="Extra Large">XL</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                    <div
+                                        class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                                         <div class="ec-product-inner">
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.jsp" class="image">
+                                                    <a
+                                                        href="product-left-sidebar.jsp"
+                                                        class="image">
                                                         <img class="main-image"
-                                                             src="assets/images/product-image/7_1.jpg" alt="Product" />
+                                                            src="assets/images/product-image/7_1.jpg"
+                                                            alt="Product" />
                                                         <img class="hover-image"
-                                                             src="assets/images/product-image/7_2.jpg" alt="Product" />
+                                                            src="assets/images/product-image/7_2.jpg"
+                                                            alt="Product" />
                                                     </a>
-                                                    <span class="percentage">20%</span>
+                                                    <span
+                                                        class="percentage">20%</span>
                                                     <span class="flags">
-                                                        <span class="sale">Sale</span>
+                                                        <span
+                                                            class="sale">Sale</span>
                                                     </span>
-                                                    <a href="#" class="quickview" data-link-action="quickview"
-                                                       title="Quick view" data-bs-toggle="modal"
-                                                       data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
+                                                    <a href="#"
+                                                        class="quickview"
+                                                        data-link-action="quickview"
+                                                        title="Quick view"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#ec_quickview_modal"><i
+                                                            class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
-                                                        <a href="compare.jsp" class="ec-btn-group compare"
-                                                           title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a>
-                                                        <button title="Add To Cart" class="add-to-cart"><i
-                                                                class="fi-rr-shopping-basket"></i> Add To Cart</button>
-                                                        <a class="ec-btn-group wishlist" title="Wishlist"><i
+                                                        <a href="compare.jsp"
+                                                            class="ec-btn-group compare"
+                                                            title="Compare"><i
+                                                                class="fi fi-rr-arrows-repeat"></i></a>
+                                                        <button
+                                                            title="Add To Cart"
+                                                            class="add-to-cart"><i
+                                                                class="fi-rr-shopping-basket"></i>
+                                                            Add To Cart</button>
+                                                        <a
+                                                            class="ec-btn-group wishlist"
+                                                            title="Wishlist"><i
                                                                 class="fi-rr-heart"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-full-width.jsp">Full Sleeve Shirt</a></h5>
+                                                <h5 class="ec-pro-title"><a
+                                                        href="product-full-width.jsp">Full
+                                                        Sleeve Shirt</a></h5>
                                                 <div class="ec-pro-rating">
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star"></i>
                                                 </div>
-                                                <div class="ec-pro-list-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dutmmy text ever since the 1500s, when an unknown printer took a galley.</div>
+                                                <div
+                                                    class="ec-pro-list-desc">Lorem
+                                                    Ipsum is simply dummy text
+                                                    of the printing and
+                                                    typesetting industry. Lorem
+                                                    Ipsum is simply dutmmy text
+                                                    ever since the 1500s, when
+                                                    an unknown printer took a
+                                                    galley.</div>
                                                 <span class="ec-price">
-                                                    <span class="old-price">$12.00</span>
-                                                    <span class="new-price">$10.00</span>
+                                                    <span
+                                                        class="old-price">$12.00</span>
+                                                    <span
+                                                        class="new-price">$10.00</span>
                                                 </span>
                                                 <div class="ec-pro-option">
-                                                    <div class="ec-pro-color">
-                                                        <span class="ec-pro-opt-label">Color</span>
-                                                        <ul class="ec-opt-swatch ec-change-img">
-                                                            <li class="active"><a href="#" class="ec-opt-clr-img"
-                                                                                  data-src="assets/images/product-image/7_1.jpg"
-                                                                                  data-src-hover="assets/images/product-image/7_1.jpg"
-                                                                                  data-tooltip="Gray"><span
-                                                                        style="background-color:#01f1f1;"></span></a></li>
-                                                            <li><a href="#" class="ec-opt-clr-img"
-                                                                   data-src="assets/images/product-image/7_2.jpg"
-                                                                   data-src-hover="assets/images/product-image/7_2.jpg"
-                                                                   data-tooltip="Orange"><span
-                                                                        style="background-color:#b89df8;"></span></a></li>
-                                                        </ul>
-                                                    </div>
+
                                                     <div class="ec-pro-size">
-                                                        <span class="ec-pro-opt-label">Size</span>
+                                                        <span
+                                                            class="ec-pro-opt-label">Size</span>
                                                         <ul class="ec-opt-size">
-                                                            <li class="active"><a href="#" class="ec-opt-sz"
-                                                                                  data-old="$12.00" data-new="$10.00"
-                                                                                  data-tooltip="Small">S</a></li>
-                                                            <li><a href="#" class="ec-opt-sz" data-old="$15.00"
-                                                                   data-new="$12.00" data-tooltip="Medium">M</a></li>
-                                                            <li><a href="#" class="ec-opt-sz" data-old="$18.00"
-                                                                   data-new="$15.00" data-tooltip="Large">X</a></li>
-                                                            <li><a href="#" class="ec-opt-sz" data-old="$20.00"
-                                                                   data-new="$17.00" data-tooltip="Extra Large">XL</a></li>
+                                                            <li
+                                                                class="active"><a
+                                                                    href="#"
+                                                                    class="ec-opt-sz"
+                                                                    data-old="$12.00"
+                                                                    data-new="$10.00"
+                                                                    data-tooltip="Small">S</a></li>
+                                                            <li><a href="#"
+                                                                    class="ec-opt-sz"
+                                                                    data-old="$15.00"
+                                                                    data-new="$12.00"
+                                                                    data-tooltip="Medium">M</a></li>
+                                                            <li><a href="#"
+                                                                    class="ec-opt-sz"
+                                                                    data-old="$18.00"
+                                                                    data-new="$15.00"
+                                                                    data-tooltip="Large">X</a></li>
+                                                            <li><a href="#"
+                                                                    class="ec-opt-sz"
+                                                                    data-old="$20.00"
+                                                                    data-new="$17.00"
+                                                                    data-tooltip="Extra Large">XL</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                    <div
+                                        class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                                         <div class="ec-product-inner">
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.jsp" class="image">
+                                                    <a
+                                                        href="product-left-sidebar.jsp"
+                                                        class="image">
                                                         <img class="main-image"
-                                                             src="assets/images/product-image/1_1.jpg" alt="Product" />
+                                                            src="assets/images/product-image/1_1.jpg"
+                                                            alt="Product" />
                                                         <img class="hover-image"
-                                                             src="assets/images/product-image/1_2.jpg" alt="Product" />
+                                                            src="assets/images/product-image/1_2.jpg"
+                                                            alt="Product" />
                                                     </a>
-                                                    <span class="percentage">20%</span>
+                                                    <span
+                                                        class="percentage">20%</span>
                                                     <span class="flags">
-                                                        <span class="sale">Sale</span>
+                                                        <span
+                                                            class="sale">Sale</span>
                                                     </span>
-                                                    <a href="#" class="quickview" data-link-action="quickview"
-                                                       title="Quick view" data-bs-toggle="modal"
-                                                       data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
+                                                    <a href="#"
+                                                        class="quickview"
+                                                        data-link-action="quickview"
+                                                        title="Quick view"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#ec_quickview_modal"><i
+                                                            class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
-                                                        <a href="compare.jsp" class="ec-btn-group compare"
-                                                           title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a>
-                                                        <button title="Add To Cart" class="add-to-cart"><i
-                                                                class="fi-rr-shopping-basket"></i> Add To Cart</button>
-                                                        <a class="ec-btn-group wishlist" title="Wishlist"><i
+                                                        <a href="compare.jsp"
+                                                            class="ec-btn-group compare"
+                                                            title="Compare"><i
+                                                                class="fi fi-rr-arrows-repeat"></i></a>
+                                                        <button
+                                                            title="Add To Cart"
+                                                            class="add-to-cart"><i
+                                                                class="fi-rr-shopping-basket"></i>
+                                                            Add To Cart</button>
+                                                        <a
+                                                            class="ec-btn-group wishlist"
+                                                            title="Wishlist"><i
                                                                 class="fi-rr-heart"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-full-width.jsp">Cute Baby Toy's</a></h5>
+                                                <h5 class="ec-pro-title"><a
+                                                        href="product-full-width.jsp">Cute
+                                                        Baby Toy's</a></h5>
                                                 <div class="ec-pro-rating">
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star"></i>
                                                 </div>
-                                                <div class="ec-pro-list-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dutmmy text ever since the 1500s, when an unknown printer took a galley.</div>
+                                                <div
+                                                    class="ec-pro-list-desc">Lorem
+                                                    Ipsum is simply dummy text
+                                                    of the printing and
+                                                    typesetting industry. Lorem
+                                                    Ipsum is simply dutmmy text
+                                                    ever since the 1500s, when
+                                                    an unknown printer took a
+                                                    galley.</div>
                                                 <span class="ec-price">
-                                                    <span class="old-price">$40.00</span>
-                                                    <span class="new-price">$30.00</span>
+                                                    <span
+                                                        class="old-price">$40.00</span>
+                                                    <span
+                                                        class="new-price">$30.00</span>
                                                 </span>
                                                 <div class="ec-pro-option">
-                                                    <div class="ec-pro-color">
-                                                        <span class="ec-pro-opt-label">Color</span>
-                                                        <ul class="ec-opt-swatch ec-change-img">
-                                                            <li class="active"><a href="#" class="ec-opt-clr-img"
-                                                                                  data-src="assets/images/product-image/1_1.jpg"
-                                                                                  data-src-hover="assets/images/product-image/1_1.jpg"
-                                                                                  data-tooltip="Gray"><span
-                                                                        style="background-color:#90cdf7;"></span></a></li>
-                                                            <li><a href="#" class="ec-opt-clr-img"
-                                                                   data-src="assets/images/product-image/1_2.jpg"
-                                                                   data-src-hover="assets/images/product-image/1_2.jpg"
-                                                                   data-tooltip="Orange"><span
-                                                                        style="background-color:#ff3b66;"></span></a></li>
-                                                            <li><a href="#" class="ec-opt-clr-img"
-                                                                   data-src="assets/images/product-image/1_3.jpg"
-                                                                   data-src-hover="assets/images/product-image/1_3.jpg"
-                                                                   data-tooltip="Green"><span
-                                                                        style="background-color:#ffc476;"></span></a></li>
-                                                            <li><a href="#" class="ec-opt-clr-img"
-                                                                   data-src="assets/images/product-image/1_4.jpg"
-                                                                   data-src-hover="assets/images/product-image/1_4.jpg"
-                                                                   data-tooltip="Sky Blue"><span
-                                                                        style="background-color:#1af0ba;"></span></a></li>
-                                                        </ul>
-                                                    </div>
+
                                                     <div class="ec-pro-size">
-                                                        <span class="ec-pro-opt-label">Size</span>
+                                                        <span
+                                                            class="ec-pro-opt-label">Size</span>
                                                         <ul class="ec-opt-size">
-                                                            <li class="active"><a href="#" class="ec-opt-sz"
-                                                                                  data-old="$40.00" data-new="$30.00"
-                                                                                  data-tooltip="Small">S</a></li>
-                                                            <li><a href="#" class="ec-opt-sz" data-old="$50.00"
-                                                                   data-new="$40.00" data-tooltip="Medium">M</a></li>
+                                                            <li
+                                                                class="active"><a
+                                                                    href="#"
+                                                                    class="ec-opt-sz"
+                                                                    data-old="$40.00"
+                                                                    data-new="$30.00"
+                                                                    data-tooltip="Small">S</a></li>
+                                                            <li><a href="#"
+                                                                    class="ec-opt-sz"
+                                                                    data-old="$50.00"
+                                                                    data-new="$40.00"
+                                                                    data-tooltip="Medium">M</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                    <div
+                                        class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                                         <div class="ec-product-inner">
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.jsp" class="image">
+                                                    <a
+                                                        href="product-left-sidebar.jsp"
+                                                        class="image">
                                                         <img class="main-image"
-                                                             src="assets/images/product-image/2_1.jpg" alt="Product" />
+                                                            src="assets/images/product-image/2_1.jpg"
+                                                            alt="Product" />
                                                         <img class="hover-image"
-                                                             src="assets/images/product-image/2_2.jpg" alt="Product" />
+                                                            src="assets/images/product-image/2_2.jpg"
+                                                            alt="Product" />
                                                     </a>
-                                                    <span class="percentage">20%</span>
+                                                    <span
+                                                        class="percentage">20%</span>
                                                     <span class="flags">
-                                                        <span class="new">New</span>
+                                                        <span
+                                                            class="new">New</span>
                                                     </span>
-                                                    <a href="#" class="quickview" data-link-action="quickview"
-                                                       title="Quick view" data-bs-toggle="modal"
-                                                       data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
+                                                    <a href="#"
+                                                        class="quickview"
+                                                        data-link-action="quickview"
+                                                        title="Quick view"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#ec_quickview_modal"><i
+                                                            class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
-                                                        <a href="compare.jsp" class="ec-btn-group compare"
-                                                           title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a>
-                                                        <button title="Add To Cart" class="add-to-cart"><i
-                                                                class="fi-rr-shopping-basket"></i> Add To Cart</button>
-                                                        <a class="ec-btn-group wishlist" title="Wishlist"><i
+                                                        <a href="compare.jsp"
+                                                            class="ec-btn-group compare"
+                                                            title="Compare"><i
+                                                                class="fi fi-rr-arrows-repeat"></i></a>
+                                                        <button
+                                                            title="Add To Cart"
+                                                            class="add-to-cart"><i
+                                                                class="fi-rr-shopping-basket"></i>
+                                                            Add To Cart</button>
+                                                        <a
+                                                            class="ec-btn-group wishlist"
+                                                            title="Wishlist"><i
                                                                 class="fi-rr-heart"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-full-width.jsp">Jumbo Carry Bag</a></h5>
+                                                <h5 class="ec-pro-title"><a
+                                                        href="product-full-width.jsp">Jumbo
+                                                        Carry Bag</a></h5>
                                                 <div class="ec-pro-rating">
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star"></i>
                                                 </div>
-                                                <div class="ec-pro-list-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dutmmy text ever since the 1500s, when an unknown printer took a galley.</div>
+                                                <div
+                                                    class="ec-pro-list-desc">Lorem
+                                                    Ipsum is simply dummy text
+                                                    of the printing and
+                                                    typesetting industry. Lorem
+                                                    Ipsum is simply dutmmy text
+                                                    ever since the 1500s, when
+                                                    an unknown printer took a
+                                                    galley.</div>
                                                 <span class="ec-price">
-                                                    <span class="old-price">$50.00</span>
-                                                    <span class="new-price">$40.00</span>
-                                                </span>                                                
-                                                <div class="ec-pro-option">
-                                                    <div class="ec-pro-color">
-                                                        <span class="ec-pro-opt-label">Color</span>
-                                                        <ul class="ec-opt-swatch ec-change-img">
-                                                            <li class="active"><a href="#" class="ec-opt-clr-img"
-                                                                                  data-src="assets/images/product-image/2_1.jpg"
-                                                                                  data-src-hover="assets/images/product-image/2_2.jpg"
-                                                                                  data-tooltip="Gray"><span
-                                                                        style="background-color:#fdbf04;"></span></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
-                                        <div class="ec-product-inner">
-                                            <div class="ec-pro-image-outer">
-                                                <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.jsp" class="image">
-                                                        <img class="main-image"
-                                                             src="assets/images/product-image/3_1.jpg" alt="Product" />
-                                                        <img class="hover-image"
-                                                             src="assets/images/product-image/3_2.jpg" alt="Product" />
-                                                    </a>
-                                                    <span class="percentage">20%</span>
-                                                    <span class="flags">
-                                                        <span class="new">New</span>
-                                                    </span>
-                                                    <a href="#" class="quickview" data-link-action="quickview"
-                                                       title="Quick view" data-bs-toggle="modal"
-                                                       data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
-                                                    <div class="ec-pro-actions">
-                                                        <a href="compare.jsp" class="ec-btn-group compare"
-                                                           title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a>
-                                                        <button title="Add To Cart" class="add-to-cart"><i
-                                                                class="fi-rr-shopping-basket"></i> Add To Cart</button>
-                                                        <a class="ec-btn-group wishlist" title="Wishlist"><i
-                                                                class="fi-rr-heart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-full-width.jsp">Designer Leather Purses</a></h5>
-                                                <div class="ec-pro-rating">
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star"></i>
-                                                </div>
-                                                <div class="ec-pro-list-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dutmmy text ever since the 1500s, when an unknown printer took a galley.</div>
-                                                <span class="ec-price">
-                                                    <span class="old-price">$40.00</span>
-                                                    <span class="new-price">$30.00</span>
+                                                    <span
+                                                        class="old-price">$50.00</span>
+                                                    <span
+                                                        class="new-price">$40.00</span>
                                                 </span>
                                                 <div class="ec-pro-option">
-                                                    <div class="ec-pro-color">
-                                                        <span class="ec-pro-opt-label">Color</span>
-                                                        <ul class="ec-opt-swatch ec-change-img">
-                                                            <li class="active"><a href="#" class="ec-opt-clr-img"
-                                                                                  data-src="assets/images/product-image/3_1.jpg"
-                                                                                  data-src-hover="assets/images/product-image/3_1.jpg"
-                                                                                  data-tooltip="Gray"><span
-                                                                        style="background-color:#75e3ff;"></span></a></li>
-                                                            <li><a href="#" class="ec-opt-clr-img"
-                                                                   data-src="assets/images/product-image/3_2.jpg"
-                                                                   data-src-hover="assets/images/product-image/3_2.jpg"
-                                                                   data-tooltip="Orange"><span
-                                                                        style="background-color:#11f7d8;"></span></a></li>
-                                                            <li><a href="#" class="ec-opt-clr-img"
-                                                                   data-src="assets/images/product-image/3_3.jpg"
-                                                                   data-src-hover="assets/images/product-image/3_3.jpg"
-                                                                   data-tooltip="Green"><span
-                                                                        style="background-color:#acff7c;"></span></a></li>
-                                                            <li><a href="#" class="ec-opt-clr-img"
-                                                                   data-src="assets/images/product-image/3_5.jpg"
-                                                                   data-src-hover="assets/images/product-image/3_5.jpg"
-                                                                   data-tooltip="Sky Blue"><span
-                                                                        style="background-color:#e996fa;"></span></a></li>
-                                                        </ul>
-                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                    <div
+                                        class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                                         <div class="ec-product-inner">
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.jsp" class="image">
+                                                    <a
+                                                        href="product-left-sidebar.jsp"
+                                                        class="image">
                                                         <img class="main-image"
-                                                             src="assets/images/product-image/4_1.jpg" alt="Product" />
+                                                            src="assets/images/product-image/3_1.jpg"
+                                                            alt="Product" />
                                                         <img class="hover-image"
-                                                             src="assets/images/product-image/4_2.jpg" alt="Product" />
+                                                            src="assets/images/product-image/3_2.jpg"
+                                                            alt="Product" />
                                                     </a>
-                                                    <a href="#" class="quickview" data-link-action="quickview"
-                                                       title="Quick view" data-bs-toggle="modal"
-                                                       data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
+                                                    <span
+                                                        class="percentage">20%</span>
+                                                    <span class="flags">
+                                                        <span
+                                                            class="new">New</span>
+                                                    </span>
+                                                    <a href="#"
+                                                        class="quickview"
+                                                        data-link-action="quickview"
+                                                        title="Quick view"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#ec_quickview_modal"><i
+                                                            class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
-                                                        <a href="compare.jsp" class="ec-btn-group compare"
-                                                           title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a>
-                                                        <button title="Add To Cart" class="add-to-cart"><i
-                                                                class="fi-rr-shopping-basket"></i> Add To Cart</button>
-                                                        <a class="ec-btn-group wishlist" title="Wishlist"><i
+                                                        <a href="compare.jsp"
+                                                            class="ec-btn-group compare"
+                                                            title="Compare"><i
+                                                                class="fi fi-rr-arrows-repeat"></i></a>
+                                                        <button
+                                                            title="Add To Cart"
+                                                            class="add-to-cart"><i
+                                                                class="fi-rr-shopping-basket"></i>
+                                                            Add To Cart</button>
+                                                        <a
+                                                            class="ec-btn-group wishlist"
+                                                            title="Wishlist"><i
                                                                 class="fi-rr-heart"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-full-width.jsp">Canvas Cowboy Hat</a></h5>
+                                                <h5 class="ec-pro-title"><a
+                                                        href="product-full-width.jsp">Designer
+                                                        Leather Purses</a></h5>
                                                 <div class="ec-pro-rating">
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star"></i>
                                                 </div>
-                                                <div class="ec-pro-list-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dutmmy text ever since the 1500s, when an unknown printer took a galley.</div>
+                                                <div
+                                                    class="ec-pro-list-desc">Lorem
+                                                    Ipsum is simply dummy text
+                                                    of the printing and
+                                                    typesetting industry. Lorem
+                                                    Ipsum is simply dutmmy text
+                                                    ever since the 1500s, when
+                                                    an unknown printer took a
+                                                    galley.</div>
                                                 <span class="ec-price">
-                                                    <span class="old-price">$12.00</span>
-                                                    <span class="new-price">$10.00</span>
+                                                    <span
+                                                        class="old-price">$40.00</span>
+                                                    <span
+                                                        class="new-price">$30.00</span>
                                                 </span>
                                                 <div class="ec-pro-option">
-                                                    <div class="ec-pro-color">
-                                                        <span class="ec-pro-opt-label">Color</span>
-                                                        <ul class="ec-opt-swatch ec-change-img">
-                                                            <li class="active"><a href="#" class="ec-opt-clr-img"
-                                                                                  data-src="assets/images/product-image/4_1.jpg"
-                                                                                  data-src-hover="assets/images/product-image/4_1.jpg"
-                                                                                  data-tooltip="Gray"><span
-                                                                        style="background-color:#ebbf60;"></span></a></li>
-                                                            <li><a href="#" class="ec-opt-clr-img"
-                                                                   data-src="assets/images/product-image/4_2.jpg"
-                                                                   data-src-hover="assets/images/product-image/4_2.jpg"
-                                                                   data-tooltip="Orange"><span
-                                                                        style="background-color:#b4fc57;"></span></a></li>
-                                                            <li><a href="#" class="ec-opt-clr-img"
-                                                                   data-src="assets/images/product-image/4_3.jpg"
-                                                                   data-src-hover="assets/images/product-image/4_3.jpg"
-                                                                   data-tooltip="Green"><span
-                                                                        style="background-color:#2ea1cd;"></span></a></li>
-                                                            <li><a href="#" class="ec-opt-clr-img"
-                                                                   data-src="assets/images/product-image/4_4.jpg"
-                                                                   data-src-hover="assets/images/product-image/4_4.jpg"
-                                                                   data-tooltip="Sky Blue"><span
-                                                                        style="background-color:#c1a1fd;"></span></a></li>
-                                                        </ul>
-                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                    <div
+                                        class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                                         <div class="ec-product-inner">
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.jsp" class="image">
+                                                    <a
+                                                        href="product-left-sidebar.jsp"
+                                                        class="image">
                                                         <img class="main-image"
-                                                             src="assets/images/product-image/5_1.jpg" alt="Product" />
+                                                            src="assets/images/product-image/4_1.jpg"
+                                                            alt="Product" />
                                                         <img class="hover-image"
-                                                             src="assets/images/product-image/5_2.jpg" alt="Product" />
+                                                            src="assets/images/product-image/4_2.jpg"
+                                                            alt="Product" />
+                                                    </a>
+                                                    <a href="#"
+                                                        class="quickview"
+                                                        data-link-action="quickview"
+                                                        title="Quick view"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#ec_quickview_modal"><i
+                                                            class="fi-rr-eye"></i></a>
+                                                    <div class="ec-pro-actions">
+                                                        <a href="compare.jsp"
+                                                            class="ec-btn-group compare"
+                                                            title="Compare"><i
+                                                                class="fi fi-rr-arrows-repeat"></i></a>
+                                                        <button
+                                                            title="Add To Cart"
+                                                            class="add-to-cart"><i
+                                                                class="fi-rr-shopping-basket"></i>
+                                                            Add To Cart</button>
+                                                        <a
+                                                            class="ec-btn-group wishlist"
+                                                            title="Wishlist"><i
+                                                                class="fi-rr-heart"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ec-pro-content">
+                                                <h5 class="ec-pro-title"><a
+                                                        href="product-full-width.jsp">Canvas
+                                                        Cowboy Hat</a></h5>
+                                                <div class="ec-pro-rating">
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star"></i>
+                                                </div>
+                                                <div
+                                                    class="ec-pro-list-desc">Lorem
+                                                    Ipsum is simply dummy text
+                                                    of the printing and
+                                                    typesetting industry. Lorem
+                                                    Ipsum is simply dutmmy text
+                                                    ever since the 1500s, when
+                                                    an unknown printer took a
+                                                    galley.</div>
+                                                <span class="ec-price">
+                                                    <span
+                                                        class="old-price">$12.00</span>
+                                                    <span
+                                                        class="new-price">$10.00</span>
+                                                </span>
+                                                <div class="ec-pro-option">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                        <div class="ec-product-inner">
+                                            <div class="ec-pro-image-outer">
+                                                <div class="ec-pro-image">
+                                                    <a
+                                                        href="product-left-sidebar.jsp"
+                                                        class="image">
+                                                        <img class="main-image"
+                                                            src="assets/images/product-image/5_1.jpg"
+                                                            alt="Product" />
+                                                        <img class="hover-image"
+                                                            src="assets/images/product-image/5_2.jpg"
+                                                            alt="Product" />
                                                     </a>
                                                     <span class="flags">
-                                                        <span class="new">New</span>
+                                                        <span
+                                                            class="new">New</span>
                                                     </span>
-                                                    <a href="#" class="quickview" data-link-action="quickview"
-                                                       title="Quick view" data-bs-toggle="modal"
-                                                       data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
+                                                    <a href="#"
+                                                        class="quickview"
+                                                        data-link-action="quickview"
+                                                        title="Quick view"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#ec_quickview_modal"><i
+                                                            class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
-                                                        <a href="compare.jsp" class="ec-btn-group compare"
-                                                           title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a>
-                                                        <button title="Add To Cart" class="add-to-cart"><i
-                                                                class="fi-rr-shopping-basket"></i> Add To Cart</button>
-                                                        <a class="ec-btn-group wishlist" title="Wishlist"><i
+                                                        <a href="compare.jsp"
+                                                            class="ec-btn-group compare"
+                                                            title="Compare"><i
+                                                                class="fi fi-rr-arrows-repeat"></i></a>
+                                                        <button
+                                                            title="Add To Cart"
+                                                            class="add-to-cart"><i
+                                                                class="fi-rr-shopping-basket"></i>
+                                                            Add To Cart</button>
+                                                        <a
+                                                            class="ec-btn-group wishlist"
+                                                            title="Wishlist"><i
                                                                 class="fi-rr-heart"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-full-width.jsp">Leather Belt for Men</a></h5>
+                                                <h5 class="ec-pro-title"><a
+                                                        href="product-full-width.jsp">Leather
+                                                        Belt for Men</a></h5>
                                                 <div class="ec-pro-rating">
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star"></i>
                                                 </div>
-                                                <div class="ec-pro-list-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dutmmy text ever since the 1500s, when an unknown printer took a galley.</div>
+                                                <div
+                                                    class="ec-pro-list-desc">Lorem
+                                                    Ipsum is simply dummy text
+                                                    of the printing and
+                                                    typesetting industry. Lorem
+                                                    Ipsum is simply dutmmy text
+                                                    ever since the 1500s, when
+                                                    an unknown printer took a
+                                                    galley.</div>
                                                 <span class="ec-price">
-                                                    <span class="old-price">$15.00</span>
-                                                    <span class="new-price">$10.00</span>
+                                                    <span
+                                                        class="old-price">$15.00</span>
+                                                    <span
+                                                        class="new-price">$10.00</span>
                                                 </span>
                                                 <div class="ec-pro-option">
-                                                    <div class="ec-pro-color">
-                                                        <span class="ec-pro-opt-label">Color</span>
-                                                        <ul class="ec-opt-swatch ec-change-img">
-                                                            <li class="active"><a href="#" class="ec-opt-clr-img"
-                                                                                  data-src="assets/images/product-image/5_1.jpg"
-                                                                                  data-src-hover="assets/images/product-image/5_1.jpg"
-                                                                                  data-tooltip="Gray"><span
-                                                                        style="background-color:#9e9e9e;"></span></a></li>
-                                                            <li><a href="#" class="ec-opt-clr-img"
-                                                                   data-src="assets/images/product-image/5_2.jpg"
-                                                                   data-src-hover="assets/images/product-image/5_2.jpg"
-                                                                   data-tooltip="Orange"><span
-                                                                        style="background-color:#eb8e76;"></span></a></li>
-                                                        </ul>
-                                                    </div>
+
                                                     <div class="ec-pro-size">
-                                                        <span class="ec-pro-opt-label">Size</span>
+                                                        <span
+                                                            class="ec-pro-opt-label">Size</span>
                                                         <ul class="ec-opt-size">
-                                                            <li class="active"><a href="#" class="ec-opt-sz"
-                                                                                  data-old="$15.00" data-new="$10.00"
-                                                                                  data-tooltip="Small">32</a></li>
-                                                            <li><a href="#" class="ec-opt-sz" data-old="$17.00"
-                                                                   data-new="$12.00" data-tooltip="Medium">34</a></li>
-                                                            <li><a href="#" class="ec-opt-sz" data-old="$20.00"
-                                                                   data-new="$15.00" data-tooltip="Large">36</a></li>
+                                                            <li
+                                                                class="active"><a
+                                                                    href="#"
+                                                                    class="ec-opt-sz"
+                                                                    data-old="$15.00"
+                                                                    data-new="$10.00"
+                                                                    data-tooltip="Small">32</a></li>
+                                                            <li><a href="#"
+                                                                    class="ec-opt-sz"
+                                                                    data-old="$17.00"
+                                                                    data-new="$12.00"
+                                                                    data-tooltip="Medium">34</a></li>
+                                                            <li><a href="#"
+                                                                    class="ec-opt-sz"
+                                                                    data-old="$20.00"
+                                                                    data-new="$15.00"
+                                                                    data-tooltip="Large">36</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                    <div
+                                        class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                                         <div class="ec-product-inner">
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.jsp" class="image">
+                                                    <a
+                                                        href="product-left-sidebar.jsp"
+                                                        class="image">
                                                         <img class="main-image"
-                                                             src="assets/images/product-image/8_1.jpg" alt="Product" />
+                                                            src="assets/images/product-image/8_1.jpg"
+                                                            alt="Product" />
                                                         <img class="hover-image"
-                                                             src="assets/images/product-image/8_2.jpg" alt="Product" />
+                                                            src="assets/images/product-image/8_2.jpg"
+                                                            alt="Product" />
                                                     </a>
-                                                    <span class="percentage">20%</span>
+                                                    <span
+                                                        class="percentage">20%</span>
                                                     <span class="flags">
-                                                        <span class="new">New</span>
+                                                        <span
+                                                            class="new">New</span>
                                                     </span>
-                                                    <a href="#" class="quickview" data-link-action="quickview"
-                                                       title="Quick view" data-bs-toggle="modal"
-                                                       data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
+                                                    <a href="#"
+                                                        class="quickview"
+                                                        data-link-action="quickview"
+                                                        title="Quick view"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#ec_quickview_modal"><i
+                                                            class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
-                                                        <a href="compare.jsp" class="ec-btn-group compare"
-                                                           title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a>
-                                                        <button title="Add To Cart" class="add-to-cart"><i
-                                                                class="fi-rr-shopping-basket"></i> Add To Cart</button>
-                                                        <a class="ec-btn-group wishlist" title="Wishlist"><i
+                                                        <a href="compare.jsp"
+                                                            class="ec-btn-group compare"
+                                                            title="Compare"><i
+                                                                class="fi fi-rr-arrows-repeat"></i></a>
+                                                        <button
+                                                            title="Add To Cart"
+                                                            class="add-to-cart"><i
+                                                                class="fi-rr-shopping-basket"></i>
+                                                            Add To Cart</button>
+                                                        <a
+                                                            class="ec-btn-group wishlist"
+                                                            title="Wishlist"><i
                                                                 class="fi-rr-heart"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-full-width.jsp">Digital Smart Watches</a></h5>
+                                                <h5 class="ec-pro-title"><a
+                                                        href="product-full-width.jsp">Digital
+                                                        Smart Watches</a></h5>
                                                 <div class="ec-pro-rating">
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star"></i>
                                                 </div>
-                                                <div class="ec-pro-list-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dutmmy text ever since the 1500s, when an unknown printer took a galley.</div>
+                                                <div
+                                                    class="ec-pro-list-desc">Lorem
+                                                    Ipsum is simply dummy text
+                                                    of the printing and
+                                                    typesetting industry. Lorem
+                                                    Ipsum is simply dutmmy text
+                                                    ever since the 1500s, when
+                                                    an unknown printer took a
+                                                    galley.</div>
                                                 <span class="ec-price">
-                                                    <span class="old-price">$100.00</span>
-                                                    <span class="new-price">$80.00</span>
+                                                    <span
+                                                        class="old-price">$100.00</span>
+                                                    <span
+                                                        class="new-price">$80.00</span>
                                                 </span>
                                                 <div class="ec-pro-option">
-                                                    <div class="ec-pro-color">
-                                                        <span class="ec-pro-opt-label">Color</span>
-                                                        <ul class="ec-opt-swatch ec-change-img">
-                                                            <li class="active"><a href="#" class="ec-opt-clr-img"
-                                                                                  data-src="assets/images/product-image/8_2.jpg"
-                                                                                  data-src-hover="assets/images/product-image/8_2.jpg"
-                                                                                  data-tooltip="Gray"><span
-                                                                        style="background-color:#e9dddd;"></span></a></li>
-                                                            <li><a href="#" class="ec-opt-clr-img"
-                                                                   data-src="assets/images/product-image/8_3.jpg"
-                                                                   data-src-hover="assets/images/product-image/8_3.jpg"
-                                                                   data-tooltip="Orange"><span
-                                                                        style="background-color:#ffd5cb;"></span></a></li>
-                                                            <li><a href="#" class="ec-opt-clr-img"
-                                                                   data-src="assets/images/product-image/8_4.jpg"
-                                                                   data-src-hover="assets/images/product-image/8_4.jpg"
-                                                                   data-tooltip="Green"><span
-                                                                        style="background-color:#92e4fd;"></span></a></li>
-                                                        </ul>
-                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                    <div
+                                        class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                                         <div class="ec-product-inner">
                                             <div class="ec-pro-image-outer">
                                                 <div class="ec-pro-image">
-                                                    <a href="product-left-sidebar.jsp" class="image">
+                                                    <a
+                                                        href="product-left-sidebar.jsp"
+                                                        class="image">
                                                         <img class="main-image"
-                                                             src="assets/images/product-image/6_1.jpg" alt="Product" />
+                                                            src="assets/images/product-image/6_1.jpg"
+                                                            alt="Product" />
                                                         <img class="hover-image"
-                                                             src="assets/images/product-image/6_2.jpg" alt="Product" />
+                                                            src="assets/images/product-image/6_2.jpg"
+                                                            alt="Product" />
                                                     </a>
-                                                    <span class="percentage">20%</span>
-                                                    <a href="#" class="quickview" data-link-action="quickview"
-                                                       title="Quick view" data-bs-toggle="modal"
-                                                       data-bs-target="#ec_quickview_modal"><i class="fi-rr-eye"></i></a>
+                                                    <span
+                                                        class="percentage">20%</span>
+                                                    <a href="#"
+                                                        class="quickview"
+                                                        data-link-action="quickview"
+                                                        title="Quick view"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#ec_quickview_modal"><i
+                                                            class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
-                                                        <a href="compare.jsp" class="ec-btn-group compare"
-                                                           title="Compare"><i class="fi fi-rr-arrows-repeat"></i></a>
-                                                        <button title="Add To Cart" class="add-to-cart"><i
-                                                                class="fi-rr-shopping-basket"></i> Add To Cart</button>
-                                                        <a class="ec-btn-group wishlist" title="Wishlist"><i
+                                                        <a href="compare.jsp"
+                                                            class="ec-btn-group compare"
+                                                            title="Compare"><i
+                                                                class="fi fi-rr-arrows-repeat"></i></a>
+                                                        <button
+                                                            title="Add To Cart"
+                                                            class="add-to-cart"><i
+                                                                class="fi-rr-shopping-basket"></i>
+                                                            Add To Cart</button>
+                                                        <a
+                                                            class="ec-btn-group wishlist"
+                                                            title="Wishlist"><i
                                                                 class="fi-rr-heart"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="ec-pro-content">
-                                                <h5 class="ec-pro-title"><a href="product-full-width.jsp">Round Neck T-Shirt</a></h5>
+                                                <h5 class="ec-pro-title"><a
+                                                        href="product-full-width.jsp">Round
+                                                        Neck T-Shirt</a></h5>
                                                 <div class="ec-pro-rating">
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star fill"></i>
-                                                    <i class="ecicon eci-star"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                    <i
+                                                        class="ecicon eci-star"></i>
                                                 </div>
-                                                <div class="ec-pro-list-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dutmmy text ever since the 1500s, when an unknown printer took a galley.</div>
+                                                <div
+                                                    class="ec-pro-list-desc">Lorem
+                                                    Ipsum is simply dummy text
+                                                    of the printing and
+                                                    typesetting industry. Lorem
+                                                    Ipsum is simply dutmmy text
+                                                    ever since the 1500s, when
+                                                    an unknown printer took a
+                                                    galley.</div>
                                                 <span class="ec-price">
-                                                    <span class="old-price">$27.00</span>
-                                                    <span class="new-price">$22.00</span>
+                                                    <span
+                                                        class="old-price">$27.00</span>
+                                                    <span
+                                                        class="new-price">$22.00</span>
                                                 </span>
                                                 <div class="ec-pro-option">
-                                                    <div class="ec-pro-color">
-                                                        <span class="ec-pro-opt-label">Color</span>
-                                                        <ul class="ec-opt-swatch ec-change-img">
-                                                            <li class="active"><a href="#" class="ec-opt-clr-img"
-                                                                                  data-src="assets/images/product-image/6_1.jpg"
-                                                                                  data-src-hover="assets/images/product-image/6_1.jpg"
-                                                                                  data-tooltip="Gray"><span
-                                                                        style="background-color:#e8c2ff;"></span></a></li>
-                                                            <li><a href="#" class="ec-opt-clr-img"
-                                                                   data-src="assets/images/product-image/6_2.jpg"
-                                                                   data-src-hover="assets/images/product-image/6_2.jpg"
-                                                                   data-tooltip="Orange"><span
-                                                                        style="background-color:#9cfdd5;"></span></a></li>
-                                                        </ul>
-                                                    </div>
+
                                                     <div class="ec-pro-size">
-                                                        <span class="ec-pro-opt-label">Size</span>
+                                                        <span
+                                                            class="ec-pro-opt-label">Size</span>
                                                         <ul class="ec-opt-size">
-                                                            <li class="active"><a href="#" class="ec-opt-sz"
-                                                                                  data-old="$25.00" data-new="$20.00"
-                                                                                  data-tooltip="Small">S</a></li>
-                                                            <li><a href="#" class="ec-opt-sz" data-old="$27.00"
-                                                                   data-new="$22.00" data-tooltip="Medium">M</a></li>
-                                                            <li><a href="#" class="ec-opt-sz" data-old="$30.00"
-                                                                   data-new="$25.00" data-tooltip="Large">X</a></li>
-                                                            <li><a href="#" class="ec-opt-sz" data-old="$35.00"
-                                                                   data-new="$30.00" data-tooltip="Extra Large">XL</a></li>
+                                                            <li
+                                                                class="active"><a
+                                                                    href="#"
+                                                                    class="ec-opt-sz"
+                                                                    data-old="$25.00"
+                                                                    data-new="$20.00"
+                                                                    data-tooltip="Small">S</a></li>
+                                                            <li><a href="#"
+                                                                    class="ec-opt-sz"
+                                                                    data-old="$27.00"
+                                                                    data-new="$22.00"
+                                                                    data-tooltip="Medium">M</a></li>
+                                                            <li><a href="#"
+                                                                    class="ec-opt-sz"
+                                                                    data-old="$30.00"
+                                                                    data-new="$25.00"
+                                                                    data-tooltip="Large">X</a></li>
+                                                            <li><a href="#"
+                                                                    class="ec-opt-sz"
+                                                                    data-old="$35.00"
+                                                                    data-new="$30.00"
+                                                                    data-tooltip="Extra Large">XL</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1302,7 +1611,8 @@
                                     <li><a href="#">3</a></li>
                                     <li><a href="#">4</a></li>
                                     <li><a href="#">5</a></li>
-                                    <li><a class="next" href="#">Next <i class="ecicon eci-angle-right"></i></a></li>
+                                    <li><a class="next" href="#">Next <i
+                                                class="ecicon eci-angle-right"></i></a></li>
                                 </ul>
                             </div>
                             <!-- Ec Pagination End -->
@@ -1310,7 +1620,8 @@
                         <!--Shop content End -->
                     </div>
                     <!-- Sidebar Area Start -->
-                    <div class="ec-shop-leftside col-lg-3 order-lg-first col-md-12 order-md-last">
+                    <div
+                        class="ec-shop-leftside col-lg-3 order-lg-first col-md-12 order-md-last">
                         <div id="shop_sidebar">
                             <div class="ec-sidebar-heading">
                                 <h1>Filter Products By</h1>
@@ -1324,20 +1635,27 @@
                                     <div class="ec-sb-block-content">
                                         <ul>
                                             <li>
-                                                <div class="ec-sidebar-block-item">
-                                                    <input type="checkbox" checked /> <a href="#">Woman</a><span
+                                                <div
+                                                    class="ec-sidebar-block-item">
+                                                    <input type="checkbox"
+                                                        checked /> <a
+                                                        href="#">Woman</a><span
                                                         class="checked"></span>
                                                 </div>
                                             </li>
                                             <li>
-                                                <div class="ec-sidebar-block-item">
-                                                    <input type="checkbox" /> <a href="#">Man</a><span
+                                                <div
+                                                    class="ec-sidebar-block-item">
+                                                    <input type="checkbox" /> <a
+                                                        href="#">Man</a><span
                                                         class="checked"></span>
                                                 </div>
                                             </li>
                                             <li>
-                                                <div class="ec-sidebar-block-item">
-                                                    <input type="checkbox" /> <a href="#">Kids</a><span
+                                                <div
+                                                    class="ec-sidebar-block-item">
+                                                    <input type="checkbox" /> <a
+                                                        href="#">Kids</a><span
                                                         class="checked"></span>
                                                 </div>
                                             </li>
@@ -1345,65 +1663,91 @@
                                     </div>
 
                                     <div class="ec-sb-title">
-                                        <h3 class="ec-sidebar-title">Category</h3>
+                                        <h3
+                                            class="ec-sidebar-title">Category</h3>
                                     </div>
                                     <div class="ec-sb-block-content">
                                         <ul>
                                             <li>
-                                                <div class="ec-sidebar-block-item">
-                                                    <input type="checkbox" checked /> <a href="#">clothes</a><span
+                                                <div
+                                                    class="ec-sidebar-block-item">
+                                                    <input type="checkbox"
+                                                        checked /> <a
+                                                        href="#">clothes</a><span
                                                         class="checked"></span>
                                                 </div>
                                             </li>
                                             <li>
-                                                <div class="ec-sidebar-block-item">
-                                                    <input type="checkbox" /> <a href="#">Bags</a><span
+                                                <div
+                                                    class="ec-sidebar-block-item">
+                                                    <input type="checkbox" /> <a
+                                                        href="#">Bags</a><span
                                                         class="checked"></span>
                                                 </div>
                                             </li>
                                             <li>
-                                                <div class="ec-sidebar-block-item">
-                                                    <input type="checkbox" /> <a href="#">Shoes</a><span
+                                                <div
+                                                    class="ec-sidebar-block-item">
+                                                    <input type="checkbox" /> <a
+                                                        href="#">Shoes</a><span
                                                         class="checked"></span>
                                                 </div>
                                             </li>
                                             <li>
-                                                <div class="ec-sidebar-block-item">
-                                                    <input type="checkbox" /> <a href="#">cosmetics</a><span
+                                                <div
+                                                    class="ec-sidebar-block-item">
+                                                    <input type="checkbox" /> <a
+                                                        href="#">cosmetics</a><span
                                                         class="checked"></span>
                                                 </div>
                                             </li>
                                             <li>
-                                                <div class="ec-sidebar-block-item">
-                                                    <input type="checkbox" /> <a href="#">electrics</a><span
+                                                <div
+                                                    class="ec-sidebar-block-item">
+                                                    <input type="checkbox" /> <a
+                                                        href="#">electrics</a><span
                                                         class="checked"></span>
                                                 </div>
                                             </li>
                                             <li>
-                                                <div class="ec-sidebar-block-item">
-                                                    <input type="checkbox" /> <a href="#">phone</a><span
+                                                <div
+                                                    class="ec-sidebar-block-item">
+                                                    <input type="checkbox" /> <a
+                                                        href="#">phone</a><span
                                                         class="checked"></span>
                                                 </div>
                                             </li>
-                                            <li id="ec-more-toggle-content" style="padding: 0; display: none;">
+                                            <li id="ec-more-toggle-content"
+                                                style="padding: 0; display: none;">
                                                 <ul>
                                                     <li>
-                                                        <div class="ec-sidebar-block-item">
-                                                            <input type="checkbox" /> <a href="#">Watch</a><span
+                                                        <div
+                                                            class="ec-sidebar-block-item">
+                                                            <input
+                                                                type="checkbox" />
+                                                            <a
+                                                                href="#">Watch</a><span
                                                                 class="checked"></span>
                                                         </div>
                                                     </li>
                                                     <li>
-                                                        <div class="ec-sidebar-block-item">
-                                                            <input type="checkbox" /> <a href="#">Cap</a><span
+                                                        <div
+                                                            class="ec-sidebar-block-item">
+                                                            <input
+                                                                type="checkbox" />
+                                                            <a
+                                                                href="#">Cap</a><span
                                                                 class="checked"></span>
                                                         </div>
                                                     </li>
                                                 </ul>
                                             </li>
                                             <li>
-                                                <div class="ec-sidebar-block-item ec-more-toggle">
-                                                    <span class="checked"></span><span id="ec-more-toggle">More
+                                                <div
+                                                    class="ec-sidebar-block-item ec-more-toggle">
+                                                    <span
+                                                        class="checked"></span><span
+                                                        id="ec-more-toggle">More
                                                         Categories</span>
                                                 </div>
                                             </li>
@@ -1419,103 +1763,78 @@
                                     <div class="ec-sb-block-content">
                                         <ul>
                                             <li>
-                                                <div class="ec-sidebar-block-item">
-                                                    <input type="checkbox" value="" checked /><a href="#">S</a><span
+                                                <div
+                                                    class="ec-sidebar-block-item">
+                                                    <input type="checkbox" value
+                                                        checked /><a
+                                                        href="#">S</a><span
                                                         class="checked"></span>
                                                 </div>
                                             </li>
                                             <li>
-                                                <div class="ec-sidebar-block-item">
-                                                    <input type="checkbox" value="" /><a href="#">M</a><span
+                                                <div
+                                                    class="ec-sidebar-block-item">
+                                                    <input type="checkbox"
+                                                        value /><a
+                                                        href="#">M</a><span
                                                         class="checked"></span>
                                                 </div>
                                             </li>
                                             <li>
-                                                <div class="ec-sidebar-block-item">
-                                                    <input type="checkbox" value="" /> <a href="#">L</a><span
+                                                <div
+                                                    class="ec-sidebar-block-item">
+                                                    <input type="checkbox"
+                                                        value /> <a
+                                                        href="#">L</a><span
                                                         class="checked"></span>
                                                 </div>
                                             </li>
                                             <li>
-                                                <div class="ec-sidebar-block-item">
-                                                    <input type="checkbox" value="" /><a href="#">XL</a><span
+                                                <div
+                                                    class="ec-sidebar-block-item">
+                                                    <input type="checkbox"
+                                                        value /><a
+                                                        href="#">XL</a><span
                                                         class="checked"></span>
                                                 </div>
                                             </li>
                                             <li>
-                                                <div class="ec-sidebar-block-item">
-                                                    <input type="checkbox" value="" /><a href="#">XXL</a><span
+                                                <div
+                                                    class="ec-sidebar-block-item">
+                                                    <input type="checkbox"
+                                                        value /><a
+                                                        href="#">XXL</a><span
                                                         class="checked"></span>
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <!-- Sidebar Color item -->
-                                <div class="ec-sidebar-block ec-sidebar-block-clr">
-                                    <div class="ec-sb-title">
-                                        <h3 class="ec-sidebar-title">Color</h3>
-                                    </div>
-                                    <div class="ec-sb-block-content">
-                                        <ul>
-                                            <li>
-                                                <div class="ec-sidebar-block-item"><span
-                                                        style="background-color:#c4d6f9;"></span></div>
-                                            </li>
-                                            <li>
-                                                <div class="ec-sidebar-block-item"><span
-                                                        style="background-color:#ff748b;"></span></div>
-                                            </li>
-                                            <li>
-                                                <div class="ec-sidebar-block-item"><span
-                                                        style="background-color:#000000;"></span></div>
-                                            </li>
-                                            <li class="active">
-                                                <div class="ec-sidebar-block-item"><span
-                                                        style="background-color:#2bff4a;"></span></div>
-                                            </li>
-                                            <li>
-                                                <div class="ec-sidebar-block-item"><span
-                                                        style="background-color:#ff7c5e;"></span></div>
-                                            </li>
-                                            <li>
-                                                <div class="ec-sidebar-block-item"><span
-                                                        style="background-color:#f155ff;"></span></div>
-                                            </li>
-                                            <li>
-                                                <div class="ec-sidebar-block-item"><span
-                                                        style="background-color:#ffef00;"></span></div>
-                                            </li>
-                                            <li>
-                                                <div class="ec-sidebar-block-item"><span
-                                                        style="background-color:#c89fff;"></span></div>
-                                            </li>
-                                            <li>
-                                                <div class="ec-sidebar-block-item"><span
-                                                        style="background-color:#7bfffa;"></span></div>
-                                            </li>
-                                            <li>
-                                                <div class="ec-sidebar-block-item"><span
-                                                        style="background-color:#56ffc1;"></span></div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+
                                 <!-- Sidebar Price Block -->
                                 <div class="ec-sidebar-block">
                                     <div class="ec-sb-title">
                                         <h3 class="ec-sidebar-title">Price</h3>
                                     </div>
-                                    <div class="ec-sb-block-content es-price-slider">
+                                    <div
+                                        class="ec-sb-block-content es-price-slider">
                                         <div class="ec-price-filter">
-                                            <div id="ec-sliderPrice" class="filter__slider-price" data-min="0"
-                                                 data-max="250" data-step="10"></div>
+                                            <div id="ec-sliderPrice"
+                                                class="filter__slider-price"
+                                                data-min="0"
+                                                data-max="250"
+                                                data-step="10"></div>
                                             <div class="ec-price-input">
-                                                <label class="filter__label"><input type="text"
-                                                                                    class="filter__input"></label>
-                                                <span class="ec-price-divider"></span>
-                                                <label class="filter__label"><input type="text"
-                                                                                    class="filter__input"></label>
+                                                <label
+                                                    class="filter__label"><input
+                                                        type="text"
+                                                        class="filter__input"></label>
+                                                <span
+                                                    class="ec-price-divider"></span>
+                                                <label
+                                                    class="filter__label"><input
+                                                        type="text"
+                                                        class="filter__input"></label>
                                             </div>
                                         </div>
                                     </div>
@@ -1539,15 +1858,26 @@
                         <div class="row">
                             <div class="col-sm-12 col-lg-3 ec-footer-contact">
                                 <div class="ec-footer-widget">
-                                    <div class="ec-footer-logo"><a href="#"><img src="assets/images/logo/logo4.png"
-                                                                                 alt=""><img class="dark-footer-logo" src="assets/images/logo/logo4.png"
-                                                                                 alt="Site Logo" style="display: none;" /></a></div>
-                                    <h4 class="ec-footer-heading">Contact us</h4>
+                                    <div class="ec-footer-logo"><a href="#"><img
+                                                src="assets/images/logo/logo4.png"
+                                                alt><img
+                                                class="dark-footer-logo"
+                                                src="assets/images/logo/logo4.png"
+                                                alt="Site Logo"
+                                                style="display: none;" /></a></div>
+                                    <h4 class="ec-footer-heading">Contact
+                                        us</h4>
                                     <div class="ec-footer-links">
                                         <ul class="align-items-center">
-                                            <li class="ec-footer-link">Hoa Lac Hi-tech Park, km 29, Đại lộ Thăng Long, Hà Nội, Vietnam</li>
-                                            <li class="ec-footer-link"><span>Call Us:</span><a href="tel:+440123456789">0967870138</a></li>
-                                            <li class="ec-footer-link"><span>Email:</span><a
+                                            <li class="ec-footer-link">Hoa Lac
+                                                Hi-tech Park, km 29, Đại lộ
+                                                Thăng Long, Hà Nội, Vietnam</li>
+                                            <li
+                                                class="ec-footer-link"><span>Call
+                                                    Us:</span><a
+                                                    href="tel:+440123456789">0967870138</a></li>
+                                            <li
+                                                class="ec-footer-link"><span>Email:</span><a
                                                     href="mailto:example@ec-email.com">vietpthe180666@fpt.edu.vn</a></li>
                                         </ul>
                                     </div>
@@ -1555,13 +1885,21 @@
                             </div>
                             <div class="col-sm-12 col-lg-2 ec-footer-info">
                                 <div class="ec-footer-widget">
-                                    <h4 class="ec-footer-heading">Information</h4>
+                                    <h4
+                                        class="ec-footer-heading">Information</h4>
                                     <div class="ec-footer-links">
                                         <ul class="align-items-center">
-                                            <li class="ec-footer-link"><a href="about-us.jsp">About us</a></li>
-                                            <li class="ec-footer-link"><a href="faq.jsp">FAQ</a></li>
-                                            <li class="ec-footer-link"><a href="#">Delivery Information</a></li>
-                                            <li class="ec-footer-link"><a href="contact-us.jsp">Contact us</a></li>
+                                            <li class="ec-footer-link"><a
+                                                    href="about-us.jsp">About
+                                                    us</a></li>
+                                            <li class="ec-footer-link"><a
+                                                    href="faq.jsp">FAQ</a></li>
+                                            <li class="ec-footer-link"><a
+                                                    href="#">Delivery
+                                                    Information</a></li>
+                                            <li class="ec-footer-link"><a
+                                                    href="contact-us.jsp">Contact
+                                                    us</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -1573,12 +1911,17 @@
                                     <div class="ec-footer-links">
                                         <ul class="align-items-center">
 
-
-                                            <li class="ec-footer-link"><a href="privacy-policy.jsp">Private & policy </a>
+                                            <li class="ec-footer-link"><a
+                                                    href="privacy-policy.jsp">Private
+                                                    & policy </a>
                                             </li>
-                                            <li class="ec-footer-link"><a href="customer-service.jsp">Customer Service</a>
+                                            <li class="ec-footer-link"><a
+                                                    href="customer-service.jsp">Customer
+                                                    Service</a>
                                             </li>
-                                            <li class="ec-footer-link"><a href="terms-condition.jsp">Term & condition</a>
+                                            <li class="ec-footer-link"><a
+                                                    href="terms-condition.jsp">Term
+                                                    & condition</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1586,21 +1929,33 @@
                             </div>
                             <div class="col-sm-12 col-lg-3 ec-footer-news">
                                 <div class="ec-footer-widget">
-                                    <h4 class="ec-footer-heading">Newsletter</h4>
+                                    <h4
+                                        class="ec-footer-heading">Newsletter</h4>
                                     <div class="ec-footer-links">
                                         <ul class="align-items-center">
-                                            <li class="ec-footer-link">Get instant updates about our new products and
+                                            <li class="ec-footer-link">Get
+                                                instant updates about our new
+                                                products and
                                                 special promos!</li>
                                         </ul>
                                         <div class="ec-subscribe-form">
-                                            <form id="ec-newsletter-form" name="ec-newsletter-form" method="post"
-                                                  action="#">
-                                                <div id="ec_news_signup" class="ec-form">
-                                                    <input class="ec-email" type="email" required=""
-                                                           placeholder="Enter your email here..." name="ec-email" value="" />
-                                                    <button id="ec-news-btn" class="button btn-primary" type="submit"
-                                                            name="subscribe" value=""><i class="ecicon eci-paper-plane-o"
-                                                                                 aria-hidden="true"></i></button>
+                                            <form id="ec-newsletter-form"
+                                                name="ec-newsletter-form"
+                                                method="post"
+                                                action="#">
+                                                <div id="ec_news_signup"
+                                                    class="ec-form">
+                                                    <input class="ec-email"
+                                                        type="email" required
+                                                        placeholder="Enter your email here..."
+                                                        name="ec-email" value />
+                                                    <button id="ec-news-btn"
+                                                        class="button btn-primary"
+                                                        type="submit"
+                                                        name="subscribe"
+                                                        value><i
+                                                            class="ecicon eci-paper-plane-o"
+                                                            aria-hidden="true"></i></button>
                                                 </div>
                                             </form>
                                         </div>
@@ -1616,7 +1971,8 @@
                             <!-- Footer social Start -->
                             <div class="col text-left footer-bottom-left">
                                 <div class="footer-bottom-social">
-                                    <span class="social-text text-upper">Follow us on:</span>
+                                    <span class="social-text text-upper">Follow
+                                        us on:</span>
 
                                 </div>
                             </div>
@@ -1624,16 +1980,22 @@
                             <!-- Footer Copyright Start -->
                             <div class="col text-center footer-copy">
                                 <div class="footer-bottom-copy ">
-                                    <div class="ec-copy">Copyright ©<span id="copyright_year"></span> <a class="site-name text-upper"
-                                                                                                           href="#">NYFS<span>.</span></a>. All Rights Reserved</div>
+                                    <div class="ec-copy">Copyright ©<span
+                                            id="copyright_year"></span> <a
+                                            class="site-name text-upper"
+                                            href="#">NYFS<span>.</span></a>. All
+                                        Rights Reserved</div>
                                 </div>
                             </div>
                             <!-- Footer Copyright End -->
                             <!-- Footer payment -->
                             <div class="col footer-bottom-right">
-                                <div class="footer-bottom-payment d-flex justify-content-end">
+                                <div
+                                    class="footer-bottom-payment d-flex justify-content-end">
                                     <div class="payment-link">
-                                        <img src="assets/images/icons/payment.png" alt="">
+                                        <img
+                                            src="assets/images/icons/payment.png"
+                                            alt>
                                     </div>
 
                                 </div>
@@ -1647,52 +2009,76 @@
         <!-- Footer Area End -->
 
         <!-- Modal -->
-        <div class="modal fade" id="ec_quickview_modal" tabindex="-1" role="dialog">
+        <div class="modal fade" id="ec_quickview_modal" tabindex="-1"
+            role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
-                    <button type="button" class="btn-close qty_close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close qty_close"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-5 col-sm-12 col-xs-12">
                                 <!-- Swiper -->
                                 <div class="qty-product-cover">
                                     <div class="qty-slide">
-                                        <img class="img-responsive" src="assets/images/product-image/3_1.jpg" alt="">
+                                        <img class="img-responsive"
+                                            src="assets/images/product-image/3_1.jpg"
+                                            alt>
                                     </div>
                                     <div class="qty-slide">
-                                        <img class="img-responsive" src="assets/images/product-image/3_2.jpg" alt="">
+                                        <img class="img-responsive"
+                                            src="assets/images/product-image/3_2.jpg"
+                                            alt>
                                     </div>
                                     <div class="qty-slide">
-                                        <img class="img-responsive" src="assets/images/product-image/3_3.jpg" alt="">
+                                        <img class="img-responsive"
+                                            src="assets/images/product-image/3_3.jpg"
+                                            alt>
                                     </div>
                                     <div class="qty-slide">
-                                        <img class="img-responsive" src="assets/images/product-image/3_4.jpg" alt="">
+                                        <img class="img-responsive"
+                                            src="assets/images/product-image/3_4.jpg"
+                                            alt>
                                     </div>
                                     <div class="qty-slide">
-                                        <img class="img-responsive" src="assets/images/product-image/3_5.jpg" alt="">
+                                        <img class="img-responsive"
+                                            src="assets/images/product-image/3_5.jpg"
+                                            alt>
                                     </div>
                                 </div>
                                 <div class="qty-nav-thumb">
                                     <div class="qty-slide">
-                                        <img class="img-responsive" src="assets/images/product-image/3_1.jpg" alt="">
+                                        <img class="img-responsive"
+                                            src="assets/images/product-image/3_1.jpg"
+                                            alt>
                                     </div>
                                     <div class="qty-slide">
-                                        <img class="img-responsive" src="assets/images/product-image/3_2.jpg" alt="">
+                                        <img class="img-responsive"
+                                            src="assets/images/product-image/3_2.jpg"
+                                            alt>
                                     </div>
                                     <div class="qty-slide">
-                                        <img class="img-responsive" src="assets/images/product-image/3_3.jpg" alt="">
+                                        <img class="img-responsive"
+                                            src="assets/images/product-image/3_3.jpg"
+                                            alt>
                                     </div>
                                     <div class="qty-slide">
-                                        <img class="img-responsive" src="assets/images/product-image/3_4.jpg" alt="">
+                                        <img class="img-responsive"
+                                            src="assets/images/product-image/3_4.jpg"
+                                            alt>
                                     </div>
                                     <div class="qty-slide">
-                                        <img class="img-responsive" src="assets/images/product-image/3_5.jpg" alt="">
+                                        <img class="img-responsive"
+                                            src="assets/images/product-image/3_5.jpg"
+                                            alt>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-7 col-sm-12 col-xs-12">
                                 <div class="quickview-pro-content">
-                                    <h5 class="ec-quick-title"><a href="product-left-sidebar.jsp">Handbag leather purse for women</a>
+                                    <h5 class="ec-quick-title"><a
+                                            href="product-left-sidebar.jsp">Handbag
+                                            leather purse for women</a>
                                     </h5>
                                     <div class="ec-quickview-rating">
                                         <i class="ecicon eci-star fill"></i>
@@ -1702,8 +2088,11 @@
                                         <i class="ecicon eci-star"></i>
                                     </div>
 
-                                    <div class="ec-quickview-desc">Lorem Ipsum is simply dummy text of the printing and
-                                        typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                    <div class="ec-quickview-desc">Lorem Ipsum
+                                        is simply dummy text of the printing and
+                                        typesetting industry. Lorem Ipsum has
+                                        been the industry's standard dummy text
+                                        ever
                                         since the 1500s,</div>
                                     <div class="ec-quickview-price">
                                         <span class="old-price">$100.00</span>
@@ -1711,36 +2100,54 @@
                                     </div>
 
                                     <div class="ec-pro-variation">
-                                        <div class="ec-pro-variation-inner ec-pro-variation-color">
+                                        <div
+                                            class="ec-pro-variation-inner ec-pro-variation-color">
                                             <span>Color</span>
                                             <div class="ec-pro-color">
                                                 <ul class="ec-opt-swatch">
-                                                    <li><span style="background-color:#696d62;"></span></li>
-                                                    <li><span style="background-color:#d73808;"></span></li>
-                                                    <li><span style="background-color:#577023;"></span></li>
-                                                    <li><span style="background-color:#2ea1cd;"></span></li>
+                                                    <li><span
+                                                            style="background-color:#696d62;"></span></li>
+                                                    <li><span
+                                                            style="background-color:#d73808;"></span></li>
+                                                    <li><span
+                                                            style="background-color:#577023;"></span></li>
+                                                    <li><span
+                                                            style="background-color:#2ea1cd;"></span></li>
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="ec-pro-variation-inner ec-pro-variation-size ec-pro-size">
+                                        <div
+                                            class="ec-pro-variation-inner ec-pro-variation-size ec-pro-size">
                                             <span>Size</span>
-                                            <div class="ec-pro-variation-content">
+                                            <div
+                                                class="ec-pro-variation-content">
                                                 <ul class="ec-opt-size">
-                                                    <li class="active"><a href="#" class="ec-opt-sz"
-                                                                          data-tooltip="Small">S</a></li>
-                                                    <li><a href="#" class="ec-opt-sz" data-tooltip="Medium">M</a></li>
-                                                    <li><a href="#" class="ec-opt-sz" data-tooltip="Large">X</a></li>
-                                                    <li><a href="#" class="ec-opt-sz" data-tooltip="Extra Large">XL</a></li>
+                                                    <li class="active"><a
+                                                            href="#"
+                                                            class="ec-opt-sz"
+                                                            data-tooltip="Small">S</a></li>
+                                                    <li><a href="#"
+                                                            class="ec-opt-sz"
+                                                            data-tooltip="Medium">M</a></li>
+                                                    <li><a href="#"
+                                                            class="ec-opt-sz"
+                                                            data-tooltip="Large">X</a></li>
+                                                    <li><a href="#"
+                                                            class="ec-opt-sz"
+                                                            data-tooltip="Extra Large">XL</a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="ec-quickview-qty">
                                         <div class="qty-plus-minus">
-                                            <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
+                                            <input class="qty-input" type="text"
+                                                name="ec_qtybtn" value="1" />
                                         </div>
                                         <div class="ec-quickview-cart ">
-                                            <button class="btn btn-primary"><i class="fi-rr-shopping-basket"></i> Add To Cart</button>
+                                            <button class="btn btn-primary"><i
+                                                    class="fi-rr-shopping-basket"></i>
+                                                Add To Cart</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1757,23 +2164,28 @@
             <div class="container">
                 <div class="ec-nav-panel">
                     <div class="ec-nav-panel-icons">
-                        <a href="#ec-mobile-menu" class="navbar-toggler-btn ec-header-btn ec-side-toggle"><i
+                        <a href="#ec-mobile-menu"
+                            class="navbar-toggler-btn ec-header-btn ec-side-toggle"><i
                                 class="fi-rr-menu-burger"></i></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="#ec-side-cart" class="toggle-cart ec-header-btn ec-side-toggle"><i
+                        <a href="#ec-side-cart"
+                            class="toggle-cart ec-header-btn ec-side-toggle"><i
                                 class="fi-rr-shopping-bag"></i><span
                                 class="ec-cart-noti ec-header-count cart-count-lable">3</span></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="index.jsp" class="ec-header-btn"><i class="fi-rr-home"></i></a>
+                        <a href="index.jsp" class="ec-header-btn"><i
+                                class="fi-rr-home"></i></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="wishlist.jsp" class="ec-header-btn"><i class="fi-rr-heart"></i><span
+                        <a href="wishlist.jsp" class="ec-header-btn"><i
+                                class="fi-rr-heart"></i><span
                                 class="ec-cart-noti">4</span></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="login.jsp" class="ec-header-btn"><i class="fi-rr-user"></i></a>
+                        <a href="login.jsp" class="ec-header-btn"><i
+                                class="fi-rr-user"></i></a>
                     </div>
 
                 </div>
@@ -1792,7 +2204,6 @@
             <a href="javascript:void(0)" class="icon-btn recent-close">x</a>
         </div>
         <!-- Recent Purchase Popup end -->
-
 
         <!-- Cart Floating Button -->
         <div class="ec-cart-float">
@@ -1829,12 +2240,14 @@
                         <!-- Start Single Contact List -->
                         <li>
                             <a class="ec-list" data-number="918866774266"
-                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                                data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                                 <div class="d-flex bd-highlight">
                                     <!-- Profile Picture -->
                                     <div class="ec-img-cont">
-                                        <img src="assets/images/whatsapp/profile_01.jpg" class="ec-user-img"
-                                             alt="Profile image">
+                                        <img
+                                            src="assets/images/whatsapp/profile_01.jpg"
+                                            class="ec-user-img"
+                                            alt="Profile image">
                                         <span class="ec-status-icon"></span>
                                     </div>
                                     <!-- Display Name & Last Seen -->
@@ -1853,13 +2266,16 @@
                         <!-- Start Single Contact List -->
                         <li>
                             <a class="ec-list" data-number="918866774266"
-                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                                data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                                 <div class="d-flex bd-highlight">
                                     <!-- Profile Picture -->
                                     <div class="ec-img-cont">
-                                        <img src="assets/images/whatsapp/profile_02.jpg" class="ec-user-img"
-                                             alt="Profile image">
-                                        <span class="ec-status-icon ec-online"></span>
+                                        <img
+                                            src="assets/images/whatsapp/profile_02.jpg"
+                                            class="ec-user-img"
+                                            alt="Profile image">
+                                        <span
+                                            class="ec-status-icon ec-online"></span>
                                     </div>
                                     <!-- Display Name & Last Seen -->
                                     <div class="ec-user-info">
@@ -1877,13 +2293,16 @@
                         <!-- Start Single Contact List -->
                         <li>
                             <a class="ec-list" data-number="918866774266"
-                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                                data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                                 <div class="d-flex bd-highlight">
                                     <!-- Profile Picture -->
                                     <div class="ec-img-cont">
-                                        <img src="assets/images/whatsapp/profile_03.jpg" class="ec-user-img"
-                                             alt="Profile image">
-                                        <span class="ec-status-icon ec-offline"></span>
+                                        <img
+                                            src="assets/images/whatsapp/profile_03.jpg"
+                                            class="ec-user-img"
+                                            alt="Profile image">
+                                        <span
+                                            class="ec-status-icon ec-offline"></span>
                                     </div>
                                     <!-- Display Name & Last Seen -->
                                     <div class="ec-user-info">
@@ -1901,13 +2320,16 @@
                         <!-- Start Single Contact List -->
                         <li>
                             <a class="ec-list" data-number="918866774266"
-                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                                data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                                 <div class="d-flex bd-highlight">
                                     <!-- Profile Picture -->
                                     <div class="ec-img-cont">
-                                        <img src="assets/images/whatsapp/profile_04.jpg" class="ec-user-img"
-                                             alt="Profile image">
-                                        <span class="ec-status-icon ec-offline"></span>
+                                        <img
+                                            src="assets/images/whatsapp/profile_04.jpg"
+                                            class="ec-user-img"
+                                            alt="Profile image">
+                                        <span
+                                            class="ec-status-icon ec-offline"></span>
                                     </div>
                                     <!-- Display Name & Last Seen -->
                                     <div class="ec-user-info">
@@ -1930,7 +2352,9 @@
             <div class="ec-right-bottom">
                 <div class="ec-box">
                     <div class="ec-button rotateBackward">
-                        <img class="whatsapp" src="assets/images/common/whatsapp.png" alt="whatsapp icon" />
+                        <img class="whatsapp"
+                            src="assets/images/common/whatsapp.png"
+                            alt="whatsapp icon" />
                     </div>
                 </div>
             </div>
@@ -1948,23 +2372,33 @@
                 <img alt="icon" src="assets/images/common/settings.png" />
             </a>
             <div class="ec-tools-detail">
-                <div class="ec-tools-sidebar-content ec-change-color ec-color-desc">
+                <div
+                    class="ec-tools-sidebar-content ec-change-color ec-color-desc">
                     <h3>Color Scheme</h3>
                     <ul class="bg-panel">
-                        <li class="active" data-color="01"><a href="#" class="colorcode1"></a></li>
-                        <li data-color="02"><a href="#" class="colorcode2"></a></li>
-                        <li data-color="03"><a href="#" class="colorcode3"></a></li>
-                        <li data-color="04"><a href="#" class="colorcode4"></a></li>
-                        <li data-color="05"><a href="#" class="colorcode5"></a></li>
+                        <li class="active" data-color="01"><a href="#"
+                                class="colorcode1"></a></li>
+                        <li data-color="02"><a href="#"
+                                class="colorcode2"></a></li>
+                        <li data-color="03"><a href="#"
+                                class="colorcode3"></a></li>
+                        <li data-color="04"><a href="#"
+                                class="colorcode4"></a></li>
+                        <li data-color="05"><a href="#"
+                                class="colorcode5"></a></li>
                     </ul>
                 </div>
                 <div class="ec-tools-sidebar-content">
                     <h3>Backgrounds</h3>
                     <ul class="bg-panel">
-                        <li class="bg"><a class="back-bg-1" id="bg-1">Background-1</a></li>
-                        <li class="bg"><a class="back-bg-2" id="bg-2">Background-2</a></li>
-                        <li class="bg"><a class="back-bg-3" id="bg-3">Background-3</a></li>
-                        <li class="bg"><a class="back-bg-4" id="bg-4">Default</a></li>
+                        <li class="bg"><a class="back-bg-1"
+                                id="bg-1">Background-1</a></li>
+                        <li class="bg"><a class="back-bg-2"
+                                id="bg-2">Background-2</a></li>
+                        <li class="bg"><a class="back-bg-3"
+                                id="bg-3">Background-3</a></li>
+                        <li class="bg"><a class="back-bg-4"
+                                id="bg-4">Default</a></li>
                     </ul>
                 </div>
                 <div class="ec-tools-sidebar-content">
@@ -1999,7 +2433,8 @@
                 </div>
                 <div class="ec-tools-sidebar-content">
                     <h3>Clear local storage</h3>
-                    <a class="clear-cach" href="javascript:void(0)">Clear Cache & Default</a>
+                    <a class="clear-cach" href="javascript:void(0)">Clear Cache
+                        & Default</a>
                 </div>
             </div>
         </div>

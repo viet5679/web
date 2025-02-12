@@ -9,7 +9,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
-        <title>Ekka - Ecommerce HTML Template + Admin Dashboard.</title>
+        <title>Louis Vuitton</title>
         <meta name="keywords"
               content="apparel, catalog, clean, ecommerce, ecommerce HTML, electronics, fashion, html eCommerce, html store, minimal, multipurpose, multipurpose ecommerce, online store, responsive ecommerce template, shops" />
         <meta name="description" content="Best ecommerce html template for single and multi vendor store.">
@@ -713,18 +713,6 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="ec-pro-variation-inner ec-pro-variation-color">
-                                            <span>Color</span>
-                                            <div class="ec-pro-variation-content">
-                                                <ul>
-                                                    <li class="active"><span
-                                                            style="background-color:#1b4a87"></span></li>
-                                                    <li><span style="background-color:#5f94d6"></span></li>
-                                                    <li><span style="background-color:#72aea2"></span></li>
-                                                    <li><span style="background-color:#c79782"></span></li>
-                                                </ul>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="ec-single-qty">
                                         <div class="qty-plus-minus">
@@ -1373,17 +1361,6 @@
                             </div>
 
                             <div class="ec-pro-variation">
-                                <div class="ec-pro-variation-inner ec-pro-variation-color">
-                                    <span>Color</span>
-                                    <div class="ec-pro-color">
-                                        <ul class="ec-opt-swatch">
-                                            <li><span style="background-color:#696d62;"></span></li>
-                                            <li><span style="background-color:#d73808;"></span></li>
-                                            <li><span style="background-color:#577023;"></span></li>
-                                            <li><span style="background-color:#2ea1cd;"></span></li>
-                                        </ul>
-                                    </div>
-                                </div>
                                 <div class="ec-pro-variation-inner ec-pro-variation-size ec-pro-size">
                                     <span>Size</span>
                                     <div class="ec-pro-variation-content">
