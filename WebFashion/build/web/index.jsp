@@ -469,8 +469,8 @@
             }
 
             // Example usage: Uncomment these lines to test adding products
-            // addToCart('Cute Baby Toy', 30.00);
-            // addToCart('Teddy Bear', 25.50);
+            // addToCart('Denim Jacket', 3300.00);
+            // addToCart('Winter Jacket', 2000.00);
         </script>
         <!-- ekka Cart End -->
 
@@ -866,23 +866,23 @@
                                                                 class="active"><a
                                                                     href="#"
                                                                     class="ec-opt-sz"
-                                                                    data-old="$25.00"
-                                                                    data-new="$20.00"
+                                                                    data-old="$3500.00"
+                                                                    data-new="$3200.00"
                                                                     data-tooltip="Small">S</a></li>
                                                             <li><a href="#"
                                                                     class="ec-opt-sz"
-                                                                    data-old="$27.00"
-                                                                    data-new="$22.00"
+                                                                    data-old="$3500.00"
+                                                                    data-new="$3250.00"
                                                                     data-tooltip="Medium">M</a></li>
                                                             <li><a href="#"
                                                                     class="ec-opt-sz"
-                                                                    data-old="$30.00"
-                                                                    data-new="$25.00"
+                                                                    data-old="$3500.00"
+                                                                    data-new="$3300.00"
                                                                     data-tooltip="Large">X</a></li>
                                                             <li><a href="#"
                                                                     class="ec-opt-sz"
-                                                                    data-old="$35.00"
-                                                                    data-new="$30.00"
+                                                                    data-old="$3500.00"
+                                                                    data-new="$3300.00"
                                                                     data-tooltip="Extra Large">XL</a></li>
                                                         </ul>
                                                     </div>
@@ -966,23 +966,23 @@
                                                                 class="active"><a
                                                                     href="#"
                                                                     class="ec-opt-sz"
-                                                                    data-old="$12.00"
-                                                                    data-new="$10.00"
+                                                                    data-old="$2200.00"
+                                                                    data-new="$1900.00"
                                                                     data-tooltip="Small">S</a></li>
                                                             <li><a href="#"
                                                                     class="ec-opt-sz"
-                                                                    data-old="$15.00"
-                                                                    data-new="$12.00"
+                                                                    data-old="$2200.00"
+                                                                    data-new="$1950.00"
                                                                     data-tooltip="Medium">M</a></li>
                                                             <li><a href="#"
                                                                     class="ec-opt-sz"
-                                                                    data-old="$18.00"
-                                                                    data-new="$15.00"
+                                                                    data-old="$2200.00"
+                                                                    data-new="$2000.00"
                                                                     data-tooltip="Large">X</a></li>
                                                             <li><a href="#"
                                                                     class="ec-opt-sz"
-                                                                    data-old="$20.00"
-                                                                    data-new="$17.00"
+                                                                    data-old="$2200.00"
+                                                                    data-new="$2000.00"
                                                                     data-tooltip="Extra Large">XL</a></li>
                                                         </ul>
                                                     </div>
@@ -1062,13 +1062,13 @@
                                                                 class="active"><a
                                                                     href="#"
                                                                     class="ec-opt-sz"
-                                                                    data-old="$40.00"
-                                                                    data-new="$30.00"
+                                                                    data-old="$3850.00"
+                                                                    data-new="$3600.00"
                                                                     data-tooltip="Small">S</a></li>
                                                             <li><a href="#"
                                                                     class="ec-opt-sz"
-                                                                    data-old="$50.00"
-                                                                    data-new="$40.00"
+                                                                    data-old="$3850.00"
+                                                                    data-new="$3700.00"
                                                                     data-tooltip="Medium">M</a></li>
                                                         </ul>
                                                     </div>
@@ -1270,7 +1270,7 @@
                                                     <i
                                                         class="ecicon eci-star fill"></i>
                                                     <i
-                                                        class="ecicon eci-star fillfill"></i>
+                                                        class="ecicon eci-star fill"></i>
                                                 </div>
                                                 <span class="ec-price">
                                                     <span
@@ -3589,8 +3589,8 @@
                                     <div class="banner-text">
                                         <span class="ec-banner-stitle">New
                                             Arrivals</span>
-                                        <span class="ec-banner-title">mens<br>
-                                            Sneaker</span>
+                                        <span class="ec-banner-title">Bags<br>
+                                            Montré</span>
                                         <span class="ec-banner-discount">30%
                                             Discount</span>
                                     </div>
@@ -3607,8 +3607,8 @@
                                     <div class="banner-text">
                                         <span class="ec-banner-stitle">New
                                             Trending</span>
-                                        <span class="ec-banner-title">Women<br>
-                                            Bags</span>
+                                        <span class="ec-banner-title">Men<br>
+                                            Hoodie</span>
                                         <span class="ec-banner-discount">Buy any
                                             3 Items & get <br>20%
                                             Discount</span>
@@ -4021,7 +4021,7 @@
 
                         <h3 class="ec-offer-stitle"
                             data-animation="slideInDown">Super Offer</h3>
-                        <span class="ec-offer-price">$3500.0 Only</span>
+                        <span class="ec-offer-price">$10500.00 Only</span>
                         <a class="btn btn-primary"
                             href="shop-left-sidebar-col-3.jsp"
                             data-animation="zoomIn">Shop Now</a>
@@ -4087,19 +4087,19 @@
                             </div>
                             <div class="ec-pro-content">
                                 <h5 class="ec-pro-title"><a
-                                        href="product-left-sidebar.jsp">Full
-                                        Sleeve Cap T-Shirt</a>
+                                        href="product-left-sidebar.jsp">Damoflage
+                                        Scarf</a>
                                 </h5>
                                 <div class="ec-pro-rating">
                                     <i class="ecicon eci-star fill"></i>
                                     <i class="ecicon eci-star fill"></i>
                                     <i class="ecicon eci-star fill"></i>
                                     <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star"></i>
+                                    <i class="ecicon eci-star fill"></i>
                                 </div>
                                 <span class="ec-price">
-                                    <span class="old-price">$20.00</span>
-                                    <span class="new-price">$15.00</span>
+                                    <span class="old-price">$1050.00</span>
+                                    <span class="new-price">$950.00</span>
                                 </span>
                                 <div class="ec-pro-option">
                                     <div class="ec-pro-color">
@@ -4111,20 +4111,20 @@
                                         <ul class="ec-opt-size">
                                             <li class="active"><a href="#"
                                                     class="ec-opt-sz"
-                                                    data-old="$20.00"
-                                                    data-new="$15.00"
+                                                    data-old="$1050.00"
+                                                    data-new="$950.00"
                                                     data-tooltip="Small">S</a></li>
                                             <li><a href="#" class="ec-opt-sz"
-                                                    data-old="$22.00"
-                                                    data-new="$17.00"
+                                                    data-old="$1050.00"
+                                                    data-new="$950.00"
                                                     data-tooltip="Medium">M</a></li>
                                             <li><a href="#" class="ec-opt-sz"
-                                                    data-old="$25.00"
-                                                    data-new="$20.00"
+                                                    data-old="$1050.00"
+                                                    data-new="$950.00"
                                                     data-tooltip="Large">X</a></li>
                                             <li><a href="#" class="ec-opt-sz"
-                                                    data-old="$27.00"
-                                                    data-new="$22.00"
+                                                    data-old="$1050.00"
+                                                    data-new="$950.00"
                                                     data-tooltip="Extra Large">XL</a></li>
                                         </ul>
                                     </div>
@@ -4173,18 +4173,18 @@
                             </div>
                             <div class="ec-pro-content">
                                 <h5 class="ec-pro-title"><a
-                                        href="product-left-sidebar.jsp">Classic
-                                        Leather purse</a></h5>
+                                        href="product-left-sidebar.jsp">Speedy
+                                        40 Bandoulière Bag</a></h5>
                                 <div class="ec-pro-rating">
                                     <i class="ecicon eci-star fill"></i>
                                     <i class="ecicon eci-star fill"></i>
                                     <i class="ecicon eci-star fill"></i>
                                     <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star"></i>
+                                    <i class="ecicon eci-star fill"></i>
                                 </div>
                                 <span class="ec-price">
-                                    <span class="old-price">$100.00</span>
-                                    <span class="new-price">$80.00</span>
+                                    <span class="old-price">$9550.00</span>
+                                    <span class="new-price">$9300.00</span>
                                 </span>
                                 <div class="ec-pro-option">
 
@@ -4231,18 +4231,18 @@
                             </div>
                             <div class="ec-pro-content">
                                 <h5 class="ec-pro-title"><a
-                                        href="product-left-sidebar.jsp">Fancy
-                                        Ladies Sandal</a></h5>
+                                        href="product-left-sidebar.jsp">Mountain
+                                        Backpack</a></h5>
                                 <div class="ec-pro-rating">
                                     <i class="ecicon eci-star fill"></i>
                                     <i class="ecicon eci-star fill"></i>
                                     <i class="ecicon eci-star fill"></i>
                                     <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star"></i>
+                                    <i class="ecicon eci-star fill"></i>
                                 </div>
                                 <span class="ec-price">
-                                    <span class="old-price">$100.00</span>
-                                    <span class="new-price">$80.00</span>
+                                    <span class="old-price">$4050.00</span>
+                                    <span class="new-price">$3900.00</span>
                                 </span>
                                 <div class="ec-pro-option">
 
@@ -4252,20 +4252,20 @@
                                         <ul class="ec-opt-size">
                                             <li class="active"><a href="#"
                                                     class="ec-opt-sz"
-                                                    data-old="$50.00"
-                                                    data-new="$40.00"
+                                                    data-old="$4050.00"
+                                                    data-new="$3900.00"
                                                     data-tooltip="Small">6</a></li>
                                             <li><a href="#" class="ec-opt-sz"
-                                                    data-old="$60.00"
-                                                    data-new="$50.00"
+                                                    data-old="$4050.00"
+                                                    data-new="$3900.00"
                                                     data-tooltip="Medium">7</a></li>
                                             <li><a href="#" class="ec-opt-sz"
-                                                    data-old="$70.00"
-                                                    data-new="$60.00"
+                                                    data-old="$4050.00"
+                                                    data-new="$3900.00"
                                                     data-tooltip="Large">8</a></li>
                                             <li><a href="#" class="ec-opt-sz"
-                                                    data-old="$80.00"
-                                                    data-new="$70.00"
+                                                    data-old="$4050.00"
+                                                    data-new="$3900.00"
                                                     data-tooltip="Extra Large">9</a></li>
                                         </ul>
                                     </div>
@@ -4311,19 +4311,18 @@
                             </div>
                             <div class="ec-pro-content">
                                 <h5 class="ec-pro-title"><a
-                                        href="product-left-sidebar.jsp">Womens
-                                        Leather Backpack</a>
+                                        href="product-left-sidebar.jsp">Snowboard</a>
                                 </h5>
                                 <div class="ec-pro-rating">
                                     <i class="ecicon eci-star fill"></i>
                                     <i class="ecicon eci-star fill"></i>
                                     <i class="ecicon eci-star fill"></i>
                                     <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star"></i>
+                                    <i class="ecicon eci-star fill"></i>
                                 </div>
                                 <span class="ec-price">
-                                    <span class="old-price">$100.00</span>
-                                    <span class="new-price">$80.00</span>
+                                    <span class="old-price">$11000.00</span>
+                                    <span class="new-price">$10000.00</span>
                                 </span>
                                 <div class="ec-pro-option">
 
@@ -4366,20 +4365,18 @@
                                             title="testimonial"
                                             src="assets/images/testimonial/1.jpg" /></div>
                                     <div class="ec-test-content">
-                                        <div class="ec-test-desc">Lorem Ipsum is
-                                            simply dummy text of the printing
-                                            and
-                                            typesetting industry. Lorem Ipsum
-                                            has been the industry's standard
-                                            dummy text
-                                            ever since the 1500s, when an
-                                            unknown printer took a galley of
-                                            type and
-                                            scrambled it to make a type
-                                            specimen</div>
-                                        <div class="ec-test-name">John Doe</div>
-                                        <div class="ec-test-designation">General
-                                            Manager</div>
+                                        <div class="ec-test-desc">I am truly
+                                            impressed with the quality and
+                                            performance of this product. The
+                                            sleek design, fast speed, and long
+                                            battery life are major highlights.
+                                            I’ve tried many similar products,
+                                            but this one is definitely among the
+                                            best choices!</div>
+                                        <div class="ec-test-name">Son
+                                            Tung-MTP</div>
+                                        <div
+                                            class="ec-test-designation">Artist</div>
                                         <div class="ec-test-rating">
                                             <i class="ecicon eci-star fill"></i>
                                             <i class="ecicon eci-star fill"></i>
@@ -4399,20 +4396,16 @@
                                             title="testimonial"
                                             src="assets/images/testimonial/2.jpg" /></div>
                                     <div class="ec-test-content">
-                                        <div class="ec-test-desc">Lorem Ipsum is
-                                            simply dummy text of the printing
-                                            and
-                                            typesetting industry. Lorem Ipsum
-                                            has been the industry's standard
-                                            dummy text
-                                            ever since the 1500s, when an
-                                            unknown printer took a galley of
-                                            type and
-                                            scrambled it to make a type
-                                            specimen</div>
-                                        <div class="ec-test-name">John Doe</div>
-                                        <div class="ec-test-designation">General
-                                            Manager</div>
+                                        <div class="ec-test-desc">The customer
+                                            service is outstanding! I had some
+                                            issues with my order, but the
+                                            support team responded quickly and
+                                            resolved everything immediately. I’m
+                                            very satisfied and will definitely
+                                            continue shopping here.</div>
+                                        <div class="ec-test-name">Lisa</div>
+                                        <div
+                                            class="ec-test-designation">Artist</div>
                                         <div class="ec-test-rating">
                                             <i class="ecicon eci-star fill"></i>
                                             <i class="ecicon eci-star fill"></i>
@@ -4432,20 +4425,16 @@
                                             title="testimonial"
                                             src="assets/images/testimonial/3.jpg" /></div>
                                     <div class="ec-test-content">
-                                        <div class="ec-test-desc">Lorem Ipsum is
-                                            simply dummy text of the printing
-                                            and
-                                            typesetting industry. Lorem Ipsum
-                                            has been the industry's standard
-                                            dummy text
-                                            ever since the 1500s, when an
-                                            unknown printer took a galley of
-                                            type and
-                                            scrambled it to make a type
-                                            specimen</div>
-                                        <div class="ec-test-name">John Doe</div>
-                                        <div class="ec-test-designation">General
-                                            Manager</div>
+                                        <div class="ec-test-desc">The fabric
+                                            quality is amazing, the stitching is
+                                            meticulous, and the design is
+                                            modern! I bought a jacket from here,
+                                            and it feels super comfortable to
+                                            wear. Will definitely recommend it
+                                            to my friends!</div>
+                                        <div class="ec-test-name">Rosé</div>
+                                        <div
+                                            class="ec-test-designation">Artist</div>
                                         <div class="ec-test-rating">
                                             <i class="ecicon eci-star fill"></i>
                                             <i class="ecicon eci-star fill"></i>
@@ -4463,60 +4452,6 @@
             </div>
         </section>
         <!-- ec testmonial end -->
-
-        <!-- Ec Brand Section Start -->
-        <section class="section ec-brand-area section-space-p">
-            <h2 class="d-none">Brand</h2>
-            <div class="container">
-                <div class="row">
-                    <div class="ec-brand-outer">
-                        <ul id="ec-brand-slider">
-                            <li class="ec-brand-item" data-animation="zoomIn">
-                                <div class="ec-brand-img"><a href="#"><img
-                                            alt="brand" title="brand"
-                                            src="assets/images/brand-image/1.png" /></a></div>
-                            </li>
-                            <li class="ec-brand-item" data-animation="zoomIn">
-                                <div class="ec-brand-img"><a href="#"><img
-                                            alt="brand" title="brand"
-                                            src="assets/images/brand-image/2.png" /></a></div>
-                            </li>
-                            <li class="ec-brand-item" data-animation="zoomIn">
-                                <div class="ec-brand-img"><a href="#"><img
-                                            alt="brand" title="brand"
-                                            src="assets/images/brand-image/3.png" /></a></div>
-                            </li>
-                            <li class="ec-brand-item" data-animation="zoomIn">
-                                <div class="ec-brand-img"><a href="#"><img
-                                            alt="brand" title="brand"
-                                            src="assets/images/brand-image/4.png" /></a></div>
-                            </li>
-                            <li class="ec-brand-item" data-animation="zoomIn">
-                                <div class="ec-brand-img"><a href="#"><img
-                                            alt="brand" title="brand"
-                                            src="assets/images/brand-image/5.png" /></a></div>
-                            </li>
-                            <li class="ec-brand-item" data-animation="zoomIn">
-                                <div class="ec-brand-img"><a href="#"><img
-                                            alt="brand" title="brand"
-                                            src="assets/images/brand-image/6.png" /></a></div>
-                            </li>
-                            <li class="ec-brand-item" data-animation="zoomIn">
-                                <div class="ec-brand-img"><a href="#"><img
-                                            alt="brand" title="brand"
-                                            src="assets/images/brand-image/7.png" /></a></div>
-                            </li>
-                            <li class="ec-brand-item" data-animation="zoomIn">
-                                <div class="ec-brand-img"><a href="#"><img
-                                            alt="brand" title="brand"
-                                            src="assets/images/brand-image/8.png" /></a></div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Ec Brand Section End -->
 
         <!-- Ec Instagram Start -->
         <section class="section ec-instagram-section module section-space-p"
@@ -4840,7 +4775,7 @@
                                         <i class="ecicon eci-star fill"></i>
                                         <i class="ecicon eci-star fill"></i>
                                         <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star"></i>
+                                        <i class="ecicon eci-star fill"></i>
                                     </div>
 
                                     <div class="ec-quickview-desc">Lorem Ipsum
@@ -4850,29 +4785,11 @@
                                         ever
                                         since the 1500s,</div>
                                     <div class="ec-quickview-price">
-                                        <span class="old-price">$100.00</span>
-                                        <span class="new-price">$80.00</span>
+                                        <span class="old-price">$4500.00</span>
+                                        <span class="new-price">$4300.00</span>
                                     </div>
 
                                     <div class="ec-pro-variation">
-                                        <div
-                                            class="ec-pro-variation-inner ec-pro-variation-color">
-                                            <span>Color</span>
-                                            <div class="ec-pro-color">
-                                                <ul class="ec-opt-swatch">
-                                                    <li><span
-                                                            style="background-color:#ebbf60;"></span></li>
-                                                    <li><span
-                                                            style="background-color:#75e3ff;"></span></li>
-                                                    <li><span
-                                                            style="background-color:#11f7d8;"></span></li>
-                                                    <li><span
-                                                            style="background-color:#acff7c;"></span></li>
-                                                    <li><span
-                                                            style="background-color:#e996fa;"></span></li>
-                                                </ul>
-                                            </div>
-                                        </div>
                                         <div
                                             class="ec-pro-variation-inner ec-pro-variation-size ec-pro-size">
                                             <span>Size</span>
