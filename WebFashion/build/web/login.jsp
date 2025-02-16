@@ -1,3 +1,4 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -199,7 +200,7 @@
                                 <ul>
                                     <li><a href="index.jsp">Home</a></li>
                                     <li><a href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-                                    <li><a href="product-full-width.jsp">Products</a></li>
+                                   
                                     <li class="dropdown"><a href="javascript:void(0)">Pages</a>
                                         <ul class="sub-menu">
 

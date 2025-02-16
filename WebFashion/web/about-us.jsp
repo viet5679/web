@@ -246,8 +246,7 @@
                                     <li><a
                                             href="shop-left-sidebar-col-3.jsp">Categories</a></li>
 
-                                    <li><a
-                                            href="product-full-width.jsp">Product</a></li>
+                                    
 
                                     <li class="dropdown"><a
                                             href="javascript:void(0)">Pages</a>

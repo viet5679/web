@@ -202,7 +202,6 @@
                             <ul>
                                 <li><a href="index.jsp">Home</a></li>
                                 <li><a href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-                                <li><a href="product-full-width.jsp">Products</a></li>
                                 <li class="dropdown"><a href="javascript:void(0)">Pages</a>
                                     <ul class="sub-menu">
                                         
@@ -267,6 +266,134 @@
         <!-- ekka mobile Menu End -->
     </header>
     <!-- Header End  -->
+    
+    <!-- ekka Cart Start -->
+        <div class="ec-side-cart-overlay"></div>
+        <div id="ec-side-cart" class="ec-side-cart">
+            <div class="ec-cart-inner">
+                <div class="ec-cart-top">
+                    <div class="ec-cart-title">
+                        <span class="cart_title">My Cart</span>
+                        <button class="ec-close"
+                            onclick="closeCart()">&times;</button>
+                    </div>
+                    <ul class="eccart-pro-items" id="cart-items">
+                        <!-- Items will be dynamically added here -->
+                    </ul>
+                </div>
+                <div class="ec-cart-bottom">
+                    <div class="cart-sub-total">
+                        <table class="table cart-table">
+                            <tbody>
+                                <tr>
+                                    <td class="text-left">Sub-Total :</td>
+                                    <td class="text-right"
+                                        id="sub-total">$0.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">VAT (20%) :</td>
+                                    <td class="text-right" id="vat">$0.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">Total :</td>
+                                    <td class="text-right primary-color"
+                                        id="total">$0.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="cart_btn">
+                        <a href="cart.jsp" class="btn btn-primary">View Cart</a>
+                        <a href="checkout.jsp"
+                            class="btn btn-secondary">Checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const cartItems = document.getElementById('cart-items');
+            const subTotalEl = document.getElementById('sub-total');
+            const vatEl = document.getElementById('vat');
+            const totalEl = document.getElementById('total');
+
+            let cart = []; // Array to store cart items
+
+            function addToCart(productName, price) {
+                // Check if the product already exists in the cart
+                const existingItem = cart.find(item => item.productName === productName);
+
+                if (existingItem) {
+                    // If product exists, increase quantity
+                    existingItem.quantity += 1;
+                } else {
+                    // Add new product
+                    cart.push({productName, price, quantity: 1});
+                }
+
+                // Update the UI and totals
+                updateCartUI();
+                updateTotals();
+            }
+
+            function removeFromCart(productName) {
+                // Remove product from cart
+                cart = cart.filter(item => item.productName !== productName);
+
+                // Update the UI and totals
+                updateCartUI();
+                updateTotals();
+            }
+
+            function updateQuantity(productName, newQuantity) {
+                const item = cart.find(item => item.productName === productName);
+                if (item) {
+                    item.quantity = newQuantity > 0 ? parseInt(newQuantity) : 1; // Ensure quantity is at least 1
+                }
+
+                updateCartUI();
+                updateTotals();
+            }
+
+            function updateCartUI() {
+                cartItems.innerHTML = ""; // Clear existing items
+
+                cart.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `
+                        <div>
+           <span>${item.productName}</span> - 
+           <span>${'$'}${item.price}</span> x
+           <input type="number" value="${item.quantity}" min="1" style="width: 50px;" 
+               onchange="updateQuantity('${item.productName}', this.value)">
+           = <span>${'$'}${item.price * item.quantity}</span>
+       </div>
+       <button onclick="removeFromCart('${item.productName}')">Remove</button>
+                    `;
+                    cartItems.appendChild(listItem);
+                });
+            }
+
+            function updateTotals() {
+                const subTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const vat = subTotal * 0.2; // 20% VAT
+                const total = subTotal + vat;
+
+                // Update the DOM
+                subTotalEl.textContent = `$${subTotal.toFixed(2)}`;
+                vatEl.textContent = `$${vat.toFixed(2)}`;
+                totalEl.textContent = `$${total.toFixed(2)}`;
+            }
+
+            function closeCart() {
+                document.getElementById('ec-side-cart').classList.remove('open'); // Hide cart
+            }
+
+            // Example usage: Uncomment these lines to test adding products
+            // addToCart('Cute Baby Toy', 30.00);
+            // addToCart('Teddy Bear', 25.50);
+        </script>
+        <!-- ekka Cart End -->
 
 
 

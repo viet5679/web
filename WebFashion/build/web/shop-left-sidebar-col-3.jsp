@@ -264,8 +264,7 @@
                                     <li><a
                                             href="shop-left-sidebar-col-3.jsp">Categories</a></li>
 
-                                    <li><a
-                                            href="product-full-width.jsp">Products</a></li>
+                                    
                                     <li class="dropdown"><a
                                             href="javascript:void(0)">Pages</a>
                                         <ul class="sub-menu">
@@ -308,8 +307,7 @@
                             <li><a href="index.jsp">Home</a></li>
                             <li><a
                                     href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-                            <li><a
-                                    href="product-full-width.jsp">Products</a></li>
+                            
 
                             <li class="dropdown"><a
                                     href="javascript:void(0)">Pages</a>
@@ -1673,7 +1671,7 @@
                                                     class="ec-sidebar-block-item">
                                                     <input type="checkbox"
                                                         checked /> <a
-                                                        href="#">clothes</a><span
+                                                        href="#">Clothes</a><span
                                                         class="checked"></span>
                                                 </div>
                                             </li>
@@ -1681,7 +1679,7 @@
                                                 <div
                                                     class="ec-sidebar-block-item">
                                                     <input type="checkbox" /> <a
-                                                        href="#">Bags</a><span
+                                                        href="#">Hand bag</a><span
                                                         class="checked"></span>
                                                 </div>
                                             </li>
@@ -1697,7 +1695,7 @@
                                                 <div
                                                     class="ec-sidebar-block-item">
                                                     <input type="checkbox" /> <a
-                                                        href="#">cosmetics</a><span
+                                                        href="#">Jewelry</a><span
                                                         class="checked"></span>
                                                 </div>
                                             </li>
@@ -1705,7 +1703,7 @@
                                                 <div
                                                     class="ec-sidebar-block-item">
                                                     <input type="checkbox" /> <a
-                                                        href="#">electrics</a><span
+                                                        href="#">Dress</a><span
                                                         class="checked"></span>
                                                 </div>
                                             </li>
@@ -1713,45 +1711,35 @@
                                                 <div
                                                     class="ec-sidebar-block-item">
                                                     <input type="checkbox" /> <a
-                                                        href="#">phone</a><span
+                                                        href="#">Trouser</a><span
                                                         class="checked"></span>
                                                 </div>
                                             </li>
-                                            <li id="ec-more-toggle-content"
-                                                style="padding: 0; display: none;">
-                                                <ul>
-                                                    <li>
-                                                        <div
-                                                            class="ec-sidebar-block-item">
-                                                            <input
-                                                                type="checkbox" />
-                                                            <a
-                                                                href="#">Watch</a><span
-                                                                class="checked"></span>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div
-                                                            class="ec-sidebar-block-item">
-                                                            <input
-                                                                type="checkbox" />
-                                                            <a
-                                                                href="#">Cap</a><span
-                                                                class="checked"></span>
-                                                        </div>
-                                                    </li>
-                                                </ul>
+                                            <li>
+                                                <div
+                                                    class="ec-sidebar-block-item">
+                                                    <input type="checkbox" /> <a
+                                                        href="#">Shirt</a><span
+                                                        class="checked"></span>
+                                                </div>
                                             </li>
                                             <li>
                                                 <div
-                                                    class="ec-sidebar-block-item ec-more-toggle">
-                                                    <span
-                                                        class="checked"></span><span
-                                                        id="ec-more-toggle">More
-                                                        Categories</span>
+                                                    class="ec-sidebar-block-item">
+                                                    <input type="checkbox" /> <a
+                                                        href="#">Hat</a><span
+                                                        class="checked"></span>
                                                 </div>
                                             </li>
-
+                                            <li>
+                                                <div
+                                                    class="ec-sidebar-block-item">
+                                                    <input type="checkbox" /> <a
+                                                        href="#">Watch</a><span
+                                                        class="checked"></span>
+                                                </div>
+                                            </li>
+                                            
                                         </ul>
                                     </div>
                                 </div>

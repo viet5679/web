@@ -261,8 +261,17 @@
                                     <li><a href="index.jsp">Home</a></li>
                                     <li><a
                                             href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-                                    <li><a
-                                            href="checkout.jsp">Checkout</a></li>
+                                    <li class="dropdown"><a href="javascript:void(0)">Pages</a>
+                                    <ul class="sub-menu">
+                                        
+                                        <li><a href="cart.jsp">Cart</a></li>
+                                        <li><a href="checkout.jsp">Checkout</a></li>                                
+                                        <li><a href="faq.jsp">FAQ</a></li>
+                                        <li><a href="track-order.jsp">Track Order</a></li>
+                                        <li><a href="terms-condition.jsp">Terms Condition</a></li>
+                                        <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
+                                    </ul>
+                                </li>
 
                                     <li><a href="about-us.jsp">About Us</a></li>
                                     <li><a href="contact-us.jsp">Contact
