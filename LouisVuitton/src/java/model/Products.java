@@ -21,11 +21,12 @@ public class Products {
     private double price;
     private double sale;
     private double total_pay;
+    private String tag;
 
     public Products() {
     }
 
-    public Products(int id, Categories category_id, String name, String description, String sub_description, String avatar, int status, int hot, int total_ratings, int total_starts, int stock_quantity, int total_sold, String created_at, String updated_at, String hover_avatar, double price, double sale, double total_pay) {
+    public Products(int id, Categories category_id, String name, String description, String sub_description, String avatar, int status, int hot, int total_ratings, int total_starts, int stock_quantity, int total_sold, String created_at, String updated_at, String hover_avatar, double price, double sale, double total_pay, String tag) {
         this.id = id;
         this.category_id = category_id;
         this.name = name;
@@ -44,6 +45,7 @@ public class Products {
         this.price = price;
         this.sale = sale;
         this.total_pay = total_pay;
+        this.tag = tag;
     }
 
     public int getId() {
@@ -190,6 +192,12 @@ public class Products {
         this.total_pay = total_pay;
     }
     
-    
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
 
 }

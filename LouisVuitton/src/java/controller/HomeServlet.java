@@ -14,6 +14,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import model.Genders;
+import model.Products;
 
 /**
  *
@@ -60,12 +65,28 @@ public class HomeServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         ProductsDAO p = new ProductsDAO();
         GendersDAO g = new GendersDAO();
+        List<Genders> genders = g.getAllGender();
+        Map<String, List<Products>> productLists = new HashMap<>();
+        productLists.put("all", p.get12ProductByGid(0));
+        for (Genders gender : genders) {
+            productLists.put(lowercaseFirstLetter(gender.getName()), p.get12ProductByGid(gender.getId()));
+        }
+        request.setAttribute("productLists", productLists);
+        
         request.setAttribute("bestSeller", p.getBestSellerProduct());
         request.setAttribute("genderList", g.getAllGender());
         request.setAttribute("newArrivals", p.getNewArrivalsProduct());
         request.setAttribute("saleProduct", p.getSaleProduct());
         request.getRequestDispatcher("index.jsp").forward(request, response);
     } 
+    
+    private String lowercaseFirstLetter(String str) {
+        if (str == null || str.isEmpty()) {
+            return str;
+        }
+        return str.substring(0, 1).toLowerCase() + str.substring(1);
+    }
+
 
     /** 
      * Handles the HTTP <code>POST</code> method.

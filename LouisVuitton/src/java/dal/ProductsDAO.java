@@ -4,7 +4,6 @@ package dal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import model.Product_sizes;
 import model.Products;
 
 public class ProductsDAO extends DBContext {
@@ -28,7 +27,7 @@ public class ProductsDAO extends DBContext {
                             res.getInt(10), res.getInt(11), res.getInt(12),
                             res.getString(13), res.getString(14), res.getString(15),
                             res.getDouble(16), res.getDouble(17),
-                            res.getDouble(18));
+                            res.getDouble(18), res.getString(19));
                     listProduct.add(p);
                 }
                 return listProduct;
@@ -59,7 +58,7 @@ public class ProductsDAO extends DBContext {
                             res.getInt(10), res.getInt(11), res.getInt(12),
                             res.getString(13), res.getString(14), res.getString(15),
                             res.getDouble(16), res.getDouble(17),
-                            res.getDouble(18));
+                            res.getDouble(18), res.getString(19));
                     listProduct.add(p);
                 }
                 return listProduct;
@@ -88,7 +87,7 @@ public class ProductsDAO extends DBContext {
                             res.getInt(10), res.getInt(11), res.getInt(12),
                             res.getString(13), res.getString(14), res.getString(15),
                             res.getDouble(16), res.getDouble(17),
-                            res.getDouble(18));
+                            res.getDouble(18), res.getString(19));
                     listProduct.add(p);
                 }
                 return listProduct;
@@ -115,7 +114,7 @@ public class ProductsDAO extends DBContext {
                             res.getInt(10), res.getInt(11), res.getInt(12),
                             res.getString(13), res.getString(14), res.getString(15),
                             res.getDouble(16), res.getDouble(17),
-                            res.getDouble(18));
+                            res.getDouble(18), res.getString(19));
                     listProduct.add(p);
                 }
                 return listProduct;
@@ -142,7 +141,7 @@ public class ProductsDAO extends DBContext {
                             res.getInt(10), res.getInt(11), res.getInt(12),
                             res.getString(13), res.getString(14), res.getString(15),
                             res.getDouble(16), res.getDouble(17),
-                            res.getDouble(18));
+                            res.getDouble(18), res.getString(19));
                     listProduct.add(p);
                 }
                 return listProduct;
@@ -153,13 +152,13 @@ public class ProductsDAO extends DBContext {
         return null;
     }
 
-    // Get all product by gender_id
-    public ArrayList<Products> getAllProductByGender(int gender_id) {
+    // Get 12 product by gender_id
+    public ArrayList<Products> get12ProductByGid(int gender_id) {
         ArrayList<Products> listProduct = new ArrayList<>();
         CategoriesDAO cg = new CategoriesDAO();
         if (connection != null) {
             try {
-                StringBuilder sql = new StringBuilder("SELECT p* FROM products p JOIN product_gender pg ON p.id = pg.product_id WHERE 1=1");
+                StringBuilder sql = new StringBuilder("SELECT TOP 12 p.* FROM products p JOIN product_gender pg ON p.id = pg.product_id WHERE 1=1");
                 if (gender_id != 0) {
                     sql.append(" AND pg.gender_id = ").append(gender_id);
                 }
@@ -172,7 +171,7 @@ public class ProductsDAO extends DBContext {
                             res.getInt(10), res.getInt(11), res.getInt(12),
                             res.getString(13), res.getString(14), res.getString(15),
                             res.getDouble(16), res.getDouble(17),
-                            res.getDouble(18));
+                            res.getDouble(18), res.getString(19));
                     listProduct.add(p);
                 }
                 return listProduct;

@@ -5,7 +5,6 @@
 
 package controller;
 
-import dal.GendersDAO;
 import dal.ProductsDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
