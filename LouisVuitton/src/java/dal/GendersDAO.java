@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Genders;
 
-public class GenderDAO extends DBContext {
+public class GendersDAO extends DBContext {
 
     public ArrayList<Genders> getAllGender() {
         ArrayList<Genders> ListGender = new ArrayList<>();
@@ -30,7 +30,7 @@ public class GenderDAO extends DBContext {
     }
     
     public static void main(String[] args) {
-        GenderDAO g = new GenderDAO();
+        GendersDAO g = new GendersDAO();
         List<Genders> listGender = g.getAllGender();
         for(Genders x : listGender){
             System.out.println(x.getName());

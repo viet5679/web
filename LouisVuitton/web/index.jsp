@@ -3,7 +3,6 @@
     Author: ashishmaraviya
     Version: 3.7
     Copyright 2024
-        Author URI: https://themeforest.net/user/ashishmaraviya
  ============================================================-->
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,20 +14,20 @@
         <meta charset="UTF-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
         <meta name="viewport"
-            content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+              content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
         <title>Louis Vuitton</title>
         <meta name="keywords"
-            content="apparel, catalog, clean, ecommerce, ecommerce HTML, electronics, fashion, html eCommerce, html store, minimal, multipurpose, multipurpose ecommerce, online store, responsive ecommerce template, shops" />
+              content="apparel, catalog, clean, ecommerce, ecommerce HTML, electronics, fashion, html eCommerce, html store, minimal, multipurpose, multipurpose ecommerce, online store, responsive ecommerce template, shops" />
         <meta name="description"
-            content="Best ecommerce html template for single and multi vendor store.">
+              content="Best ecommerce html template for single and multi vendor store.">
         <meta name="author" content="ashishmaraviya">
 
         <!-- site Favicon -->
         <link rel="icon" href="assets/images/logo/logo3.png" sizes="32x32" />
         <link rel="apple-touch-icon" href="assets/images/logo/logo3.png" />
         <meta name="msapplication-TileImage"
-            content="assets/images/logo/logo3.png" />
+              content="assets/images/logo/logo3.png" />
 
         <!-- css Icon Font -->
         <link rel="stylesheet" href="assets/css/vendor/ecicons.min.css" />
@@ -36,7 +35,7 @@
         <!-- css All Plugins Files -->
         <link rel="stylesheet" href="assets/css/plugins/animate.css" />
         <link rel="stylesheet"
-            href="assets/css/plugins/swiper-bundle.min.css" />
+              href="assets/css/plugins/swiper-bundle.min.css" />
         <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css" />
         <link rel="stylesheet" href="assets/css/plugins/countdownTimer.css" />
         <link rel="stylesheet" href="assets/css/plugins/slick.min.css" />
@@ -49,7 +48,7 @@
 
         <!-- Background css -->
         <link rel="stylesheet" id="bg-switcher-css"
-            href="assets/css/backgrounds/bg-4.css">
+              href="assets/css/backgrounds/bg-4.css">
     </head>
 
     <body>
@@ -84,23 +83,23 @@
                                 <!-- Header User Start -->
                                 <div class="ec-header-user dropdown">
                                     <button class="dropdown-toggle"
-                                        data-bs-toggle="dropdown"><i
+                                            data-bs-toggle="dropdown"><i
                                             class="fi-rr-user"></i></button>
                                     <ul
                                         class="dropdown-menu dropdown-menu-right">
                                         <li><a class="dropdown-item"
-                                                href="register.jsp">Register</a></li>
+                                               href="register.jsp">Register</a></li>
                                         <li><a class="dropdown-item"
-                                                href="checkout.jsp">Checkout</a></li>
+                                               href="checkout.jsp">Checkout</a></li>
                                         <li><a class="dropdown-item"
-                                                href="login.jsp">Login</a></li>
+                                               href="login.jsp">Login</a></li>
                                     </ul>
                                 </div>
                                 <!-- Header User End -->
 
                                 <!-- Header Cart Start -->
                                 <a href="wishlist.jsp"
-                                    class="ec-header-btn ec-header-wishlist">
+                                   class="ec-header-btn ec-header-wishlist">
                                     <div class="header-icon"><i
                                             class="fi-rr-heart"></i></div>
                                     <span
@@ -110,7 +109,7 @@
 
                                 <!-- Header Cart Start -->
                                 <a href="#ec-side-cart"
-                                    class="ec-header-btn ec-side-toggle">
+                                   class="ec-header-btn ec-side-toggle">
                                     <div class="header-icon"><i
                                             class="fi-rr-shopping-bag"></i></div>
                                     <span
@@ -118,12 +117,12 @@
                                 </a>
                                 <!-- Header Cart End -->
                                 <a href="javascript:void(0)"
-                                    class="ec-header-btn ec-sidebar-toggle">
+                                   class="ec-header-btn ec-sidebar-toggle">
                                     <i class="fi fi-rr-apps"></i>
                                 </a>
                                 <!-- Header menu Start -->
                                 <a href="#ec-mobile-menu"
-                                    class="ec-header-btn ec-side-toggle d-lg-none">
+                                   class="ec-header-btn ec-side-toggle d-lg-none">
                                     <i class="fi fi-rr-menu-burger"></i>
                                 </a>
                                 <!-- Header menu End -->
@@ -175,22 +174,22 @@
                                     <!-- Header User Start -->
                                     <div class="ec-header-user dropdown">
                                         <button class="dropdown-toggle"
-                                            data-bs-toggle="dropdown"><i
+                                                data-bs-toggle="dropdown"><i
                                                 class="fi-rr-user"></i></button>
                                         <ul
                                             class="dropdown-menu dropdown-menu-right">
                                             <li><a class="dropdown-item"
-                                                    href="register.jsp">Register</a></li>
+                                                   href="register.jsp">Register</a></li>
                                             <li><a class="dropdown-item"
-                                                    href="checkout.jsp">Checkout</a></li>
+                                                   href="checkout.jsp">Checkout</a></li>
                                             <li><a class="dropdown-item"
-                                                    href="login.jsp">Login</a></li>
+                                                   href="login.jsp">Login</a></li>
                                         </ul>
                                     </div>
                                     <!-- Header User End -->
                                     <!-- Header wishlist Start -->
                                     <a href="wishlist.jsp"
-                                        class="ec-header-btn ec-header-wishlist">
+                                       class="ec-header-btn ec-header-wishlist">
                                         <div class="header-icon"><i
                                                 class="fi-rr-heart"></i></div>
                                         <span
@@ -199,7 +198,7 @@
                                     <!-- Header wishlist End -->
                                     <!-- Header Cart Start -->
                                     <a href="#ec-side-cart"
-                                        class="ec-header-btn ec-side-toggle">
+                                       class="ec-header-btn ec-side-toggle">
                                         <div class="header-icon"><i
                                                 class="fi-rr-shopping-bag"></i></div>
                                         <span
@@ -217,7 +216,6 @@
             <div class="ec-header-bottom d-lg-none">
                 <div class="container position-relative">
                     <div class="row ">
-
                         <!-- Ec Header Logo Start -->
                         <div class="col">
                             <div class="header-logo">
@@ -236,8 +234,8 @@
                             <div class="header-search">
                                 <form class="ec-btn-group-form" action="#">
                                     <input class="form-control ec-search-bar"
-                                        placeholder="Search products..."
-                                        type="text">
+                                           placeholder="Search products..."
+                                           type="text">
                                     <button class="submit" type="submit"><i
                                             class="fi-rr-search"></i></button>
                                 </form>
@@ -255,60 +253,44 @@
                         <div class="col-md-12 align-self-center">
                             <div class="ec-main-menu">
                                 <a href="javascript:void(0)"
-                                    class="ec-header-btn ec-sidebar-toggle">
+                                   class="ec-header-btn ec-sidebar-toggle">
                                     <i class="fi fi-rr-apps"></i>
                                 </a>
                                 <ul>
-                                    <li><a href="index.jsp">Home</a></li>
-                                    <li><a
-                                            href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-                                    <li class="dropdown"><a href="javascript:void(0)">Pages</a>
-                                    <ul class="sub-menu">
-                                        
-                                        <li><a href="cart.jsp">Cart</a></li>
-                                        <li><a href="checkout.jsp">Checkout</a></li>                                
-                                        <li><a href="faq.jsp">FAQ</a></li>
-                                        <li><a href="track-order.jsp">Track Order</a></li>
-                                        <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                        <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
-                                    </ul>
-                                </li>
-
+                                    <li><a href="home">Home</a></li>
+                                    <li><a href="shop-left-sidebar-col-3.jsp">Shop</a></li>
+                                    <li><a href="track-order.jsp">Track Order</a></li>
                                     <li><a href="about-us.jsp">About Us</a></li>
-                                    <li><a href="contact-us.jsp">Contact
-                                            Us</a></li>
-
-                                    <li class="dropdown scroll-to"><a
-                                            href="javascript:void(0)"><i
-                                                class="fi fi-rr-sort-amount-down-alt"></i></a>
+                                    <li><a href="contact-us.jsp">Contact Us</a></li>
+                                    <li class="dropdown scroll-to"><a href="javascript:void(0)"><i class="fi fi-rr-sort-amount-down-alt"></i></a>
                                         <ul class="sub-menu">
                                             <li class="menu_title">Scroll To
                                                 Section</li>
                                             <li><a href="javascript:void(0)"
-                                                    data-scroll="collection"
-                                                    class="nav-scroll">Top
+                                                   data-scroll="collection"
+                                                   class="nav-scroll">Top
                                                     Collection</a></li>
                                             <li><a
                                                     href="shop-left-sidebar-col-3.jsp"
                                                     data-scroll="categories"
                                                     class="nav-scroll">Categories</a></li>
                                             <li><a href="javascript:void(0)"
-                                                    data-scroll="offers"
-                                                    class="nav-scroll">Offers</a></li>
+                                                   data-scroll="offers"
+                                                   class="nav-scroll">Offers</a></li>
                                             <li><a href="javascript:void(0)"
-                                                    data-scroll="services"
-                                                    class="nav-scroll">Services</a></li>
+                                                   data-scroll="services"
+                                                   class="nav-scroll">Services</a></li>
                                             <li><a href="javascript:void(0)"
-                                                    data-scroll="arrivals"
-                                                    class="nav-scroll">New
+                                                   data-scroll="arrivals"
+                                                   class="nav-scroll">New
                                                     Arrivals</a></li>
                                             <li><a href="javascript:void(0)"
-                                                    data-scroll="reviews"
-                                                    class="nav-scroll">Client
+                                                   data-scroll="reviews"
+                                                   class="nav-scroll">Client
                                                     Review</a></li>
                                             <li><a href="javascript:void(0)"
-                                                    data-scroll="insta"
-                                                    class="nav-scroll">Fashion
+                                                   data-scroll="insta"
+                                                   class="nav-scroll">Fashion
                                                     style</a></li>
                                         </ul>
                                     </li>
@@ -329,25 +311,15 @@
                     <div class="ec-menu-content">
                         <ul>
                             <li><a href="index.jsp">Home</a></li>
-                            <li><a
-                                    href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-                            <li><a
-                                    href="product-full-width.jsp">Products</a></li>
-
+                            <li><a href="shop-left-sidebar-col-3.jsp">Categories</a></li>
+                            <li><a href="product-full-width.jsp">Products</a></li>
                             <li><a href="checkout.jsp">Checkout</a></li>
                             <li><a href="blog-full-width.jsp">Blog</a></li>
-
                             <li><a href="offer.jsp">Hot Offers</a></li>
                         </ul>
                     </div>
                     <div class="header-res-lan-curr">
-
                         <!-- Social Start -->
-                        <div class="header-res-social">
-                            <div class="header-top-social">
-
-                            </div>
-                        </div>
                         <!-- Social End -->
                     </div>
                 </div>
@@ -364,7 +336,7 @@
                     <div class="ec-cart-title">
                         <span class="cart_title">My Cart</span>
                         <button class="ec-close"
-                            onclick="closeCart()">&times;</button>
+                                onclick="closeCart()">&times;</button>
                     </div>
                     <ul class="eccart-pro-items" id="cart-items">
                         <!-- Items will be dynamically added here -->
@@ -394,7 +366,7 @@
                     <div class="cart_btn">
                         <a href="cart.jsp" class="btn btn-primary">View Cart</a>
                         <a href="checkout.jsp"
-                            class="btn btn-secondary">Checkout</a>
+                           class="btn btn-secondary">Checkout</a>
                     </div>
                 </div>
             </div>
@@ -490,206 +462,42 @@
             <div class="cat-sidebar">
                 <div class="cat-sidebar-box">
                     <div class="ec-sidebar-wrap">
-
                         <!-- Sidebar Category Block -->
                     </div>
                 </div>
                 <div class="ec-sidebar-slider-cat">
                     <div class="ec-sb-slider-title">Best Sellers</div>
                     <div class="ec-sb-pro-sl">
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                    class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/1.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">Denim
-                                            Jacket</a></h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
+                        <c:forEach var="bestSeller" items="${requestScope.bestSeller}">
+                            <div>
+                                <div class="ec-sb-pro-sl-item">
+                                    <a href="product-left-sidebar.jsp"
+                                       class="sidekka_pro_img"><img
+                                            src="${bestSeller.avatar}"
+                                            alt="product" /></a>
+                                    <div class="ec-pro-content">
+                                        <h5 class="ec-pro-title"><a
+                                                href="product-left-sidebar.jsp">${bestSeller.name}</a></h5>
+                                        <div class="ec-pro-rating">
+                                            <c:forEach var="i" begin="1" end="5">
+                                                <c:choose>
+                                                    <c:when test="${i <= bestSeller.total_stars}">
+                                                        <i class="ecicon eci-star fill"></i>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <i class="ecicon eci-star"></i>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </c:forEach> 
+                                        </div>
+                                        <span class="ec-price">
+                                            <span class="old-price">$${bestSeller.price}</span>
+                                            <span class="new-price">$${bestSeller.total_pay}</span>
+                                        </span>
                                     </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$3500.00</span>
-                                        <span class="new-price">$3300.00</span>
-                                    </span>
                                 </div>
                             </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                    class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/2.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">Monogram
-                                            Jacket</a>
-                                    </h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$4700.00</span>
-                                        <span class="new-price">$4500.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                    class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/3.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">Girls
-                                            t-shirt</a></h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$4000.00</span>
-                                        <span class="new-price">$3400.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                    class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/4.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">woolen
-                                            hat for men</a></h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$1500.00</span>
-                                        <span class="new-price">$1350.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                    class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/5.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">Perfume</a></h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fillfill"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$5050.00</span>
-                                        <span class="new-price">$4850.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                    class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/6.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">Long
-                                            Jacket</a>
-                                    </h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fillfill"></i>
-                                        <i class="ecicon eci-star fillfill"></i>
-                                        <i class="ecicon eci-star fillfill"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$7050.00</span>
-                                        <span class="new-price">$6800.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                    class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/7.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">Earrings</a>
-                                    </h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$5500.00</span>
-                                        <span class="new-price">$5100.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                    class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/2.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">Monogram
-                                            Jacket</a></h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$4700.00</span>
-                                        <span class="new-price">$4500.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
@@ -717,7 +525,7 @@
                                             add a sparkling touch to romantic
                                             moments.</p>
                                         <a href="#"
-                                            class="btn btn-lg btn-secondary">Order
+                                           class="btn btn-lg btn-secondary">Order
                                             Now</a>
                                     </div>
                                 </div>
@@ -738,7 +546,7 @@
                                         <p>Shop premium Louis Vuitton handbags
                                             and accessories today!</p>
                                         <a href="#"
-                                            class="btn btn-lg btn-secondary">Shop
+                                           class="btn btn-lg btn-secondary">Shop
                                             Now</a>
                                     </div>
                                 </div>
@@ -773,17 +581,17 @@
                     <!-- Tab Start -->
                     <div class="col-md-12 text-center">
                         <ul class="ec-pro-tab-nav nav justify-content-center">
-                            
+
                             <li class="nav-item"><a class="nav-link active"
-                                    data-bs-toggle="tab"
-                                    href="#tab-pro-for-all">For
+                                                    data-bs-toggle="tab"
+                                                    href="#tab-pro-for-all">For
                                     All</a></li>
-                            <c:forEach var="g" items="${requestScope.genderList}">        
-                            <li class="nav-item"><a class="nav-link"
-                                    data-bs-toggle="tab"
-                                    href="#tab-pro-for-${g.name}">For
-                                    ${g.name}</a></li>
-                            </c:forEach>        
+                                    <c:forEach var="g" items="${requestScope.genderList}">        
+                                <li class="nav-item"><a class="nav-link"
+                                                        data-bs-toggle="tab"
+                                                        href="#tab-pro-for-${g.name}">For
+                                        ${g.name}</a></li>
+                                    </c:forEach>        
                         </ul>
                     </div>
                     <!-- Tab End -->
@@ -793,7 +601,7 @@
                         <div class="tab-content">
                             <!-- 1st Product tab start -->
                             <div class="tab-pane fade show active"
-                                id="tab-pro-for-all">
+                                 id="tab-pro-for-all">
                                 <div class="row">
                                     <!-- Product Content -->
                                     <c:set var="salep" value="${requestScope.saleProduct}"/>
@@ -807,25 +615,25 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/6_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/6_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/6_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/6_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -876,20 +684,20 @@
                                                                     data-new="$3200.00"
                                                                     data-tooltip="Small">S</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$3500.00"
-                                                                    data-new="$3250.00"
-                                                                    data-tooltip="Medium">M</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$3500.00"
+                                                                   data-new="$3250.00"
+                                                                   data-tooltip="Medium">M</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$3500.00"
-                                                                    data-new="$3300.00"
-                                                                    data-tooltip="Large">X</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$3500.00"
+                                                                   data-new="$3300.00"
+                                                                   data-tooltip="Large">X</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$3500.00"
-                                                                    data-new="$3300.00"
-                                                                    data-tooltip="Extra Large">XL</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$3500.00"
+                                                                   data-new="$3300.00"
+                                                                   data-tooltip="Extra Large">XL</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -906,27 +714,27 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/7_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/7_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/7_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/7_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span class="flags">
                                                         <span
                                                             class="sale">Sale</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -975,20 +783,20 @@
                                                                     data-new="$1900.00"
                                                                     data-tooltip="Small">S</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$2200.00"
-                                                                    data-new="$1950.00"
-                                                                    data-tooltip="Medium">M</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$2200.00"
+                                                                   data-new="$1950.00"
+                                                                   data-tooltip="Medium">M</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$2200.00"
-                                                                    data-new="$2000.00"
-                                                                    data-tooltip="Large">X</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$2200.00"
+                                                                   data-new="$2000.00"
+                                                                   data-tooltip="Large">X</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$2200.00"
-                                                                    data-new="$2000.00"
-                                                                    data-tooltip="Extra Large">XL</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$2200.00"
+                                                                   data-new="$2000.00"
+                                                                   data-tooltip="Extra Large">XL</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1005,23 +813,23 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/1_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/1_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/1_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/1_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -1071,10 +879,10 @@
                                                                     data-new="$3600.00"
                                                                     data-tooltip="Small">S</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$3850.00"
-                                                                    data-new="$3700.00"
-                                                                    data-tooltip="Medium">M</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$3850.00"
+                                                                   data-new="$3700.00"
+                                                                   data-tooltip="Medium">M</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1091,27 +899,27 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/2_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/2_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/2_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/2_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span class="flags">
                                                         <span
                                                             class="new">New</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -1163,25 +971,25 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/3_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/3_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/3_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/3_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">15%</span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -1230,23 +1038,23 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/4_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/4_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/4_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/4_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -1299,27 +1107,27 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/5_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/5_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/5_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/5_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span class="flags">
                                                         <span
                                                             class="new">New</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -1371,11 +1179,11 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/8_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/8_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/8_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/8_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">10%</span>
@@ -1384,16 +1192,16 @@
                                                             class="new">New</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -1454,25 +1262,25 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/6_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/6_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/6_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/6_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -1523,20 +1331,20 @@
                                                                     data-new="$20.00"
                                                                     data-tooltip="Small">S</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$27.00"
-                                                                    data-new="$22.00"
-                                                                    data-tooltip="Medium">M</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$27.00"
+                                                                   data-new="$22.00"
+                                                                   data-tooltip="Medium">M</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$30.00"
-                                                                    data-new="$25.00"
-                                                                    data-tooltip="Large">X</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$30.00"
+                                                                   data-new="$25.00"
+                                                                   data-tooltip="Large">X</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$35.00"
-                                                                    data-new="$30.00"
-                                                                    data-tooltip="Extra Large">XL</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$35.00"
+                                                                   data-new="$30.00"
+                                                                   data-tooltip="Extra Large">XL</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1552,11 +1360,11 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/7_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/7_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/7_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/7_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
@@ -1565,16 +1373,16 @@
                                                             class="sale">Sale</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -1625,20 +1433,20 @@
                                                                     data-new="$10.00"
                                                                     data-tooltip="Small">S</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$15.00"
-                                                                    data-new="$12.00"
-                                                                    data-tooltip="Medium">M</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$15.00"
+                                                                   data-new="$12.00"
+                                                                   data-tooltip="Medium">M</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$18.00"
-                                                                    data-new="$15.00"
-                                                                    data-tooltip="Large">X</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$18.00"
+                                                                   data-new="$15.00"
+                                                                   data-tooltip="Large">X</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$20.00"
-                                                                    data-new="$17.00"
-                                                                    data-tooltip="Extra Large">XL</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$20.00"
+                                                                   data-new="$17.00"
+                                                                   data-tooltip="Extra Large">XL</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1654,11 +1462,11 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/2_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/2_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/2_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/2_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
@@ -1667,16 +1475,16 @@
                                                             class="new">New</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -1728,23 +1536,23 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/4_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/4_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/4_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/4_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -1796,27 +1604,27 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/5_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/5_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/5_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/5_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span class="flags">
                                                         <span
                                                             class="new">New</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -1867,15 +1675,15 @@
                                                                     data-new="$10.00"
                                                                     data-tooltip="Small">32</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$17.00"
-                                                                    data-new="$12.00"
-                                                                    data-tooltip="Medium">34</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$17.00"
+                                                                   data-new="$12.00"
+                                                                   data-tooltip="Medium">34</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$20.00"
-                                                                    data-new="$15.00"
-                                                                    data-tooltip="Large">36</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$20.00"
+                                                                   data-new="$15.00"
+                                                                   data-tooltip="Large">36</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1891,11 +1699,11 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/8_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/8_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/8_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/8_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
@@ -1904,16 +1712,16 @@
                                                             class="new">New</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -1965,11 +1773,11 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/10_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/10_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/10_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/10_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
@@ -1978,16 +1786,16 @@
                                                             class="sale">Sale</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -2038,20 +1846,20 @@
                                                                     data-new="$25.00"
                                                                     data-tooltip="Small">6</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$35.00"
-                                                                    data-new="$27.00"
-                                                                    data-tooltip="Medium">7</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$35.00"
+                                                                   data-new="$27.00"
+                                                                   data-tooltip="Medium">7</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$40.00"
-                                                                    data-new="$30.00"
-                                                                    data-tooltip="Large">8</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$40.00"
+                                                                   data-new="$30.00"
+                                                                   data-tooltip="Large">8</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$45.00"
-                                                                    data-new="$35.00"
-                                                                    data-tooltip="Extra Large">9</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$45.00"
+                                                                   data-new="$35.00"
+                                                                   data-tooltip="Extra Large">9</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -2067,11 +1875,11 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/9_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/9_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/9_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/9_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
@@ -2080,16 +1888,16 @@
                                                             class="sale">Sale</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -2140,20 +1948,20 @@
                                                                     data-new="$25.00"
                                                                     data-tooltip="Small">S</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$35.00"
-                                                                    data-new="$27.00"
-                                                                    data-tooltip="Medium">M</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$35.00"
+                                                                   data-new="$27.00"
+                                                                   data-tooltip="Medium">M</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$40.00"
-                                                                    data-new="$30.00"
-                                                                    data-tooltip="Large">X</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$40.00"
+                                                                   data-new="$30.00"
+                                                                   data-tooltip="Large">X</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$45.00"
-                                                                    data-new="$35.00"
-                                                                    data-tooltip="Extra Large">XL</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$45.00"
+                                                                   data-new="$35.00"
+                                                                   data-tooltip="Extra Large">XL</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -2180,11 +1988,11 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/9_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/9_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/9_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/9_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
@@ -2193,16 +2001,16 @@
                                                             class="sale">Sale</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -2253,20 +2061,20 @@
                                                                     data-new="$25.00"
                                                                     data-tooltip="Small">S</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$35.00"
-                                                                    data-new="$27.00"
-                                                                    data-tooltip="Medium">M</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$35.00"
+                                                                   data-new="$27.00"
+                                                                   data-tooltip="Medium">M</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$40.00"
-                                                                    data-new="$30.00"
-                                                                    data-tooltip="Large">X</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$40.00"
+                                                                   data-new="$30.00"
+                                                                   data-tooltip="Large">X</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$45.00"
-                                                                    data-new="$35.00"
-                                                                    data-tooltip="Extra Large">XL</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$45.00"
+                                                                   data-new="$35.00"
+                                                                   data-tooltip="Extra Large">XL</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -2282,25 +2090,25 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/6_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/6_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/6_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/6_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -2351,20 +2159,20 @@
                                                                     data-new="$20.00"
                                                                     data-tooltip="Small">S</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$27.00"
-                                                                    data-new="$22.00"
-                                                                    data-tooltip="Medium">M</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$27.00"
+                                                                   data-new="$22.00"
+                                                                   data-tooltip="Medium">M</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$30.00"
-                                                                    data-new="$25.00"
-                                                                    data-tooltip="Large">X</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$30.00"
+                                                                   data-new="$25.00"
+                                                                   data-tooltip="Large">X</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$35.00"
-                                                                    data-new="$30.00"
-                                                                    data-tooltip="Extra Large">XL</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$35.00"
+                                                                   data-new="$30.00"
+                                                                   data-tooltip="Extra Large">XL</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -2380,11 +2188,11 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/8_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/8_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/8_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/8_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
@@ -2393,16 +2201,16 @@
                                                             class="new">New</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -2454,11 +2262,11 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/3_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/3_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/3_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/3_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
@@ -2467,16 +2275,16 @@
                                                             class="new">New</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -2527,11 +2335,11 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/11_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/11_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/11_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/11_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
@@ -2540,16 +2348,16 @@
                                                             class="new">New</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -2601,11 +2409,11 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/12_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/12_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/12_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/12_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
@@ -2614,16 +2422,16 @@
                                                             class="sale">Sale</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -2674,20 +2482,20 @@
                                                                     data-new="$40.00"
                                                                     data-tooltip="Small">6</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$60.00"
-                                                                    data-new="$50.00"
-                                                                    data-tooltip="Medium">7</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$60.00"
+                                                                   data-new="$50.00"
+                                                                   data-tooltip="Medium">7</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$70.00"
-                                                                    data-new="$60.00"
-                                                                    data-tooltip="Large">8</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$70.00"
+                                                                   data-new="$60.00"
+                                                                   data-tooltip="Large">8</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$80.00"
-                                                                    data-new="$70.00"
-                                                                    data-tooltip="Extra Large">9</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$80.00"
+                                                                   data-new="$70.00"
+                                                                   data-tooltip="Extra Large">9</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -2703,23 +2511,23 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/13_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/13_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/13_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/13_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -2771,25 +2579,25 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/14_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/14_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/14_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/14_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -2840,20 +2648,20 @@
                                                                     data-new="$60.00"
                                                                     data-tooltip="Small">6</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$80.00"
-                                                                    data-new="$70.00"
-                                                                    data-tooltip="Medium">7</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$80.00"
+                                                                   data-new="$70.00"
+                                                                   data-tooltip="Medium">7</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$90.00"
-                                                                    data-new="$80.00"
-                                                                    data-tooltip="Large">8</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$90.00"
+                                                                   data-new="$80.00"
+                                                                   data-tooltip="Large">8</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$100.00"
-                                                                    data-new="$90.00"
-                                                                    data-tooltip="Extra Large">9</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$100.00"
+                                                                   data-new="$90.00"
+                                                                   data-tooltip="Extra Large">9</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -2881,11 +2689,11 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/1_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/1_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/1_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/1_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
@@ -2894,16 +2702,16 @@
                                                             class="sale">Sale</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -2954,10 +2762,10 @@
                                                                     data-new="$30.00"
                                                                     data-tooltip="Small">S</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$50.00"
-                                                                    data-new="$40.00"
-                                                                    data-tooltip="Medium">M</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$50.00"
+                                                                   data-new="$40.00"
+                                                                   data-tooltip="Medium">M</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -2973,11 +2781,11 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/15_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/15_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/15_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/15_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
@@ -2986,16 +2794,16 @@
                                                             class="sale">Sale</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -3047,20 +2855,20 @@
                                                                     data-new="$70.00"
                                                                     data-tooltip="Small">4</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$70.00"
-                                                                    data-new="$60.00"
-                                                                    data-tooltip="Medium">5</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$70.00"
+                                                                   data-new="$60.00"
+                                                                   data-tooltip="Medium">5</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$60.00"
-                                                                    data-new="$50.00"
-                                                                    data-tooltip="Large">6</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$60.00"
+                                                                   data-new="$50.00"
+                                                                   data-tooltip="Large">6</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$50.00"
-                                                                    data-new="$40.00"
-                                                                    data-tooltip="Extra Large">7</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$50.00"
+                                                                   data-new="$40.00"
+                                                                   data-tooltip="Extra Large">7</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -3076,11 +2884,11 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/16_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/16_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/16_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/16_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
@@ -3089,16 +2897,16 @@
                                                             class="new">New</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -3150,11 +2958,11 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/17_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/17_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/17_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/17_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
@@ -3163,16 +2971,16 @@
                                                             class="sale">Sale</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -3224,11 +3032,11 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/9_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/9_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/9_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/9_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
@@ -3237,16 +3045,16 @@
                                                             class="sale">Sale</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -3297,20 +3105,20 @@
                                                                     data-new="$25.00"
                                                                     data-tooltip="Small">S</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$35.00"
-                                                                    data-new="$27.00"
-                                                                    data-tooltip="Medium">M</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$35.00"
+                                                                   data-new="$27.00"
+                                                                   data-tooltip="Medium">M</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$40.00"
-                                                                    data-new="$30.00"
-                                                                    data-tooltip="Large">X</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$40.00"
+                                                                   data-new="$30.00"
+                                                                   data-tooltip="Large">X</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$45.00"
-                                                                    data-new="$35.00"
-                                                                    data-tooltip="Extra Large">XL</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$45.00"
+                                                                   data-new="$35.00"
+                                                                   data-tooltip="Extra Large">XL</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -3326,25 +3134,25 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/6_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/6_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/6_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/6_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -3395,20 +3203,20 @@
                                                                     data-new="$20.00"
                                                                     data-tooltip="Small">S</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$27.00"
-                                                                    data-new="$22.00"
-                                                                    data-tooltip="Medium">M</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$27.00"
+                                                                   data-new="$22.00"
+                                                                   data-tooltip="Medium">M</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$30.00"
-                                                                    data-new="$25.00"
-                                                                    data-tooltip="Large">X</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$30.00"
+                                                                   data-new="$25.00"
+                                                                   data-tooltip="Large">X</a></li>
                                                             <li><a href="#"
-                                                                    class="ec-opt-sz"
-                                                                    data-old="$35.00"
-                                                                    data-new="$30.00"
-                                                                    data-tooltip="Extra Large">XL</a></li>
+                                                                   class="ec-opt-sz"
+                                                                   data-old="$35.00"
+                                                                   data-new="$30.00"
+                                                                   data-tooltip="Extra Large">XL</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -3424,11 +3232,11 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/8_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/8_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/8_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/8_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
@@ -3437,16 +3245,16 @@
                                                             class="new">New</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -3498,11 +3306,11 @@
                                                         href="product-left-sidebar.jsp"
                                                         class="image">
                                                         <img class="main-image"
-                                                            src="assets/images/product-image/3_1.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/3_1.jpg"
+                                                             alt="Product" />
                                                         <img class="hover-image"
-                                                            src="assets/images/product-image/3_2.jpg"
-                                                            alt="Product" />
+                                                             src="assets/images/product-image/3_2.jpg"
+                                                             alt="Product" />
                                                     </a>
                                                     <span
                                                         class="percentage">20%</span>
@@ -3511,16 +3319,16 @@
                                                             class="new">New</span>
                                                     </span>
                                                     <a href="#"
-                                                        class="quickview"
-                                                        data-link-action="quickview"
-                                                        title="Quick view"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#ec_quickview_modal"><i
+                                                       class="quickview"
+                                                       data-link-action="quickview"
+                                                       title="Quick view"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#ec_quickview_modal"><i
                                                             class="fi-rr-eye"></i></a>
                                                     <div class="ec-pro-actions">
                                                         <a href="compare.jsp"
-                                                            class="ec-btn-group compare"
-                                                            title="Compare"><i
+                                                           class="ec-btn-group compare"
+                                                           title="Compare"><i
                                                                 class="fi fi-rr-arrows-repeat"></i></a>
                                                         <button
                                                             title="Add To Cart"
@@ -3606,7 +3414,7 @@
                                 </div>
                             </div>
                             <div class="banner-block col-lg-6 col-md-12"
-                                data-animation="slideInLeft">
+                                 data-animation="slideInLeft">
                                 <div class="bnr-overlay">
                                     <img src="assets/images/banner/3.jpg" alt />
                                     <div class="banner-text">
@@ -3635,7 +3443,7 @@
 
         <!--  Category Section Start -->
         <section class="section ec-category-section section-space-p"
-            id="categories">
+                 id="categories">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
@@ -3672,15 +3480,15 @@
                                         class="ec-fs-pro-image-outer col-lg-6 col-md-6 col-sm-6">
                                         <div class="ec-fs-pro-image">
                                             <a href="product-left-sidebar.jsp"
-                                                class="image"><img
+                                               class="image"><img
                                                     class="main-image"
                                                     src="assets/images/product-image/1_1.jpg"
                                                     alt="Product" /></a>
                                             <a href="#" class="quickview"
-                                                data-link-action="quickview"
-                                                title="Quick view"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#ec_quickview_modal"><i
+                                               data-link-action="quickview"
+                                               title="Quick view"
+                                               data-bs-toggle="modal"
+                                               data-bs-target="#ec_quickview_modal"><i
                                                     class="fi-rr-eye"></i></a>
                                         </div>
                                     </div>
@@ -3723,10 +3531,10 @@
 
                                         <div class="ec-fs-pro-btn">
                                             <a href="#"
-                                                class="btn btn-lg btn-secondary">Remind
+                                               class="btn btn-lg btn-secondary">Remind
                                                 Me</a>
                                             <a href="#"
-                                                class="btn btn-lg btn-primary">Book
+                                               class="btn btn-lg btn-primary">Book
                                                 Now</a>
                                         </div>
                                     </div>
@@ -3738,15 +3546,15 @@
                                         class="ec-fs-pro-image-outer col-lg-6 col-md-6 col-sm-6">
                                         <div class="ec-fs-pro-image">
                                             <a href="product-left-sidebar.jsp"
-                                                class="image"><img
+                                               class="image"><img
                                                     class="main-image"
                                                     src="assets/images/product-image/3_1.jpg"
                                                     alt="Product" /></a>
                                             <a href="#" class="quickview"
-                                                data-link-action="quickview"
-                                                title="Quick view"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#ec_quickview_modal"><i
+                                               data-link-action="quickview"
+                                               title="Quick view"
+                                               data-bs-toggle="modal"
+                                               data-bs-target="#ec_quickview_modal"><i
                                                     class="fi-rr-eye"></i></a>
                                         </div>
                                     </div>
@@ -3789,10 +3597,10 @@
 
                                         <div class="ec-fs-pro-btn">
                                             <a href="#"
-                                                class="btn btn-lg btn-secondary">Remind
+                                               class="btn btn-lg btn-secondary">Remind
                                                 Me</a>
                                             <a href="#"
-                                                class="btn btn-lg btn-primary">Book
+                                               class="btn btn-lg btn-primary">Book
                                                 Now</a>
                                         </div>
                                     </div>
@@ -3803,7 +3611,7 @@
                     <!--  Feature Section End -->
                     <!--  Special Section Start -->
                     <div class="ec-spe-section col-lg-6 col-md-6 col-sm-6"
-                        data-animation="slideInLeft">
+                         data-animation="slideInLeft">
                         <div class="col-md-12 text-left">
                             <div class="section-title">
                                 <h2 class="ec-bg-title">Limited Time Offer</h2>
@@ -3818,15 +3626,15 @@
                                         class="ec-fs-pro-image-outer col-lg-6 col-md-6 col-sm-6">
                                         <div class="ec-fs-pro-image">
                                             <a href="product-left-sidebar.jsp"
-                                                class="image"><img
+                                               class="image"><img
                                                     class="main-image"
                                                     src="assets/images/product-image/8_1.jpg"
                                                     alt="Product" /></a>
                                             <a href="#" class="quickview"
-                                                data-link-action="quickview"
-                                                title="Quick view"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#ec_quickview_modal"><i
+                                               data-link-action="quickview"
+                                               title="Quick view"
+                                               data-bs-toggle="modal"
+                                               data-bs-target="#ec_quickview_modal"><i
                                                     class="fi-rr-eye"></i></a>
                                         </div>
                                     </div>
@@ -3868,10 +3676,10 @@
 
                                         <div class="ec-fs-pro-btn">
                                             <a href="#"
-                                                class="btn btn-lg btn-secondary">Remind
+                                               class="btn btn-lg btn-secondary">Remind
                                                 Me</a>
                                             <a href="#"
-                                                class="btn btn-lg btn-primary">Book
+                                               class="btn btn-lg btn-primary">Book
                                                 Now</a>
                                         </div>
                                     </div>
@@ -3883,15 +3691,15 @@
                                         class="ec-fs-pro-image-outer col-lg-6 col-md-6 col-sm-6">
                                         <div class="ec-fs-pro-image">
                                             <a href="product-left-sidebar.jsp"
-                                                class="image"><img
+                                               class="image"><img
                                                     class="main-image"
                                                     src="assets/images/product-image/10_1.jpg"
                                                     alt="Product" /></a>
                                             <a href="#" class="quickview"
-                                                data-link-action="quickview"
-                                                title="Quick view"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#ec_quickview_modal"><i
+                                               data-link-action="quickview"
+                                               title="Quick view"
+                                               data-bs-toggle="modal"
+                                               data-bs-target="#ec_quickview_modal"><i
                                                     class="fi-rr-eye"></i></a>
                                         </div>
                                     </div>
@@ -3930,10 +3738,10 @@
 
                                         <div class="ec-fs-pro-btn">
                                             <a href="#"
-                                                class="btn btn-lg btn-secondary">Remind
+                                               class="btn btn-lg btn-secondary">Remind
                                                 Me</a>
                                             <a href="#"
-                                                class="btn btn-lg btn-primary">Book
+                                               class="btn btn-lg btn-primary">Book
                                                 Now</a>
                                         </div>
                                     </div>
@@ -3949,7 +3757,7 @@
 
         <!--  services Section Start -->
         <section class="section ec-services-section section-space-p"
-            id="services">
+                 id="services">
             <h2 class="d-none">Services</h2>
             <div class="container">
                 <div class="row">
@@ -4028,8 +3836,8 @@
                             data-animation="slideInDown">Super Offer</h3>
                         <span class="ec-offer-price">$10500.00 Only</span>
                         <a class="btn btn-primary"
-                            href="shop-left-sidebar-col-3.jsp"
-                            data-animation="zoomIn">Shop Now</a>
+                           href="shop-left-sidebar-col-3.jsp"
+                           data-animation="zoomIn">Shop Now</a>
                     </div>
                 </div>
             </div>
@@ -4052,91 +3860,96 @@
                 <div class="row">
                     <!-- New Product Content -->
                     <c:forEach var="newArrivals" items="${requestScope.newArrivals}">
-                    <div
-                        class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6  ec-product-content"
-                        data-animation="flipInY">
-                        <div class="ec-product-inner">
-                            <div class="ec-pro-image-outer">
-                                <div class="ec-pro-image">
-                                    <a href="product-left-sidebar.jsp"
-                                        class="image">
-                                        <img class="main-image"
-                                            src="${newArrivals.avatar}"
-                                            alt="Product"/>
-                                        <img class="hover-image"
-                                            src="${newArrivals.hover_avatar}"
-                                            alt="Product" />
-                                    </a>
-                                    <span class="flags">
-                                        <span class="sale">Sale</span>
+                        <div
+                            class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6  ec-product-content"
+                            data-animation="flipInY">
+                            <div class="ec-product-inner">
+                                <div class="ec-pro-image-outer">
+                                    <div class="ec-pro-image">
+                                        <a href="product-left-sidebar.jsp"
+                                           class="image">
+                                            <img class="main-image"
+                                                 src="${newArrivals.avatar}"
+                                                 alt="Product"/>
+                                            <img class="hover-image"
+                                                 src="${newArrivals.hover_avatar}"
+                                                 alt="Product" />
+                                        </a>
+                                        <span class="flags">
+                                            <span class="new">New</span>
+                                        </span>
+                                        <a href="#" class="quickview"
+                                           data-link-action="quickview"
+                                           title="Quick view"
+                                           data-bs-toggle="modal"
+                                           data-bs-target="#ec_quickview_modal"><i
+                                                class="fi-rr-eye"></i></a>
+                                        <div class="ec-pro-actions">
+                                            <a href="compare.jsp"
+                                               class="ec-btn-group compare"
+                                               title="Compare"><i
+                                                    class="fi fi-rr-arrows-repeat"></i></a>
+                                            <button title="Add To Cart"
+                                                    class="add-to-cart"><i
+                                                    class="fi-rr-shopping-basket"></i>
+                                                Add To Cart</button>
+                                            <a class="ec-btn-group wishlist"
+                                               title="Wishlist"><i
+                                                    class="fi-rr-heart"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ec-pro-content">
+                                    <h5 class="ec-pro-title"><a
+                                            href="product-left-sidebar.jsp">${newArrivals.name}</a>
+                                    </h5>
+                                    <div class="ec-pro-rating">
+                                        <c:forEach var="i" begin="1" end="5">
+                                            <c:choose>
+                                                <c:when test="${i <= newArrivals.total_stars}">
+                                                    <i class="ecicon eci-star fill"></i>
+                                                </c:when>
+                                                <c:otherwise>
+                                                   <i class="ecicon eci-star"></i>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </c:forEach>
+                                    </div>
+                                    <span class="ec-price">
+                                        <span class="old-price">$${newArrivals.price}</span>
+                                        <span class="new-price">$${newArrivals.total_pay}</span>
                                     </span>
-                                    <a href="#" class="quickview"
-                                        data-link-action="quickview"
-                                        title="Quick view"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#ec_quickview_modal"><i
-                                            class="fi-rr-eye"></i></a>
-                                    <div class="ec-pro-actions">
-                                        <a href="compare.jsp"
-                                            class="ec-btn-group compare"
-                                            title="Compare"><i
-                                                class="fi fi-rr-arrows-repeat"></i></a>
-                                        <button title="Add To Cart"
-                                            class="add-to-cart"><i
-                                                class="fi-rr-shopping-basket"></i>
-                                            Add To Cart</button>
-                                        <a class="ec-btn-group wishlist"
-                                            title="Wishlist"><i
-                                                class="fi-rr-heart"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ec-pro-content">
-                                <h5 class="ec-pro-title"><a
-                                        href="product-left-sidebar.jsp">${newArrivals.name}</a>
-                                </h5>
-                                <div class="ec-pro-rating">
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star fill"></i>
-                                </div>
-                                <span class="ec-price">
-                                    <span class="old-price">$${newArrivals.price}</span>
-                                    <span class="new-price">$${newArrivals.total_pay}</span>
-                                </span>
-                                <div class="ec-pro-option">
-                                    <div class="ec-pro-color">
+                                    <div class="ec-pro-option">
+                                        <div class="ec-pro-color">
 
-                                    </div>
-                                    <div class="ec-pro-size">
-                                        <span
-                                            class="ec-pro-opt-label">Size</span>
-                                        <ul class="ec-opt-size">
-                                            <li class="active"><a href="#"
-                                                    class="ec-opt-sz"
-                                                    data-old="$${newArrivals.price}"
-                                                    data-new="$${newArrivals.total_pay}"
-                                                    data-tooltip="Small">S</a></li>
-                                            <li><a href="#" class="ec-opt-sz"
-                                                    data-old="$${newArrivals.price}"
-                                                    data-new="$${newArrivals.total_pay}"
-                                                    data-tooltip="Medium">M</a></li>
-                                            <li><a href="#" class="ec-opt-sz"
-                                                    data-old="$${newArrivals.price}"
-                                                    data-new="$${newArrivals.total_pay}"
-                                                    data-tooltip="Large">X</a></li>
-                                            <li><a href="#" class="ec-opt-sz"
-                                                    data-old="$${newArrivals.price}"
-                                                    data-new="$${newArrivals.total_pay}"
-                                                    data-tooltip="Extra Large">XL</a></li>
-                                        </ul>
+                                        </div>
+                                        <div class="ec-pro-size">
+                                            <span
+                                                class="ec-pro-opt-label">Size</span>
+                                            <ul class="ec-opt-size">
+                                                <li class="active"><a href="#"
+                                                                      class="ec-opt-sz"
+                                                                      data-old="$${newArrivals.price}"
+                                                                      data-new="$${newArrivals.total_pay}"
+                                                                      data-tooltip="Small">S</a></li>
+                                                <li><a href="#" class="ec-opt-sz"
+                                                       data-old="$${newArrivals.price}"
+                                                       data-new="$${newArrivals.total_pay}"
+                                                       data-tooltip="Medium">M</a></li>
+                                                <li><a href="#" class="ec-opt-sz"
+                                                       data-old="$${newArrivals.price}"
+                                                       data-new="$${newArrivals.total_pay}"
+                                                       data-tooltip="Large">X</a></li>
+                                                <li><a href="#" class="ec-opt-sz"
+                                                       data-old="$${newArrivals.price}"
+                                                       data-new="$${newArrivals.total_pay}"
+                                                       data-tooltip="Extra Large">XL</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </c:forEach>
                     <div class="col-sm-12 shop-all-btn"><a
                             href="shop-left-sidebar-col-3.jsp">Shop All
@@ -4263,7 +4076,7 @@
 
         <!-- Ec Instagram Start -->
         <section class="section ec-instagram-section module section-space-p"
-            id="insta">
+                 id="insta">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
@@ -4437,20 +4250,20 @@
                                         </ul>
                                         <div class="ec-subscribe-form">
                                             <form id="ec-newsletter-form"
-                                                name="ec-newsletter-form"
-                                                method="post"
-                                                action="#">
+                                                  name="ec-newsletter-form"
+                                                  method="post"
+                                                  action="#">
                                                 <div id="ec_news_signup"
-                                                    class="ec-form">
+                                                     class="ec-form">
                                                     <input class="ec-email"
-                                                        type="email" required
-                                                        placeholder="Enter your email here..."
-                                                        name="ec-email" value />
+                                                           type="email" required
+                                                           placeholder="Enter your email here..."
+                                                           name="ec-email" value />
                                                     <button id="ec-news-btn"
-                                                        class="button btn-primary"
-                                                        type="submit"
-                                                        name="subscribe"
-                                                        value><i
+                                                            class="button btn-primary"
+                                                            type="submit"
+                                                            name="subscribe"
+                                                            value><i
                                                             class="ecicon eci-paper-plane-o"
                                                             aria-hidden="true"></i></button>
                                                 </div>
@@ -4507,11 +4320,11 @@
 
         <!-- Modal -->
         <div class="modal fade" id="ec_quickview_modal" tabindex="-1"
-            role="dialog">
+             role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <button type="button" class="btn-close qty_close"
-                        data-bs-dismiss="modal" aria-label="Close"></button>
+                            data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-5 col-sm-12 col-xs-12">
@@ -4519,55 +4332,55 @@
                                 <div class="qty-product-cover">
                                     <div class="qty-slide">
                                         <img class="img-responsive"
-                                            src="assets/images/product-image/3_1.jpg"
-                                            alt>
+                                             src="assets/images/product-image/3_1.jpg"
+                                             alt>
                                     </div>
                                     <div class="qty-slide">
                                         <img class="img-responsive"
-                                            src="assets/images/product-image/3_2.jpg"
-                                            alt>
+                                             src="assets/images/product-image/3_2.jpg"
+                                             alt>
                                     </div>
                                     <div class="qty-slide">
                                         <img class="img-responsive"
-                                            src="assets/images/product-image/3_3.jpg"
-                                            alt>
+                                             src="assets/images/product-image/3_3.jpg"
+                                             alt>
                                     </div>
                                     <div class="qty-slide">
                                         <img class="img-responsive"
-                                            src="assets/images/product-image/3_4.jpg"
-                                            alt>
+                                             src="assets/images/product-image/3_4.jpg"
+                                             alt>
                                     </div>
                                     <div class="qty-slide">
                                         <img class="img-responsive"
-                                            src="assets/images/product-image/3_5.jpg"
-                                            alt>
+                                             src="assets/images/product-image/3_5.jpg"
+                                             alt>
                                     </div>
                                 </div>
                                 <div class="qty-nav-thumb">
                                     <div class="qty-slide">
                                         <img class="img-responsive"
-                                            src="assets/images/product-image/3_1.jpg"
-                                            alt>
+                                             src="assets/images/product-image/3_1.jpg"
+                                             alt>
                                     </div>
                                     <div class="qty-slide">
                                         <img class="img-responsive"
-                                            src="assets/images/product-image/3_2.jpg"
-                                            alt>
+                                             src="assets/images/product-image/3_2.jpg"
+                                             alt>
                                     </div>
                                     <div class="qty-slide">
                                         <img class="img-responsive"
-                                            src="assets/images/product-image/3_3.jpg"
-                                            alt>
+                                             src="assets/images/product-image/3_3.jpg"
+                                             alt>
                                     </div>
                                     <div class="qty-slide">
                                         <img class="img-responsive"
-                                            src="assets/images/product-image/3_4.jpg"
-                                            alt>
+                                             src="assets/images/product-image/3_4.jpg"
+                                             alt>
                                     </div>
                                     <div class="qty-slide">
                                         <img class="img-responsive"
-                                            src="assets/images/product-image/3_5.jpg"
-                                            alt>
+                                             src="assets/images/product-image/3_5.jpg"
+                                             alt>
                                     </div>
                                 </div>
                             </div>
@@ -4609,14 +4422,14 @@
                                                             class="ec-opt-sz"
                                                             data-tooltip="Small">S</a></li>
                                                     <li><a href="#"
-                                                            class="ec-opt-sz"
-                                                            data-tooltip="Medium">M</a></li>
+                                                           class="ec-opt-sz"
+                                                           data-tooltip="Medium">M</a></li>
                                                     <li><a href="#"
-                                                            class="ec-opt-sz"
-                                                            data-tooltip="Large">X</a></li>
+                                                           class="ec-opt-sz"
+                                                           data-tooltip="Large">X</a></li>
                                                     <li><a href="#"
-                                                            class="ec-opt-sz"
-                                                            data-tooltip="Extra Large">XL</a></li>
+                                                           class="ec-opt-sz"
+                                                           data-tooltip="Extra Large">XL</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -4624,7 +4437,7 @@
                                     <div class="ec-quickview-qty">
                                         <div class="qty-plus-minus">
                                             <input class="qty-input" type="text"
-                                                name="ec_qtybtn" value="1" />
+                                                   name="ec_qtybtn" value="1" />
                                         </div>
                                         <div class="ec-quickview-cart ">
                                             <button class="btn btn-primary"><i
@@ -4647,12 +4460,12 @@
                 <div class="ec-nav-panel">
                     <div class="ec-nav-panel-icons">
                         <a href="#ec-mobile-menu"
-                            class="navbar-toggler-btn ec-header-btn ec-side-toggle"><i
+                           class="navbar-toggler-btn ec-header-btn ec-side-toggle"><i
                                 class="fi-rr-menu-burger"></i></a>
                     </div>
                     <div class="ec-nav-panel-icons">
                         <a href="#ec-side-cart"
-                            class="toggle-cart ec-header-btn ec-side-toggle"><i
+                           class="toggle-cart ec-header-btn ec-side-toggle"><i
                                 class="fi-rr-shopping-bag"></i><span
                                 class="ec-cart-noti ec-header-count cart-count-lable">0</span></a>
                     </div>
@@ -4724,7 +4537,7 @@
                         <!-- Start Single Contact List -->
                         <li>
                             <a class="ec-list" data-number="918866774266"
-                                data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                                 <div class="d-flex bd-highlight">
                                     <!-- Profile Picture -->
                                     <div class="ec-img-cont">
@@ -4750,7 +4563,7 @@
                         <!-- Start Single Contact List -->
                         <li>
                             <a class="ec-list" data-number="918866774266"
-                                data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                                 <div class="d-flex bd-highlight">
                                     <!-- Profile Picture -->
                                     <div class="ec-img-cont">
@@ -4777,7 +4590,7 @@
                         <!-- Start Single Contact List -->
                         <li>
                             <a class="ec-list" data-number="918866774266"
-                                data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                                 <div class="d-flex bd-highlight">
                                     <!-- Profile Picture -->
                                     <div class="ec-img-cont">
@@ -4804,7 +4617,7 @@
                         <!-- Start Single Contact List -->
                         <li>
                             <a class="ec-list" data-number="918866774266"
-                                data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                                 <div class="d-flex bd-highlight">
                                     <!-- Profile Picture -->
                                     <div class="ec-img-cont">
@@ -4837,8 +4650,8 @@
                 <div class="ec-box">
                     <div class="ec-button rotateBackward">
                         <img class="whatsapp"
-                            src="assets/images/common/whatsapp.png"
-                            alt="whatsapp icon">
+                             src="assets/images/common/whatsapp.png"
+                             alt="whatsapp icon">
                     </div>
                 </div>
             </div>
@@ -4848,39 +4661,39 @@
 
         <!-- Vendor JS -->
         <script
-            src="<%= request.getContextPath() %>/assets/js/vendor/jquery-3.5.1.min.js"></script>
+        src="<%= request.getContextPath() %>/assets/js/vendor/jquery-3.5.1.min.js"></script>
         <script
-            src="<%= request.getContextPath() %>/assets/js/vendor/popper.min.js"></script>
+        src="<%= request.getContextPath() %>/assets/js/vendor/popper.min.js"></script>
         <script
-            src="<%= request.getContextPath() %>/assets/js/vendor/bootstrap.min.js"></script>
+        src="<%= request.getContextPath() %>/assets/js/vendor/bootstrap.min.js"></script>
         <script
-            src="<%= request.getContextPath() %>/assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+        src="<%= request.getContextPath() %>/assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
         <script
-            src="<%= request.getContextPath() %>/assets/js/vendor/modernizr-3.11.2.min.js"></script>
+        src="<%= request.getContextPath() %>/assets/js/vendor/modernizr-3.11.2.min.js"></script>
 
         <!--Plugins JS-->
         <script
-            src="<%= request.getContextPath() %>/assets/js/plugins/swiper-bundle.min.js"></script>
+        src="<%= request.getContextPath() %>/assets/js/plugins/swiper-bundle.min.js"></script>
         <script
-            src="<%= request.getContextPath() %>/assets/js/plugins/countdownTimer.min.js"></script>
+        src="<%= request.getContextPath() %>/assets/js/plugins/countdownTimer.min.js"></script>
         <script
-            src="<%= request.getContextPath() %>/assets/js/plugins/scrollup.js"></script>
+        src="<%= request.getContextPath() %>/assets/js/plugins/scrollup.js"></script>
         <script
-            src="<%= request.getContextPath() %>/assets/js/plugins/jquery.zoom.min.js"></script>
+        src="<%= request.getContextPath() %>/assets/js/plugins/jquery.zoom.min.js"></script>
         <script
-            src="<%= request.getContextPath() %>/assets/js/plugins/slick.min.js"></script>
+        src="<%= request.getContextPath() %>/assets/js/plugins/slick.min.js"></script>
         <script
-            src="<%= request.getContextPath() %>/assets/js/plugins/infiniteslidev2.js"></script>
+        src="<%= request.getContextPath() %>/assets/js/plugins/infiniteslidev2.js"></script>
         <script
-            src="<%= request.getContextPath() %>/assets/js/vendor/jquery.magnific-popup.min.js"></script>
+        src="<%= request.getContextPath() %>/assets/js/vendor/jquery.magnific-popup.min.js"></script>
         <script
-            src="<%= request.getContextPath() %>/assets/js/plugins/jquery.sticky-sidebar.js"></script>
+        src="<%= request.getContextPath() %>/assets/js/plugins/jquery.sticky-sidebar.js"></script>
 
         <!-- Main Js -->
         <script
-            src="<%= request.getContextPath() %>/assets/js/vendor/index.js"></script>
+        src="<%= request.getContextPath() %>/assets/js/vendor/index.js"></script>
         <script
-            src="<%= request.getContextPath() %>/assets/js/main.js"></script>
+        src="<%= request.getContextPath() %>/assets/js/main.js"></script>
     </body>
 
     <!-- Mirrored from maraviyainfotech.com/projects/ekka/ekka-v37/ekka-html/index.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 18 Jan 2025 14:31:52 GMT -->

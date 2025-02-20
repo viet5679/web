@@ -19,8 +19,8 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author adim
  */
-@WebServlet(name="HomeServlet", urlPatterns={"/home"})
-public class HomeServlet extends HttpServlet {
+@WebServlet(name="ProductServlet", urlPatterns={"/shop"})
+public class ProductServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -37,10 +37,10 @@ public class HomeServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HomeServlet</title>");  
+            out.println("<title>Servlet ProductServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HomeServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet ProductServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -57,14 +57,17 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        int gid = -1;
+        try {
+            gid = Integer.parseInt(request.getParameter("gid"));
+        } catch (Exception e) {
+            gid = 0;
+            e.printStackTrace();
+        }
         ProductsDAO p = new ProductsDAO();
-        GendersDAO g = new GendersDAO();
-        request.setAttribute("bestSeller", p.getBestSellerProduct());
-        request.setAttribute("genderList", g.getAllGender());
-        request.setAttribute("newArrivals", p.getNewArrivalsProduct());
-        request.setAttribute("saleProduct", p.getSaleProduct());
+        request.setAttribute("productList", p.getAllProductByGid(gid));
         request.getRequestDispatcher("index.jsp").forward(request, response);
+        
     } 
 
     /** 

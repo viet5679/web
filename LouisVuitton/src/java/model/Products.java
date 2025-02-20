@@ -12,7 +12,7 @@ public class Products {
     private int status;
     private int hot;
     private int total_ratings;
-    private int total_starts;
+    private int total_stars;
     private int stock_quantity;
     private int total_sold;
     private String created_at;
@@ -35,7 +35,7 @@ public class Products {
         this.status = status;
         this.hot = hot;
         this.total_ratings = total_ratings;
-        this.total_starts = total_starts;
+        this.total_stars = total_starts;
         this.stock_quantity = stock_quantity;
         this.total_sold = total_sold;
         this.created_at = created_at;
@@ -118,12 +118,12 @@ public class Products {
         this.total_ratings = total_ratings;
     }
 
-    public int getTotal_starts() {
-        return total_starts;
+    public int getTotal_stars() {
+        return total_stars;
     }
 
-    public void setTotal_starts(int total_starts) {
-        this.total_starts = total_starts;
+    public void setTotal_stars(int total_starts) {
+        this.total_stars = total_stars;
     }
 
     public int getStock_quantity() {
