@@ -4,8 +4,7 @@
  */
 package controller;
 
-import dal.GendersDAO;
-import dal.ProductsDAO;
+import dal.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -13,18 +12,15 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import model.Genders;
-import model.Products;
+import jakarta.servlet.http.HttpSession;
+import model.Users;
 
 /**
  *
  * @author adim
  */
-@WebServlet(name = "HomeServlet", urlPatterns = {"/home"})
-public class HomeServlet extends HttpServlet {
+@WebServlet(name = "UserProfileServlet", urlPatterns = {"/profile"})
+public class UserProfileServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,10 +39,10 @@ public class HomeServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HomeServlet</title>");
+            out.println("<title>Servlet UserProfileServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HomeServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet UserProfileServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -64,29 +60,7 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        ProductsDAO p = new ProductsDAO();
-        GendersDAO g = new GendersDAO();
-        List<Genders> genders = g.getAllGender();
-        Map<String, List<Products>> productLists = new HashMap<>();
-        productLists.put("all", p.get12ProductByGid(0));
-        for (Genders gender : genders) {
-            productLists.put(lowercaseFirstLetter(gender.getName()), p.get12ProductByGid(gender.getId()));
-        }
-        request.setAttribute("productLists", productLists);
-        request.setAttribute("bestSeller", p.getBestSellerProduct());
-        request.setAttribute("genderList", g.getAllGender());
-        request.setAttribute("newArrivals", p.getNewArrivalsProduct());
-        request.setAttribute("saleProduct", p.getSaleProduct());
-
-        request.getRequestDispatcher("index.jsp").forward(request, response);
-    }
-
-    private String lowercaseFirstLetter(String str) {
-        if (str == null || str.isEmpty()) {
-            return str;
-        }
-        return str.substring(0, 1).toLowerCase() + str.substring(1);
+        request.getRequestDispatcher("user-profile.jsp").forward(request, response);
     }
 
     /**
@@ -100,7 +74,39 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = request.getSession();
+        Users user = (Users) session.getAttribute("user");
+
+        if (user == null) {
+            response.sendRedirect("login.jsp");
+            return;
+        }
+
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String address = request.getParameter("address");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+
+        String fullName = firstName + " " + lastName;
+        user.setName(fullName);
+        user.setAddress(address);
+        user.setEmail(email);
+        user.setPhone(phone);
+
+        UserDAO userDAO = new UserDAO();
+        boolean isUpdated = userDAO.updateUser(user);
+
+        if (isUpdated) {
+            request.setAttribute("message", "Cập nhật thành công!");
+            request.setAttribute("status", "success");
+        } else {
+            request.setAttribute("message", "Cập nhật thất bại!");
+            request.setAttribute("status", "error");
+        }
+        
+        request.getRequestDispatcher("user-profile.jsp").forward(request, response);
+
     }
 
     /**

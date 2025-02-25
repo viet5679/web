@@ -69,9 +69,6 @@
                             </div>
                         </div>
                         <!-- Header Top social End -->
-                        <!-- Header Top Message Start -->
-
-                        <!-- Header Top Message End -->
 
                         <!-- Header Top responsive Action -->
                         <div class="col d-lg-none ">
@@ -487,9 +484,7 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <div class="section-title">
-
-                            <p class="sub-title mb-3">About our business
-                                Firm</p>
+                            <h1 class="sub-title mb-3">Discover Louis Vuitton</h1>
                         </div>
                     </div>
                     <div class="ec-common-wrapper">
@@ -505,34 +500,10 @@
                             <div
                                 class="col-md-6 ec-cms-block ec-abcms-block text-center">
                                 <div class="ec-cms-block-inner">
-                                    <h3 class="ec-cms-block-title">What is the
-                                        ekka?</h3>
-                                    <p>Electronic typesetting text of the
-                                        printing and typesetting industry. when
-                                        an unknown printer took a galley of type
-                                        and scrambled it to make a type specimen
-                                        book. Lorem Ipsum is
-                                        simply dutmmy text ever since the 1500s,
-                                        It has survived not only,
-                                        but also the leap into electronic
-                                        typesetting.</p>
-                                    <p>Lorem Ipsum is simply dummy text of the
-                                        printing. It has survived not only five
-                                        centuries,
-                                        but also the leap into electronic
-                                        typesetting.</p>
-                                    <p>Also the leap into electronic typesetting
-                                        printing and typesetting industry. It
-                                        has survived not only five centuries,
-                                        but also the leap into electronic
-                                        typesetting, when an unknown printer
-                                        took a galley of type
-                                        and scrambled it to make a type specimen
-                                        book. It has survived not only five
-                                        centuries,
-                                        but also the leap into electronic
-                                        typesetting, remaining essentially
-                                        unchanged.</p>
+                                    <h3 class="ec-cms-block-title">About Louis Vuitton</h3>
+                                    <p>More than just a brand, Louis Vuitton embodies the spirit of adventure, continuous creativity, and a commitment to perfection. From the iconic travel trunks crafted by its founder to the high-end fashion collections and luxurious accessories of today, we strive to deliver products that are not only aesthetically pleasing but also timeless in value.</p>
+                                    <p>At Louis Vuitton, each product is a culmination of masterful craftsmanship, meticulous attention to detail, and a passion for quality. We take pride in using the finest materials, blending tradition with innovation to create true masterpieces. Moreover, we believe that luxury is not just about the product, but also about the experience it provides. That's why we always aim to exceed customer expectations, from personalized services to unique and memorable events.</p>
+                                    <p>Join us in exploring the world of Louis Vuitton, where heritage meets modernity, and where every product tells its own story.</p>
                                 </div>
                             </div>
                         </div>
@@ -540,131 +511,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- ec testmonial Start -->
-        <section
-            class="section ec-test-section section-space-ptb-100 section-space-m"
-            id="reviews">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div class="section-title mb-0">
-                            <h2 class="ec-bg-title">Testimonial</h2>
-                            <h2 class="ec-title">Client Review</h2>
-                            <p class="sub-title mb-3">What say client about
-                                us</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="ec-test-outer">
-                        <ul id="ec-testimonial-slider">
-                            <li class="ec-test-item">
-                                <i class="fi-rr-quote-right top"></i>
-                                <div class="ec-test-inner">
-                                    <div class="ec-test-img"><img
-                                            alt="testimonial"
-                                            title="testimonial"
-                                            src="assets/images/testimonial/1.jpg" /></div>
-                                    <div class="ec-test-content">
-                                        <div class="ec-test-desc">Lorem Ipsum is
-                                            simply dummy text of the printing
-                                            and
-                                            typesetting industry. Lorem Ipsum
-                                            has been the industry's standard
-                                            dummy text
-                                            ever since the 1500s, when an
-                                            unknown printer took a galley of
-                                            type and
-                                            scrambled it to make a type
-                                            specimen</div>
-                                        <div class="ec-test-name">John Doe</div>
-                                        <div class="ec-test-designation">General
-                                            Manager</div>
-                                        <div class="ec-test-rating">
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <i class="fi-rr-quote-right bottom"></i>
-                            </li>
-                            <li class="ec-test-item ">
-                                <i class="fi-rr-quote-right top"></i>
-                                <div class="ec-test-inner">
-                                    <div class="ec-test-img"><img
-                                            alt="testimonial"
-                                            title="testimonial"
-                                            src="assets/images/testimonial/2.jpg" /></div>
-                                    <div class="ec-test-content">
-                                        <div class="ec-test-desc">Lorem Ipsum is
-                                            simply dummy text of the printing
-                                            and
-                                            typesetting industry. Lorem Ipsum
-                                            has been the industry's standard
-                                            dummy text
-                                            ever since the 1500s, when an
-                                            unknown printer took a galley of
-                                            type and
-                                            scrambled it to make a type
-                                            specimen</div>
-                                        <div class="ec-test-name">John Doe</div>
-                                        <div class="ec-test-designation">General
-                                            Manager</div>
-                                        <div class="ec-test-rating">
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <i class="fi-rr-quote-right bottom"></i>
-                            </li>
-                            <li class="ec-test-item">
-                                <i class="fi-rr-quote-right top"></i>
-                                <div class="ec-test-inner">
-                                    <div class="ec-test-img"><img
-                                            alt="testimonial"
-                                            title="testimonial"
-                                            src="assets/images/testimonial/3.jpg" /></div>
-                                    <div class="ec-test-content">
-                                        <div class="ec-test-desc">Lorem Ipsum is
-                                            simply dummy text of the printing
-                                            and
-                                            typesetting industry. Lorem Ipsum
-                                            has been the industry's standard
-                                            dummy text
-                                            ever since the 1500s, when an
-                                            unknown printer took a galley of
-                                            type and
-                                            scrambled it to make a type
-                                            specimen</div>
-                                        <div class="ec-test-name">John Doe</div>
-                                        <div class="ec-test-designation">General
-                                            Manager</div>
-                                        <div class="ec-test-rating">
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <i class="fi-rr-quote-right bottom"></i>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ec testmonial end -->
-
         <!--  services Section Start -->
         <section class="section ec-services-section section-space-p"
             id="services">

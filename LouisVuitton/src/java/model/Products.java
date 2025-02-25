@@ -4,48 +4,26 @@ package model;
  // @author xu4nvi3t
 public class Products {
     private int id;
-    private Categories category_id;
+    private Categories categoryId;
     private String name;
     private String description;
-    private String sub_description;
+    private String subDescription;
     private String avatar;
     private int status;
     private int hot;
-    private int total_ratings;
-    private int total_stars;
-    private int stock_quantity;
-    private int total_sold;
-    private String created_at;
-    private String updated_at;
-    private String hover_avatar;
+    private int totalRatings;
+    private int totalStars;
+    private int stockQuantity;
+    private int totalSold;
+    private String createdAt;
+    private String updatedAt;
+    private String hoverAvatar;
     private double price;
     private double sale;
-    private double total_pay;
+    private double totalPay;
     private String tag;
 
     public Products() {
-    }
-
-    public Products(int id, Categories category_id, String name, String description, String sub_description, String avatar, int status, int hot, int total_ratings, int total_starts, int stock_quantity, int total_sold, String created_at, String updated_at, String hover_avatar, double price, double sale, double total_pay, String tag) {
-        this.id = id;
-        this.category_id = category_id;
-        this.name = name;
-        this.description = description;
-        this.sub_description = sub_description;
-        this.avatar = avatar;
-        this.status = status;
-        this.hot = hot;
-        this.total_ratings = total_ratings;
-        this.total_stars = total_starts;
-        this.stock_quantity = stock_quantity;
-        this.total_sold = total_sold;
-        this.created_at = created_at;
-        this.updated_at = updated_at;
-        this.hover_avatar = hover_avatar;
-        this.price = price;
-        this.sale = sale;
-        this.total_pay = total_pay;
-        this.tag = tag;
     }
 
     public int getId() {
@@ -56,12 +34,12 @@ public class Products {
         this.id = id;
     }
 
-    public Categories getCategory_id() {
-        return category_id;
+    public Categories getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory_id(Categories category_id) {
-        this.category_id = category_id;
+    public void setCategoryId(Categories categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getName() {
@@ -80,12 +58,12 @@ public class Products {
         this.description = description;
     }
 
-    public String getSub_description() {
-        return sub_description;
+    public String getSubDescription() {
+        return subDescription;
     }
 
-    public void setSub_description(String sub_description) {
-        this.sub_description = sub_description;
+    public void setSubDescription(String subDescription) {
+        this.subDescription = subDescription;
     }
 
     public String getAvatar() {
@@ -112,60 +90,60 @@ public class Products {
         this.hot = hot;
     }
 
-    public int getTotal_ratings() {
-        return total_ratings;
+    public int getTotalRatings() {
+        return totalRatings;
     }
 
-    public void setTotal_ratings(int total_ratings) {
-        this.total_ratings = total_ratings;
+    public void setTotalRatings(int totalRatings) {
+        this.totalRatings = totalRatings;
     }
 
-    public int getTotal_stars() {
-        return total_stars;
+    public int getTotalStars() {
+        return totalStars;
     }
 
-    public void setTotal_stars(int total_starts) {
-        this.total_stars = total_stars;
+    public void setTotalStars(int totalStars) {
+        this.totalStars = totalStars;
     }
 
-    public int getStock_quantity() {
-        return stock_quantity;
+    public int getStockQuantity() {
+        return stockQuantity;
     }
 
-    public void setStock_quantity(int stock_quantity) {
-        this.stock_quantity = stock_quantity;
+    public void setStockQuantity(int stockQuantity) {
+        this.stockQuantity = stockQuantity;
     }
 
-    public int getTotal_sold() {
-        return total_sold;
+    public int getTotalSold() {
+        return totalSold;
     }
 
-    public void setTotal_sold(int total_sold) {
-        this.total_sold = total_sold;
+    public void setTotalSold(int totalSold) {
+        this.totalSold = totalSold;
     }
 
-    public String getCreated_at() {
-        return created_at;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public String getUpdated_at() {
-        return updated_at;
+    public String getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdated_at(String updated_at) {
-        this.updated_at = updated_at;
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
-    public String getHover_avatar() {
-        return hover_avatar;
+    public String getHoverAvatar() {
+        return hoverAvatar;
     }
 
-    public void setHover_avatar(String hover_avatar) {
-        this.hover_avatar = hover_avatar;
+    public void setHoverAvatar(String hoverAvatar) {
+        this.hoverAvatar = hoverAvatar;
     }
 
     public double getPrice() {
@@ -184,14 +162,14 @@ public class Products {
         this.sale = sale;
     }
 
-    public double getTotal_pay() {
-        return total_pay;
+    public double getTotalPay() {
+        return totalPay;
     }
 
-    public void setTotal_pay(double total_pay) {
-        this.total_pay = total_pay;
+    public void setTotalPay(double totalPay) {
+        this.totalPay = totalPay;
     }
-    
+
     public String getTag() {
         return tag;
     }
@@ -199,5 +177,28 @@ public class Products {
     public void setTag(String tag) {
         this.tag = tag;
     }
+
+    public Products(int id, Categories categoryId, String name, String description, String subDescription, String avatar, int status, int hot, int totalRatings, int totalStars, int stockQuantity, int totalSold, String createdAt, String updatedAt, String hoverAvatar, double price, double sale, double totalPay, String tag) {
+        this.id = id;
+        this.categoryId = categoryId;
+        this.name = name;
+        this.description = description;
+        this.subDescription = subDescription;
+        this.avatar = avatar;
+        this.status = status;
+        this.hot = hot;
+        this.totalRatings = totalRatings;
+        this.totalStars = totalStars;
+        this.stockQuantity = stockQuantity;
+        this.totalSold = totalSold;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.hoverAvatar = hoverAvatar;
+        this.price = price;
+        this.sale = sale;
+        this.totalPay = totalPay;
+        this.tag = tag;
+    }
+
 
 }

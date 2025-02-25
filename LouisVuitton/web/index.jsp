@@ -5,6 +5,7 @@
  ============================================================-->
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ page import="model.Users" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -140,7 +141,7 @@
                             <!-- Ec Header Logo Start -->
                             <div class="align-self-center">
                                 <div class="header-logo">
-                                    <a href="index.jsp"><img
+                                    <a href="home"><img
                                             src="assets/images/logo/logo4.png"
                                             alt="Site Logo" /><img
                                             class="dark-logo"
@@ -171,18 +172,41 @@
                                 <div class="ec-header-bottons">
 
                                     <!-- Header User Start -->
+                                    <% 
+                                        Users user = (Users) session.getAttribute("user");
+                                    %>
                                     <div class="ec-header-user dropdown">
-                                        <button class="dropdown-toggle"
-                                                data-bs-toggle="dropdown"><i
-                                                class="fi-rr-user"></i></button>
-                                        <ul
-                                            class="dropdown-menu dropdown-menu-right">
-                                            <li><a class="dropdown-item"
-                                                   href="register.jsp">Register</a></li>
-                                            <li><a class="dropdown-item"
-                                                   href="checkout.jsp">Checkout</a></li>
-                                            <li><a class="dropdown-item"
-                                                   href="login.jsp">Login</a></li>
+                                        <button class="dropdown-toggle" data-bs-toggle="dropdown">
+                                            <% if (user != null) { %>
+                                            <span class="ec-pro-title" style="margin-right: 10px"><%= user.getName() %></span>
+                                            <% } %>
+                                            <i class="fi-rr-user"></i>
+                                        </button>
+
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <% if (user == null) { %>
+                                                <!-- chưa đăng nhập -->
+                                                <li><a class="dropdown-item" href="register.jsp">Register</a></li>
+                                                <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                            <% } else { %>
+                                                <!-- đã đăng nhập -->
+                                                <% if (user.getRole() == 1) { %>
+                                                <!-- User -->
+                                                <li><a class="dropdown-item" href="profile">Edit Profile</a></li>
+                                                <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
+                                            
+                                            <% } else if (user.getRole() == 0) { %>
+                                                <!-- Admin -->
+                                                <li><a class="dropdown-item" href="admin-dashboard.jsp">ADMIN</a></li>
+                                                <% } %>
+                                                <li><a class="dropdown-item" href="index.jsp?logout=true">Log out</a></li>
+                                                <% } %>
+                                                <%
+                                                    if (request.getParameter("logout") != null) {
+                                                        session.invalidate(); // Xóa session
+                                                        response.sendRedirect("home"); // Chuyển hướng về trang chủ
+                                                    }
+                                                %>
                                         </ul>
                                     </div>
                                     <!-- Header User End -->
@@ -488,7 +512,7 @@
                                             <div class="ec-pro-rating">
                                                 <c:forEach var="i" begin="1" end="5">
                                                     <c:choose>
-                                                        <c:when test="${i <= product.total_stars}">
+                                                        <c:when test="${i <= bestSeller.totalStars}">
                                                             <i class="ecicon eci-star fill"></i>  <!-- Filled star -->
                                                         </c:when>
                                                         <c:otherwise>
@@ -503,7 +527,7 @@
                                             <span
                                                 class="old-price">$${bestSeller.price}</span>
                                             <span
-                                                class="new-price">$${bestSeller.total_pay}</span>
+                                                class="new-price">$${bestSeller.totalPay}</span>
                                         </span>
                                     </div>
                                 </div>
@@ -618,7 +642,7 @@
                                                         <div class="ec-pro-image">
                                                             <a href="product-left-sidebar.jsp" class="image">
                                                                 <img class="main-image" src="${product.avatar}" alt="Product" />
-                                                                <img class="hover-image" src="${product.hover_avatar}" alt="Product" />
+                                                                <img class="hover-image" src="${product.hoverAvatar}" alt="Product" />
                                                             </a>
                                                             <c:choose>
                                                                 <c:when test="${fn:contains(product.tag, '%')}">
@@ -655,7 +679,7 @@
                                                         <div class="ec-pro-rating">
                                                             <c:forEach var="i" begin="1" end="5">
                                                                 <c:choose>
-                                                                    <c:when test="${i <= product.total_stars}">
+                                                                    <c:when test="${i <= product.totalStars}">
                                                                         <i class="ecicon eci-star fill"></i>  <!-- Filled star -->
                                                                     </c:when>
                                                                     <c:otherwise>
@@ -669,7 +693,7 @@
                                                             <span
                                                                 class="old-price">$${product.price}</span>
                                                             <span
-                                                                class="new-price">$${product.total_pay}</span>
+                                                                class="new-price">$${product.totalPay}</span>
                                                         </span>
                                                         <div class="ec-pro-option">
 
@@ -683,23 +707,23 @@
                                                                         class="active"><a
                                                                             href="#"
                                                                             class="ec-opt-sz"
-                                                                            data-old="$3500.00"
-                                                                            data-new="$3200.00"
+                                                                            data-old="$${product.price}"
+                                                                            data-new="$${product.totalPay}"
                                                                             data-tooltip="Small">S</a></li>
                                                                     <li><a href="#"
                                                                            class="ec-opt-sz"
-                                                                           data-old="$3500.00"
-                                                                           data-new="$3250.00"
+                                                                           data-old="$${product.price}"
+                                                                           data-new="$${product.totalPay}"
                                                                            data-tooltip="Medium">M</a></li>
                                                                     <li><a href="#"
                                                                            class="ec-opt-sz"
-                                                                           data-old="$3500.00"
-                                                                           data-new="$3300.00"
+                                                                           data-old="$${product.price}"
+                                                                           data-new="$${product.totalPay}"
                                                                            data-tooltip="Large">X</a></li>
                                                                     <li><a href="#"
                                                                            class="ec-opt-sz"
-                                                                           data-old="$3500.00"
-                                                                           data-new="$3300.00"
+                                                                           data-old="$${product.price}"
+                                                                           data-new="$${product.totalPay}"
                                                                            data-tooltip="Extra Large">XL</a></li>
                                                                 </ul>
                                                             </div>
@@ -741,7 +765,7 @@
                                                         alt="Product" />
                                                     <img
                                                         class="hover-image"
-                                                        src="${product.hover_avatar}"
+                                                        src="${product.hoverAvatar}"
                                                         alt="Product" />
                                                 </a>
                                                 <span
@@ -856,7 +880,7 @@
                                                         alt="Product" />
                                                     <img
                                                         class="hover-image"
-                                                        src="${product.hover_avatar}"
+                                                        src="${product.hoverAvatar}"
                                                         alt="Product" />
                                                 </a>
                                                 <span
@@ -967,7 +991,7 @@
                                                         alt="Product" />
                                                     <img
                                                         class="hover-image"
-                                                        src="${product.hover_avatar}"
+                                                        src="${product.hoverAvatar}"
                                                         alt="Product" />
                                                 </a>
                                                 <span
@@ -1120,314 +1144,6 @@
             </div>
         </section>
         <!-- ec Banner Section End -->
-
-        <!--  Category Section Start -->
-        <section class="section ec-category-section section-space-p"
-                 id="categories">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div class="section-title">
-                            <h2 class="ec-bg-title">Our Top Collection</h2>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <!-- Category Section End -->
-
-        <!--  Feature & Special Section Start -->
-        <section class="section ec-fre-spe-section section-space-p" id="offers">
-            <div class="container">
-                <div class="row">
-                    <!--  Feature Section Start -->
-                    <div
-                        class="ec-fre-section col-lg-6 col-md-6 col-sm-6 margin-b-30"
-                        data-animation="slideInRight">
-                        <div class="col-md-12 text-left">
-                            <div class="section-title">
-                                <h2 class="ec-bg-title">Feature Items</h2>
-                                <h2 class="ec-title">Feature Items</h2>
-                            </div>
-                        </div>
-
-                        <div class="ec-fre-products">
-                            <div class="ec-fs-product">
-                                <div class="ec-fs-pro-inner">
-                                    <div
-                                        class="ec-fs-pro-image-outer col-lg-6 col-md-6 col-sm-6">
-                                        <div class="ec-fs-pro-image">
-                                            <a href="product-left-sidebar.jsp"
-                                               class="image"><img
-                                                    class="main-image"
-                                                    src="assets/images/product-image/1_1.jpg"
-                                                    alt="Product" /></a>
-                                            <a href="#" class="quickview"
-                                               data-link-action="quickview"
-                                               title="Quick view"
-                                               data-bs-toggle="modal"
-                                               data-bs-target="#ec_quickview_modal"><i
-                                                    class="fi-rr-eye"></i></a>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="ec-fs-pro-content col-lg-6 col-md-6 col-sm-6">
-                                        <h5 class="ec-fs-pro-title"><a
-                                                href="product-left-sidebar.jsp">Monogram
-                                                Jacket</a>
-                                        </h5>
-                                        <div class="ec-fs-pro-rating">
-                                            <span class="ec-fs-rating-icon">
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star fill"></i>
-                                            </span>
-                                            <span class="ec-fs-rating-text">1203
-                                                Review</span>
-                                        </div>
-                                        <div class="ec-fs-price">
-                                            <span class="old-price">$3850.00</span>
-                                            <span class="new-price">$3700.00</span>
-                                        </div>
-
-                                        <div class="ec-fs-pro-desc">One side of
-                                            the shirt is decorated with a
-                                            Jacquard-woven LV Blason motif,
-                                            while the plain side features a
-                                            Monogram pattern on the cuffs and
-                                            ribbed hem.
-                                        </div>
-
-                                        <div class="ec-fs-pro-btn">
-                                            <a href="#"
-                                               class="btn btn-lg btn-secondary">Remind
-                                                Me</a>
-                                            <a href="#"
-                                               class="btn btn-lg btn-primary">Book
-                                                Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ec-fs-product">
-                                <div class="ec-fs-pro-inner">
-                                    <div
-                                        class="ec-fs-pro-image-outer col-lg-6 col-md-6 col-sm-6">
-                                        <div class="ec-fs-pro-image">
-                                            <a href="product-left-sidebar.jsp"
-                                               class="image"><img
-                                                    class="main-image"
-                                                    src="assets/images/product-image/3_1.jpg"
-                                                    alt="Product" /></a>
-                                            <a href="#" class="quickview"
-                                               data-link-action="quickview"
-                                               title="Quick view"
-                                               data-bs-toggle="modal"
-                                               data-bs-target="#ec_quickview_modal"><i
-                                                    class="fi-rr-eye"></i></a>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="ec-fs-pro-content col-lg-6 col-md-6 col-sm-6">
-                                        <h5 class="ec-fs-pro-title"><a
-                                                href="product-left-sidebar.jsp">Coffret
-                                                8 Montres Watch Chest</a>
-                                        </h5>
-                                        <div class="ec-fs-pro-rating">
-                                            <span class="ec-fs-rating-icon">
-                                                <i
-                                                    class="ecicon eci-star fill"></i>
-                                                <i
-                                                    class="ecicon eci-star fill"></i>
-                                                <i
-                                                    class="ecicon eci-star fill"></i>
-                                                <i
-                                                    class="ecicon eci-star fill"></i>
-                                                <i
-                                                    class="ecicon eci-star fill"></i>
-                                            </span>
-                                            <span class="ec-fs-rating-text">2385
-                                                Review</span>
-                                        </div>
-                                        <div class="ec-fs-price">
-                                            <span
-                                                class="old-price">$45500.00</span>
-                                            <span
-                                                class="new-price">$40950.00</span>
-                                        </div>
-
-                                        <div class="ec-fs-pro-desc">The
-                                            luxurious Coffret 8 Montres watch
-                                            chest keeps your precious timepieces
-                                            safe. The Maison's classic Monogram
-                                            pattern adds an extra touch to the
-                                            design.
-                                        </div>
-
-                                        <div class="ec-fs-pro-btn">
-                                            <a href="#"
-                                               class="btn btn-lg btn-secondary">Remind
-                                                Me</a>
-                                            <a href="#"
-                                               class="btn btn-lg btn-primary">Book
-                                                Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  Feature Section End -->
-                    <!--  Special Section Start -->
-                    <div class="ec-spe-section col-lg-6 col-md-6 col-sm-6"
-                         data-animation="slideInLeft">
-                        <div class="col-md-12 text-left">
-                            <div class="section-title">
-                                <h2 class="ec-bg-title">Limited Time Offer</h2>
-                                <h2 class="ec-title">Limited Time Offer</h2>
-                            </div>
-                        </div>
-
-                        <div class="ec-spe-products">
-                            <div class="ec-fs-product">
-                                <div class="ec-fs-pro-inner">
-                                    <div
-                                        class="ec-fs-pro-image-outer col-lg-6 col-md-6 col-sm-6">
-                                        <div class="ec-fs-pro-image">
-                                            <a href="product-left-sidebar.jsp"
-                                               class="image"><img
-                                                    class="main-image"
-                                                    src="assets/images/product-image/8_1.jpg"
-                                                    alt="Product" /></a>
-                                            <a href="#" class="quickview"
-                                               data-link-action="quickview"
-                                               title="Quick view"
-                                               data-bs-toggle="modal"
-                                               data-bs-target="#ec_quickview_modal"><i
-                                                    class="fi-rr-eye"></i></a>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="ec-fs-pro-content col-lg-6 col-md-6 col-sm-6">
-                                        <h5 class="ec-fs-pro-title"><a
-                                                href="product-left-sidebar.jsp">Coffret
-                                                8 Montres Watch Chest</a>
-                                        </h5>
-                                        <div class="ec-fs-pro-rating">
-                                            <span class="ec-fs-rating-icon">
-                                                <i
-                                                    class="ecicon eci-star fill"></i>
-                                                <i
-                                                    class="ecicon eci-star fill"></i>
-                                                <i
-                                                    class="ecicon eci-star fill"></i>
-                                                <i
-                                                    class="ecicon eci-star fill"></i>
-                                                <i class="ecicon eci-star"></i>
-                                            </span>
-                                            <span class="ec-fs-rating-text">4027
-                                                Review</span>
-                                        </div>
-                                        <div class="ec-fs-price">
-                                            <span
-                                                class="old-price">$45500.00</span>
-                                            <span
-                                                class="new-price">$40950.00</span>
-                                        </div>
-
-                                        <div class="ec-fs-pro-desc">The
-                                            luxurious Coffret 8 Montres watch
-                                            chest keeps your precious timepieces
-                                            safe. The Maison's classic Monogram
-                                            pattern adds an extra touch to the
-                                            design.
-                                        </div>
-
-                                        <div class="ec-fs-pro-btn">
-                                            <a href="#"
-                                               class="btn btn-lg btn-secondary">Remind
-                                                Me</a>
-                                            <a href="#"
-                                               class="btn btn-lg btn-primary">Book
-                                                Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ec-fs-product">
-                                <div class="ec-fs-pro-inner">
-                                    <div
-                                        class="ec-fs-pro-image-outer col-lg-6 col-md-6 col-sm-6">
-                                        <div class="ec-fs-pro-image">
-                                            <a href="product-left-sidebar.jsp"
-                                               class="image"><img
-                                                    class="main-image"
-                                                    src="assets/images/product-image/10_1.jpg"
-                                                    alt="Product" /></a>
-                                            <a href="#" class="quickview"
-                                               data-link-action="quickview"
-                                               title="Quick view"
-                                               data-bs-toggle="modal"
-                                               data-bs-target="#ec_quickview_modal"><i
-                                                    class="fi-rr-eye"></i></a>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="ec-fs-pro-content col-lg-6 col-md-6 col-sm-6">
-                                        <h5 class="ec-fs-pro-title"><a
-                                                href="product-left-sidebar.jsp">Casual
-                                                Shoes Men</a>
-                                        </h5>
-                                        <div class="ec-fs-pro-rating">
-                                            <span class="ec-fs-rating-icon">
-                                                <i
-                                                    class="ecicon eci-star fill"></i>
-                                                <i
-                                                    class="ecicon eci-star fill"></i>
-                                                <i
-                                                    class="ecicon eci-star fill"></i>
-                                                <i
-                                                    class="ecicon eci-star fill"></i>
-                                                <i
-                                                    class="ecicon eci-star fill"></i>
-                                            </span>
-                                            <span class="ec-fs-rating-text">4
-                                                Review</span>
-                                        </div>
-                                        <div class="ec-fs-price">
-                                            <span
-                                                class="old-price">$4500.00</span>
-                                            <span
-                                                class="new-price">$4050.00</span>
-                                        </div>
-
-                                        <div class="ec-fs-pro-desc">Coffret 8
-                                            Montres Watch Chest
-                                        </div>
-
-                                        <div class="ec-fs-pro-btn">
-                                            <a href="#"
-                                               class="btn btn-lg btn-secondary">Remind
-                                                Me</a>
-                                            <a href="#"
-                                               class="btn btn-lg btn-primary">Book
-                                                Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  Special Section End -->
-                </div>
-            </div>
-        </section>
-        <!-- Feature & Special Section End -->
-
         <!--  services Section Start -->
         <section class="section ec-services-section section-space-p"
                  id="services">
@@ -1546,7 +1262,7 @@
                                                  src="${newArrivals.avatar}"
                                                  alt="Product" />
                                             <img class="hover-image"
-                                                 src="${newArrivals.hover_avatar}"
+                                                 src="${newArrivals.hoverAvatar}"
                                                  alt="Product" />
                                         </a>
                                         <span class="flags">
@@ -1581,7 +1297,7 @@
                                         <c:forEach var="i" begin="1" end="5">
                                             <c:choose>
                                                 <c:when
-                                                    test="${i <= newArrivals.total_stars}">
+                                                    test="${i <= newArrivals.totalStars}">
                                                     <i
                                                         class="ecicon eci-star fill"></i>
                                                 </c:when>
@@ -1596,7 +1312,7 @@
                                         <span
                                             class="old-price">$${newArrivals.price}</span>
                                         <span
-                                            class="new-price">$${newArrivals.total_pay}</span>
+                                            class="new-price">$${newArrivals.totalPay}</span>
                                     </span>
                                     <div class="ec-pro-option">
                                         <div class="ec-pro-color">
@@ -1609,22 +1325,22 @@
                                                 <li class="active"><a href="#"
                                                                       class="ec-opt-sz"
                                                                       data-old="$${newArrivals.price}"
-                                                                      data-new="$${newArrivals.total_pay}"
+                                                                      data-new="$${newArrivals.totalPay}"
                                                                       data-tooltip="Small">S</a></li>
                                                 <li><a href="#"
                                                        class="ec-opt-sz"
                                                        data-old="$${newArrivals.price}"
-                                                       data-new="$${newArrivals.total_pay}"
+                                                       data-new="$${newArrivals.totalPay}"
                                                        data-tooltip="Medium">M</a></li>
                                                 <li><a href="#"
                                                        class="ec-opt-sz"
                                                        data-old="$${newArrivals.price}"
-                                                       data-new="$${newArrivals.total_pay}"
+                                                       data-new="$${newArrivals.totalPay}"
                                                        data-tooltip="Large">X</a></li>
                                                 <li><a href="#"
                                                        class="ec-opt-sz"
                                                        data-old="$${newArrivals.price}"
-                                                       data-new="$${newArrivals.total_pay}"
+                                                       data-new="$${newArrivals.totalPay}"
                                                        data-tooltip="Extra Large">XL</a></li>
                                             </ul>
                                         </div>

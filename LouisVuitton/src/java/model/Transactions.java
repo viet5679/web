@@ -5,6 +5,6 @@ package model;
 public class Transactions {
     private int id;
     private String review;
-    private Products product_id;
+    private Products productId;
     private Users user_id;
 }

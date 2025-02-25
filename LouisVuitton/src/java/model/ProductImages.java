@@ -2,29 +2,30 @@
 package model;
 
  // @author xu4nvi3t
-public class Categories {
-    private int id;
+public class ProductImages {
+    private int productId;
     private String name;
-    private int status;
-    private String createdAt, updatedAt;
+    private String path;
+    private String createdAt;
+    private String updatedAt;
 
-    public Categories() {
+    public ProductImages() {
     }
 
-    public Categories(int id, String name, int status, String createdAt, String updatedAt) {
-        this.id = id;
+    public ProductImages(int productId, String name, String path, String createdAt, String updatedAt) {
+        this.productId = productId;
         this.name = name;
-        this.status = status;
+        this.path = path;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
-    public int getId() {
-        return id;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
     public String getName() {
@@ -35,12 +36,12 @@ public class Categories {
         this.name = name;
     }
 
-    public int getStatus() {
-        return status;
+    public String getPath() {
+        return path;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setPath(String path) {
+        this.path = path;
     }
 
     public String getCreatedAt() {
@@ -58,8 +59,6 @@ public class Categories {
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
-    
-    
     
     
 }

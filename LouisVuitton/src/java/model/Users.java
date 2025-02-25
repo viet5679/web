@@ -12,13 +12,14 @@ public class Users {
     private String address;
     private String avatar;
     private int status;
-    private String created_at;
-    private String updated_at;
+    private int role;
+    private String createdAt;
+    private String updatedAt;
 
     public Users() {
     }
 
-    public Users(int id, String name, String email, String password, String phone, String gender, String address, String avatar, int status, String created_at, String updated_at) {
+    public Users(int id, String name, String email, String password, String phone, String gender, String address, String avatar, int status, int role, String createdAt, String updatedAt) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -28,9 +29,11 @@ public class Users {
         this.address = address;
         this.avatar = avatar;
         this.status = status;
-        this.created_at = created_at;
-        this.updated_at = updated_at;
+        this.role = role;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
+    
 
     public int getId() {
         return id;
@@ -104,21 +107,28 @@ public class Users {
         this.status = status;
     }
 
-    public String getCreated_at() {
-        return created_at;
+    public int getRole() {
+        return role;
     }
 
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
-    }
-
-    public String getUpdated_at() {
-        return updated_at;
-    }
-
-    public void setUpdated_at(String updated_at) {
-        this.updated_at = updated_at;
+    public void setRole(int role) {
+        this.role = role;
     }
     
-    
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
 }

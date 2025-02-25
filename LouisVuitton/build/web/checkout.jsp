@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="model.Users" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -137,13 +139,41 @@
                                 <div class="ec-header-bottons">
 
                                     <!-- Header User Start -->
+                                    <% 
+                                        Users user = (Users) session.getAttribute("user");
+                                    %>
                                     <div class="ec-header-user dropdown">
-                                        <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
-                                                class="fi-rr-user"></i></button>
+                                        <button class="dropdown-toggle" data-bs-toggle="dropdown">
+                                            <% if (user != null) { %>
+                                            <span class="ec-pro-title" style="margin-right: 10px"><%= user.getName() %></span>
+                                            <% } %>
+                                            <i class="fi-rr-user"></i>
+                                        </button>
+
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a class="dropdown-item" href="register.jsp">Register</a></li>
-                                            <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                            <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                            <% if (user == null) { %>
+                                                <!-- chưa đăng nhập -->
+                                                <li><a class="dropdown-item" href="register.jsp">Register</a></li>
+                                                <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                            <% } else { %>
+                                                <!-- đã đăng nhập -->
+                                                <% if (user.getRole() == 1) { %>
+                                                <!-- User -->
+                                                <li><a class="dropdown-item" href="profile">Edit Profile</a></li>
+                                                <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
+                                            
+                                            <% } else if (user.getRole() == 0) { %>
+                                                <!-- Admin -->
+                                                <li><a class="dropdown-item" href="admin-dashboard.jsp">ADMIN</a></li>
+                                                <% } %>
+                                                <li><a class="dropdown-item" href="index.jsp?logout=true">Log out</a></li>
+                                                <% } %>
+                                                <%
+                                                    if (request.getParameter("logout") != null) {
+                                                        session.invalidate(); // Xóa session
+                                                        response.sendRedirect("home"); // Chuyển hướng về trang chủ
+                                                    }
+                                                %>
                                         </ul>
                                     </div>
                                     <!-- Header User End -->
@@ -203,21 +233,7 @@
                                 <ul>
                                     <li><a href="index.jsp">Home</a></li>
                                     <li><a href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-
-                                    
-
-                                    <li class="dropdown"><a href="javascript:void(0)">Pages</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="cart.jsp">Cart</a></li>
-                                            <li><a href="checkout.jsp">Checkout</a></li>                                
-                                            <li><a href="faq.jsp">FAQ</a></li>
-                                            <li><a href="track-order.jsp">Track Order</a></li>
-                                            <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                            <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
-                                        </ul>
-                                    </li>
-
+                                    <li><a href="checkout.jsp">Checkout</a></li>  
                                     <li><a href="about-us.jsp">About Us</a></li>
                                     <li><a href="contact-us.jsp">Contact Us</a></li>
                                 </ul>

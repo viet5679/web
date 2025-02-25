@@ -140,7 +140,7 @@
                                         <ul class="dropdown-menu dropdown-menu-right">
                                             <li><a class="dropdown-item" href="register.jsp">Register</a></li>
                                             <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                            <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                            <li><a class="dropdown-item" href="login">Login</a></li>
                                         </ul>
                                     </div>
                                     <!-- Header User End -->
@@ -199,20 +199,8 @@
                             <div class="ec-main-menu">
                                 <ul>
                                     <li><a href="index.jsp">Home</a></li>
-                                    <li><a href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-                                   
-                                    <li class="dropdown"><a href="javascript:void(0)">Pages</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="cart.jsp">Cart</a></li>
-                                            <li><a href="checkout.jsp">Checkout</a></li>                                
-                                            <li><a href="faq.jsp">FAQ</a></li>
-                                            <li><a href="track-order.jsp">Track Order</a></li>
-                                            <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                            <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
-                                        </ul>
-                                    </li>
-
+                                    <li><a href="shop-left-sidebar-col-3.jsp">Shop</a></li>
+                                    <li><a href="track-order.jsp">Track Order</a></li>
                                     <li><a href="about-us.jsp">About Us</a></li>
                                     <li><a href="contact-us.jsp">Contact Us</a></li>
                                 </ul>
@@ -234,31 +222,10 @@
                             <li><a href="index.jsp">Home</a></li>
                             <li><a href="shop-full-width.jsp">Categories</a></li>
                             <li><a href="product-full-width.jsp">Products</a></li>
-
-                            <li class="dropdown"><a href="javascript:void(0)">Pages</a>
-                                <ul class="sub-menu">
-
-                                    <li><a href="cart.jsp">Cart</a></li>
-                                    <li><a href="checkout.jsp">Checkout</a></li>                                
-                                    <li><a href="faq.jsp">FAQ</a></li>
-                                    <li><a href="track-order.jsp">Track Order</a></li>
-                                    <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                    <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="track-order.jsp">Track Order</a></li>
                             <li><a href="about-us.jsp">About Us</a></li>
                             <li><a href="contact-us.jsp">Contact Us</a></li>
                         </ul>
-                    </div>
-                    <div class="header-res-lan-curr">
-
-                        <!-- Social Start -->
-                        <div class="header-res-social">
-                            <div class="header-top-social">
-
-                            </div>
-                        </div>
-                        <!-- Social End -->
                     </div>
                 </div>
             </div>
@@ -429,19 +396,18 @@
                     <div class="ec-login-wrapper">
                         <div class="ec-login-container">
                             <div class="ec-login-form">
-                                <form action="#" method="post">
+                                <form action="login" method="post">
                                     <span class="ec-login-wrap">
                                         <label>Email Address*</label>
-                                        <input type="text" name="name" placeholder="Enter your email add..." required />
+                                        <input type="text" name="email" placeholder="Enter your email add..." required />
                                     </span>
                                     <span class="ec-login-wrap">
                                         <label>Password*</label>
                                         <input type="password" name="password" placeholder="Enter your password" required />
                                     </span>
+                                    <p style="color: red">${requestScope.error}</p>
                                     <span class="ec-login-wrap ec-login-fp">
-
                                         <label><a href="forgot-password.jsp">Forgot Password??</a></label>
-
                                     </span>
                                     <span class="ec-login-wrap ec-login-btn">
                                         <button class="btn btn-primary" type="submit">Login</button>

@@ -200,7 +200,7 @@
                                 <ul>
                                     <li><a href="index.jsp">Home</a></li>
                                     <li><a href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-                                   
+
                                     <li class="dropdown"><a href="javascript:void(0)">Pages</a>
                                         <ul class="sub-menu">
 
@@ -355,15 +355,12 @@
 
                 cart.forEach(item => {
                     const listItem = document.createElement('li');
-                    listItem.innerHTML = `
-                        <div>
-            <span>${item.productName}</span> - 
-            <span>${'$'}${item.price}</span> x
-            <input type="number" value="${item.quantity}" min="1" style="width: 50px;" 
-                onchange="updateQuantity('${item.productName}', this.value)">
-            = <span>${'$'}${item.price * item.quantity}</span>
-        </div>
-        <button onclick="removeFromCart('${item.productName}')">Remove</button>
+                    listItem.innerHTML = `<div>
+                                           <span>${item.productName}</span> - <span>${'$'}${item.price}</span> x
+                                <input type="number" value="${item.quantity}" min="1" style="width: 50px;" 
+                                onchange="updateQuantity('${item.productName}', this.value)"> = <span>${'$'}${item.price * item.quantity}</span>
+                                          </div>
+                                <button onclick="removeFromCart('${item.productName}')">Remove</button>
                     `;
                     cartItems.appendChild(listItem);
                 });
@@ -477,12 +474,12 @@
                                 <h1 class="ec_contact_info_head">Contact us</h1>
                                 <ul class="align-items-center">
                                     <li class="ec-contact-item"><i class="ecicon eci-map-marker"
-                                                                   aria-hidden="true"></i><span>Address :</span>Hoa Lac Hi-tech Park, km 29, Đại lộ Thăng Long, Hà Nội, Vietnam</li>
+                                                                   aria-hidden="true"></i><span>Address :</span>Hoa Lac Hi-tech Park, km 29, Thang Long Boulevard, Hanoi, Vietnam</li>
                                     <li class="ec-contact-item align-items-center"><i class="ecicon eci-phone"
                                                                                       aria-hidden="true"></i><span>Call Us :</span><a href="tel:+440123456789">0967870138</a></li>
                                     <li class="ec-contact-item align-items-center"><i class="ecicon eci-envelope"
                                                                                       aria-hidden="true"></i><span>Email :</span><a
-                                            href="mailto:example@ec-email.com">vietpthe180666@fpt.edu.vn</a></li>
+                                            href="mailto:example@ec-email.com">louisvuitton@gmail.com</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -592,7 +589,7 @@
                             <div class="col text-center footer-copy">
                                 <div class="footer-bottom-copy ">
                                     <div class="ec-copy">Copyright ©<span id="copyright_year"></span> <a class="site-name text-upper"
-                                                                                                           href="#">NYFS<span>.</span></a>. All Rights Reserved</div>
+                                                                                                         href="#">NYFS<span>.</span></a>. All Rights Reserved</div>
                                 </div>
                             </div>
                             <!-- Footer Copyright End -->
