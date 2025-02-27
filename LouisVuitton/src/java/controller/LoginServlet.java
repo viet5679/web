@@ -76,7 +76,7 @@ public class LoginServlet extends HttpServlet {
         UserDAO userD = new UserDAO();
         Users user = userD.checkUser(email, password);
         HttpSession session = request.getSession();
-        if(user == null){
+        if(user == null || user.getStatus() == 0){
             request.setAttribute("error", "Email or password invalid. Please try again.");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }else{

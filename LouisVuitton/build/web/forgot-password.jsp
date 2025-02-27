@@ -137,9 +137,9 @@
                                         <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
                                                 class="fi-rr-user"></i></button>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a class="dropdown-item" href="register.jsp">Register</a></li>
+                                            <li><a class="dropdown-item" href="register">Register</a></li>
                                             <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                            <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                            <li><a class="dropdown-item" href="login">Login</a></li>
                                         </ul>
                                     </div>
                                     <!-- Header User End -->
@@ -197,24 +197,11 @@
                         <div class="col-md-12 align-self-center">
                             <div class="ec-main-menu">
                                 <ul>
-                                    <li><a href="index.jsp">Home</a></li>
-                                    <li><a href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-                                    
-                                    <li class="dropdown"><a href="javascript:void(0)">Pages</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="cart.jsp">Cart</a></li>
-                                            <li><a href="checkout.jsp">Checkout</a></li>                                
-                                            <li><a href="faq.jsp">FAQ</a></li>
-                                            <li><a href="track-order.jsp">Track Order</a></li>
-                                            <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                            <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li><a href="blog-full-width.jsp">Blog</a></li>
-
-                                    <li><a href="offer.jsp">Hot Offers</a></li>
+                                    <li><a href="home">Home</a></li>
+                                    <li><a href="shop">Shop</a></li>
+                                    <li><a href="checkout.jsp">Checkout</a></li>    
+                                    <li><a href="about-us">About Us</a></li>
+                                    <li><a href="contact-us">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -231,58 +218,11 @@
                 <div class="ec-menu-inner">
                     <div class="ec-menu-content">
                         <ul>
-                            <li><a href="index.jsp">Home</a></li>
-                            <li><a href="javascript:void(0)">Categories</a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="javascript:void(0)">Classic Variation</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="shop-full-width.jsp">Full width 4 column</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)">Classic Variation</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="shop-banner-full-width.jsp">Banner Full width 4 column</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)">Columns Variation</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="shop-banner-full-width-col-3.jsp">Banner 3 Columns</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)">List Variation</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="shop-list-full-col-2.jsp">Full width 2 columns</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a class="p-0" href="shop-left-sidebar-col-3.jsp"><img class="img-responsive"
-                                                                                               src="assets/images/menu-banner/1.jpg" alt=""></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="product-full-width.jsp">Products</a></li>
-
-                            <li class="dropdown"><a href="javascript:void(0)">Pages</a>
-                                <ul class="sub-menu">
-
-                                    <li><a href="cart.jsp">Cart</a></li>
-                                    <li><a href="checkout.jsp">Checkout</a></li>                                
-                                    <li><a href="faq.jsp">FAQ</a></li>
-                                    <li><a href="track-order.jsp">Track Order</a></li>
-                                    <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                    <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="blog-full-width.jsp">Blog</a></li>
-
-                            <li><a href="offer.jsp">Hot Offers</a></li>
+                            <li><a href="home">Home</a></li>
+                            <li><a href="shop">Shop</a></li>
+                            <li><a href="checkout.jsp">Checkout</a></li>    
+                            <li><a href="about-us">About Us</a></li>
+                            <li><a href="contact-us">Contact Us</a></li>
                         </ul>
                     </div>
                     <div class="header-res-lan-curr">
@@ -438,7 +378,7 @@
                             <div class="col-md-6 col-sm-12">
                                 <!-- ec-breadcrumb-list start -->
                                 <ul class="ec-breadcrumb-list">
-                                    <li class="ec-breadcrumb-item"><a href="index.jsp">Home</a></li>
+                                    <li class="ec-breadcrumb-item"><a href="home">Home</a></li>
                                     <li class="ec-breadcrumb-item active">Login</li>
                                 </ul>
                                 <!-- ec-breadcrumb-list end -->
@@ -452,8 +392,7 @@
 
 
 
-        <!--forgot-password-start-->
-
+        <!-- Forgot Password Page -->
         <section class="ec-page-content section-space-p">
             <div class="container">
                 <div class="row">
@@ -464,36 +403,38 @@
                             <p class="sub-title mb-3">Enter your email to reset your password</p>
                         </div>
                     </div>
-                    <form class="fogot-pass" action="#" method="post" onsubmit="redirectToChangePassword(event)">
+                    <form class="fogot-pass" action="forgot-password" method="post">
                         <span class="ec-forgot-wrap">
                             <label>Email Address*</label>
-                            <input type="email" name="email" placeholder="Enter your email address" required />
+                            <input type="email" name="email" id="email" placeholder="Enter your email address" required oninput="validateEmail()" />
                         </span>
                         <span class="ec-forgot-wrap ec-forgot-btn">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                            <a href="login.jsp" class="btn btn-secondary">Back to Login</a>
+                            <button type="submit" id="submitBtn" class="btn btn-primary" disabled>Submit</button>
+                            <a href="login" class="btn btn-secondary">Back to Login</a>
                         </span>
                     </form>
 
+                    <!-- Hiển thị thông báo từ server -->
+                    <% String message = (String) request.getAttribute("message"); %>
+                    <% String error = (String) request.getAttribute("error"); %>
 
+                    <% if (message != null) { %>
+                    <p class="alert alert-success"><%= message %></p>
+                    <% } %>
 
+                    <% if (error != null) { %>
+                    <p style="color: red" class="alert alert-danger"><%= error %></p>
+                    <% } %>
                 </div>
             </div>
         </section>
-
-        <script>
-            function redirectToChangePassword(event) {
-                event.preventDefault(); // NgÄn form gá»­i dá»¯ liá»u theo cÃ¡ch máº·c Äá»nh
-                window.location.href = "change-password.jsp"; // Chuyá»n trang
-            }
-        </script>
 
         <script>
             function validateEmail() {
                 const emailInput = document.getElementById("email");
                 const submitBtn = document.getElementById("submitBtn");
 
-                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Kiá»m tra email há»£p lá»
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (emailPattern.test(emailInput.value.trim())) {
                     submitBtn.removeAttribute("disabled");
                 } else {
@@ -606,7 +547,7 @@
                             <div class="col text-center footer-copy">
                                 <div class="footer-bottom-copy ">
                                     <div class="ec-copy">Copyright ©<span id="copyright_year"></span> <a class="site-name text-upper"
-                                                                                                           href="#">NYFS<span>.</span></a>. All Rights Reserved</div>
+                                                                                                         href="#">NYFS<span>.</span></a>. All Rights Reserved</div>
                                 </div>
                             </div>
                             <!-- Footer Copyright End -->

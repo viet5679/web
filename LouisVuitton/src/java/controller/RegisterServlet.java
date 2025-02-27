@@ -14,8 +14,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.util.regex.Pattern;
-import model.Users;
 import utils.Validation;
 
 /**
@@ -101,12 +99,12 @@ public class RegisterServlet extends HttpServlet {
         }
 
         UserDAO userDAO = new UserDAO();
-        if (userDAO.isEmailExists(email)) {
+        if (userDAO.isEmailExist(email)) {
             request.setAttribute("error", "Email already exists.");
             request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
         }
-
+       
         boolean success = userDAO.insertUser(name, password, email, phonenumber, address);
 
         if (!success) {

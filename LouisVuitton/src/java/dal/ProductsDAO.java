@@ -4,6 +4,11 @@ package dal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import model.ProductSizes;
 import model.Products;
 
 public class ProductsDAO extends DBContext {
@@ -161,6 +166,11 @@ public class ProductsDAO extends DBContext {
                 StringBuilder sql = new StringBuilder("SELECT TOP 12 p.* FROM products p JOIN product_gender pg ON p.id = pg.product_id WHERE 1=1");
                 if (gender_id != 0) {
                     sql.append(" AND pg.gender_id = ").append(gender_id);
+                } else {
+                    sql.append(" GROUP BY p.id, p.category_id, p.name, p.description, p.sub_description, \n"
+                            + "         p.avatar, p.status, p.hot, p.total_ratings, p.total_stars, \n"
+                            + "         p.stock_quantity, p.total_sold, p.created_at, p.updated_at, \n"
+                            + "         p.hover_avatar, p.price, p.sale, p.total_pay, p.tag;");
                 }
                 PreparedStatement stm = connection.prepareStatement(sql.toString());
                 ResultSet res = stm.executeQuery();
@@ -181,7 +191,86 @@ public class ProductsDAO extends DBContext {
         }
         return null;
     }
-    
+
+    public List<Products> getProductsByFilder(List<Integer> gid, List<Integer> cid, List<Integer> sid, Double price_low, Double price_high) {
+        List<Products> list = new ArrayList();
+        String sql = " SELECT \n"
+                + "   *\n"
+                + "FROM products p\n"
+                + "LEFT JOIN product_sizes ps ON p.id = ps.product_id\n"
+                + "LEFT JOIN product_gender pg ON p.id = pg.product_id where 1 = 1";
+        if (!gid.isEmpty()) {
+            sql += " AND gender_id IN (" + gid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
+        }
+        if (!cid.isEmpty()) {
+            sql += " AND category_id IN (" + cid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
+        }
+        if (!sid.isEmpty()) {
+            sql += " AND size_id IN (" + sid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
+        }
+        if (price_low != null) {
+            sql += "and total_pay >= " + price_low;
+        }
+        if (price_low != null) {
+            sql += "and total_pay >= " + price_low;
+        }
+        CategoriesDAO ca = new CategoriesDAO();
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            Map<Integer, Products> productMap = new HashMap<>();
+            while (rs.next()) {
+                int productId = rs.getInt("id");
+                if (!productMap.containsKey(productId)) {
+                    Products pro = new Products(
+                            rs.getInt(1), ca.getCategoryById(rs.getInt(2)), rs.getString(3), rs.getString(4),
+                            rs.getString(5), rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getInt(9),
+                            rs.getInt(10), rs.getInt(11), rs.getInt(12), rs.getString(13), rs.getString(14),
+                            rs.getString(15), rs.getDouble(16), rs.getDouble(17), rs.getDouble(18),
+                            rs.getString(19)
+                    );
+                    productMap.put(productId, pro);
+                }
+            }
+            list.addAll(productMap.values());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+
+    public Products getProductById(int id) {
+        String sql = "select * from products where id = ?";
+        CategoriesDAO ca = new CategoriesDAO();
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                Products pro = new Products(rs.getInt(1), ca.getCategoryById(rs.getInt(2)), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getInt(9), rs.getInt(10), rs.getInt(11), rs.getInt(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getDouble(16), rs.getDouble(17), rs.getDouble(18), rs.getString(19));
+                return pro;
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public List<ProductSizes> getProductsSizes() {
+        List<ProductSizes> list = new ArrayList();
+        String sql = "select * from product_sizes ";
+        SizesDAO si = new SizesDAO();
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                ProductSizes ps = new ProductSizes(getProductById(rs.getInt(1)), si.getSizeById(rs.getInt(2)), rs.getInt(3), rs.getInt(4), rs.getString(5));
+                list.add(ps);
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
     // Get all product with size
 //    public ArrayList<Product_sizes> getAllProductWithSizeByCid(int cid) {
 //        ArrayList<Product_sizes> listProduct = new ArrayList<>();

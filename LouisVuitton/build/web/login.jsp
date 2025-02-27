@@ -407,11 +407,11 @@
                                     </span>
                                     <p style="color: red">${requestScope.error}</p>
                                     <span class="ec-login-wrap ec-login-fp">
-                                        <label><a href="forgot-password.jsp">Forgot Password??</a></label>
+                                        <label><a href="forgot-password">Forgot Password??</a></label>
                                     </span>
                                     <span class="ec-login-wrap ec-login-btn">
                                         <button class="btn btn-primary" type="submit">Login</button>
-                                        <a href="register.jsp" class="btn btn-secondary">Register</a>
+                                        <a href="register" class="btn btn-secondary">Register</a>
                                     </span>
                                 </form>
                             </div>

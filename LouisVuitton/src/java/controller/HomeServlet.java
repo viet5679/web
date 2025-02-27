@@ -68,25 +68,25 @@ public class HomeServlet extends HttpServlet {
         ProductsDAO p = new ProductsDAO();
         GendersDAO g = new GendersDAO();
         List<Genders> genders = g.getAllGender();
+        genders.forEach(gender -> {
+            String name = gender.getName();
+            if (name != null && !name.isEmpty()) {
+                gender.setName(Character.toLowerCase(name.charAt(0)) + name.substring(1));
+            }
+        });
+
         Map<String, List<Products>> productLists = new HashMap<>();
         productLists.put("all", p.get12ProductByGid(0));
+        
         for (Genders gender : genders) {
-            productLists.put(lowercaseFirstLetter(gender.getName()), p.get12ProductByGid(gender.getId()));
+            productLists.put(gender.getName(), p.get12ProductByGid(gender.getId()));
         }
         request.setAttribute("productLists", productLists);
         request.setAttribute("bestSeller", p.getBestSellerProduct());
-        request.setAttribute("genderList", g.getAllGender());
+        request.setAttribute("genderList", genders);
         request.setAttribute("newArrivals", p.getNewArrivalsProduct());
         request.setAttribute("saleProduct", p.getSaleProduct());
-
         request.getRequestDispatcher("index.jsp").forward(request, response);
-    }
-
-    private String lowercaseFirstLetter(String str) {
-        if (str == null || str.isEmpty()) {
-            return str;
-        }
-        return str.substring(0, 1).toLowerCase() + str.substring(1);
     }
 
     /**

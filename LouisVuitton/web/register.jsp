@@ -199,10 +199,10 @@
                             <div class="ec-main-menu">
                                 <ul>
                                     <li><a href="home">Home</a></li>
-                                    <li><a href="shop-left-sidebar-col-3.jsp">Shop</a></li>
+                                    <li><a href="shop">Shop</a></li>
                                     <li><a href="checkout.jsp">Checkout</a></li>  
-                                    <li><a href="about-us.jsp">About Us</a></li>
-                                    <li><a href="contact-us.jsp">Contact Us</a></li>
+                                    <li><a href="about-us">About Us</a></li>
+                                    <li><a href="contact-us">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -220,11 +220,10 @@
                     <div class="ec-menu-content">
                         <ul>
                             <li><a href="home">Home</a></li>
-                            <li><a href="shop-full-width.jsp">Categories</a></li>
-                            <li><a href="product-full-width.jsp">Products</a></li>
+                            <li><a href="shop">Shop</a></li>
                             <li><a href="checkout.jsp">Checkout</a></li>    
-                            <li><a href="about-us.jsp">About Us</a></li>
-                            <li><a href="contact-us.jsp">Contact Us</a></li>
+                            <li><a href="about-us">About Us</a></li>
+                            <li><a href="contact-us">Contact Us</a></li>
                         </ul>
                     </div>
                     <div class="header-res-lan-curr">
@@ -443,12 +442,24 @@
 
                                     <c:choose>
                                         <c:when test="${not empty requestScope.error}">
-                                            <p style="color: red">${requestScope.error}</p>
+                                            <p style="color: red" id="error-message">${requestScope.error}</p>
                                         </c:when>
                                         <c:when test="${not empty requestScope.mess}">
-                                            <p style="color: blue">${requestScope.mess}</p>
+                                            <p class="ec-register-wrap" style="color: green" id="success-message">${requestScope.mess}</p>
                                         </c:when>
                                     </c:choose>
+                                    <!-- Chuyển hướng về login.jsp sau 5 giây nếu có thông báo thành công -->
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function () {
+                                            let successMessage = document.getElementById("success-message");
+                                            if (successMessage && successMessage.innerText.trim() !== "") {
+                                                setTimeout(() => {window.location.href = "login";}, 5000);
+                                            }
+                                        });
+                                    </script>
+
+
+
 
                                     <span class="ec-register-wrap ec-register-btn">
                                         <button class="btn btn-primary" type="submit">Register</button>

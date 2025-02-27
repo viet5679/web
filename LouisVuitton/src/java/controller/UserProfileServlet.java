@@ -72,7 +72,6 @@ public class UserProfileServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         Users user = (Users) session.getAttribute("user");
-
         if (user == null) {
             response.sendRedirect("login.jsp");
             return;
@@ -83,12 +82,13 @@ public class UserProfileServlet extends HttpServlet {
         String address = request.getParameter("address");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
+        String gender = request.getParameter("gender");
 
         String fullName = firstName + " " + lastName;
         user.setName(fullName);
         user.setAddress(address);
         user.setEmail(email);
-        user.setPhone(phone);
+        user.setGender(gender);
 
         UserDAO userDAO = new UserDAO();
         boolean isUpdated = userDAO.updateUser(user);

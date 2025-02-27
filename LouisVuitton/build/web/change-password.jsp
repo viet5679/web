@@ -39,6 +39,7 @@
         <link rel="stylesheet" id="bg-switcher-css" href="assets/css/backgrounds/bg-4.css">
     </head>
     <body>
+        <input type="hidden" name="token" value="<%= request.getParameter("token") %>">
         <div id="ec-overlay">
             <div class="ec-ellipsis">
                 <div></div>
@@ -137,9 +138,9 @@
                                         <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
                                                 class="fi-rr-user"></i></button>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a class="dropdown-item" href="register.jsp">Register</a></li>
+                                            <li><a class="dropdown-item" href="register">Register</a></li>
                                             <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                            <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                            <li><a class="dropdown-item" href="login">Login</a></li>
                                         </ul>
                                     </div>
                                     <!-- Header User End -->
@@ -197,23 +198,11 @@
                         <div class="col-md-12 align-self-center">
                             <div class="ec-main-menu">
                                 <ul>
-                                    <li><a href="index.jsp">Home</a></li>
-                                    <li><a href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-                                    <li><a href="product-full-width.jsp">Products</a></li>
-                                    <li class="dropdown"><a href="javascript:void(0)">Pages</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="cart.jsp">Cart</a></li>
-                                            <li><a href="checkout.jsp">Checkout</a></li>                                
-                                            <li><a href="faq.jsp">FAQ</a></li>
-                                            <li><a href="track-order.jsp">Track Order</a></li>
-                                            <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                            <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="blog-full-width.jsp">Blog</a></li>
-
-                                    <li><a href="offer.jsp">Hot Offers</a></li>
+                                    <li><a href="home">Home</a></li>
+                                    <li><a href="shop">Shop</a></li>
+                                    <li><a href="checkout.jsp">Checkout</a></li>    
+                                    <li><a href="about-us">About Us</a></li>
+                                    <li><a href="contact-us">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -230,58 +219,11 @@
                 <div class="ec-menu-inner">
                     <div class="ec-menu-content">
                         <ul>
-                            <li><a href="index.jsp">Home</a></li>
-                            <li><a href="javascript:void(0)">Categories</a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="javascript:void(0)">Classic Variation</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="shop-full-width.jsp">Full width 4 column</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)">Classic Variation</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="shop-banner-full-width.jsp">Banner Full width 4 column</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)">Columns Variation</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="shop-banner-full-width-col-3.jsp">Banner 3 Columns</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)">List Variation</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="shop-list-full-col-2.jsp">Full width 2 columns</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a class="p-0" href="shop-left-sidebar-col-3.jsp"><img class="img-responsive"
-                                                                                               src="assets/images/menu-banner/1.jpg" alt=""></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="product-full-width.jsp">Products</a></li>
-
-                            <li class="dropdown"><a href="javascript:void(0)">Pages</a>
-                                <ul class="sub-menu">
-
-                                    <li><a href="cart.jsp">Cart</a></li>
-                                    <li><a href="checkout.jsp">Checkout</a></li>                                
-                                    <li><a href="faq.jsp">FAQ</a></li>
-                                    <li><a href="track-order.jsp">Track Order</a></li>
-                                    <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                    <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="blog-full-width.jsp">Blog</a></li>
-
-                            <li><a href="offer.jsp">Hot Offers</a></li>
+                            <li><a href="home">Home</a></li>
+                            <li><a href="shop">Shop</a></li>
+                            <li><a href="checkout.jsp">Checkout</a></li>    
+                            <li><a href="about-us">About Us</a></li>
+                            <li><a href="contact-us">Contact Us</a></li>
                         </ul>
                     </div>
                     <div class="header-res-lan-curr">
@@ -449,38 +391,50 @@
         </div>
         <!-- Ec breadcrumb end -->
 
-        <!--change-password start-->
-
+        <!-- Change Password Start -->
         <section class="change-password-section">
             <div class="change-password-container">
                 <h2>Change your password</h2>
-                <form action="#" method="post" id="change-password-form">
+                <form action="change-password" method="post" id="change-password-form">
+                    <!-- Lấy email & token từ URL -->
+                    <input type="hidden" id="email" name="email">
+                    <input type="hidden" id="token" name="token">
+
                     <div class="form-group">
-                        <input 
-                            type="password" 
-                            id="new_password" 
-                            name="new_password" 
-                            placeholder="New password" 
-                            required 
-                            />
+                        <input type="password" id="new_password" name="new_password" placeholder="New password" required>
                     </div>
                     <div class="form-group">
-                        <input 
-                            type="password" 
-                            id="confirm_password" 
-                            name="confirm_password" 
-                            placeholder="New password again" 
-                            required 
-                            />
+                        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm password" required>
                     </div>
                     <div class="form-group">
                         <p id="error-message" style="color: red; display: none;">Passwords do not match!</p>
                     </div>
+                    <p style=""></p>
                     <div class="button-group">
                         <a href="login.jsp" class="btn btn-cancel">Cancel</a>
-                        <button type="button" id="change-button" class="btn btn-primary" disabled>Change</button>
+                        <button type="submit" id="change-button" class="btn btn-primary" disabled>Change</button>
                     </div>
                 </form>
+                <!-- Hiển thị thông báo nếu có -->
+                <% String message = (String) request.getAttribute("message"); %>
+                <% String error = (String) request.getAttribute("error"); %>
+                <% if (message != null) { %>
+                <p id="success-message" style="color: green; margin-top: 10px"><%= message %></p>
+                <% } %>
+                <% if (error != null) { %>
+                <p id="error-message" style="color: red; margin-top: 10px"><%= error %></p>
+                <% } %>
+
+                <!-- Chuyển hướng về login.jsp sau 5 giây nếu có thông báo thành công -->
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        let successMessage = document.getElementById("success-message");
+                        if (successMessage && successMessage.innerText.trim() !== "") {
+                            setTimeout(() => {window.location.href = "login";}, 5000);
+                        }
+                    });
+                </script>
+
             </div>
         </section>
 
@@ -503,15 +457,19 @@
                 }
             }
 
+            // Lấy email & token từ URL và gán vào form
+            function getQueryParams() {
+                const params = new URLSearchParams(window.location.search);
+                document.getElementById("email").value = params.get("email") || "";
+                document.getElementById("token").value = params.get("token") || "";
+            }
+
             newPasswordInput.addEventListener('input', validateConfirmPassword);
             confirmPasswordInput.addEventListener('input', validateConfirmPassword);
 
-            changeButton.addEventListener('click', () => {
-                alert('Password changed successfully!');
-                document.getElementById('change-password-form').submit();
-            });
+            // Gọi khi trang tải
+            window.onload = getQueryParams;
         </script>
-
 
 
         <!-- Footer Start -->
@@ -616,7 +574,7 @@
                             <div class="col text-center footer-copy">
                                 <div class="footer-bottom-copy ">
                                     <div class="ec-copy">Copyright ©<span id="copyright_year"></span> <a class="site-name text-upper"
-                                                                                                           href="#">NYFS<span>.</span></a>. All Rights Reserved</div>
+                                                                                                         href="#">NYFS<span>.</span></a>. All Rights Reserved</div>
                                 </div>
                             </div>
                             <!-- Footer Copyright End -->

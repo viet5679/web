@@ -281,10 +281,8 @@
                                 </a>
                                 <ul>
                                     <li><a href="home">Home</a></li>
-                                    <li><a
-                                            href="shop-left-sidebar-col-3.jsp">Shop</a></li>
-                                    <li><a href="track-order.jsp">Track
-                                            Order</a></li>
+                                    <li><a href="shop">Shop</a></li>
+                                    <li><a href="track-order.jsp">Track Order</a></li>
                                     <li><a href="about-us">About Us</a></li>
                                     <li><a href="contact-us">Contact Us</a></li>
                                     <li class="dropdown scroll-to"><a
@@ -335,10 +333,7 @@
                     <div class="ec-menu-content">
                         <ul>
                             <li><a href="home">Home</a></li>
-                            <li><a
-                                    href="shop-left-sidebar-col-3.jsp">Shop</a></li>
-                            <li><a
-                                    href="product-full-width.jsp">Products</a></li>
+                            <li><a href="shop">Shop</a></li>
                             <li><a href="checkout.jsp">Checkout</a></li>
                             <li><a href="blog-full-width.jsp">Blog</a></li>
                             <li><a href="offer.jsp">Hot Offers</a></li>
