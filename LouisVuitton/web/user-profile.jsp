@@ -149,13 +149,13 @@
                                         <ul class="dropdown-menu dropdown-menu-right">
                                             <% if (user == null) { %>
                                             <!-- chưa đăng nhập -->
-                                            <li><a class="dropdown-item" href="register.jsp">Register</a></li>
-                                            <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                            <li><a class="dropdown-item" href="register">Register</a></li>
+                                            <li><a class="dropdown-item" href="login">Login</a></li>
                                                 <% } else { %>
                                             <!-- đã đăng nhập -->
                                             <% if (user.getRole() == 1) { %>
                                             <!-- User -->
-                                            <li><a class="dropdown-item" href="user-profile.jsp">Edit Profile</a></li>
+                                            <li><a class="dropdown-item" href="user-profile">Edit Profile</a></li>
                                             <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
 
                                             <% } else if (user.getRole() == 0) { %>
@@ -227,23 +227,11 @@
                         <div class="col-md-12 align-self-center">
                             <div class="ec-main-menu">
                                 <ul>
-                                    <li><a href="index.jsp">Home</a></li>
-                                    <li><a href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-                                    <li><a href="product-full-width.jsp">Products</a></li>
-                                    <li class="dropdown"><a href="javascript:void(0)">Pages</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="cart.jsp">Cart</a></li>
-                                            <li><a href="checkout.jsp">Checkout</a></li>                                
-                                            <li><a href="faq.jsp">FAQ</a></li>
-                                            <li><a href="track-order.jsp">Track Order</a></li>
-                                            <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                            <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li><a href="about-us.jsp">About Us</a></li>
-                                    <li><a href="contact-us.jsp">Contact Us</a></li>
+                                    <li><a href="home">Home</a></li>
+                                    <li><a href="shop-left-sidebar-col-3.jsp">Shop</a></li>
+                                    <li><a href="checkout.jsp">Checkout</a></li>   
+                                    <li><a href="about-us">About Us</a></li>
+                                    <li><a href="contact-us">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -260,23 +248,11 @@
                 <div class="ec-menu-inner">
                     <div class="ec-menu-content">
                         <ul>
-                            <li><a href="index.jsp">Home</a></li>
-                            <li><a href="shop-full-width.jsp">Categories</a></li>
-                            <li><a href="product-full-width.jsp">Products</a></li>
-
-                            <li class="dropdown"><a href="javascript:void(0)">Pages</a>
-                                <ul class="sub-menu">
-
-                                    <li><a href="cart.jsp">Cart</a></li>
-                                    <li><a href="checkout.jsp">Checkout</a></li>                                
-                                    <li><a href="faq.jsp">FAQ</a></li>
-                                    <li><a href="track-order.jsp">Track Order</a></li>
-                                    <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                    <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="about-us.jsp">About Us</a></li>
-                            <li><a href="contact-us.jsp">Contact Us</a></li>
+                            <li><a href="home">Home</a></li>
+                            <li><a href="shop-full-width.jsp">Shop</a></li>
+                            <li><a href="checkout.jsp">Checkout</a></li> 
+                            <li><a href="about-us">About Us</a></li>
+                            <li><a href="contact-us">Contact Us</a></li>
                         </ul>
                     </div>
                     <div class="header-res-lan-curr">
@@ -432,7 +408,7 @@
                             <div class="col-md-6 col-sm-12">
                                 <!-- ec-breadcrumb-list start -->
                                 <ul class="ec-breadcrumb-list">
-                                    <li class="ec-breadcrumb-item"><a href="index.jsp">Home</a></li>
+                                    <li class="ec-breadcrumb-item"><a href="home">Home</a></li>
                                     <li class="ec-breadcrumb-item active">Profile</li>
                                 </ul>
                                 <!-- ec-breadcrumb-list end -->
@@ -490,7 +466,6 @@
                                                 <div class="ec-vendor-block-detail">
                                                     <img class="v-img" src="<%= user.getAvatar() != null ? user.getAvatar() : "assets/images/user/default.jpg" %>" alt="user image">
                                                     <h5 class="name"><%= user.getName() %></h5>
-                                                    <p>( <%= user.getRole() == 1 ? "User" : "Admin" %> )</p>
                                                 </div>
                                                 <p>Hello <span><%= user.getName() %>!</span></p>
                                                 <p>From your account you can easily view and track orders. You can manage and change your account information like address, contact information and history of orders.</p>
@@ -515,7 +490,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-sm-12">
-                                                    <div class="ec-vendor-detail-block ec-vendor-block-address mar-b-30">
+                                                    <div class="ec-vendor-detail-block ec-vendor-block-address space-bottom-30">
                                                         <h6>Address</h6>
                                                         <ul>
                                                             <li><strong>Home : </strong><%= user.getAddress() != null ? user.getAddress() : "N/A" %></li>
@@ -523,10 +498,18 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-sm-12">
-                                                    <div class="ec-vendor-detail-block ec-vendor-block-address">
+                                                    <div class="ec-vendor-detail-block ec-vendor-block-address space-bottom-30">
                                                         <h6>Shipping Address</h6>
                                                         <ul>
                                                             <li><strong>Office : </strong><%= user.getAddress() != null ? user.getAddress() : "N/A" %></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-sm-12">
+                                                    <div class="ec-vendor-detail-block ec-vendor-block-address">
+                                                        <h6>Gender</h6>
+                                                        <ul>
+                                                            <li><strong>Gender : </strong><%= user.getGender() != null ? user.getGender() : "N/A" %></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -698,7 +681,7 @@
                                     </div>
                                 </div>
                                 <div class="ec-vendor-upload-detail">
-                                    <form class="row g-3" id="editForm" action="profile" method="POST">
+                                    <form class="row g-3" id="editForm" action="profile" method="POST" >
                                         <div class="col-md-6 space-t-15">
                                             <label class="form-label">First name</label>
                                             <input type="text" class="form-control" name="firstName" value="<%= user != null ? user.getName().split(" ")[0] : "" %>">
@@ -718,6 +701,10 @@
                                         <div class="col-md-12 space-t-15">
                                             <label class="form-label">Phone number</label>
                                             <input type="text" class="form-control" name="phone" value="<%= user != null ? user.getPhone() : "" %>">
+                                        </div>
+                                        <div class="col-md-12 space-t-15">
+                                            <label class="form-label">Gender</label>
+                                            <input type="text" class="form-control" name="gender" value="<%= user != null ? user.getGender() : "" %>">
                                         </div>
                                         <div class="col-md-12 space-t-15">
                                             <button type="submit" class="btn btn-primary">Update</button>

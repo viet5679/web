@@ -27,16 +27,51 @@ public class UserDAO extends DBContext {
     }
 
     public boolean updateUser(Users user) {
-        String sql = "UPDATE users SET name=?, email=?, phone=?, address=? WHERE id=?";
+        String sql = "UPDATE users SET name=?, email=?, phone=?, address=?, gender=? WHERE id=?";
         try {
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, user.getName());
             stm.setString(2, user.getEmail());
             stm.setString(3, user.getPhone());
             stm.setString(4, user.getAddress());
-            stm.setInt(5, user.getId());
+            stm.setString(5, user.getGender());
+            stm.setInt(6, user.getId());
+            
             int rowsUpdated = stm.executeUpdate();
             return rowsUpdated > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean insertUser(String name, String password, String email, String phone, String address) {
+        String sql = "INSERT INTO users (name, password, email, phone, address, created_at, updated_at) VALUES (?, ?, ?, ?, ?, GETDATE(), GETDATE())";
+
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, name);
+            stmt.setString(2, password);
+            stmt.setString(3, email);
+            stmt.setString(4, phone);
+            stmt.setString(5, address);
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean isEmailExists(String email) {
+        String query = "SELECT COUNT(*) FROM users WHERE email = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

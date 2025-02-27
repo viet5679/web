@@ -88,11 +88,11 @@
                                     <ul
                                         class="dropdown-menu dropdown-menu-right">
                                         <li><a class="dropdown-item"
-                                               href="register.jsp">Register</a></li>
+                                               href="register">Register</a></li>
                                         <li><a class="dropdown-item"
                                                href="checkout.jsp">Checkout</a></li>
                                         <li><a class="dropdown-item"
-                                               href="login.jsp">Login</a></li>
+                                               href="login">Login</a></li>
                                     </ul>
                                 </div>
                                 <!-- Header User End -->
@@ -186,8 +186,8 @@
                                         <ul class="dropdown-menu dropdown-menu-right">
                                             <% if (user == null) { %>
                                                 <!-- chưa đăng nhập -->
-                                                <li><a class="dropdown-item" href="register.jsp">Register</a></li>
-                                                <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                                <li><a class="dropdown-item" href="register">Register</a></li>
+                                                <li><a class="dropdown-item" href="login">Login</a></li>
                                             <% } else { %>
                                                 <!-- đã đăng nhập -->
                                                 <% if (user.getRole() == 1) { %>
@@ -285,9 +285,8 @@
                                             href="shop-left-sidebar-col-3.jsp">Shop</a></li>
                                     <li><a href="track-order.jsp">Track
                                             Order</a></li>
-                                    <li><a href="about-us.jsp">About Us</a></li>
-                                    <li><a href="contact-us.jsp">Contact
-                                            Us</a></li>
+                                    <li><a href="about-us">About Us</a></li>
+                                    <li><a href="contact-us">Contact Us</a></li>
                                     <li class="dropdown scroll-to"><a
                                             href="javascript:void(0)"><i
                                                 class="fi fi-rr-sort-amount-down-alt"></i></a>
@@ -302,9 +301,6 @@
                                                     href="shop-left-sidebar-col-3.jsp"
                                                     data-scroll="categories"
                                                     class="nav-scroll">Categories</a></li>
-                                            <li><a href="javascript:void(0)"
-                                                   data-scroll="offers"
-                                                   class="nav-scroll">Offers</a></li>
                                             <li><a href="javascript:void(0)"
                                                    data-scroll="services"
                                                    class="nav-scroll">Services</a></li>
@@ -1597,7 +1593,7 @@
                                     <div class="ec-footer-links">
                                         <ul class="align-items-center">
                                             <li class="ec-footer-link"><a
-                                                    href="about-us.jsp">About
+                                                    href="aboutus">About
                                                     us</a></li>
                                             <li class="ec-footer-link"><a
                                                     href="faq.jsp">FAQ</a></li>
@@ -1606,7 +1602,7 @@
                                                     Information</a>
                                             </li>
                                             <li class="ec-footer-link"><a
-                                                    href="contact-us.jsp">Contact
+                                                    href="contactus">Contact
                                                     us</a></li>
                                         </ul>
                                     </div>

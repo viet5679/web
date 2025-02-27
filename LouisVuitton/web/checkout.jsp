@@ -232,7 +232,7 @@
                             <div class="ec-main-menu">
                                 <ul>
                                     <li><a href="index.jsp">Home</a></li>
-                                    <li><a href="shop-left-sidebar-col-3.jsp">Categories</a></li>
+                                    <li><a href="shop-left-sidebar-col-3.jsp">Shop</a></li>
                                     <li><a href="checkout.jsp">Checkout</a></li>  
                                     <li><a href="about-us.jsp">About Us</a></li>
                                     <li><a href="contact-us.jsp">Contact Us</a></li>
