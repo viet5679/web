@@ -53,6 +53,7 @@
         <!-- Background css -->
         <link rel="stylesheet" id="bg-switcher-css"
               href="assets/css/backgrounds/bg-4.css">
+
     </head>
 
     <body>
@@ -755,7 +756,9 @@
                                 <div class="row">
                                     <c:forEach var="c" items="${requestScope.list}">
                                         <div
-                                            class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                                            class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content" >
+                                            <input type="hidden" name="productId" value="${c.id}">
+
                                             <div class="ec-product-inner">
                                                 <div class="ec-pro-image-outer">
                                                     <div class="ec-pro-image">
@@ -825,24 +828,31 @@
                                                                     <span
                                                                         class="ec-pro-opt-label">Size</span>
                                                                     <ul class="ec-opt-size">
-                                                                        <li
-                                                                            class="active"><a
-                                                                                href="#"
-                                                                                class="ec-opt-sz"
-                                                                                data-new="$${c.total_pay}"
-                                                                                data-tooltip="Small">S</a></li>
-                                                                        <li><a href="#"
-                                                                               class="ec-opt-sz"
-                                                                               data-new="$${c.total_pay}"
-                                                                               data-tooltip="Medium">M</a></li>
-                                                                        <li><a href="#"
-                                                                               class="ec-opt-sz"
-                                                                               data-new="$${c.total_pay}"
-                                                                               data-tooltip="Large">X</a></li>
-                                                                        <li><a href="#"
-                                                                               class="ec-opt-sz"
-                                                                               data-new="$${c.total_pay}"
-                                                                               data-tooltip="Extra Large">XL</a></li>
+                                                                        <c:forEach var="si" items="${requestScope.data}">
+                                                                            <p>Product ID: ${si.products.id}, Size: ${si.sizes.name}</p>
+                                                                            <c:if test="${si.products.id == c}">
+
+                                                                                <li
+                                                                                    class="active"><a
+                                                                                        href="#"
+                                                                                        class="ec-opt-sz"
+                                                                                        data-new="$${c.total_pay}"
+                                                                                        data-tooltip="${si.sizes.name}">${si.sizes.name}</a>
+                                                                                </li>
+                                                                            </c:if>
+                                                                        </c:forEach>
+                                                                        <!--                                                                        <li><a href="#"
+                                                                                                                                                       class="ec-opt-sz"
+                                                                                                                                                       data-new="$${c.total_pay}"
+                                                                                                                                                       data-tooltip="Medium">M</a></li>
+                                                                                                                                                <li><a href="#"
+                                                                                                                                                       class="ec-opt-sz"
+                                                                                                                                                       data-new="$${c.total_pay}"
+                                                                                                                                                       data-tooltip="Large">X</a></li>
+                                                                                                                                                <li><a href="#"
+                                                                                                                                                       class="ec-opt-sz"
+                                                                                                                                                       data-new="$${c.total_pay}"
+                                                                                                                                                       data-tooltip="Extra Large">XL</a></li>-->
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -863,28 +873,33 @@
                                                                     <span
                                                                         class="ec-pro-opt-label">Size</span>
                                                                     <ul class="ec-opt-size">
-                                                                        <li
-                                                                            class="active"><a
-                                                                                href="#"
-                                                                                class="ec-opt-sz"
-                                                                                data-old="$${c.price}"
-                                                                                data-new="$${c.total_pay}"
-                                                                                data-tooltip="Small">S</a></li>
-                                                                        <li><a href="#"
-                                                                               class="ec-opt-sz"
-                                                                               data-old="$${c.price}"
-                                                                               data-new="$${c.total_pay}"
-                                                                               data-tooltip="Medium">M</a></li>
-                                                                        <li><a href="#"
-                                                                               class="ec-opt-sz"
-                                                                               data-old="$${c.price}"
-                                                                               data-new="$${c.total_pay}"
-                                                                               data-tooltip="Large">X</a></li>
-                                                                        <li><a href="#"
-                                                                               class="ec-opt-sz"
-                                                                               data-old="$${c.price}"
-                                                                               data-new="$${c.total_pay}"
-                                                                               data-tooltip="Extra Large">XL</a></li>
+                                                                        <c:forEach var="si" items="${requestScope.data}">
+                                                                            <c:if test="${si.products.id == c}">
+                                                                                <li
+                                                                                    class="active"><a
+                                                                                        href="#"
+                                                                                        class="ec-opt-sz"
+                                                                                        data-old="$${c.price}"
+                                                                                        data-new="$${c.total_pay}"
+                                                                                        data-tooltip="${si.sizes.name}">${si.sizes.name}</a>
+                                                                                </li>
+                                                                            </c:if>
+                                                                        </c:forEach>
+                                                                        <!--                                                                        <li><a href="#"
+                                                                                                                                                       class="ec-opt-sz"
+                                                                                                                                                       data-old="$${c.price}"
+                                                                                                                                                       data-new="$${c.total_pay}"
+                                                                                                                                                       data-tooltip="Medium">M</a></li>
+                                                                                                                                                <li><a href="#"
+                                                                                                                                                       class="ec-opt-sz"
+                                                                                                                                                       data-old="$${c.price}"
+                                                                                                                                                       data-new="$${c.total_pay}"
+                                                                                                                                                       data-tooltip="Large">X</a></li>
+                                                                                                                                                <li><a href="#"
+                                                                                                                                                       class="ec-opt-sz"
+                                                                                                                                                       data-old="$${c.price}"
+                                                                                                                                                       data-new="$${c.total_pay}"
+                                                                                                                                                       data-tooltip="Extra Large">XL</a></li>-->
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -902,13 +917,24 @@
                             <div class="ec-pro-pagination">
                                 <span>Showing 1-12 of 21 item(s)</span>
                                 <ul class="ec-pro-pagination-inner">
-                                    <li><a class="active" href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a class="next" href="#">Next <i
-                                                class="ecicon eci-angle-right"></i></a></li>
+                                    <c:forEach var="p" begin="1" end="${endP}">
+                                        <li>
+                                        <li>
+                                            <a class="${(currentIndex == p) ? 'active' : ''} pagination-link"  data-page="${p}" 
+                                               onclick="updatePage(event, ${p})">${p}</a>
+                                        </li>
+                                        </li>
+
+                                    </c:forEach>
+                                    <c:if test="${endP > 5}">
+                                        <li><a class="next" href="#">Next 
+                                                <i
+                                                    class="ecicon eci-angle-right">
+
+                                                </i>
+                                            </a>
+                                        </li>
+                                    </c:if>
                                 </ul>
                             </div>
                             <!-- Ec Pagination End -->
@@ -991,13 +1017,15 @@
                                     <div class="ec-sb-title">
                                         <h3 class="ec-sidebar-title">Price</h3>
                                     </div>
+
+
                                     <div
                                         class="ec-sb-block-content es-price-slider">
                                         <div class="ec-price-filter">
                                             <div id="ec-sliderPrice"
                                                  class="filter__slider-price"
                                                  data-min="0"
-                                                 data-max="2000"
+                                                 data-max="500"
                                                  data-step="10"></div>
                                             <div class="ec-price-input">
                                                 <label
@@ -1013,6 +1041,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -1635,65 +1664,191 @@
         <script src="assets/js/plugins/nouislider.js"></script>
 
         <!-- Main Js -->
+
         <script src="assets/js/vendor/index.js"></script>
         <script src="assets/js/main.js"></script>
         <script>
-            document.querySelectorAll("input[type=checkbox]").forEach(input => {
-                input.addEventListener("change", function () {
-                    let params = new URLSearchParams(window.location.search);
+                                                   document.addEventListener("DOMContentLoaded", function () {
+                                                       let params = new URLSearchParams(window.location.search);
 
-                    if (this.checked) {
-                        params.append(this.name, this.value.trim());
-                    } else {
-                        let values = params.getAll(this.name);
-                        values = values.filter(v => v !== this.value.trim());
-                        params.delete(this.name);
-                        values.forEach(v => params.append(this.name, v));
+                                                       // 🔹 Giữ trạng thái checkbox khi tải trang
+                                                       document.querySelectorAll("input[type=checkbox]").forEach(input => {
+                                                           if (params.has(input.name) && params.getAll(input.name).includes(input.value.trim())) {
+                                                               input.checked = true; // Giữ trạng thái checked
+                                                               input.parentElement.classList.add("selected"); // Giữ màu xanh
+                                                           }
+
+                                                           input.addEventListener("change", function () {
+                                                               let newParams = new URLSearchParams(window.location.search);
+
+                                                               if (this.checked) {
+                                                                   newParams.append(this.name, this.value.trim()); // Thêm filter
+                                                                   this.parentElement.classList.add("selected"); // Giữ màu xanh
+                                                               } else {
+                                                                   let values = params.getAll(this.name).filter(v => v !== this.value.trim());
+                                                                   newParams.delete(this.name);
+                                                                   values.forEach(v => newParams.append(this.name, v));
+                                                                   this.parentElement.classList.remove("selected"); // Bỏ màu xanh
+                                                               }
+
+                                                               // 🔹 Khi chọn filter, xóa index để quay về trang đầu
+                                                               newParams.delete("index");
+
+                                                               console.log("Redirecting to:", "shop?" + newParams.toString());
+                                                               window.location.href = "shop?" + newParams.toString();
+                                                           });
+                                                       });
+
+                                                       // 🔹 Xử lý phân trang
+                                                       document.querySelectorAll(".pagination a").forEach(link => {
+                                                           link.addEventListener("click", function (e) {
+                                                               e.preventDefault();
+                                                               let newParams = new URLSearchParams(window.location.search);
+
+                                                               // Giữ filter, chỉ cập nhật index mới
+                                                               params.forEach((value, key) => {
+                                                                   if (key !== "index") {
+                                                                       newParams.append(key, value);
+                                                                   }
+                                                               });
+
+                                                               newParams.set("index", this.dataset.page); // Cập nhật index mới
+
+                                                               console.log("Redirecting to:", "shop?" + newParams.toString());
+                                                               window.location.href = "shop?" + newParams.toString();
+                                                           });
+                                                       });
+                                                   });
+
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let params = new URLSearchParams(window.location.search);
+                let currentIndex = params.get("index") || "1"; // Mặc định trang 1 nếu không có index
+
+                document.querySelectorAll(".pagination-link").forEach(link => {
+                    if (link.dataset.page === currentIndex) {
+                        link.classList.add("active"); // Đánh dấu trang hiện tại
                     }
-
-                    console.log("Redirecting to:", "productall?" + params.toString());
-                    window.location.href = "shop?" + params.toString(); // Cập nhật URL và reload
                 });
             });
 
-        </script>
+            function updatePage(event, page) {
+                event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ <a>
 
+                let params = new URLSearchParams(window.location.search);
+
+                // 🔹 Giữ lại toàn bộ filter, chỉ thay đổi index
+                params.set("index", page);
+
+                // 🔹 Cập nhật class active trước khi chuyển trang
+                document.querySelectorAll(".pagination-link").forEach(link => {
+                    link.classList.remove("active"); // Xóa active khỏi tất cả
+                });
+
+                event.target.classList.add("active"); // Thêm active vào trang được chọn
+
+                console.log("Redirecting to:", "shop?" + params.toString());
+
+                // 🔹 Chờ 100ms để thấy hiệu ứng màu xanh trước khi load trang
+                setTimeout(() => {
+                    window.location.href = "shop?" + params.toString();
+                }, 100);
+            }
+
+
+
+
+
+        </script>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 let slider = document.getElementById("ec-sliderPrice");
                 let priceLow = document.getElementById("price_low");
                 let priceHigh = document.getElementById("price_high");
 
-                // Chỉ tạo slider nếu nó chưa được khởi tạo
-                if (!slider.noUiSlider) {
-                    noUiSlider.create(slider, {
-                        start: [parseInt(priceLow.value) || 0, parseInt(priceHigh.value) || 2000],
-                        connect: true,
-                        range: {
-                            'min': 0,
-                            'max': 2000
-                        },
-                        step: 10
-                    });
+                // Hàm lấy tham số từ URL
+                function getParameterByName(name) {
+                    let urlParams = new URLSearchParams(window.location.search);
+                    return urlParams.get(name);
+                }
 
-                    slider.noUiSlider.on("update", function (values) {
-                        priceLow.value = Math.round(values[0]);
-                        priceHigh.value = Math.round(values[1]);
-                    });
+                // Lấy giá trị từ URL (hoặc đặt mặc định nếu không có)
+                let minValue = parseInt(getParameterByName("price_low")) || 0;
+                let maxValue = parseInt(getParameterByName("price_high")) || 500;
 
-                    priceLow.addEventListener("change", function () {
-                        slider.noUiSlider.set([this.value, null]);
-                    });
+                // Nếu thanh trượt đã tồn tại, hủy nó trước khi khởi tạo lại
+                if (slider.noUiSlider) {
+                    slider.noUiSlider.destroy();
+                }
 
-                    priceHigh.addEventListener("change", function () {
-                        slider.noUiSlider.set([null, this.value]);
-                    });
+                // Tạo thanh trượt với giá trị lấy từ URL
+                noUiSlider.create(slider, {
+                    start: [minValue, maxValue],
+                    connect: true,
+                    range: {
+                        min: 0,
+                        max: 500
+                    },
+                    step: 10
+                });
+
+                // Cập nhật ô nhập liệu khi kéo thanh trượt
+                slider.noUiSlider.on("update", function (values) {
+                    priceLow.value = Math.round(values[0]);
+                    priceHigh.value = Math.round(values[1]);
+                });
+
+                // Khi buông chuột, thay đổi URL và xóa `index`
+                slider.noUiSlider.on("change", function (values) {
+                    updateURL(values[0], values[1], true);
+                });
+
+                // Xử lý khi nhập số vào ô input (gõ số rồi enter)
+                priceLow.addEventListener("change", function () {
+                    let min = parseInt(priceLow.value) || 0;
+                    let max = parseInt(priceHigh.value) || 500;
+
+                    if (min >= 0 && min <= max) {
+                        slider.noUiSlider.set([min, null]);
+                        updateURL(min, max, true);
+                    } else {
+                        priceLow.value = Math.round(slider.noUiSlider.get()[0]);
+                    }
+                });
+
+                priceHigh.addEventListener("change", function () {
+                    let min = parseInt(priceLow.value) || 0;
+                    let max = parseInt(priceHigh.value) || 500;
+
+                    if (max >= min && max <= 500) {
+                        slider.noUiSlider.set([null, max]);
+                        updateURL(min, max, true);
+                    } else {
+                        priceHigh.value = Math.round(slider.noUiSlider.get()[1]);
+                    }
+                });
+
+                // Hàm cập nhật URL và tải lại trang
+                function updateURL(min, max, resetIndex) {
+                    let params = new URLSearchParams(window.location.search);
+
+                    // Cập nhật giá mới
+                    params.set("price_low", Math.round(min));
+                    params.set("price_high", Math.round(max));
+
+                    // Nếu thay đổi giá, xóa `index` để quay về trang 1
+                    if (resetIndex) {
+                        params.delete("index");
+                    }
+
+                    // Cập nhật URL và tải lại trang
+                    window.location.href = "shop?" + params.toString();
                 }
             });
+
+
         </script>
-
-
-
 
 
     </body>

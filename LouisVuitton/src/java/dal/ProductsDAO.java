@@ -13,6 +13,28 @@ import model.Products;
 
 public class ProductsDAO extends DBContext {
 
+
+    public List<Products> pagingProducts(int index) {
+        List<Products> list = new ArrayList();
+        String sql = "select * from products\n"
+                + "order by id\n"
+                + "offset ? row fetch next 9 rows only";
+        CategoriesDAO ca = new CategoriesDAO();
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, (index - 1) * 9);
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){
+                Products pro = new Products(rs.getInt(1), ca.getCategoryById(rs.getInt(2)), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getInt(9), rs.getInt(10), rs.getInt(11), rs.getInt(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getDouble(16), rs.getDouble(17), rs.getDouble(18), rs.getString(19));
+                list.add(pro);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        return list;
+    }
+
     public List<Products> getAll() {
         List<Products> list = new ArrayList();
         String sql = "select * from products";
@@ -38,31 +60,28 @@ public class ProductsDAO extends DBContext {
                 + "LEFT JOIN product_sizes ps ON p.id = ps.product_id\n"
                 + "LEFT JOIN product_gender pg ON p.id = pg.product_id where 1 = 1";
         if (!gid.isEmpty()) {
-            
 
-                sql += " AND gender_id IN (" + gid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
+            sql += " AND gender_id IN (" + gid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
 
-            
         }
 
         if (!cid.isEmpty()) {
-            
-                sql += " AND category_id IN (" + cid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
-            
+
+            sql += " AND category_id IN (" + cid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
 
         }
 
         if (!sid.isEmpty()) {
-            
-               sql += " AND size_id IN (" + sid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
-            
+
+            sql += " AND size_id IN (" + sid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
+
         }
 
         if (price_low != null) {
             sql += "and total_pay >= " + price_low;
         }
-        if (price_low != null) {
-            sql += "and total_pay >= " + price_low;
+        if (price_high != null) {
+            sql += "and total_pay <= " + price_high;
         }
         CategoriesDAO ca = new CategoriesDAO();
         try {
@@ -93,17 +112,11 @@ public class ProductsDAO extends DBContext {
 
     public static void main(String[] args) {
         ProductsDAO pd = new ProductsDAO();
-        List<Integer> gid = new ArrayList();
-        gid.add(1);
-        gid.add(2);
-        List<Integer> cid = new ArrayList();
-        List<Integer> sid = new ArrayList();
-        List<Products> list = pd.getProductsByFilder(gid, cid, sid, 0.0, 2000.0);
-        for (Products products : list) {
+       List<Products> count = pd.pagingProducts(1);
+        for (Products products : count) {
             System.out.println(products.getId());
+            
         }
-
-        System.out.println(list.size());
     }
 
     public Products getProductById(int id) {
@@ -122,9 +135,9 @@ public class ProductsDAO extends DBContext {
         return null;
     }
 
-    public List<Product_sizes> getProductsSizes() {
+    public List<Product_sizes> getProductsSizes(int id) {
         List<Product_sizes> list = new ArrayList();
-        String sql = "select * from product_sizes ";
+        String sql = "select * from product_sizes where product_size = " + id;
         SizesDAO si = new SizesDAO();
         try {
             PreparedStatement st = connection.prepareStatement(sql);

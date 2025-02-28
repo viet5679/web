@@ -70,6 +70,9 @@ public class ShopServlet extends HttpServlet {
         String[] gid_raw = request.getParameterValues("gid");
         String[] cid_raw = request.getParameterValues("cid");
         String[] sid_raw = request.getParameterValues("sid");
+        String id_raw = request.getParameter("productId");
+
+        String index_page = request.getParameter("index");
 
         List<Integer> selectedGid = new ArrayList<>();
         List<Integer> selectedCid = new ArrayList<>();
@@ -82,6 +85,9 @@ public class ShopServlet extends HttpServlet {
         CategoriesDAO cd = new CategoriesDAO();
         SizesDAO sd = new SizesDAO();
         Double price_low, price_high;
+        int id = 0;
+        int index;
+
         try {
             if (gid_raw != null) {
                 for (String g : gid_raw) {
@@ -101,26 +107,45 @@ public class ShopServlet extends HttpServlet {
                     selectedSid.add(Integer.parseInt(s.trim()));
                 }
             }
-            System.out.println(selectedGid);
-            System.out.println(price_low_raw);
-            System.out.println(price_high_raw);
+
             if (price_low_raw == null) {
-                price_low = null;
+                price_low = 0.0;
             } else {
                 price_low = Double.valueOf(price_low_raw);
             }
             if (price_high_raw == null) {
-                price_high = null;
+                price_high = 500.0;
             } else {
                 price_high = Double.valueOf(price_high_raw);
+            }
+            System.out.println(price_low);
+            System.out.println(price_high);
+            if (id_raw == null) {
+                System.out.println("loi");
+            } else {
+                id = Integer.parseInt(id_raw);
+            }
+
+            if (index_page == null) {
+                index = 1;
+            } else {
+                index = Integer.parseInt(index_page);
             }
 
             List<Genders> listG = gd.getAllGender();
             List<Categories> litsC = cd.getAllCategory();
-            List<Products> list = pd.getProductsByFilder(selectedGid, selectedCid, selectedSid, price_low, price_high);
+            List<Products> listp = pd.getProductsByFilder(selectedGid, selectedCid, selectedSid, price_low, price_high);
+            List<Products> list = productPage(index, listp);
             request.setAttribute("list", list);
-            List<Product_sizes> listps = pd.getProductsSizes();
+            List<Product_sizes> listps = pd.getProductsSizes(id);
+            int count = listp.size();
+            int endPage = count / 9;
+            if (count % 3 != 0) {
+                endPage++;
+            }
+
             List<Sizes> listS = sd.getAllSize();
+            request.setAttribute("endP", endPage);
             request.setAttribute("lists", listS);
             request.setAttribute("litsc", litsC);
             request.setAttribute("data", listps);
@@ -128,6 +153,7 @@ public class ShopServlet extends HttpServlet {
             request.setAttribute("selectedGid", selectedGid);
             request.setAttribute("selectedCid", selectedCid);
             request.setAttribute("selectedSid", selectedSid);
+//            request.setAttribute("listpa",  );
             request.getRequestDispatcher("shop-left-sidebar-col-3.jsp").forward(request, response);
 
         } catch (Exception e) {
@@ -160,4 +186,34 @@ public class ShopServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    public List<Products> productPage(int index, List<Products> list) {
+        int max = list.size() / 9;
+
+        List<Products> listP = new ArrayList();
+        if (max + 1 == index) {
+            for (int i = (index - 1) * 9; i < list.size(); i++) {
+                listP.add(list.get(i));
+            }
+        } else {
+            for (int i = (index - 1) * 9; i < ((index - 1) * 9) + 9; i++) {
+                listP.add(list.get(i));
+            }
+        }
+
+        return listP;
+    }
+
+    public static void main(String[] args) {
+        ShopServlet s = new ShopServlet();
+        ProductsDAO pd = new ProductsDAO();
+        List<Integer> selectedGid = new ArrayList<>();
+        List<Integer> selectedCid = new ArrayList<>();
+        List<Integer> selectedSid = new ArrayList<>();
+        List<Products> list = pd.getProductsByFilder(selectedGid, selectedCid, selectedSid, null, null);
+        List<Products> list1 = s.productPage(4, list);
+
+        for (Products products : list1) {
+            System.out.println(products.getId());
+        }
+    }
 }
