@@ -26,7 +26,7 @@ import model.Sizes;
  *
  * @author vuhuu
  */
-public class ProductAllServlet extends HttpServlet {
+public class ShopServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

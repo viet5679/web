@@ -1652,7 +1652,7 @@
                     }
 
                     console.log("Redirecting to:", "productall?" + params.toString());
-                    window.location.href = "productall?" + params.toString(); // Cập nhật URL và reload
+                    window.location.href = "shop?" + params.toString(); // Cập nhật URL và reload
                 });
             });
 
