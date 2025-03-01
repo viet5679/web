@@ -772,8 +772,21 @@
                                                                  src="${c.hover_avatar}"
                                                                  alt="Product" />
                                                         </a>
-                                                        <span
-                                                            class="percentage">20%</span>
+                                                        <c:if test="${c.tag == 'NEW'}">
+                                                            <span class="flags">
+                                                                <span
+                                                                    class="new">New</span>
+                                                            </span>
+                                                        </c:if>
+                                                        <c:if test="${c.tag == 'SALE'}">
+                                                            <span class="flags"> 
+                                                                <span class="sale">Sale</span> 
+                                                            </span>
+                                                        </c:if>
+                                                        <c:if test="${c.tag != 'SALE' && c.tag != 'NEW' && c.tag != NULL}">
+                                                            <span class="percentage">${c.tag}</span>
+                                                        </c:if>
+
                                                         <a href="#"
                                                            class="quickview"
                                                            data-link-action="quickview"
@@ -915,7 +928,7 @@
                             </div>
                             <!-- Ec Pagination Start -->
                             <div class="ec-pro-pagination">
-                                <span>Showing 1-12 of 21 item(s)</span>
+                                <span></span>
                                 <ul class="ec-pro-pagination-inner">
                                     <c:forEach var="p" begin="1" end="${endP}">
                                         <li>
