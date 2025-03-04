@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import model.Categories;
 import model.Genders;
@@ -70,7 +71,7 @@ public class ShopServlet extends HttpServlet {
         String[] cid_raw = request.getParameterValues("cid");
         String[] sid_raw = request.getParameterValues("sid");
         String id_raw = request.getParameter("productId");
-
+        String sort_by = request.getParameter("sort_by");
         String index_page = request.getParameter("index");
 
         List<Integer> selectedGid = new ArrayList<>();
@@ -107,23 +108,10 @@ public class ShopServlet extends HttpServlet {
                 }
             }
 
-            if (price_low_raw == null) {
-                price_low = 0.0;
-            } else {
-                price_low = Double.valueOf(price_low_raw);
-            }
-            if (price_high_raw == null) {
-                price_high = 500.0;
-            } else {
-                price_high = Double.valueOf(price_high_raw);
-            }
-            System.out.println(price_low);
-            System.out.println(price_high);
-            if (id_raw == null) {
-                System.out.println("loi");
-            } else {
-                id = Integer.parseInt(id_raw);
-            }
+            price_low = (price_low_raw == null) ? 0.0 : Double.valueOf(price_low_raw);
+            price_high = (price_high_raw == null) ? 500.0 : Double.valueOf(price_high_raw);
+            id = (id_raw == null) ? 0 : Integer.parseInt(id_raw);
+            index = (index_page == null) ? 1 : Integer.parseInt(index_page);
 
             if (index_page == null) {
                 index = 1;
@@ -133,17 +121,40 @@ public class ShopServlet extends HttpServlet {
 
             List<Genders> listG = gd.getAllGender();
             List<Categories> litsC = cd.getAllCategory();
-            List<Products> listp = pd.getProductsByFilder(selectedGid, selectedCid, selectedSid, price_low, price_high);
-            List<Products> list = productPage(index, listp);
-            request.setAttribute("list", list);
+            List<Sizes> listS = sd.getAllSize();
             List<ProductSizes> listps = pd.getProductsSizes(id);
-            int count = listp.size();
+
+            List<Products> allProducts = pd.getProductsByFilder(selectedGid, selectedCid, selectedSid, price_low, price_high);
+
+            int count = allProducts.size();
             int endPage = count / 9;
-            if (count % 3 != 0) {
+            if (count % 9 != 0) {
                 endPage++;
             }
 
-            List<Sizes> listS = sd.getAllSize();
+            List<Products> list = productPage(index, allProducts);
+
+            if (sort_by != null) {
+                switch (sort_by) {
+                    case "1":
+                        list.sort(Comparator.comparing(Products::getName));
+                        break;
+                    case "2":
+                        list.sort(Comparator.comparing(Products::getName).reversed());
+                        break;
+                    case "3":
+                        list.sort(Comparator.comparingDouble(Products::getPrice));
+                        break;
+                    case "4":
+                        list.sort(Comparator.comparingDouble(Products::getPrice).reversed());
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            request.setAttribute("sort_by", sort_by);
+            request.setAttribute("list", list);
             request.setAttribute("endP", endPage);
             request.setAttribute("lists", listS);
             request.setAttribute("litsc", litsC);
@@ -152,11 +163,11 @@ public class ShopServlet extends HttpServlet {
             request.setAttribute("selectedGid", selectedGid);
             request.setAttribute("selectedCid", selectedCid);
             request.setAttribute("selectedSid", selectedSid);
-//            request.setAttribute("listpa",  );
+
             request.getRequestDispatcher("shop-left-sidebar-col-3.jsp").forward(request, response);
 
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
 
     }

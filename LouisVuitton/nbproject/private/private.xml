@@ -3,29 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/web/blog-full-width.jsp</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/web/register.jsp</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/web/shop-left-sidebar-col-3.jsp</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/web/shop-banner-full-width-col-3.jsp</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/web/index.jsp</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/web/product-left-sidebar.jsp</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/controller/ProductServlet.java</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/dal/GendersDAO.java</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/controller/LoginServlet.java</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/controller/RegisterServlet.java</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/dal/SizesDAO.java</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/controller/ChangePasswordServlet.java</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/dal/UserDAO.java</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/web/forgot-password.jsp</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/controller/UserProfileServlet.java</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/controller/HomeServlet.java</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/dal/ProductsDAO.java</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/web/login.jsp</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/web/user-profile.jsp</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/dal/DBContext.java</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/web/change-password.jsp</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/controller/ShopServlet.java</file>
-            <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/controller/ForgotPasswordServlet.java</file>
+            <file>file:/D:/PRJ_ASSIGNMENT/web/LouisVuitton/web/shop-left-sidebar-col-3.jsp</file>
+            <file>file:/D:/PRJ_ASSIGNMENT/web/LouisVuitton/web/assets/css/style.css</file>
+            <file>file:/D:/PRJ_ASSIGNMENT/web/LouisVuitton/src/java/controller/ShopServlet.java</file>
         </group>
     </open-files>
 </project-private>
