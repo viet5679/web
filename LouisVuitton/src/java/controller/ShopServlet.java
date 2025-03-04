@@ -132,26 +132,26 @@ public class ShopServlet extends HttpServlet {
                 endPage++;
             }
 
-            List<Products> list = productPage(index, allProducts);
-
             if (sort_by != null) {
                 switch (sort_by) {
                     case "1":
-                        list.sort(Comparator.comparing(Products::getName));
+                        allProducts.sort(Comparator.comparing(Products::getName));
                         break;
                     case "2":
-                        list.sort(Comparator.comparing(Products::getName).reversed());
+                        allProducts.sort(Comparator.comparing(Products::getName).reversed());
                         break;
                     case "3":
-                        list.sort(Comparator.comparingDouble(Products::getPrice));
+                        allProducts.sort(Comparator.comparingDouble(Products::getPrice));
                         break;
                     case "4":
-                        list.sort(Comparator.comparingDouble(Products::getPrice).reversed());
+                        allProducts.sort(Comparator.comparingDouble(Products::getPrice).reversed());
                         break;
                     default:
                         break;
                 }
             }
+            
+            List<Products> list = productPage(index, allProducts);
 
             request.setAttribute("sort_by", sort_by);
             request.setAttribute("list", list);
