@@ -11,7 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 import java.security.SecureRandom;
 import java.util.Base64;
-import java.util.UUID;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -49,6 +48,7 @@ public class ForgotPasswordServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
+        System.out.println(email);
 
         // Kiểm tra email có trong database không
         if (!usersDAO.isEmailExist(email)) {
