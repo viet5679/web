@@ -6,17 +6,17 @@ public class Categories {
     private int id;
     private String name;
     private int status;
-    private String created_at, updated_at;
+    private String createdAt, updatedAt;
 
     public Categories() {
     }
 
-    public Categories(int id, String name, int status, String created_at, String updated_at) {
+    public Categories(int id, String name, int status, String createdAt, String updatedAt) {
         this.id = id;
         this.name = name;
         this.status = status;
-        this.created_at = created_at;
-        this.updated_at = updated_at;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public int getId() {
@@ -43,21 +43,22 @@ public class Categories {
         this.status = status;
     }
 
-    public String getCreated_at() {
-        return created_at;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public String getUpdated_at() {
-        return updated_at;
+    public String getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdated_at(String updated_at) {
-        this.updated_at = updated_at;
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
+    
     
     
     

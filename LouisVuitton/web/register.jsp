@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="model.Users" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,9 +72,9 @@
                                     <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
                                             class="fi-rr-user"></i></button>
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a class="dropdown-item" href="register.jsp">Register</a></li>
+                                        <li><a class="dropdown-item" href="register">Register</a></li>
                                         <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                        <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                        <li><a class="dropdown-item" href="login">Login</a></li>
                                     </ul>
                                 </div>
                                 <!-- Header User End -->
@@ -137,9 +138,9 @@
                                         <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
                                                 class="fi-rr-user"></i></button>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a class="dropdown-item" href="register.jsp">Register</a></li>
+                                            <li><a class="dropdown-item" href="register">Register</a></li>
                                             <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                            <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                            <li><a class="dropdown-item" href="login">Login</a></li>
                                         </ul>
                                     </div>
                                     <!-- Header User End -->
@@ -197,23 +198,11 @@
                         <div class="col-md-12 align-self-center">
                             <div class="ec-main-menu">
                                 <ul>
-                                    <li><a href="index.jsp">Home</a></li>
-                                    <li><a href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-                                    <li><a href="product-full-width.jsp">Products</a></li>
-                                    <li class="dropdown"><a href="javascript:void(0)">Pages</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="cart.jsp">Cart</a></li>
-                                            <li><a href="checkout.jsp">Checkout</a></li>                                
-                                            <li><a href="faq.jsp">FAQ</a></li>
-                                            <li><a href="track-order.jsp">Track Order</a></li>
-                                            <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                            <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li><a href="about-us.jsp">About Us</a></li>
-                                    <li><a href="contact-us.jsp">Contact Us</a></li>
+                                    <li><a href="home">Home</a></li>
+                                    <li><a href="shop">Shop</a></li>
+                                    <li><a href="checkout.jsp">Checkout</a></li>  
+                                    <li><a href="about-us">About Us</a></li>
+                                    <li><a href="contact-us">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -230,24 +219,11 @@
                 <div class="ec-menu-inner">
                     <div class="ec-menu-content">
                         <ul>
-                            <li><a href="index.jsp">Home</a></li>
-                            <li><a href="shop-full-width.jsp">Categories</a></li>
-                            <li><a href="product-full-width.jsp">Products</a></li>
-
-                            <li class="dropdown"><a href="javascript:void(0)">Pages</a>
-                                <ul class="sub-menu">
-
-                                    <li><a href="cart.jsp">Cart</a></li>
-                                    <li><a href="checkout.jsp">Checkout</a></li>                                
-                                    <li><a href="faq.jsp">FAQ</a></li>
-                                    <li><a href="track-order.jsp">Track Order</a></li>
-                                    <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                    <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
-                                </ul>
-                            </li>
-
-                            <li><a href="about-us.jsp">About Us</a></li>
-                            <li><a href="contact-us.jsp">Contact Us</a></li>
+                            <li><a href="home">Home</a></li>
+                            <li><a href="shop">Shop</a></li>
+                            <li><a href="checkout.jsp">Checkout</a></li>    
+                            <li><a href="about-us">About Us</a></li>
+                            <li><a href="contact-us">Contact Us</a></li>
                         </ul>
                     </div>
                     <div class="header-res-lan-curr">
@@ -403,7 +379,7 @@
                             <div class="col-md-6 col-sm-12">
                                 <!-- ec-breadcrumb-list start -->
                                 <ul class="ec-breadcrumb-list">
-                                    <li class="ec-breadcrumb-item"><a href="index.jsp">Home</a></li>
+                                    <li class="ec-breadcrumb-item"><a href="home">Home</a></li>
                                     <li class="ec-breadcrumb-item active">Register</li>
                                 </ul>
                                 <!-- ec-breadcrumb-list end -->
@@ -429,7 +405,7 @@
                     <div class="ec-register-wrapper">
                         <div class="ec-register-container">
                             <div class="ec-register-form">
-                                <form action="#" method="post">
+                                <form action="register" method="post">
                                     <span class="ec-register-wrap ec-register-half">
                                         <label>First Name*</label>
                                         <input type="text" name="firstname" placeholder="Enter your first name" required />
@@ -448,61 +424,43 @@
                                                required />
                                     </span>
                                     <span class="ec-register-wrap">
-                                        <label>Address</label>
-                                        <input type="text" name="address" placeholder="Address Line 1" />
+                                        <label>Password</label>
+                                        <input type="password" name="password" placeholder="Enter your password" />
                                     </span>
-                                    <span class="ec-register-wrap ec-register-half">
-                                        <label>City *</label>
-                                        <span class="ec-rg-select-inner">
-                                            <select name="ec_select_city" id="ec-select-city" class="ec-register-select">
-                                                <option selected disabled>City</option>
-                                                <option value="1">City 1</option>
-                                                <option value="2">City 2</option>
-                                                <option value="3">City 3</option>
-                                                <option value="4">City 4</option>
-                                                <option value="5">City 5</option>
-                                            </select>
-                                        </span>
+                                    <span class="ec-register-wrap">
+                                        <label>Confirm password</label>
+                                        <input type="password" name="confirmpassword" placeholder="Enter your password" />
                                     </span>
-                                    <span class="ec-register-wrap ec-register-half">
-                                        <label>Post Code</label>
-                                        <input type="text" name="postalcode" placeholder="Post Code" />
-                                    </span>
-                                    <span class="ec-register-wrap ec-register-half">
-                                        <label>Country *</label>
-                                        <span class="ec-rg-select-inner">
-                                            <select name="ec_select_country" id="ec-select-country"
-                                                    class="ec-register-select">
-                                                <option selected disabled>Country</option>
-                                                <option value="1">Country 1</option>
-                                                <option value="2">Country 2</option>
-                                                <option value="3">Country 3</option>
-                                                <option value="4">Country 4</option>
-                                                <option value="5">Country 5</option>
-                                            </select>
-                                        </span>
-                                    </span>
-                                    <span class="ec-register-wrap ec-register-half">
-                                        <label>Region State</label>
-                                        <span class="ec-rg-select-inner">
-                                            <select name="ec_select_state" id="ec-select-state" class="ec-register-select">
-                                                <option selected disabled>Region/State</option>
-                                                <option value="1">Region/State 1</option>
-                                                <option value="2">Region/State 2</option>
-                                                <option value="3">Region/State 3</option>
-                                                <option value="4">Region/State 4</option>
-                                                <option value="5">Region/State 5</option>
-                                            </select>
-                                        </span>
-                                    </span>
-                                    <span class="ec-register-wrap ec-recaptcha">
-                                        <span class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S"
-                                              data-callback="verifyRecaptchaCallback"
-                                              data-expired-callback="expiredRecaptchaCallback"></span>
-                                        <input class="form-control d-none" data-recaptcha="true" required
-                                               data-error="Please complete the Captcha">
-                                        <span class="help-block with-errors"></span>
-                                    </span>
+                                    <!--                                    <span class="ec-register-wrap ec-recaptcha">
+                                                                            <span class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S"
+                                                                                  data-callback="verifyRecaptchaCallback"
+                                                                                  data-expired-callback="expiredRecaptchaCallback"></span>
+                                                                            <input class="form-control d-none" data-recaptcha="true" required
+                                                                                   data-error="Please complete the Captcha">
+                                                                            <span class="help-block with-errors"></span>
+                                                                        </span>-->
+
+                                    <c:choose>
+                                        <c:when test="${not empty requestScope.error}">
+                                            <p style="color: red" id="error-message">${requestScope.error}</p>
+                                        </c:when>
+                                        <c:when test="${not empty requestScope.mess}">
+                                            <p class="ec-register-wrap" style="color: green" id="success-message">${requestScope.mess}</p>
+                                        </c:when>
+                                    </c:choose>
+                                    <!-- Chuyển hướng về login.jsp sau 5 giây nếu có thông báo thành công -->
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function () {
+                                            let successMessage = document.getElementById("success-message");
+                                            if (successMessage && successMessage.innerText.trim() !== "") {
+                                                setTimeout(() => {window.location.href = "login";}, 5000);
+                                            }
+                                        });
+                                    </script>
+
+
+
+
                                     <span class="ec-register-wrap ec-register-btn">
                                         <button class="btn btn-primary" type="submit">Register</button>
                                     </span>
@@ -616,7 +574,7 @@
                             <div class="col text-center footer-copy">
                                 <div class="footer-bottom-copy ">
                                     <div class="ec-copy">Copyright ©<span id="copyright_year"></span> <a class="site-name text-upper"
-                                                                                                           href="#">NYFS<span>.</span></a>. All Rights Reserved</div>
+                                                                                                         href="#">NYFS<span>.</span></a>. All Rights Reserved</div>
                                 </div>
                             </div>
                             <!-- Footer Copyright End -->

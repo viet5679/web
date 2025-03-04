@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
     <servlet>
-        <servlet-name>ProductAllServlet</servlet-name>
+        <servlet-name>ShopServlet</servlet-name>
         <servlet-class>controller.ShopServlet</servlet-class>
     </servlet>
+
     <servlet-mapping>
-        <servlet-name>ProductAllServlet</servlet-name>
+        <servlet-name>ShopServlet</servlet-name>
         <url-pattern>/shop</url-pattern>
     </servlet-mapping>
-    <mime-mapping>
-        <extension>avif</extension>
-        <mime-type>image/avif</mime-type>
-    </mime-mapping>
+    <welcome-file-list>
+        <welcome-file>home</welcome-file>
+    </welcome-file-list>
 </web-app>
+

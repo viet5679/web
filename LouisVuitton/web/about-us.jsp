@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="model.Users" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,9 +70,6 @@
                             </div>
                         </div>
                         <!-- Header Top social End -->
-                        <!-- Header Top Message Start -->
-
-                        <!-- Header Top Message End -->
 
                         <!-- Header Top responsive Action -->
                         <div class="col d-lg-none ">
@@ -161,18 +159,41 @@
                                 <div class="ec-header-bottons">
 
                                     <!-- Header User Start -->
+                                    <% 
+                                        Users user = (Users) session.getAttribute("user");
+                                    %>
                                     <div class="ec-header-user dropdown">
-                                        <button class="dropdown-toggle"
-                                            data-bs-toggle="dropdown"><i
-                                                class="fi-rr-user"></i></button>
-                                        <ul
-                                            class="dropdown-menu dropdown-menu-right">
-                                            <li><a class="dropdown-item"
-                                                    href="register.jsp">Register</a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="checkout.jsp">Checkout</a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="login.jsp">Login</a></li>
+                                        <button class="dropdown-toggle" data-bs-toggle="dropdown">
+                                            <% if (user != null) { %>
+                                            <span class="ec-pro-title" style="margin-right: 10px"><%= user.getName() %></span>
+                                            <% } %>
+                                            <i class="fi-rr-user"></i>
+                                        </button>
+
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <% if (user == null) { %>
+                                            <!-- chưa đăng nhập -->
+                                            <li><a class="dropdown-item" href="register.jsp">Register</a></li>
+                                            <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                                <% } else { %>
+                                            <!-- đã đăng nhập -->
+                                            <% if (user.getRole() == 1) { %>
+                                            <!-- User -->
+                                            <li><a class="dropdown-item" href="user-profile.jsp">Edit Profile</a></li>
+                                            <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
+
+                                            <% } else if (user.getRole() == 0) { %>
+                                            <!-- Admin -->
+                                            <li><a class="dropdown-item" href="admin-dashboard.jsp">ADMIN</a></li>
+                                                <% } %>
+                                            <li><a class="dropdown-item" href="index.jsp?logout=true">Log out</a></li>
+                                                <% } %>
+                                                <%
+                                                    if (request.getParameter("logout") != null) {
+                                                        session.invalidate(); // Xóa session
+                                                        response.sendRedirect("home"); // Chuyển hướng về trang chủ
+                                                    }
+                                                %>
                                         </ul>
                                     </div>
                                     <!-- Header User End -->
@@ -242,34 +263,11 @@
                         <div class="col-md-12 align-self-center">
                             <div class="ec-main-menu">
                                 <ul>
-                                    <li><a href="index.jsp">Home</a></li>
-                                    <li><a
-                                            href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-
-                                    
-
-                                    <li class="dropdown"><a
-                                            href="javascript:void(0)">Pages</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="cart.jsp">Cart</a></li>
-                                            <li><a
-                                                    href="checkout.jsp">Checkout</a></li>
-                                            <li><a href="faq.jsp">FAQ</a></li>
-                                            <li><a href="track-order.jsp">Track
-                                                    Order</a></li>
-                                            <li><a
-                                                    href="terms-condition.jsp">Terms
-                                                    Condition</a></li>
-                                            <li><a
-                                                    href="privacy-policy.jsp">Privacy
-                                                    Policy</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li><a href="about-us.jsp">About Us</a></li>
-                                    <li><a href="contact-us.jsp">Contact
-                                            Us</a></li>
+                                    <li><a href="home">Home</a></li>
+                                    <li><a href="shop-left-sidebar-col-3.jsp">Shop</a></li>
+                                    <li><a href="checkout.jsp">Checkout</a></li>
+                                    <li><a href="about-us">About Us</a></li>
+                                    <li><a href="contact-us">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -286,28 +284,10 @@
                 <div class="ec-menu-inner">
                     <div class="ec-menu-content">
                         <ul>
-                            <li><a href="index.jsp">Home</a></li>
-                            <li><a
-                                    href="shop-full-width.jsp">Categories</a></li>
-                            <li><a
-                                    href="product-full-width.jsp">Product</a></li>
-
-                            <li class="dropdown"><a
-                                    href="javascript:void(0)">Pages</a>
-                                <ul class="sub-menu">
-
-                                    <li><a href="cart.jsp">Cart</a></li>
-                                    <li><a href="checkout.jsp">Checkout</a></li>
-                                    <li><a href="faq.jsp">FAQ</a></li>
-                                    <li><a href="track-order.jsp">Track
-                                            Order</a></li>
-                                    <li><a href="terms-condition.jsp">Terms
-                                            Condition</a></li>
-                                    <li><a href="privacy-policy.jsp">Privacy
-                                            Policy</a></li>
-                                </ul>
-                            </li>
-
+                            <li><a href="home">Home</a></li>
+                            <li><a href="shop-full-width.jsp">Shop</a></li>
+                            <li><a href="track-order.jsp">Track Order</a></li>
+                            <li><a href="checkout.jsp">Checkout</a></li>
                             <li><a href="about-us.jsp">About Us</a></li>
                             <li><a href="contact-us.jsp">Contact Us</a></li>
                         </ul>
@@ -468,7 +448,7 @@
                                 <!-- ec-breadcrumb-list start -->
                                 <ul class="ec-breadcrumb-list">
                                     <li class="ec-breadcrumb-item"><a
-                                            href="index.jsp">Home</a></li>
+                                            href="home">Home</a></li>
                                     <li class="ec-breadcrumb-item active">About
                                         Us</li>
                                 </ul>
@@ -487,9 +467,7 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <div class="section-title">
-
-                            <p class="sub-title mb-3">About our business
-                                Firm</p>
+                            <h1 class="sub-title mb-3">Discover Louis Vuitton</h1>
                         </div>
                     </div>
                     <div class="ec-common-wrapper">
@@ -505,34 +483,10 @@
                             <div
                                 class="col-md-6 ec-cms-block ec-abcms-block text-center">
                                 <div class="ec-cms-block-inner">
-                                    <h3 class="ec-cms-block-title">What is the
-                                        ekka?</h3>
-                                    <p>Electronic typesetting text of the
-                                        printing and typesetting industry. when
-                                        an unknown printer took a galley of type
-                                        and scrambled it to make a type specimen
-                                        book. Lorem Ipsum is
-                                        simply dutmmy text ever since the 1500s,
-                                        It has survived not only,
-                                        but also the leap into electronic
-                                        typesetting.</p>
-                                    <p>Lorem Ipsum is simply dummy text of the
-                                        printing. It has survived not only five
-                                        centuries,
-                                        but also the leap into electronic
-                                        typesetting.</p>
-                                    <p>Also the leap into electronic typesetting
-                                        printing and typesetting industry. It
-                                        has survived not only five centuries,
-                                        but also the leap into electronic
-                                        typesetting, when an unknown printer
-                                        took a galley of type
-                                        and scrambled it to make a type specimen
-                                        book. It has survived not only five
-                                        centuries,
-                                        but also the leap into electronic
-                                        typesetting, remaining essentially
-                                        unchanged.</p>
+                                    <h3 class="ec-cms-block-title">About Louis Vuitton</h3>
+                                    <p>More than just a brand, Louis Vuitton embodies the spirit of adventure, continuous creativity, and a commitment to perfection. From the iconic travel trunks crafted by its founder to the high-end fashion collections and luxurious accessories of today, we strive to deliver products that are not only aesthetically pleasing but also timeless in value.</p>
+                                    <p>At Louis Vuitton, each product is a culmination of masterful craftsmanship, meticulous attention to detail, and a passion for quality. We take pride in using the finest materials, blending tradition with innovation to create true masterpieces. Moreover, we believe that luxury is not just about the product, but also about the experience it provides. That's why we always aim to exceed customer expectations, from personalized services to unique and memorable events.</p>
+                                    <p>Join us in exploring the world of Louis Vuitton, where heritage meets modernity, and where every product tells its own story.</p>
                                 </div>
                             </div>
                         </div>
@@ -540,131 +494,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- ec testmonial Start -->
-        <section
-            class="section ec-test-section section-space-ptb-100 section-space-m"
-            id="reviews">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div class="section-title mb-0">
-                            <h2 class="ec-bg-title">Testimonial</h2>
-                            <h2 class="ec-title">Client Review</h2>
-                            <p class="sub-title mb-3">What say client about
-                                us</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="ec-test-outer">
-                        <ul id="ec-testimonial-slider">
-                            <li class="ec-test-item">
-                                <i class="fi-rr-quote-right top"></i>
-                                <div class="ec-test-inner">
-                                    <div class="ec-test-img"><img
-                                            alt="testimonial"
-                                            title="testimonial"
-                                            src="assets/images/testimonial/1.jpg" /></div>
-                                    <div class="ec-test-content">
-                                        <div class="ec-test-desc">Lorem Ipsum is
-                                            simply dummy text of the printing
-                                            and
-                                            typesetting industry. Lorem Ipsum
-                                            has been the industry's standard
-                                            dummy text
-                                            ever since the 1500s, when an
-                                            unknown printer took a galley of
-                                            type and
-                                            scrambled it to make a type
-                                            specimen</div>
-                                        <div class="ec-test-name">John Doe</div>
-                                        <div class="ec-test-designation">General
-                                            Manager</div>
-                                        <div class="ec-test-rating">
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <i class="fi-rr-quote-right bottom"></i>
-                            </li>
-                            <li class="ec-test-item ">
-                                <i class="fi-rr-quote-right top"></i>
-                                <div class="ec-test-inner">
-                                    <div class="ec-test-img"><img
-                                            alt="testimonial"
-                                            title="testimonial"
-                                            src="assets/images/testimonial/2.jpg" /></div>
-                                    <div class="ec-test-content">
-                                        <div class="ec-test-desc">Lorem Ipsum is
-                                            simply dummy text of the printing
-                                            and
-                                            typesetting industry. Lorem Ipsum
-                                            has been the industry's standard
-                                            dummy text
-                                            ever since the 1500s, when an
-                                            unknown printer took a galley of
-                                            type and
-                                            scrambled it to make a type
-                                            specimen</div>
-                                        <div class="ec-test-name">John Doe</div>
-                                        <div class="ec-test-designation">General
-                                            Manager</div>
-                                        <div class="ec-test-rating">
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <i class="fi-rr-quote-right bottom"></i>
-                            </li>
-                            <li class="ec-test-item">
-                                <i class="fi-rr-quote-right top"></i>
-                                <div class="ec-test-inner">
-                                    <div class="ec-test-img"><img
-                                            alt="testimonial"
-                                            title="testimonial"
-                                            src="assets/images/testimonial/3.jpg" /></div>
-                                    <div class="ec-test-content">
-                                        <div class="ec-test-desc">Lorem Ipsum is
-                                            simply dummy text of the printing
-                                            and
-                                            typesetting industry. Lorem Ipsum
-                                            has been the industry's standard
-                                            dummy text
-                                            ever since the 1500s, when an
-                                            unknown printer took a galley of
-                                            type and
-                                            scrambled it to make a type
-                                            specimen</div>
-                                        <div class="ec-test-name">John Doe</div>
-                                        <div class="ec-test-designation">General
-                                            Manager</div>
-                                        <div class="ec-test-rating">
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <i class="fi-rr-quote-right bottom"></i>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ec testmonial end -->
-
         <!--  services Section Start -->
         <section class="section ec-services-section section-space-p"
             id="services">

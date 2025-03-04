@@ -8,32 +8,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import model.Product_sizes;
+import model.ProductSizes;
 import model.Products;
 
 public class ProductsDAO extends DBContext {
-
-
-    public List<Products> pagingProducts(int index) {
-        List<Products> list = new ArrayList();
-        String sql = "select * from products\n"
-                + "order by id\n"
-                + "offset ? row fetch next 9 rows only";
-        CategoriesDAO ca = new CategoriesDAO();
-        try {
-            PreparedStatement st = connection.prepareStatement(sql);
-            st.setInt(1, (index - 1) * 9);
-            ResultSet rs = st.executeQuery();
-            while(rs.next()){
-                Products pro = new Products(rs.getInt(1), ca.getCategoryById(rs.getInt(2)), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getInt(9), rs.getInt(10), rs.getInt(11), rs.getInt(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getDouble(16), rs.getDouble(17), rs.getDouble(18), rs.getString(19));
-                list.add(pro);
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        
-        return list;
-    }
 
     public List<Products> getAll() {
         List<Products> list = new ArrayList();
@@ -110,15 +88,6 @@ public class ProductsDAO extends DBContext {
         return list;
     }
 
-    public static void main(String[] args) {
-        ProductsDAO pd = new ProductsDAO();
-       List<Products> count = pd.pagingProducts(1);
-        for (Products products : count) {
-            System.out.println(products.getId());
-            
-        }
-    }
-
     public Products getProductById(int id) {
         String sql = "select * from products where id = ?";
         CategoriesDAO ca = new CategoriesDAO();
@@ -135,15 +104,15 @@ public class ProductsDAO extends DBContext {
         return null;
     }
 
-    public List<Product_sizes> getProductsSizes(int id) {
-        List<Product_sizes> list = new ArrayList();
+    public List<ProductSizes> getProductsSizes(int id) {
+        List<ProductSizes> list = new ArrayList();
         String sql = "select * from product_sizes where product_size = " + id;
         SizesDAO si = new SizesDAO();
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                Product_sizes ps = new Product_sizes(getProductById(rs.getInt(1)), si.getSizeById(rs.getInt(2)), rs.getInt(3), rs.getInt(4), rs.getString(5));
+                ProductSizes ps = new ProductSizes(getProductById(rs.getInt(1)), si.getSizeById(rs.getInt(2)), rs.getInt(3), rs.getInt(4), rs.getString(5));
                 list.add(ps);
             }
         } catch (Exception e) {
@@ -304,6 +273,11 @@ public class ProductsDAO extends DBContext {
                 StringBuilder sql = new StringBuilder("SELECT TOP 12 p.* FROM products p JOIN product_gender pg ON p.id = pg.product_id WHERE 1=1");
                 if (gender_id != 0) {
                     sql.append(" AND pg.gender_id = ").append(gender_id);
+                } else {
+                    sql.append(" GROUP BY p.id, p.category_id, p.name, p.description, p.sub_description, \n"
+                            + "         p.avatar, p.status, p.hot, p.total_ratings, p.total_stars, \n"
+                            + "         p.stock_quantity, p.total_sold, p.created_at, p.updated_at, \n"
+                            + "         p.hover_avatar, p.price, p.sale, p.total_pay, p.tag;");
                 }
                 PreparedStatement stm = connection.prepareStatement(sql.toString());
                 ResultSet res = stm.executeQuery();

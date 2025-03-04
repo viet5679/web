@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="model.Users" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,9 +73,9 @@
                                     <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
                                             class="fi-rr-user"></i></button>
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a class="dropdown-item" href="register.jsp">Register</a></li>
+                                        <li><a class="dropdown-item" href="register">Register</a></li>
                                         <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                        <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                        <li><a class="dropdown-item" href="login">Login</a></li>
                                     </ul>
                                 </div>
                                 <!-- Header User End -->
@@ -134,13 +135,41 @@
                                 <div class="ec-header-bottons">
 
                                     <!-- Header User Start -->
+                                    <% 
+                                        Users user = (Users) session.getAttribute("user");
+                                    %>
                                     <div class="ec-header-user dropdown">
-                                        <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
-                                                class="fi-rr-user"></i></button>
+                                        <button class="dropdown-toggle" data-bs-toggle="dropdown">
+                                            <% if (user != null) { %>
+                                            <span class="ec-pro-title" style="margin-right: 10px"><%= user.getName() %></span>
+                                            <% } %>
+                                            <i class="fi-rr-user"></i>
+                                        </button>
+
                                         <ul class="dropdown-menu dropdown-menu-right">
+                                            <% if (user == null) { %>
+                                            <!-- chưa đăng nhập -->
                                             <li><a class="dropdown-item" href="register.jsp">Register</a></li>
-                                            <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
                                             <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                                <% } else { %>
+                                            <!-- đã đăng nhập -->
+                                            <% if (user.getRole() == 1) { %>
+                                            <!-- User -->
+                                            <li><a class="dropdown-item" href="user-profile.jsp">Edit Profile</a></li>
+                                            <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
+
+                                            <% } else if (user.getRole() == 0) { %>
+                                            <!-- Admin -->
+                                            <li><a class="dropdown-item" href="admin-dashboard.jsp">ADMIN</a></li>
+                                                <% } %>
+                                            <li><a class="dropdown-item" href="index.jsp?logout=true">Log out</a></li>
+                                                <% } %>
+                                                <%
+                                                    if (request.getParameter("logout") != null) {
+                                                        session.invalidate(); // Xóa session
+                                                        response.sendRedirect("home"); // Chuyển hướng về trang chủ
+                                                    }
+                                                %>
                                         </ul>
                                     </div>
                                     <!-- Header User End -->
@@ -198,23 +227,11 @@
                         <div class="col-md-12 align-self-center">
                             <div class="ec-main-menu">
                                 <ul>
-                                    <li><a href="index.jsp">Home</a></li>
-                                    <li><a href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-                                   
-                                    <li class="dropdown"><a href="javascript:void(0)">Pages</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="cart.jsp">Cart</a></li>
-                                            <li><a href="checkout.jsp">Checkout</a></li>                                
-                                            <li><a href="faq.jsp">FAQ</a></li>
-                                            <li><a href="track-order.jsp">Track Order</a></li>
-                                            <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                            <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li><a href="about-us.jsp">About Us</a></li>
-                                    <li><a href="contact-us.jsp">Contact Us</a></li>
+                                    <li><a href="home">Home</a></li>
+                                    <li><a href="shop-left-sidebar-col-3.jsp">Shop</a></li>
+                                    <li><a href="checkout.jsp">Checkout</a></li>                                
+                                    <li><a href="about-us">About Us</a></li>
+                                    <li><a href="contact-us">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -231,23 +248,12 @@
                 <div class="ec-menu-inner">
                     <div class="ec-menu-content">
                         <ul>
-                            <li><a href="index.jsp">Home</a></li>
+                            <li><a href="home">Home</a></li>
                             <li><a href="shop-full-width.jsp">Categories</a></li>
                             <li><a href="product-full-width.jsp">Product</a></li>
-
-                            <li class="dropdown"><a href="javascript:void(0)">Pages</a>
-                                <ul class="sub-menu">
-
-                                    <li><a href="cart.jsp">Cart</a></li>
-                                    <li><a href="checkout.jsp">Checkout</a></li>                                
-                                    <li><a href="faq.jsp">FAQ</a></li>
-                                    <li><a href="track-order.jsp">Track Order</a></li>
-                                    <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                    <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="about-us.jsp">About Us</a></li>
-                            <li><a href="contact-us.jsp">Contact Us</a></li>
+                            <li><a href="checkout.jsp">Checkout</a></li>  
+                            <li><a href="about-us">About Us</a></li>
+                            <li><a href="contact-us">Contact Us</a></li>
                         </ul>
                     </div>
                     <div class="header-res-lan-curr">
@@ -355,15 +361,12 @@
 
                 cart.forEach(item => {
                     const listItem = document.createElement('li');
-                    listItem.innerHTML = `
-                        <div>
-            <span>${item.productName}</span> - 
-            <span>${'$'}${item.price}</span> x
-            <input type="number" value="${item.quantity}" min="1" style="width: 50px;" 
-                onchange="updateQuantity('${item.productName}', this.value)">
-            = <span>${'$'}${item.price * item.quantity}</span>
-        </div>
-        <button onclick="removeFromCart('${item.productName}')">Remove</button>
+                    listItem.innerHTML = `<div>
+                                           <span>${item.productName}</span> - <span>${'$'}${item.price}</span> x
+                                <input type="number" value="${item.quantity}" min="1" style="width: 50px;" 
+                                onchange="updateQuantity('${item.productName}', this.value)"> = <span>${'$'}${item.price * item.quantity}</span>
+                                          </div>
+                                <button onclick="removeFromCart('${item.productName}')">Remove</button>
                     `;
                     cartItems.appendChild(listItem);
                 });
@@ -404,7 +407,7 @@
                             <div class="col-md-6 col-sm-12">
                                 <!-- ec-breadcrumb-list start -->
                                 <ul class="ec-breadcrumb-list">
-                                    <li class="ec-breadcrumb-item"><a href="index.jsp">Home</a></li>
+                                    <li class="ec-breadcrumb-item"><a href="home">Home</a></li>
                                     <li class="ec-breadcrumb-item active">Contact Us</li>
                                 </ul>
                                 <!-- ec-breadcrumb-list end -->
@@ -477,12 +480,12 @@
                                 <h1 class="ec_contact_info_head">Contact us</h1>
                                 <ul class="align-items-center">
                                     <li class="ec-contact-item"><i class="ecicon eci-map-marker"
-                                                                   aria-hidden="true"></i><span>Address :</span>Hoa Lac Hi-tech Park, km 29, Đại lộ Thăng Long, Hà Nội, Vietnam</li>
+                                                                   aria-hidden="true"></i><span>Address :</span>Hoa Lac Hi-tech Park, km 29, Thang Long Boulevard, Hanoi, Vietnam</li>
                                     <li class="ec-contact-item align-items-center"><i class="ecicon eci-phone"
                                                                                       aria-hidden="true"></i><span>Call Us :</span><a href="tel:+440123456789">0967870138</a></li>
                                     <li class="ec-contact-item align-items-center"><i class="ecicon eci-envelope"
                                                                                       aria-hidden="true"></i><span>Email :</span><a
-                                            href="mailto:example@ec-email.com">vietpthe180666@fpt.edu.vn</a></li>
+                                            href="mailto:example@ec-email.com">louisvuitton@gmail.com</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -592,7 +595,7 @@
                             <div class="col text-center footer-copy">
                                 <div class="footer-bottom-copy ">
                                     <div class="ec-copy">Copyright ©<span id="copyright_year"></span> <a class="site-name text-upper"
-                                                                                                           href="#">NYFS<span>.</span></a>. All Rights Reserved</div>
+                                                                                                         href="#">NYFS<span>.</span></a>. All Rights Reserved</div>
                                 </div>
                             </div>
                             <!-- Footer Copyright End -->

@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Categories;
 import model.Genders;
-import model.Product_sizes;
+import model.ProductSizes;
 import model.Products;
 import model.Sizes;
 
@@ -66,7 +66,6 @@ public class ShopServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         String[] gid_raw = request.getParameterValues("gid");
         String[] cid_raw = request.getParameterValues("cid");
         String[] sid_raw = request.getParameterValues("sid");
@@ -137,7 +136,7 @@ public class ShopServlet extends HttpServlet {
             List<Products> listp = pd.getProductsByFilder(selectedGid, selectedCid, selectedSid, price_low, price_high);
             List<Products> list = productPage(index, listp);
             request.setAttribute("list", list);
-            List<Product_sizes> listps = pd.getProductsSizes(id);
+            List<ProductSizes> listps = pd.getProductsSizes(id);
             int count = listp.size();
             int endPage = count / 9;
             if (count % 3 != 0) {
@@ -160,6 +159,22 @@ public class ShopServlet extends HttpServlet {
             System.out.println(e);
         }
 
+    }
+    public List<Products> productPage(int index, List<Products> list) {
+        int max = list.size() / 9;
+
+        List<Products> listP = new ArrayList();
+        if (max + 1 == index) {
+            for (int i = (index - 1) * 9; i < list.size(); i++) {
+                listP.add(list.get(i));
+            }
+        } else {
+            for (int i = (index - 1) * 9; i < ((index - 1) * 9) + 9; i++) {
+                listP.add(list.get(i));
+            }
+        }
+
+        return listP;
     }
 
     /**
@@ -186,34 +201,4 @@ public class ShopServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    public List<Products> productPage(int index, List<Products> list) {
-        int max = list.size() / 9;
-
-        List<Products> listP = new ArrayList();
-        if (max + 1 == index) {
-            for (int i = (index - 1) * 9; i < list.size(); i++) {
-                listP.add(list.get(i));
-            }
-        } else {
-            for (int i = (index - 1) * 9; i < ((index - 1) * 9) + 9; i++) {
-                listP.add(list.get(i));
-            }
-        }
-
-        return listP;
-    }
-
-    public static void main(String[] args) {
-        ShopServlet s = new ShopServlet();
-        ProductsDAO pd = new ProductsDAO();
-        List<Integer> selectedGid = new ArrayList<>();
-        List<Integer> selectedCid = new ArrayList<>();
-        List<Integer> selectedSid = new ArrayList<>();
-        List<Products> list = pd.getProductsByFilder(selectedGid, selectedCid, selectedSid, null, null);
-        List<Products> list1 = s.productPage(4, list);
-
-        for (Products products : list1) {
-            System.out.println(products.getId());
-        }
-    }
 }

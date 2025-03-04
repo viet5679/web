@@ -769,7 +769,7 @@
                                                                  src="${c.avatar}"
                                                                  alt="Product" />
                                                             <img class="hover-image"
-                                                                 src="${c.hover_avatar}"
+                                                                 src="${c.hoverAvatar}"
                                                                  alt="Product" />
                                                         </a>
                                                         <c:if test="${c.tag == 'NEW'}">
@@ -832,9 +832,9 @@
                                                     <c:if test="${c.sale == 0}">
                                                         <span class="ec-price">
                                                             <span
-                                                                class="new-price">$${c.total_pay}</span>
+                                                                class="new-price">$${c.totalPay}</span>
                                                         </span>
-                                                        <c:if test="${c.category_id.id == 3 || c.category_id.id == 5 || c.category_id.id == 6 || c.category_id.id == 7 || c.category_id.id == 8}">
+                                                        <c:if test="${c.categoryId.id == 3 || c.categoryId.id == 5 || c.categoryId.id == 6 || c.categoryId.id == 7 || c.categoryId.id == 8}">
                                                             <div class="ec-pro-option">
 
                                                                 <div class="ec-pro-size">
@@ -849,23 +849,12 @@
                                                                                     class="active"><a
                                                                                         href="#"
                                                                                         class="ec-opt-sz"
-                                                                                        data-new="$${c.total_pay}"
+                                                                                        data-new="$${c.totalPay}"
                                                                                         data-tooltip="${si.sizes.name}">${si.sizes.name}</a>
                                                                                 </li>
                                                                             </c:if>
                                                                         </c:forEach>
-                                                                        <!--                                                                        <li><a href="#"
-                                                                                                                                                       class="ec-opt-sz"
-                                                                                                                                                       data-new="$${c.total_pay}"
-                                                                                                                                                       data-tooltip="Medium">M</a></li>
-                                                                                                                                                <li><a href="#"
-                                                                                                                                                       class="ec-opt-sz"
-                                                                                                                                                       data-new="$${c.total_pay}"
-                                                                                                                                                       data-tooltip="Large">X</a></li>
-                                                                                                                                                <li><a href="#"
-                                                                                                                                                       class="ec-opt-sz"
-                                                                                                                                                       data-new="$${c.total_pay}"
-                                                                                                                                                       data-tooltip="Extra Large">XL</a></li>-->
+                                                                        
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -877,9 +866,9 @@
                                                             <span
                                                                 class="old-price">$${c.price}</span>
                                                             <span
-                                                                class="new-price">$${c.total_pay}</span>
+                                                                class="new-price">$${c.totalPay}</span>
                                                         </span>
-                                                        <c:if test="${c.category_id.id == 3}  or ${c.category_id.id == 5}  or ${c.category_id.id == 6} or ${c.category_id.id == 7} or ${c.category_id.id == 8}">
+                                                        <c:if test="${c.categoryId.id == 3}  or ${c.categoryId.id == 5}  or ${c.categoryId.id == 6} or ${c.categoryId.id == 7} or ${c.categoryId.id == 8}">
                                                             <div class="ec-pro-option">
 
                                                                 <div class="ec-pro-size">
@@ -893,26 +882,12 @@
                                                                                         href="#"
                                                                                         class="ec-opt-sz"
                                                                                         data-old="$${c.price}"
-                                                                                        data-new="$${c.total_pay}"
+                                                                                        data-new="$${c.totalPay}"
                                                                                         data-tooltip="${si.sizes.name}">${si.sizes.name}</a>
                                                                                 </li>
                                                                             </c:if>
                                                                         </c:forEach>
-                                                                        <!--                                                                        <li><a href="#"
-                                                                                                                                                       class="ec-opt-sz"
-                                                                                                                                                       data-old="$${c.price}"
-                                                                                                                                                       data-new="$${c.total_pay}"
-                                                                                                                                                       data-tooltip="Medium">M</a></li>
-                                                                                                                                                <li><a href="#"
-                                                                                                                                                       class="ec-opt-sz"
-                                                                                                                                                       data-old="$${c.price}"
-                                                                                                                                                       data-new="$${c.total_pay}"
-                                                                                                                                                       data-tooltip="Large">X</a></li>
-                                                                                                                                                <li><a href="#"
-                                                                                                                                                       class="ec-opt-sz"
-                                                                                                                                                       data-old="$${c.price}"
-                                                                                                                                                       data-new="$${c.total_pay}"
-                                                                                                                                                       data-tooltip="Extra Large">XL</a></li>-->
+                                                                       
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -939,7 +914,7 @@
                                         </li>
 
                                     </c:forEach>
-                                    <c:if test="${endP > 5}">
+                                    <c:if test="${endP > 5 }">
                                         <li><a class="next" href="#">Next 
                                                 <i
                                                     class="ecicon eci-angle-right">

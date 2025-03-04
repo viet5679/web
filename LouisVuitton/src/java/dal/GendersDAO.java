@@ -8,9 +8,9 @@ import java.util.List;
 import model.Genders;
 
 public class GendersDAO extends DBContext {
-    
-    public List<Genders> getAllGender() {
-        List<Genders> ListGender = new ArrayList<>();
+
+    public ArrayList<Genders> getAllGender() {
+        ArrayList<Genders> ListGender = new ArrayList<>();
         if (connection != null) {
             try {
                 String sqlQuery = "SELECT * FROM genders";
