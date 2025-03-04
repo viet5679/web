@@ -14,9 +14,11 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import model.Categories;
 import model.Genders;
 import model.ProductSizes;
@@ -133,23 +135,27 @@ public class ShopServlet extends HttpServlet {
             }
 
             if (sort_by != null) {
-                switch (sort_by) {
-                    case "1":
-                        allProducts.sort(Comparator.comparing(Products::getName));
-                        break;
-                    case "2":
-                        allProducts.sort(Comparator.comparing(Products::getName).reversed());
-                        break;
-                    case "3":
-                        allProducts.sort(Comparator.comparingDouble(Products::getPrice));
-                        break;
-                    case "4":
-                        allProducts.sort(Comparator.comparingDouble(Products::getPrice).reversed());
-                        break;
-                    default:
-                        break;
-                }
-            }
+                
+            Collator collator = Collator.getInstance(new Locale("vi", "VN"));
+
+            switch (sort_by) {
+                case "1":
+                    allProducts.sort(Comparator.comparing(Products::getName, collator));
+                    break;
+                case "2":
+                    allProducts.sort(Comparator.comparing(Products::getName, collator).reversed());
+                    break;
+                case "3":
+                    allProducts.sort(Comparator.comparingDouble(Products::getTotalPay));
+                    break;
+                case "4":
+                    allProducts.sort(Comparator.comparingDouble(Products::getTotalPay).reversed()); 
+                    break;
+                default:
+                    allProducts.sort(Comparator.comparing(Products::getName, collator));
+                    break;
+        }
+    }
             
             List<Products> list = productPage(index, allProducts);
 

@@ -736,6 +736,7 @@
                                 <div class="ec-select-inner">
                                     <form method="get">
                                         <select name="sort_by" id="ec-select" onchange="this.form.submit()">
+                                            <<option selected disabled>Position</option>
                                             <option value="1" ${sort_by == '1' ? 'selected' : ''}>Name, A to Z</option>
                                             <option value="2" ${sort_by == '2' ? 'selected' : ''}>Name, Z to A</option>
                                             <option value="3" ${sort_by == '3' ? 'selected' : ''}>Price, low to high</option>
