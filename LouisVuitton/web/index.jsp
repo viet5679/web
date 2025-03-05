@@ -1910,6 +1910,7 @@
         </div>
 
         <!-- Cart Floating Button end -->
+        <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm7vkewxc03kpn8lwqnmkoz6d"></script>
 
         <!-- Whatsapp -->
         <div class="ec-style ec-right-bottom">
