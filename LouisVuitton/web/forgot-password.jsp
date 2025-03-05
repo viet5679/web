@@ -685,7 +685,7 @@
                 <!-- Panel Header -->
                 <div class="ec-header">
                     <strong>Need Help?</strong>
-                    <p>Chat with us on WhatsApp</p>
+                    <p>Chat with us on Gmail</p>
                 </div>
                 <!-- Panel Content -->
                 <div class="ec-body">
@@ -768,15 +768,17 @@
                                data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                                 <div class="d-flex bd-highlight">
                                     <!-- Profile Picture -->
-                                    <div class="ec-img-cont">
-                                        <img src="assets/images/whatsapp/profile_04.jpg" class="ec-user-img"
-                                             alt="Profile image">
-                                        <span class="ec-status-icon ec-offline"></span>
+                                   <div class="ec-img-cont">
+                                        <img
+                                            src="assets/images/gmail/lv.png"
+                                            class="ec-user-img"
+                                            alt="Profile image">
+                                        <span class="ec-status-icon"></span>
                                     </div>
                                     <!-- Display Name & Last Seen -->
                                     <div class="ec-user-info">
-                                        <span>Khadija Mehr</span>
-                                        <p>Khadija left 50 mins ago</p>
+                                        <span>Louis Vuitton</span>
+                                        <p>Sahar left 7 mins ago</p>
                                     </div>
                                     <!-- Chat iCon -->
                                     <div class="ec-chat-icon">
@@ -794,7 +796,7 @@
             <div class="ec-right-bottom">
                 <div class="ec-box">
                     <div class="ec-button rotateBackward">
-                        <img class="whatsapp" src="assets/images/common/whatsapp.png" alt="whatsapp icon" />
+                        <img class="whatsapp" src="assets/images/gmail/gmail.jpg" alt="whatsapp icon" />
                     </div>
                 </div>
             </div>

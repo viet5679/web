@@ -1543,13 +1543,13 @@ $("body").on("click", ".ec-single-cart", function () {
             //checking for device type
             if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                 // redirect link for mobile WhatsApp chat awc
-                window.open('https://wa.me/' + number + '/?text=' + message, '-blank');
+                window.open('https://wa.me/');
             }
             else {
                 // redirect link for WhatsApp chat in website
-                window.open('https://web.WhatsApp.com/send?phone=' + number + '&text=' + message, '-blank');
+                 window.open('mailto:vietpthe180666@fpt.edu.vn');
             }
-        })
+        });
 
         // chat widget open/close duration
         $('ec-style1').launchBtn({ openDuration: 400, closeDuration: 300 });
