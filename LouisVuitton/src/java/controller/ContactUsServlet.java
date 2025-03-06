@@ -14,7 +14,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
+import model.Cart;
 import model.Products;
+import model.WishList;
 
 /**
  *
@@ -61,7 +63,7 @@ public class ContactUsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Lay so luong cookie gửi cho shop
+        // Lay so luong cookie gửi cho home
         ProductsDAO pDAO = new ProductsDAO();
         List<Products> listProduct = pDAO.getAll();
         Cookie[] cookieArr = request.getCookies();
@@ -73,6 +75,8 @@ public class ContactUsServlet extends HttpServlet {
                 }
             }
         }
+        Cart cart = new Cart(cartData, listProduct);
+        request.setAttribute("cart", cart);
         // Đếm số lượng sản phẩm
         int numCartItem = 0;
         if (!cartData.isEmpty()) {
@@ -80,6 +84,25 @@ public class ContactUsServlet extends HttpServlet {
             numCartItem = items.length;
         }
 
+        Cookie[] cookieWishList = request.getCookies();
+        String wishlistData = "";
+        if (cookieWishList != null) {
+            for (Cookie o : cookieWishList) {
+                if (o.getName().equals("wishlist")) {
+                    wishlistData += o.getValue();
+                }
+            }
+        }
+        WishList wishlist = new WishList(wishlistData, listProduct);
+        request.setAttribute("wishlist", wishlist);
+        // Đếm số lượng sản phẩm
+        int numWishListItem = 0;
+        if (!wishlistData.isEmpty()) {
+            String[] items = wishlistData.split("/");
+            numWishListItem = items.length;
+        }
+
+        request.setAttribute("numWishListItem", numWishListItem);
         request.setAttribute("numCartItem", numCartItem);
         request.getRequestDispatcher("contact-us.jsp").forward(request, response);
     }

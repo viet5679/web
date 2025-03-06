@@ -25,12 +25,14 @@ public class WishList {
         return null;
     }
 
-    public void addItem(Item i) {
-        if (i == null) {
+    public void addItem(Products product) {
+        if (product == null) {
             return;
         }
-        Item existingItem = getItemById(i.getProduct().getId());
-        items.add(i);
+        if (!items.contains(product)) { 
+            Item item = new Item(product, 0, 0);
+            items.add(item);
+        }
     }
 
     public void removeItem(int id) {
@@ -71,4 +73,5 @@ public class WishList {
             System.out.println("Unexpected error in cart initialization: " + e.getMessage());
         }
     }
+
 }

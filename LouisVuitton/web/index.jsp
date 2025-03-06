@@ -98,20 +98,20 @@
                                 <!-- Header User End -->
 
                                 <!-- Header Cart Start -->
-                                <a href="wishlist.jsp"
+                                <a href="wishlist"
                                    class="ec-header-btn ec-header-wishlist">
                                     <div class="header-icon"><i
                                             class="fi-rr-heart"></i></div>
                                     <span
-                                        class="ec-header-count wishlist-count-label">0</span>
+                                        class="ec-header-count wishlist-count-label">${requestScope.numWishListItem}</span>
                                 </a>
                                 <!-- Header Cart End -->
 
                                 <!-- Header Cart Start -->
-                                <a href="cart.jsp"
+                                <a href="cart"
                                    class="ec-header-btn ec-side-toggle">
                                     <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
-                                    <span class="ec-header-count cart-count-lable">0</span>
+                                    <span class="ec-header-count cart-count-lable">${requestScope.numCartItem}</span>
                                 </a>
                                 <!-- Header menu Start -->
                                 <a href="#ec-mobile-menu"
@@ -209,11 +209,11 @@
                                         <div class="header-icon"><i
                                                 class="fi-rr-heart"></i></div>
                                         <span
-                                            class="ec-header-count wishlist-count-label">0</span>
+                                            class="ec-header-count wishlist-count-label">${requestScope.numWishListItem}</span>
                                     </a>
                                     <!-- Header wishlist End -->
                                     <!-- Header Cart Start -->
-                                    
+
                                     <a href="cart"
                                        class="ec-header-btn">
                                         <div class="header-icon"><i
@@ -520,8 +520,11 @@
                                                                 <button title="Add To Cart" class="add-to-cart" onclick="addToCart(${product.id}, 1)">
                                                                     <i class="fi-rr-shopping-basket"></i> Add To Cart
                                                                 </button>
-                                                                <button title="Wishlist" class="ec-btn-group wishlist"  onclick="addToWishList(${product.id})">
-                                                                    <i class="fi-rr-heart"></i></button>
+                                                                <button title="Wishlist" class="ec-btn-group wishlist-btn" 
+                                                                        data-product-id="${product.id}" 
+                                                                        onclick="addToWishList(${product.id}, this)">
+                                                                    <i class="fi-rr-heart"></i>
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -547,38 +550,6 @@
                                                             <span
                                                                 class="new-price">$${product.totalPay}</span>
                                                         </span>
-<!--                                                        <div class="ec-pro-option">
-
-                                                            <div class="ec-pro-size">
-                                                                <span
-                                                                    class="ec-pro-opt-label">Size</span>
-                                                                <ul
-                                                                    class="ec-opt-size">
-                                                                    <li
-                                                                        class="active"><a
-                                                                            href="#"
-                                                                            class="ec-opt-sz"
-                                                                            data-old="$${product.price}"
-                                                                            data-new="$${product.totalPay}"
-                                                                            data-tooltip="Small">S</a></li>
-                                                                    <li><a href="#"
-                                                                           class="ec-opt-sz"
-                                                                           data-old="$${product.price}"
-                                                                           data-new="$${product.totalPay}"
-                                                                           data-tooltip="Medium">M</a></li>
-                                                                    <li><a href="#"
-                                                                           class="ec-opt-sz"
-                                                                           data-old="$${product.price}"
-                                                                           data-new="$${product.totalPay}"
-                                                                           data-tooltip="Large">X</a></li>
-                                                                    <li><a href="#"
-                                                                           class="ec-opt-sz"
-                                                                           data-old="$${product.price}"
-                                                                           data-new="$${product.totalPay}"
-                                                                           data-tooltip="Extra Large">XL</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>-->
                                                     </div>
                                                 </div>
                                             </div>
@@ -608,14 +579,47 @@
                     }
                 });
             }
-            function addToWishList(productId) {
+            function addToWishList(productId, element) {
                 $.ajax({
                     type: "POST",
-                    url: "cart",
-                    data: {
-                        productId: productId
+                    url: "wishlist",
+                    data: {productId: productId},
+                    success: function (response) {
+                        if (response.isWishlisted) {
+                            $(element).addClass("active"); // Nếu đã thêm, đổi màu nút
+                        } else {
+                            $(element).removeClass("active"); // Nếu đã xóa, trở lại bình thường
+                        }
+                    },
+                    error: function () {
+                        alert("Có lỗi xảy ra!");
                     }
                 });
+            }
+            // Duyệt qua cookie Wishlist
+            document.addEventListener("DOMContentLoaded", function () {
+                let wishlist = getCookie("wishlist"); // Lấy giá trị từ cookie
+                if (wishlist) {
+                    let wishlistItems = wishlist.split("/"); // Chuyển chuỗi thành mảng ID
+                    document.querySelectorAll(".wishlist-btn").forEach(function (btn) {
+                        let productId = btn.getAttribute("data-product-id"); // Lấy ID từ nút
+                        if (wishlistItems.includes(productId)) {
+                            btn.classList.add("active"); // Thêm class "active"
+                        }
+                    });
+                }
+            });
+
+            // Hàm lấy cookie theo tên
+            function getCookie(name) {
+                let cookies = document.cookie.split("; ");
+                for (let i = 0; i < cookies.length; i++) {
+                    let parts = cookies[i].split("=");
+                    if (parts[0] === name) {
+                        return parts[1];
+                    }
+                }
+                return "";
             }
         </script>
 
@@ -844,37 +848,37 @@
                                         <span
                                             class="new-price">$${newArrivals.totalPay}</span>
                                     </span>
-<!--                                    <div class="ec-pro-option">
-                                        <div class="ec-pro-color">
-
-                                        </div>
-                                        <div class="ec-pro-size">
-                                            <span
-                                                class="ec-pro-opt-label">Size</span>
-                                            <ul class="ec-opt-size">
-                                                <li class="active"><a href="#"
-                                                                      class="ec-opt-sz"
-                                                                      data-old="$${newArrivals.price}"
-                                                                      data-new="$${newArrivals.totalPay}"
-                                                                      data-tooltip="Small">S</a></li>
-                                                <li><a href="#"
-                                                       class="ec-opt-sz"
-                                                       data-old="$${newArrivals.price}"
-                                                       data-new="$${newArrivals.totalPay}"
-                                                       data-tooltip="Medium">M</a></li>
-                                                <li><a href="#"
-                                                       class="ec-opt-sz"
-                                                       data-old="$${newArrivals.price}"
-                                                       data-new="$${newArrivals.totalPay}"
-                                                       data-tooltip="Large">X</a></li>
-                                                <li><a href="#"
-                                                       class="ec-opt-sz"
-                                                       data-old="$${newArrivals.price}"
-                                                       data-new="$${newArrivals.totalPay}"
-                                                       data-tooltip="Extra Large">XL</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>-->
+                                    <!--                                    <div class="ec-pro-option">
+                                                                            <div class="ec-pro-color">
+                                    
+                                                                            </div>
+                                                                            <div class="ec-pro-size">
+                                                                                <span
+                                                                                    class="ec-pro-opt-label">Size</span>
+                                                                                <ul class="ec-opt-size">
+                                                                                    <li class="active"><a href="#"
+                                                                                                          class="ec-opt-sz"
+                                                                                                          data-old="$${newArrivals.price}"
+                                                                                                          data-new="$${newArrivals.totalPay}"
+                                                                                                          data-tooltip="Small">S</a></li>
+                                                                                    <li><a href="#"
+                                                                                           class="ec-opt-sz"
+                                                                                           data-old="$${newArrivals.price}"
+                                                                                           data-new="$${newArrivals.totalPay}"
+                                                                                           data-tooltip="Medium">M</a></li>
+                                                                                    <li><a href="#"
+                                                                                           class="ec-opt-sz"
+                                                                                           data-old="$${newArrivals.price}"
+                                                                                           data-new="$${newArrivals.totalPay}"
+                                                                                           data-tooltip="Large">X</a></li>
+                                                                                    <li><a href="#"
+                                                                                           class="ec-opt-sz"
+                                                                                           data-old="$${newArrivals.price}"
+                                                                                           data-new="$${newArrivals.totalPay}"
+                                                                                           data-tooltip="Extra Large">XL</a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>-->
                                 </div>
                             </div>
                         </div>
@@ -1395,16 +1399,16 @@
                         <a href="cart"
                            class="toggle-cart ec-header-btn ec-side-toggle"><i
                                 class="fi-rr-shopping-bag"></i><span
-                                class="ec-cart-noti ec-header-count cart-count-lable">0</span></a>
+                                class="ec-cart-noti ec-header-count cart-count-lable">${requestScope.numCartItem}</span></a>
                     </div>
                     <div class="ec-nav-panel-icons">
                         <a href="home" class="ec-header-btn"><i
                                 class="fi-rr-home"></i></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="wishlist.jsp" class="ec-header-btn"><i
+                        <a href="wishlist" class="ec-header-btn"><i
                                 class="fi-rr-heart"></i><span
-                                class="ec-cart-noti ec-header-count  wishlist-count-label">0</span></a>
+                                class="ec-cart-noti ec-header-count  wishlist-count-label">${requestScope.numWishListItem}</span></a>
                     </div>
                     <div class="ec-nav-panel-icons">
                         <a href="login" class="ec-header-btn"><i
@@ -1450,283 +1454,7 @@
 
         <!-- Cart Floating Button end -->
         <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm7vkewxc03kpn8lwqnmkoz6d"></script>
-
-        <!-- Chatbot -->
-        <div class="ec-style ec-right-bottom">
-            <!-- Start Floating Panel Container -->
-            <div class="ec-panel">
-                <!-- Panel Header -->
-                <div class="ec-header">
-                    <strong>Chatbot AI</strong>
-                    <p>Chat with our AI assistant</p>
-                </div>
-                <!-- Panel Content -->
-                <div class="ec-body">
-                    <ul id="chatbox">
-                        <li class="bot-message">
-                            <div class="ec-user-info">
-                                <!--<span>AI Assistant</span>-->
-                                <p>Xin chào! Tôi có thể giúp gì cho bạn?</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Input Box -->
-                <div class="ec-footer">
-                    <input type="text" id="userInput" placeholder="Nhập tin nhắn..." onkeypress="handleKeyPress(event)" />
-                    <button onclick="sendMessage()">Gửi</button>
-                </div>
-            </div>
-            <!--/ End Floating Panel Container -->
-            <!-- Start Right Floating Button-->
-            <div class="ec-right-bottom">
-                <div class="ec-box">
-                    <div class="ec-button rotateBackward" onclick="toggleChat()">
-                        <img class="chat-icon" src="assets/images/common/chatbot.png" alt="chatbot icon">
-                    </div>
-                </div>
-            </div>
-            <!--/ End Right Floating Button-->
-        </div>
-        <!-- Chatbot end -->
-
-        <script>
-
-            function scrollToBottom() {
-                let chatbox = document.getElementById("chatbox");
-                chatbox.scrollTop = chatbox.scrollHeight;
-            }
-
-            function sendMessage() {
-                let userInput = document.getElementById("userInput").value.trim();
-                if (userInput === "")
-                    return;
-
-                let chatbox = document.getElementById("chatbox");
-
-                // 📤 Hiển thị tin nhắn của người dùng
-                let userMessage = document.createElement("li");
-                userMessage.classList.add("user-message");
-
-                let userInfo = document.createElement("div");
-                userInfo.classList.add("ec-user-info");
-
-                let userText = document.createElement("p");
-                userText.innerText = userInput;
-
-                userInfo.appendChild(userText);
-                userMessage.appendChild(userInfo);
-                chatbox.appendChild(userMessage);
-
-                // Cuộn xuống tin nhắn mới nhất
-                scrollToBottom();
-
-                console.log("📤 Gửi câu hỏi:", userInput);
-
-                // 📡 Gửi request đến Servlet
-                fetch("/louisvuitton/chatbot", {
-                    method: "POST",
-                    headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify({text: userInput}),
-                })
-                        .then(response => response.json())
-                        .then(data => {
-                            console.log("📥 Dữ liệu nhận được:", data);
-
-                            let botReply = "Xin lỗi, tôi không thể trả lời ngay lúc này.";
-                            if (data.response) {
-                                botReply = data.response.trim();
-                            } else if (data.candidates && data.candidates.length > 0) {
-                                let content = data.candidates[0].content;
-                                if (content.parts && content.parts.length > 0) {
-                                    botReply = content.parts[0].text.trim();
-                                }
-                            }
-
-                            // Hiển thị tin nhắn của bot
-                            let botMessage = document.createElement("li");
-                            botMessage.classList.add("bot-message");
-
-                            let botInfo = document.createElement("div");
-                            botInfo.classList.add("ec-user-info");
-
-                            let botText = document.createElement("p");
-                            botText.innerText = botReply;
-
-                            botInfo.appendChild(botText);
-                            botMessage.appendChild(botInfo);
-                            chatbox.appendChild(botMessage);
-
-                            // Cuộn xuống tin nhắn mới nhất
-                            scrollToBottom();
-
-                            console.log("🤖 Câu trả lời của bot:", botReply);
-                        })
-                        .catch(error => {
-                            console.error("❌ Lỗi:", error);
-                            let errorMessage = document.createElement("li");
-                            errorMessage.classList.add("bot-message");
-
-                            let errorInfo = document.createElement("div");
-                            errorInfo.classList.add("ec-user-info");
-
-                            let errorText = document.createElement("p");
-                            errorText.innerText = "Lỗi: Không thể kết nối đến server.";
-
-                            errorInfo.appendChild(errorText);
-                            errorMessage.appendChild(errorInfo);
-                            chatbox.appendChild(errorMessage);
-
-                            // Cuộn xuống tin nhắn mới nhất
-                            scrollToBottom();
-                        });
-
-                // Xóa input sau khi gửi
-                document.getElementById("userInput").value = "";
-            }
-
-            function handleKeyPress(event) {
-                if (event.key === "Enter") {
-                    sendMessage();
-                }
-            }
-
-            function toggleChat() {
-                let chatPanel = document.querySelector(".ec-panel");
-                chatPanel.style.display = (chatPanel.style.display === "none" || chatPanel.style.display === "") ? "block" : "none";
-            }
-
-        </script>
-
-        <style>
-            /* Tổng quan panel */
-            .ec-panel {
-                max-height: 500px; /* Giữ chiều cao tối đa của panel */
-                overflow-y: auto; /* Cho phép cuộn toàn bộ panel nếu cần */
-                border-radius: 12px;
-                background: #f8f9fa;
-                padding: 15px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-                position: relative; /* Đảm bảo các phần tử con định vị chính xác */
-            }
-
-            /* Tiêu đề cố định */
-            .ec-header {
-                /*position: sticky;  Hoặc fixed nếu cần cố định hoàn toàn */
-                top: 0;
-                background: #f8f9fa; /* Giữ màu nền giống panel */
-                z-index: 10; /* Đảm bảo tiêu đề luôn ở trên cùng */
-                padding: 15px;
-                border-bottom: 1px solid #e9ecef; /* Thêm đường kẻ để phân biệt */
-            }
-
-            /* Danh sách tin nhắn */
-            #chatbox {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                /* Xóa max-height khỏi #chatbox, để ec-body xử lý cuộn */
-                display: flex;
-                flex-direction: column; /* Tin nhắn hiển thị từ trên xuống dưới, tin mới ở dưới */
-                gap: 10px; /* Khoảng cách giữa các tin nhắn */
-            }
-
-            /* Khu vực nội dung tin nhắn (ec-body) */
-            .ec-body {
-                max-height: 500px; /* Tăng chiều cao để hiển thị nhiều tin nhắn hơn, tùy chỉnh theo nhu cầu */
-                overflow-y: auto; /* Cho phép cuộn khi vượt quá chiều cao */
-                padding: 10px 0; /* Thêm padding để tin nhắn không sát mép */
-                display: flex;
-                flex-direction: column; /* Đảm bảo tin nhắn mới ở dưới cùng */
-            }
-
-            /* Tin nhắn chung */
-            .user-message, .bot-message {
-                padding: 10px 14px;
-                margin: 5px 0;
-                border-radius: 20px;
-                max-width: 85%;
-                word-wrap: break-word;
-                font-size: 14px;
-                line-height: 1.4;
-                box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-                display: flex;
-                flex-direction: column;
-                overflow-wrap: break-word;
-                word-break: break-word;
-            }
-
-            /* Tin nhắn của người dùng */
-            .user-message {
-                background: #007bff;
-                color: white;
-                align-self: flex-end;
-                margin-left: auto;
-                text-align: left;
-            }
-
-            /* Tin nhắn của bot */
-            .bot-message {
-                background: #e9ecef;
-                color: black;
-                align-self: flex-start;
-                margin-right: auto;
-                text-align: left;
-            }
-
-            /* Hộp chứa thông tin người gửi */
-            .ec-user-info {
-                font-size: 13px;
-                margin-bottom: 5px;
-                display: flex;
-                align-items: center;
-            }
-
-            /* Nội dung tin nhắn */
-            .ec-user-info p {
-                margin: 0;
-                font-size: 14px;
-                word-break: break-word;
-                white-space: normal;
-            }
-
-            /* Cải thiện phần nhập tin nhắn */
-            #userInput {
-                width: 100%;
-                padding: 10px;
-                border-radius: 8px;
-                border: 1px solid #ced4da;
-                font-size: 14px;
-                outline: none;
-                box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
-            }
-
-            #userInput:focus {
-                border-color: #80bdff;
-                box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-            }
-
-            /* Nút gửi */
-            button {
-                background: #007bff;
-                color: white;
-                border: none;
-                padding: 8px 14px;
-                border-radius: 8px;
-                cursor: pointer;
-                font-size: 14px;
-                transition: background-color 0.2s;
-            }
-
-            button:hover {
-                background: #0056b3;
-            }
-
-            /* Điều chỉnh khoảng cách giữa các tin nhắn */
-            #chatbox li {
-                margin-bottom: 10px; /* Thêm khoảng cách dưới mỗi tin nhắn */
-            }
-        </style>
+        
         <!-- Vendor JS -->
         <script
         src="<%= request.getContextPath() %>/assets/js/vendor/jquery-3.5.1.min.js"></script>

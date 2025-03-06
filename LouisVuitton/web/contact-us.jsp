@@ -80,9 +80,9 @@
                                 </div>
                                 <!-- Header User End -->
                                 <!-- Header Cart Start -->
-                                <a href="wishlist.jsp" class="ec-header-btn ec-header-wishlist">
+                                <a href="wishlist" class="ec-header-btn ec-header-wishlist">
                                     <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                                    <span class="ec-header-count">0</span>
+                                    <span class="ec-header-count">${requestScope.numWishListItem}</span>
                                 </a>
                                 <!-- Header Cart End -->
                                 <!-- Header Cart Start -->
@@ -177,9 +177,9 @@
                                     </div>
                                     <!-- Header User End -->
                                     <!-- Header wishlist Start -->
-                                    <a href="wishlist.jsp" class="ec-header-btn ec-header-wishlist">
+                                    <a href="wishlist" class="ec-header-btn ec-header-wishlist">
                                         <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                                        <span class="ec-header-count">0</span>
+                                        <span class="ec-header-count">${requestScope.numWishListItem}</span>
                                     </a>
                                     <!-- Header wishlist End -->
                                     <!-- Header Cart Start -->

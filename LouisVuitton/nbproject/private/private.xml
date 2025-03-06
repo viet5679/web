@@ -8,6 +8,7 @@
             <file>file:/D:/Semester-4/Github/web/LouisVuitton/web/index.jsp</file>
             <file>file:/D:/Semester-4/Github/web/LouisVuitton/web/user-history.jsp</file>
             <file>file:/D:/Semester-4/Github/web/LouisVuitton/web/customer-service.jsp</file>
+            <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/model/WishList.java</file>
             <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/controller/RegisterServlet.java</file>
             <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/model/Item.java</file>
             <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/controller/CartServlet.java</file>
@@ -16,6 +17,7 @@
             <file>file:/D:/Semester-4/Github/web/LouisVuitton/web/contact-us.jsp</file>
             <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/controller/ContactUsServlet.java</file>
             <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/controller/UserProfileServlet.java</file>
+            <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/controller/WishListServlet.java</file>
             <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/controller/ChatbotServlet.java</file>
             <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/controller/HomeServlet.java</file>
             <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/controller/AboutUsServlet.java</file>
@@ -23,6 +25,8 @@
             <file>file:/D:/Semester-4/Github/web/LouisVuitton/web/user-profile.jsp</file>
             <file>file:/D:/Semester-4/Github/web/LouisVuitton/web/cart.jsp</file>
             <file>file:/D:/Semester-4/Github/web/LouisVuitton/web/about-us.jsp</file>
+            <file>file:/D:/Semester-4/Github/web/LouisVuitton/web/wishlist.jsp</file>
             <file>file:/D:/Semester-4/Github/web/LouisVuitton/src/java/controller/ShopServlet.java</file>
+        </group>
     </open-files>
 </project-private>

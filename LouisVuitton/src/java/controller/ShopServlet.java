@@ -26,6 +26,7 @@ import model.Genders;
 import model.ProductSizes;
 import model.Products;
 import model.Sizes;
+import model.WishList;
 
 /**
  *
@@ -195,6 +196,8 @@ public class ShopServlet extends HttpServlet {
                     }
                 }
             }
+            Cart cart = new Cart(cartData, listProduct);
+            request.setAttribute("cart", cart);
             // Đếm số lượng sản phẩm
             int numCartItem = 0;
             if (!cartData.isEmpty()) {
@@ -202,6 +205,25 @@ public class ShopServlet extends HttpServlet {
                 numCartItem = items.length;
             }
 
+            Cookie[] cookieWishList = request.getCookies();
+            String wishlistData = "";
+            if (cookieWishList != null) {
+                for (Cookie o : cookieWishList) {
+                    if (o.getName().equals("wishlist")) {
+                        wishlistData += o.getValue();
+                    }
+                }
+            }
+            WishList wishlist = new WishList(wishlistData, listProduct);
+            request.setAttribute("wishlist", wishlist);
+            // Đếm số lượng sản phẩm
+            int numWishListItem = 0;
+            if (!wishlistData.isEmpty()) {
+                String[] items = wishlistData.split("/");
+                numWishListItem = items.length;
+            }
+
+            request.setAttribute("numWishListItem", numWishListItem);
             request.setAttribute("numCartItem", numCartItem);
             request.getRequestDispatcher("shop-left-sidebar-col-3.jsp").forward(request, response);
         } catch (Exception e) {

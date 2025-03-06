@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page import="model.Users" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -140,26 +141,57 @@
                                 <div class="ec-header-bottons">
 
                                     <!-- Header User Start -->
+                                    <% 
+                                        Users user = (Users) session.getAttribute("user");
+                                    %>
                                     <div class="ec-header-user dropdown">
-                                        <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
-                                                class="fi-rr-user"></i></button>
+                                        <button class="dropdown-toggle" data-bs-toggle="dropdown">
+                                            <% if (user != null) { %>
+                                            <span class="ec-pro-title" style="margin-right: 10px"><%= user.getName() %></span>
+                                            <% } %>
+                                            <i class="fi-rr-user"></i>
+                                        </button>
+
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a class="dropdown-item" href="register">Register</a></li>
-                                            <li><a class="dropdown-item" href="checkout">Checkout</a></li>
-                                            <li><a class="dropdown-item" href="login">Login</a></li>
+                                            <% if (user == null) { %>
+                                            <!-- chưa đăng nhập -->
+                                            <li><a class="dropdown-item" href="register.jsp">Register</a></li>
+                                            <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                                <% } else { %>
+                                            <!-- đã đăng nhập -->
+                                            <% if (user.getRole() == 1) { %>
+                                            <!-- User -->
+                                            <li><a class="dropdown-item" href="user-profile.jsp">Edit Profile</a></li>
+                                            <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
+
+                                            <% } else if (user.getRole() == 0) { %>
+                                            <!-- Admin -->
+                                            <li><a class="dropdown-item" href="admin-dashboard.jsp">ADMIN</a></li>
+                                                <% } %>
+                                            <li><a class="dropdown-item" href="index.jsp?logout=true">Log out</a></li>
+                                                <% } %>
+                                                <%
+                                                    if (request.getParameter("logout") != null) {
+                                                        session.invalidate(); // Xóa session
+                                                        response.sendRedirect("home"); // Chuyển hướng về trang chủ
+                                                    }
+                                                %>
                                         </ul>
                                     </div>
                                     <!-- Header User End -->
                                     <!-- Header wishlist Start -->
-                                    <a href="wishlist.jsp" class="ec-header-btn ec-header-wishlist">
+                                    <a href="wishlist" class="ec-header-btn ec-header-wishlist">
                                         <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                                        <span class="ec-header-count wishlist-count-label">0</span>
+                                        <span class="ec-header-count wishlist-count-label">${requestScope.numWishListItem}</span>
                                     </a>
                                     <!-- Header wishlist End -->
                                     <!-- Header Cart Start -->
-                                    <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                        <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
-                                        <span class="ec-header-count cart-count-lable">${requestScope.numCartItem}</span>
+                                    <a href="cart"
+                                       class="ec-header-btn">
+                                        <div class="header-icon"><i
+                                                class="fi-rr-shopping-bag"></i></div>
+                                        <span
+                                            class="ec-header-count cart-count-lable">${requestScope.numCartItem}</span>
                                     </a>
                                     <!-- Header Cart End -->
                                 </div>
@@ -352,7 +384,8 @@
                                     url: "cart",
                                     data: {
                                         productId: productId
-                                    },
+                                    }
+//                                    ,
 //                                    success: function () {
 //                                        window.location.reload(); // Tải lại trang sau khi thêm vào giỏ hàng
 //                                    }
@@ -532,37 +565,37 @@
                                         <span
                                             class="new-price">$${newArrivals.totalPay}</span>
                                     </span>
-<!--                                    <div class="ec-pro-option">
-                                        <div class="ec-pro-color">
-
-                                        </div>
-                                        <div class="ec-pro-size">
-                                            <span
-                                                class="ec-pro-opt-label">Size</span>
-                                            <ul class="ec-opt-size">
-                                                <li class="active"><a href="#"
-                                                                      class="ec-opt-sz"
-                                                                      data-old="$${newArrivals.price}"
-                                                                      data-new="$${newArrivals.totalPay}"
-                                                                      data-tooltip="Small">S</a></li>
-                                                <li><a href="#"
-                                                       class="ec-opt-sz"
-                                                       data-old="$${newArrivals.price}"
-                                                       data-new="$${newArrivals.totalPay}"
-                                                       data-tooltip="Medium">M</a></li>
-                                                <li><a href="#"
-                                                       class="ec-opt-sz"
-                                                       data-old="$${newArrivals.price}"
-                                                       data-new="$${newArrivals.totalPay}"
-                                                       data-tooltip="Large">X</a></li>
-                                                <li><a href="#"
-                                                       class="ec-opt-sz"
-                                                       data-old="$${newArrivals.price}"
-                                                       data-new="$${newArrivals.totalPay}"
-                                                       data-tooltip="Extra Large">XL</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>-->
+                                    <!--                                    <div class="ec-pro-option">
+                                                                            <div class="ec-pro-color">
+                                    
+                                                                            </div>
+                                                                            <div class="ec-pro-size">
+                                                                                <span
+                                                                                    class="ec-pro-opt-label">Size</span>
+                                                                                <ul class="ec-opt-size">
+                                                                                    <li class="active"><a href="#"
+                                                                                                          class="ec-opt-sz"
+                                                                                                          data-old="$${newArrivals.price}"
+                                                                                                          data-new="$${newArrivals.totalPay}"
+                                                                                                          data-tooltip="Small">S</a></li>
+                                                                                    <li><a href="#"
+                                                                                           class="ec-opt-sz"
+                                                                                           data-old="$${newArrivals.price}"
+                                                                                           data-new="$${newArrivals.totalPay}"
+                                                                                           data-tooltip="Medium">M</a></li>
+                                                                                    <li><a href="#"
+                                                                                           class="ec-opt-sz"
+                                                                                           data-old="$${newArrivals.price}"
+                                                                                           data-new="$${newArrivals.totalPay}"
+                                                                                           data-tooltip="Large">X</a></li>
+                                                                                    <li><a href="#"
+                                                                                           class="ec-opt-sz"
+                                                                                           data-old="$${newArrivals.price}"
+                                                                                           data-new="$${newArrivals.totalPay}"
+                                                                                           data-tooltip="Extra Large">XL</a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>-->
                                 </div>
                             </div>
                         </div>

@@ -100,7 +100,7 @@
                                 <!-- Header User End -->
 
                                 <!-- Header Cart Start -->
-                                <a href="wishlist.jsp"
+                                <a href="wishlist"
                                    class="ec-header-btn ec-header-wishlist">
                                     <div class="header-icon"><i
                                             class="fi-rr-heart"></i></div>
@@ -213,12 +213,12 @@
                                     </div>
                                     <!-- Header User End -->
                                     <!-- Header wishlist Start -->
-                                    <a href="wishlist.jsp"
+                                    <a href="wishlist"
                                        class="ec-header-btn ec-header-wishlist">
                                         <div class="header-icon"><i
                                                 class="fi-rr-heart"></i></div>
                                         <span
-                                            class="ec-header-count wishlist-count-label">0</span>
+                                            class="ec-header-count wishlist-count-label">${requestScope.numWishListItem}</span>
                                     </a>
                                     <!-- Header wishlist End -->
                                     <!-- Header Cart Start -->
@@ -285,7 +285,7 @@
                                 <ul>
                                     <li><a href="home">Home</a></li>
                                     <li><a href="shop">Shop</a></li>
-                                    <li><a href="checkout">Checkout</a></li>
+                                    <li><a href="trackorder">Track Order</a></li>
                                     <li><a href="about-us">About Us</a></li>
                                     <li><a href="contact-us">Contact Us</a></li>
                                 </ul>
@@ -1176,22 +1176,22 @@
                                 class="fi-rr-menu-burger"></i></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="#ec-side-cart"
+                        <a href="cart"
                            class="toggle-cart ec-header-btn ec-side-toggle"><i
                                 class="fi-rr-shopping-bag"></i><span
                                 class="ec-cart-noti ec-header-count cart-count-lable">3</span></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="index.jsp" class="ec-header-btn"><i
+                        <a href="home" class="ec-header-btn"><i
                                 class="fi-rr-home"></i></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="wishlist.jsp" class="ec-header-btn"><i
+                        <a href="wishlist" class="ec-header-btn"><i
                                 class="fi-rr-heart"></i><span
                                 class="ec-cart-noti">4</span></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="login.jsp" class="ec-header-btn"><i
+                        <a href="login" class="ec-header-btn"><i
                                 class="fi-rr-user"></i></a>
                     </div>
 
@@ -1224,7 +1224,7 @@
 
         <!-- Floating Button wishlist-->
         <div class="ec-cart-float-wishlist">
-            <a href="wishlist.jsp" class="ec-header-btn ec-wishlist-toggle">
+            <a href="wishlist" class="ec-header-btn ec-wishlist-toggle">
                 <div class="header-icon">
                     <i class="fi-rr-heart"></i>
                 </div>

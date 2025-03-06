@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
 import model.Cart;
 import model.Products;
+import model.WishList;
 
 @WebServlet(name = "CartServlet", urlPatterns = {"/cart"})
 public class CartServlet extends HttpServlet {
@@ -38,6 +39,25 @@ public class CartServlet extends HttpServlet {
             numCartItem = items.length;
         }
 
+        Cookie[] cookieWishList = request.getCookies();
+        String wishlistData = "";
+        if (cookieWishList != null) {
+            for (Cookie o : cookieWishList) {
+                if (o.getName().equals("wishlist")) {
+                    wishlistData += o.getValue();
+                }
+            }
+        }
+        WishList wishlist = new WishList(wishlistData, list);
+        request.setAttribute("wishlist", wishlist);
+        // Đếm số lượng sản phẩm
+        int numWishListItem = 0;
+        if (!wishlistData.isEmpty()) {
+            String[] items = wishlistData.split("/");
+            numWishListItem = items.length;
+        }
+
+        request.setAttribute("numWishListItem", numWishListItem);
         request.setAttribute("numCartItem", numCartItem);
         request.setAttribute("newArrivals", pDAO.getNewArrivalsProduct());
         request.getRequestDispatcher("cart.jsp").forward(request, response);
