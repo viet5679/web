@@ -8,21 +8,21 @@
         <meta charset="UTF-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
         <meta name="viewport"
-            content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+              content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
         <title>Louis Vuitton</title>
         <meta name="keywords"
-            content="apparel, catalog, clean, ecommerce, ecommerce HTML, electronics, fashion, html eCommerce, html store, minimal, multipurpose, multipurpose ecommerce, online store, responsive ecommerce template, shops" />
+              content="apparel, catalog, clean, ecommerce, ecommerce HTML, electronics, fashion, html eCommerce, html store, minimal, multipurpose, multipurpose ecommerce, online store, responsive ecommerce template, shops" />
         <meta name="description"
-            content="Best ecommerce html template for single and multi vendor store.">
+              content="Best ecommerce html template for single and multi vendor store.">
         <meta name="author" content="ashishmaraviya">
 
         <!-- site Favicon -->
         <link rel="icon" href="assets/images/favicon/favicon.png"
-            sizes="32x32" />
+              sizes="32x32" />
         <link rel="apple-touch-icon" href="assets/images/favicon/favicon.png" />
         <meta name="msapplication-TileImage"
-            content="assets/images/favicon/favicon.png" />
+              content="assets/images/favicon/favicon.png" />
 
         <!-- css Icon Font -->
         <link rel="stylesheet" href="assets/css/vendor/ecicons.min.css" />
@@ -30,7 +30,7 @@
         <!-- css All Plugins Files -->
         <link rel="stylesheet" href="assets/css/plugins/animate.css" />
         <link rel="stylesheet"
-            href="assets/css/plugins/swiper-bundle.min.css" />
+              href="assets/css/plugins/swiper-bundle.min.css" />
         <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css" />
         <link rel="stylesheet" href="assets/css/plugins/countdownTimer.css" />
         <link rel="stylesheet" href="assets/css/plugins/slick.min.css" />
@@ -42,7 +42,7 @@
 
         <!-- Background css -->
         <link rel="stylesheet" id="bg-switcher-css"
-            href="assets/css/backgrounds/bg-4.css">
+              href="assets/css/backgrounds/bg-4.css">
     </head>
     <body class="aboutus_page">
         <div id="ec-overlay">
@@ -77,39 +77,39 @@
                                 <!-- Header User Start -->
                                 <div class="ec-header-user dropdown">
                                     <button class="dropdown-toggle"
-                                        data-bs-toggle="dropdown"><i
+                                            data-bs-toggle="dropdown"><i
                                             class="fi-rr-user"></i></button>
                                     <ul
                                         class="dropdown-menu dropdown-menu-right">
                                         <li><a class="dropdown-item"
-                                                href="register.jsp">Register</a></li>
+                                               href="register.jsp">Register</a></li>
                                         <li><a class="dropdown-item"
-                                                href="checkout.jsp">Checkout</a></li>
+                                               href="checkout.jsp">Checkout</a></li>
                                         <li><a class="dropdown-item"
-                                                href="login.jsp">Login</a></li>
+                                               href="login.jsp">Login</a></li>
                                     </ul>
                                 </div>
                                 <!-- Header User End -->
                                 <!-- Header Cart Start -->
                                 <a href="wishlist.jsp"
-                                    class="ec-header-btn ec-header-wishlist">
+                                   class="ec-header-btn ec-header-wishlist">
                                     <div class="header-icon"><i
                                             class="fi-rr-heart"></i></div>
                                     <span class="ec-header-count">0</span>
                                 </a>
                                 <!-- Header Cart End -->
                                 <!-- Header Cart Start -->
-                                <a href="#ec-side-cart"
-                                    class="ec-header-btn ec-side-toggle">
+                                <a href="cart"
+                                   class="ec-header-btn">
                                     <div class="header-icon"><i
                                             class="fi-rr-shopping-bag"></i></div>
                                     <span
-                                        class="ec-header-count cart-count-lable">0</span>
+                                        class="ec-header-count cart-count-lable">${requestScope.numCartItem}</span>
                                 </a>
                                 <!-- Header Cart End -->
                                 <!-- Header menu Start -->
                                 <a href="#ec-mobile-menu"
-                                    class="ec-header-btn ec-side-toggle d-lg-none">
+                                   class="ec-header-btn ec-side-toggle d-lg-none">
                                     <i class="fi fi-rr-menu-burger"></i>
                                 </a>
                                 <!-- Header menu End -->
@@ -199,19 +199,19 @@
                                     <!-- Header User End -->
                                     <!-- Header wishlist Start -->
                                     <a href="wishlist.jsp"
-                                        class="ec-header-btn ec-header-wishlist">
+                                       class="ec-header-btn ec-header-wishlist">
                                         <div class="header-icon"><i
                                                 class="fi-rr-heart"></i></div>
                                         <span class="ec-header-count">0</span>
                                     </a>
                                     <!-- Header wishlist End -->
                                     <!-- Header Cart Start -->
-                                    <a href="#ec-side-cart"
-                                        class="ec-header-btn ec-side-toggle">
+                                    <a href="cart"
+                                       class="ec-header-btn">
                                         <div class="header-icon"><i
                                                 class="fi-rr-shopping-bag"></i></div>
                                         <span
-                                            class="ec-header-count cart-count-lable">0</span>
+                                            class="ec-header-count cart-count-lable">${requestScope.numCartItem}</span>
                                     </a>
                                     <!-- Header Cart End -->
                                 </div>
@@ -244,8 +244,8 @@
                             <div class="header-search">
                                 <form class="ec-btn-group-form" action="#">
                                     <input class="form-control ec-search-bar"
-                                        placeholder="Search products..."
-                                        type="text">
+                                           placeholder="Search products..."
+                                           type="text">
                                     <button class="submit" type="submit"><i
                                             class="fi-rr-search"></i></button>
                                 </form>
@@ -264,8 +264,8 @@
                             <div class="ec-main-menu">
                                 <ul>
                                     <li><a href="home">Home</a></li>
-                                    <li><a href="shop-left-sidebar-col-3.jsp">Shop</a></li>
-                                    <li><a href="checkout.jsp">Checkout</a></li>
+                                    <li><a href="shop">Shop</a></li>
+                                    <li><a href="trackorder">Track order</a></li>
                                     <li><a href="about-us">About Us</a></li>
                                     <li><a href="contact-us">Contact Us</a></li>
                                 </ul>
@@ -306,134 +306,6 @@
             <!-- ekka mobile Menu End -->
         </header>
         <!-- Header End  -->
-
-        <!-- ekka Cart Start -->
-        <div class="ec-side-cart-overlay"></div>
-        <div id="ec-side-cart" class="ec-side-cart">
-            <div class="ec-cart-inner">
-                <div class="ec-cart-top">
-                    <div class="ec-cart-title">
-                        <span class="cart_title">My Cart</span>
-                        <button class="ec-close"
-                            onclick="closeCart()">&times;</button>
-                    </div>
-                    <ul class="eccart-pro-items" id="cart-items">
-                        <!-- Items will be dynamically added here -->
-                    </ul>
-                </div>
-                <div class="ec-cart-bottom">
-                    <div class="cart-sub-total">
-                        <table class="table cart-table">
-                            <tbody>
-                                <tr>
-                                    <td class="text-left">Sub-Total :</td>
-                                    <td class="text-right"
-                                        id="sub-total">$0.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-left">VAT (20%) :</td>
-                                    <td class="text-right" id="vat">$0.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-left">Total :</td>
-                                    <td class="text-right primary-color"
-                                        id="total">$0.00</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="cart_btn">
-                        <a href="cart.jsp" class="btn btn-primary">View Cart</a>
-                        <a href="checkout.jsp"
-                            class="btn btn-secondary">Checkout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <script>
-            const cartItems = document.getElementById('cart-items');
-            const subTotalEl = document.getElementById('sub-total');
-            const vatEl = document.getElementById('vat');
-            const totalEl = document.getElementById('total');
-
-            let cart = []; // Array to store cart items
-
-            function addToCart(productName, price) {
-                // Check if the product already exists in the cart
-                const existingItem = cart.find(item => item.productName === productName);
-
-                if (existingItem) {
-                    // If product exists, increase quantity
-                    existingItem.quantity += 1;
-                } else {
-                    // Add new product
-                    cart.push({productName, price, quantity: 1});
-                }
-
-                // Update the UI and totals
-                updateCartUI();
-                updateTotals();
-            }
-
-            function removeFromCart(productName) {
-                // Remove product from cart
-                cart = cart.filter(item => item.productName !== productName);
-
-                // Update the UI and totals
-                updateCartUI();
-                updateTotals();
-            }
-
-            function updateQuantity(productName, newQuantity) {
-                const item = cart.find(item => item.productName === productName);
-                if (item) {
-                    item.quantity = newQuantity > 0 ? parseInt(newQuantity) : 1; // Ensure quantity is at least 1
-                }
-
-                updateCartUI();
-                updateTotals();
-            }
-
-            function updateCartUI() {
-                cartItems.innerHTML = ""; // Clear existing items
-
-                cart.forEach(item => {
-                    const listItem = document.createElement('li');
-                    listItem.innerHTML = `
-                        <div>
-            <span>${item.productName}</span> - 
-            <span>${'$'}${item.price}</span> x
-            <input type="number" value="${item.quantity}" min="1" style="width: 50px;" 
-                onchange="updateQuantity('${item.productName}', this.value)">
-            = <span>${'$'}${item.price * item.quantity}</span>
-        </div>
-        <button onclick="removeFromCart('${item.productName}')">Remove</button>
-                    `;
-                    cartItems.appendChild(listItem);
-                });
-            }
-
-            function updateTotals() {
-                const subTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-                const vat = subTotal * 0.2; // 20% VAT
-                const total = subTotal + vat;
-
-                // Update the DOM
-                subTotalEl.textContent = `$${subTotal.toFixed(2)}`;
-                vatEl.textContent = `$${vat.toFixed(2)}`;
-                totalEl.textContent = `$${total.toFixed(2)}`;
-            }
-
-            function closeCart() {
-                document.getElementById('ec-side-cart').classList.remove('open'); // Hide cart
-            }
-
-            // Example usage: Uncomment these lines to test adding products
-            // addToCart('Cute Baby Toy', 30.00);
-            // addToCart('Teddy Bear', 25.50);
-        </script>
-        <!-- ekka Cart End -->
 
         <!-- Ec breadcrumb start -->
         <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
@@ -476,8 +348,8 @@
                                 class="col-md-6 ec-cms-block ec-abcms-block text-center">
                                 <div class="ec-cms-block-inner">
                                     <img class="a-img"
-                                        src="assets/images/offer-image/1.jpg"
-                                        alt="about">
+                                         src="assets/images/offer-image/1.jpg"
+                                         alt="about">
                                 </div>
                             </div>
                             <div
@@ -496,7 +368,7 @@
         </section>
         <!--  services Section Start -->
         <section class="section ec-services-section section-space-p"
-            id="services">
+                 id="services">
             <h2 class="d-none">Services</h2>
             <div class="container">
                 <div class="row">
@@ -741,20 +613,20 @@
                                         </ul>
                                         <div class="ec-subscribe-form">
                                             <form id="ec-newsletter-form"
-                                                name="ec-newsletter-form"
-                                                method="post"
-                                                action="#">
+                                                  name="ec-newsletter-form"
+                                                  method="post"
+                                                  action="#">
                                                 <div id="ec_news_signup"
-                                                    class="ec-form">
+                                                     class="ec-form">
                                                     <input class="ec-email"
-                                                        type="email" required
-                                                        placeholder="Enter your email here..."
-                                                        name="ec-email" value />
+                                                           type="email" required
+                                                           placeholder="Enter your email here..."
+                                                           name="ec-email" value />
                                                     <button id="ec-news-btn"
-                                                        class="button btn-primary"
-                                                        type="submit"
-                                                        name="subscribe"
-                                                        value><i
+                                                            class="button btn-primary"
+                                                            type="submit"
+                                                            name="subscribe"
+                                                            value><i
                                                             class="ecicon eci-paper-plane-o"
                                                             aria-hidden="true"></i></button>
                                                 </div>
@@ -815,12 +687,12 @@
                 <div class="ec-nav-panel">
                     <div class="ec-nav-panel-icons">
                         <a href="#ec-mobile-menu"
-                            class="navbar-toggler-btn ec-header-btn ec-side-toggle"><i
+                           class="navbar-toggler-btn ec-header-btn ec-side-toggle"><i
                                 class="fi-rr-menu-burger"></i></a>
                     </div>
                     <div class="ec-nav-panel-icons">
                         <a href="#ec-side-cart"
-                            class="toggle-cart ec-header-btn ec-side-toggle"><i
+                           class="toggle-cart ec-header-btn ec-side-toggle"><i
                                 class="fi-rr-shopping-bag"></i><span
                                 class="ec-cart-noti ec-header-count cart-count-lable">0</span></a>
                     </div>
@@ -880,7 +752,7 @@
                         <!-- Start Single Contact List -->
                         <li>
                             <a class="ec-list" data-number="918866774266"
-                                data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                                 <div class="d-flex bd-highlight">
                                     <!-- Profile Picture -->
                                     <div class="ec-img-cont">
@@ -906,7 +778,7 @@
                         <!-- Start Single Contact List -->
                         <li>
                             <a class="ec-list" data-number="918866774266"
-                                data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                                 <div class="d-flex bd-highlight">
                                     <!-- Profile Picture -->
                                     <div class="ec-img-cont">
@@ -933,7 +805,7 @@
                         <!-- Start Single Contact List -->
                         <li>
                             <a class="ec-list" data-number="918866774266"
-                                data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                                 <div class="d-flex bd-highlight">
                                     <!-- Profile Picture -->
                                     <div class="ec-img-cont">
@@ -960,7 +832,7 @@
                         <!-- Start Single Contact List -->
                         <li>
                             <a class="ec-list" data-number="918866774266"
-                                data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                                 <div class="d-flex bd-highlight">
                                     <!-- Profile Picture -->
                                     <div class="ec-img-cont">
@@ -993,8 +865,8 @@
                 <div class="ec-box">
                     <div class="ec-button rotateBackward">
                         <img class="whatsapp"
-                            src="assets/images/common/whatsapp.png"
-                            alt="whatsapp icon" />
+                             src="assets/images/common/whatsapp.png"
+                             alt="whatsapp icon" />
                     </div>
                 </div>
             </div>

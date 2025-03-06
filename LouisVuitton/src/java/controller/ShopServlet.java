@@ -11,11 +11,13 @@ import dal.SizesDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import model.Cart;
 import model.Categories;
 import model.Genders;
 import model.ProductSizes;
@@ -117,8 +119,6 @@ public class ShopServlet extends HttpServlet {
             } else {
                 price_high = Double.valueOf(price_high_raw);
             }
-            System.out.println(price_low);
-            System.out.println(price_high);
             if (id_raw == null) {
                 System.out.println("loi");
             } else {
@@ -152,14 +152,35 @@ public class ShopServlet extends HttpServlet {
             request.setAttribute("selectedGid", selectedGid);
             request.setAttribute("selectedCid", selectedCid);
             request.setAttribute("selectedSid", selectedSid);
-//            request.setAttribute("listpa",  );
-            request.getRequestDispatcher("shop-left-sidebar-col-3.jsp").forward(request, response);
+            request.setAttribute("bestSeller", pd.getBestSellerProduct());
 
+            // Lay so luong cookie gửi cho shop
+            ProductsDAO pDAO = new ProductsDAO();
+            List<Products> listProduct = pDAO.getAll();
+            Cookie[] cookieArr = request.getCookies();
+            String cartData = "";
+            if (cookieArr != null) {
+                for (Cookie o : cookieArr) {
+                    if (o.getName().equals("cart")) {
+                        cartData += o.getValue();
+                    }
+                }
+            }
+            // Đếm số lượng sản phẩm
+            int numCartItem = 0;
+            if (!cartData.isEmpty()) {
+                String[] items = cartData.split("/");
+                numCartItem = items.length;
+            }
+
+            request.setAttribute("numCartItem", numCartItem);
+            request.getRequestDispatcher("shop-left-sidebar-col-3.jsp").forward(request, response);
         } catch (Exception e) {
             System.out.println(e);
         }
 
     }
+
     public List<Products> productPage(int index, List<Products> list) {
         int max = list.size() / 9;
 

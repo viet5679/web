@@ -4,7 +4,11 @@ package model;
  // @author xu4nvi3t
 public class Transactions {
     private int id;
-    private String review;
+    private Orders orderid;
     private Products productId;
-    private Users user_id;
+    private double price;
+    private int quantity;
+    private double discount;
+    private double totalPrice;
+    private String name;
 }

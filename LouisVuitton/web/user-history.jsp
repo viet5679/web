@@ -340,24 +340,6 @@
         updateTotals();
     }
 
-    function updateCartUI() {
-        cartItems.innerHTML = ""; // Clear existing items
-
-        cart.forEach(item => {
-            const listItem = document.createElement('li');
-            listItem.innerHTML = `
-                <div>
-                    <span>${item.productName}</span> - 
-                    $${item.price.toFixed(2)} x 
-                    <input type="number" value="${item.quantity}" min="1" style="width: 50px;" 
-                        onchange="updateQuantity('${item.productName}', this.value)">
-                    = $${(item.price * item.quantity).toFixed(2)}
-                </div>
-                <button onclick="removeFromCart('${item.productName}')">Remove</button>
-            `;
-            cartItems.appendChild(listItem);
-        });
-    }
 
     function updateTotals() {
         const subTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);

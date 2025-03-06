@@ -8,6 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ page import="model.Users" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,10 +60,6 @@
     <body>
         <div id="ec-overlay">
             <div class="ec-ellipsis">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
             </div>
         </div>
         <!-- Header start  -->
@@ -93,11 +90,11 @@
                                     <ul
                                         class="dropdown-menu dropdown-menu-right">
                                         <li><a class="dropdown-item"
-                                               href="register.jsp">Register</a></li>
+                                               href="register">Register</a></li>
                                         <li><a class="dropdown-item"
-                                               href="checkout.jsp">Checkout</a></li>
+                                               href="checkout">Checkout</a></li>
                                         <li><a class="dropdown-item"
-                                               href="login.jsp">Login</a></li>
+                                               href="login">Login</a></li>
                                     </ul>
                                 </div>
                                 <!-- Header User End -->
@@ -146,7 +143,7 @@
                             <!-- Ec Header Logo Start -->
                             <div class="align-self-center">
                                 <div class="header-logo">
-                                    <a href="index.jsp"><img
+                                    <a href="home"><img
                                             src="assets/images/logo/logo4.png"
                                             alt="Site Logo" /><img
                                             class="dark-logo"
@@ -177,18 +174,41 @@
                                 <div class="ec-header-bottons">
 
                                     <!-- Header User Start -->
+                                    <% 
+                                        Users user = (Users) session.getAttribute("user");
+                                    %>
                                     <div class="ec-header-user dropdown">
-                                        <button class="dropdown-toggle"
-                                                data-bs-toggle="dropdown"><i
-                                                class="fi-rr-user"></i></button>
-                                        <ul
-                                            class="dropdown-menu dropdown-menu-right">
-                                            <li><a class="dropdown-item"
-                                                   href="register.jsp">Register</a></li>
-                                            <li><a class="dropdown-item"
-                                                   href="checkout.jsp">Checkout</a></li>
-                                            <li><a class="dropdown-item"
-                                                   href="login.jsp">Login</a></li>
+                                        <button class="dropdown-toggle" data-bs-toggle="dropdown">
+                                            <% if (user != null) { %>
+                                            <span class="ec-pro-title" style="margin-right: 10px"><%= user.getName() %></span>
+                                            <% } %>
+                                            <i class="fi-rr-user"></i>
+                                        </button>
+
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <% if (user == null) { %>
+                                            <!-- chưa đăng nhập -->
+                                            <li><a class="dropdown-item" href="register">Register</a></li>
+                                            <li><a class="dropdown-item" href="login">Login</a></li>
+                                                <% } else { %>
+                                            <!-- đã đăng nhập -->
+                                            <% if (user.getRole() == 1) { %>
+                                            <!-- User -->
+                                            <li><a class="dropdown-item" href="profile">Edit Profile</a></li>
+                                            <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
+
+                                            <% } else if (user.getRole() == 0) { %>
+                                            <!-- Admin -->
+                                            <li><a class="dropdown-item" href="admin-dashboard.jsp">ADMIN</a></li>
+                                                <% } %>
+                                            <li><a class="dropdown-item" href="index.jsp?logout=true">Log out</a></li>
+                                                <% } %>
+                                                <%
+                                                    if (request.getParameter("logout") != null) {
+                                                        session.invalidate(); // Xóa session
+                                                        response.sendRedirect("home"); // Chuyển hướng về trang chủ
+                                                    }
+                                                %>
                                         </ul>
                                     </div>
                                     <!-- Header User End -->
@@ -202,12 +222,12 @@
                                     </a>
                                     <!-- Header wishlist End -->
                                     <!-- Header Cart Start -->
-                                    <a href="#ec-side-cart"
-                                       class="ec-header-btn ec-side-toggle">
+                                    <a href="cart"
+                                       class="ec-header-btn">
                                         <div class="header-icon"><i
                                                 class="fi-rr-shopping-bag"></i></div>
                                         <span
-                                            class="ec-header-count cart-count-lable">0</span>
+                                            class="ec-header-count cart-count-lable">${requestScope.numCartItem}</span>
                                     </a>
                                     <!-- Header Cart End -->
                                 </div>
@@ -263,34 +283,11 @@
                                     <i class="fi fi-rr-apps"></i>
                                 </a>
                                 <ul>
-                                    <li><a href="index.jsp">Home</a></li>
-                                    <li><a
-                                            href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-
-
-                                    <li class="dropdown"><a
-                                            href="javascript:void(0)">Pages</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="cart.jsp">Cart</a></li>
-                                            <li><a
-                                                    href="checkout.jsp">Checkout</a></li>
-                                            <li><a href="faq.jsp">FAQ</a></li>
-                                            <li><a href="track-order.jsp">Track
-                                                    Order</a></li>
-                                            <li><a
-                                                    href="terms-condition.jsp">Terms
-                                                    Condition</a></li>
-                                            <li><a
-                                                    href="privacy-policy.jsp">Privacy
-                                                    Policy</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li><a href="about-us.jsp">About Us</a></li>
-                                    <li><a href="contact-us.jsp">Contact
-                                            Us</a></li>
-
+                                    <li><a href="home">Home</a></li>
+                                    <li><a href="shop">Shop</a></li>
+                                    <li><a href="checkout">Checkout</a></li>
+                                    <li><a href="about-us">About Us</a></li>
+                                    <li><a href="contact-us">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -307,29 +304,9 @@
                 <div class="ec-menu-inner">
                     <div class="ec-menu-content">
                         <ul>
-                            <li><a href="index.jsp">Home</a></li>
-                            <li><a
-                                    href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-
-
-                            <li class="dropdown"><a
-                                    href="javascript:void(0)">Pages</a>
-                                <ul class="sub-menu">
-
-                                    <li><a href="cart.jsp">Cart</a></li>
-                                    <li><a href="checkout.jsp">Checkout</a></li>
-                                    <li><a href="faq.jsp">FAQ</a></li>
-                                    <li><a href="track-order.jsp">Track
-                                            Order</a></li>
-                                    <li><a href="terms-condition.jsp">Terms
-                                            Condition</a></li>
-                                    <li><a href="privacy-policy.jsp">Privacy
-                                            Policy</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="blog-full-width.jsp">Blog</a></li>
-
-                            <li><a href="offer.jsp">Hot Offers</a></li>
+                            <li><a href="home">Home</a></li>
+                            <li><a href="shop">Categories</a></li>
+                            <li><a href="checkout">Checkout</a></li>
                         </ul>
                     </div>
                     <div class="header-res-lan-curr">
@@ -482,208 +459,47 @@
             <div class="cat-sidebar">
                 <div class="cat-sidebar-box">
                     <div class="ec-sidebar-wrap">
-
                         <!-- Sidebar Category Block -->
                     </div>
                 </div>
                 <div class="ec-sidebar-slider-cat">
                     <div class="ec-sb-slider-title">Best Sellers</div>
                     <div class="ec-sb-pro-sl">
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                   class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/1.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">baby
-                                            fabric shoes</a></h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
+                        <c:forEach var="bestSeller" items="${requestScope.bestSeller}">
+                            <div>
+                                <div class="ec-sb-pro-sl-item">
+                                    <a href="product-left-sidebar.jsp"
+                                       class="sidekka_pro_img"><img
+                                            src="${bestSeller.avatar}"
+                                            alt="product" /></a>
+                                    <div class="ec-pro-content">
+                                        <h5 class="ec-pro-title"><a
+                                                href="product-left-sidebar.jsp">${bestSeller.name}</a></h5>
+                                        <div class="ec-pro-rating">
+                                            <div class="ec-pro-rating">
+                                                <c:forEach var="i" begin="1" end="5">
+                                                    <c:choose>
+                                                        <c:when test="${i <= bestSeller.totalStars}">
+                                                            <i class="ecicon eci-star fill"></i>  <!-- Filled star -->
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <i class="ecicon eci-star"></i> <!-- Empty star -->
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </c:forEach>
+                                            </div>
+
+                                        </div>
+                                        <span class="ec-price">
+                                            <span
+                                                class="old-price">$${bestSeller.price}</span>
+                                            <span
+                                                class="new-price">$${bestSeller.totalPay}</span>
+                                        </span>
                                     </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$5.00</span>
-                                        <span class="new-price">$4.00</span>
-                                    </span>
                                 </div>
                             </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                   class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/2.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">Men's
-                                            hoodies t-shirt</a>
-                                    </h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$10.00</span>
-                                        <span class="new-price">$7.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                   class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/3.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">Girls
-                                            t-shirt</a></h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star"></i>
-                                        <i class="ecicon eci-star"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$5.00</span>
-                                        <span class="new-price">$3.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                   class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/4.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">woolen
-                                            hat for men</a></h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$15.00</span>
-                                        <span class="new-price">$12.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                   class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/5.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">Womens
-                                            purse</a></h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$15.00</span>
-                                        <span class="new-price">$12.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                   class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/6.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">Baby
-                                            toy doctor kit</a>
-                                    </h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star"></i>
-                                        <i class="ecicon eci-star"></i>
-                                        <i class="ecicon eci-star"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$50.00</span>
-                                        <span class="new-price">$45.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                   class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/7.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">teddy
-                                            bear baby toy</a>
-                                    </h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$35.00</span>
-                                        <span class="new-price">$25.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                   class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/2.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">Mens
-                                            hoodies blue</a></h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star"></i>
-                                        <i class="ecicon eci-star"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$15.00</span>
-                                        <span class="new-price">$13.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
@@ -815,16 +631,16 @@
                                                     <h5 class="ec-pro-title"><a
                                                             href="product-full-width.jsp">${c.name}</a></h5>
                                                     <div class="ec-pro-rating">
-                                                        <i
-                                                            class="ecicon eci-star fill"></i>
-                                                        <i
-                                                            class="ecicon eci-star fill"></i>
-                                                        <i
-                                                            class="ecicon eci-star fill"></i>
-                                                        <i
-                                                            class="ecicon eci-star fill"></i>
-                                                        <i
-                                                            class="ecicon eci-star"></i>
+                                                        <c:forEach var="i" begin="1" end="5">
+                                                            <c:choose>
+                                                                <c:when test="${i <= product.totalStars}">
+                                                                    <i class="ecicon eci-star fill"></i>  <!-- Filled star -->
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <i class="ecicon eci-star"></i> <!-- Empty star -->
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </c:forEach>
                                                     </div>
                                                     <div
                                                         class="ec-pro-list-desc">${c.description}</div>
@@ -854,7 +670,7 @@
                                                                                 </li>
                                                                             </c:if>
                                                                         </c:forEach>
-                                                                        
+
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -887,7 +703,7 @@
                                                                                 </li>
                                                                             </c:if>
                                                                         </c:forEach>
-                                                                       
+
                                                                     </ul>
                                                                 </div>
                                                             </div>

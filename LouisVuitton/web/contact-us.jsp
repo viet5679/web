@@ -86,9 +86,12 @@
                                 </a>
                                 <!-- Header Cart End -->
                                 <!-- Header Cart Start -->
-                                <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                    <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
-                                    <span class="ec-header-count cart-count-lable">0</span>
+                                <a href="cart"
+                                   class="ec-header-btn">
+                                    <div class="header-icon"><i
+                                            class="fi-rr-shopping-bag"></i></div>
+                                    <span
+                                        class="ec-header-count cart-count-lable">${requestScope.numCartItem}</span>
                                 </a>
                                 <!-- Header Cart End -->
                                 <!-- Header menu Start -->
@@ -180,9 +183,12 @@
                                     </a>
                                     <!-- Header wishlist End -->
                                     <!-- Header Cart Start -->
-                                    <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                        <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
-                                        <span class="ec-header-count cart-count-lable">0</span>
+                                    <a href="cart"
+                                       class="ec-header-btn">
+                                        <div class="header-icon"><i
+                                                class="fi-rr-shopping-bag"></i></div>
+                                        <span
+                                            class="ec-header-count cart-count-lable">${requestScope.numCartItem}</span>
                                     </a>
                                     <!-- Header Cart End -->
                                 </div>
@@ -228,8 +234,8 @@
                             <div class="ec-main-menu">
                                 <ul>
                                     <li><a href="home">Home</a></li>
-                                    <li><a href="shop-left-sidebar-col-3.jsp">Shop</a></li>
-                                    <li><a href="checkout.jsp">Checkout</a></li>                                
+                                    <li><a href="shop">Shop</a></li>
+                                    <li><a href="trackorder">Track Order</a></li>                                
                                     <li><a href="about-us">About Us</a></li>
                                     <li><a href="contact-us">Contact Us</a></li>
                                 </ul>
@@ -249,8 +255,7 @@
                     <div class="ec-menu-content">
                         <ul>
                             <li><a href="home">Home</a></li>
-                            <li><a href="shop-full-width.jsp">Categories</a></li>
-                            <li><a href="product-full-width.jsp">Product</a></li>
+                            <li><a href="shop">Categories</a></li>
                             <li><a href="checkout.jsp">Checkout</a></li>  
                             <li><a href="about-us">About Us</a></li>
                             <li><a href="contact-us">Contact Us</a></li>
@@ -485,7 +490,7 @@
                                                                                       aria-hidden="true"></i><span>Call Us :</span><a href="tel:+440123456789">0967870138</a></li>
                                     <li class="ec-contact-item align-items-center"><i class="ecicon eci-envelope"
                                                                                       aria-hidden="true"></i><span>Email :</span><a
-                                            href="mailto:example@ec-email.com">louisvuitton@gmail.com</a></li>
+                                            href="mailto:example@ec-email.com">louisvuittonstore102@gmail.com</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -518,7 +523,7 @@
                                             <li class="ec-footer-link">Hoa Lac Hi-tech Park, km 29, Đại lộ Thăng Long, Hà Nội, Vietnam</li>
                                             <li class="ec-footer-link"><span>Call Us:</span><a href="tel:+440123456789">0967870138</a></li>
                                             <li class="ec-footer-link"><span>Email:</span><a
-                                                    href="mailto:example@ec-email.com">vietpthe180666@fpt.edu.vn</a></li>
+                                                    href="mailto:example@ec-email.com">louisvuittonstore102@gmail.com</a></li>
                                         </ul>
                                     </div>
                                 </div>

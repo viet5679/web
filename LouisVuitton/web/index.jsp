@@ -108,17 +108,10 @@
                                 <!-- Header Cart End -->
 
                                 <!-- Header Cart Start -->
-                                <a href="#ec-side-cart"
+                                <a href="cart.jsp"
                                    class="ec-header-btn ec-side-toggle">
-                                    <div class="header-icon"><i
-                                            class="fi-rr-shopping-bag"></i></div>
-                                    <span
-                                        class="ec-header-count cart-count-lable">0</span>
-                                </a>
-                                <!-- Header Cart End -->
-                                <a href="javascript:void(0)"
-                                   class="ec-header-btn ec-sidebar-toggle">
-                                    <i class="fi fi-rr-apps"></i>
+                                    <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
+                                    <span class="ec-header-count cart-count-lable">0</span>
                                 </a>
                                 <!-- Header menu Start -->
                                 <a href="#ec-mobile-menu"
@@ -185,21 +178,21 @@
 
                                         <ul class="dropdown-menu dropdown-menu-right">
                                             <% if (user == null) { %>
-                                                <!-- chưa đăng nhập -->
-                                                <li><a class="dropdown-item" href="register">Register</a></li>
-                                                <li><a class="dropdown-item" href="login">Login</a></li>
-                                            <% } else { %>
-                                                <!-- đã đăng nhập -->
-                                                <% if (user.getRole() == 1) { %>
-                                                <!-- User -->
-                                                <li><a class="dropdown-item" href="profile">Edit Profile</a></li>
-                                                <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                            
+                                            <!-- chưa đăng nhập -->
+                                            <li><a class="dropdown-item" href="register">Register</a></li>
+                                            <li><a class="dropdown-item" href="login">Login</a></li>
+                                                <% } else { %>
+                                            <!-- đã đăng nhập -->
+                                            <% if (user.getRole() == 1) { %>
+                                            <!-- User -->
+                                            <li><a class="dropdown-item" href="profile">Edit Profile</a></li>
+                                            <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
+
                                             <% } else if (user.getRole() == 0) { %>
-                                                <!-- Admin -->
-                                                <li><a class="dropdown-item" href="admin-dashboard.jsp">ADMIN</a></li>
+                                            <!-- Admin -->
+                                            <li><a class="dropdown-item" href="admin-dashboard.jsp">ADMIN</a></li>
                                                 <% } %>
-                                                <li><a class="dropdown-item" href="index.jsp?logout=true">Log out</a></li>
+                                            <li><a class="dropdown-item" href="index.jsp?logout=true">Log out</a></li>
                                                 <% } %>
                                                 <%
                                                     if (request.getParameter("logout") != null) {
@@ -220,12 +213,13 @@
                                     </a>
                                     <!-- Header wishlist End -->
                                     <!-- Header Cart Start -->
-                                    <a href="#ec-side-cart"
-                                       class="ec-header-btn ec-side-toggle">
+                                    
+                                    <a href="cart"
+                                       class="ec-header-btn">
                                         <div class="header-icon"><i
                                                 class="fi-rr-shopping-bag"></i></div>
                                         <span
-                                            class="ec-header-count cart-count-lable">0</span>
+                                            class="ec-header-count cart-count-lable">${requestScope.numCartItem}</span>
                                     </a>
                                     <!-- Header Cart End -->
                                 </div>
@@ -348,134 +342,6 @@
             <!-- ekka mobile Menu End -->
         </header>
         <!-- Header End  -->
-
-        <!-- ekka Cart Start -->
-        <div class="ec-side-cart-overlay"></div>
-        <div id="ec-side-cart" class="ec-side-cart">
-            <div class="ec-cart-inner">
-                <div class="ec-cart-top">
-                    <div class="ec-cart-title">
-                        <span class="cart_title">My Cart</span>
-                        <button class="ec-close"
-                                onclick="closeCart()">&times;</button>
-                    </div>
-                    <ul class="eccart-pro-items" id="cart-items">
-                        <!-- Items will be dynamically added here -->
-                    </ul>
-                </div>
-                <div class="ec-cart-bottom">
-                    <div class="cart-sub-total">
-                        <table class="table cart-table">
-                            <tbody>
-                                <tr>
-                                    <td class="text-left">Sub-Total :</td>
-                                    <td class="text-right"
-                                        id="sub-total">$0.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-left">VAT (20%) :</td>
-                                    <td class="text-right" id="vat">$0.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-left">Total :</td>
-                                    <td class="text-right primary-color"
-                                        id="total">$0.00</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="cart_btn">
-                        <a href="cart.jsp" class="btn btn-primary">View Cart</a>
-                        <a href="checkout.jsp"
-                           class="btn btn-secondary">Checkout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <script>
-            const cartItems = document.getElementById('cart-items');
-            const subTotalEl = document.getElementById('sub-total');
-            const vatEl = document.getElementById('vat');
-            const totalEl = document.getElementById('total');
-
-            let cart = []; // Array to store cart items
-
-            function addToCart(productName, price) {
-                // Check if the product already exists in the cart
-                const existingItem = cart.find(item => item.productName === productName);
-
-                if (existingItem) {
-                    // If product exists, increase quantity
-                    existingItem.quantity += 1;
-                } else {
-                    // Add new product
-                    cart.push({productName, price, quantity: 1});
-                }
-
-                // Update the UI and totals
-                updateCartUI();
-                updateTotals();
-            }
-
-            function removeFromCart(productName) {
-                // Remove product from cart
-                cart = cart.filter(item => item.productName !== productName);
-
-                // Update the UI and totals
-                updateCartUI();
-                updateTotals();
-            }
-
-            function updateQuantity(productName, newQuantity) {
-                const item = cart.find(item => item.productName === productName);
-                if (item) {
-                    item.quantity = newQuantity > 0 ? parseInt(newQuantity) : 1; // Ensure quantity is at least 1
-                }
-
-                updateCartUI();
-                updateTotals();
-            }
-
-            function updateCartUI() {
-                cartItems.innerHTML = ""; // Clear existing items
-
-                cart.forEach(item => {
-                    const listItem = document.createElement('li');
-                    listItem.innerHTML = `
-                        <div>
-            <span>${item.productName}</span> - 
-            <span>${'$'}${item.price}</span> x
-            <input type="number" value="${item.quantity}" min="1" style="width: 50px;" 
-                onchange="updateQuantity('${item.productName}', this.value)">
-            = <span>${'$'}${item.price * item.quantity}</span>
-        </div>
-        <button onclick="removeFromCart('${item.productName}')">Remove</button>
-                    `;
-                    cartItems.appendChild(listItem);
-                });
-            }
-
-            function updateTotals() {
-                const subTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-                const vat = subTotal * 0.2; // 20% VAT
-                const total = subTotal + vat;
-
-                // Update the DOM
-                subTotalEl.textContent = `$${subTotal.toFixed(2)}`;
-                vatEl.textContent = `$${vat.toFixed(2)}`;
-                totalEl.textContent = `$${total.toFixed(2)}`;
-            }
-
-            function closeCart() {
-                document.getElementById('ec-side-cart').classList.remove('open'); // Hide cart
-            }
-
-            // Example usage: Uncomment these lines to test adding products
-            // addToCart('Denim Jacket', 3300.00);
-            // addToCart('Winter Jacket', 2000.00);
-        </script>
-        <!-- ekka Cart End -->
 
         <!-- Category Sidebar start -->
         <div class="ec-side-cat-overlay"></div>
@@ -658,8 +524,9 @@
                                                                data-bs-target="#ec_quickview_modal"><i
                                                                     class="fi-rr-eye"></i></a>
                                                             <div class="ec-pro-actions">
-                                                                <button title="Add To Cart" class="add-to-cart">
-                                                                    <i class="fi-rr-shopping-basket"></i>Add To Cart</button>
+                                                                <button title="Add To Cart" class="add-to-cart" onclick="addToCart(${product.id}, 1)">
+                                                                    <i class="fi-rr-shopping-basket"></i> Add To Cart
+                                                                </button>
                                                                 <a class="ec-btn-group wishlist" title="Wishlist"><i class="fi-rr-heart"></i></a>
                                                             </div>
                                                         </div>
@@ -686,10 +553,9 @@
                                                             <span
                                                                 class="new-price">$${product.totalPay}</span>
                                                         </span>
-                                                        <div class="ec-pro-option">
+<!--                                                        <div class="ec-pro-option">
 
-                                                            <div
-                                                                class="ec-pro-size">
+                                                            <div class="ec-pro-size">
                                                                 <span
                                                                     class="ec-pro-opt-label">Size</span>
                                                                 <ul
@@ -718,367 +584,37 @@
                                                                            data-tooltip="Extra Large">XL</a></li>
                                                                 </ul>
                                                             </div>
-                                                        </div>
+                                                        </div>-->
                                                     </div>
                                                 </div>
                                             </div>
                                         </c:forEach>
                                         <div class="col-sm-12 shop-all-btn"><a
-                                                href="shop-left-sidebar-col-3.jsp">Shop
+                                                href="shop">Shop
                                                 All
                                                 Collection</a></div>
                                     </div>
                                 </div>
                             </c:forEach>
                             <!-- ec 1st Product tab end -->
-                            <!--                            
-                                                         ec 2nd Product tab start 
-                                                        <div class="tab-pane fade" id="tab-pro-for-men">
-                                                            <div class="row">
-                                                                 Product Content 
-                                                                <div class="row">
-                                                                     Product Content 
-                            <c:forEach var="product" items="${requestScope.listProduct}">
-                                <div
-                                    class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6  ec-product-content"
-                                    data-animation="fadeIn">
-                                    <div class="ec-product-inner">
-                                        <div
-                                            class="ec-pro-image-outer">
-                                            <div
-                                                class="ec-pro-image">
-                                                <a
-                                                    href="product-left-sidebar.jsp"
-                                                    class="image">
-                                                    <img
-                                                        class="main-image"
-                                                        src="${product.avatar}"
-                                                        alt="Product" />
-                                                    <img
-                                                        class="hover-image"
-                                                        src="${product.hoverAvatar}"
-                                                        alt="Product" />
-                                                </a>
-                                                <span
-                                                    class="percentage">${product.tag}</span>
-                                                <a href="#"
-                                                   class="quickview"
-                                                   data-link-action="quickview"
-                                                   title="Quick view"
-                                                   data-bs-toggle="modal"
-                                                   data-bs-target="#ec_quickview_modal"><i
-                                                        class="fi-rr-eye"></i></a>
-                                                <div class="ec-pro-actions">
-                                                    <button title="Add To Cart" class="add-to-cart"><i class="fi-rr-shopping-basket"></i> Add To Cart</button>
-                                                    <a class="ec-btn-group wishlist" title="Wishlist"><i class="fi-rr-heart"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="ec-pro-content">
-                                            <h5
-                                                class="ec-pro-title"><a
-                                                    href="product-left-sidebar.jsp">${product.name}</a></h5>
-                                            <div
-                                                class="ec-pro-rating">
-                                <c:forEach var="i" begin="1" end="5">
-                                    <c:choose>
-                                        <c:when test="${i <= product.total_stars}">
-                                            <i class="ecicon eci-star fill"></i>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <i class="ecicon eci-star"></i>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </c:forEach>
-                            </div>
-                            <span class="ec-price">
-                                <span
-                                    class="old-price">$${product.price}</span>
-                                <span
-                                    class="new-price">$${product.total_pay}</span>
-                            </span>
-                            <div
-                                class="ec-pro-option">
-
-                                <div
-                                    class="ec-pro-size">
-                                    <span
-                                        class="ec-pro-opt-label">Size</span>
-                                    <ul
-                                        class="ec-opt-size">
-                                        <li
-                                            class="active"><a
-                                                href="#"
-                                                class="ec-opt-sz"
-                                                data-old="$3500.00"
-                                                data-new="$3200.00"
-                                                data-tooltip="Small">S</a></li>
-                                        <li><a
-                                                href="#"
-                                                class="ec-opt-sz"
-                                                data-old="$3500.00"
-                                                data-new="$3250.00"
-                                                data-tooltip="Medium">M</a></li>
-                                        <li><a
-                                                href="#"
-                                                class="ec-opt-sz"
-                                                data-old="$3500.00"
-                                                data-new="$3300.00"
-                                                data-tooltip="Large">X</a></li>
-                                        <li><a
-                                                href="#"
-                                                class="ec-opt-sz"
-                                                data-old="$3500.00"
-                                                data-new="$3300.00"
-                                                data-tooltip="Extra Large">XL</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                            </c:forEach>
-                            <div class="col-sm-12 shop-all-btn"><a
-                                    href="shop-left-sidebar-col-3.jsp">Shop
-                                    All
-                                    Collection</a></div>
-                        </div>
-                        <div class="col-sm-12 shop-all-btn"><a
-                                href="shop-left-sidebar-col-3.jsp">Shop
-                                All Collection</a></div>
-                    </div>
-                </div>
-                 ec 2nd Product tab end 
-                 ec 3rd Product tab start 
-                <div class="tab-pane fade" id="tab-pro-for-women">
-                    <div class="row">
-                         Product Content 
-                            <c:forEach var="product" items="${requestScope.listProduct}">
-                                <div
-                                    class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6  ec-product-content"
-                                    data-animation="fadeIn">
-                                    <div class="ec-product-inner">
-                                        <div
-                                            class="ec-pro-image-outer">
-                                            <div
-                                                class="ec-pro-image">
-                                                <a
-                                                    href="product-left-sidebar.jsp"
-                                                    class="image">
-                                                    <img
-                                                        class="main-image"
-                                                        src="${product.avatar}"
-                                                        alt="Product" />
-                                                    <img
-                                                        class="hover-image"
-                                                        src="${product.hoverAvatar}"
-                                                        alt="Product" />
-                                                </a>
-                                                <span
-                                                    class="percentage">${product.tag}</span>
-                                                <a href="#"
-                                                   class="quickview"
-                                                   data-link-action="quickview"
-                                                   title="Quick view"
-                                                   data-bs-toggle="modal"
-                                                   data-bs-target="#ec_quickview_modal"><i
-                                                        class="fi-rr-eye"></i></a>
-                                                <div
-                                                    class="ec-pro-actions">
-                                                    <button title="Add To Cart" class="add-to-cart"><i class="fi-rr-shopping-basket"></i>Add To Cart</button>
-                                                    <a class="ec-btn-group wishlist" title="Wishlist"><i class="fi-rr-heart"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="ec-pro-content">
-                                            <h5
-                                                class="ec-pro-title"><a
-                                                    href="product-left-sidebar.jsp">${product.name}</a></h5>
-                                            <div
-                                                class="ec-pro-rating">
-                                <c:forEach var="i" begin="1" end="5">
-                                    <c:choose>
-                                        <c:when test="${i <= product.total_stars}">
-                                            <i class="ecicon eci-star fill"></i>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <i class="ecicon eci-star"></i>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </c:forEach>
-                            </div>
-                            <span class="ec-price">
-                                <span
-                                    class="old-price">$${product.price}</span>
-                                <span
-                                    class="new-price">$${product.total_pay}</span>
-                            </span>
-                            <div
-                                class="ec-pro-option">
-                                <div
-                                    class="ec-pro-size">
-                                    <span
-                                        class="ec-pro-opt-label">Size</span>
-                                    <ul
-                                        class="ec-opt-size">
-                                        <li
-                                            class="active"><a
-                                                href="#"
-                                                class="ec-opt-sz"
-                                                data-old="$3500.00"
-                                                data-new="$3200.00"
-                                                data-tooltip="Small">S</a></li>
-                                        <li><a
-                                                href="#"
-                                                class="ec-opt-sz"
-                                                data-old="$3500.00"
-                                                data-new="$3250.00"
-                                                data-tooltip="Medium">M</a></li>
-                                        <li><a
-                                                href="#"
-                                                class="ec-opt-sz"
-                                                data-old="$3500.00"
-                                                data-new="$3300.00"
-                                                data-tooltip="Large">X</a></li>
-                                        <li><a
-                                                href="#"
-                                                class="ec-opt-sz"
-                                                data-old="$3500.00"
-                                                data-new="$3300.00"
-                                                data-tooltip="Extra Large">XL</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                            </c:forEach>
-                            <div class="col-sm-12 shop-all-btn"><a href="shop-left-sidebar-col-3.jsp">Shop All Collection</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                 ec 3rd Product tab end 
-                 ec 4th Product tab start 
-                <div class="tab-pane fade"
-                     id="tab-pro-for-children">
-                    <div class="row">
-                         Product Content 
-                            <c:forEach var="product" items="${requestScope.listProduct}">
-                                <div
-                                    class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6  ec-product-content"
-                                    data-animation="fadeIn">
-                                    <div class="ec-product-inner">
-                                        <div
-                                            class="ec-pro-image-outer">
-                                            <div
-                                                class="ec-pro-image">
-                                                <a
-                                                    href="product-left-sidebar.jsp"
-                                                    class="image">
-                                                    <img
-                                                        class="main-image"
-                                                        src="${product.avatar}"
-                                                        alt="Product" />
-                                                    <img
-                                                        class="hover-image"
-                                                        src="${product.hoverAvatar}"
-                                                        alt="Product" />
-                                                </a>
-                                                <span
-                                                    class="percentage">${product.tag}</span>
-                                                <a href="#"
-                                                   class="quickview"
-                                                   data-link-action="quickview"
-                                                   title="Quick view"
-                                                   data-bs-toggle="modal"
-                                                   data-bs-target="#ec_quickview_modal"><i
-                                                        class="fi-rr-eye"></i></a>
-                                                <div
-                                                    class="ec-pro-actions">
-                                                    <button
-                                                        title="Add To Cart"
-                                                        class="add-to-cart"><i
-                                                            class="fi-rr-shopping-basket"></i>
-                                                        Add To
-                                                        Cart</button>
-                                                    <a
-                                                        class="ec-btn-group wishlist"
-                                                        title="Wishlist"><i
-                                                            class="fi-rr-heart"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="ec-pro-content">
-                                            <h5
-                                                class="ec-pro-title"><a
-                                                    href="product-left-sidebar.jsp">${product.name}</a></h5>
-                                            <div
-                                                class="ec-pro-rating">
-                                <c:forEach var="i" begin="1" end="5">
-                                    <c:choose>
-                                        <c:when test="${i <= product.total_stars}">
-                                            <i class="ecicon eci-star fill"></i>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <i class="ecicon eci-star"></i>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </c:forEach>
-                            </div>
-                            <span class="ec-price">
-                                <span
-                                    class="old-price">$${product.price}</span>
-                                <span
-                                    class="new-price">$${product.total_pay}</span>
-                            </span>
-                            <div class="ec-pro-option">
-                                <div class="ec-pro-size">
-                                    <span class="ec-pro-opt-label">Size</span>
-                                    <ul class="ec-opt-size">
-                                        <li class="active"><a
-                                                href="#"
-                                                class="ec-opt-sz"
-                                                data-old="$3500.00"
-                                                data-new="$3200.00"
-                                                data-tooltip="Small">S</a></li>
-                                        <li><a
-                                                href="#"
-                                                class="ec-opt-sz"
-                                                data-old="$3500.00"
-                                                data-new="$3250.00"
-                                                data-tooltip="Medium">M</a></li>
-                                        <li><a
-                                                href="#"
-                                                class="ec-opt-sz"
-                                                data-old="$3500.00"
-                                                data-new="$3300.00"
-                                                data-tooltip="Large">X</a></li>
-                                        <li><a
-                                                href="#"
-                                                class="ec-opt-sz"
-                                                data-old="$3500.00"
-                                                data-new="$3300.00"
-                                                data-tooltip="Extra Large">XL</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                            </c:forEach>
-                            <div class="col-sm-12 shop-all-btn"><a href="shop-left-sidebar-col-3.jsp">Shop All Collection</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                 ec 4th Product tab end -->
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- ec Product tab Area End -->
+        <script>
+            function addToCart(productId, quantity) {
+                $.ajax({
+                    type: "POST",
+                    url: "cart",
+                    data: {
+                        productId: productId,
+                        quantity: quantity
+                    }
+                });
+            }
+        </script>
 
         <!-- ec Banner Section Start -->
         <section class="ec-banner section section-space-p">
@@ -1305,7 +841,7 @@
                                         <span
                                             class="new-price">$${newArrivals.totalPay}</span>
                                     </span>
-                                    <div class="ec-pro-option">
+<!--                                    <div class="ec-pro-option">
                                         <div class="ec-pro-color">
 
                                         </div>
@@ -1335,13 +871,13 @@
                                                        data-tooltip="Extra Large">XL</a></li>
                                             </ul>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </div>
                     </c:forEach>
                     <div class="col-sm-12 shop-all-btn"><a
-                            href="shop-left-sidebar-col-3.jsp">Shop All
+                            href="shop">Shop All
                             Collection</a>
                     </div>
                 </div>
@@ -1853,13 +1389,13 @@
                                 class="fi-rr-menu-burger"></i></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="#ec-side-cart"
+                        <a href="cart"
                            class="toggle-cart ec-header-btn ec-side-toggle"><i
                                 class="fi-rr-shopping-bag"></i><span
                                 class="ec-cart-noti ec-header-count cart-count-lable">0</span></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="index.jsp" class="ec-header-btn"><i
+                        <a href="home" class="ec-header-btn"><i
                                 class="fi-rr-home"></i></a>
                     </div>
                     <div class="ec-nav-panel-icons">
@@ -1868,7 +1404,7 @@
                                 class="ec-cart-noti ec-header-count  wishlist-count-label">0</span></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="login.jsp" class="ec-header-btn"><i
+                        <a href="login" class="ec-header-btn"><i
                                 class="fi-rr-user"></i></a>
                     </div>
 
@@ -1911,142 +1447,282 @@
 
         <!-- Cart Floating Button end -->
 
-        <!-- Whatsapp -->
+        <!-- Chatbot -->
         <div class="ec-style ec-right-bottom">
             <!-- Start Floating Panel Container -->
             <div class="ec-panel">
                 <!-- Panel Header -->
                 <div class="ec-header">
-                    <strong>Need Help?</strong>
-                    <p>Chat with us on WhatsApp</p>
+                    <strong>Chatbot AI</strong>
+                    <p>Chat with our AI assistant</p>
                 </div>
                 <!-- Panel Content -->
                 <div class="ec-body">
-                    <ul>
-                        <!-- Start Single Contact List -->
-                        <li>
-                            <a class="ec-list" data-number="918866774266"
-                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
-                                <div class="d-flex bd-highlight">
-                                    <!-- Profile Picture -->
-                                    <div class="ec-img-cont">
-                                        <img
-                                            src="assets/images/whatsapp/profile_01.jpg"
-                                            class="ec-user-img"
-                                            alt="Profile image">
-                                        <span class="ec-status-icon"></span>
-                                    </div>
-                                    <!-- Display Name & Last Seen -->
-                                    <div class="ec-user-info">
-                                        <span>Sahar Darya</span>
-                                        <p>Sahar left 7 mins ago</p>
-                                    </div>
-                                    <!-- Chat iCon -->
-                                    <div class="ec-chat-icon">
-                                        <i class="fa fa-whatsapp"></i>
-                                    </div>
-                                </div>
-                            </a>
+                    <ul id="chatbox">
+                        <li class="bot-message">
+                            <div class="ec-user-info">
+                                <!--<span>AI Assistant</span>-->
+                                <p>Xin chào! Tôi có thể giúp gì cho bạn?</p>
+                            </div>
                         </li>
-                        <!--/ End Single Contact List -->
-                        <!-- Start Single Contact List -->
-                        <li>
-                            <a class="ec-list" data-number="918866774266"
-                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
-                                <div class="d-flex bd-highlight">
-                                    <!-- Profile Picture -->
-                                    <div class="ec-img-cont">
-                                        <img
-                                            src="assets/images/whatsapp/profile_02.jpg"
-                                            class="ec-user-img"
-                                            alt="Profile image">
-                                        <span
-                                            class="ec-status-icon ec-online"></span>
-                                    </div>
-                                    <!-- Display Name & Last Seen -->
-                                    <div class="ec-user-info">
-                                        <span>Yolduz Rafi</span>
-                                        <p>Yolduz is online</p>
-                                    </div>
-                                    <!-- Chat iCon -->
-                                    <div class="ec-chat-icon">
-                                        <i class="fa fa-whatsapp"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <!--/ End Single Contact List -->
-                        <!-- Start Single Contact List -->
-                        <li>
-                            <a class="ec-list" data-number="918866774266"
-                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
-                                <div class="d-flex bd-highlight">
-                                    <!-- Profile Picture -->
-                                    <div class="ec-img-cont">
-                                        <img
-                                            src="assets/images/whatsapp/profile_03.jpg"
-                                            class="ec-user-img"
-                                            alt="Profile image">
-                                        <span
-                                            class="ec-status-icon ec-offline"></span>
-                                    </div>
-                                    <!-- Display Name & Last Seen -->
-                                    <div class="ec-user-info">
-                                        <span>Nargis Hawa</span>
-                                        <p>Nargis left 30 mins ago</p>
-                                    </div>
-                                    <!-- Chat iCon -->
-                                    <div class="ec-chat-icon">
-                                        <i class="fa fa-whatsapp"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <!--/ End Single Contact List -->
-                        <!-- Start Single Contact List -->
-                        <li>
-                            <a class="ec-list" data-number="918866774266"
-                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
-                                <div class="d-flex bd-highlight">
-                                    <!-- Profile Picture -->
-                                    <div class="ec-img-cont">
-                                        <img
-                                            src="assets/images/whatsapp/profile_04.jpg"
-                                            class="ec-user-img"
-                                            alt="Profile image">
-                                        <span
-                                            class="ec-status-icon ec-offline"></span>
-                                    </div>
-                                    <!-- Display Name & Last Seen -->
-                                    <div class="ec-user-info">
-                                        <span>Khadija Mehr</span>
-                                        <p>Khadija left 50 mins ago</p>
-                                    </div>
-                                    <!-- Chat iCon -->
-                                    <div class="ec-chat-icon">
-                                        <i class="fa fa-whatsapp"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <!--/ End Single Contact List -->
                     </ul>
+                </div>
+                <!-- Input Box -->
+                <div class="ec-footer">
+                    <input type="text" id="userInput" placeholder="Nhập tin nhắn..." onkeypress="handleKeyPress(event)" />
+                    <button onclick="sendMessage()">Gửi</button>
                 </div>
             </div>
             <!--/ End Floating Panel Container -->
             <!-- Start Right Floating Button-->
             <div class="ec-right-bottom">
                 <div class="ec-box">
-                    <div class="ec-button rotateBackward">
-                        <img class="whatsapp"
-                             src="assets/images/common/whatsapp.png"
-                             alt="whatsapp icon">
+                    <div class="ec-button rotateBackward" onclick="toggleChat()">
+                        <img class="chat-icon" src="assets/images/common/chatbot.png" alt="chatbot icon">
                     </div>
                 </div>
             </div>
             <!--/ End Right Floating Button-->
         </div>
-        <!-- Whatsapp end -->
+        <!-- Chatbot end -->
+
+        <script>
+
+            function scrollToBottom() {
+                let chatbox = document.getElementById("chatbox");
+                chatbox.scrollTop = chatbox.scrollHeight;
+            }
+
+            function sendMessage() {
+                let userInput = document.getElementById("userInput").value.trim();
+                if (userInput === "")
+                    return;
+
+                let chatbox = document.getElementById("chatbox");
+
+                // 📤 Hiển thị tin nhắn của người dùng
+                let userMessage = document.createElement("li");
+                userMessage.classList.add("user-message");
+
+                let userInfo = document.createElement("div");
+                userInfo.classList.add("ec-user-info");
+
+                let userText = document.createElement("p");
+                userText.innerText = userInput;
+
+                userInfo.appendChild(userText);
+                userMessage.appendChild(userInfo);
+                chatbox.appendChild(userMessage);
+
+                // Cuộn xuống tin nhắn mới nhất
+                scrollToBottom();
+
+                console.log("📤 Gửi câu hỏi:", userInput);
+
+                // 📡 Gửi request đến Servlet
+                fetch("/louisvuitton/chatbot", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({text: userInput}),
+                })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log("📥 Dữ liệu nhận được:", data);
+
+                            let botReply = "Xin lỗi, tôi không thể trả lời ngay lúc này.";
+                            if (data.response) {
+                                botReply = data.response.trim();
+                            } else if (data.candidates && data.candidates.length > 0) {
+                                let content = data.candidates[0].content;
+                                if (content.parts && content.parts.length > 0) {
+                                    botReply = content.parts[0].text.trim();
+                                }
+                            }
+
+                            // Hiển thị tin nhắn của bot
+                            let botMessage = document.createElement("li");
+                            botMessage.classList.add("bot-message");
+
+                            let botInfo = document.createElement("div");
+                            botInfo.classList.add("ec-user-info");
+
+                            let botText = document.createElement("p");
+                            botText.innerText = botReply;
+
+                            botInfo.appendChild(botText);
+                            botMessage.appendChild(botInfo);
+                            chatbox.appendChild(botMessage);
+
+                            // Cuộn xuống tin nhắn mới nhất
+                            scrollToBottom();
+
+                            console.log("🤖 Câu trả lời của bot:", botReply);
+                        })
+                        .catch(error => {
+                            console.error("❌ Lỗi:", error);
+                            let errorMessage = document.createElement("li");
+                            errorMessage.classList.add("bot-message");
+
+                            let errorInfo = document.createElement("div");
+                            errorInfo.classList.add("ec-user-info");
+
+                            let errorText = document.createElement("p");
+                            errorText.innerText = "Lỗi: Không thể kết nối đến server.";
+
+                            errorInfo.appendChild(errorText);
+                            errorMessage.appendChild(errorInfo);
+                            chatbox.appendChild(errorMessage);
+
+                            // Cuộn xuống tin nhắn mới nhất
+                            scrollToBottom();
+                        });
+
+                // Xóa input sau khi gửi
+                document.getElementById("userInput").value = "";
+            }
+
+            function handleKeyPress(event) {
+                if (event.key === "Enter") {
+                    sendMessage();
+                }
+            }
+
+            function toggleChat() {
+                let chatPanel = document.querySelector(".ec-panel");
+                chatPanel.style.display = (chatPanel.style.display === "none" || chatPanel.style.display === "") ? "block" : "none";
+            }
+
+        </script>
+
+        <style>
+            /* Tổng quan panel */
+            .ec-panel {
+                max-height: 500px; /* Giữ chiều cao tối đa của panel */
+                overflow-y: auto; /* Cho phép cuộn toàn bộ panel nếu cần */
+                border-radius: 12px;
+                background: #f8f9fa;
+                padding: 15px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+                position: relative; /* Đảm bảo các phần tử con định vị chính xác */
+            }
+
+            /* Tiêu đề cố định */
+            .ec-header {
+                /*position: sticky;  Hoặc fixed nếu cần cố định hoàn toàn */
+                top: 0;
+                background: #f8f9fa; /* Giữ màu nền giống panel */
+                z-index: 10; /* Đảm bảo tiêu đề luôn ở trên cùng */
+                padding: 15px;
+                border-bottom: 1px solid #e9ecef; /* Thêm đường kẻ để phân biệt */
+            }
+
+            /* Danh sách tin nhắn */
+            #chatbox {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                /* Xóa max-height khỏi #chatbox, để ec-body xử lý cuộn */
+                display: flex;
+                flex-direction: column; /* Tin nhắn hiển thị từ trên xuống dưới, tin mới ở dưới */
+                gap: 10px; /* Khoảng cách giữa các tin nhắn */
+            }
+
+            /* Khu vực nội dung tin nhắn (ec-body) */
+            .ec-body {
+                max-height: 500px; /* Tăng chiều cao để hiển thị nhiều tin nhắn hơn, tùy chỉnh theo nhu cầu */
+                overflow-y: auto; /* Cho phép cuộn khi vượt quá chiều cao */
+                padding: 10px 0; /* Thêm padding để tin nhắn không sát mép */
+                display: flex;
+                flex-direction: column; /* Đảm bảo tin nhắn mới ở dưới cùng */
+            }
+
+            /* Tin nhắn chung */
+            .user-message, .bot-message {
+                padding: 10px 14px;
+                margin: 5px 0;
+                border-radius: 20px;
+                max-width: 85%;
+                word-wrap: break-word;
+                font-size: 14px;
+                line-height: 1.4;
+                box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+                display: flex;
+                flex-direction: column;
+                overflow-wrap: break-word;
+                word-break: break-word;
+            }
+
+            /* Tin nhắn của người dùng */
+            .user-message {
+                background: #007bff;
+                color: white;
+                align-self: flex-end;
+                margin-left: auto;
+                text-align: left;
+            }
+
+            /* Tin nhắn của bot */
+            .bot-message {
+                background: #e9ecef;
+                color: black;
+                align-self: flex-start;
+                margin-right: auto;
+                text-align: left;
+            }
+
+            /* Hộp chứa thông tin người gửi */
+            .ec-user-info {
+                font-size: 13px;
+                margin-bottom: 5px;
+                display: flex;
+                align-items: center;
+            }
+
+            /* Nội dung tin nhắn */
+            .ec-user-info p {
+                margin: 0;
+                font-size: 14px;
+                word-break: break-word;
+                white-space: normal;
+            }
+
+            /* Cải thiện phần nhập tin nhắn */
+            #userInput {
+                width: 100%;
+                padding: 10px;
+                border-radius: 8px;
+                border: 1px solid #ced4da;
+                font-size: 14px;
+                outline: none;
+                box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+            }
+
+            #userInput:focus {
+                border-color: #80bdff;
+                box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            }
+
+            /* Nút gửi */
+            button {
+                background: #007bff;
+                color: white;
+                border: none;
+                padding: 8px 14px;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 14px;
+                transition: background-color 0.2s;
+            }
+
+            button:hover {
+                background: #0056b3;
+            }
+
+            /* Điều chỉnh khoảng cách giữa các tin nhắn */
+            #chatbox li {
+                margin-bottom: 10px; /* Thêm khoảng cách dưới mỗi tin nhắn */
+            }
+        </style>
 
         <!-- Vendor JS -->
         <script
