@@ -14038,8 +14038,8 @@ h6 {
   height: 40px;
   background-color: #555;
   color: #ffffff;
-  right: 15px;
-  bottom: 70px;
+  right: 30px;
+  bottom: 100px;
   text-align: center;
   overflow: hidden;
   z-index: 11 !important;
@@ -19802,6 +19802,7 @@ Category list
   font-size: 14px;
   color: #777777;
   padding-right: 22px;
+  margin: 5px 0;
 }
 
 select {
@@ -19819,6 +19820,7 @@ select {
   -ms-flex: 1;
   flex: 1;
   padding: 0 10px;
+  margin: 5px 0;
   color: #777777;
   cursor: pointer;
 }

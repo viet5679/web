@@ -550,17 +550,15 @@
                             <div class="col-md-6 ec-sort-select">
                                 <span class="sort-by">Sort by</span>
                                 <div class="ec-select-inner">
-                                    <select name="ec-select" id="ec-select">
-                                        <option selected
-                                                disabled>Position</option>
-                                        <option value="1">Relevance</option>
-                                        <option value="2">Name, A to Z</option>
-                                        <option value="3">Name, Z to A</option>
-                                        <option value="4">Price, low to
-                                            high</option>
-                                        <option value="5">Price, high to
-                                            low</option>
-                                    </select>
+                                    <form method="get">
+                                        <select name="sort_by" id="ec-select" onchange="this.form.submit()">
+                                            <<option selected disabled>Position</option>
+                                            <option value="1" ${sort_by == '1' ? 'selected' : ''}>Name, A to Z</option>
+                                            <option value="2" ${sort_by == '2' ? 'selected' : ''}>Name, Z to A</option>
+                                            <option value="3" ${sort_by == '3' ? 'selected' : ''}>Price, low to high</option>
+                                            <option value="4" ${sort_by == '4' ? 'selected' : ''}>Price, high to low</option>
+                                        </select>
+                                    </form>
                                 </div>
                             </div>
                         </div>

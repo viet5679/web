@@ -1446,6 +1446,7 @@
         </div>
 
         <!-- Cart Floating Button end -->
+        <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm7vkewxc03kpn8lwqnmkoz6d"></script>
 
         <!-- Chatbot -->
         <div class="ec-style ec-right-bottom">
@@ -1723,7 +1724,6 @@
                 margin-bottom: 10px; /* Thêm khoảng cách dưới mỗi tin nhắn */
             }
         </style>
-
         <!-- Vendor JS -->
         <script
         src="<%= request.getContextPath() %>/assets/js/vendor/jquery-3.5.1.min.js"></script>

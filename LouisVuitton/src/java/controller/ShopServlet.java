@@ -15,8 +15,11 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import model.Cart;
 import model.Categories;
 import model.Genders;
@@ -72,7 +75,7 @@ public class ShopServlet extends HttpServlet {
         String[] cid_raw = request.getParameterValues("cid");
         String[] sid_raw = request.getParameterValues("sid");
         String id_raw = request.getParameter("productId");
-
+        String sort_by = request.getParameter("sort_by");
         String index_page = request.getParameter("index");
 
         List<Integer> selectedGid = new ArrayList<>();
@@ -120,7 +123,6 @@ public class ShopServlet extends HttpServlet {
                 price_high = Double.valueOf(price_high_raw);
             }
             if (id_raw == null) {
-                System.out.println("loi");
             } else {
                 id = Integer.parseInt(id_raw);
             }
@@ -133,17 +135,44 @@ public class ShopServlet extends HttpServlet {
 
             List<Genders> listG = gd.getAllGender();
             List<Categories> litsC = cd.getAllCategory();
-            List<Products> listp = pd.getProductsByFilder(selectedGid, selectedCid, selectedSid, price_low, price_high);
-            List<Products> list = productPage(index, listp);
-            request.setAttribute("list", list);
+            List<Sizes> listS = sd.getAllSize();
             List<ProductSizes> listps = pd.getProductsSizes(id);
-            int count = listp.size();
+
+            List<Products> allProducts = pd.getProductsByFilder(selectedGid, selectedCid, selectedSid, price_low, price_high);
+
+            int count = allProducts.size();
             int endPage = count / 9;
-            if (count % 3 != 0) {
+            if (count % 9 != 0) {
                 endPage++;
             }
 
-            List<Sizes> listS = sd.getAllSize();
+            if (sort_by != null) {
+
+                Collator collator = Collator.getInstance(new Locale("vi", "VN"));
+
+                switch (sort_by) {
+                    case "1":
+                        allProducts.sort(Comparator.comparing(Products::getName, collator));
+                        break;
+                    case "2":
+                        allProducts.sort(Comparator.comparing(Products::getName, collator).reversed());
+                        break;
+                    case "3":
+                        allProducts.sort(Comparator.comparingDouble(Products::getTotalPay));
+                        break;
+                    case "4":
+                        allProducts.sort(Comparator.comparingDouble(Products::getTotalPay).reversed());
+                        break;
+                    default:
+                        allProducts.sort(Comparator.comparing(Products::getName, collator));
+                        break;
+                }
+            }
+
+            List<Products> list = productPage(index, allProducts);
+
+            request.setAttribute("sort_by", sort_by);
+            request.setAttribute("list", list);
             request.setAttribute("endP", endPage);
             request.setAttribute("lists", listS);
             request.setAttribute("litsc", litsC);
@@ -176,7 +205,7 @@ public class ShopServlet extends HttpServlet {
             request.setAttribute("numCartItem", numCartItem);
             request.getRequestDispatcher("shop-left-sidebar-col-3.jsp").forward(request, response);
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
 
     }
