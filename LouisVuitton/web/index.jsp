@@ -204,7 +204,7 @@
                                     </div>
                                     <!-- Header User End -->
                                     <!-- Header wishlist Start -->
-                                    <a href="wishlist.jsp"
+                                    <a href="wishlist"
                                        class="ec-header-btn ec-header-wishlist">
                                         <div class="header-icon"><i
                                                 class="fi-rr-heart"></i></div>
@@ -516,18 +516,12 @@
                                                                     </span>
                                                                 </c:otherwise>
                                                             </c:choose>
-                                                            <a href="#"
-                                                               class="quickview"
-                                                               data-link-action="quickview"
-                                                               title="Quick view"
-                                                               data-bs-toggle="modal"
-                                                               data-bs-target="#ec_quickview_modal"><i
-                                                                    class="fi-rr-eye"></i></a>
                                                             <div class="ec-pro-actions">
                                                                 <button title="Add To Cart" class="add-to-cart" onclick="addToCart(${product.id}, 1)">
                                                                     <i class="fi-rr-shopping-basket"></i> Add To Cart
                                                                 </button>
-                                                                <a class="ec-btn-group wishlist" title="Wishlist"><i class="fi-rr-heart"></i></a>
+                                                                <button title="Wishlist" class="ec-btn-group wishlist"  onclick="addToWishList(${product.id})">
+                                                                    <i class="fi-rr-heart"></i></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -611,6 +605,15 @@
                     data: {
                         productId: productId,
                         quantity: quantity
+                    }
+                });
+            }
+            function addToWishList(productId) {
+                $.ajax({
+                    type: "POST",
+                    url: "cart",
+                    data: {
+                        productId: productId
                     }
                 });
             }

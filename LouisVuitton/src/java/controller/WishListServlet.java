@@ -80,7 +80,7 @@ public class WishListServlet extends HttpServlet {
             numCartItem = items.length;
         }
 
-        request.setAttribute("numCartItem", numCartItem);
+        request.setAttribute("numWishListItem", numCartItem);
         request.getRequestDispatcher("wishlist.jsp").forward(request, response);
     } 
 
@@ -132,10 +132,8 @@ public class WishListServlet extends HttpServlet {
         if (!wishlistData.isEmpty()) {
             String[] items = wishlistData.split("/");
             for (String item : items) {
-                String[] parts = item.split(":");
-                int existingId = Integer.parseInt(parts[0]);
-                int existingQuantity = Integer.parseInt(parts[1]);
-                updatedCart.append(existingId).append(":").append(existingQuantity).append("/");
+                int existingId = Integer.parseInt(item);
+                updatedCart.append(existingId).append("/");
             }
         }
 
@@ -146,12 +144,12 @@ public class WishListServlet extends HttpServlet {
 
         // Cập nhật lại cookie
         if (updatedCart.length() > 0) {
-            Cookie newCookie = new Cookie("cart", updatedCart.toString());
+            Cookie newCookie = new Cookie("wishlist", updatedCart.toString());
             newCookie.setMaxAge(30 * 24 * 60 * 60); // Lưu 30 ngày
             response.addCookie(newCookie);
         }
 
-        response.sendRedirect("cart.jsp");
+        response.sendRedirect("wishlist.jsp");
     }
 
     /** 

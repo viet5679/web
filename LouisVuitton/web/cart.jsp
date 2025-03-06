@@ -353,9 +353,9 @@
                                     data: {
                                         productId: productId
                                     },
-                                    success: function () {
-                                        window.location.reload(); // Tải lại trang sau khi thêm vào giỏ hàng
-                                    }
+//                                    success: function () {
+//                                        window.location.reload(); // Tải lại trang sau khi thêm vào giỏ hàng
+//                                    }
                                 });
                             }
 

@@ -408,7 +408,7 @@
                         <div class="col-md-6 col-sm-12">
                             <!-- ec-breadcrumb-list start -->
                             <ul class="ec-breadcrumb-list">
-                                <li class="ec-breadcrumb-item"><a href="index.jsp">Home</a></li>
+                                <li class="ec-breadcrumb-item"><a href="home">Home</a></li>
                                 <li class="ec-breadcrumb-item active">Wishlist (<span class="wishlist-count">0</span>)</li>
                             </ul>
                             <!-- ec-breadcrumb-list end -->
