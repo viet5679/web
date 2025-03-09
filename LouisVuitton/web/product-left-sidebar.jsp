@@ -49,421 +49,8 @@
         </div>
 
         <!-- Header start  -->
-        <header class="ec-header">
-            <!--Ec Header Top Start -->
-            <div class="header-top">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <!-- Header Top social Start -->
-                        <div class="col text-left header-top-left d-none d-lg-block">
-                            <div class="header-top-social">
-                                <span class="social-text text-upper">Follow us on:</span>
-
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-                <!-- Header Top Language Currency -->
-                <!-- Header Top responsive Action -->
-                <div class="col d-lg-none ">
-                    <div class="ec-header-bottons">
-                        <!-- Header User Start -->
-                        <div class="ec-header-user dropdown">
-                            <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
-                                    class="fi-rr-user"></i></button>
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                <li><a class="dropdown-item" href="register.jsp">Register</a></li>
-                                <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                <li><a class="dropdown-item" href="login.jsp">Login</a></li>
-                            </ul>
-                        </div>
-                        <!-- Header User End -->
-                        <!-- Header Cart Start -->
-                        <a href="wishlist.jsp" class="ec-header-btn ec-header-wishlist">
-                            <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                            <span class="ec-header-count wishlist-count-label">0</span>
-                        </a>
-                        <!-- Header Cart End -->
-
-                        <!-- Header Cart Start -->
-                        <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                            <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
-                            <span class="ec-header-count cart-count-lable">0</span>
-                        </a>
-                        <!-- Header Cart End -->
-                        <a href="javascript:void(0)" class="ec-header-btn ec-sidebar-toggle">
-                            <i class="fi fi-rr-apps"></i>
-                        </a>
-                        <!-- Header menu Start -->
-                        <a href="#ec-mobile-menu" class="ec-header-btn ec-side-toggle d-lg-none">
-                            <i class="fi fi-rr-menu-burger"></i>
-                        </a>
-                        <!-- Header menu End -->
-                    </div>
-                </div>
-                <!-- Header Top responsive Action -->
-            </div>
-        </div>
-    </div>
-    <!-- Ec Header Top  End -->
-    <!-- Ec Header Bottom  Start -->
-    <div class="ec-header-bottom d-none d-lg-block">
-        <div class="container position-relative">
-            <div class="row">
-                <div class="ec-flex">
-                    <!-- Ec Header Logo Start -->
-                    <div class="align-self-center">
-                        <div class="header-logo">
-                            <a href="index.jsp"><img src="assets/images/logo/logo4.png" alt="Site Logo" /><img
-                                    class="dark-logo" src="assets/images/logo/logo4.png" alt="Site Logo"
-                                    style="display: none;" /></a>
-                        </div>
-                    </div>
-                    <!-- Ec Header Logo End -->
-
-                    <!-- Ec Header Search Start -->
-                    <div class="align-self-center">
-                        <div class="header-search">
-                            <form class="ec-btn-group-form" action="#">
-                                <input class="form-control ec-search-bar" placeholder="Search products..."
-                                       type="text">
-                                <button class="submit" type="submit"><i class="fi-rr-search"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- Ec Header Search End -->
-
-                    <!-- Ec Header Button Start -->
-                    <div class="align-self-center">
-                        <div class="ec-header-bottons">
-
-                            <!-- Header User Start -->
-                            <div class="ec-header-user dropdown">
-                                <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
-                                        class="fi-rr-user"></i></button>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a class="dropdown-item" href="register.jsp">Register</a></li>
-                                    <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                    <li><a class="dropdown-item" href="login.jsp">Login</a></li>
-                                </ul>
-                            </div>
-                            <!-- Header User End -->
-                            <!-- Header wishlist Start -->
-                            <a href="wishlist.jsp" class="ec-header-btn ec-header-wishlist">
-                                <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                                <span class="ec-header-count wishlist-count-label">0</span>
-                            </a>
-                            <!-- Header wishlist End -->
-                            <!-- Header Cart Start -->
-                            <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
-                                <span class="ec-header-count cart-count-lable">0</span>
-                            </a>
-                            <!-- Header Cart End -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Ec Header Button End -->
-    <!-- Header responsive Bottom  Start -->
-    <div class="ec-header-bottom d-lg-none">
-        <div class="container position-relative">
-            <div class="row ">
-
-                <!-- Ec Header Logo Start -->
-                <div class="col">
-                    <div class="header-logo">
-                        <a href="index.jsp"><img src="assets/images/logo/logo4.png" alt="Site Logo" /><img
-                                class="dark-logo" src="assets/images/logo/logo4.png" alt="Site Logo"
-                                style="display: none;" /></a>
-                    </div>
-                </div>
-                <!-- Ec Header Logo End -->
-                <!-- Ec Header Search Start -->
-                <div class="col">
-                    <div class="header-search">
-                        <form class="ec-btn-group-form" action="#">
-                            <input class="form-control ec-search-bar" placeholder="Search products..." type="text">
-                            <button class="submit" type="submit"><i class="fi-rr-search"></i></button>
-                        </form>
-                    </div>
-                </div>
-                <!-- Ec Header Search End -->
-            </div>
-        </div>
-    </div>
-    <!-- Header responsive Bottom  End -->
-    <!-- EC Main Menu Start -->
-    <div id="ec-main-menu-desk" class="d-none d-lg-block sticky-nav">
-        <div class="container position-relative">
-            <div class="row">
-                <div class="col-md-12 align-self-center">
-                    <div class="ec-main-menu">
-                        <ul>
-                            <li><a href="index.jsp">Home</a></li>
-                            <li><a href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-                            
-                            <li class="dropdown"><a href="javascript:void(0)">Pages</a>
-                                <ul class="sub-menu">
-
-                                    <li><a href="cart.jsp">Cart</a></li>
-                                    <li><a href="checkout.jsp">Checkout</a></li>
-                                    <li><a href="faq.jsp">FAQ</a></li>
-                                    <li><a href="track-order.jsp">Track Order</a></li>
-                                    <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                    <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
-                                </ul>
-                            </li>
-
-                            <li><a href="about-us.jsp">About Us</a></li>
-                            <li><a href="contact-us.jsp">Contact Us</a></li>
-
-
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Ec Main Menu End -->
-    <!-- ekka Mobile Menu Start -->
-    <div id="ec-mobile-menu" class="ec-side-cart ec-mobile-menu">
-        <div class="ec-menu-title">
-            <span class="menu_title">My Menu</span>
-            <button class="ec-close">x</button>
-        </div>
-        <div class="ec-menu-inner">
-            <div class="ec-menu-content">
-                <ul>
-                    <li><a href="index.jsp">Home</a></li>
-                    <li><a href="javascript:void(0)">Categories</a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a href="javascript:void(0)">Classic Variation</a>
-                                <ul class="sub-menu">
-                                    <li><a href="shop-left-sidebar-col-3.jsp">Left sidebar 3 column</a></li>
-                                    <li><a href="shop-left-sidebar-col-4.jsp">Left sidebar 4 column</a></li>
-                                    <li><a href="shop-right-sidebar-col-3.jsp">Right sidebar 3 column</a></li>
-                                    <li><a href="shop-right-sidebar-col-4.jsp">Right sidebar 4 column</a></li>
-                                    <li><a href="shop-full-width.jsp">Full width 4 column</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)">Classic Variation</a>
-                                <ul class="sub-menu">
-                                    <li><a href="shop-banner-left-sidebar-col-3.jsp">Banner left sidebar 3
-                                            column</a></li>
-                                    <li><a href="shop-banner-left-sidebar-col-4.jsp">Banner left sidebar 4
-                                            column</a></li>
-                                    <li><a href="shop-banner-right-sidebar-col-3.jsp">Banner right sidebar 3
-                                            column</a></li>
-                                    <li><a href="shop-banner-right-sidebar-col-4.jsp">Banner right sidebar 4
-                                            column</a></li>
-                                    <li><a href="shop-banner-full-width.jsp">Banner Full width 4 column</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)">Columns Variation</a>
-                                <ul class="sub-menu">
-                                    <li><a href="shop-full-width-col-3.jsp">3 Columns full width</a></li>
-                                    <li><a href="shop-full-width-col-4.jsp">4 Columns full width</a></li>
-                                    <li><a href="shop-full-width-col-5.jsp">5 Columns full width</a></li>
-                                    <li><a href="shop-full-width-col-6.jsp">6 Columns full width</a></li>
-                                    <li><a href="shop-banner-full-width-col-3.jsp">Banner 3 Columns</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)">List Variation</a>
-                                <ul class="sub-menu">
-                                    <li><a href="shop-list-left-sidebar.jsp">Shop left sidebar</a></li>
-                                    <li><a href="shop-list-right-sidebar.jsp">Shop right sidebar</a></li>
-                                    <li><a href="shop-list-banner-left-sidebar.jsp">Banner left sidebar</a></li>
-                                    <li><a href="shop-list-banner-right-sidebar.jsp">Banner right sidebar</a></li>
-                                    <li><a href="shop-list-full-col-2.jsp">Full width 2 columns</a></li>
-                                </ul>
-                            </li>
-                            <li><a class="p-0" href="shop-left-sidebar-col-3.jsp"><img class="img-responsive"
-                                                                                       src="assets/images/menu-banner/1.jpg" alt=""></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="javascript:void(0)">Products</a>
-                        <ul class="sub-menu">
-                            <li><a href="javascript:void(0)">Product page</a>
-                                <ul class="sub-menu">
-                                    <li><a href="product-left-sidebar.jsp">Product left sidebar</a></li>
-                                    <li><a href="product-right-sidebar.jsp">Product right sidebar</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="javascript:void(0)">Product 360</a>
-                                <ul class="sub-menu">
-                                    <li><a href="product-360-left-sidebar.jsp">360 left sidebar</a></li>
-                                    <li><a href="product-360-right-sidebar.jsp">360 right sidebar</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="javascript:void(0)">Product vodeo</a>
-                                <ul class="sub-menu">
-                                    <li><a href="product-video-left-sidebar.jsp">vodeo left sidebar</a></li>
-                                    <li><a href="product-video-right-sidebar.jsp">vodeo right sidebar</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="javascript:void(0)">Product gallery</a>
-                                <ul class="sub-menu">
-                                    <li><a href="product-gallery-left-sidebar.jsp">Gallery left sidebar</a></li>
-                                    <li><a href="product-gallery-right-sidebar.jsp">Gallery right sidebar</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="product-full-width.jsp">Product full width</a></li>
-                            <li><a href="product-360-full-width.jsp">360 full width</a></li>
-                            <li><a href="product-video-full-width.jsp">Video full width</a></li>
-                            <li><a href="product-gallery-full-width.jsp">Gallery full width</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="javascript:void(0)">Others</a>
-                        <ul class="sub-menu">
-                            <li><a href="javascript:void(0)">Mail Confirmation</a>
-                                <ul class="sub-menu">
-                                    <li><a href="email-template-confirm-1.jsp">Mail Confirmation 1</a></li>
-                                    <li><a href="email-template-confirm-2.jsp">Mail Confirmation 2</a></li>
-                                    <li><a href="email-template-confirm-3.jsp">Mail Confirmation 3</a></li>
-                                    <li><a href="email-template-confirm-4.jsp">Mail Confirmation 4</a></li>
-                                    <li><a href="email-template-confirm-5.jsp">Mail Confirmation 5</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="javascript:void(0)">Mail Reset password</a>
-                                <ul class="sub-menu">
-                                    <li><a href="email-template-forgot-password-1.jsp">Reset password 1</a></li>
-                                    <li><a href="email-template-forgot-password-2.jsp">Reset password 2</a></li>
-                                    <li><a href="email-template-forgot-password-3.jsp">Reset password 3</a></li>
-                                    <li><a href="email-template-forgot-password-4.jsp">Reset password 4</a></li>
-                                    <li><a href="email-template-forgot-password-5.jsp">Reset password 5</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="javascript:void(0)">Mail Promotional</a>
-                                <ul class="sub-menu">
-                                    <li><a href="email-template-offers-1.jsp">Offer Mail 1</a></li>
-                                    <li><a href="email-template-offers-2.jsp">Offer Mail 2</a></li>
-                                    <li><a href="email-template-offers-3.jsp">Offer Mail 3</a></li>
-                                    <li><a href="email-template-offers-4.jsp">Offer Mail 4</a></li>
-                                    <li><a href="email-template-offers-5.jsp">Offer Mail 5</a></li>
-                                    <li><a href="email-template-offers-6.jsp">Offer Mail 6</a></li>
-                                    <li><a href="email-template-offers-7.jsp">Offer Mail 7</a></li>
-                                    <li><a href="email-template-offers-8.jsp">Offer Mail 8</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="javascript:void(0)">Vendor Account Pages</a>
-                                <ul class="sub-menu">
-                                    <li><a href="vendor-dashboard.jsp">Vendor Dashboard</a></li>
-                                    <li><a href="vendor-profile.jsp">Vendor Profile</a></li>
-                                    <li><a href="vendor-uploads.jsp">Vendor Uploads</a></li>
-                                    <li><a href="vendor-settings.jsp">Vendor Settings</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="javascript:void(0)">User Account Pages</a>
-                                <ul class="sub-menu">
-                                    <li><a href="user-profile.jsp">User Profile</a></li>
-                                    <li><a href="user-history.jsp">User History</a></li>
-                                    <li><a href="wishlist.jsp">Wishlist</a></li>
-                                    <li><a href="track-order.jsp">Track Order</a></li>
-                                    <li><a href="user-invoice.jsp">User Invoice</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="javascript:void(0)">Construction Pages</a>
-                                <ul class="sub-menu">
-                                    <li><a href="404-error-page.jsp">404 Error Page</a></li>
-                                    <li><a href="under-maintenance.jsp">Maintenance Page</a></li>
-                                    <li><a href="coming-soon.jsp">Comming Soon Page</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="javascript:void(0)">Vendor Catalog Pages</a>
-                                <ul class="sub-menu">
-                                    <li><a href="catalog-single-vendor.jsp">Catalog Single Vendor</a></li>
-                                    <li><a href="catalog-multi-vendor.jsp">Catalog Multi Vendor</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="javascript:void(0)">Pages</a>
-                        <ul class="sub-menu">
-                            <li><a href="about-us.jsp">About Us</a></li>
-                            <li><a href="contact-us.jsp">Contact Us</a></li>
-                            <li><a href="cart.jsp">Cart</a></li>
-                            <li><a href="checkout.jsp">Checkout</a></li>
-                            <li><a href="compare.jsp">Compare</a></li>
-                            <li><a href="faq.jsp">FAQ</a></li>
-                            <li><a href="login.jsp">Login</a></li>
-                            <li><a href="register.jsp">Register</a></li>
-                            <li><a href="track-order.jsp">Track Order</a></li>
-                            <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                            <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="javascript:void(0)">Blog</a>
-                        <ul class="sub-menu">
-                            <li><a href="blog-left-sidebar.jsp">Blog left sidebar</a></li>
-                            <li><a href="blog-right-sidebar.jsp">Blog right sidebar</a></li>
-                            <li><a href="blog-detail-left-sidebar.jsp">Blog detail left sidebar</a></li>
-                            <li><a href="blog-detail-right-sidebar.jsp">Blog detail right sidebar</a></li>
-                            <li><a href="blog-full-width.jsp">Blog full width</a></li>
-                            <li><a href="blog-detail-full-width.jsp">Blog detail full width</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="javascript:void(0)">Elements</a>
-                        <ul class="sub-menu">
-                            <li><a href="elemets-products.jsp">Products</a></li>
-                            <li><a href="elemets-typography.jsp">Typography</a></li>
-                            <li><a href="elemets-title.jsp">Titles</a></li>
-                            <li><a href="elemets-categories.jsp">Categories</a></li>
-                            <li><a href="elemets-buttons.jsp">Buttons</a></li>
-                            <li><a href="elemets-tabs.jsp">Tabs</a></li>
-                            <li><a href="elemets-accordions.jsp">Accordions</a></li>
-                            <li><a href="elemets-blog.jsp">Blogs</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="offer.jsp">Hot Offers</a></li>
-                </ul>
-            </div>
-            <div class="header-res-lan-curr">
-                <div class="header-top-lan-curr">
-                    <!-- Language Start -->
-                    <div class="header-top-lan dropdown">
-                        <button class="dropdown-toggle text-upper" data-bs-toggle="dropdown">Language <i
-                                class="ecicon eci-caret-down" aria-hidden="true"></i></button>
-                        <ul class="dropdown-menu">
-                            <li class="active"><a class="dropdown-item" href="#">English</a></li>
-                            <li><a class="dropdown-item" href="#">Italiano</a></li>
-                        </ul>
-                    </div>
-                    <!-- Language End -->
-                    <!-- Currency Start -->
-                    <div class="header-top-curr dropdown">
-                        <button class="dropdown-toggle text-upper" data-bs-toggle="dropdown">Currency <i
-                                class="ecicon eci-caret-down" aria-hidden="true"></i></button>
-                        <ul class="dropdown-menu">
-                            <li class="active"><a class="dropdown-item" href="#">USD $</a></li>
-                            <li><a class="dropdown-item" href="#">EUR â¬</a></li>
-                        </ul>
-                    </div>
-                    <!-- Currency End -->
-                </div>
-                <!-- Social Start -->
-                <div class="header-res-social">
-                    <div class="header-top-social">
-
-                    </div>
-                </div>
-                <!-- Social End -->
-            </div>
-        </div>
-    </div>
-    <!-- ekka mobile Menu End -->
-</header>
-<!-- Header End  -->
+        <jsp:include page="navbar.jsp"></jsp:include>
+        <!-- Header End  -->
 
 <!-- ekka Cart Start -->
 <div class="ec-side-cart-overlay"></div>
@@ -1460,7 +1047,7 @@
         <!-- Panel Header -->
         <div class="ec-header">
             <strong>Need Help?</strong>
-            <p>Chat with us on Gmail</p>
+            <p>Chat with us on WhatsApp</p>
         </div>
         <!-- Panel Content -->
         <div class="ec-body">
@@ -1472,17 +1059,15 @@
                         <div class="d-flex bd-highlight">
                             <!-- Profile Picture -->
                             <div class="ec-img-cont">
-                                        <img
-                                            src="assets/images/gmail/lv.png"
-                                            class="ec-user-img"
-                                            alt="Profile image">
-                                        <span class="ec-status-icon"></span>
-                                    </div>
-                                    <!-- Display Name & Last Seen -->
-                                    <div class="ec-user-info">
-                                        <span>Louis Vuitton</span>
-                                        <p>Sahar left 7 mins ago</p>
-                                    </div>
+                                <img src="assets/images/whatsapp/profile_01.jpg" class="ec-user-img"
+                                     alt="Profile image">
+                                <span class="ec-status-icon"></span>
+                            </div>
+                            <!-- Display Name & Last Seen -->
+                            <div class="ec-user-info">
+                                <span>Sahar Darya</span>
+                                <p>Sahar left 7 mins ago</p>
+                            </div>
                             <!-- Chat iCon -->
                             <div class="ec-chat-icon">
                                 <i class="fa fa-whatsapp"></i>
@@ -1491,7 +1076,78 @@
                     </a>
                 </li>
                 <!--/ End Single Contact List -->
-                
+                <!-- Start Single Contact List -->
+                <li>
+                    <a class="ec-list" data-number="918866774266"
+                       data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                        <div class="d-flex bd-highlight">
+                            <!-- Profile Picture -->
+                            <div class="ec-img-cont">
+                                <img src="assets/images/whatsapp/profile_02.jpg" class="ec-user-img"
+                                     alt="Profile image">
+                                <span class="ec-status-icon ec-online"></span>
+                            </div>
+                            <!-- Display Name & Last Seen -->
+                            <div class="ec-user-info">
+                                <span>Yolduz Rafi</span>
+                                <p>Yolduz is online</p>
+                            </div>
+                            <!-- Chat iCon -->
+                            <div class="ec-chat-icon">
+                                <i class="fa fa-whatsapp"></i>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <!--/ End Single Contact List -->
+                <!-- Start Single Contact List -->
+                <li>
+                    <a class="ec-list" data-number="918866774266"
+                       data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                        <div class="d-flex bd-highlight">
+                            <!-- Profile Picture -->
+                            <div class="ec-img-cont">
+                                <img src="assets/images/whatsapp/profile_03.jpg" class="ec-user-img"
+                                     alt="Profile image">
+                                <span class="ec-status-icon ec-offline"></span>
+                            </div>
+                            <!-- Display Name & Last Seen -->
+                            <div class="ec-user-info">
+                                <span>Nargis Hawa</span>
+                                <p>Nargis left 30 mins ago</p>
+                            </div>
+                            <!-- Chat iCon -->
+                            <div class="ec-chat-icon">
+                                <i class="fa fa-whatsapp"></i>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <!--/ End Single Contact List -->
+                <!-- Start Single Contact List -->
+                <li>
+                    <a class="ec-list" data-number="918866774266"
+                       data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                        <div class="d-flex bd-highlight">
+                            <!-- Profile Picture -->
+                            <div class="ec-img-cont">
+                                <img src="assets/images/whatsapp/profile_04.jpg" class="ec-user-img"
+                                     alt="Profile image">
+                                <span class="ec-status-icon ec-offline"></span>
+                            </div>
+                            <!-- Display Name & Last Seen -->
+                            <div class="ec-user-info">
+                                <span>Khadija Mehr</span>
+                                <p>Khadija left 50 mins ago</p>
+                            </div>
+                            <!-- Chat iCon -->
+                            <div class="ec-chat-icon">
+                                <i class="fa fa-whatsapp"></i>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <!--/ End Single Contact List -->
             </ul>
         </div>
     </div>
@@ -1500,7 +1156,7 @@
     <div class="ec-right-bottom">
         <div class="ec-box">
             <div class="ec-button rotateBackward">
-                <img class="whatsapp" src="assets/images/gmail/gmail.jpg" alt="whatsapp icon" />
+                <img class="whatsapp" src="assets/images/common/whatsapp.png" alt="whatsapp icon" />
             </div>
         </div>
     </div>

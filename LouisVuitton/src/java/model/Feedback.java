@@ -5,21 +5,21 @@ package model;
 public class Feedback {
     private int id;
     private int status;
-    private Users user_id;
+    private Users userId;
     private String name;
     private String email;
-    private String created_at;
+    private String createdAt;
 
     public Feedback() {
     }
 
-    public Feedback(int id, int status, Users user_id, String name, String email, String created_at) {
+    public Feedback(int id, int status, Users userId, String name, String email, String createdAt) {
         this.id = id;
         this.status = status;
-        this.user_id = user_id;
+        this.userId = userId;
         this.name = name;
         this.email = email;
-        this.created_at = created_at;
+        this.createdAt = createdAt;
     }
 
     public int getId() {
@@ -38,12 +38,12 @@ public class Feedback {
         this.status = status;
     }
 
-    public Users getUser_id() {
-        return user_id;
+    public Users getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Users user_id) {
-        this.user_id = user_id;
+    public void setUserId(Users userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -62,12 +62,12 @@ public class Feedback {
         this.email = email;
     }
 
-    public String getCreated_at() {
-        return created_at;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
     
 }

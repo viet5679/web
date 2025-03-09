@@ -49,256 +49,7 @@
         </div>
 
         <!-- Header start  -->
-        <header class="ec-header">
-            <!--Ec Header Top Start -->
-            <div class="header-top">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <!-- Header Top social Start -->
-                        <div class="col text-left header-top-left d-none d-lg-block">
-                            <div class="header-top-social">
-                                <span class="social-text text-upper">Follow us on:</span>
-
-                            </div>
-                        </div>
-                        <!-- Header Top social End -->
-
-                        <!-- Header Top responsive Action -->
-                        <div class="col d-lg-none ">
-                            <div class="ec-header-bottons">
-                                <!-- Header User Start -->
-                                <div class="ec-header-user dropdown">
-                                    <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
-                                            class="fi-rr-user"></i></button>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a class="dropdown-item" href="register.jsp">Register</a></li>
-                                        <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                        <li><a class="dropdown-item" href="login.jsp">Login</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Header User End -->
-                                <!-- Header Cart Start -->
-                                <a href="wishlist.jsp" class="ec-header-btn ec-header-wishlist">
-                                    <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                                    <span class="ec-header-count">0</span>
-                                </a>
-                                <!-- Header Cart End -->
-                                <!-- Header Cart Start -->
-                                <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                    <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
-                                    <span class="ec-header-count cart-count-lable">0</span>
-                                </a>
-                                <!-- Header Cart End -->
-                                <!-- Header menu Start -->
-                                <a href="#ec-mobile-menu" class="ec-header-btn ec-side-toggle d-lg-none">
-                                    <i class="fi fi-rr-menu-burger"></i>
-                                </a>
-                                <!-- Header menu End -->
-                            </div>
-                        </div>
-                        <!-- Header Top responsive Action -->
-                    </div>
-                </div>
-            </div>
-            <!-- Ec Header Top  End -->
-            <!-- Ec Header Bottom  Start -->
-            <div class="ec-header-bottom d-none d-lg-block">
-                <div class="container position-relative">
-                    <div class="row">
-                        <div class="ec-flex">
-                            <!-- Ec Header Logo Start -->
-                            <div class="align-self-center">
-                                <div class="header-logo">
-                                    <a href="index.jsp"><img src="assets/images/logo/logo4.png" alt="Site Logo" /><img
-                                            class="dark-logo" src="assets/images/logo/logo4.png" alt="Site Logo"
-                                            style="display: none;" /></a>
-                                </div>
-                            </div>
-                            <!-- Ec Header Logo End -->
-
-                            <!-- Ec Header Search Start -->
-                            <div class="align-self-center">
-                                <div class="header-search">
-                                    <form class="ec-btn-group-form" action="#">
-                                        <input class="form-control ec-search-bar" placeholder="Search products..."
-                                               type="text">
-                                        <button class="submit" type="submit"><i class="fi-rr-search"></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- Ec Header Search End -->
-
-                            <!-- Ec Header Button Start -->
-                            <div class="align-self-center">
-                                <div class="ec-header-bottons">
-
-                                    <!-- Header User Start -->
-                                    <div class="ec-header-user dropdown">
-                                        <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
-                                                class="fi-rr-user"></i></button>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a class="dropdown-item" href="register.jsp">Register</a></li>
-                                            <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                            <li><a class="dropdown-item" href="login.jsp">Login</a></li>
-                                        </ul>
-                                    </div>
-                                    <!-- Header User End -->
-                                    <!-- Header wishlist Start -->
-                                    <a href="wishlist.jsp" class="ec-header-btn ec-header-wishlist">
-                                        <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                                        <span class="ec-header-count">0</span>
-                                    </a>
-                                    <!-- Header wishlist End -->
-                                    <!-- Header Cart Start -->
-                                    <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                        <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
-                                        <span class="ec-header-count cart-count-lable">0</span>
-                                    </a>
-                                    <!-- Header Cart End -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Ec Header Button End -->
-            <!-- Header responsive Bottom  Start -->
-            <div class="ec-header-bottom d-lg-none">
-                <div class="container position-relative">
-                    <div class="row ">
-
-                        <!-- Ec Header Logo Start -->
-                        <div class="col">
-                            <div class="header-logo">
-                                <a href="index.jsp"><img src="assets/images/logo/logo4.png" alt="Site Logo" /><img
-                                        class="dark-logo" src="assets/images/logo/logo4.png" alt="Site Logo"
-                                        style="display: none;" /></a>
-                            </div>
-                        </div>
-                        <!-- Ec Header Logo End -->
-                        <!-- Ec Header Search Start -->
-                        <div class="col">
-                            <div class="header-search">
-                                <form class="ec-btn-group-form" action="#">
-                                    <input class="form-control ec-search-bar" placeholder="Search products..." type="text">
-                                    <button class="submit" type="submit"><i class="fi-rr-search"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                        <!-- Ec Header Search End -->
-                    </div>
-                </div>
-            </div>
-            <!-- Header responsive Bottom  End -->
-            <!-- EC Main Menu Start -->
-            <div id="ec-main-menu-desk" class="d-none d-lg-block sticky-nav">
-                <div class="container position-relative">
-                    <div class="row">
-                        <div class="col-md-12 align-self-center">
-                            <div class="ec-main-menu">
-                                <ul>
-                                    <li><a href="index.jsp">Home</a></li>
-                                    <li><a href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-                                    
-                                    <li class="dropdown"><a href="javascript:void(0)">Pages</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="cart.jsp">Cart</a></li>
-                                            <li><a href="checkout.jsp">Checkout</a></li>                                
-                                            <li><a href="faq.jsp">FAQ</a></li>
-                                            <li><a href="track-order.jsp">Track Order</a></li>
-                                            <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                            <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li><a href="blog-full-width.jsp">Blog</a></li>
-
-                                    <li><a href="offer.jsp">Hot Offers</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Ec Main Menu End -->
-            <!-- ekka Mobile Menu Start -->
-            <div id="ec-mobile-menu" class="ec-side-cart ec-mobile-menu">
-                <div class="ec-menu-title">
-                    <span class="menu_title">My Menu</span>
-                    <button class="ec-close">x</button>
-                </div>
-                <div class="ec-menu-inner">
-                    <div class="ec-menu-content">
-                        <ul>
-                            <li><a href="index.jsp">Home</a></li>
-                            <li><a href="javascript:void(0)">Categories</a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="javascript:void(0)">Classic Variation</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="shop-full-width.jsp">Full width 4 column</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)">Classic Variation</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="shop-banner-full-width.jsp">Banner Full width 4 column</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)">Columns Variation</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="shop-banner-full-width-col-3.jsp">Banner 3 Columns</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)">List Variation</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="shop-list-full-col-2.jsp">Full width 2 columns</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a class="p-0" href="shop-left-sidebar-col-3.jsp"><img class="img-responsive"
-                                                                                               src="assets/images/menu-banner/1.jpg" alt=""></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="product-full-width.jsp">Products</a></li>
-
-                            <li class="dropdown"><a href="javascript:void(0)">Pages</a>
-                                <ul class="sub-menu">
-
-                                    <li><a href="cart.jsp">Cart</a></li>
-                                    <li><a href="checkout.jsp">Checkout</a></li>                                
-                                    <li><a href="faq.jsp">FAQ</a></li>
-                                    <li><a href="track-order.jsp">Track Order</a></li>
-                                    <li><a href="terms-condition.jsp">Terms Condition</a></li>
-                                    <li><a href="privacy-policy.jsp">Privacy Policy</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="blog-full-width.jsp">Blog</a></li>
-
-                            <li><a href="offer.jsp">Hot Offers</a></li>
-                        </ul>
-                    </div>
-                    <div class="header-res-lan-curr">
-
-                        <!-- Social Start -->
-                        <div class="header-res-social">
-                            <div class="header-top-social">
-
-                            </div>
-                        </div>
-                        <!-- Social End -->
-                    </div>
-                </div>
-            </div>
-            <!-- ekka mobile Menu End -->
-        </header>
+        <jsp:include page="navbar.jsp"></jsp:include>
         <!-- Header End  -->
 
         <!-- ekka Cart Start -->
@@ -438,7 +189,7 @@
                             <div class="col-md-6 col-sm-12">
                                 <!-- ec-breadcrumb-list start -->
                                 <ul class="ec-breadcrumb-list">
-                                    <li class="ec-breadcrumb-item"><a href="index.jsp">Home</a></li>
+                                    <li class="ec-breadcrumb-item"><a href="home">Home</a></li>
                                     <li class="ec-breadcrumb-item active">Login</li>
                                 </ul>
                                 <!-- ec-breadcrumb-list end -->
@@ -452,8 +203,7 @@
 
 
 
-        <!--forgot-password-start-->
-
+        <!-- Forgot Password Page -->
         <section class="ec-page-content section-space-p">
             <div class="container">
                 <div class="row">
@@ -464,36 +214,38 @@
                             <p class="sub-title mb-3">Enter your email to reset your password</p>
                         </div>
                     </div>
-                    <form class="fogot-pass" action="#" method="post" onsubmit="redirectToChangePassword(event)">
+                    <form class="fogot-pass" action="forgot-password" method="post">
                         <span class="ec-forgot-wrap">
                             <label>Email Address*</label>
-                            <input type="email" name="email" placeholder="Enter your email address" required />
+                            <input type="email" name="email" id="email" placeholder="Enter your email address" required oninput="validateEmail()" />
                         </span>
                         <span class="ec-forgot-wrap ec-forgot-btn">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                            <a href="login.jsp" class="btn btn-secondary">Back to Login</a>
+                            <button type="submit" id="submitBtn" class="btn btn-primary" disabled>Submit</button>
+                            <a href="login" class="btn btn-secondary">Back to Login</a>
                         </span>
                     </form>
 
+                    <!-- Hiển thị thông báo từ server -->
+                    <% String message = (String) request.getAttribute("message"); %>
+                    <% String error = (String) request.getAttribute("error"); %>
 
+                    <% if (message != null) { %>
+                    <p class="alert alert-success"><%= message %></p>
+                    <% } %>
 
+                    <% if (error != null) { %>
+                    <p style="color: red" class="alert alert-danger"><%= error %></p>
+                    <% } %>
                 </div>
             </div>
         </section>
-
-        <script>
-            function redirectToChangePassword(event) {
-                event.preventDefault(); // NgÄn form gá»­i dá»¯ liá»u theo cÃ¡ch máº·c Äá»nh
-                window.location.href = "change-password.jsp"; // Chuyá»n trang
-            }
-        </script>
 
         <script>
             function validateEmail() {
                 const emailInput = document.getElementById("email");
                 const submitBtn = document.getElementById("submitBtn");
 
-                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Kiá»m tra email há»£p lá»
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (emailPattern.test(emailInput.value.trim())) {
                     submitBtn.removeAttribute("disabled");
                 } else {
@@ -606,7 +358,7 @@
                             <div class="col text-center footer-copy">
                                 <div class="footer-bottom-copy ">
                                     <div class="ec-copy">Copyright ©<span id="copyright_year"></span> <a class="site-name text-upper"
-                                                                                                           href="#">NYFS<span>.</span></a>. All Rights Reserved</div>
+                                                                                                         href="#">NYFS<span>.</span></a>. All Rights Reserved</div>
                                 </div>
                             </div>
                             <!-- Footer Copyright End -->
@@ -685,7 +437,7 @@
                 <!-- Panel Header -->
                 <div class="ec-header">
                     <strong>Need Help?</strong>
-                    <p>Chat with us on Gmail</p>
+                    <p>Chat with us on WhatsApp</p>
                 </div>
                 <!-- Panel Content -->
                 <div class="ec-body">
@@ -768,17 +520,15 @@
                                data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                                 <div class="d-flex bd-highlight">
                                     <!-- Profile Picture -->
-                                   <div class="ec-img-cont">
-                                        <img
-                                            src="assets/images/gmail/lv.png"
-                                            class="ec-user-img"
-                                            alt="Profile image">
-                                        <span class="ec-status-icon"></span>
+                                    <div class="ec-img-cont">
+                                        <img src="assets/images/whatsapp/profile_04.jpg" class="ec-user-img"
+                                             alt="Profile image">
+                                        <span class="ec-status-icon ec-offline"></span>
                                     </div>
                                     <!-- Display Name & Last Seen -->
                                     <div class="ec-user-info">
-                                        <span>Louis Vuitton</span>
-                                        <p>Sahar left 7 mins ago</p>
+                                        <span>Khadija Mehr</span>
+                                        <p>Khadija left 50 mins ago</p>
                                     </div>
                                     <!-- Chat iCon -->
                                     <div class="ec-chat-icon">
@@ -796,7 +546,7 @@
             <div class="ec-right-bottom">
                 <div class="ec-box">
                     <div class="ec-button rotateBackward">
-                        <img class="whatsapp" src="assets/images/gmail/gmail.jpg" alt="whatsapp icon" />
+                        <img class="whatsapp" src="assets/images/common/whatsapp.png" alt="whatsapp icon" />
                     </div>
                 </div>
             </div>

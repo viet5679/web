@@ -8,6 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ page import="model.Users" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,420 +60,137 @@
     <body>
         <div id="ec-overlay">
             <div class="ec-ellipsis">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
             </div>
         </div>
         <!-- Header start  -->
-        <header class="ec-header">
-            <!--Ec Header Top Start -->
-            <div class="header-top">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <!-- Header Top social Start -->
-                        <div
-                            class="col text-left header-top-left d-none d-lg-block">
-                            <div class="header-top-social">
-                                <span class="social-text text-upper">Follow us
-                                    on:</span>
+        <jsp:include page="navbar.jsp"></jsp:include>
+            <!-- Header End  -->
 
-                            </div>
+            <!-- ekka Cart Start -->
+            <div class="ec-side-cart-overlay"></div>
+            <div id="ec-side-cart" class="ec-side-cart">
+                <div class="ec-cart-inner">
+                    <div class="ec-cart-top">
+                        <div class="ec-cart-title">
+                            <span class="cart_title">My Cart</span>
+                            <button class="ec-close"
+                                    onclick="closeCart()">&times;</button>
                         </div>
-                        <!-- Header Top social End -->
-
-                        <!-- Header Top responsive Action -->
-                        <div class="col d-lg-none ">
-                            <div class="ec-header-bottons">
-                                <!-- Header User Start -->
-                                <div class="ec-header-user dropdown">
-                                    <button class="dropdown-toggle"
-                                            data-bs-toggle="dropdown"><i
-                                            class="fi-rr-user"></i></button>
-                                    <ul
-                                        class="dropdown-menu dropdown-menu-right">
-                                        <li><a class="dropdown-item"
-                                               href="register.jsp">Register</a></li>
-                                        <li><a class="dropdown-item"
-                                               href="checkout.jsp">Checkout</a></li>
-                                        <li><a class="dropdown-item"
-                                               href="login.jsp">Login</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Header User End -->
-
-                                <!-- Header Cart Start -->
-                                <a href="wishlist.jsp"
-                                   class="ec-header-btn ec-header-wishlist">
-                                    <div class="header-icon"><i
-                                            class="fi-rr-heart"></i></div>
-                                    <span
-                                        class="ec-header-count wishlist-count-label">0</span>
-                                </a>
-                                <!-- Header Cart End -->
-
-                                <!-- Header Cart Start -->
-                                <a href="#ec-side-cart"
-                                   class="ec-header-btn ec-side-toggle">
-                                    <div class="header-icon"><i
-                                            class="fi-rr-shopping-bag"></i></div>
-                                    <span
-                                        class="ec-header-count cart-count-lable">0</span>
-                                </a>
-                                <!-- Header Cart End -->
-                                <a href="javascript:void(0)"
-                                   class="ec-header-btn ec-sidebar-toggle">
-                                    <i class="fi fi-rr-apps"></i>
-                                </a>
-                                <!-- Header menu Start -->
-                                <a href="#ec-mobile-menu"
-                                   class="ec-header-btn ec-side-toggle d-lg-none">
-                                    <i class="fi fi-rr-menu-burger"></i>
-                                </a>
-                                <!-- Header menu End -->
-                            </div>
-                        </div>
-                        <!-- Header Top responsive Action -->
-                    </div>
-                </div>
-            </div>
-            <!-- Ec Header Top  End -->
-            <!-- Ec Header Bottom  Start -->
-            <div class="ec-header-bottom d-none d-lg-block">
-                <div class="container position-relative">
-                    <div class="row">
-                        <div class="ec-flex">
-                            <!-- Ec Header Logo Start -->
-                            <div class="align-self-center">
-                                <div class="header-logo">
-                                    <a href="index.jsp"><img
-                                            src="assets/images/logo/logo4.png"
-                                            alt="Site Logo" /><img
-                                            class="dark-logo"
-                                            src="assets/images/logo/logo4.png"
-                                            alt="Site Logo"
-                                            style="display: none;" /></a>
-                                </div>
-                            </div>
-                            <!-- Ec Header Logo End -->
-
-                            <!-- Ec Header Search Start -->
-                            <div class="align-self-center">
-                                <div class="header-search">
-                                    <form class="ec-btn-group-form" action="#">
-                                        <input
-                                            class="form-control ec-search-bar"
-                                            placeholder="Search products..."
-                                            type="text">
-                                        <button class="submit" type="submit"><i
-                                                class="fi-rr-search"></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- Ec Header Search End -->
-
-                            <!-- Ec Header Button Start -->
-                            <div class="align-self-center">
-                                <div class="ec-header-bottons">
-
-                                    <!-- Header User Start -->
-                                    <div class="ec-header-user dropdown">
-                                        <button class="dropdown-toggle"
-                                                data-bs-toggle="dropdown"><i
-                                                class="fi-rr-user"></i></button>
-                                        <ul
-                                            class="dropdown-menu dropdown-menu-right">
-                                            <li><a class="dropdown-item"
-                                                   href="register.jsp">Register</a></li>
-                                            <li><a class="dropdown-item"
-                                                   href="checkout.jsp">Checkout</a></li>
-                                            <li><a class="dropdown-item"
-                                                   href="login.jsp">Login</a></li>
-                                        </ul>
-                                    </div>
-                                    <!-- Header User End -->
-                                    <!-- Header wishlist Start -->
-                                    <a href="wishlist.jsp"
-                                       class="ec-header-btn ec-header-wishlist">
-                                        <div class="header-icon"><i
-                                                class="fi-rr-heart"></i></div>
-                                        <span
-                                            class="ec-header-count wishlist-count-label">0</span>
-                                    </a>
-                                    <!-- Header wishlist End -->
-                                    <!-- Header Cart Start -->
-                                    <a href="#ec-side-cart"
-                                       class="ec-header-btn ec-side-toggle">
-                                        <div class="header-icon"><i
-                                                class="fi-rr-shopping-bag"></i></div>
-                                        <span
-                                            class="ec-header-count cart-count-lable">0</span>
-                                    </a>
-                                    <!-- Header Cart End -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Ec Header Button End -->
-            <!-- Header responsive Bottom  Start -->
-            <div class="ec-header-bottom d-lg-none">
-                <div class="container position-relative">
-                    <div class="row ">
-
-                        <!-- Ec Header Logo Start -->
-                        <div class="col">
-                            <div class="header-logo">
-                                <a href="index.jsp"><img
-                                        src="assets/images/logo/logo4.png"
-                                        alt="Site Logo" /><img
-                                        class="dark-logo"
-                                        src="assets/images/logo/logo4.png"
-                                        alt="Site Logo"
-                                        style="display: none;" /></a>
-                            </div>
-                        </div>
-                        <!-- Ec Header Logo End -->
-                        <!-- Ec Header Search Start -->
-                        <div class="col">
-                            <div class="header-search">
-                                <form class="ec-btn-group-form" action="#">
-                                    <input class="form-control ec-search-bar"
-                                           placeholder="Search products..."
-                                           type="text">
-                                    <button class="submit" type="submit"><i
-                                            class="fi-rr-search"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                        <!-- Ec Header Search End -->
-                    </div>
-                </div>
-            </div>
-            <!-- Header responsive Bottom  End -->
-            <!-- EC Main Menu Start -->
-            <div id="ec-main-menu-desk" class="d-none d-lg-block sticky-nav">
-                <div class="container position-relative">
-                    <div class="row">
-                        <div class="col-md-12 align-self-center">
-                            <div class="ec-main-menu">
-                                <a href="javascript:void(0)"
-                                   class="ec-header-btn ec-sidebar-toggle">
-                                    <i class="fi fi-rr-apps"></i>
-                                </a>
-                                <ul>
-                                    <li><a href="index.jsp">Home</a></li>
-                                    <li><a
-                                            href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-
-
-                                    <li class="dropdown"><a
-                                            href="javascript:void(0)">Pages</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="cart.jsp">Cart</a></li>
-                                            <li><a
-                                                    href="checkout.jsp">Checkout</a></li>
-                                            <li><a href="faq.jsp">FAQ</a></li>
-                                            <li><a href="track-order.jsp">Track
-                                                    Order</a></li>
-                                            <li><a
-                                                    href="terms-condition.jsp">Terms
-                                                    Condition</a></li>
-                                            <li><a
-                                                    href="privacy-policy.jsp">Privacy
-                                                    Policy</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li><a href="about-us.jsp">About Us</a></li>
-                                    <li><a href="contact-us.jsp">Contact
-                                            Us</a></li>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Ec Main Menu End -->
-            <!-- ekka Mobile Menu Start -->
-            <div id="ec-mobile-menu" class="ec-side-cart ec-mobile-menu">
-                <div class="ec-menu-title">
-                    <span class="menu_title">My Menu</span>
-                    <button class="ec-close">x</button>
-                </div>
-                <div class="ec-menu-inner">
-                    <div class="ec-menu-content">
-                        <ul>
-                            <li><a href="index.jsp">Home</a></li>
-                            <li><a
-                                    href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-
-
-                            <li class="dropdown"><a
-                                    href="javascript:void(0)">Pages</a>
-                                <ul class="sub-menu">
-
-                                    <li><a href="cart.jsp">Cart</a></li>
-                                    <li><a href="checkout.jsp">Checkout</a></li>
-                                    <li><a href="faq.jsp">FAQ</a></li>
-                                    <li><a href="track-order.jsp">Track
-                                            Order</a></li>
-                                    <li><a href="terms-condition.jsp">Terms
-                                            Condition</a></li>
-                                    <li><a href="privacy-policy.jsp">Privacy
-                                            Policy</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="blog-full-width.jsp">Blog</a></li>
-
-                            <li><a href="offer.jsp">Hot Offers</a></li>
+                        <ul class="eccart-pro-items" id="cart-items">
+                            <!-- Items will be dynamically added here -->
                         </ul>
                     </div>
-                    <div class="header-res-lan-curr">
-
-                        <!-- Social Start -->
-                        <div class="header-res-social">
-                            <div class="header-top-social">
-
-                            </div>
+                    <div class="ec-cart-bottom">
+                        <div class="cart-sub-total">
+                            <table class="table cart-table">
+                                <tbody>
+                                    <tr>
+                                        <td class="text-left">Sub-Total :</td>
+                                        <td class="text-right"
+                                            id="sub-total">$0.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">VAT (20%) :</td>
+                                        <td class="text-right" id="vat">$0.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left">Total :</td>
+                                        <td class="text-right primary-color"
+                                            id="total">$0.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <!-- Social End -->
+                        <div class="cart_btn">
+                            <a href="cart.jsp" class="btn btn-primary">View Cart</a>
+                            <a href="checkout.jsp"
+                               class="btn btn-secondary">Checkout</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- ekka mobile Menu End -->
-        </header>
-        <!-- Header End  -->
 
-        <!-- ekka Cart Start -->
-        <div class="ec-side-cart-overlay"></div>
-        <div id="ec-side-cart" class="ec-side-cart">
-            <div class="ec-cart-inner">
-                <div class="ec-cart-top">
-                    <div class="ec-cart-title">
-                        <span class="cart_title">My Cart</span>
-                        <button class="ec-close"
-                                onclick="closeCart()">&times;</button>
-                    </div>
-                    <ul class="eccart-pro-items" id="cart-items">
-                        <!-- Items will be dynamically added here -->
-                    </ul>
-                </div>
-                <div class="ec-cart-bottom">
-                    <div class="cart-sub-total">
-                        <table class="table cart-table">
-                            <tbody>
-                                <tr>
-                                    <td class="text-left">Sub-Total :</td>
-                                    <td class="text-right"
-                                        id="sub-total">$0.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-left">VAT (20%) :</td>
-                                    <td class="text-right" id="vat">$0.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-left">Total :</td>
-                                    <td class="text-right primary-color"
-                                        id="total">$0.00</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="cart_btn">
-                        <a href="cart.jsp" class="btn btn-primary">View Cart</a>
-                        <a href="checkout.jsp"
-                           class="btn btn-secondary">Checkout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <script>
+                const cartItems = document.getElementById('cart-items');
+                const subTotalEl = document.getElementById('sub-total');
+                const vatEl = document.getElementById('vat');
+                const totalEl = document.getElementById('total');
 
-        <script>
-            const cartItems = document.getElementById('cart-items');
-            const subTotalEl = document.getElementById('sub-total');
-            const vatEl = document.getElementById('vat');
-            const totalEl = document.getElementById('total');
+                let cart = []; // Array to store cart items
 
-            let cart = []; // Array to store cart items
+                function addToCart(productName, price) {
+                    // Check if the product already exists in the cart
+                    const existingItem = cart.find(item => item.productName === productName);
 
-            function addToCart(productName, price) {
-                // Check if the product already exists in the cart
-                const existingItem = cart.find(item => item.productName === productName);
+                    if (existingItem) {
+                        // If product exists, increase quantity
+                        existingItem.quantity += 1;
+                    } else {
+                        // Add new product
+                        cart.push({productName, price, quantity: 1});
+                    }
 
-                if (existingItem) {
-                    // If product exists, increase quantity
-                    existingItem.quantity += 1;
-                } else {
-                    // Add new product
-                    cart.push({productName, price, quantity: 1});
+                    // Update the UI and totals
+                    updateCartUI();
+                    updateTotals();
                 }
 
-                // Update the UI and totals
-                updateCartUI();
-                updateTotals();
-            }
+                function removeFromCart(productName) {
+                    // Remove product from cart
+                    cart = cart.filter(item => item.productName !== productName);
 
-            function removeFromCart(productName) {
-                // Remove product from cart
-                cart = cart.filter(item => item.productName !== productName);
-
-                // Update the UI and totals
-                updateCartUI();
-                updateTotals();
-            }
-
-            function updateQuantity(productName, newQuantity) {
-                const item = cart.find(item => item.productName === productName);
-                if (item) {
-                    item.quantity = newQuantity > 0 ? parseInt(newQuantity) : 1; // Ensure quantity is at least 1
+                    // Update the UI and totals
+                    updateCartUI();
+                    updateTotals();
                 }
 
-                updateCartUI();
-                updateTotals();
-            }
+                function updateQuantity(productName, newQuantity) {
+                    const item = cart.find(item => item.productName === productName);
+                    if (item) {
+                        item.quantity = newQuantity > 0 ? parseInt(newQuantity) : 1; // Ensure quantity is at least 1
+                    }
 
-            function updateCartUI() {
-                cartItems.innerHTML = ""; // Clear existing items
+                    updateCartUI();
+                    updateTotals();
+                }
 
-                cart.forEach(item => {
-                    const listItem = document.createElement('li');
-                    listItem.innerHTML = `
-                        <div>
-           <span>${item.productName}</span> - 
-           <span>${'$'}${item.price}</span> x
-           <input type="number" value="${item.quantity}" min="1" style="width: 50px;" 
-               onchange="updateQuantity('${item.productName}', this.value)">
-           = <span>${'$'}${item.price * item.quantity}</span>
-       </div>
-       <button onclick="removeFromCart('${item.productName}')">Remove</button>
-                    `;
-                    cartItems.appendChild(listItem);
-                });
-            }
+                function updateCartUI() {
+                    cartItems.innerHTML = ""; // Clear existing items
 
-            function updateTotals() {
-                const subTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-                const vat = subTotal * 0.2; // 20% VAT
-                const total = subTotal + vat;
+                    cart.forEach(item => {
+                        const listItem = document.createElement('li');
+                        listItem.innerHTML = `
+                            <div>
+               <span>${item.productName}</span> - 
+               <span>${'$'}${item.price}</span> x
+               <input type="number" value="${item.quantity}" min="1" style="width: 50px;" 
+                   onchange="updateQuantity('${item.productName}', this.value)">
+               = <span>${'$'}${item.price * item.quantity}</span>
+           </div>
+           <button onclick="removeFromCart('${item.productName}')">Remove</button>
+                        `;
+                        cartItems.appendChild(listItem);
+                    });
+                }
 
-                // Update the DOM
-                subTotalEl.textContent = `$${subTotal.toFixed(2)}`;
-                vatEl.textContent = `$${vat.toFixed(2)}`;
-                totalEl.textContent = `$${total.toFixed(2)}`;
-            }
+                function updateTotals() {
+                    const subTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                    const vat = subTotal * 0.2; // 20% VAT
+                    const total = subTotal + vat;
 
-            function closeCart() {
-                document.getElementById('ec-side-cart').classList.remove('open'); // Hide cart
-            }
+                    // Update the DOM
+                    subTotalEl.textContent = `$${subTotal.toFixed(2)}`;
+                    vatEl.textContent = `$${vat.toFixed(2)}`;
+                    totalEl.textContent = `$${total.toFixed(2)}`;
+                }
 
-            // Example usage: Uncomment these lines to test adding products
-            // addToCart('Cute Baby Toy', 30.00);
-            // addToCart('Teddy Bear', 25.50);
+                function closeCart() {
+                    document.getElementById('ec-side-cart').classList.remove('open'); // Hide cart
+                }
+
+                // Example usage: Uncomment these lines to test adding products
+                // addToCart('Cute Baby Toy', 30.00);
+                // addToCart('Teddy Bear', 25.50);
         </script>
         <!-- ekka Cart End -->
 
@@ -482,208 +200,47 @@
             <div class="cat-sidebar">
                 <div class="cat-sidebar-box">
                     <div class="ec-sidebar-wrap">
-
                         <!-- Sidebar Category Block -->
                     </div>
                 </div>
                 <div class="ec-sidebar-slider-cat">
                     <div class="ec-sb-slider-title">Best Sellers</div>
                     <div class="ec-sb-pro-sl">
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                   class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/1.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">baby
-                                            fabric shoes</a></h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
+                        <c:forEach var="bestSeller" items="${requestScope.bestSeller}">
+                            <div>
+                                <div class="ec-sb-pro-sl-item">
+                                    <a href="product-left-sidebar.jsp"
+                                       class="sidekka_pro_img"><img
+                                            src="${bestSeller.avatar}"
+                                            alt="product" /></a>
+                                    <div class="ec-pro-content">
+                                        <h5 class="ec-pro-title"><a
+                                                href="product-left-sidebar.jsp">${bestSeller.name}</a></h5>
+                                        <div class="ec-pro-rating">
+                                            <div class="ec-pro-rating">
+                                                <c:forEach var="i" begin="1" end="5">
+                                                    <c:choose>
+                                                        <c:when test="${i <= bestSeller.totalStars}">
+                                                            <i class="ecicon eci-star fill"></i>  <!-- Filled star -->
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <i class="ecicon eci-star"></i> <!-- Empty star -->
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </c:forEach>
+                                            </div>
+
+                                        </div>
+                                        <span class="ec-price">
+                                            <span
+                                                class="old-price">$${bestSeller.price}</span>
+                                            <span
+                                                class="new-price">$${bestSeller.totalPay}</span>
+                                        </span>
                                     </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$5.00</span>
-                                        <span class="new-price">$4.00</span>
-                                    </span>
                                 </div>
                             </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                   class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/2.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">Men's
-                                            hoodies t-shirt</a>
-                                    </h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$10.00</span>
-                                        <span class="new-price">$7.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                   class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/3.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">Girls
-                                            t-shirt</a></h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star"></i>
-                                        <i class="ecicon eci-star"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$5.00</span>
-                                        <span class="new-price">$3.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                   class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/4.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">woolen
-                                            hat for men</a></h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$15.00</span>
-                                        <span class="new-price">$12.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                   class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/5.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">Womens
-                                            purse</a></h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$15.00</span>
-                                        <span class="new-price">$12.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                   class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/6.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">Baby
-                                            toy doctor kit</a>
-                                    </h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star"></i>
-                                        <i class="ecicon eci-star"></i>
-                                        <i class="ecicon eci-star"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$50.00</span>
-                                        <span class="new-price">$45.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                   class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/7.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">teddy
-                                            bear baby toy</a>
-                                    </h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$35.00</span>
-                                        <span class="new-price">$25.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="ec-sb-pro-sl-item">
-                                <a href="product-left-sidebar.jsp"
-                                   class="sidekka_pro_img"><img
-                                        src="assets/images/product-image/2.jpg"
-                                        alt="product" /></a>
-                                <div class="ec-pro-content">
-                                    <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">Mens
-                                            hoodies blue</a></h5>
-                                    <div class="ec-pro-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star"></i>
-                                        <i class="ecicon eci-star"></i>
-                                    </div>
-                                    <span class="ec-price">
-                                        <span class="old-price">$15.00</span>
-                                        <span class="new-price">$13.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
@@ -734,17 +291,15 @@
                             <div class="col-md-6 ec-sort-select">
                                 <span class="sort-by">Sort by</span>
                                 <div class="ec-select-inner">
-                                    <select name="ec-select" id="ec-select">
-                                        <option selected
-                                                disabled>Position</option>
-                                        <option value="1">Relevance</option>
-                                        <option value="2">Name, A to Z</option>
-                                        <option value="3">Name, Z to A</option>
-                                        <option value="4">Price, low to
-                                            high</option>
-                                        <option value="5">Price, high to
-                                            low</option>
-                                    </select>
+                                    <form method="get">
+                                        <select name="sort_by" id="ec-select" onchange="this.form.submit()">
+                                            <<option selected disabled>Position</option>
+                                            <option value="1" ${sort_by == '1' ? 'selected' : ''}>Name, A to Z</option>
+                                            <option value="2" ${sort_by == '2' ? 'selected' : ''}>Name, Z to A</option>
+                                            <option value="3" ${sort_by == '3' ? 'selected' : ''}>Price, low to high</option>
+                                            <option value="4" ${sort_by == '4' ? 'selected' : ''}>Price, high to low</option>
+                                        </select>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -769,7 +324,7 @@
                                                                  src="${c.avatar}"
                                                                  alt="Product" />
                                                             <img class="hover-image"
-                                                                 src="${c.hover_avatar}"
+                                                                 src="${c.hoverAvatar}"
                                                                  alt="Product" />
                                                         </a>
                                                         <c:if test="${c.tag == 'NEW'}">
@@ -815,16 +370,16 @@
                                                     <h5 class="ec-pro-title"><a
                                                             href="product-full-width.jsp">${c.name}</a></h5>
                                                     <div class="ec-pro-rating">
-                                                        <i
-                                                            class="ecicon eci-star fill"></i>
-                                                        <i
-                                                            class="ecicon eci-star fill"></i>
-                                                        <i
-                                                            class="ecicon eci-star fill"></i>
-                                                        <i
-                                                            class="ecicon eci-star fill"></i>
-                                                        <i
-                                                            class="ecicon eci-star"></i>
+                                                        <c:forEach var="i" begin="1" end="5">
+                                                            <c:choose>
+                                                                <c:when test="${i <= product.totalStars}">
+                                                                    <i class="ecicon eci-star fill"></i>  <!-- Filled star -->
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <i class="ecicon eci-star"></i> <!-- Empty star -->
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </c:forEach>
                                                     </div>
                                                     <div
                                                         class="ec-pro-list-desc">${c.description}</div>
@@ -832,9 +387,9 @@
                                                     <c:if test="${c.sale == 0}">
                                                         <span class="ec-price">
                                                             <span
-                                                                class="new-price">$${c.total_pay}</span>
+                                                                class="new-price">$${c.totalPay}</span>
                                                         </span>
-                                                        <c:if test="${c.category_id.id == 3 || c.category_id.id == 5 || c.category_id.id == 6 || c.category_id.id == 7 || c.category_id.id == 8}">
+                                                        <c:if test="${c.categoryId.id == 3 || c.categoryId.id == 5 || c.categoryId.id == 6 || c.categoryId.id == 7 || c.categoryId.id == 8}">
                                                             <div class="ec-pro-option">
 
                                                                 <div class="ec-pro-size">
@@ -849,23 +404,12 @@
                                                                                     class="active"><a
                                                                                         href="#"
                                                                                         class="ec-opt-sz"
-                                                                                        data-new="$${c.total_pay}"
+                                                                                        data-new="$${c.totalPay}"
                                                                                         data-tooltip="${si.sizes.name}">${si.sizes.name}</a>
                                                                                 </li>
                                                                             </c:if>
                                                                         </c:forEach>
-                                                                        <!--                                                                        <li><a href="#"
-                                                                                                                                                       class="ec-opt-sz"
-                                                                                                                                                       data-new="$${c.total_pay}"
-                                                                                                                                                       data-tooltip="Medium">M</a></li>
-                                                                                                                                                <li><a href="#"
-                                                                                                                                                       class="ec-opt-sz"
-                                                                                                                                                       data-new="$${c.total_pay}"
-                                                                                                                                                       data-tooltip="Large">X</a></li>
-                                                                                                                                                <li><a href="#"
-                                                                                                                                                       class="ec-opt-sz"
-                                                                                                                                                       data-new="$${c.total_pay}"
-                                                                                                                                                       data-tooltip="Extra Large">XL</a></li>-->
+
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -877,9 +421,9 @@
                                                             <span
                                                                 class="old-price">$${c.price}</span>
                                                             <span
-                                                                class="new-price">$${c.total_pay}</span>
+                                                                class="new-price">$${c.totalPay}</span>
                                                         </span>
-                                                        <c:if test="${c.category_id.id == 3}  or ${c.category_id.id == 5}  or ${c.category_id.id == 6} or ${c.category_id.id == 7} or ${c.category_id.id == 8}">
+                                                        <c:if test="${c.categoryId.id == 3}  or ${c.categoryId.id == 5}  or ${c.categoryId.id == 6} or ${c.categoryId.id == 7} or ${c.categoryId.id == 8}">
                                                             <div class="ec-pro-option">
 
                                                                 <div class="ec-pro-size">
@@ -893,26 +437,12 @@
                                                                                         href="#"
                                                                                         class="ec-opt-sz"
                                                                                         data-old="$${c.price}"
-                                                                                        data-new="$${c.total_pay}"
+                                                                                        data-new="$${c.totalPay}"
                                                                                         data-tooltip="${si.sizes.name}">${si.sizes.name}</a>
                                                                                 </li>
                                                                             </c:if>
                                                                         </c:forEach>
-                                                                        <!--                                                                        <li><a href="#"
-                                                                                                                                                       class="ec-opt-sz"
-                                                                                                                                                       data-old="$${c.price}"
-                                                                                                                                                       data-new="$${c.total_pay}"
-                                                                                                                                                       data-tooltip="Medium">M</a></li>
-                                                                                                                                                <li><a href="#"
-                                                                                                                                                       class="ec-opt-sz"
-                                                                                                                                                       data-old="$${c.price}"
-                                                                                                                                                       data-new="$${c.total_pay}"
-                                                                                                                                                       data-tooltip="Large">X</a></li>
-                                                                                                                                                <li><a href="#"
-                                                                                                                                                       class="ec-opt-sz"
-                                                                                                                                                       data-old="$${c.price}"
-                                                                                                                                                       data-new="$${c.total_pay}"
-                                                                                                                                                       data-tooltip="Extra Large">XL</a></li>-->
+
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -939,7 +469,7 @@
                                         </li>
 
                                     </c:forEach>
-                                    <c:if test="${endP > 5}">
+                                    <c:if test="${endP > 5 }">
                                         <li><a class="next" href="#">Next 
                                                 <i
                                                     class="ecicon eci-angle-right">
@@ -1387,22 +917,22 @@
                                 class="fi-rr-menu-burger"></i></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="#ec-side-cart"
+                        <a href="cart"
                            class="toggle-cart ec-header-btn ec-side-toggle"><i
                                 class="fi-rr-shopping-bag"></i><span
                                 class="ec-cart-noti ec-header-count cart-count-lable">3</span></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="index.jsp" class="ec-header-btn"><i
+                        <a href="home" class="ec-header-btn"><i
                                 class="fi-rr-home"></i></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="wishlist.jsp" class="ec-header-btn"><i
+                        <a href="wishlist" class="ec-header-btn"><i
                                 class="fi-rr-heart"></i><span
                                 class="ec-cart-noti">4</span></a>
                     </div>
                     <div class="ec-nav-panel-icons">
-                        <a href="login.jsp" class="ec-header-btn"><i
+                        <a href="login" class="ec-header-btn"><i
                                 class="fi-rr-user"></i></a>
                     </div>
 
@@ -1435,7 +965,7 @@
 
         <!-- Floating Button wishlist-->
         <div class="ec-cart-float-wishlist">
-            <a href="wishlist.jsp" class="ec-header-btn ec-wishlist-toggle">
+            <a href="wishlist" class="ec-header-btn ec-wishlist-toggle">
                 <div class="header-icon">
                     <i class="fi-rr-heart"></i>
                 </div>
@@ -1450,7 +980,7 @@
                 <!-- Panel Header -->
                 <div class="ec-header">
                     <strong>Need Help?</strong>
-                    <p>Chat with us on Gmail</p>
+                    <p>Chat with us on WhatsApp</p>
                 </div>
                 <!-- Panel Content -->
                 <div class="ec-body">
@@ -1463,14 +993,14 @@
                                     <!-- Profile Picture -->
                                     <div class="ec-img-cont">
                                         <img
-                                            src="assets/images/gmail/lv.png"
+                                            src="assets/images/whatsapp/profile_01.jpg"
                                             class="ec-user-img"
                                             alt="Profile image">
                                         <span class="ec-status-icon"></span>
                                     </div>
                                     <!-- Display Name & Last Seen -->
                                     <div class="ec-user-info">
-                                        <span>Louis Vuitton</span>
+                                        <span>Sahar Darya</span>
                                         <p>Sahar left 7 mins ago</p>
                                     </div>
                                     <!-- Chat iCon -->
@@ -1481,7 +1011,87 @@
                             </a>
                         </li>
                         <!--/ End Single Contact List -->
-                        
+                        <!-- Start Single Contact List -->
+                        <li>
+                            <a class="ec-list" data-number="918866774266"
+                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                                <div class="d-flex bd-highlight">
+                                    <!-- Profile Picture -->
+                                    <div class="ec-img-cont">
+                                        <img
+                                            src="assets/images/whatsapp/profile_02.jpg"
+                                            class="ec-user-img"
+                                            alt="Profile image">
+                                        <span
+                                            class="ec-status-icon ec-online"></span>
+                                    </div>
+                                    <!-- Display Name & Last Seen -->
+                                    <div class="ec-user-info">
+                                        <span>Yolduz Rafi</span>
+                                        <p>Yolduz is online</p>
+                                    </div>
+                                    <!-- Chat iCon -->
+                                    <div class="ec-chat-icon">
+                                        <i class="fa fa-whatsapp"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--/ End Single Contact List -->
+                        <!-- Start Single Contact List -->
+                        <li>
+                            <a class="ec-list" data-number="918866774266"
+                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                                <div class="d-flex bd-highlight">
+                                    <!-- Profile Picture -->
+                                    <div class="ec-img-cont">
+                                        <img
+                                            src="assets/images/whatsapp/profile_03.jpg"
+                                            class="ec-user-img"
+                                            alt="Profile image">
+                                        <span
+                                            class="ec-status-icon ec-offline"></span>
+                                    </div>
+                                    <!-- Display Name & Last Seen -->
+                                    <div class="ec-user-info">
+                                        <span>Nargis Hawa</span>
+                                        <p>Nargis left 30 mins ago</p>
+                                    </div>
+                                    <!-- Chat iCon -->
+                                    <div class="ec-chat-icon">
+                                        <i class="fa fa-whatsapp"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--/ End Single Contact List -->
+                        <!-- Start Single Contact List -->
+                        <li>
+                            <a class="ec-list" data-number="918866774266"
+                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                                <div class="d-flex bd-highlight">
+                                    <!-- Profile Picture -->
+                                    <div class="ec-img-cont">
+                                        <img
+                                            src="assets/images/whatsapp/profile_04.jpg"
+                                            class="ec-user-img"
+                                            alt="Profile image">
+                                        <span
+                                            class="ec-status-icon ec-offline"></span>
+                                    </div>
+                                    <!-- Display Name & Last Seen -->
+                                    <div class="ec-user-info">
+                                        <span>Khadija Mehr</span>
+                                        <p>Khadija left 50 mins ago</p>
+                                    </div>
+                                    <!-- Chat iCon -->
+                                    <div class="ec-chat-icon">
+                                        <i class="fa fa-whatsapp"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--/ End Single Contact List -->
                     </ul>
                 </div>
             </div>
@@ -1491,7 +1101,7 @@
                 <div class="ec-box">
                     <div class="ec-button rotateBackward">
                         <img class="whatsapp"
-                             src="assets/images/gmail/gmail.jpg"
+                             src="assets/images/common/whatsapp.png"
                              alt="whatsapp icon" />
                     </div>
                 </div>
@@ -1688,10 +1298,6 @@
                     window.location.href = "shop?" + params.toString();
                 }, 100);
             }
-
-
-
-
 
         </script>
         <script>

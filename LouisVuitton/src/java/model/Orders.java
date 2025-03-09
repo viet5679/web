@@ -5,31 +5,17 @@ package model;
 public class Orders {
     private int id;
     private double price;
-    private Users user_id;
-    private int number_stars;
-    private double total_price;
-    private double total_product;
+    private Users userId;
+    private int numberStars;
+    private double totalPrice;
+    private double totalProduct;
     private int status;
-    private double total_discount;
+    private double totalDiscount;
     private String note;
-    private String created_at;
-    private String updated_at;
+    private String createdAt;
+    private String updatedAt;
 
     public Orders() {
-    }
-
-    public Orders(int id, double price, Users user_id, int number_stars, double total_price, double total_product, int status, double total_discount, String note, String created_at, String updated_at) {
-        this.id = id;
-        this.price = price;
-        this.user_id = user_id;
-        this.number_stars = number_stars;
-        this.total_price = total_price;
-        this.total_product = total_product;
-        this.status = status;
-        this.total_discount = total_discount;
-        this.note = note;
-        this.created_at = created_at;
-        this.updated_at = updated_at;
     }
 
     public int getId() {
@@ -48,36 +34,36 @@ public class Orders {
         this.price = price;
     }
 
-    public Users getUser_id() {
-        return user_id;
+    public Users getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Users user_id) {
-        this.user_id = user_id;
+    public void setUserId(Users userId) {
+        this.userId = userId;
     }
 
-    public int getNumber_stars() {
-        return number_stars;
+    public int getNumberStars() {
+        return numberStars;
     }
 
-    public void setNumber_stars(int number_stars) {
-        this.number_stars = number_stars;
+    public void setNumberStars(int numberStars) {
+        this.numberStars = numberStars;
     }
 
-    public double getTotal_price() {
-        return total_price;
+    public double getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setTotal_price(double total_price) {
-        this.total_price = total_price;
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
-    public double getTotal_product() {
-        return total_product;
+    public double getTotalProduct() {
+        return totalProduct;
     }
 
-    public void setTotal_product(double total_product) {
-        this.total_product = total_product;
+    public void setTotalProduct(double totalProduct) {
+        this.totalProduct = totalProduct;
     }
 
     public int getStatus() {
@@ -88,12 +74,12 @@ public class Orders {
         this.status = status;
     }
 
-    public double getTotal_discount() {
-        return total_discount;
+    public double getTotalDiscount() {
+        return totalDiscount;
     }
 
-    public void setTotal_discount(double total_discount) {
-        this.total_discount = total_discount;
+    public void setTotalDiscount(double totalDiscount) {
+        this.totalDiscount = totalDiscount;
     }
 
     public String getNote() {
@@ -104,21 +90,35 @@ public class Orders {
         this.note = note;
     }
 
-    public String getCreated_at() {
-        return created_at;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public String getUpdated_at() {
-        return updated_at;
+    public String getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdated_at(String updated_at) {
-        this.updated_at = updated_at;
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
-    
+
+    public Orders(int id, double price, Users userId, int numberStars, double totalPrice, double totalProduct, int status, double totalDiscount, String note, String createdAt, String updatedAt) {
+        this.id = id;
+        this.price = price;
+        this.userId = userId;
+        this.numberStars = numberStars;
+        this.totalPrice = totalPrice;
+        this.totalProduct = totalProduct;
+        this.status = status;
+        this.totalDiscount = totalDiscount;
+        this.note = note;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
     
 }

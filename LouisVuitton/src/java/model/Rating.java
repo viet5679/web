@@ -5,23 +5,23 @@ package model;
 public class Rating {
     private int id;
     private String description;
-    private Products product_id;
-    private Users user_id;
-    private int number_stars;
-    private String created_at;
-    private String updated_at;
+    private Products productId;
+    private Users userId;
+    private int numberStars;
+    private String createdAt;
+    private String updatedAt;
 
     public Rating() {
     }
 
-    public Rating(int id, String description, Products product_id, Users user_id, int number_stars, String created_at, String updated_at) {
+    public Rating(int id, String description, Products productId, Users userId, int numberStars, String createdAt, String updatedAt) {
         this.id = id;
         this.description = description;
-        this.product_id = product_id;
-        this.user_id = user_id;
-        this.number_stars = number_stars;
-        this.created_at = created_at;
-        this.updated_at = updated_at;
+        this.productId = productId;
+        this.userId = userId;
+        this.numberStars = numberStars;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public int getId() {
@@ -40,45 +40,44 @@ public class Rating {
         this.description = description;
     }
 
-    public Products getProduct_id() {
-        return product_id;
+    public Products getProductId() {
+        return productId;
     }
 
-    public void setProduct_id(Products product_id) {
-        this.product_id = product_id;
+    public void setProductId(Products productId) {
+        this.productId = productId;
     }
 
-    public Users getUser_id() {
-        return user_id;
+    public Users getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Users user_id) {
-        this.user_id = user_id;
+    public void setUserId(Users userId) {
+        this.userId = userId;
     }
 
-    public int getNumber_stars() {
-        return number_stars;
+    public int getNumberStars() {
+        return numberStars;
     }
 
-    public void setNumber_stars(int number_stars) {
-        this.number_stars = number_stars;
+    public void setNumberStars(int numberStars) {
+        this.numberStars = numberStars;
     }
 
-    public String getCreated_at() {
-        return created_at;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public String getUpdated_at() {
-        return updated_at;
+    public String getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdated_at(String updated_at) {
-        this.updated_at = updated_at;
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
-    
-    
+
 }

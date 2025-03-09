@@ -14038,8 +14038,8 @@ h6 {
   height: 40px;
   background-color: #555;
   color: #ffffff;
-  right: 15px;
-  bottom: 70px;
+  right: 30px;
+  bottom: 100px;
   text-align: center;
   overflow: hidden;
   z-index: 11 !important;
@@ -14149,7 +14149,7 @@ h6 {
   margin: 10px 0 0 0 !important;
   color: #777;
   padding: 0 20%;
-  font-size: 14px;
+  font-size: 20px;
   letter-spacing: 0.03rem;
   font-weight: 300;
 }
@@ -14943,6 +14943,7 @@ h6 {
   width: 10px;
   border-radius: 50%;
   border: 1px solid #fff;
+  background-color: #a0a0a0;
 }
 .ec-style .ec-list .ec-online {
   background-color: #2ab674;
@@ -16531,7 +16532,7 @@ h6 {
 
 .ec-header-bottom {
   background-color: transparent;
-  padding: 25px 0;
+  padding: 0px 0;
   border-bottom: 1px solid #eeeeee;
 }
 
@@ -18201,7 +18202,7 @@ button.btn-close.qty_close {
 .ec-product-inner .ec-pro-image .ec-pro-actions .wishlist {
   position: absolute;
   right: 15px;
-  bottom: 62px;
+  bottom: 26px;
   border: 1px solid #eeeeee;
 }
 .ec-product-inner .ec-pro-image .ec-pro-actions .wishlist:hover {
@@ -18235,7 +18236,7 @@ button.btn-close.qty_close {
   height: 35px;
   width: 35px;
   right: 15px;
-  bottom: 98px;
+  bottom: 62px;
   margin: 0;
   padding: 0;
   font-size: 0;
@@ -19801,6 +19802,7 @@ Category list
   font-size: 14px;
   color: #777777;
   padding-right: 22px;
+  margin: 5px 0;
 }
 
 select {
@@ -19818,6 +19820,7 @@ select {
   -ms-flex: 1;
   flex: 1;
   padding: 0 10px;
+  margin: 5px 0;
   color: #777777;
   cursor: pointer;
 }

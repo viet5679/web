@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="model.Users" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,21 +8,21 @@
         <meta charset="UTF-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
         <meta name="viewport"
-            content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+              content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
         <title>Louis Vuitton</title>
         <meta name="keywords"
-            content="apparel, catalog, clean, ecommerce, ecommerce HTML, electronics, fashion, html eCommerce, html store, minimal, multipurpose, multipurpose ecommerce, online store, responsive ecommerce template, shops" />
+              content="apparel, catalog, clean, ecommerce, ecommerce HTML, electronics, fashion, html eCommerce, html store, minimal, multipurpose, multipurpose ecommerce, online store, responsive ecommerce template, shops" />
         <meta name="description"
-            content="Best ecommerce html template for single and multi vendor store.">
+              content="Best ecommerce html template for single and multi vendor store.">
         <meta name="author" content="ashishmaraviya">
 
         <!-- site Favicon -->
         <link rel="icon" href="assets/images/favicon/favicon.png"
-            sizes="32x32" />
+              sizes="32x32" />
         <link rel="apple-touch-icon" href="assets/images/favicon/favicon.png" />
         <meta name="msapplication-TileImage"
-            content="assets/images/favicon/favicon.png" />
+              content="assets/images/favicon/favicon.png" />
 
         <!-- css Icon Font -->
         <link rel="stylesheet" href="assets/css/vendor/ecicons.min.css" />
@@ -29,7 +30,7 @@
         <!-- css All Plugins Files -->
         <link rel="stylesheet" href="assets/css/plugins/animate.css" />
         <link rel="stylesheet"
-            href="assets/css/plugins/swiper-bundle.min.css" />
+              href="assets/css/plugins/swiper-bundle.min.css" />
         <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css" />
         <link rel="stylesheet" href="assets/css/plugins/countdownTimer.css" />
         <link rel="stylesheet" href="assets/css/plugins/slick.min.css" />
@@ -41,7 +42,7 @@
 
         <!-- Background css -->
         <link rel="stylesheet" id="bg-switcher-css"
-            href="assets/css/backgrounds/bg-4.css">
+              href="assets/css/backgrounds/bg-4.css">
     </head>
     <body class="aboutus_page">
         <div id="ec-overlay">
@@ -54,406 +55,8 @@
         </div>
 
         <!-- Header start  -->
-        <header class="ec-header">
-            <!--Ec Header Top Start -->
-            <div class="header-top">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <!-- Header Top social Start -->
-                        <div
-                            class="col text-left header-top-left d-none d-lg-block">
-                            <div class="header-top-social">
-                                <span class="social-text text-upper">Follow us
-                                    on:</span>
-                                <!-- facebook, insta,... -->
-                            </div>
-                        </div>
-                        <!-- Header Top social End -->
-                        <!-- Header Top Message Start -->
-
-                        <!-- Header Top Message End -->
-
-                        <!-- Header Top responsive Action -->
-                        <div class="col d-lg-none ">
-                            <div class="ec-header-bottons">
-                                <!-- Header User Start -->
-                                <div class="ec-header-user dropdown">
-                                    <button class="dropdown-toggle"
-                                        data-bs-toggle="dropdown"><i
-                                            class="fi-rr-user"></i></button>
-                                    <ul
-                                        class="dropdown-menu dropdown-menu-right">
-                                        <li><a class="dropdown-item"
-                                                href="register.jsp">Register</a></li>
-                                        <li><a class="dropdown-item"
-                                                href="checkout.jsp">Checkout</a></li>
-                                        <li><a class="dropdown-item"
-                                                href="login.jsp">Login</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Header User End -->
-                                <!-- Header Cart Start -->
-                                <a href="wishlist.jsp"
-                                    class="ec-header-btn ec-header-wishlist">
-                                    <div class="header-icon"><i
-                                            class="fi-rr-heart"></i></div>
-                                    <span class="ec-header-count">0</span>
-                                </a>
-                                <!-- Header Cart End -->
-                                <!-- Header Cart Start -->
-                                <a href="#ec-side-cart"
-                                    class="ec-header-btn ec-side-toggle">
-                                    <div class="header-icon"><i
-                                            class="fi-rr-shopping-bag"></i></div>
-                                    <span
-                                        class="ec-header-count cart-count-lable">0</span>
-                                </a>
-                                <!-- Header Cart End -->
-                                <!-- Header menu Start -->
-                                <a href="#ec-mobile-menu"
-                                    class="ec-header-btn ec-side-toggle d-lg-none">
-                                    <i class="fi fi-rr-menu-burger"></i>
-                                </a>
-                                <!-- Header menu End -->
-                            </div>
-                        </div>
-                        <!-- Header Top responsive Action -->
-                    </div>
-                </div>
-            </div>
-            <!-- Ec Header Top  End -->
-            <!-- Ec Header Bottom  Start -->
-            <div class="ec-header-bottom d-none d-lg-block">
-                <div class="container position-relative">
-                    <div class="row">
-                        <div class="ec-flex">
-                            <!-- Ec Header Logo Start -->
-                            <div class="align-self-center">
-                                <div class="header-logo">
-                                    <a href="index.jsp"><img
-                                            src="assets/images/logo/logo4.png"
-                                            alt="Site Logo" /><img
-                                            class="dark-logo"
-                                            src="assets/images/logo/logo4.png"
-                                            alt="Site Logo"
-                                            style="display: none;" /></a>
-                                </div>
-                            </div>
-                            <!-- Ec Header Logo End -->
-
-                            <!-- Ec Header Search Start -->
-                            <div class="align-self-center">
-                                <div class="header-search">
-                                    <form class="ec-btn-group-form" action="#">
-                                        <input
-                                            class="form-control ec-search-bar"
-                                            placeholder="Search products..."
-                                            type="text">
-                                        <button class="submit" type="submit"><i
-                                                class="fi-rr-search"></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- Ec Header Search End -->
-
-                            <!-- Ec Header Button Start -->
-                            <div class="align-self-center">
-                                <div class="ec-header-bottons">
-
-                                    <!-- Header User Start -->
-                                    <div class="ec-header-user dropdown">
-                                        <button class="dropdown-toggle"
-                                            data-bs-toggle="dropdown"><i
-                                                class="fi-rr-user"></i></button>
-                                        <ul
-                                            class="dropdown-menu dropdown-menu-right">
-                                            <li><a class="dropdown-item"
-                                                    href="register.jsp">Register</a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="checkout.jsp">Checkout</a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="login.jsp">Login</a></li>
-                                        </ul>
-                                    </div>
-                                    <!-- Header User End -->
-                                    <!-- Header wishlist Start -->
-                                    <a href="wishlist.jsp"
-                                        class="ec-header-btn ec-header-wishlist">
-                                        <div class="header-icon"><i
-                                                class="fi-rr-heart"></i></div>
-                                        <span class="ec-header-count">0</span>
-                                    </a>
-                                    <!-- Header wishlist End -->
-                                    <!-- Header Cart Start -->
-                                    <a href="#ec-side-cart"
-                                        class="ec-header-btn ec-side-toggle">
-                                        <div class="header-icon"><i
-                                                class="fi-rr-shopping-bag"></i></div>
-                                        <span
-                                            class="ec-header-count cart-count-lable">0</span>
-                                    </a>
-                                    <!-- Header Cart End -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Ec Header Button End -->
-            <!-- Header responsive Bottom  Start -->
-            <div class="ec-header-bottom d-lg-none">
-                <div class="container position-relative">
-                    <div class="row ">
-
-                        <!-- Ec Header Logo Start -->
-                        <div class="col">
-                            <div class="header-logo">
-                                <a href="index.jsp"><img
-                                        src="assets/images/logo/logo4.png"
-                                        alt="Site Logo" /><img
-                                        class="dark-logo"
-                                        src="assets/images/logo/logo4.png"
-                                        alt="Site Logo"
-                                        style="display: none;" /></a>
-                            </div>
-                        </div>
-                        <!-- Ec Header Logo End -->
-                        <!-- Ec Header Search Start -->
-                        <div class="col">
-                            <div class="header-search">
-                                <form class="ec-btn-group-form" action="#">
-                                    <input class="form-control ec-search-bar"
-                                        placeholder="Search products..."
-                                        type="text">
-                                    <button class="submit" type="submit"><i
-                                            class="fi-rr-search"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                        <!-- Ec Header Search End -->
-                    </div>
-                </div>
-            </div>
-            <!-- Header responsive Bottom  End -->
-            <!-- EC Main Menu Start -->
-            <div id="ec-main-menu-desk" class="d-none d-lg-block sticky-nav">
-                <div class="container position-relative">
-                    <div class="row">
-                        <div class="col-md-12 align-self-center">
-                            <div class="ec-main-menu">
-                                <ul>
-                                    <li><a href="index.jsp">Home</a></li>
-                                    <li><a
-                                            href="shop-left-sidebar-col-3.jsp">Categories</a></li>
-
-                                    
-
-                                    <li class="dropdown"><a
-                                            href="javascript:void(0)">Pages</a>
-                                        <ul class="sub-menu">
-
-                                            <li><a href="cart.jsp">Cart</a></li>
-                                            <li><a
-                                                    href="checkout.jsp">Checkout</a></li>
-                                            <li><a href="faq.jsp">FAQ</a></li>
-                                            <li><a href="track-order.jsp">Track
-                                                    Order</a></li>
-                                            <li><a
-                                                    href="terms-condition.jsp">Terms
-                                                    Condition</a></li>
-                                            <li><a
-                                                    href="privacy-policy.jsp">Privacy
-                                                    Policy</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li><a href="about-us.jsp">About Us</a></li>
-                                    <li><a href="contact-us.jsp">Contact
-                                            Us</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Ec Main Menu End -->
-            <!-- ekka Mobile Menu Start -->
-            <div id="ec-mobile-menu" class="ec-side-cart ec-mobile-menu">
-                <div class="ec-menu-title">
-                    <span class="menu_title">My Menu</span>
-                    <button class="ec-close">x</button>
-                </div>
-                <div class="ec-menu-inner">
-                    <div class="ec-menu-content">
-                        <ul>
-                            <li><a href="index.jsp">Home</a></li>
-                            <li><a
-                                    href="shop-full-width.jsp">Categories</a></li>
-                            <li><a
-                                    href="product-full-width.jsp">Product</a></li>
-
-                            <li class="dropdown"><a
-                                    href="javascript:void(0)">Pages</a>
-                                <ul class="sub-menu">
-
-                                    <li><a href="cart.jsp">Cart</a></li>
-                                    <li><a href="checkout.jsp">Checkout</a></li>
-                                    <li><a href="faq.jsp">FAQ</a></li>
-                                    <li><a href="track-order.jsp">Track
-                                            Order</a></li>
-                                    <li><a href="terms-condition.jsp">Terms
-                                            Condition</a></li>
-                                    <li><a href="privacy-policy.jsp">Privacy
-                                            Policy</a></li>
-                                </ul>
-                            </li>
-
-                            <li><a href="about-us.jsp">About Us</a></li>
-                            <li><a href="contact-us.jsp">Contact Us</a></li>
-                        </ul>
-                    </div>
-                    <div class="header-res-lan-curr">
-                        <!-- Social Start -->
-                        <div class="header-res-social">
-                            <div class="header-top-social">
-
-                            </div>
-                        </div>
-                        <!-- Social End -->
-                    </div>
-                </div>
-            </div>
-            <!-- ekka mobile Menu End -->
-        </header>
+        <jsp:include page="navbar.jsp"></jsp:include>
         <!-- Header End  -->
-
-        <!-- ekka Cart Start -->
-        <div class="ec-side-cart-overlay"></div>
-        <div id="ec-side-cart" class="ec-side-cart">
-            <div class="ec-cart-inner">
-                <div class="ec-cart-top">
-                    <div class="ec-cart-title">
-                        <span class="cart_title">My Cart</span>
-                        <button class="ec-close"
-                            onclick="closeCart()">&times;</button>
-                    </div>
-                    <ul class="eccart-pro-items" id="cart-items">
-                        <!-- Items will be dynamically added here -->
-                    </ul>
-                </div>
-                <div class="ec-cart-bottom">
-                    <div class="cart-sub-total">
-                        <table class="table cart-table">
-                            <tbody>
-                                <tr>
-                                    <td class="text-left">Sub-Total :</td>
-                                    <td class="text-right"
-                                        id="sub-total">$0.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-left">VAT (20%) :</td>
-                                    <td class="text-right" id="vat">$0.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-left">Total :</td>
-                                    <td class="text-right primary-color"
-                                        id="total">$0.00</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="cart_btn">
-                        <a href="cart.jsp" class="btn btn-primary">View Cart</a>
-                        <a href="checkout.jsp"
-                            class="btn btn-secondary">Checkout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <script>
-            const cartItems = document.getElementById('cart-items');
-            const subTotalEl = document.getElementById('sub-total');
-            const vatEl = document.getElementById('vat');
-            const totalEl = document.getElementById('total');
-
-            let cart = []; // Array to store cart items
-
-            function addToCart(productName, price) {
-                // Check if the product already exists in the cart
-                const existingItem = cart.find(item => item.productName === productName);
-
-                if (existingItem) {
-                    // If product exists, increase quantity
-                    existingItem.quantity += 1;
-                } else {
-                    // Add new product
-                    cart.push({productName, price, quantity: 1});
-                }
-
-                // Update the UI and totals
-                updateCartUI();
-                updateTotals();
-            }
-
-            function removeFromCart(productName) {
-                // Remove product from cart
-                cart = cart.filter(item => item.productName !== productName);
-
-                // Update the UI and totals
-                updateCartUI();
-                updateTotals();
-            }
-
-            function updateQuantity(productName, newQuantity) {
-                const item = cart.find(item => item.productName === productName);
-                if (item) {
-                    item.quantity = newQuantity > 0 ? parseInt(newQuantity) : 1; // Ensure quantity is at least 1
-                }
-
-                updateCartUI();
-                updateTotals();
-            }
-
-            function updateCartUI() {
-                cartItems.innerHTML = ""; // Clear existing items
-
-                cart.forEach(item => {
-                    const listItem = document.createElement('li');
-                    listItem.innerHTML = `
-                        <div>
-            <span>${item.productName}</span> - 
-            <span>${'$'}${item.price}</span> x
-            <input type="number" value="${item.quantity}" min="1" style="width: 50px;" 
-                onchange="updateQuantity('${item.productName}', this.value)">
-            = <span>${'$'}${item.price * item.quantity}</span>
-        </div>
-        <button onclick="removeFromCart('${item.productName}')">Remove</button>
-                    `;
-                    cartItems.appendChild(listItem);
-                });
-            }
-
-            function updateTotals() {
-                const subTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-                const vat = subTotal * 0.2; // 20% VAT
-                const total = subTotal + vat;
-
-                // Update the DOM
-                subTotalEl.textContent = `$${subTotal.toFixed(2)}`;
-                vatEl.textContent = `$${vat.toFixed(2)}`;
-                totalEl.textContent = `$${total.toFixed(2)}`;
-            }
-
-            function closeCart() {
-                document.getElementById('ec-side-cart').classList.remove('open'); // Hide cart
-            }
-
-            // Example usage: Uncomment these lines to test adding products
-            // addToCart('Cute Baby Toy', 30.00);
-            // addToCart('Teddy Bear', 25.50);
-        </script>
-        <!-- ekka Cart End -->
 
         <!-- Ec breadcrumb start -->
         <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
@@ -468,7 +71,7 @@
                                 <!-- ec-breadcrumb-list start -->
                                 <ul class="ec-breadcrumb-list">
                                     <li class="ec-breadcrumb-item"><a
-                                            href="index.jsp">Home</a></li>
+                                            href="home">Home</a></li>
                                     <li class="ec-breadcrumb-item active">About
                                         Us</li>
                                 </ul>
@@ -487,9 +90,7 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <div class="section-title">
-
-                            <p class="sub-title mb-3">About our business
-                                Firm</p>
+                            <h1 class="sub-title mb-3">Discover Louis Vuitton</h1>
                         </div>
                     </div>
                     <div class="ec-common-wrapper">
@@ -498,41 +99,17 @@
                                 class="col-md-6 ec-cms-block ec-abcms-block text-center">
                                 <div class="ec-cms-block-inner">
                                     <img class="a-img"
-                                        src="assets/images/offer-image/1.jpg"
-                                        alt="about">
+                                         src="assets/images/offer-image/1.jpg"
+                                         alt="about">
                                 </div>
                             </div>
                             <div
                                 class="col-md-6 ec-cms-block ec-abcms-block text-center">
                                 <div class="ec-cms-block-inner">
-                                    <h3 class="ec-cms-block-title">What is the
-                                        ekka?</h3>
-                                    <p>Electronic typesetting text of the
-                                        printing and typesetting industry. when
-                                        an unknown printer took a galley of type
-                                        and scrambled it to make a type specimen
-                                        book. Lorem Ipsum is
-                                        simply dutmmy text ever since the 1500s,
-                                        It has survived not only,
-                                        but also the leap into electronic
-                                        typesetting.</p>
-                                    <p>Lorem Ipsum is simply dummy text of the
-                                        printing. It has survived not only five
-                                        centuries,
-                                        but also the leap into electronic
-                                        typesetting.</p>
-                                    <p>Also the leap into electronic typesetting
-                                        printing and typesetting industry. It
-                                        has survived not only five centuries,
-                                        but also the leap into electronic
-                                        typesetting, when an unknown printer
-                                        took a galley of type
-                                        and scrambled it to make a type specimen
-                                        book. It has survived not only five
-                                        centuries,
-                                        but also the leap into electronic
-                                        typesetting, remaining essentially
-                                        unchanged.</p>
+                                    <h3 class="ec-cms-block-title">About Louis Vuitton</h3>
+                                    <p>More than just a brand, Louis Vuitton embodies the spirit of adventure, continuous creativity, and a commitment to perfection. From the iconic travel trunks crafted by its founder to the high-end fashion collections and luxurious accessories of today, we strive to deliver products that are not only aesthetically pleasing but also timeless in value.</p>
+                                    <p>At Louis Vuitton, each product is a culmination of masterful craftsmanship, meticulous attention to detail, and a passion for quality. We take pride in using the finest materials, blending tradition with innovation to create true masterpieces. Moreover, we believe that luxury is not just about the product, but also about the experience it provides. That's why we always aim to exceed customer expectations, from personalized services to unique and memorable events.</p>
+                                    <p>Join us in exploring the world of Louis Vuitton, where heritage meets modernity, and where every product tells its own story.</p>
                                 </div>
                             </div>
                         </div>
@@ -540,134 +117,9 @@
                 </div>
             </div>
         </section>
-
-        <!-- ec testmonial Start -->
-        <section
-            class="section ec-test-section section-space-ptb-100 section-space-m"
-            id="reviews">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div class="section-title mb-0">
-                            <h2 class="ec-bg-title">Testimonial</h2>
-                            <h2 class="ec-title">Client Review</h2>
-                            <p class="sub-title mb-3">What say client about
-                                us</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="ec-test-outer">
-                        <ul id="ec-testimonial-slider">
-                            <li class="ec-test-item">
-                                <i class="fi-rr-quote-right top"></i>
-                                <div class="ec-test-inner">
-                                    <div class="ec-test-img"><img
-                                            alt="testimonial"
-                                            title="testimonial"
-                                            src="assets/images/testimonial/1.jpg" /></div>
-                                    <div class="ec-test-content">
-                                        <div class="ec-test-desc">Lorem Ipsum is
-                                            simply dummy text of the printing
-                                            and
-                                            typesetting industry. Lorem Ipsum
-                                            has been the industry's standard
-                                            dummy text
-                                            ever since the 1500s, when an
-                                            unknown printer took a galley of
-                                            type and
-                                            scrambled it to make a type
-                                            specimen</div>
-                                        <div class="ec-test-name">John Doe</div>
-                                        <div class="ec-test-designation">General
-                                            Manager</div>
-                                        <div class="ec-test-rating">
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <i class="fi-rr-quote-right bottom"></i>
-                            </li>
-                            <li class="ec-test-item ">
-                                <i class="fi-rr-quote-right top"></i>
-                                <div class="ec-test-inner">
-                                    <div class="ec-test-img"><img
-                                            alt="testimonial"
-                                            title="testimonial"
-                                            src="assets/images/testimonial/2.jpg" /></div>
-                                    <div class="ec-test-content">
-                                        <div class="ec-test-desc">Lorem Ipsum is
-                                            simply dummy text of the printing
-                                            and
-                                            typesetting industry. Lorem Ipsum
-                                            has been the industry's standard
-                                            dummy text
-                                            ever since the 1500s, when an
-                                            unknown printer took a galley of
-                                            type and
-                                            scrambled it to make a type
-                                            specimen</div>
-                                        <div class="ec-test-name">John Doe</div>
-                                        <div class="ec-test-designation">General
-                                            Manager</div>
-                                        <div class="ec-test-rating">
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <i class="fi-rr-quote-right bottom"></i>
-                            </li>
-                            <li class="ec-test-item">
-                                <i class="fi-rr-quote-right top"></i>
-                                <div class="ec-test-inner">
-                                    <div class="ec-test-img"><img
-                                            alt="testimonial"
-                                            title="testimonial"
-                                            src="assets/images/testimonial/3.jpg" /></div>
-                                    <div class="ec-test-content">
-                                        <div class="ec-test-desc">Lorem Ipsum is
-                                            simply dummy text of the printing
-                                            and
-                                            typesetting industry. Lorem Ipsum
-                                            has been the industry's standard
-                                            dummy text
-                                            ever since the 1500s, when an
-                                            unknown printer took a galley of
-                                            type and
-                                            scrambled it to make a type
-                                            specimen</div>
-                                        <div class="ec-test-name">John Doe</div>
-                                        <div class="ec-test-designation">General
-                                            Manager</div>
-                                        <div class="ec-test-rating">
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                            <i class="ecicon eci-star fill"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <i class="fi-rr-quote-right bottom"></i>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ec testmonial end -->
-
         <!--  services Section Start -->
         <section class="section ec-services-section section-space-p"
-            id="services">
+                 id="services">
             <h2 class="d-none">Services</h2>
             <div class="container">
                 <div class="row">
@@ -912,20 +364,20 @@
                                         </ul>
                                         <div class="ec-subscribe-form">
                                             <form id="ec-newsletter-form"
-                                                name="ec-newsletter-form"
-                                                method="post"
-                                                action="#">
+                                                  name="ec-newsletter-form"
+                                                  method="post"
+                                                  action="#">
                                                 <div id="ec_news_signup"
-                                                    class="ec-form">
+                                                     class="ec-form">
                                                     <input class="ec-email"
-                                                        type="email" required
-                                                        placeholder="Enter your email here..."
-                                                        name="ec-email" value />
+                                                           type="email" required
+                                                           placeholder="Enter your email here..."
+                                                           name="ec-email" value />
                                                     <button id="ec-news-btn"
-                                                        class="button btn-primary"
-                                                        type="submit"
-                                                        name="subscribe"
-                                                        value><i
+                                                            class="button btn-primary"
+                                                            type="submit"
+                                                            name="subscribe"
+                                                            value><i
                                                             class="ecicon eci-paper-plane-o"
                                                             aria-hidden="true"></i></button>
                                                 </div>
@@ -986,12 +438,12 @@
                 <div class="ec-nav-panel">
                     <div class="ec-nav-panel-icons">
                         <a href="#ec-mobile-menu"
-                            class="navbar-toggler-btn ec-header-btn ec-side-toggle"><i
+                           class="navbar-toggler-btn ec-header-btn ec-side-toggle"><i
                                 class="fi-rr-menu-burger"></i></a>
                     </div>
                     <div class="ec-nav-panel-icons">
                         <a href="#ec-side-cart"
-                            class="toggle-cart ec-header-btn ec-side-toggle"><i
+                           class="toggle-cart ec-header-btn ec-side-toggle"><i
                                 class="fi-rr-shopping-bag"></i><span
                                 class="ec-cart-noti ec-header-count cart-count-lable">0</span></a>
                     </div>
@@ -1043,7 +495,7 @@
                 <!-- Panel Header -->
                 <div class="ec-header">
                     <strong>Need Help?</strong>
-                    <p>Chat with us on Gmail</p>
+                    <p>Chat with us on WhatsApp</p>
                 </div>
                 <!-- Panel Content -->
                 <div class="ec-body">
@@ -1051,19 +503,19 @@
                         <!-- Start Single Contact List -->
                         <li>
                             <a class="ec-list" data-number="918866774266"
-                                data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
                                 <div class="d-flex bd-highlight">
                                     <!-- Profile Picture -->
                                     <div class="ec-img-cont">
                                         <img
-                                            src="assets/images/gmail/lv.png"
+                                            src="assets/images/whatsapp/profile_01.jpg"
                                             class="ec-user-img"
                                             alt="Profile image">
                                         <span class="ec-status-icon"></span>
                                     </div>
                                     <!-- Display Name & Last Seen -->
                                     <div class="ec-user-info">
-                                        <span>Louis Vuitton</span>
+                                        <span>Sahar Darya</span>
                                         <p>Sahar left 7 mins ago</p>
                                     </div>
                                     <!-- Chat iCon -->
@@ -1074,7 +526,87 @@
                             </a>
                         </li>
                         <!--/ End Single Contact List -->
-                        
+                        <!-- Start Single Contact List -->
+                        <li>
+                            <a class="ec-list" data-number="918866774266"
+                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                                <div class="d-flex bd-highlight">
+                                    <!-- Profile Picture -->
+                                    <div class="ec-img-cont">
+                                        <img
+                                            src="assets/images/whatsapp/profile_02.jpg"
+                                            class="ec-user-img"
+                                            alt="Profile image">
+                                        <span
+                                            class="ec-status-icon ec-online"></span>
+                                    </div>
+                                    <!-- Display Name & Last Seen -->
+                                    <div class="ec-user-info">
+                                        <span>Yolduz Rafi</span>
+                                        <p>Yolduz is online</p>
+                                    </div>
+                                    <!-- Chat iCon -->
+                                    <div class="ec-chat-icon">
+                                        <i class="fa fa-whatsapp"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--/ End Single Contact List -->
+                        <!-- Start Single Contact List -->
+                        <li>
+                            <a class="ec-list" data-number="918866774266"
+                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                                <div class="d-flex bd-highlight">
+                                    <!-- Profile Picture -->
+                                    <div class="ec-img-cont">
+                                        <img
+                                            src="assets/images/whatsapp/profile_03.jpg"
+                                            class="ec-user-img"
+                                            alt="Profile image">
+                                        <span
+                                            class="ec-status-icon ec-offline"></span>
+                                    </div>
+                                    <!-- Display Name & Last Seen -->
+                                    <div class="ec-user-info">
+                                        <span>Nargis Hawa</span>
+                                        <p>Nargis left 30 mins ago</p>
+                                    </div>
+                                    <!-- Chat iCon -->
+                                    <div class="ec-chat-icon">
+                                        <i class="fa fa-whatsapp"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--/ End Single Contact List -->
+                        <!-- Start Single Contact List -->
+                        <li>
+                            <a class="ec-list" data-number="918866774266"
+                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
+                                <div class="d-flex bd-highlight">
+                                    <!-- Profile Picture -->
+                                    <div class="ec-img-cont">
+                                        <img
+                                            src="assets/images/whatsapp/profile_04.jpg"
+                                            class="ec-user-img"
+                                            alt="Profile image">
+                                        <span
+                                            class="ec-status-icon ec-offline"></span>
+                                    </div>
+                                    <!-- Display Name & Last Seen -->
+                                    <div class="ec-user-info">
+                                        <span>Khadija Mehr</span>
+                                        <p>Khadija left 50 mins ago</p>
+                                    </div>
+                                    <!-- Chat iCon -->
+                                    <div class="ec-chat-icon">
+                                        <i class="fa fa-whatsapp"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!--/ End Single Contact List -->
                     </ul>
                 </div>
             </div>
@@ -1084,8 +616,8 @@
                 <div class="ec-box">
                     <div class="ec-button rotateBackward">
                         <img class="whatsapp"
-                            src="assets/images/gmail/gmail.jpg"
-                            alt="gmail icon" />
+                             src="assets/images/common/whatsapp.png"
+                             alt="whatsapp icon" />
                     </div>
                 </div>
             </div>
