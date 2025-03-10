@@ -68,13 +68,41 @@
                         <div class="col d-lg-none ">
                             <div class="ec-header-bottons">
                                 <!-- Header User Start -->
+                                <% 
+                                    Users user = (Users) session.getAttribute("user");
+                                %>
                                 <div class="ec-header-user dropdown">
-                                    <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
-                                            class="fi-rr-user"></i></button>
+                                    <button class="dropdown-toggle" data-bs-toggle="dropdown">
+                                        <% if (user != null) { %>
+                                        <span class="ec-pro-title" style="margin-right: 10px"><%= user.getName() %></span>
+                                        <% } %>
+                                        <i class="fi-rr-user"></i>
+                                    </button>
+
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a class="dropdown-item" href="register.jsp">Register</a></li>
+                                        <% if (user == null) { %>
+                                        <!-- chưa đăng nhập -->
+                                        <li><a class="dropdown-item" href="register">Register</a></li>
+                                        <li><a class="dropdown-item" href="login">Login</a></li>
+                                            <% } else { %>
+                                        <!-- đã đăng nhập -->
+                                        <% if (user.getRole() == 1) { %>
+                                        <!-- User -->
+                                        <li><a class="dropdown-item" href="profile">Edit Profile</a></li>
                                         <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                        <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+
+                                        <% } else if (user.getRole() == 0) { %>
+                                        <!-- Admin -->
+                                        <li><a class="dropdown-item" href="admin-dashboard.jsp">ADMIN</a></li>
+                                            <% } %>
+                                        <li><a class="dropdown-item" href="index.jsp?logout=true">Log out</a></li>
+                                            <% } %>
+                                            <%
+                                                if (request.getParameter("logout") != null) {
+                                                    session.invalidate(); // Xóa session
+                                                    response.sendRedirect("home"); // Chuyển hướng về trang chủ
+                                                }
+                                            %>
                                     </ul>
                                 </div>
                                 <!-- Header User End -->
@@ -103,65 +131,7 @@
             </div>
             <!-- Ec Header Top  End -->
             <!-- Ec Header Bottom  Start -->
-            <div class="ec-header-bottom d-none d-lg-block">
-                <div class="container position-relative">
-                    <div class="row">
-                        <div class="ec-flex">
-                            <!-- Ec Header Logo Start -->
-                            <div class="align-self-center">
-                                <div class="header-logo">
-                                    <a href="index.jsp"><img src="assets/images/logo/logo4.png" alt="Site Logo" /><img
-                                            class="dark-logo" src="assets/images/logo/logo4.png" alt="Site Logo"
-                                            style="display: none;" /></a>
-                                </div>
-                            </div>
-                            <!-- Ec Header Logo End -->
-
-                            <!-- Ec Header Search Start -->
-                            <div class="align-self-center">
-                                <div class="header-search">
-                                    <form class="ec-btn-group-form" action="#">
-                                        <input class="form-control ec-search-bar" placeholder="Search products..."
-                                               type="text">
-                                        <button class="submit" type="submit"><i class="fi-rr-search"></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- Ec Header Search End -->
-
-                            <!-- Ec Header Button Start -->
-                            <div class="align-self-center">
-                                <div class="ec-header-bottons">
-
-                                    <!-- Header User Start -->
-                                    <div class="ec-header-user dropdown">
-                                        <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
-                                                class="fi-rr-user"></i></button>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a class="dropdown-item" href="register">Register</a></li>
-                                            <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                            <li><a class="dropdown-item" href="login">Login</a></li>
-                                        </ul>
-                                    </div>
-                                    <!-- Header User End -->
-                                    <!-- Header wishlist Start -->
-                                    <a href="wishlist.jsp" class="ec-header-btn ec-header-wishlist">
-                                        <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                                        <span class="ec-header-count">0</span>
-                                    </a>
-                                    <!-- Header wishlist End -->
-                                    <!-- Header Cart Start -->
-                                    <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                        <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
-                                        <span class="ec-header-count cart-count-lable">0</span>
-                                    </a>
-                                    <!-- Header Cart End -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <jsp:include page="bottom.jsp"/>
             <!-- Ec Header Button End -->
             <!-- Header responsive Bottom  Start -->
             <div class="ec-header-bottom d-lg-none">
@@ -430,7 +400,9 @@
                     document.addEventListener("DOMContentLoaded", function () {
                         let successMessage = document.getElementById("success-message");
                         if (successMessage && successMessage.innerText.trim() !== "") {
-                            setTimeout(() => {window.location.href = "login";}, 5000);
+                            setTimeout(() => {
+                                window.location.href = "login";
+                            }, 5000);
                         }
                     });
                 </script>

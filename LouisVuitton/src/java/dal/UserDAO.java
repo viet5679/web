@@ -8,15 +8,37 @@ import java.sql.ResultSet;
 
 public class UserDAO extends DBContext {
 
+    public Users getUserById(int id) {
+        String sql = "select * from users where id = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                Users u = new Users(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getString(12));
+                return u;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        UserDAO ud = new UserDAO();
+        Users u = ud.checkUser("vietpthe180666@fpt.edu.vn", "123");
+        System.out.println(u.getEmail());
+    }
+
     public Users checkUser(String email, String password) {
-        String sql = "SELECT id, name, email, password, phone, gender, address, avatar, status, role, created_at, updated_at FROM users WHERE email = ? AND password = ?";
+        String sql = "SELECT * FROM users WHERE email = ? AND password = ?";
         try {
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, email);
             stm.setString(2, password);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
-                Users user = new Users(rs.getInt("id"), rs.getString("name"), rs.getString("email"), rs.getString("password"), rs.getString("phone"), rs.getString("gender"), rs.getString("address"), rs.getString("avatar"), rs.getInt("status"), rs.getInt("role"), rs.getString("created_at"), rs.getString("updated_at"));
+                Users user = new Users(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getString(12));
                 return user;
             }
         } catch (SQLException e) {

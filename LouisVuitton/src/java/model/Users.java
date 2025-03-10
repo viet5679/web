@@ -1,10 +1,10 @@
-
 package model;
 
- // @author xu4nvi3t
+// @author xu4nvi3t
 public class Users {
+
     private int id;
-    private String name;
+
     private String email;
     private String password;
     private String phone;
@@ -12,16 +12,16 @@ public class Users {
     private String address;
     private String avatar;
     private int status;
-    private int role;
     private String createdAt;
     private String updatedAt;
+    private int role;
+    private String name;
 
     public Users() {
     }
 
-    public Users(int id, String name, String email, String password, String phone, String gender, String address, String avatar, int status, int role, String createdAt, String updatedAt) {
+    public Users(int id, String email, String password, String phone, String gender, String address, String avatar, int status, String createdAt, String updatedAt, int role, String name) {
         this.id = id;
-        this.name = name;
         this.email = email;
         this.password = password;
         this.phone = phone;
@@ -29,10 +29,12 @@ public class Users {
         this.address = address;
         this.avatar = avatar;
         this.status = status;
-        this.role = role;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+        this.role = role;
+        this.name = name;
     }
+
     
 
     public int getId() {
@@ -114,7 +116,7 @@ public class Users {
     public void setRole(int role) {
         this.role = role;
     }
-    
+
     public String getCreatedAt() {
         return createdAt;
     }

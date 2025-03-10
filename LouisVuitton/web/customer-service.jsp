@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="model.Users" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,13 +69,41 @@
                         <div class="col d-lg-none ">
                             <div class="ec-header-bottons">
                                 <!-- Header User Start -->
+                                <% 
+                                    Users user = (Users) session.getAttribute("user");
+                                %>
                                 <div class="ec-header-user dropdown">
-                                    <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
-                                            class="fi-rr-user"></i></button>
+                                    <button class="dropdown-toggle" data-bs-toggle="dropdown">
+                                        <% if (user != null) { %>
+                                        <span class="ec-pro-title" style="margin-right: 10px"><%= user.getName() %></span>
+                                        <% } %>
+                                        <i class="fi-rr-user"></i>
+                                    </button>
+
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a class="dropdown-item" href="register.jsp">Register</a></li>
+                                        <% if (user == null) { %>
+                                        <!-- chưa đăng nhập -->
+                                        <li><a class="dropdown-item" href="register">Register</a></li>
+                                        <li><a class="dropdown-item" href="login">Login</a></li>
+                                            <% } else { %>
+                                        <!-- đã đăng nhập -->
+                                        <% if (user.getRole() == 1) { %>
+                                        <!-- User -->
+                                        <li><a class="dropdown-item" href="profile">Edit Profile</a></li>
                                         <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                        <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+
+                                        <% } else if (user.getRole() == 0) { %>
+                                        <!-- Admin -->
+                                        <li><a class="dropdown-item" href="admin-dashboard.jsp">ADMIN</a></li>
+                                            <% } %>
+                                        <li><a class="dropdown-item" href="index.jsp?logout=true">Log out</a></li>
+                                            <% } %>
+                                            <%
+                                                if (request.getParameter("logout") != null) {
+                                                    session.invalidate(); // Xóa session
+                                                    response.sendRedirect("home"); // Chuyển hướng về trang chủ
+                                                }
+                                            %>
                                     </ul>
                                 </div>
                                 <!-- Header User End -->
@@ -145,9 +174,12 @@
                                     </div>
                                     <!-- Header User End -->
                                     <!-- Header wishlist Start -->
-                                    <a href="wishlist.jsp" class="ec-header-btn ec-header-wishlist">
-                                        <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                                        <span class="ec-header-count">0</span>
+                                    <a href="wishlist"
+                                       class="ec-header-btn ec-header-wishlist">
+                                        <div class="header-icon"><i
+                                                class="fi-rr-heart"></i></div>
+                                        <span
+                                            class="ec-header-count wishlist-count-label">${requestScope.numWishListItem}</span>
                                     </a>
                                     <!-- Header wishlist End -->
                                     <!-- Header Cart Start -->
@@ -356,15 +388,7 @@
                 cart.forEach(item => {
                     const listItem = document.createElement('li');
                     listItem.innerHTML = `
-                      <div>
-           <span>${item.productName}</span> - 
-           <span>${'$'}${item.price}</span> x
-           <input type="number" value="${item.quantity}" min="1" style="width: 50px;" 
-               onchange="updateQuantity('${item.productName}', this.value)">
-           = <span>${'$'}${item.price * item.quantity}</span>
-       </div>
-       <button onclick="removeFromCart('${item.productName}')">Remove</button>
-                   `;
+                      <div> <span>${item.productName}</span> - <span>${'$'}${item.price}</span> x <input type="number" value="${item.quantity}" min="1" style="width: 50px;" onchange="updateQuantity('${item.productName}', this.value)"> = <span>${'$'}${item.price * item.quantity}</span> </div> <button onclick="removeFromCart('${item.productName}')">Remove</button> `;
                     cartItems.appendChild(listItem);
                 });
             }

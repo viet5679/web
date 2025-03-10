@@ -3,15 +3,33 @@ package dal;
 // @author xu4nvi3t
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import model.ProductImages;
 import model.ProductSizes;
 import model.Products;
 
 public class ProductsDAO extends DBContext {
+    
+    public List<ProductImages> getImagesByPid(int pid){
+        List<ProductImages> list = new ArrayList();
+        String sql = "  select * from products_images where product_id = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, pid);
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){
+                ProductImages pi = new ProductImages(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+                list.add(pi);
+            }
+        } catch (SQLException e) {
+        }
+        return list;
+    }
 
     public List<Products> getAll() {
         List<Products> list = new ArrayList();

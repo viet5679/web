@@ -68,17 +68,7 @@
                         <!-- Header Top responsive Action -->
                         <div class="col d-lg-none ">
                             <div class="ec-header-bottons">
-                                <!-- Header User Start -->
-                                <div class="ec-header-user dropdown">
-                                    <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
-                                            class="fi-rr-user"></i></button>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a class="dropdown-item" href="register">Register</a></li>
-                                        <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                        <li><a class="dropdown-item" href="login">Login</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Header User End -->
+                                
                                 <!-- Header Cart Start -->
                                 <a href="wishlist" class="ec-header-btn ec-header-wishlist">
                                     <div class="header-icon"><i class="fi-rr-heart"></i></div>

@@ -68,17 +68,7 @@
                         <!-- Header Top responsive Action -->
                         <div class="col d-lg-none ">
                             <div class="ec-header-bottons">
-                                <!-- Header User Start -->
-                                <div class="ec-header-user dropdown">
-                                    <button class="dropdown-toggle" data-bs-toggle="dropdown"><i
-                                            class="fi-rr-user"></i></button>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a class="dropdown-item" href="register.jsp">Register</a></li>
-                                        <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                        <li><a class="dropdown-item" href="login.jsp">Login</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Header User End -->
+
                                 <!-- Header Cart Start -->
                                 <a href="wishlist.jsp" class="ec-header-btn ec-header-wishlist">
                                     <div class="header-icon"><i class="fi-rr-heart"></i></div>
@@ -108,93 +98,7 @@
             </div>
             <!-- Ec Header Top  End -->
             <!-- Ec Header Bottom  Start -->
-            <div class="ec-header-bottom d-none d-lg-block">
-                <div class="container position-relative">
-                    <div class="row">
-                        <div class="ec-flex">
-                            <!-- Ec Header Logo Start -->
-                            <div class="align-self-center">
-                                <div class="header-logo">
-                                    <a href="index.jsp"><img src="assets/images/logo/logo4.png" alt="Site Logo" /><img
-                                            class="dark-logo" src="assets/images/logo/logo4.png" alt="Site Logo"
-                                            style="display: none;" /></a>
-                                </div>
-                            </div>
-                            <!-- Ec Header Logo End -->
-
-                            <!-- Ec Header Search Start -->
-                            <div class="align-self-center">
-                                <div class="header-search">
-                                    <form class="ec-btn-group-form" action="#">
-                                        <input class="form-control ec-search-bar" placeholder="Search products..."
-                                               type="text">
-                                        <button class="submit" type="submit"><i class="fi-rr-search"></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- Ec Header Search End -->
-
-                            <!-- Ec Header Button Start -->
-                            <div class="align-self-center">
-                                <div class="ec-header-bottons">
-
-                                    <!-- Header User Start -->
-                                    <% 
-                                        Users user = (Users) session.getAttribute("user");
-                                    %>
-                                    <div class="ec-header-user dropdown">
-                                        <button class="dropdown-toggle" data-bs-toggle="dropdown">
-                                            <% if (user != null) { %>
-                                            <span class="ec-pro-title" style="margin-right: 10px"><%= user.getName() %></span>
-                                            <% } %>
-                                            <i class="fi-rr-user"></i>
-                                        </button>
-
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <% if (user == null) { %>
-                                                <!-- chưa đăng nhập -->
-                                                <li><a class="dropdown-item" href="register.jsp">Register</a></li>
-                                                <li><a class="dropdown-item" href="login.jsp">Login</a></li>
-                                            <% } else { %>
-                                                <!-- đã đăng nhập -->
-                                                <% if (user.getRole() == 1) { %>
-                                                <!-- User -->
-                                                <li><a class="dropdown-item" href="profile">Edit Profile</a></li>
-                                                <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-                                            
-                                            <% } else if (user.getRole() == 0) { %>
-                                                <!-- Admin -->
-                                                <li><a class="dropdown-item" href="admin-dashboard.jsp">ADMIN</a></li>
-                                                <% } %>
-                                                <li><a class="dropdown-item" href="index.jsp?logout=true">Log out</a></li>
-                                                <% } %>
-                                                <%
-                                                    if (request.getParameter("logout") != null) {
-                                                        session.invalidate(); // Xóa session
-                                                        response.sendRedirect("home"); // Chuyển hướng về trang chủ
-                                                    }
-                                                %>
-                                        </ul>
-                                    </div>
-                                    <!-- Header User End -->
-                                    <!-- Header wishlist Start -->
-                                    <a href="wishlist.jsp" class="ec-header-btn ec-header-wishlist">
-                                        <div class="header-icon"><i class="fi-rr-heart"></i></div>
-                                        <span class="ec-header-count wishlist-count-label">0</span>
-                                    </a>
-                                    <!-- Header wishlist End -->
-                                    <!-- Header Cart Start -->
-                                    <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                                        <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
-                                        <span class="ec-header-count cart-count-lable">0</span>
-                                    </a>
-                                    <!-- Header Cart End -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <jsp:include page="bottom.jsp"/>
             <!-- Ec Header Button End -->
             <!-- Header responsive Bottom  Start -->
             <div class="ec-header-bottom d-lg-none">
@@ -444,55 +348,55 @@
                         <!-- checkout content Start -->
                         <div class="ec-checkout-content">
                             <div class="ec-checkout-inner">
-                                <div class="ec-checkout-wrap margin-bottom-30">
-                                    <div class="ec-checkout-block ec-check-new">
-                                        <h3 class="ec-checkout-title">New Customer</h3>
-                                        <div class="ec-check-block-content">
-                                            <div class="ec-check-subtitle">Checkout Options</div>
-                                            <form action="#">
-                                                <span class="ec-new-option">
-                                                    <span>
-                                                        <input type="radio" id="account1" name="radio-group" checked>
-                                                        <label for="account1">Register Account</label>
-                                                    </span>
-                                                    <span>
-                                                        <input type="radio" id="account2" name="radio-group">
-                                                        <label for="account2">Guest Account</label>
-                                                    </span>
-                                                </span>
-                                            </form>
-                                            <div class="ec-new-desc">By creating an account you will be able to shop faster,
-                                                be up to date on an order's status, and keep track of the orders you have
-                                                previously made.
-                                            </div>
-                                            <div class="ec-new-btn"><a href="#" class="btn btn-primary">Continue</a></div>
-
-                                        </div>
-                                    </div>
-                                    <div class="ec-checkout-block ec-check-login">
-                                        <h3 class="ec-checkout-title">Returning Customer</h3>
-                                        <div class="ec-check-login-form">
-                                            <form action="#" method="post">
-                                                <span class="ec-check-login-wrap">
-                                                    <label>Email Address</label>
-                                                    <input type="text" name="name" placeholder="Enter your email address"
-                                                           required />
-                                                </span>
-                                                <span class="ec-check-login-wrap">
-                                                    <label>Password</label>
-                                                    <input type="password" name="password" placeholder="Enter your password"
-                                                           required />
-                                                </span>
-
-                                                <span class="ec-check-login-wrap ec-check-login-btn">
-                                                    <button class="btn btn-primary" type="submit">Login</button>
-                                                    <a class="ec-check-login-fp" href="#">Forgot Password?</a>
-                                                </span>
-                                            </form>
-                                        </div>
-                                    </div>
-
-                                </div>
+                                <!--                                <div class="ec-checkout-wrap margin-bottom-30">
+                                                                    <div class="ec-checkout-block ec-check-new">
+                                                                        <h3 class="ec-checkout-title">New Customer</h3>
+                                                                        <div class="ec-check-block-content">
+                                                                            <div class="ec-check-subtitle">Checkout Options</div>
+                                                                            <form action="#">
+                                                                                <span class="ec-new-option">
+                                                                                    <span>
+                                                                                        <input type="radio" id="account1" name="radio-group" checked>
+                                                                                        <label for="account1">Register Account</label>
+                                                                                    </span>
+                                                                                    <span>
+                                                                                        <input type="radio" id="account2" name="radio-group">
+                                                                                        <label for="account2">Guest Account</label>
+                                                                                    </span>
+                                                                                </span>
+                                                                            </form>
+                                                                            <div class="ec-new-desc">By creating an account you will be able to shop faster,
+                                                                                be up to date on an order's status, and keep track of the orders you have
+                                                                                previously made.
+                                                                            </div>
+                                                                            <div class="ec-new-btn"><a href="#" class="btn btn-primary">Continue</a></div>
+                                
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="ec-checkout-block ec-check-login">
+                                                                        <h3 class="ec-checkout-title">Returning Customer</h3>
+                                                                        <div class="ec-check-login-form">
+                                                                            <form action="#" method="post">
+                                                                                <span class="ec-check-login-wrap">
+                                                                                    <label>Email Address</label>
+                                                                                    <input type="text" name="name" placeholder="Enter your email address"
+                                                                                           required />
+                                                                                </span>
+                                                                                <span class="ec-check-login-wrap">
+                                                                                    <label>Password</label>
+                                                                                    <input type="password" name="password" placeholder="Enter your password"
+                                                                                           required />
+                                                                                </span>
+                                
+                                                                                <span class="ec-check-login-wrap ec-check-login-btn">
+                                                                                    <button class="btn btn-primary" type="submit">Login</button>
+                                                                                    <a class="ec-check-login-fp" href="#">Forgot Password?</a>
+                                                                                </span>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                
+                                                                </div>-->
                                 <div class="ec-checkout-wrap margin-bottom-30 padding-bottom-3">
                                     <div class="ec-checkout-block ec-check-bill">
                                         <h3 class="ec-checkout-title">Billing Details</h3>
@@ -508,7 +412,7 @@
                                                     <label for="bill2">I want to use new address</label>
                                                 </span>
                                             </span>
-                                            <div class="ec-check-bill-form">
+                                            <div class="ec-check-bill-form" id="billing-form">
                                                 <form action="#" method="post">
                                                     <span class="ec-bill-wrap ec-bill-half">
                                                         <label>First Name*</label>
@@ -524,52 +428,7 @@
                                                         <label>Address</label>
                                                         <input type="text" name="address" placeholder="Address Line 1" />
                                                     </span>
-                                                    <span class="ec-bill-wrap ec-bill-half">
-                                                        <label>City *</label>
-                                                        <span class="ec-bl-select-inner">
-                                                            <select name="ec_select_city" id="ec-select-city"
-                                                                    class="ec-bill-select">
-                                                                <option selected disabled>City</option>
-                                                                <option value="1">City 1</option>
-                                                                <option value="2">City 2</option>
-                                                                <option value="3">City 3</option>
-                                                                <option value="4">City 4</option>
-                                                                <option value="5">City 5</option>
-                                                            </select>
-                                                        </span>
-                                                    </span>
-                                                    <span class="ec-bill-wrap ec-bill-half">
-                                                        <label>Post Code</label>
-                                                        <input type="text" name="postalcode" placeholder="Post Code" />
-                                                    </span>
-                                                    <span class="ec-bill-wrap ec-bill-half">
-                                                        <label>Country *</label>
-                                                        <span class="ec-bl-select-inner">
-                                                            <select name="ec_select_country" id="ec-select-country"
-                                                                    class="ec-bill-select">
-                                                                <option selected disabled>Country</option>
-                                                                <option value="1">Country 1</option>
-                                                                <option value="2">Country 2</option>
-                                                                <option value="3">Country 3</option>
-                                                                <option value="4">Country 4</option>
-                                                                <option value="5">Country 5</option>
-                                                            </select>
-                                                        </span>
-                                                    </span>
-                                                    <span class="ec-bill-wrap ec-bill-half">
-                                                        <label>Region State</label>
-                                                        <span class="ec-bl-select-inner">
-                                                            <select name="ec_select_state" id="ec-select-state"
-                                                                    class="ec-bill-select">
-                                                                <option selected disabled>Region/State</option>
-                                                                <option value="1">Region/State 1</option>
-                                                                <option value="2">Region/State 2</option>
-                                                                <option value="3">Region/State 3</option>
-                                                                <option value="4">Region/State 4</option>
-                                                                <option value="5">Region/State 5</option>
-                                                            </select>
-                                                        </span>
-                                                    </span>
+
                                                 </form>
                                             </div>
 
@@ -772,103 +631,103 @@
                             </div>
                             <!-- Sidebar Summary Block -->
                         </div>
-                        <div class="ec-sidebar-wrap ec-checkout-del-wrap">
-                            <!-- Sidebar Summary Block -->
-                            <div class="ec-sidebar-block">
-                                <div class="ec-sb-title">
-                                    <h3 class="ec-sidebar-title">Delivery Method</h3>
-                                </div>
-                                <div class="ec-sb-block-content">
-                                    <div class="ec-checkout-del">
-                                        <div class="ec-del-desc">Please select the preferred shipping method to use on this
-                                            order.</div>
-                                        <form action="#">
-                                            <span class="ec-del-option">
-                                                <span>
-                                                    <span class="ec-del-opt-head">Free Shipping</span>
-                                                    <input type="radio" id="del1" name="radio-group" checked>
-                                                    <label for="del1">Rate - $0 .00</label>
-                                                </span>
-                                                <span>
-                                                    <span class="ec-del-opt-head">Flat Rate</span>
-                                                    <input type="radio" id="del2" name="radio-group">
-                                                    <label for="del2">Rate - $5.00</label>
-                                                </span>
-                                            </span>
-                                            <span class="ec-del-commemt">
-                                                <span class="ec-del-opt-head">Add Comments About Your Order</span>
-                                                <textarea name="your-commemt" placeholder="Comments"></textarea>
-                                            </span>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Sidebar Summary Block -->
-                        </div>
-                        <div class="ec-sidebar-wrap ec-checkout-pay-wrap">
-                            <!-- Sidebar Payment Block -->
-                            <div class="ec-sidebar-block">
-                                <div class="ec-sb-title">
-                                    <h3 class="ec-sidebar-title">Payment Method</h3>
-                                </div>
-                                <div class="ec-sb-block-content">
-                                    <div class="ec-checkout-pay">
-                                        <div class="ec-pay-desc">Please select the preferred payment method to use on this
-                                            order.</div>
-                                        <form action="#">
-                                            <span class="ec-pay-option">
-                                                <span>
-                                                    <input type="radio" id="pay1" name="radio-group" checked>
-                                                    <label for="pay1">Cash On Delivery</label>
-                                                </span>
-                                            </span>
-                                            <span class="ec-pay-commemt">
-                                                <span class="ec-pay-opt-head">Add Comments About Your Order</span>
-                                                <textarea name="your-commemt" placeholder="Comments"></textarea>
-                                            </span>
-                                            <span class="ec-pay-agree"><input type="checkbox" value=""><a href="#">I have
-                                                    read and agree to the <span>Terms & Conditions</span></a><span
-                                                    class="checked"></span></span>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Sidebar Payment Block -->
-                        </div>
-                        <div class="ec-sidebar-wrap ec-check-pay-img-wrap">
-                            <!-- Sidebar Payment Block -->
-                            <div class="ec-sidebar-block">
-                                <div class="ec-sb-title">
-                                    <h3 class="ec-sidebar-title">Payment Method</h3>
-                                </div>
-                                <div class="ec-sb-block-content">
-                                    <div class="ec-check-pay-img-inner">
-                                        <div class="ec-check-pay-img">
-                                            <img src="assets/images/icons/payment1.png" alt="">
-                                        </div>
-                                        <div class="ec-check-pay-img">
-                                            <img src="assets/images/icons/payment2.png" alt="">
-                                        </div>
-                                        <div class="ec-check-pay-img">
-                                            <img src="assets/images/icons/payment3.png" alt="">
-                                        </div>
-                                        <div class="ec-check-pay-img">
-                                            <img src="assets/images/icons/payment4.png" alt="">
-                                        </div>
-                                        <div class="ec-check-pay-img">
-                                            <img src="assets/images/icons/payment5.png" alt="">
-                                        </div>
-                                        <div class="ec-check-pay-img">
-                                            <img src="assets/images/icons/payment6.png" alt="">
-                                        </div>
-                                        <div class="ec-check-pay-img">
-                                            <img src="assets/images/icons/payment7.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Sidebar Payment Block -->
-                        </div>
+                        <!--                        <div class="ec-sidebar-wrap ec-checkout-del-wrap">
+                                                     Sidebar Summary Block 
+                                                    <div class="ec-sidebar-block">
+                                                        <div class="ec-sb-title">
+                                                            <h3 class="ec-sidebar-title">Delivery Method</h3>
+                                                        </div>
+                                                        <div class="ec-sb-block-content">
+                                                            <div class="ec-checkout-del">
+                                                                <div class="ec-del-desc">Please select the preferred shipping method to use on this
+                                                                    order.</div>
+                                                                <form action="#">
+                                                                    <span class="ec-del-option">
+                                                                        <span>
+                                                                            <span class="ec-del-opt-head">Free Shipping</span>
+                                                                            <input type="radio" id="del1" name="radio-group" checked>
+                                                                            <label for="del1">Rate - $0 .00</label>
+                                                                        </span>
+                                                                        <span>
+                                                                            <span class="ec-del-opt-head">Flat Rate</span>
+                                                                            <input type="radio" id="del2" name="radio-group">
+                                                                            <label for="del2">Rate - $5.00</label>
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="ec-del-commemt">
+                                                                        <span class="ec-del-opt-head">Add Comments About Your Order</span>
+                                                                        <textarea name="your-commemt" placeholder="Comments"></textarea>
+                                                                    </span>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                     Sidebar Summary Block 
+                                                </div>
+                                                <div class="ec-sidebar-wrap ec-checkout-pay-wrap">
+                                                     Sidebar Payment Block 
+                                                    <div class="ec-sidebar-block">
+                                                        <div class="ec-sb-title">
+                                                            <h3 class="ec-sidebar-title">Payment Method</h3>
+                                                        </div>
+                                                        <div class="ec-sb-block-content">
+                                                            <div class="ec-checkout-pay">
+                                                                <div class="ec-pay-desc">Please select the preferred payment method to use on this
+                                                                    order.</div>
+                                                                <form action="#">
+                                                                    <span class="ec-pay-option">
+                                                                        <span>
+                                                                            <input type="radio" id="pay1" name="radio-group" checked>
+                                                                            <label for="pay1">Cash On Delivery</label>
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="ec-pay-commemt">
+                                                                        <span class="ec-pay-opt-head">Add Comments About Your Order</span>
+                                                                        <textarea name="your-commemt" placeholder="Comments"></textarea>
+                                                                    </span>
+                                                                    <span class="ec-pay-agree"><input type="checkbox" value=""><a href="#">I have
+                                                                            read and agree to the <span>Terms & Conditions</span></a><span
+                                                                            class="checked"></span></span>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                     Sidebar Payment Block 
+                                                </div>
+                                                <div class="ec-sidebar-wrap ec-check-pay-img-wrap">
+                                                     Sidebar Payment Block 
+                                                    <div class="ec-sidebar-block">
+                                                        <div class="ec-sb-title">
+                                                            <h3 class="ec-sidebar-title">Payment Method</h3>
+                                                        </div>
+                                                        <div class="ec-sb-block-content">
+                                                            <div class="ec-check-pay-img-inner">
+                                                                <div class="ec-check-pay-img">
+                                                                    <img src="assets/images/icons/payment1.png" alt="">
+                                                                </div>
+                                                                <div class="ec-check-pay-img">
+                                                                    <img src="assets/images/icons/payment2.png" alt="">
+                                                                </div>
+                                                                <div class="ec-check-pay-img">
+                                                                    <img src="assets/images/icons/payment3.png" alt="">
+                                                                </div>
+                                                                <div class="ec-check-pay-img">
+                                                                    <img src="assets/images/icons/payment4.png" alt="">
+                                                                </div>
+                                                                <div class="ec-check-pay-img">
+                                                                    <img src="assets/images/icons/payment5.png" alt="">
+                                                                </div>
+                                                                <div class="ec-check-pay-img">
+                                                                    <img src="assets/images/icons/payment6.png" alt="">
+                                                                </div>
+                                                                <div class="ec-check-pay-img">
+                                                                    <img src="assets/images/icons/payment7.png" alt="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                     Sidebar Payment Block 
+                                                </div>-->
                     </div>
                 </div>
             </div>
@@ -1275,7 +1134,7 @@
                             <div class="col text-center footer-copy">
                                 <div class="footer-bottom-copy ">
                                     <div class="ec-copy">Copyright ©<span id="copyright_year"></span> <a class="site-name text-upper"
-                                                                                                           href="#">NYFS<span>.</span></a>. All Rights Reserved</div>
+                                                                                                         href="#">NYFS<span>.</span></a>. All Rights Reserved</div>
                                 </div>
                             </div>
                             <!-- Footer Copyright End -->
@@ -1608,6 +1467,23 @@
         <!-- Main Js -->
         <script src="assets/js/vendor/index.js"></script>
         <script src="assets/js/main.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const bill1 = document.getElementById("bill1");
+                const bill2 = document.getElementById("bill2");
+                const billingForm = document.getElementById("billing-form");
+
+                function toggleBillingForm() {
+                    billingForm.style.display = bill2.checked ? "block" : "none";
+                }
+
+                bill1.addEventListener("change", toggleBillingForm);
+                bill2.addEventListener("change", toggleBillingForm);
+
+                // Gọi hàm lần đầu để thiết lập trạng thái đúng
+                toggleBillingForm();
+            });
+        </script>
 
     </body>
 

@@ -82,23 +82,7 @@
                         <!-- Header Top responsive Action -->
                         <div class="col d-lg-none ">
                             <div class="ec-header-bottons">
-                                <!-- Header User Start -->
-                                <div class="ec-header-user dropdown">
-                                    <button class="dropdown-toggle"
-                                            data-bs-toggle="dropdown"><i
-                                            class="fi-rr-user"></i></button>
-                                    <ul
-                                        class="dropdown-menu dropdown-menu-right">
-                                        <li><a class="dropdown-item"
-                                               href="register">Register</a></li>
-                                        <li><a class="dropdown-item"
-                                               href="checkout">Checkout</a></li>
-                                        <li><a class="dropdown-item"
-                                               href="login">Login</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Header User End -->
-
+                                
                                 <!-- Header Cart Start -->
                                 <a href="wishlist"
                                    class="ec-header-btn ec-header-wishlist">
@@ -627,7 +611,7 @@
                                                 </div>
                                                 <div class="ec-pro-content">
                                                     <h5 class="ec-pro-title"><a
-                                                            href="product-full-width.jsp">${c.name}</a></h5>
+                                                            href="product?id=${c.id}">${c.name}</a></h5>
                                                     <div class="ec-pro-rating">
                                                         <c:forEach var="i" begin="1" end="5">
                                                             <c:choose>
