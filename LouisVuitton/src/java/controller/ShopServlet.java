@@ -9,7 +9,6 @@ import dal.GendersDAO;
 import dal.ProductsDAO;
 import dal.SizesDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
@@ -46,18 +45,6 @@ public class ShopServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ProductAllServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ProductAllServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -140,12 +127,11 @@ public class ShopServlet extends HttpServlet {
             List<ProductSizes> listps = pd.getProductsSizes(id);
 
             List<Products> allProducts = pd.getProductsByFilder(selectedGid, selectedCid, selectedSid, price_low, price_high);
-            String text = request.getParameter("text");
+            String text = request.getParameter("search");
             if ( text != null) {
                  List<Products> allProductsBySearch = pd.getProductsByFilderSearch(selectedGid, selectedCid, selectedSid, price_low, price_high, text);
                  allProducts = allProductsBySearch;
             }
-
             int count = allProducts.size();
             int endPage = count / 9;
             if (count % 9 != 0) {
@@ -153,9 +139,7 @@ public class ShopServlet extends HttpServlet {
             }
 
             if (sort_by != null) {
-
                 Collator collator = Collator.getInstance(new Locale("vi", "VN"));
-
                 switch (sort_by) {
                     case "1":
                         allProducts.sort(Comparator.comparing(Products::getName, collator));
@@ -227,7 +211,7 @@ public class ShopServlet extends HttpServlet {
                 String[] items = wishlistData.split("/");
                 numWishListItem = items.length;
             }
-
+            
             request.setAttribute("numWishListItem", numWishListItem);
             request.setAttribute("numCartItem", numCartItem);
             request.getRequestDispatcher("shop-left-sidebar-col-3.jsp").forward(request, response);

@@ -87,7 +87,7 @@
                                             alt="product" /></a>
                                     <div class="ec-pro-content">
                                         <h5 class="ec-pro-title"><a
-                                                href="product-left-sidebar.jsp">${bestSeller.name}</a></h5>
+                                                href="product?id=${product.id}">${bestSeller.name}</a></h5>
                                         <div class="ec-pro-rating">
                                             <div class="ec-pro-rating">
                                                 <c:forEach var="i" begin="1" end="5">

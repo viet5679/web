@@ -89,13 +89,10 @@
                     <!-- Ec Header Search Start -->
                     <div class="align-self-center">
                         <div class="header-search">
-                            <form class="ec-btn-group-form" action="#">
-                                <input
-                                    class="form-control ec-search-bar"
-                                    placeholder="Search products..."
-                                    type="text">
-                                <button class="submit" type="submit"><i
-                                        class="fi-rr-search"></i></button>
+                            <form class="ec-btn-group-form" action="shop" method="get">
+                                <input class="form-control ec-search-bar" name="search" placeholder="Search products..."
+                                       type="text">
+                                <button class="submit" type="submit"><i class="fi-rr-search"></i></button>
                             </form>
                         </div>
                     </div>
@@ -122,7 +119,7 @@
                                     <!-- chưa đăng nhập -->
                                     <li><a class="dropdown-item" href="register">Register</a></li>
                                     <li><a class="dropdown-item" href="login">Login</a></li>
-                                    <% } else { %>
+                                        <% } else { %>
                                     <!-- đã đăng nhập -->
                                     <% if (user.getRole() == 1) { %>
                                     <!-- User -->
@@ -188,14 +185,12 @@
                 </div>
                 <!-- Ec Header Logo End -->
                 <!-- Ec Header Search Start -->
-                <div class="col">
+                <div class="align-self-center">
                     <div class="header-search">
-                        <form class="ec-btn-group-form" action="#">
-                            <input class="form-control ec-search-bar"
-                                   placeholder="Search products..."
+                        <form class="ec-btn-group-form" action="shop" method="get">
+                            <input class="form-control ec-search-bar" name="search" placeholder="Search products..."
                                    type="text">
-                            <button class="submit" type="submit"><i
-                                    class="fi-rr-search"></i></button>
+                            <button class="submit" type="submit"><i class="fi-rr-search"></i></button>
                         </form>
                     </div>
                 </div>
@@ -220,35 +215,15 @@
                             <li><a href="track-order.jsp">Track Order</a></li>
                             <li><a href="about-us">About Us</a></li>
                             <li><a href="contact-us">Contact Us</a></li>
-                            <li class="dropdown scroll-to"><a
-                                    href="javascript:void(0)"><i
-                                        class="fi fi-rr-sort-amount-down-alt"></i></a>
+                            <li class="dropdown scroll-to"><a href="javascript:void(0)"><i class="fi fi-rr-sort-amount-down-alt"></i></a>
                                 <ul class="sub-menu">
-                                    <li class="menu_title">Scroll To
-                                        Section</li>
-                                    <li><a href="javascript:void(0)"
-                                           data-scroll="collection"
-                                           class="nav-scroll">Top
-                                            Collection</a></li>
-                                    <li><a
-                                            href="shop-left-sidebar-col-3.jsp"
-                                            data-scroll="categories"
-                                            class="nav-scroll">Categories</a></li>
-                                    <li><a href="javascript:void(0)"
-                                           data-scroll="services"
-                                           class="nav-scroll">Services</a></li>
-                                    <li><a href="javascript:void(0)"
-                                           data-scroll="arrivals"
-                                           class="nav-scroll">New
-                                            Arrivals</a></li>
-                                    <li><a href="javascript:void(0)"
-                                           data-scroll="reviews"
-                                           class="nav-scroll">Client
-                                            Review</a></li>
-                                    <li><a href="javascript:void(0)"
-                                           data-scroll="insta"
-                                           class="nav-scroll">Fashion
-                                            style</a></li>
+                                    <li class="menu_title">Scroll To Section</li>
+                                    <li><a href="javascript:void(0)" data-scroll="collection" class="nav-scroll">Top Collection</a></li>
+                                    <li><a href="shop-left-sidebar-col-3.jsp" data-scroll="categories" class="nav-scroll">Categories</a></li>
+                                    <li><a href="javascript:void(0)" data-scroll="services" class="nav-scroll">Services</a></li>
+                                    <li><a href="javascript:void(0)" data-scroll="arrivals" class="nav-scroll">New Arrivals</a></li>
+                                    <li><a href="javascript:void(0)" data-scroll="reviews" class="nav-scroll">Client Review</a></li>
+                                    <li><a href="javascript:void(0)" data-scroll="insta" class="nav-scroll">Fashion style</a></li>
                                 </ul>
                             </li>
                         </ul>
