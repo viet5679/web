@@ -189,15 +189,9 @@
                                             <div class="ec-product-inner">
                                                 <div class="ec-pro-image-outer">
                                                     <div class="ec-pro-image">
-                                                        <a
-                                                            href="product-left-sidebar.jsp"
-                                                            class="image">
-                                                            <img class="main-image"
-                                                                 src="${c.avatar}"
-                                                                 alt="Product" />
-                                                            <img class="hover-image"
-                                                                 src="${c.hoverAvatar}"
-                                                                 alt="Product" />
+                                                        <a href="product?id=${product.id}" class="image">
+                                                            <img class="main-image" src="${c.avatar}" alt="Product" />
+                                                            <img class="hover-image" src="${c.hoverAvatar}" alt="Product" />
                                                         </a>
                                                         <c:if test="${c.tag == 'NEW'}">
                                                             <span class="flags">
@@ -226,8 +220,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="ec-pro-content">
-                                                    <h5 class="ec-pro-title"><a
-                                                            href="product-full-width.jsp">${c.name}</a></h5>
+                                                    <h5 class="ec-pro-title"><a href="product?id=${c.id}">${c.name}</a></h5>
                                                     <div class="ec-pro-rating">
                                                         <c:forEach var="i" begin="1" end="5">
                                                             <c:choose>
