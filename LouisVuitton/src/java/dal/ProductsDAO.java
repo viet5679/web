@@ -30,7 +30,7 @@ public class ProductsDAO extends DBContext {
         }
         return list;
     }
-
+    
     public List<Products> getAll() {
         List<Products> list = new ArrayList();
         String sql = "select * from products";
@@ -317,33 +317,75 @@ public class ProductsDAO extends DBContext {
         return null;
     }
 
-    // Get all product with size
-//    public ArrayList<Product_sizes> getAllProductWithSizeByCid(int cid) {
-//        ArrayList<Product_sizes> listProduct = new ArrayList<>();
-//        CategoriesDAO cg = new CategoriesDAO();
-//        if (connection != null) {
-//            try {
-//                StringBuilder sql = new StringBuilder("SELECT p.*, s.name AS size FROM products p JOIN product_sizes ps ON p.id = ps.product_id JOIN sizes s ON ps.size_id = s.id WHERE 1=1");
-//                if (cid != 0) {
-//                    sql.append(" AND category_id = ").append(cid);
-//                }
-//                PreparedStatement stm = connection.prepareStatement(sql.toString());
-//                ResultSet res = stm.executeQuery();
-//                while (res.next()) {
-//                    Product_sizes p = new Product_sizes(res.getInt(1), cg.getCategoryById(res.getInt(2)), res.getString(3),
-//                            res.getString(4), res.getString(5), res.getString(6),
-//                            res.getInt(7), res.getInt(8), res.getInt(9),
-//                            res.getInt(10), res.getInt(11), res.getInt(12),
-//                            res.getString(13), res.getString(14), res.getString(15),
-//                            res.getDouble(16), res.getDouble(17),
-//                            res.getDouble(1));
-//                    listProduct.add(p);
-//                }
-//                return listProduct;
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        return null;
-//    }
+    public List<Products> getProductsByFilderSearch(List<Integer> gid, List<Integer> cid, List<Integer> sid, Double price_low, Double price_high, String text) {
+        List<Products> list = new ArrayList<>();
+        String sql = "SELECT p.*, c.name AS category_name "
+                + "FROM products p "
+                + "LEFT JOIN product_sizes ps ON p.id = ps.product_id "
+                + "LEFT JOIN product_gender pg ON p.id = pg.product_id "
+                + "LEFT JOIN dbo.categories c ON c.id = p.category_id "
+                + "WHERE (p.name LIKE ? OR c.name LIKE ?)";  // Tìm kiếm theo tên sản phẩm hoặc tên danh mục
+
+        // Thêm các điều kiện lọc khác (gender, category, size, price)
+        if (!gid.isEmpty()) {
+            sql += " AND pg.gender_id IN (" + gid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
+        }
+
+        if (!cid.isEmpty()) {
+            sql += " AND category_id IN (" + cid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
+        }
+
+        if (!sid.isEmpty()) {
+            sql += " AND size_id IN (" + sid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
+        }
+
+        if (price_low != null) {
+            sql += " AND total_pay >= ?";
+        }
+        if (price_high != null) {
+            sql += " AND total_pay <= ?";
+        }
+
+        CategoriesDAO ca = new CategoriesDAO();
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+
+            // Thiết lập giá trị cho điều kiện LIKE
+            String searchTerm = "%" + text + "%";
+            st.setString(1, searchTerm);  // Tìm kiếm tên sản phẩm có chứa từ khóa
+            st.setString(2, searchTerm);  // Tìm kiếm tên danh mục có chứa từ khóa
+
+            // Thiết lập các tham số cho giá (nếu có)
+            int paramIndex = 3;  // Bắt đầu từ tham số thứ ba vì hai tham số LIKE đã được thiết lập
+            if (price_low != null) {
+                st.setDouble(paramIndex++, price_low);
+            }
+            if (price_high != null) {
+                st.setDouble(paramIndex++, price_high);
+            }
+
+            ResultSet rs = st.executeQuery();
+            Map<Integer, Products> productMap = new HashMap<>();
+
+            // Lặp qua kết quả trả về
+            while (rs.next()) {
+                int productId = rs.getInt("id");
+                if (!productMap.containsKey(productId)) {
+                    Products pro = new Products(
+                            rs.getInt(1), ca.getCategoryById(rs.getInt(2)), rs.getString(3), rs.getString(4),
+                            rs.getString(5), rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getInt(9),
+                            rs.getInt(10), rs.getInt(11), rs.getInt(12), rs.getString(13), rs.getString(14),
+                            rs.getString(15), rs.getDouble(16), rs.getDouble(17), rs.getDouble(18),
+                            rs.getString(19)
+                    );
+                    productMap.put(productId, pro);
+                }
+            }
+            list.addAll(productMap.values());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

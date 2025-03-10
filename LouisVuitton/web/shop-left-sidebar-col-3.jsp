@@ -63,293 +63,21 @@
             </div>
         </div>
         <!-- Header start  -->
-        <header class="ec-header">
-            <!--Ec Header Top Start -->
-            <div class="header-top">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <!-- Header Top social Start -->
-                        <div
-                            class="col text-left header-top-left d-none d-lg-block">
-                            <div class="header-top-social">
-                                <span class="social-text text-upper">Follow us
-                                    on:</span>
+        <jsp:include page="header.jsp"></jsp:include>
+            <!-- Header End  -->
 
-                            </div>
-                        </div>
-                        <!-- Header Top social End -->
-
-                        <!-- Header Top responsive Action -->
-                        <div class="col d-lg-none ">
-                            <div class="ec-header-bottons">
-
-                                <!-- Header Cart Start -->
-                                <a href="wishlist"
-                                   class="ec-header-btn ec-header-wishlist">
-                                    <div class="header-icon"><i
-                                            class="fi-rr-heart"></i></div>
-                                    <span
-                                        class="ec-header-count wishlist-count-label">0</span>
-                                </a>
-                                <!-- Header Cart End -->
-
-                                <!-- Header Cart Start -->
-                                <a href="#ec-side-cart"
-                                   class="ec-header-btn ec-side-toggle">
-                                    <div class="header-icon"><i
-                                            class="fi-rr-shopping-bag"></i></div>
-                                    <span
-                                        class="ec-header-count cart-count-lable">0</span>
-                                </a>
-                                <!-- Header Cart End -->
-                                <a href="javascript:void(0)"
-                                   class="ec-header-btn ec-sidebar-toggle">
-                                    <i class="fi fi-rr-apps"></i>
-                                </a>
-                                <!-- Header menu Start -->
-                                <a href="#ec-mobile-menu"
-                                   class="ec-header-btn ec-side-toggle d-lg-none">
-                                    <i class="fi fi-rr-menu-burger"></i>
-                                </a>
-                                <!-- Header menu End -->
-                            </div>
-                        </div>
-                        <!-- Header Top responsive Action -->
-                    </div>
-                </div>
-            </div>
-            <!-- Ec Header Top  End -->
-            <!-- Ec Header Bottom  Start -->
-            <jsp:include page="bottom.jsp"/>
-            <!-- Ec Header Button End -->
-            <!-- Header responsive Bottom  Start -->
-            <div class="ec-header-bottom d-lg-none">
-                <div class="container position-relative">
-                    <div class="row ">
-
-                        <!-- Ec Header Logo Start -->
-                        <div class="col">
-                            <div class="header-logo">
-                                <a href="index.jsp"><img
-                                        src="assets/images/logo/logo4.png"
-                                        alt="Site Logo" /><img
-                                        class="dark-logo"
-                                        src="assets/images/logo/logo4.png"
-                                        alt="Site Logo"
-                                        style="display: none;" /></a>
-                            </div>
-                        </div>
-                        <!-- Ec Header Logo End -->
-                        <!-- Ec Header Search Start -->
-                        <div class="col">
-                            <div class="header-search">
-                                <form class="ec-btn-group-form" action="#">
-                                    <input class="form-control ec-search-bar"
-                                           placeholder="Search products..."
-                                           type="text">
-                                    <button class="submit" type="submit"><i
-                                            class="fi-rr-search"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                        <!-- Ec Header Search End -->
-                    </div>
-                </div>
-            </div>
-            <!-- Header responsive Bottom  End -->
-            <!-- EC Main Menu Start -->
-            <div id="ec-main-menu-desk" class="d-none d-lg-block sticky-nav">
-                <div class="container position-relative">
-                    <div class="row">
-                        <div class="col-md-12 align-self-center">
-                            <div class="ec-main-menu">      
-                                <a href="javascript:void(0)"
-                                   class="ec-header-btn ec-sidebar-toggle">
-                                    <i class="fi fi-rr-apps"></i>
-                                </a>
-                                <ul>
-                                    <li><a href="home">Home</a></li>
-                                    <li><a href="shop">Shop</a></li>
-                                    <li><a href="track-order.jsp">Track Order</a></li>
-                                    <li><a href="about-us">About Us</a></li>
-                                    <li><a href="contact-us">Contact Us</a></li>                       
-                                </ul>
-                            </div>
+            <!-- Category Sidebar start -->
+            <div class="ec-side-cat-overlay"></div>
+            <div class="col-lg-3 category-sidebar" data-animation="fadeIn">
+                <div class="cat-sidebar">
+                    <div class="cat-sidebar-box">
+                        <div class="ec-sidebar-wrap">
+                            <!-- Sidebar Category Block -->
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- Ec Main Menu End -->
-            <!-- ekka Mobile Menu Start -->
-            <div id="ec-mobile-menu" class="ec-side-cart ec-mobile-menu">
-                <div class="ec-menu-title">
-                    <span class="menu_title">My Menu</span>
-                    <button class="ec-close">x</button>
-                </div>
-                <div class="ec-menu-inner">
-                    <div class="ec-menu-content">
-                        <ul>
-                            <li><a href="home">Home</a></li>
-                            <li><a href="shop">Categories</a></li>
-                            <li><a href="checkout">Checkout</a></li>
-                        </ul>
-                    </div>
-                    <div class="header-res-lan-curr">
-
-                        <!-- Social Start -->
-                        <div class="header-res-social">
-                            <div class="header-top-social">
-
-                            </div>
-                        </div>
-                        <!-- Social End -->
-                    </div>
-                </div>
-            </div>
-            <!-- ekka mobile Menu End -->
-        </header>
-        <!-- Header End  -->
-
-        <!-- ekka Cart Start -->
-        <div class="ec-side-cart-overlay"></div>
-        <div id="ec-side-cart" class="ec-side-cart">
-            <div class="ec-cart-inner">
-                <div class="ec-cart-top">
-                    <div class="ec-cart-title">
-                        <span class="cart_title">My Cart</span>
-                        <button class="ec-close"
-                                onclick="closeCart()">&times;</button>
-                    </div>
-                    <ul class="eccart-pro-items" id="cart-items">
-                        <!-- Items will be dynamically added here -->
-                    </ul>
-                </div>
-                <div class="ec-cart-bottom">
-                    <div class="cart-sub-total">
-                        <table class="table cart-table">
-                            <tbody>
-                                <tr>
-                                    <td class="text-left">Sub-Total :</td>
-                                    <td class="text-right"
-                                        id="sub-total">$0.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-left">VAT (20%) :</td>
-                                    <td class="text-right" id="vat">$0.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-left">Total :</td>
-                                    <td class="text-right primary-color"
-                                        id="total">$0.00</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="cart_btn">
-                        <a href="cart.jsp" class="btn btn-primary">View Cart</a>
-                        <a href="checkout.jsp"
-                           class="btn btn-secondary">Checkout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <script>
-            const cartItems = document.getElementById('cart-items');
-            const subTotalEl = document.getElementById('sub-total');
-            const vatEl = document.getElementById('vat');
-            const totalEl = document.getElementById('total');
-
-            let cart = []; // Array to store cart items
-
-            function addToCart(productName, price) {
-                // Check if the product already exists in the cart
-                const existingItem = cart.find(item => item.productName === productName);
-
-                if (existingItem) {
-                    // If product exists, increase quantity
-                    existingItem.quantity += 1;
-                } else {
-                    // Add new product
-                    cart.push({productName, price, quantity: 1});
-                }
-
-                // Update the UI and totals
-                updateCartUI();
-                updateTotals();
-            }
-
-            function removeFromCart(productName) {
-                // Remove product from cart
-                cart = cart.filter(item => item.productName !== productName);
-
-                // Update the UI and totals
-                updateCartUI();
-                updateTotals();
-            }
-
-            function updateQuantity(productName, newQuantity) {
-                const item = cart.find(item => item.productName === productName);
-                if (item) {
-                    item.quantity = newQuantity > 0 ? parseInt(newQuantity) : 1; // Ensure quantity is at least 1
-                }
-
-                updateCartUI();
-                updateTotals();
-            }
-
-            function updateCartUI() {
-                cartItems.innerHTML = ""; // Clear existing items
-
-                cart.forEach(item => {
-                    const listItem = document.createElement('li');
-                    listItem.innerHTML = `
-                        <div>
-           <span>${item.productName}</span> - 
-           <span>${'$'}${item.price}</span> x
-           <input type="number" value="${item.quantity}" min="1" style="width: 50px;" 
-               onchange="updateQuantity('${item.productName}', this.value)">
-           = <span>${'$'}${item.price * item.quantity}</span>
-       </div>
-       <button onclick="removeFromCart('${item.productName}')">Remove</button>
-                    `;
-                    cartItems.appendChild(listItem);
-                });
-            }
-
-            function updateTotals() {
-                const subTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-                const vat = subTotal * 0.2; // 20% VAT
-                const total = subTotal + vat;
-
-                // Update the DOM
-                subTotalEl.textContent = `$${subTotal.toFixed(2)}`;
-                vatEl.textContent = `$${vat.toFixed(2)}`;
-                totalEl.textContent = `$${total.toFixed(2)}`;
-            }
-
-            function closeCart() {
-                document.getElementById('ec-side-cart').classList.remove('open'); // Hide cart
-            }
-
-            // Example usage: Uncomment these lines to test adding products
-            // addToCart('Cute Baby Toy', 30.00);
-            // addToCart('Teddy Bear', 25.50);
-        </script>
-        <!-- ekka Cart End -->
-
-        <!-- Category Sidebar start -->
-        <div class="ec-side-cat-overlay"></div>
-        <div class="col-lg-3 category-sidebar" data-animation="fadeIn">
-            <div class="cat-sidebar">
-                <div class="cat-sidebar-box">
-                    <div class="ec-sidebar-wrap">
-                        <!-- Sidebar Category Block -->
-                    </div>
-                </div>
-                <div class="ec-sidebar-slider-cat">
-                    <div class="ec-sb-slider-title">Best Sellers</div>
-                    <div class="ec-sb-pro-sl">
+                    <div class="ec-sidebar-slider-cat">
+                        <div class="ec-sb-slider-title">Best Sellers</div>
+                        <div class="ec-sb-pro-sl">
                         <c:forEach var="bestSeller" items="${requestScope.bestSeller}">
                             <div>
                                 <div class="ec-sb-pro-sl-item">
@@ -403,7 +131,7 @@
                                 <!-- ec-breadcrumb-list start -->
                                 <ul class="ec-breadcrumb-list">
                                     <li class="ec-breadcrumb-item"><a
-                                            href="index.jsp">Home</a></li>
+                                            href="home">Home</a></li>
                                     <li
                                         class="ec-breadcrumb-item active">Shop</li>
                                 </ul>
@@ -485,34 +213,21 @@
                                                         <c:if test="${c.tag != 'SALE' && c.tag != 'NEW' && c.tag != NULL}">
                                                             <span class="percentage">${c.tag}</span>
                                                         </c:if>
-
-                                                        <a href="#"
-                                                           class="quickview"
-                                                           data-link-action="quickview"
-                                                           title="Quick view"
-                                                           data-bs-toggle="modal"
-                                                           data-bs-target="#ec_quickview_modal"><i
-                                                                class="fi-rr-eye"></i></a>
                                                         <div class="ec-pro-actions">
-                                                            <a href="compare.jsp"
-                                                               class="ec-btn-group compare"
-                                                               title="Compare"><i
-                                                                    class="fi fi-rr-arrows-repeat"></i></a>
-                                                            <button
-                                                                title="Add To Cart"
-                                                                class="add-to-cart"><i
-                                                                    class="fi-rr-shopping-basket"></i>
-                                                                Add To Cart</button>
-                                                            <a
-                                                                class="ec-btn-group wishlist"
-                                                                title="Wishlist"><i
-                                                                    class="fi-rr-heart"></i></a>
+                                                            <button title="Add To Cart" class="add-to-cart" onclick="addToCart(${c.id}, 1)">
+                                                                <i class="fi-rr-shopping-basket"></i> Add To Cart
+                                                            </button>
+                                                            <button title="Wishlist" class="ec-btn-group wishlist-btn" 
+                                                                    data-product-id="${c.id}" 
+                                                                    onclick="addToWishList(${c.id}, this)">
+                                                                <i class="fi-rr-heart"></i>
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="ec-pro-content">
                                                     <h5 class="ec-pro-title"><a
-                                                            href="product?id=${c.id}">${c.name}</a></h5>
+                                                            href="product-full-width.jsp">${c.name}</a></h5>
                                                     <div class="ec-pro-rating">
                                                         <c:forEach var="i" begin="1" end="5">
                                                             <c:choose>
@@ -626,8 +341,63 @@
                             </div>
                             <!-- Ec Pagination End -->
                         </div>
-                        <!--Shop content End -->
                     </div>
+                    <!--Shop content End -->
+
+                    <script>
+                        function addToCart(productId, quantity) {
+                            $.ajax({
+                                type: "POST",
+                                url: "cart",
+                                data: {
+                                    productId: productId,
+                                    quantity: quantity
+                                }
+                            });
+                        }
+                        function addToWishList(productId, element) {
+                            $.ajax({
+                                type: "POST",
+                                url: "wishlist",
+                                data: {productId: productId},
+                                success: function (response) {
+                                    if (response.isWishlisted) {
+                                        $(element).addClass("active"); // Nếu đã thêm, đổi màu nút
+                                    } else {
+                                        $(element).removeClass("active"); // Nếu đã xóa, trở lại bình thường
+                                    }
+                                },
+                                error: function () {
+                                    alert("Có lỗi xảy ra!");
+                                }
+                            });
+                        }
+                        // Duyệt qua cookie Wishlist
+                        document.addEventListener("DOMContentLoaded", function () {
+                            let wishlist = getCookie("wishlist"); // Lấy giá trị từ cookie
+                            if (wishlist) {
+                                let wishlistItems = wishlist.split("/"); // Chuyển chuỗi thành mảng ID
+                                document.querySelectorAll(".wishlist-btn").forEach(function (btn) {
+                                    let productId = btn.getAttribute("data-product-id"); // Lấy ID từ nút
+                                    if (wishlistItems.includes(productId)) {
+                                        btn.classList.add("active"); // Thêm class "active"
+                                    }
+                                });
+                            }
+                        });
+
+                        // Hàm lấy cookie theo tên
+                        function getCookie(name) {
+                            let cookies = document.cookie.split("; ");
+                            for (let i = 0; i < cookies.length; i++) {
+                                let parts = cookies[i].split("=");
+                                if (parts[0] === name) {
+                                    return parts[1];
+                                }
+                            }
+                            return "";
+                        }
+                    </script>
                     <!-- Sidebar Area Start -->
                     <div
                         class="ec-shop-leftside col-lg-3 order-lg-first col-md-12 order-md-last">
@@ -648,7 +418,7 @@
                                                     <div
                                                         class="ec-sidebar-block-item">
                                                         <input type="checkbox" name="gid" value="${c.id}" ${selectedGid.contains(c.id) ? "checked" : ""}/> <a
-                                                            href="productall" onclick="">${c.name}</a><span
+                                                            >${c.name}</a><span
                                                             class="checked"></span>
                                                     </div>
                                                 </li>
@@ -667,7 +437,7 @@
                                                     <div
                                                         class="ec-sidebar-block-item">
                                                         <input type="checkbox" name="cid" value="${h.id}" ${selectedCid.contains(h.id) ? "checked" : ""}/> <a
-                                                            href="#">${h.name}</a><span
+                                                            >${h.name}</a><span
                                                             class="checked"></span>
                                                     </div>
                                                 </li>
@@ -689,7 +459,7 @@
                                                         class="ec-sidebar-block-item">
                                                         <input type="checkbox" name="sid"
                                                                value="${s.id}" ${selectedSid.contains(s.id) ? "checked" : ""}/><a
-                                                               href="#">${s.name}</a><span
+                                                               >${s.name}</a><span
                                                                class="checked"></span>
                                                     </div>
                                                 </li>
@@ -740,164 +510,7 @@
         <!-- End Shop page -->
 
         <!-- Footer Start -->
-        <footer class="ec-footer section-space-mt">
-            <div class="footer-container">
-                <div class="footer-offer">
-
-                </div>
-                <div class="footer-top section-space-footer-p">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12 col-lg-3 ec-footer-contact">
-                                <div class="ec-footer-widget">
-                                    <div class="ec-footer-logo"><a href="#"><img
-                                                src="assets/images/logo/logo4.png"
-                                                alt><img
-                                                class="dark-footer-logo"
-                                                src="assets/images/logo/logo4.png"
-                                                alt="Site Logo"
-                                                style="display: none;" /></a></div>
-                                    <h4 class="ec-footer-heading">Contact
-                                        us</h4>
-                                    <div class="ec-footer-links">
-                                        <ul class="align-items-center">
-                                            <li class="ec-footer-link">Hoa Lac
-                                                Hi-tech Park, km 29, Đại lộ
-                                                Thăng Long, Hà Nội, Vietnam</li>
-                                            <li
-                                                class="ec-footer-link"><span>Call
-                                                    Us:</span><a
-                                                    href="tel:+440123456789">0967870138</a></li>
-                                            <li
-                                                class="ec-footer-link"><span>Email:</span><a
-                                                    href="mailto:example@ec-email.com">vietpthe180666@fpt.edu.vn</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-lg-2 ec-footer-info">
-                                <div class="ec-footer-widget">
-                                    <h4
-                                        class="ec-footer-heading">Information</h4>
-                                    <div class="ec-footer-links">
-                                        <ul class="align-items-center">
-                                            <li class="ec-footer-link"><a
-                                                    href="about-us.jsp">About
-                                                    us</a></li>
-                                            <li class="ec-footer-link"><a
-                                                    href="faq.jsp">FAQ</a></li>
-                                            <li class="ec-footer-link"><a
-                                                    href="#">Delivery
-                                                    Information</a></li>
-                                            <li class="ec-footer-link"><a
-                                                    href="contact-us.jsp">Contact
-                                                    us</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 col-lg-2 ec-footer-service">
-                                <div class="ec-footer-widget">
-                                    <h4 class="ec-footer-heading">Services</h4>
-                                    <div class="ec-footer-links">
-                                        <ul class="align-items-center">
-
-                                            <li class="ec-footer-link"><a
-                                                    href="privacy-policy.jsp">Private
-                                                    & policy </a>
-                                            </li>
-                                            <li class="ec-footer-link"><a
-                                                    href="customer-service.jsp">Customer
-                                                    Service</a>
-                                            </li>
-                                            <li class="ec-footer-link"><a
-                                                    href="terms-condition.jsp">Term
-                                                    & condition</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-lg-3 ec-footer-news">
-                                <div class="ec-footer-widget">
-                                    <h4
-                                        class="ec-footer-heading">Newsletter</h4>
-                                    <div class="ec-footer-links">
-                                        <ul class="align-items-center">
-                                            <li class="ec-footer-link">Get
-                                                instant updates about our new
-                                                products and
-                                                special promos!</li>
-                                        </ul>
-                                        <div class="ec-subscribe-form">
-                                            <form id="ec-newsletter-form"
-                                                  name="ec-newsletter-form"
-                                                  method="post"
-                                                  action="#">
-                                                <div id="ec_news_signup"
-                                                     class="ec-form">
-                                                    <input class="ec-email"
-                                                           type="email" required
-                                                           placeholder="Enter your email here..."
-                                                           name="ec-email" value />
-                                                    <button id="ec-news-btn"
-                                                            class="button btn-primary"
-                                                            type="submit"
-                                                            name="subscribe"
-                                                            value><i
-                                                            class="ecicon eci-paper-plane-o"
-                                                            aria-hidden="true"></i></button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <!-- Footer social Start -->
-                            <div class="col text-left footer-bottom-left">
-                                <div class="footer-bottom-social">
-                                    <span class="social-text text-upper">Follow
-                                        us on:</span>
-
-                                </div>
-                            </div>
-                            <!-- Footer social End -->
-                            <!-- Footer Copyright Start -->
-                            <div class="col text-center footer-copy">
-                                <div class="footer-bottom-copy ">
-                                    <div class="ec-copy">Copyright ©<span
-                                            id="copyright_year"></span> <a
-                                            class="site-name text-upper"
-                                            href="#">NYFS<span>.</span></a>. All
-                                        Rights Reserved</div>
-                                </div>
-                            </div>
-                            <!-- Footer Copyright End -->
-                            <!-- Footer payment -->
-                            <div class="col footer-bottom-right">
-                                <div
-                                    class="footer-bottom-payment d-flex justify-content-end">
-                                    <div class="payment-link">
-                                        <img
-                                            src="assets/images/icons/payment.png"
-                                            alt>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <!-- Footer payment -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <jsp:include page="footer.jsp"></jsp:include>
         <!-- Footer Area End -->
 
         <!-- Modal -->
@@ -1050,287 +663,7 @@
             </div>
         </div>
         <!-- Modal end -->
-
-        <!-- Footer navigation panel for responsive display -->
-        <div class="ec-nav-toolbar">
-            <div class="container">
-                <div class="ec-nav-panel">
-                    <div class="ec-nav-panel-icons">
-                        <a href="#ec-mobile-menu"
-                           class="navbar-toggler-btn ec-header-btn ec-side-toggle"><i
-                                class="fi-rr-menu-burger"></i></a>
-                    </div>
-                    <div class="ec-nav-panel-icons">
-                        <a href="cart"
-                           class="toggle-cart ec-header-btn ec-side-toggle"><i
-                                class="fi-rr-shopping-bag"></i><span
-                                class="ec-cart-noti ec-header-count cart-count-lable">3</span></a>
-                    </div>
-                    <div class="ec-nav-panel-icons">
-                        <a href="home" class="ec-header-btn"><i
-                                class="fi-rr-home"></i></a>
-                    </div>
-                    <div class="ec-nav-panel-icons">
-                        <a href="wishlist" class="ec-header-btn"><i
-                                class="fi-rr-heart"></i><span
-                                class="ec-cart-noti">4</span></a>
-                    </div>
-                    <div class="ec-nav-panel-icons">
-                        <a href="login" class="ec-header-btn"><i
-                                class="fi-rr-user"></i></a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!-- Footer navigation panel for responsive display end -->
-
-        <!-- Recent Purchase Popup  -->
-        <div class="recent-purchase">
-            <img src="assets/images/product-image/1.jpg" alt="payment image">
-            <div class="detail">
-                <p>Someone in new just bought</p>
-                <h6>stylish baby shoes</h6>
-                <p>10 Minutes ago</p>
-            </div>
-            <a href="javascript:void(0)" class="icon-btn recent-close">x</a>
-        </div>
-        <!-- Recent Purchase Popup end -->
-
-        <!-- Cart Floating Button -->
-        <div class="ec-cart-float">
-            <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-                <div class="header-icon"><i class="fi-rr-shopping-basket"></i>
-                </div>
-                <span class="ec-cart-count cart-count-lable">0</span>
-            </a>
-        </div>
-        <!-- Cart Floating Button end -->
-
-        <!-- Floating Button wishlist-->
-        <div class="ec-cart-float-wishlist">
-            <a href="wishlist" class="ec-header-btn ec-wishlist-toggle">
-                <div class="header-icon">
-                    <i class="fi-rr-heart"></i>
-                </div>
-                <span class="ec-cart-count wishlist-count-label">0</span>
-            </a>
-        </div>
-
-        <!-- Whatsapp -->
-        <div class="ec-style ec-right-bottom">
-            <!-- Start Floating Panel Container -->
-            <div class="ec-panel">
-                <!-- Panel Header -->
-                <div class="ec-header">
-                    <strong>Need Help?</strong>
-                    <p>Chat with us on WhatsApp</p>
-                </div>
-                <!-- Panel Content -->
-                <div class="ec-body">
-                    <ul>
-                        <!-- Start Single Contact List -->
-                        <li>
-                            <a class="ec-list" data-number="918866774266"
-                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
-                                <div class="d-flex bd-highlight">
-                                    <!-- Profile Picture -->
-                                    <div class="ec-img-cont">
-                                        <img
-                                            src="assets/images/whatsapp/profile_01.jpg"
-                                            class="ec-user-img"
-                                            alt="Profile image">
-                                        <span class="ec-status-icon"></span>
-                                    </div>
-                                    <!-- Display Name & Last Seen -->
-                                    <div class="ec-user-info">
-                                        <span>Sahar Darya</span>
-                                        <p>Sahar left 7 mins ago</p>
-                                    </div>
-                                    <!-- Chat iCon -->
-                                    <div class="ec-chat-icon">
-                                        <i class="fa fa-whatsapp"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <!--/ End Single Contact List -->
-                        <!-- Start Single Contact List -->
-                        <li>
-                            <a class="ec-list" data-number="918866774266"
-                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
-                                <div class="d-flex bd-highlight">
-                                    <!-- Profile Picture -->
-                                    <div class="ec-img-cont">
-                                        <img
-                                            src="assets/images/whatsapp/profile_02.jpg"
-                                            class="ec-user-img"
-                                            alt="Profile image">
-                                        <span
-                                            class="ec-status-icon ec-online"></span>
-                                    </div>
-                                    <!-- Display Name & Last Seen -->
-                                    <div class="ec-user-info">
-                                        <span>Yolduz Rafi</span>
-                                        <p>Yolduz is online</p>
-                                    </div>
-                                    <!-- Chat iCon -->
-                                    <div class="ec-chat-icon">
-                                        <i class="fa fa-whatsapp"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <!--/ End Single Contact List -->
-                        <!-- Start Single Contact List -->
-                        <li>
-                            <a class="ec-list" data-number="918866774266"
-                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
-                                <div class="d-flex bd-highlight">
-                                    <!-- Profile Picture -->
-                                    <div class="ec-img-cont">
-                                        <img
-                                            src="assets/images/whatsapp/profile_03.jpg"
-                                            class="ec-user-img"
-                                            alt="Profile image">
-                                        <span
-                                            class="ec-status-icon ec-offline"></span>
-                                    </div>
-                                    <!-- Display Name & Last Seen -->
-                                    <div class="ec-user-info">
-                                        <span>Nargis Hawa</span>
-                                        <p>Nargis left 30 mins ago</p>
-                                    </div>
-                                    <!-- Chat iCon -->
-                                    <div class="ec-chat-icon">
-                                        <i class="fa fa-whatsapp"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <!--/ End Single Contact List -->
-                        <!-- Start Single Contact List -->
-                        <li>
-                            <a class="ec-list" data-number="918866774266"
-                               data-message="Please help me! I have got wrong product - ORDER ID is : #654321485">
-                                <div class="d-flex bd-highlight">
-                                    <!-- Profile Picture -->
-                                    <div class="ec-img-cont">
-                                        <img
-                                            src="assets/images/whatsapp/profile_04.jpg"
-                                            class="ec-user-img"
-                                            alt="Profile image">
-                                        <span
-                                            class="ec-status-icon ec-offline"></span>
-                                    </div>
-                                    <!-- Display Name & Last Seen -->
-                                    <div class="ec-user-info">
-                                        <span>Khadija Mehr</span>
-                                        <p>Khadija left 50 mins ago</p>
-                                    </div>
-                                    <!-- Chat iCon -->
-                                    <div class="ec-chat-icon">
-                                        <i class="fa fa-whatsapp"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <!--/ End Single Contact List -->
-                    </ul>
-                </div>
-            </div>
-            <!--/ End Floating Panel Container -->
-            <!-- Start Right Floating Button-->
-            <div class="ec-right-bottom">
-                <div class="ec-box">
-                    <div class="ec-button rotateBackward">
-                        <img class="whatsapp"
-                             src="assets/images/common/whatsapp.png"
-                             alt="whatsapp icon" />
-                    </div>
-                </div>
-            </div>
-            <!--/ End Right Floating Button-->
-        </div>
-        <!-- Whatsapp end -->
-
-        <!-- Feature tools -->
-        <div class="ec-tools-sidebar-overlay"></div>
-        <div class="ec-tools-sidebar">
-            <div class="tool-title">
-                <h3>Features</h3>
-            </div>
-            <a href="#" class="ec-tools-sidebar-toggle in-out">
-                <img alt="icon" src="assets/images/common/settings.png" />
-            </a>
-            <div class="ec-tools-detail">
-                <div
-                    class="ec-tools-sidebar-content ec-change-color ec-color-desc">
-                    <h3>Color Scheme</h3>
-                    <ul class="bg-panel">
-                        <li class="active" data-color="01"><a href="#"
-                                                              class="colorcode1"></a></li>
-                        <li data-color="02"><a href="#"
-                                               class="colorcode2"></a></li>
-                        <li data-color="03"><a href="#"
-                                               class="colorcode3"></a></li>
-                        <li data-color="04"><a href="#"
-                                               class="colorcode4"></a></li>
-                        <li data-color="05"><a href="#"
-                                               class="colorcode5"></a></li>
-                    </ul>
-                </div>
-                <div class="ec-tools-sidebar-content">
-                    <h3>Backgrounds</h3>
-                    <ul class="bg-panel">
-                        <li class="bg"><a class="back-bg-1"
-                                          id="bg-1">Background-1</a></li>
-                        <li class="bg"><a class="back-bg-2"
-                                          id="bg-2">Background-2</a></li>
-                        <li class="bg"><a class="back-bg-3"
-                                          id="bg-3">Background-3</a></li>
-                        <li class="bg"><a class="back-bg-4"
-                                          id="bg-4">Default</a></li>
-                    </ul>
-                </div>
-                <div class="ec-tools-sidebar-content">
-                    <h3>Full Screen mode</h3>
-                    <div class="ec-fullscreen-mode">
-                        <div class="ec-fullscreen-switch">
-                            <div class="ec-fullscreen-btn">Mode</div>
-                            <div class="ec-fullscreen-on">On</div>
-                            <div class="ec-fullscreen-off">Off</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="ec-tools-sidebar-content">
-                    <h3>Dark mode</h3>
-                    <div class="ec-change-mode">
-                        <div class="ec-mode-switch">
-                            <div class="ec-mode-btn">Mode</div>
-                            <div class="ec-mode-on">On</div>
-                            <div class="ec-mode-off">Off</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="ec-tools-sidebar-content">
-                    <h3>RTL mode</h3>
-                    <div class="ec-change-rtl">
-                        <div class="ec-rtl-switch">
-                            <div class="ec-rtl-btn">Rtl</div>
-                            <div class="ec-rtl-on">On</div>
-                            <div class="ec-rtl-off">Off</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="ec-tools-sidebar-content">
-                    <h3>Clear local storage</h3>
-                    <a class="clear-cach" href="javascript:void(0)">Clear Cache
-                        & Default</a>
-                </div>
-            </div>
-        </div>
-        <!-- Feature tools end -->
+        <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm7vkewxc03kpn8lwqnmkoz6d"></script>
 
         <!-- Vendor JS -->
         <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
@@ -1355,57 +688,57 @@
         <script src="assets/js/vendor/index.js"></script>
         <script src="assets/js/main.js"></script>
         <script>
-                                                   document.addEventListener("DOMContentLoaded", function () {
-                                                       let params = new URLSearchParams(window.location.search);
+                        document.addEventListener("DOMContentLoaded", function () {
+                            let params = new URLSearchParams(window.location.search);
 
-                                                       // 🔹 Giữ trạng thái checkbox khi tải trang
-                                                       document.querySelectorAll("input[type=checkbox]").forEach(input => {
-                                                           if (params.has(input.name) && params.getAll(input.name).includes(input.value.trim())) {
-                                                               input.checked = true; // Giữ trạng thái checked
-                                                               input.parentElement.classList.add("selected"); // Giữ màu xanh
-                                                           }
+                            // 🔹 Giữ trạng thái checkbox khi tải trang
+                            document.querySelectorAll("input[type=checkbox]").forEach(input => {
+                                if (params.has(input.name) && params.getAll(input.name).includes(input.value.trim())) {
+                                    input.checked = true; // Giữ trạng thái checked
+                                    input.parentElement.classList.add("selected"); // Giữ màu xanh
+                                }
 
-                                                           input.addEventListener("change", function () {
-                                                               let newParams = new URLSearchParams(window.location.search);
+                                input.addEventListener("change", function () {
+                                    let newParams = new URLSearchParams(window.location.search);
 
-                                                               if (this.checked) {
-                                                                   newParams.append(this.name, this.value.trim()); // Thêm filter
-                                                                   this.parentElement.classList.add("selected"); // Giữ màu xanh
-                                                               } else {
-                                                                   let values = params.getAll(this.name).filter(v => v !== this.value.trim());
-                                                                   newParams.delete(this.name);
-                                                                   values.forEach(v => newParams.append(this.name, v));
-                                                                   this.parentElement.classList.remove("selected"); // Bỏ màu xanh
-                                                               }
+                                    if (this.checked) {
+                                        newParams.append(this.name, this.value.trim()); // Thêm filter
+                                        this.parentElement.classList.add("selected"); // Giữ màu xanh
+                                    } else {
+                                        let values = params.getAll(this.name).filter(v => v !== this.value.trim());
+                                        newParams.delete(this.name);
+                                        values.forEach(v => newParams.append(this.name, v));
+                                        this.parentElement.classList.remove("selected"); // Bỏ màu xanh
+                                    }
 
-                                                               // 🔹 Khi chọn filter, xóa index để quay về trang đầu
-                                                               newParams.delete("index");
+                                    // 🔹 Khi chọn filter, xóa index để quay về trang đầu
+                                    newParams.delete("index");
 
-                                                               console.log("Redirecting to:", "shop?" + newParams.toString());
-                                                               window.location.href = "shop?" + newParams.toString();
-                                                           });
-                                                       });
+                                    console.log("Redirecting to:", "shop?" + newParams.toString());
+                                    window.location.href = "shop?" + newParams.toString();
+                                });
+                            });
 
-                                                       // 🔹 Xử lý phân trang
-                                                       document.querySelectorAll(".pagination a").forEach(link => {
-                                                           link.addEventListener("click", function (e) {
-                                                               e.preventDefault();
-                                                               let newParams = new URLSearchParams(window.location.search);
+                            // 🔹 Xử lý phân trang
+                            document.querySelectorAll(".pagination a").forEach(link => {
+                                link.addEventListener("click", function (e) {
+                                    e.preventDefault();
+                                    let newParams = new URLSearchParams(window.location.search);
 
-                                                               // Giữ filter, chỉ cập nhật index mới
-                                                               params.forEach((value, key) => {
-                                                                   if (key !== "index") {
-                                                                       newParams.append(key, value);
-                                                                   }
-                                                               });
+                                    // Giữ filter, chỉ cập nhật index mới
+                                    params.forEach((value, key) => {
+                                        if (key !== "index") {
+                                            newParams.append(key, value);
+                                        }
+                                    });
 
-                                                               newParams.set("index", this.dataset.page); // Cập nhật index mới
+                                    newParams.set("index", this.dataset.page); // Cập nhật index mới
 
-                                                               console.log("Redirecting to:", "shop?" + newParams.toString());
-                                                               window.location.href = "shop?" + newParams.toString();
-                                                           });
-                                                       });
-                                                   });
+                                    console.log("Redirecting to:", "shop?" + newParams.toString());
+                                    window.location.href = "shop?" + newParams.toString();
+                                });
+                            });
+                        });
 
         </script>
         <script>
@@ -1442,10 +775,6 @@
                     window.location.href = "shop?" + params.toString();
                 }, 100);
             }
-
-
-
-
 
         </script>
         <script>
@@ -1533,12 +862,6 @@
                     window.location.href = "shop?" + params.toString();
                 }
             });
-
-
         </script>
-
-
     </body>
-
-    <!-- Mirrored from maraviyainfotech.com/projects/ekka/ekka-v37/ekka-html/shop-left-sidebar-col-3.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 18 Jan 2025 14:32:12 GMT -->
 </html>

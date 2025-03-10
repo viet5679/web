@@ -67,6 +67,7 @@ public class ChangePasswordServlet extends HttpServlet {
             response.sendRedirect("forgot-password.jsp?error=invalid_token"); // Chuyển hướng về forgot-password.jsp nếu token không hợp lệ
             return;
         }
+
         ProductsDAO pDAO = new ProductsDAO();
         List<Products> listProduct = pDAO.getAll();
         Cookie[] cookieArr = request.getCookies();
@@ -107,7 +108,6 @@ public class ChangePasswordServlet extends HttpServlet {
 
         request.setAttribute("numWishListItem", numWishListItem);
         request.setAttribute("numCartItem", numCartItem);
-
         request.getRequestDispatcher("change-password.jsp").forward(request, response);
     }
 

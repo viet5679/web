@@ -17,13 +17,14 @@ import java.sql.SQLException;
  */
 public class RatingDAO extends DBContext {
 
-    public List<Rating> getAllRating() {
+        public List<Rating> getAllRatingWithId(int id) {
         List<Rating> list = new ArrayList();
-        String sql = "select * from rating";
+        String sql = "select * from rating where product_id = ?";
         ProductsDAO pd = new ProductsDAO();
         UserDAO ud = new UserDAO();
         try {
             PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 Rating ra = new Rating(rs.getString(1), pd.getProductById(rs.getInt(2)), ud.getUserById(rs.getInt(3)), rs.getInt(4));

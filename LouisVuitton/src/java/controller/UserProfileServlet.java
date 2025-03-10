@@ -113,7 +113,6 @@ public class UserProfileServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    private static final String UPLOAD_DIRECTORY = "assets/images/user";
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -140,13 +139,14 @@ public class UserProfileServlet extends HttpServlet {
         UserDAO userDAO = new UserDAO();
         boolean isUpdated = userDAO.updateUser(user);
 
-       if (isUpdated) {
-          request.setAttribute("message", "Cập nhật thành công!");
+        if (isUpdated) {
+            request.setAttribute("message", "Cập nhật thành công!");
             request.setAttribute("status", "success");
         } else {
             request.setAttribute("message", "Cập nhật thất bại!");
-           request.setAttribute("status", "error");
-       }        
+            request.setAttribute("status", "error");
+        }
+        
         request.getRequestDispatcher("user-profile.jsp").forward(request, response);
 
     }

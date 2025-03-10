@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class UserDAO extends DBContext {
-
+    
     public Users getUserById(int id) {
         String sql = "select * from users where id = ?";
         try {
@@ -23,13 +23,7 @@ public class UserDAO extends DBContext {
         }
         return null;
     }
-
-    public static void main(String[] args) {
-        UserDAO ud = new UserDAO();
-        Users u = ud.checkUser("vietpthe180666@fpt.edu.vn", "123");
-        System.out.println(u.getEmail());
-    }
-
+    
     public Users checkUser(String email, String password) {
         String sql = "SELECT * FROM users WHERE email = ? AND password = ?";
         try {

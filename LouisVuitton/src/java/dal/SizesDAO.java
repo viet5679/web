@@ -17,7 +17,6 @@ import model.Sizes;
  * @author vuhuu
  */
 public class SizesDAO extends DBContext{
-    
     public List<ProductSizes> getSizeByPid(int pid){
         List<ProductSizes> list = new ArrayList();
         String sql = "select * from product_sizes where product_id = ?";

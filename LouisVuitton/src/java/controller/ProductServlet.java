@@ -16,7 +16,6 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import model.Cart;
@@ -24,7 +23,6 @@ import model.ProductImages;
 import model.ProductSizes;
 import model.Products;
 import model.Rating;
-import model.Sizes;
 import model.Users;
 import model.WishList;
 
@@ -61,7 +59,6 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -85,7 +82,7 @@ public class ProductServlet extends HttpServlet {
             List<String> subDescription = Arrays.asList(str.split("\\$"));
             List<ProductImages> listI = pd.getImagesByPid(id);
             List<ProductSizes> listS = sd.getSizeByPid(id);
-            List<Rating> listR = rd.getAllRating();
+            List<Rating> listR = rd.getAllRatingWithId(id);
             request.setAttribute("listR", listR);
             request.setAttribute("sub", subDescription);
             request.setAttribute("listS", listS);
@@ -131,6 +128,7 @@ public class ProductServlet extends HttpServlet {
 
             request.setAttribute("numWishListItem", numWishListItem);
             request.setAttribute("numCartItem", numCartItem);
+            request.setAttribute("bestSeller", pd.getBestSellerProduct());
             request.getRequestDispatcher("product-full-width.jsp").forward(request, response);
         } catch (Exception e) {
             System.out.println(e);
@@ -161,7 +159,6 @@ public class ProductServlet extends HttpServlet {
         UserDAO ud = new UserDAO();
 
         try {
-
             rating = Integer.parseInt(rating_raw);
             pid = Integer.parseInt(pid_raw);
             uid = Integer.parseInt(uid_raw);

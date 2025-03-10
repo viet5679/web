@@ -140,6 +140,11 @@ public class ShopServlet extends HttpServlet {
             List<ProductSizes> listps = pd.getProductsSizes(id);
 
             List<Products> allProducts = pd.getProductsByFilder(selectedGid, selectedCid, selectedSid, price_low, price_high);
+            String text = request.getParameter("text");
+            if ( text != null) {
+                 List<Products> allProductsBySearch = pd.getProductsByFilderSearch(selectedGid, selectedCid, selectedSid, price_low, price_high, text);
+                 allProducts = allProductsBySearch;
+            }
 
             int count = allProducts.size();
             int endPage = count / 9;

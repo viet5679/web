@@ -1,16 +1,19 @@
 package controller;
 
+import dal.ProductsDAO;
 import dal.UserDAO;
 import java.io.IOException;
 import java.util.Properties;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 import java.security.SecureRandom;
 import java.util.Base64;
+import java.util.List;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -18,14 +21,18 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
+import model.Cart;
+import model.Products;
+import model.WishList;
 
 @WebServlet(name = "ForgotPasswordServlet", urlPatterns = {"/forgot-password"})
 public class ForgotPasswordServlet extends HttpServlet {
 
     private final UserDAO usersDAO = new UserDAO();
-    /** 
+
+    /**
      * Handles the HTTP <code>POST</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -33,12 +40,54 @@ public class ForgotPasswordServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-    request.getRequestDispatcher("forgot-password.jsp").forward(request, response);
+            throws ServletException, IOException {
+        ProductsDAO pDAO = new ProductsDAO();
+        List<Products> listProduct = pDAO.getAll();
+        Cookie[] cookieArr = request.getCookies();
+        String cartData = "";
+        if (cookieArr != null) {
+            for (Cookie o : cookieArr) {
+                if (o.getName().equals("cart")) {
+                    cartData += o.getValue();
+                }
+            }
+        }
+        Cart cart = new Cart(cartData, listProduct);
+        request.setAttribute("cart", cart);
+        // Đếm số lượng sản phẩm
+        int numCartItem = 0;
+        if (!cartData.isEmpty()) {
+            String[] items = cartData.split("/");
+            numCartItem = items.length;
+        }
 
-    } 
-    /** 
+        Cookie[] cookieWishList = request.getCookies();
+        String wishlistData = "";
+        if (cookieWishList != null) {
+            for (Cookie o : cookieWishList) {
+                if (o.getName().equals("wishlist")) {
+                    wishlistData += o.getValue();
+                }
+            }
+        }
+        WishList wishlist = new WishList(wishlistData, listProduct);
+        request.setAttribute("wishlist", wishlist);
+        // Đếm số lượng sản phẩm
+        int numWishListItem = 0;
+        if (!wishlistData.isEmpty()) {
+            String[] items = wishlistData.split("/");
+            numWishListItem = items.length;
+        }
+
+        request.setAttribute("numWishListItem", numWishListItem);
+        request.setAttribute("numCartItem", numCartItem);
+        request.getRequestDispatcher("forgot-password.jsp").forward(request, response);
+
+    }
+
+    /**
      * Handles the HTTP <code>POST</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -88,8 +137,8 @@ public class ForgotPasswordServlet extends HttpServlet {
 
     // Hàm gửi email
     private boolean sendResetEmail(String email, String token) throws UnsupportedEncodingException {
-        final String fromEmail = "louisvuittonstore102@gmail.com"; 
-        final String appPassword = "bofb ktts chzo iath"; 
+        final String fromEmail = "louisvuittonstore102@gmail.com";
+        final String appPassword = "bofb ktts chzo iath";
 
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
@@ -105,31 +154,30 @@ public class ForgotPasswordServlet extends HttpServlet {
 
         try {
             MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(fromEmail, "No-Reply")); 
+            message.setFrom(new InternetAddress(fromEmail, "No-Reply"));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
             message.setSubject("Reset Password");
-            
+
             String resetLink = "http://localhost:8080/louisvuitton/change-password?token=" + token;
             String emailContent = "<div style='max-width: 600px; margin: auto; font-family: Arial, sans-serif;'>"
-    + "<table style='width: 100%; border-spacing: 0; text-align: left;'>"
-    + "<tr>"
-    + "  <td style='width: 40%; padding: 20px; text-align: center;'>"
-    + "    <img src='https://i.pinimg.com/originals/8c/4f/4b/8c4f4bd2ecb7348c1f690d1ad950e33e.jpg' alt='Logo Shop' style='max-width: 150px;'>"
-    + "    <h2 style='margin-top: 10px;'>LouisVuitton</h2>"
-    + "  </td>"
-    + "  <td style='width: 60%; padding: 20px;'>"
-    + "    <h3>Click vào nút dưới để đổi mật khẩu:</h3>"
-    + "    <a href='" + resetLink + "' style='display: inline-block; background-color: #007bff; "
-    + "       color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;'>Đổi mật khẩu</a>"
-    + "    <p style='margin-top: 20px; color: #777;'>"
-    + "       Nếu bạn không yêu cầu đặt lại mật khẩu, vui lòng bỏ qua email này."
-    + "    </p>"
-    + "  </td>"
-    + "</tr>"
-    + "</table>"
-    + "</div>";
+                    + "<table style='width: 100%; border-spacing: 0; text-align: left;'>"
+                    + "<tr>"
+                    + "  <td style='width: 40%; padding: 20px; text-align: center;'>"
+                    + "    <img src='https://i.pinimg.com/originals/8c/4f/4b/8c4f4bd2ecb7348c1f690d1ad950e33e.jpg' alt='Logo Shop' style='max-width: 150px;'>"
+                    + "    <h2 style='margin-top: 10px;'>LouisVuitton</h2>"
+                    + "  </td>"
+                    + "  <td style='width: 60%; padding: 20px;'>"
+                    + "    <h3>Click vào nút dưới để đổi mật khẩu:</h3>"
+                    + "    <a href='" + resetLink + "' style='display: inline-block; background-color: #007bff; "
+                    + "       color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;'>Đổi mật khẩu</a>"
+                    + "    <p style='margin-top: 20px; color: #777;'>"
+                    + "       Nếu bạn không yêu cầu đặt lại mật khẩu, vui lòng bỏ qua email này."
+                    + "    </p>"
+                    + "  </td>"
+                    + "</tr>"
+                    + "</table>"
+                    + "</div>";
 
-            
             message.setContent(emailContent, "text/html; charset=UTF-8");
             Transport.send(message);
             return true;

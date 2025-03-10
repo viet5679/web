@@ -63,8 +63,6 @@ public class AboutUsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Lay so luong cookie gửi cho shop
-        // Lay so luong cookie gửi cho home
         ProductsDAO pDAO = new ProductsDAO();
         List<Products> listProduct = pDAO.getAll();
         Cookie[] cookieArr = request.getCookies();

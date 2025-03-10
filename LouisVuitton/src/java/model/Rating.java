@@ -52,7 +52,4 @@ public class Rating {
         this.numberStars = numberStars;
     }
 
-   
-   
-
 }
