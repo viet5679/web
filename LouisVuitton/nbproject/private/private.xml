@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/G:/AS/web/LouisVuitton/src/java/controller/RegisterServlet.java</file>
+            <file>file:/G:/AS/web/LouisVuitton/src/java/model/ProductImages.java</file>
+            <file>file:/G:/AS/web/LouisVuitton/src/java/dal/UserDAO.java</file>
+            <file>file:/G:/AS/web/LouisVuitton/web/index.jsp</file>
+            <file>file:/G:/AS/web/LouisVuitton/web/cart.jsp</file>
+            <file>file:/G:/AS/web/LouisVuitton/src/java/controller/ChangePasswordServlet.java</file>
+            <file>file:/G:/AS/web/LouisVuitton/src/java/controller/WishListServlet.java</file>
+            <file>file:/G:/AS/web/LouisVuitton/src/java/dal/SizesDAO.java</file>
+            <file>file:/G:/AS/web/LouisVuitton/src/java/controller/ShopServlet.java</file>
+            <file>file:/G:/AS/web/LouisVuitton/src/java/model/Rating.java</file>
+            <file>file:/G:/AS/web/LouisVuitton/src/java/model/Sizes.java</file>
+            <file>file:/G:/AS/web/LouisVuitton/web/login.jsp</file>
+            <file>file:/G:/AS/web/LouisVuitton/src/java/model/Users.java</file>
+            <file>file:/G:/AS/web/LouisVuitton/src/java/controller/AboutUsServlet.java</file>
+            <file>file:/G:/AS/web/LouisVuitton/web/bottom.jsp</file>
+            <file>file:/G:/AS/web/LouisVuitton/src/java/dal/RatingDAO.java</file>
+            <file>file:/G:/AS/web/LouisVuitton/web/wishlist.jsp</file>
+            <file>file:/G:/AS/web/LouisVuitton/web/change-password.jsp</file>
+            <file>file:/G:/AS/web/LouisVuitton/web/shop-left-sidebar-col-3.jsp</file>
+            <file>file:/G:/AS/web/LouisVuitton/web/forgot-password.jsp</file>
+            <file>file:/G:/AS/web/LouisVuitton/src/java/model/ProductSizes.java</file>
+            <file>file:/G:/AS/web/LouisVuitton/web/register.jsp</file>
+            <file>file:/G:/AS/web/LouisVuitton/src/java/controller/ProductServlet.java</file>
+            <file>file:/G:/AS/web/LouisVuitton/src/java/model/Products.java</file>
+            <file>file:/G:/AS/web/LouisVuitton/web/user-history.jsp</file>
+            <file>file:/G:/AS/web/LouisVuitton/web/GET.jsp</file>
+            <file>file:/G:/AS/web/LouisVuitton/web/checkout.jsp</file>
+            <file>file:/G:/AS/web/LouisVuitton/web/user-profile.jsp</file>
+            <file>file:/G:/AS/web/LouisVuitton/web/contact-us.jsp</file>
+            <file>file:/G:/AS/web/LouisVuitton/web/user-invoice.jsp</file>
+            <file>file:/G:/AS/web/LouisVuitton/web/product-full-width.jsp</file>
+            <file>file:/G:/AS/web/LouisVuitton/src/java/dal/ProductsDAO.java</file>
+            <file>file:/G:/AS/web/LouisVuitton/src/java/controller/UserProfileServlet.java</file>
+            <file>file:/G:/AS/web/LouisVuitton/src/java/controller/LoginServlet.java</file>
+            <file>file:/G:/AS/web/LouisVuitton/web/customer-service.jsp</file>
+            <file>file:/G:/AS/web/LouisVuitton/web/about-us.jsp</file>
+        </group>
+    </open-files>
+</project-private>
