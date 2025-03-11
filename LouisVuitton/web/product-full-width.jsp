@@ -244,9 +244,9 @@
                                                     <div class="ec-pro-variation-inner ec-pro-variation-size">
                                                         <span>SIZE</span>
                                                         <div class="ec-pro-variation-content">
-                                                            <ul>
+                                                            <ul id="size-options">
                                                                 <c:forEach var="s" items="${sc}">
-                                                                    <li class="active" value="${s.sizeId.id}">
+                                                                    <li class="size-options" value="${s.sizeId.id}">
                                                                         <span>${s.sizeId.name}</span>
                                                                     </li>
                                                                 </c:forEach>
@@ -259,18 +259,21 @@
                                             <div class="ec-single-qty">
                                                 <div class="qty-plus-minus">
                                                     <input class="qty-input"
+                                                           id="quantity"
                                                            type="text"
                                                            name="ec_qtybtn"
                                                            value="1" />
                                                 </div>
                                                 <div class="ec-single-cart ">
                                                     <button
-                                                        class="btn btn-primary">Add
+                                                        class="btn btn-primary" data-product-id="${p.id}" onclick="addToCart(${p.id}, document.getElementById('quantity').value)">Add
                                                         To Cart</button>
                                                 </div>
 
 
                                             </div>
+                                            <div id="cart-response" style="color: green; margin-top: 10px;"></div>
+
                                             <div class="ec-single-social">
 
                                             </div>
@@ -432,6 +435,45 @@
         <!-- Main Js -->
         <script src="assets/js/vendor/index.js"></script>
         <script src="assets/js/main.js"></script>
+        <script>
+                                                            function addToCart(productId, quantity) {
+                                                                $.ajax({
+                                                                    type: "POST",
+                                                                    url: "cart",
+                                                                    data: {
+                                                                        productId: productId,
+                                                                        quantity: quantity
+                                                                    }
+                                                                });
+                                                            }
+        </script>
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let selectedSize = null;
+                let sizeContainer = document.querySelector("#size-options");
+                let hasSizeOptions = sizeContainer && sizeContainer.children.length > 0;
+
+                if (hasSizeOptions) {
+                    document.querySelectorAll(".size-options").forEach(item => {
+                        item.addEventListener("click", function () {
+                            document.querySelectorAll(".size-options").forEach(el => el.classList.remove("active"));
+                            this.classList.add("active");
+                            selectedSize = this.getAttribute("value");
+                        });
+                    });
+
+                    document.querySelector(".ec-single-cart button").addEventListener("click", function (event) {
+                        if (!selectedSize) {
+                            event.preventDefault();
+                            alert("Vui lòng chọn size trước khi thêm vào giỏ hàng!");
+                        }
+                    });
+                }
+            });
+        </script>
+
 
     </body>
 

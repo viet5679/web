@@ -105,7 +105,7 @@
                                                     <c:forEach items="${o.items}" var="i">
                                                         <tr>
                                                             <td data-label="Product" class="ec-cart-pro-name"><a
-                                                                    href="product-left-sidebar.jsp"><img
+                                                                    href="product?id=${i.product.id}"><img
                                                                         class="ec-cart-pro-img mr-4"
                                                                         src="${i.product.avatar}" alt="" />${i.product.name}</a></td>
                                                             <td data-label="Price" class="ec-cart-pro-price"><span
