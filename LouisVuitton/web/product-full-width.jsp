@@ -78,6 +78,7 @@
                 color: gold;
             }
         </style>
+        
     </head>
 
     <body>
