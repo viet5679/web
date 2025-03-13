@@ -131,24 +131,3 @@
     </div>
 </div>
 <!-- Footer navigation panel for responsive display end -->
-
-<!-- Cart Floating Button -->
-<div class="ec-cart-float">
-    <a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-        <div class="header-icon"><i class="fi-rr-shopping-basket"></i>
-        </div>
-        <span class="ec-cart-count cart-count-lable">0</span>
-    </a>
-</div>
-<!-- Cart Floating Button end -->
-
-<!-- Floating Button wishlist-->
-<div class="ec-cart-float-wishlist">
-    <a href="wishlist.jsp" class="ec-header-btn ec-wishlist-toggle">
-        <div class="header-icon">
-            <i class="fi-rr-heart"></i>
-        </div>
-        <span class="ec-cart-count wishlist-count-label">0</span>
-    </a>
-</div>
-<!-- Cart Floating Button end -->

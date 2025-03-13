@@ -37,6 +37,7 @@
 
         <!-- Background css -->
         <link rel="stylesheet" id="bg-switcher-css" href="assets/css/backgrounds/bg-4.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <body class="checkout_page">
         <div id="ec-overlay">
@@ -174,7 +175,7 @@
                                             <% if (user.getRole() == 1) { %>
                                             <!-- User -->
                                             <li><a class="dropdown-item" href="profile">Edit Profile</a></li>
-                                            <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
+                                            <li><a class="dropdown-item" href="order-history">Order History</a></li>
 
                                             <% } else if (user.getRole() == 0) { %>
                                             <!-- Admin -->
@@ -368,19 +369,19 @@
                                         <h3 class="ec-checkout-title">Billing Details</h3>
                                         <div class="ec-bl-block-content">
                                             <div class="ec-check-bill-form">
+                                                <% Boolean orderSuccess = (Boolean) request.getAttribute("orderSuccess"); %>
                                                 <form action="checkout" method="post">
                                                     <span class="ec-bill-wrap">
                                                         <label>Name*</label>
-                                                        <input type="text" name="name"
-                                                               placeholder="Enter your name" value="<%= user.getName() %>" />
+                                                        <input type="text" name="name" placeholder="Enter your name" value="<%= user.getName() %>" required />
                                                     </span>
                                                     <span class="ec-bill-wrap">
                                                         <label>Phone number*</label>
-                                                        <input type="text" name="phone" placeholder="Phone" value="<%= user.getPhone() %>"/>
+                                                        <input type="text" name="phone" placeholder="Phone" value="<%= user.getPhone() %>" required />
                                                     </span>
                                                     <span class="ec-bill-wrap">
                                                         <label>Address*</label>
-                                                        <input type="text" name="address" placeholder="Address" value="<%= user.getAddress() %>"/>
+                                                        <input type="text" name="address" placeholder="Address" value="<%= user.getAddress() %>" required />
                                                     </span>
                                                     <span class="ec-bill-wrap">
                                                         <label>Comments</label>
@@ -399,29 +400,29 @@
                         </div>
                         <!--cart content End -->
                     </div>
-                    <!-- Sidebar Area Start -->
-                    <%
-                    HttpSession sess = request.getSession();
-                    Boolean orderSuccess = (Boolean) sess.getAttribute("orderSuccess");
-                    if (orderSuccess != null && orderSuccess) {
-                        sess.removeAttribute("orderSuccess"); // Xóa để tránh hiển thị lại
-                    %>
-                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                     <script>
-                        Swal.fire({
-                            title: "Mua hàng thành công!",
-                            text: "Đơn hàng của bạn đã được tạo. Chuyển hướng đến lịch sử đặt hàng...",
-                            icon: "success",
-                            timer: 3000, // Chờ 3 giây trước khi chuyển hướng
-                            showConfirmButton: false
-                        }).then(() => {
-                            window.location.href = "order-history";
-                        });
-                    </script>
-                    <%
-                        }
-                    %>
+                        // Check if the order was successful
+                        let orderSuccess = <%= (orderSuccess != null && orderSuccess) ? "true" : "false" %>;
 
+                        if (orderSuccess) {
+                            setTimeout(function () {
+                                Swal.fire({
+                                    title: "Order Successful!",
+                                    text: "Your order has been placed.",
+                                    icon: "success",
+                                    confirmButtonText: "View Order History"
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.href = "order-history";
+                                    }
+                                });
+                            }, 1000);
+                        }
+                    </script>
+
+
+
+                    <!-- Sidebar Area Start -->
                     <c:set var="o" value="${requestScope.cart}"/>
                     <div class="ec-checkout-rightside col-lg-6 col-md-12">
                         <div class="ec-sidebar-wrap">

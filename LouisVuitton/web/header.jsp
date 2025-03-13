@@ -150,7 +150,7 @@
                                 <div class="header-icon"><i
                                         class="fi-rr-heart"></i></div>
                                 <span
-                                    class="ec-header-count wishlist-count-label">${requestScope.numWishListItem}</span>
+                                    class="ec-header-count">${requestScope.numWishListItem}</span>
                             </a>
                             <!-- Header wishlist End -->
                             <!-- Header Cart Start -->
@@ -160,7 +160,7 @@
                                 <div class="header-icon"><i
                                         class="fi-rr-shopping-bag"></i></div>
                                 <span
-                                    class="ec-header-count cart-count-lable">${requestScope.numCartItem}</span>
+                                    class="ec-header-count">${requestScope.numCartItem}</span>
                             </a>
                             <!-- Header Cart End -->
                         </div>

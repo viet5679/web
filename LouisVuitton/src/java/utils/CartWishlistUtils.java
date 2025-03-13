@@ -24,6 +24,11 @@ public class CartWishlistUtils {
         // Xử lý Wishlist
         String wishlistData = getCookieValue(request, "wishlist");
         WishList wishlist = new WishList(wishlistData, listProduct);
+        
+        // kiểm tra giỏ hàng 
+        if (cart == null || cart.getItems().isEmpty()) {
+            request.setAttribute("message", "Your cart is empty.");
+        }
         request.setAttribute("wishlist", wishlist);
         request.setAttribute("numWishListItem", countItems(wishlistData));
     }
@@ -45,4 +50,6 @@ public class CartWishlistUtils {
     private static int countItems(String data) {
         return (!data.isEmpty()) ? data.split("/").length : 0;
     }
+    
+    
 }

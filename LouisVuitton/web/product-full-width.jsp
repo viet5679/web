@@ -78,6 +78,7 @@
                 color: gold;
             }
         </style>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
 
     <body>
@@ -256,18 +257,45 @@
 
                                             <div class="ec-single-qty">
                                                 <div class="qty-plus-minus">
-                                                    <input class="qty-input"
-                                                           type="text"
-                                                           name="ec_qtybtn"
-                                                           value="1" />
+                                                    <input id="qty-${p.id}" class="qty-input" min="1" value="1" data-product-id="${p.id}" />
                                                 </div>
-                                                <div class="ec-single-cart ">
-                                                    <button class="btn btn-primary" onclick="addToCart(${p.id}, 1)">Add To Cart</button>
+                                                <div class="ec-single-cart">
+                                                    <button class="btn btn-primary" onclick="addToCart(${p.id})">Add To Cart</button>
                                                 </div>
                                             </div>
-                                            <div class="ec-single-social">
+                                            <script>
+                                                function addToCart(productId) {
+                                                    let inputField = document.querySelector(`#qty-${p.id}`);
+                                                    let quantity = parseInt(inputField.value) || 1;
 
-                                            </div>
+                                                    if (quantity < 1) {
+                                                        quantity = 1;
+                                                        inputField.value = 1; // Reset số lượng về 1 nếu nhập sai
+                                                    }
+
+                                                    $.ajax({
+                                                        type: "POST",
+                                                        url: "cart",
+                                                        data: {
+                                                            productId: productId,
+                                                            quantity: quantity,
+                                                            action: "addToCart"
+                                                        },
+                                                        success: function () {
+                                                            Swal.fire({
+                                                                position: "center",
+                                                                icon: "success",
+                                                                title: "Added to cart",
+                                                                showConfirmButton: false,
+                                                                timer: 700,
+                                                                width: "400px", // Giảm chiều rộng
+                                                                height: "250px",
+                                                                padding: "5px", // Giảm padding
+                                                            });
+                                                        }
+                                                    });
+                                                }
+                                            </script>
                                         </div>
                                     </div>
                                 </div>
@@ -275,16 +303,6 @@
                         </div>
                         <!--Single product content End -->
                         <script>
-                            function addToCart(productId, quantity) {
-                                $.ajax({
-                                    type: "POST",
-                                    url: "cart",
-                                    data: {
-                                        productId: productId,
-                                        quantity: quantity
-                                    }
-                                });
-                            }
                             function addToWishList(productId, element) {
                                 $.ajax({
                                     type: "POST",

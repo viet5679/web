@@ -418,7 +418,7 @@
             </div>
         </section>
         <!-- End User history section -->
-
+        
         <!-- Footer Start -->
         <jsp:include page="footer.jsp"></jsp:include>
         <!-- Footer Area End -->

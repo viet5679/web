@@ -73,12 +73,6 @@ public class CheckoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        HttpSession session = request.getSession();
-//        Users user = (Users) session.getAttribute("user");
-//        if (user == null) {
-//            response.sendRedirect("login");
-//            return;
-//        }
         CartWishlistUtils.prepareCartAndWishlistData(request);
         request.getRequestDispatcher("checkout.jsp").forward(request, response);
     }
@@ -96,6 +90,7 @@ public class CheckoutServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         Users user = (Users) session.getAttribute("user");
+        boolean isOrderCreated = false; // Cờ kiểm tra đơn hàng có được tạo không
         // Lấy thông tin từ form thanh toán
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
@@ -154,8 +149,8 @@ public class CheckoutServlet extends HttpServlet {
                 orderDetails.setName(item.getProduct().getName());
                 orderDetails.setAvatar(item.getProduct().getAvatar());
                 orderDetails.setStatus("Pending");
-
                 orderDetailsDAO.addOrderDetail(orderDetails); // Lưu vào DB
+                request.setAttribute("orderSuccess", true);
             }
 
             // Xóa cookie giỏ hàng
@@ -163,12 +158,8 @@ public class CheckoutServlet extends HttpServlet {
             cartCookie.setMaxAge(0);
             response.addCookie(cartCookie);
 
-            // Sau khi thêm OrderDetails thành công
-            session.setAttribute("orderSuccess", true);
-            response.sendRedirect("checkout.jsp");
-
-//            // Chuyển hướng đến trang lịch sử đặt hàng
-//            response.sendRedirect("order-history");
+            // Chuyển hướng về checkout.jsp
+            request.getRequestDispatcher("checkout.jsp").forward(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

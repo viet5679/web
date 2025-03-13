@@ -56,23 +56,14 @@ public class ProductsDAO extends DBContext {
                 + "LEFT JOIN product_sizes ps ON p.id = ps.product_id\n"
                 + "LEFT JOIN product_gender pg ON p.id = pg.product_id where 1 = 1";
         if (!gid.isEmpty()) {
-
             sql += " AND gender_id IN (" + gid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
-
         }
-
         if (!cid.isEmpty()) {
-
             sql += " AND category_id IN (" + cid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
-
         }
-
         if (!sid.isEmpty()) {
-
             sql += " AND size_id IN (" + sid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
-
         }
-
         if (price_low != null) {
             sql += "and total_pay >= " + price_low;
         }
@@ -330,22 +321,18 @@ public class ProductsDAO extends DBContext {
         if (!gid.isEmpty()) {
             sql += " AND pg.gender_id IN (" + gid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
         }
-
         if (!cid.isEmpty()) {
             sql += " AND category_id IN (" + cid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
         }
-
         if (!sid.isEmpty()) {
             sql += " AND size_id IN (" + sid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
         }
-
         if (price_low != null) {
             sql += " AND total_pay >= ?";
         }
         if (price_high != null) {
             sql += " AND total_pay <= ?";
         }
-
         CategoriesDAO ca = new CategoriesDAO();
         try {
             PreparedStatement st = connection.prepareStatement(sql);

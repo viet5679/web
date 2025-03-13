@@ -54,7 +54,7 @@
         <!-- Background css -->
         <link rel="stylesheet" id="bg-switcher-css"
               href="assets/css/backgrounds/bg-4.css">
-
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
 
     <body>
@@ -81,13 +81,13 @@
                         <c:forEach var="bestSeller" items="${requestScope.bestSeller}">
                             <div>
                                 <div class="ec-sb-pro-sl-item">
-                                    <a href="product-left-sidebar.jsp"
+                                    <a href="product?id=${bestSeller.id}"
                                        class="sidekka_pro_img"><img
                                             src="${bestSeller.avatar}"
                                             alt="product" /></a>
                                     <div class="ec-pro-content">
                                         <h5 class="ec-pro-title"><a
-                                                href="product?id=${product.id}">${bestSeller.name}</a></h5>
+                                                href="product?id=${bestSeller.id}">${bestSeller.name}</a></h5>
                                         <div class="ec-pro-rating">
                                             <div class="ec-pro-rating">
                                                 <c:forEach var="i" begin="1" end="5">
@@ -338,16 +338,47 @@
                     <!--Shop content End -->
 
                     <script>
-                        function addToCart(productId, quantity) {
+                        function addToCart(productId, isProductDetails = false) {
+                            let quantity = 1; // Mặc định là 1
+
+                            if (isProductDetails) {
+                                // Nếu ở trang Product Details, lấy số lượng từ input
+                                let input = document.getElementById(`qty-${p.id}`);
+                                if (input) {
+                                    quantity = parseInt(input.value) || 1;
+
+                                    // Kiểm tra số lượng hợp lệ
+                                    if (isNaN(quantity) || quantity < 1) {
+                                        alert("Vui lòng nhập số lượng hợp lệ!");
+                                        return;
+                                    }
+                                }
+                            }
+
                             $.ajax({
                                 type: "POST",
                                 url: "cart",
                                 data: {
                                     productId: productId,
-                                    quantity: quantity
+                                    quantity: quantity,
+                                    action: "addToCart"
+                                },
+                                success: function () {
+                                    Swal.fire({
+                                        position: "center",
+                                        icon: "success",
+                                        title: "Added to cart",
+                                        showConfirmButton: false,
+                                        timer: 700,
+                                        width: "400px", // Giảm chiều rộng
+                                        height: "250px",
+                                        padding: "5px", // Giảm padding
+                                    });
                                 }
                             });
                         }
+
+
                         function addToWishList(productId, element) {
                             $.ajax({
                                 type: "POST",
