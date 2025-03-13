@@ -51,108 +51,78 @@
 
         <!-- Header start  -->
         <jsp:include page="header.jsp"></jsp:include>
-        <!-- Header End  -->
+            <!-- Header End  -->
 
-        <!-- Ec breadcrumb start -->
-        <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="row ec_breadcrumb_inner">
-                            <div class="col-md-6 col-sm-12">
-                                <h2 class="ec-breadcrumb-title">Contact Us</h2>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <!-- ec-breadcrumb-list start -->
-                                <ul class="ec-breadcrumb-list">
-                                    <li class="ec-breadcrumb-item"><a href="home">Home</a></li>
-                                    <li class="ec-breadcrumb-item active">Contact Us</li>
-                                </ul>
-                                <!-- ec-breadcrumb-list end -->
+            <!-- Ec breadcrumb start -->
+            <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row ec_breadcrumb_inner">
+                                <div class="col-md-6 col-sm-12">
+                                    <h2 class="ec-breadcrumb-title">Contact Us</h2>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <!-- ec-breadcrumb-list start -->
+                                    <ul class="ec-breadcrumb-list">
+                                        <li class="ec-breadcrumb-item"><a href="home">Home</a></li>
+                                        <li class="ec-breadcrumb-item active">Contact Us</li>
+                                    </ul>
+                                    <!-- ec-breadcrumb-list end -->
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Ec breadcrumb end -->
+            <!-- Ec breadcrumb end -->
 
-        <!-- Ec Contact Us page -->
-        <section class="ec-page-content section-space-p">
-            <div class="container">
-                <div class="row">
-                    <div class="ec-common-wrapper">
-                        <div class="ec-contact-leftside">
-                            <div class="ec-contact-container">
-                                <div class="ec-contact-form">
-                                    <form action="#" method="post">
-                                        <span class="ec-contact-wrap">
-                                            <label>First Name*</label>
-                                            <input type="text" name="firstname" placeholder="Enter your first name"
-                                                   required />
-                                        </span>
-                                        <span class="ec-contact-wrap">
-                                            <label>Last Name*</label>
-                                            <input type="text" name="lastname" placeholder="Enter your last name"
-                                                   required />
-                                        </span>
-                                        <span class="ec-contact-wrap">
-                                            <label>Email*</label>
-                                            <input type="email" name="email" placeholder="Enter your email address"
-                                                   required />
-                                        </span>
-                                        <span class="ec-contact-wrap">
-                                            <label>Phone Number*</label>
-                                            <input type="text" name="phonenumber" placeholder="Enter your phone number"
-                                                   required />
-                                        </span>
-                                        <span class="ec-contact-wrap">
-                                            <label>Comments/Questions*</label>
-                                            <textarea name="address"
-                                                      placeholder="Please leave your comments here.."></textarea>
-                                        </span>
-                                        <span class="ec-contact-wrap ec-recaptcha">
-                                            <span class="g-recaptcha"
-                                                  data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S"
-                                                  data-callback="verifyRecaptchaCallback"
-                                                  data-expired-callback="expiredRecaptchaCallback"></span>
-                                            <input class="form-control d-none" data-recaptcha="true" required
-                                                   data-error="Please complete the Captcha">
-                                            <span class="help-block with-errors"></span>
-                                        </span>
-                                        <span class="ec-contact-wrap ec-contact-btn">
-                                            <button class="btn btn-primary" type="submit">Submit</button>
-                                        </span>
-                                    </form>
+            <!-- Ec Contact Us page -->
+            <section class="ec-page-content section-space-p">
+                <div class="container">
+                    <div class="row">
+                        <div class="ec-common-wrapper">
+                            <div class="ec-contact-leftside">
+                                <div class="ec-contact-container">
+                                    <div class="ec_contact_info">
+                                        <span class="ec_contact_info_head">Contact us</span>
+                                        <p>We are always ready to assist you. If you have any questions or need support, feel free to reach out to us through:</p>
+                                        <ul class="align-items-center">
+                                            <li class="ec-contact-item"><i class="ecicon eci-map-marker"
+                                                                           aria-hidden="true"></i><span>Address :</span>Hoa Lac Hi-tech Park, km 29, Thang Long Boulevard, Hanoi, Vietnam</li>
+                                            <li class="ec-contact-item align-items-center"><i class="ecicon eci-phone"
+                                                                                              aria-hidden="true"></i><span>Call Us :</span><a>0967870138</a></li>
+                                            <li class="ec-contact-item align-items-center"><i class="ecicon eci-envelope"
+                                                                                              aria-hidden="true"></i><span>Email :</span><a>louisvuittonstore102@gmail.com</a></li>
+                                        </ul><br>
+                                        <span class="ec_contact_info_head">How to Reach Us</span>
+                                        <p>For urgent assistance, please contact us via phone or email. For general inquiries, you can visit our <a href="/faq">FAQ page</a>.</p>
+
+                                        <div class="ec-contact-social">
+                                            <span class="ec_contact_info_head">Connect With Us</span><br>
+                                            <a href="https://www.facebook.com/LouisVuitton" target="_blank">Facebook</a> | 
+                                            <a href="https://www.instagram.com/louisvuitton" target="_blank">Instagram</a> | 
+                                            <a href="https://www.twitter.com/" target="_blank">Twitter</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="ec-contact-rightside">
-                            <div class="ec_contact_map">
-                                <div class="ec_map_canvas">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.4983517381443!2d105.5235083249285!3d21.012736680632564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abc60e7d3f19%3A0x2be9d7d0b5abcbf4!2sFPT%20University!5e0!3m2!1sen!2s!4v1737486306082!5m2!1sen!2s" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                    <a href="https://maps.app.goo.gl/U12wahkyKQX7jT4Z8"></a>
+
+                            <div class="ec-contact-rightside">
+                                <div class="ec_contact_map">
+                                    <div class="ec_map_canvas">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.4983517381443!2d105.5235083249285!3d21.012736680632564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abc60e7d3f19%3A0x2be9d7d0b5abcbf4!2sFPT%20University!5e0!3m2!1sen!2s!4v1737486306082!5m2!1sen!2s" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                        <a href="https://maps.app.goo.gl/U12wahkyKQX7jT4Z8"></a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="ec_contact_info">
-                                <h1 class="ec_contact_info_head">Contact us</h1>
-                                <ul class="align-items-center">
-                                    <li class="ec-contact-item"><i class="ecicon eci-map-marker"
-                                                                   aria-hidden="true"></i><span>Address :</span>Hoa Lac Hi-tech Park, km 29, Thang Long Boulevard, Hanoi, Vietnam</li>
-                                    <li class="ec-contact-item align-items-center"><i class="ecicon eci-phone"
-                                                                                      aria-hidden="true"></i><span>Call Us :</span><a href="tel:+440123456789">0967870138</a></li>
-                                    <li class="ec-contact-item align-items-center"><i class="ecicon eci-envelope"
-                                                                                      aria-hidden="true"></i><span>Email :</span><a
-                                            href="mailto:example@ec-email.com">louisvuittonstore102@gmail.com</a></li>
-                                </ul>
+
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Footer Start -->
+            <!-- Footer Start -->
         <jsp:include page="footer.jsp"></jsp:include>
         <!-- Footer Area End -->
 

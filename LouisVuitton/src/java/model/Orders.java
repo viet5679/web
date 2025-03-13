@@ -4,18 +4,32 @@ package model;
  // @author xu4nvi3t
 public class Orders {
     private int id;
-    private double price;
-    private Users userId;
-    private int numberStars;
+    private Users user;
     private double totalPrice;
-    private double totalProduct;
-    private int status;
-    private double totalDiscount;
-    private String note;
+    private int totalProduct;
+    private String status;
     private String createdAt;
     private String updatedAt;
+    private String name;
+    private String phone;
+    private String address;
+    private String comments;
 
     public Orders() {
+    }
+
+    public Orders(int id, Users user, double totalPrice,int totalProduct, String status, String createdAt, String updatedAt, String name, String phone, String address, String comments) {
+        this.id = id;
+        this.user = user;
+        this.totalPrice = totalPrice;
+        this.totalProduct = totalProduct;
+        this.status = status;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+        this.comments = comments;
     }
 
     public int getId() {
@@ -26,28 +40,12 @@ public class Orders {
         this.id = id;
     }
 
-    public double getPrice() {
-        return price;
+    public Users getUser() {
+        return user;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public Users getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Users userId) {
-        this.userId = userId;
-    }
-
-    public int getNumberStars() {
-        return numberStars;
-    }
-
-    public void setNumberStars(int numberStars) {
-        this.numberStars = numberStars;
+    public void setUser(Users user) {
+        this.user = user;
     }
 
     public double getTotalPrice() {
@@ -58,36 +56,20 @@ public class Orders {
         this.totalPrice = totalPrice;
     }
 
-    public double getTotalProduct() {
+    public int getTotalProduct() {
         return totalProduct;
     }
 
-    public void setTotalProduct(double totalProduct) {
+    public void setTotalProduct(int totalProduct) {
         this.totalProduct = totalProduct;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
-    }
-
-    public double getTotalDiscount() {
-        return totalDiscount;
-    }
-
-    public void setTotalDiscount(double totalDiscount) {
-        this.totalDiscount = totalDiscount;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
     }
 
     public String getCreatedAt() {
@@ -106,19 +88,36 @@ public class Orders {
         this.updatedAt = updatedAt;
     }
 
-    public Orders(int id, double price, Users userId, int numberStars, double totalPrice, double totalProduct, int status, double totalDiscount, String note, String createdAt, String updatedAt) {
-        this.id = id;
-        this.price = price;
-        this.userId = userId;
-        this.numberStars = numberStars;
-        this.totalPrice = totalPrice;
-        this.totalProduct = totalProduct;
-        this.status = status;
-        this.totalDiscount = totalDiscount;
-        this.note = note;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+    public String getName() {
+        return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
     
 }

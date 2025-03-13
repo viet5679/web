@@ -1,7 +1,14 @@
+<%-- 
+    Document   : header
+    Created on : Mar 13, 2025, 3:03:58 PM
+    Author     : adim
+--%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ page import="model.Users" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<!-- Header start  -->
 <header class="ec-header">
     <!--Ec Header Top Start -->
     <div class="header-top">
@@ -11,9 +18,7 @@
                 <div
                     class="col text-left header-top-left d-none d-lg-block">
                     <div class="header-top-social">
-                        <span class="social-text text-upper">Follow us
-                            on:</span>
-
+                        <span class="social-text text-upper">Follow us on:</span>
                     </div>
                 </div>
                 <!-- Header Top social End -->
@@ -31,7 +36,7 @@
                                 <li><a class="dropdown-item"
                                        href="register">Register</a></li>
                                 <li><a class="dropdown-item"
-                                       href="checkout.jsp">Checkout</a></li>
+                                       href="checkout">Checkout</a></li>
                                 <li><a class="dropdown-item"
                                        href="login">Login</a></li>
                             </ul>
@@ -103,9 +108,13 @@
                         <div class="ec-header-bottons">
 
                             <!-- Header User Start -->
-                            <% 
-                                Users user = (Users) session.getAttribute("user");
+                            <%
+                                Users user = null;
+                                if (session != null) {
+                                    user = (Users) session.getAttribute("user");
+                                }
                             %>
+
                             <div class="ec-header-user dropdown">
                                 <button class="dropdown-toggle" data-bs-toggle="dropdown">
                                     <% if (user != null) { %>
@@ -124,20 +133,14 @@
                                     <% if (user.getRole() == 1) { %>
                                     <!-- User -->
                                     <li><a class="dropdown-item" href="profile">Edit Profile</a></li>
-                                    <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
+                                    <li><a class="dropdown-item" href="order-history">Order History</a></li>
 
                                     <% } else if (user.getRole() == 0) { %>
                                     <!-- Admin -->
-                                    <li><a class="dropdown-item" href="admin-dashboard.jsp">ADMIN</a></li>
+                                    <li><a class="dropdown-item" href="admin/index.jsp">ADMIN</a></li>
                                         <% } %>
-                                    <li><a class="dropdown-item" href="index.jsp?logout=true">Log out</a></li>
+                                    <li><a class="dropdown-item" href="logout">Log out</a></li>
                                         <% } %>
-                                        <%
-                                            if (request.getParameter("logout") != null) {
-                                                session.invalidate(); // Xóa session
-                                                response.sendRedirect("home"); // Chuyển hướng về trang chủ
-                                            }
-                                        %>
                                 </ul>
                             </div>
                             <!-- Header User End -->
@@ -174,13 +177,8 @@
                 <!-- Ec Header Logo Start -->
                 <div class="col">
                     <div class="header-logo">
-                        <a href="index.jsp"><img
-                                src="assets/images/logo/logo4.png"
-                                alt="Site Logo" /><img
-                                class="dark-logo"
-                                src="assets/images/logo/logo4.png"
-                                alt="Site Logo"
-                                style="display: none;" /></a>
+                        <a href="home"><img src="assets/images/logo/logo4.png" alt="Site Logo" />
+                            <img class="dark-logo" src="assets/images/logo/logo4.png" alt="Site Logo" style="display: none;" /></a>
                     </div>
                 </div>
                 <!-- Ec Header Logo End -->
@@ -212,7 +210,6 @@
                         <ul>
                             <li><a href="home">Home</a></li>
                             <li><a href="shop">Shop</a></li>
-                            <li><a href="track-order.jsp">Track Order</a></li>
                             <li><a href="about-us">About Us</a></li>
                             <li><a href="contact-us">Contact Us</a></li>
                             <li class="dropdown scroll-to"><a href="javascript:void(0)"><i class="fi fi-rr-sort-amount-down-alt"></i></a>
@@ -257,3 +254,4 @@
     </div>
     <!-- ekka mobile Menu End -->
 </header>
+<!-- Header End  -->

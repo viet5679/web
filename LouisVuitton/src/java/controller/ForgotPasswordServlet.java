@@ -1,19 +1,16 @@
 package controller;
 
-import dal.ProductsDAO;
 import dal.UserDAO;
 import java.io.IOException;
 import java.util.Properties;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 import java.security.SecureRandom;
 import java.util.Base64;
-import java.util.List;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -21,9 +18,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import model.Cart;
-import model.Products;
-import model.WishList;
+import utils.CartWishlistUtils;
 
 @WebServlet(name = "ForgotPasswordServlet", urlPatterns = {"/forgot-password"})
 public class ForgotPasswordServlet extends HttpServlet {
@@ -41,46 +36,7 @@ public class ForgotPasswordServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ProductsDAO pDAO = new ProductsDAO();
-        List<Products> listProduct = pDAO.getAll();
-        Cookie[] cookieArr = request.getCookies();
-        String cartData = "";
-        if (cookieArr != null) {
-            for (Cookie o : cookieArr) {
-                if (o.getName().equals("cart")) {
-                    cartData += o.getValue();
-                }
-            }
-        }
-        Cart cart = new Cart(cartData, listProduct);
-        request.setAttribute("cart", cart);
-        // Đếm số lượng sản phẩm
-        int numCartItem = 0;
-        if (!cartData.isEmpty()) {
-            String[] items = cartData.split("/");
-            numCartItem = items.length;
-        }
-
-        Cookie[] cookieWishList = request.getCookies();
-        String wishlistData = "";
-        if (cookieWishList != null) {
-            for (Cookie o : cookieWishList) {
-                if (o.getName().equals("wishlist")) {
-                    wishlistData += o.getValue();
-                }
-            }
-        }
-        WishList wishlist = new WishList(wishlistData, listProduct);
-        request.setAttribute("wishlist", wishlist);
-        // Đếm số lượng sản phẩm
-        int numWishListItem = 0;
-        if (!wishlistData.isEmpty()) {
-            String[] items = wishlistData.split("/");
-            numWishListItem = items.length;
-        }
-
-        request.setAttribute("numWishListItem", numWishListItem);
-        request.setAttribute("numCartItem", numCartItem);
+        CartWishlistUtils.prepareCartAndWishlistData(request);
         request.getRequestDispatcher("forgot-password.jsp").forward(request, response);
 
     }
@@ -97,7 +53,6 @@ public class ForgotPasswordServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
-        System.out.println(email);
 
         // Kiểm tra email có trong database không
         if (!usersDAO.isEmailExist(email)) {

@@ -65,7 +65,7 @@
                             <div class="col-md-6 col-sm-12">
                                 <!-- ec-breadcrumb-list start -->
                                 <ul class="ec-breadcrumb-list">
-                                    <li class="ec-breadcrumb-item"><a href="index.jsp">Home</a></li>
+                                    <li class="ec-breadcrumb-item"><a href="home">Home</a></li>
                                     <li class="ec-breadcrumb-item active">Login</li>
                                 </ul>
                                 <!-- ec-breadcrumb-list end -->
@@ -84,7 +84,7 @@
                 <form action="change-password" method="post" id="change-password-form">
                     <!-- Lấy email & token từ URL -->
                     <input type="hidden" id="email" name="email">
-                    <input type="hidden" id="token" name="token">
+                    <input type="hidden" id="<%= request.getParameter("token")%>" name="token" value="<%= request.getParameter("token") %>">
 
                     <div class="form-group">
                         <input type="password" id="new_password" name="new_password" placeholder="New password" required>
@@ -97,7 +97,7 @@
                     </div>
                     <p style=""></p>
                     <div class="button-group">
-                        <a href="login.jsp" class="btn btn-cancel">Cancel</a>
+                        <a href="login" class="btn btn-cancel">Cancel</a>
                         <button type="submit" id="change-button" class="btn btn-primary" disabled>Change</button>
                     </div>
                 </form>

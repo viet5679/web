@@ -4,9 +4,7 @@ package dal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,15 +15,14 @@ import model.Products;
 
 public class ProductsDAO extends DBContext {
     
-
-    public List<ProductImages> getImagesByPid(int pid) {
+    public List<ProductImages> getImagesByPid(int pid){
         List<ProductImages> list = new ArrayList();
         String sql = "  select * from products_images where product_id = ?";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, pid);
             ResultSet rs = st.executeQuery();
-            while (rs.next()) {
+            while(rs.next()){
                 ProductImages pi = new ProductImages(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
                 list.add(pi);
             }
@@ -33,62 +30,22 @@ public class ProductsDAO extends DBContext {
         }
         return list;
     }
-
+    
     public List<Products> getAll() {
-        List<Products> list = new ArrayList<>();
-        String sql = "SELECT * FROM products";
+        List<Products> list = new ArrayList();
+        String sql = "select * from products";
         CategoriesDAO ca = new CategoriesDAO();
-        SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd"); // Định dạng gốc từ DB
-        SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy"); // Định dạng mong muốn
-
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                String formattedDate1 = formatDate(rs.getString(13), inputFormat, outputFormat);
-                String formattedDate2 = formatDate(rs.getString(14), inputFormat, outputFormat);
-                String formattedDate3 = formatDate(rs.getString(15), inputFormat, outputFormat);
-
-                Products pro = new Products(
-                        rs.getInt(1),
-                        ca.getCategoryById(rs.getInt(2)),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6),
-                        rs.getInt(7),
-                        rs.getInt(8),
-                        rs.getInt(9),
-                        rs.getInt(10),
-                        rs.getInt(11),
-                        rs.getInt(12),
-                        formattedDate1, // Ngày tháng đã định dạng
-                        formattedDate2,
-                        formattedDate3,
-                        rs.getDouble(16),
-                        rs.getDouble(17),
-                        rs.getDouble(18),
-                        rs.getString(19)
-                );
-
+                Products pro = new Products(rs.getInt(1), ca.getCategoryById(rs.getInt(2)), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getInt(9), rs.getInt(10), rs.getInt(11), rs.getInt(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getDouble(16), rs.getDouble(17), rs.getDouble(18), rs.getString(19));
                 list.add(pro);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
         return list;
-    }
-
-    private String formatDate(String dateStr, SimpleDateFormat inputFormat, SimpleDateFormat outputFormat) {
-        try {
-            if (dateStr != null && !dateStr.isEmpty()) {
-                Date date = inputFormat.parse(dateStr); // Chuyển String -> Date
-                return outputFormat.format(date); // Chuyển Date -> Chuỗi định dạng mong muốn
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return dateStr; // Trả về nguyên bản nếu có lỗi
     }
 
     public List<Products> getProductsByFilder(List<Integer> gid, List<Integer> cid, List<Integer> sid, Double price_low, Double price_high) {

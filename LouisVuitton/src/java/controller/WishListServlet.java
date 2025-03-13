@@ -84,7 +84,7 @@ public class WishListServlet extends HttpServlet {
             numCartItem = items.length;
         }
 
-// Lấy dữ liệu từ cookie wishlist
+        // Lấy dữ liệu từ cookie wishlist
         Cookie[] WishList = request.getCookies();
         String wishlistData = "";
         if (WishList != null) {
@@ -96,7 +96,7 @@ public class WishListServlet extends HttpServlet {
             }
         }
 
-// Tạo danh sách sản phẩm từ wishlist
+        // Tạo danh sách sản phẩm từ wishlist
         List<Products> wishlistProducts = new ArrayList<>();
         if (!wishlistData.isEmpty()) {
             String[] wishlistIds = wishlistData.split("/"); // Tách danh sách ID từ cookie
@@ -115,7 +115,7 @@ public class WishListServlet extends HttpServlet {
             }
         }
 
-// Gửi dữ liệu sang JSP
+        // Gửi dữ liệu sang JSP
         request.setAttribute("wishlistProducts", wishlistProducts);
         request.setAttribute("numWishListItem", wishlistProducts.size());
         request.setAttribute("numCartItem", numCartItem);

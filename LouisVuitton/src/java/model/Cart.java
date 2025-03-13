@@ -31,7 +31,7 @@ public class Cart {
 
     public void addItem(Item i) {
         if (i == null || i.getQuantity() <= 0) {
-            return; 
+            return;
         }
         Item existingItem = getItemById(i.getProduct().getId());
         if (existingItem != null) {
@@ -57,13 +57,19 @@ public class Cart {
     }
 
     private Products getProductById(int id, List<Products> list) {
-        if (list == null) return null;
+        if (list == null) {
+            return null;
+        }
         for (Products p : list) {
             if (p.getId() == id) {
                 return p;
             }
         }
         return null;
+    }
+
+    public void clearCart() {
+        items.clear(); // Xóa toàn bộ sản phẩm trong giỏ hàng
     }
 
     public Cart(String txt, List<Products> listProduct) {

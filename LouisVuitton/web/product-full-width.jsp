@@ -78,7 +78,6 @@
                 color: gold;
             }
         </style>
-        
     </head>
 
     <body>
@@ -158,7 +157,7 @@
                                 <!-- ec-breadcrumb-list start -->
                                 <ul class="ec-breadcrumb-list">
                                     <li class="ec-breadcrumb-item"><a
-                                            href="index.jsp">Home</a></li>
+                                            href="home">Home</a></li>
                                     <li
                                         class="ec-breadcrumb-item active">Products</li>
                                 </ul>
@@ -189,9 +188,7 @@
                                                 <c:forEach var="c" items="${requestScope.listI}">
                                                     <div
                                                         class="single-slide zoom-image-hover">
-                                                        <img class="img-responsive"
-                                                             src="${c.path}"
-                                                             alt>
+                                                        <img class="img-responsive" src="${c.path}" alt>
                                                     </div>
                                                 </c:forEach>
 
@@ -245,9 +242,9 @@
                                                     <div class="ec-pro-variation-inner ec-pro-variation-size">
                                                         <span>SIZE</span>
                                                         <div class="ec-pro-variation-content">
-                                                            <ul id="size-options">
+                                                            <ul>
                                                                 <c:forEach var="s" items="${sc}">
-                                                                    <li class="size-options" value="${s.sizeId.id}">
+                                                                    <li class="active" value="${s.sizeId.id}">
                                                                         <span>${s.sizeId.name}</span>
                                                                     </li>
                                                                 </c:forEach>
@@ -260,21 +257,14 @@
                                             <div class="ec-single-qty">
                                                 <div class="qty-plus-minus">
                                                     <input class="qty-input"
-                                                           id="quantity"
                                                            type="text"
                                                            name="ec_qtybtn"
                                                            value="1" />
                                                 </div>
                                                 <div class="ec-single-cart ">
-                                                    <button
-                                                        class="btn btn-primary" data-product-id="${p.id}" onclick="addToCart(${p.id}, document.getElementById('quantity').value)">Add
-                                                        To Cart</button>
+                                                    <button class="btn btn-primary" onclick="addToCart(${p.id}, 1)">Add To Cart</button>
                                                 </div>
-
-
                                             </div>
-                                            <div id="cart-response" style="color: green; margin-top: 10px;"></div>
-
                                             <div class="ec-single-social">
 
                                             </div>
@@ -284,6 +274,60 @@
                             </div>
                         </div>
                         <!--Single product content End -->
+                        <script>
+                            function addToCart(productId, quantity) {
+                                $.ajax({
+                                    type: "POST",
+                                    url: "cart",
+                                    data: {
+                                        productId: productId,
+                                        quantity: quantity
+                                    }
+                                });
+                            }
+                            function addToWishList(productId, element) {
+                                $.ajax({
+                                    type: "POST",
+                                    url: "wishlist",
+                                    data: {productId: productId},
+                                    success: function (response) {
+                                        if (response.isWishlisted) {
+                                            $(element).addClass("active"); // Nếu đã thêm, đổi màu nút
+                                        } else {
+                                            $(element).removeClass("active"); // Nếu đã xóa, trở lại bình thường
+                                        }
+                                    },
+                                    error: function () {
+                                        alert("Có lỗi xảy ra!");
+                                    }
+                                });
+                            }
+                            // Duyệt qua cookie Wishlist
+                            document.addEventListener("DOMContentLoaded", function () {
+                                let wishlist = getCookie("wishlist"); // Lấy giá trị từ cookie
+                                if (wishlist) {
+                                    let wishlistItems = wishlist.split("/"); // Chuyển chuỗi thành mảng ID
+                                    document.querySelectorAll(".wishlist-btn").forEach(function (btn) {
+                                        let productId = btn.getAttribute("data-product-id"); // Lấy ID từ nút
+                                        if (wishlistItems.includes(productId)) {
+                                            btn.classList.add("active"); // Thêm class "active"
+                                        }
+                                    });
+                                }
+                            });
+
+                            // Hàm lấy cookie theo tên
+                            function getCookie(name) {
+                                let cookies = document.cookie.split("; ");
+                                for (let i = 0; i < cookies.length; i++) {
+                                    let parts = cookies[i].split("=");
+                                    if (parts[0] === name) {
+                                        return parts[1];
+                                    }
+                                }
+                                return "";
+                            }
+                        </script>
                         <!-- Single product tab start -->
                         <div class="ec-single-pro-tab">
                             <div class="ec-single-pro-tab-wrapper">
@@ -436,45 +480,6 @@
         <!-- Main Js -->
         <script src="assets/js/vendor/index.js"></script>
         <script src="assets/js/main.js"></script>
-        <script>
-                                                            function addToCart(productId, quantity) {
-                                                                $.ajax({
-                                                                    type: "POST",
-                                                                    url: "cart",
-                                                                    data: {
-                                                                        productId: productId,
-                                                                        quantity: quantity
-                                                                    }
-                                                                });
-                                                            }
-        </script>
-
-
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                let selectedSize = null;
-                let sizeContainer = document.querySelector("#size-options");
-                let hasSizeOptions = sizeContainer && sizeContainer.children.length > 0;
-
-                if (hasSizeOptions) {
-                    document.querySelectorAll(".size-options").forEach(item => {
-                        item.addEventListener("click", function () {
-                            document.querySelectorAll(".size-options").forEach(el => el.classList.remove("active"));
-                            this.classList.add("active");
-                            selectedSize = this.getAttribute("value");
-                        });
-                    });
-
-                    document.querySelector(".ec-single-cart button").addEventListener("click", function (event) {
-                        if (!selectedSize) {
-                            event.preventDefault();
-                            alert("Vui lòng chọn size trước khi thêm vào giỏ hàng!");
-                        }
-                    });
-                }
-            });
-        </script>
-
 
     </body>
 

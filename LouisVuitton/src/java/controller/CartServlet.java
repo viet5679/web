@@ -32,12 +32,9 @@ public class CartServlet extends HttpServlet {
         }
         Cart cart = new Cart(cartData, list);
         request.setAttribute("cart", cart);
-        // Đếm số lượng sản phẩm
-        int numCartItem = 0;
-        if (!cartData.isEmpty()) {
-            String[] items = cartData.split("/");
-            numCartItem = items.length;
-        }
+
+        // Đếm số lượng sản phẩm trong giỏ hàng
+        int numCartItem = cart.getItems().size();
 
         Cookie[] cookieWishList = request.getCookies();
         String wishlistData = "";
@@ -50,13 +47,14 @@ public class CartServlet extends HttpServlet {
         }
         WishList wishlist = new WishList(wishlistData, list);
         request.setAttribute("wishlist", wishlist);
-        // Đếm số lượng sản phẩm
-        int numWishListItem = 0;
-        if (!wishlistData.isEmpty()) {
-            String[] items = wishlistData.split("/");
-            numWishListItem = items.length;
-        }
 
+        // Đếm số lượng sản phẩm trong wishlist
+        int numWishListItem = wishlist.getItems().size();
+
+        // kiểm tra giỏ hàng 
+        if (cart == null || cart.getItems().isEmpty()) {
+            request.setAttribute("message", "Your cart is empty.");
+        }
         request.setAttribute("numWishListItem", numWishListItem);
         request.setAttribute("numCartItem", numCartItem);
         request.setAttribute("newArrivals", pDAO.getNewArrivalsProduct());
@@ -71,17 +69,20 @@ public class CartServlet extends HttpServlet {
         String id_raw = request.getParameter("productId");
         String quantity_raw = request.getParameter("quantity");
 
-        if (id_raw == null || id_raw.isEmpty()) {
+        if (id_raw == null || id_raw.isEmpty() || quantity_raw == null || quantity_raw.isEmpty()) {
             response.sendRedirect("cart.jsp");
             return;
         }
 
         int id;
-        int quantity = 1; // Mặc định số lượng là 1 nếu không có giá trị
+        int quantity;
         try {
             id = Integer.parseInt(id_raw);
-            if (quantity_raw != null && !quantity_raw.isEmpty()) {
-                quantity = Integer.parseInt(quantity_raw);
+            quantity = Integer.parseInt(quantity_raw);
+
+            if (quantity <= 0) {
+                // Nếu quantity <= 0, coi như là xóa sản phẩm
+                quantity = 0;
             }
         } catch (NumberFormatException e) {
             e.printStackTrace();
@@ -96,40 +97,40 @@ public class CartServlet extends HttpServlet {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("cart")) {
                     cartData = cookie.getValue();
-                    cookie.setMaxAge(0); // Xóa cookie cũ
-                    response.addCookie(cookie);
+                    break; // Tìm thấy cookie thì thoát vòng lặp
                 }
             }
         }
 
         // Xử lý giỏ hàng
         StringBuilder updatedCart = new StringBuilder();
-        boolean isUpdated = false;
+        boolean isProductExists = false;
 
         if (!cartData.isEmpty()) {
             String[] items = cartData.split("/");
             for (String item : items) {
                 String[] parts = item.split(":");
-                int existingId = Integer.parseInt(parts[0]);
-                int existingQuantity = Integer.parseInt(parts[1]);
+                if (parts.length == 2) {
+                    int existingId = Integer.parseInt(parts[0]);
+                    int existingQuantity = Integer.parseInt(parts[1]);
 
-                if (existingId == id) {
-                    if (quantity_raw == null) {
-                        // Nếu không có quantity -> Xóa sản phẩm khỏi giỏ hàng
-                        continue;
+                    if (existingId == id) {
+                        // Cộng dồn số lượng nếu trùng ID
+                        int newQuantity = existingQuantity + quantity;
+                        if (newQuantity > 0) {
+                            updatedCart.append(existingId).append(":").append(newQuantity).append("/");
+                        }
+                        isProductExists = true;
                     } else {
-                        // Nếu có quantity -> Cập nhật số lượng sản phẩm
-                        existingQuantity += quantity;
+                        // Giữ nguyên các sản phẩm khác
+                        updatedCart.append(item).append("/");
                     }
-                    isUpdated = true;
                 }
-
-                updatedCart.append(existingId).append(":").append(existingQuantity).append("/");
             }
         }
 
-        // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới
-        if (!isUpdated && quantity_raw != null) {
+// Thêm sản phẩm mới nếu chưa tồn tại và quantity > 0
+        if (!isProductExists && quantity > 0) {
             updatedCart.append(id).append(":").append(quantity).append("/");
         }
 
@@ -139,12 +140,10 @@ public class CartServlet extends HttpServlet {
         }
 
         // Cập nhật lại cookie
-        if (updatedCart.length() > 0) {
-            Cookie newCookie = new Cookie("cart", updatedCart.toString());
-            newCookie.setMaxAge(30 * 24 * 60 * 60); // Lưu 30 ngày
-            response.addCookie(newCookie);
-        }
-
+        String updatedCartString = updatedCart.toString();
+        Cookie newCookie = new Cookie("cart", updatedCartString);
+        newCookie.setMaxAge(30 * 24 * 60 * 60); // Lưu 30 ngày
+        response.addCookie(newCookie);
         response.sendRedirect("cart.jsp");
     }
 

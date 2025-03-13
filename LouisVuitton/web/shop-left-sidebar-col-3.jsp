@@ -1,5 +1,5 @@
 <!--========================================================= 
-    Item Name: Louis Vuitton 
+    Item Name: Louis Vuitton
     Author: ashishmaraviya
     Version: 3.7
     Copyright 2024
@@ -220,10 +220,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="ec-pro-content">
-
-                                                    <h5 class="ec-pro-title"><a
-                                                            href="product?id=${c.id}">${c.name}</a></h5>
-
+                                                    <h5 class="ec-pro-title"><a href="product?id=${c.id}">${c.name}</a></h5>
                                                     <div class="ec-pro-rating">
                                                         <c:forEach var="i" begin="1" end="5">
                                                             <c:choose>

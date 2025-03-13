@@ -117,15 +117,6 @@
                                         <label>Confirm password</label>
                                         <input type="password" name="confirmpassword" placeholder="Enter your password" />
                                     </span>
-                                    <!--                                    <span class="ec-register-wrap ec-recaptcha">
-                                                                            <span class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S"
-                                                                                  data-callback="verifyRecaptchaCallback"
-                                                                                  data-expired-callback="expiredRecaptchaCallback"></span>
-                                                                            <input class="form-control d-none" data-recaptcha="true" required
-                                                                                   data-error="Please complete the Captcha">
-                                                                            <span class="help-block with-errors"></span>
-                                                                        </span>-->
-
                                     <c:choose>
                                         <c:when test="${not empty requestScope.error}">
                                             <p style="color: red" id="error-message">${requestScope.error}</p>

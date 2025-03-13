@@ -60,6 +60,7 @@
                 <div></div>
             </div>
         </div>
+       
         <!-- Header start  -->
         <jsp:include page="header.jsp"></jsp:include>
         <!-- Header End  -->
@@ -79,12 +80,12 @@
                         <c:forEach var="bestSeller" items="${requestScope.bestSeller}">
                             <div>
                                 <div class="ec-sb-pro-sl-item">
-                                    <a href="product-left-sidebar.jsp"
+                                    <a href="product?id=${bestSeller.id}"
                                        class="sidekka_pro_img"><img
                                             src="${bestSeller.avatar}"
                                             alt="product" /></a>
                                     <div class="ec-pro-content">
-                                        <h5 class="ec-pro-title"><a href="product?id=${product.id}">${bestSeller.name}</a></h5>
+                                        <h5 class="ec-pro-title"><a href="product?id=${bestSeller.id}">${bestSeller.name}</a></h5>
                                         <div class="ec-pro-rating">
                                             <div class="ec-pro-rating">
                                                 <c:forEach var="i" begin="1" end="5">
@@ -126,18 +127,11 @@
                             <div class="row">
                                 <div
                                     class="col-xl-6 col-lg-7 col-md-7 col-sm-7 align-self-center">
-                                    <div
-                                        class="ec-slide-content slider-animation">
-                                        <h1 class="ec-slide-title">Louis Vuitton
-                                            Jewelry</h1>
-                                        <h2 class="ec-slide-stitle">Exclusive
-                                            Offers</h2>
-                                        <p>The iconic products of Louis Vuitton
-                                            add a sparkling touch to romantic
-                                            moments.</p>
-                                        <a href="#"
-                                           class="btn btn-lg btn-secondary">Order
-                                            Now</a>
+                                    <div class="ec-slide-content slider-animation">
+                                        <h1 class="ec-slide-title">Louis Vuitton Jewelry</h1>
+                                        <h2 class="ec-slide-stitle">Exclusive Offers</h2>
+                                        <p>The iconic products of Louis Vuitton add a sparkling touch to romantic moments.</p>
+                                        <a href="shop" class="btn btn-lg btn-secondary">Order Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -153,7 +147,7 @@
                                         <h1 class="ec-slide-title">Louis Vuitton Bags</h1>
                                         <h2 class="ec-slide-stitle">Exclusive Deals</h2>
                                         <p>Shop premium Louis Vuitton handbags and accessories today!</p>
-                                        <a href="#" class="btn btn-lg btn-secondary">Shop Now</a>
+                                        <a href="shop" class="btn btn-lg btn-secondary">Shop Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -481,8 +475,7 @@
                 </div>
                 <div class="row">
                     <!-- New Product Content -->
-                    <c:forEach var="newArrivals"
-                               items="${requestScope.newArrivals}">
+                    <c:forEach var="newArrivals" items="${requestScope.newArrivals}">
                         <div
                             class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6  ec-product-content"
                             data-animation="flipInY">
@@ -678,133 +671,134 @@
 
         <!-- Footer Start -->
         <jsp:include page="footer.jsp"></jsp:include>
-        <!-- Footer Area End -->
+            <!-- Footer Area End -->
 
-        <!-- Modal -->
-        <div class="modal fade" id="ec_quickview_modal" tabindex="-1"
-             role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <button type="button" class="btn-close qty_close"
-                            data-bs-dismiss="modal" aria-label="Close"></button>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-5 col-sm-12 col-xs-12">
-                                <!-- Swiper -->
-                                <div class="qty-product-cover">
-                                    <div class="qty-slide">
-                                        <img class="img-responsive"
-                                             src="assets/images/product-image/3_1.jpg"
-                                             alt>
+            <!-- Modal -->
+            <div class="modal fade" id="ec_quickview_modal" tabindex="-1"
+                 role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <button type="button" class="btn-close qty_close"
+                                data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-5 col-sm-12 col-xs-12">
+                                    <!-- Swiper -->
+                                    <div class="qty-product-cover">
+                                        <div class="qty-slide">
+                                            <img class="img-responsive"
+                                                 src="assets/images/product-image/3_1.jpg"
+                                                 alt>
+                                        </div>
+                                        <div class="qty-slide">
+                                            <img class="img-responsive"
+                                                 src="assets/images/product-image/3_2.jpg"
+                                                 alt>
+                                        </div>
+                                        <div class="qty-slide">
+                                            <img class="img-responsive"
+                                                 src="assets/images/product-image/3_3.jpg"
+                                                 alt>
+                                        </div>
+                                        <div class="qty-slide">
+                                            <img class="img-responsive"
+                                                 src="assets/images/product-image/3_4.jpg"
+                                                 alt>
+                                        </div>
+                                        <div class="qty-slide">
+                                            <img class="img-responsive"
+                                                 src="assets/images/product-image/3_5.jpg"
+                                                 alt>
+                                        </div>
                                     </div>
-                                    <div class="qty-slide">
-                                        <img class="img-responsive"
-                                             src="assets/images/product-image/3_2.jpg"
-                                             alt>
-                                    </div>
-                                    <div class="qty-slide">
-                                        <img class="img-responsive"
-                                             src="assets/images/product-image/3_3.jpg"
-                                             alt>
-                                    </div>
-                                    <div class="qty-slide">
-                                        <img class="img-responsive"
-                                             src="assets/images/product-image/3_4.jpg"
-                                             alt>
-                                    </div>
-                                    <div class="qty-slide">
-                                        <img class="img-responsive"
-                                             src="assets/images/product-image/3_5.jpg"
-                                             alt>
+                                    <div class="qty-nav-thumb">
+                                        <div class="qty-slide">
+                                            <img class="img-responsive"
+                                                 src="assets/images/product-image/3_1.jpg"
+                                                 alt>
+                                        </div>
+                                        <div class="qty-slide">
+                                            <img class="img-responsive"
+                                                 src="assets/images/product-image/3_2.jpg"
+                                                 alt>
+                                        </div>
+                                        <div class="qty-slide">
+                                            <img class="img-responsive"
+                                                 src="assets/images/product-image/3_3.jpg"
+                                                 alt>
+                                        </div>
+                                        <div class="qty-slide">
+                                            <img class="img-responsive"
+                                                 src="assets/images/product-image/3_4.jpg"
+                                                 alt>
+                                        </div>
+                                        <div class="qty-slide">
+                                            <img class="img-responsive"
+                                                 src="assets/images/product-image/3_5.jpg"
+                                                 alt>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="qty-nav-thumb">
-                                    <div class="qty-slide">
-                                        <img class="img-responsive"
-                                             src="assets/images/product-image/3_1.jpg"
-                                             alt>
-                                    </div>
-                                    <div class="qty-slide">
-                                        <img class="img-responsive"
-                                             src="assets/images/product-image/3_2.jpg"
-                                             alt>
-                                    </div>
-                                    <div class="qty-slide">
-                                        <img class="img-responsive"
-                                             src="assets/images/product-image/3_3.jpg"
-                                             alt>
-                                    </div>
-                                    <div class="qty-slide">
-                                        <img class="img-responsive"
-                                             src="assets/images/product-image/3_4.jpg"
-                                             alt>
-                                    </div>
-                                    <div class="qty-slide">
-                                        <img class="img-responsive"
-                                             src="assets/images/product-image/3_5.jpg"
-                                             alt>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-7 col-sm-12 col-xs-12">
-                                <div class="quickview-pro-content">
-                                    <h5 class="ec-quick-title"><a
-                                            href="product-left-sidebar.jsp">Handbag
-                                            leather purse for
-                                            women</a>
-                                    </h5>
-                                    <div class="ec-quickview-rating">
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                        <i class="ecicon eci-star fill"></i>
-                                    </div>
+                                <div class="col-md-7 col-sm-12 col-xs-12">
+                                    <div class="quickview-pro-content">
+                                        <h5 class="ec-quick-title"><a
+                                                href="product-left-sidebar.jsp">Handbag
+                                                leather purse for
+                                                women</a>
+                                        </h5>
+                                        <div class="ec-quickview-rating">
+                                            <i class="ecicon eci-star fill"></i>
+                                            <i class="ecicon eci-star fill"></i>
+                                            <i class="ecicon eci-star fill"></i>
+                                            <i class="ecicon eci-star fill"></i>
+                                            <i class="ecicon eci-star fill"></i>
+                                        </div>
 
-                                    <div class="ec-quickview-desc">Lorem Ipsum
-                                        is simply dummy text of the printing and
-                                        typesetting industry. Lorem Ipsum has
-                                        been the industry's standard dummy text
-                                        ever
-                                        since the 1500s,</div>
-                                    <div class="ec-quickview-price">
-                                        <span class="old-price">$4500.00</span>
-                                        <span class="new-price">$4300.00</span>
-                                    </div>
+                                        <div class="ec-quickview-desc">Lorem Ipsum
+                                            is simply dummy text of the printing and
+                                            typesetting industry. Lorem Ipsum has
+                                            been the industry's standard dummy text
+                                            ever
+                                            since the 1500s,</div>
+                                        <div class="ec-quickview-price">
+                                            <span class="old-price">$4500.00</span>
+                                            <span class="new-price">$4300.00</span>
+                                        </div>
 
-                                    <div class="ec-pro-variation">
-                                        <div
-                                            class="ec-pro-variation-inner ec-pro-variation-size ec-pro-size">
-                                            <span>Size</span>
+                                        <div class="ec-pro-variation">
                                             <div
-                                                class="ec-pro-variation-content">
-                                                <ul class="ec-opt-size">
-                                                    <li class="active"><a
-                                                            href="#"
-                                                            class="ec-opt-sz"
-                                                            data-tooltip="Small">S</a></li>
-                                                    <li><a href="#"
-                                                           class="ec-opt-sz"
-                                                           data-tooltip="Medium">M</a></li>
-                                                    <li><a href="#"
-                                                           class="ec-opt-sz"
-                                                           data-tooltip="Large">X</a></li>
-                                                    <li><a href="#"
-                                                           class="ec-opt-sz"
-                                                           data-tooltip="Extra Large">XL</a></li>
-                                                </ul>
+                                                class="ec-pro-variation-inner ec-pro-variation-size ec-pro-size">
+                                                <span>Size</span>
+                                                <div
+                                                    class="ec-pro-variation-content">
+                                                    <ul class="ec-opt-size">
+                                                        <li class="active"><a
+                                                                href="#"
+                                                                class="ec-opt-sz"
+                                                                data-tooltip="Small">S</a></li>
+                                                        <li><a href="#"
+                                                               class="ec-opt-sz"
+                                                               data-tooltip="Medium">M</a></li>
+                                                        <li><a href="#"
+                                                               class="ec-opt-sz"
+                                                               data-tooltip="Large">X</a></li>
+                                                        <li><a href="#"
+                                                               class="ec-opt-sz"
+                                                               data-tooltip="Extra Large">XL</a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="ec-quickview-qty">
-                                        <div class="qty-plus-minus">
-                                            <input class="qty-input" type="text"
-                                                   name="ec_qtybtn" value="1" />
-                                        </div>
-                                        <div class="ec-quickview-cart ">
-                                            <button class="btn btn-primary"><i
-                                                    class="fi-rr-shopping-basket"></i>
-                                                Add To Cart</button>
+                                        <div class="ec-quickview-qty">
+                                            <div class="qty-plus-minus">
+                                                <input class="qty-input" type="text"
+                                                       name="ec_qtybtn" value="1" />
+                                            </div>
+                                            <div class="ec-quickview-cart ">
+                                                <button class="btn btn-primary"><i
+                                                        class="fi-rr-shopping-basket"></i>
+                                                    Add To Cart</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -813,14 +807,13 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Modal end -->
-        
-        <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm7vkewxc03kpn8lwqnmkoz6d"></script>
+            <!-- Modal end -->
 
-        <!-- Vendor JS -->
-        <script
-        src="<%= request.getContextPath() %>/assets/js/vendor/jquery-3.5.1.min.js"></script>
+            <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm7vkewxc03kpn8lwqnmkoz6d"></script>
+
+            <!-- Vendor JS -->
+            <script
+            src="<%= request.getContextPath() %>/assets/js/vendor/jquery-3.5.1.min.js"></script>
         <script
         src="<%= request.getContextPath() %>/assets/js/vendor/popper.min.js"></script>
         <script

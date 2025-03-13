@@ -21212,7 +21212,7 @@ input[type="email"] {
 
 .ec_contact_info {
   max-width: 375px;
-  margin-top: 30px;
+  margin-top: 0px; /* modified*/
   background-color: #fff;
 }
 .ec_contact_info .ec_contact_info_head {
@@ -24418,7 +24418,7 @@ i.ecicon.eci-star-o {
   font-size: 14px;
 }
 .ec-checkout-summary .ec-checkout-summary-total {
-  border-top: 1px solid #ededed;
+  border-top: 1px solid #ededed; 
   padding-top: 19px;
   margin-bottom: 0;
   margin-top: 16px;
