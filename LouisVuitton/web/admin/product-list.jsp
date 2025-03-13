@@ -402,7 +402,7 @@
                                                                             class="ri-settings-3-line"></i></span>
                                                                 </button>
                                                                 <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="admin/edit?id=${c.id}">Edit</a>
+                                                                    <a class="dropdown-item" href="edit?id=${c.id}">Edit</a>
                                                                     <a class="dropdown-item" href="#">Delete</a>
                                                                 </div>
                                                             </div>
