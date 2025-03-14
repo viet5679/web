@@ -25,13 +25,13 @@ public class AuthFilter implements Filter {
         String contextPath = req.getContextPath();
 
         // Chặn truy cập trực tiếp vào tất cả các trang JSP (ngoại trừ login & register)
-        if (uri.endsWith(".jsp") && 
-            !uri.endsWith("login") && 
-            !uri.endsWith("register")&& 
-            !uri.endsWith("index.jsp")) {
-            res.sendRedirect(contextPath + "/"); // Về trang chủ
-            return;
-        }
+//        if (uri.endsWith(".jsp") && 
+//            !uri.endsWith("login") && 
+//            !uri.endsWith("register")&& 
+//            !uri.endsWith("index.jsp")) {
+//            res.sendRedirect(contextPath + "/"); // Về trang chủ
+//            return;
+//        }
 
         // Chặn truy cập vào các trang yêu cầu đăng nhập
         if ((uri.contains("/checkout") || uri.contains("/order-history")) && user == null) {
