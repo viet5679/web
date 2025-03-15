@@ -40,6 +40,8 @@
 
         <!-- Background css -->
         <link rel="stylesheet" id="bg-switcher-css" href="assets/css/backgrounds/bg-4.css">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+
     </head>
     <body class="shop_page">
         <div id="ec-overlay">

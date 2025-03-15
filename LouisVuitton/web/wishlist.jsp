@@ -41,6 +41,7 @@
 
         <!-- Background css -->
         <link rel="stylesheet" id="bg-switcher-css" href="assets/css/backgrounds/bg-4.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <body class="shop_page">
         <div id="ec-overlay">
@@ -54,21 +55,21 @@
 
         <!-- Header start  -->
         <jsp:include page="header.jsp"></jsp:include>
-        <!-- Header End  -->
+            <!-- Header End  -->
 
-        <div class="sticky-header-next-sec ec-breadcrumb section-space-mb">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="row ec_breadcrumb_inner">
-                            <div class="col-md-6 col-sm-12">
-                                <h2 class="ec-breadcrumb-title">Wishlist</h2>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <!-- ec-breadcrumb-list start -->
-                                <ul class="ec-breadcrumb-list">
-                                    <li class="ec-breadcrumb-item"><a href="home">Home</a></li>
-                                    <li class="ec-breadcrumb-item active">Wishlist (<span class="wishlist-count">${requestScope.numWishListItem}</span>)</li>
+            <div class="sticky-header-next-sec ec-breadcrumb section-space-mb">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row ec_breadcrumb_inner">
+                                <div class="col-md-6 col-sm-12">
+                                    <h2 class="ec-breadcrumb-title">Wishlist</h2>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <!-- ec-breadcrumb-list start -->
+                                    <ul class="ec-breadcrumb-list">
+                                        <li class="ec-breadcrumb-item"><a href="home">Home</a></li>
+                                        <li class="ec-breadcrumb-item active">Wishlist (<span class="wishlist-count">${requestScope.numWishListItem}</span>)</li>
                                 </ul>
                                 <!-- ec-breadcrumb-list end -->
                             </div>
@@ -188,13 +189,41 @@
             </div>
         </section>
         <script>
-            function addToCart(productId, quantity) {
+            function addToCart(productId, isProductDetails = false) {
+                let quantity = 1; // Mặc định là 1
+
+                if (isProductDetails) {
+                    // Nếu ở trang Product Details, lấy số lượng từ input
+                    let input = document.getElementById(`qty-${i.id}`);
+                    if (input) {
+                        quantity = parseInt(input.value) || 1;
+
+                        // Kiểm tra số lượng hợp lệ
+                        if (isNaN(quantity) || quantity < 1) {
+                            alert("Vui lòng nhập số lượng hợp lệ!");
+                            return;
+                        }
+                    }
+                }
+
                 $.ajax({
                     type: "POST",
                     url: "cart",
                     data: {
                         productId: productId,
-                        quantity: quantity
+                        quantity: quantity,
+                        action: "addToCart"
+                    },
+                    success: function () {
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: "Added to cart",
+                            showConfirmButton: false,
+                            timer: 700,
+                            width: "400px", // Giảm chiều rộng
+                            padding: "5px" // Giảm padding
+                        });
                     }
                 });
             }
@@ -355,7 +384,7 @@
         </div>
         <!-- Modal end -->
         <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm7vkewxc03kpn8lwqnmkoz6d"></script>
-         
+
         <!-- Vendor JS -->
         <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
         <script src="assets/js/vendor/popper.min.js"></script>

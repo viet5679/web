@@ -167,28 +167,17 @@
 
                                         <ul class="dropdown-menu dropdown-menu-right">
                                             <% if (user == null) { %>
-                                            <!-- chưa đăng nhập -->
                                             <li><a class="dropdown-item" href="register">Register</a></li>
                                             <li><a class="dropdown-item" href="login">Login</a></li>
                                                 <% } else { %>
-                                            <!-- đã đăng nhập -->
-                                            <% if (user.getRole() == 1) { %>
-                                            <!-- User -->
+                                                <% if (user.getRole() == 1) { %>
                                             <li><a class="dropdown-item" href="profile">Edit Profile</a></li>
                                             <li><a class="dropdown-item" href="order-history">Order History</a></li>
-
-                                            <% } else if (user.getRole() == 0) { %>
-                                            <!-- Admin -->
+                                                <% } else if (user.getRole() == 0) { %>
                                             <li><a class="dropdown-item" href="admin-dashboard.jsp">ADMIN</a></li>
                                                 <% } %>
-                                            <li><a class="dropdown-item" href="index.jsp?logout=true">Log out</a></li>
+                                            <li><a class="dropdown-item" href="logout">Log out</a></li>
                                                 <% } %>
-                                                <%
-                                                    if (request.getParameter("logout") != null) {
-                                                        session.invalidate(); // Xóa session
-                                                        response.sendRedirect("home"); // Chuyển hướng về trang chủ
-                                                    }
-                                                %>
                                         </ul>
                                     </div>
                                     <!-- Header User End -->
@@ -369,24 +358,47 @@
                                         <h3 class="ec-checkout-title">Billing Details</h3>
                                         <div class="ec-bl-block-content">
                                             <div class="ec-check-bill-form">
-                                                <% Boolean orderSuccess = (Boolean) request.getAttribute("orderSuccess"); %>
                                                 <form action="checkout" method="post">
                                                     <span class="ec-bill-wrap">
                                                         <label>Name*</label>
-                                                        <input type="text" name="name" placeholder="Enter your name" value="<%= user.getName() %>" required />
+                                                        <input type="text" name="name" placeholder="Enter your name" value="<%= (user != null) ? user.getName() : "" %>" required />
                                                     </span>
                                                     <span class="ec-bill-wrap">
                                                         <label>Phone number*</label>
-                                                        <input type="text" name="phone" placeholder="Phone" value="<%= user.getPhone() %>" required />
+                                                        <input type="text" name="phone" placeholder="Phone" value="<%= (user != null) ? user.getPhone() : "" %>" required />
                                                     </span>
-                                                    <span class="ec-bill-wrap">
-                                                        <label>Address*</label>
-                                                        <input type="text" name="address" placeholder="Address" value="<%= user.getAddress() %>" required />
+                                                    <span class="ec-bill-wrap" style="margin-bottom: 15px">
+                                                        <label>Province/City*</label>
+                                                        <select id="province" name="province" required>
+                                                            <option value="">Select Province</option>
+                                                        </select>
+                                                    </span>
+                                                    <span class="ec-bill-wrap" style="margin-bottom: 15px">
+                                                        <label>District*</label>
+                                                        <select id="district" name="district" required>
+                                                            <option value="">Select District</option>
+                                                        </select>
+                                                    </span>
+                                                    <span class="ec-bill-wrap" style="margin-bottom: 15px">
+                                                        <label>Ward*</label>
+                                                        <select id="ward" name="ward" required>
+                                                            <option value="">Select Ward</option>
+                                                        </select>
+                                                    </span>
+                                                    <span class="ec-bill-wrap" style="margin-bottom: 15px">
+                                                        <label>Street Address*</label>
+                                                        <input type="text" name="street" placeholder="Street Address" required />
                                                     </span>
                                                     <span class="ec-bill-wrap">
                                                         <label>Comments</label>
                                                         <textarea style="height: 20vh; border-color: #ededed;" name="comments" placeholder="Enter your comments here"></textarea>
                                                     </span>
+
+                                                    <!-- Input ẩn để gửi tên tỉnh/thành, quận/huyện, phường/xã -->
+                                                    <input type="hidden" name="provinceName">
+                                                    <input type="hidden" name="districtName">
+                                                    <input type="hidden" name="wardName">
+
                                                     <span class="ec-check-order-btn" style="margin-left: 70%; margin-top: 15px; margin-bottom: 15px">
                                                         <button type="submit" class="btn btn-primary">Place Order</button>
                                                     </span>
@@ -400,27 +412,6 @@
                         </div>
                         <!--cart content End -->
                     </div>
-                    <script>
-                        // Check if the order was successful
-                        let orderSuccess = <%= (orderSuccess != null && orderSuccess) ? "true" : "false" %>;
-
-                        if (orderSuccess) {
-                            setTimeout(function () {
-                                Swal.fire({
-                                    title: "Order Successful!",
-                                    text: "Your order has been placed.",
-                                    icon: "success",
-                                    confirmButtonText: "View Order History"
-                                }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        window.location.href = "order-history";
-                                    }
-                                });
-                            }, 1000);
-                        }
-                    </script>
-
-
 
                     <!-- Sidebar Area Start -->
                     <c:set var="o" value="${requestScope.cart}"/>
@@ -452,10 +443,10 @@
                                                             <c:forEach var="z" begin="1" end="5">
                                                                 <c:choose>
                                                                     <c:when test="${z <= i.product.totalStars}">
-                                                                        <i class="ecicon eci-star fill"></i>  <!-- Filled star -->
+                                                                        <i class="ecicon eci-star fill"></i>
                                                                     </c:when>
                                                                     <c:otherwise>
-                                                                        <i class="ecicon eci-star"></i> <!-- Empty star -->
+                                                                        <i class="ecicon eci-star"></i>
                                                                     </c:otherwise>
                                                                 </c:choose>
                                                             </c:forEach>
@@ -482,108 +473,217 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer Start -->
-    <jsp:include page="footer.jsp"></jsp:include>
-    <!-- Footer Area End -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let provinceSelect = document.getElementById("province");
+                let districtSelect = document.getElementById("district");
+                let wardSelect = document.getElementById("ward");
 
-    <!-- Modal -->
-    <div class="modal fade" id="ec_quickview_modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <button type="button" class="btn-close qty_close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-5 col-sm-12 col-xs-12">
-                            <!-- Swiper -->
-                            <div class="qty-product-cover">
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_1.jpg" alt="">
+                let provinceNameInput = document.querySelector("input[name='provinceName']");
+                let districtNameInput = document.querySelector("input[name='districtName']");
+                let wardNameInput = document.querySelector("input[name='wardName']");
+
+                // Load danh sách tỉnh/thành
+                fetch("https://provinces.open-api.vn/api/p/")
+                        .then(response => response.json())
+                        .then(data => {
+                            provinceSelect.innerHTML = '<option value="">Select Province</option>';
+                            data.forEach(province => {
+                                let option = document.createElement("option");
+                                option.value = province.code;
+                                option.textContent = province.name;
+                                provinceSelect.appendChild(option);
+                            });
+                        })
+                        .catch(error => console.error("❌ Lỗi khi tải danh sách tỉnh/thành:", error));
+
+                // Khi chọn tỉnh/thành -> Cập nhật input ẩn & load quận/huyện
+                provinceSelect.addEventListener("change", function () {
+                    let provinceCode = this.value.trim();
+                    let selectedOption = this.options[this.selectedIndex];
+                    provinceNameInput.value = selectedOption.textContent; // Cập nhật tên tỉnh
+
+                    if (!provinceCode)
+                        return;
+
+                    districtSelect.innerHTML = '<option value="">Select District</option>';
+                    wardSelect.innerHTML = '<option value="">Select Ward</option>';
+                    districtSelect.disabled = true;
+                    wardSelect.disabled = true;
+
+                    let apiUrl = "https://provinces.open-api.vn/api/p/" + provinceCode + "?depth=2";
+                    fetch(apiUrl)
+                            .then(response => response.json())
+                            .then(data => {
+                                data.districts.forEach(district => {
+                                    let option = document.createElement("option");
+                                    option.value = district.code;
+                                    option.textContent = district.name;
+                                    districtSelect.appendChild(option);
+                                });
+
+                                districtSelect.disabled = false;
+                            })
+                            .catch(error => console.error("❌ Lỗi khi tải danh sách quận/huyện:", error));
+                });
+
+                // Khi chọn quận/huyện -> Cập nhật input ẩn & load phường/xã
+                districtSelect.addEventListener("change", function () {
+                    let districtCode = this.value.trim();
+                    let selectedOption = this.options[this.selectedIndex];
+                    districtNameInput.value = selectedOption.textContent; // Cập nhật tên quận/huyện
+
+                    if (!districtCode)
+                        return;
+
+                    wardSelect.innerHTML = '<option value="">Select Ward</option>';
+                    wardSelect.disabled = true;
+
+                    let apiUrl = "https://provinces.open-api.vn/api/d/" + districtCode + "?depth=2";
+                    fetch(apiUrl)
+                            .then(response => response.json())
+                            .then(data => {
+                                data.wards.forEach(ward => {
+                                    let option = document.createElement("option");
+                                    option.value = ward.code;
+                                    option.textContent = ward.name;
+                                    wardSelect.appendChild(option);
+                                });
+
+                                wardSelect.disabled = false;
+                            })
+                            .catch(error => console.error(" Lỗi khi tải danh sách phường/xã:", error));
+                });
+
+                // Khi chọn phường/xã -> Cập nhật input ẩn
+                wardSelect.addEventListener("change", function () {
+                    let selectedOption = this.options[this.selectedIndex];
+                    wardNameInput.value = selectedOption.textContent; // Cập nhật tên phường/xã
+                });
+            });
+
+        </script>
+        <!--Check if the order was successful-->
+        <% Boolean orderSuccess = (Boolean) request.getAttribute("orderSuccess"); %>
+        <script>
+            let orderSuccess = <%= (orderSuccess != null && orderSuccess) ? "true" : "false" %>;
+            if (orderSuccess) {
+                setTimeout(function () {
+                    Swal.fire({
+                        title: "Order Successful!",
+                        text: "Your order has been placed.",
+                        icon: "success",
+                        confirmButtonText: "View Order History"
+                    }).then(() => {
+                        window.location.href = "order-history";
+                    });
+                }, 1000);
+            }
+        </script>
+
+
+        <!-- Footer Start -->
+        <jsp:include page="footer.jsp"></jsp:include>
+        <!-- Footer Area End -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="ec_quickview_modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <button type="button" class="btn-close qty_close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-5 col-sm-12 col-xs-12">
+                                <!-- Swiper -->
+                                <div class="qty-product-cover">
+                                    <div class="qty-slide">
+                                        <img class="img-responsive" src="assets/images/product-image/3_1.jpg" alt="">
+                                    </div>
+                                    <div class="qty-slide">
+                                        <img class="img-responsive" src="assets/images/product-image/3_2.jpg" alt="">
+                                    </div>
+                                    <div class="qty-slide">
+                                        <img class="img-responsive" src="assets/images/product-image/3_3.jpg" alt="">
+                                    </div>
+                                    <div class="qty-slide">
+                                        <img class="img-responsive" src="assets/images/product-image/3_4.jpg" alt="">
+                                    </div>
+                                    <div class="qty-slide">
+                                        <img class="img-responsive" src="assets/images/product-image/3_5.jpg" alt="">
+                                    </div>
                                 </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_2.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_3.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_4.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_5.jpg" alt="">
+                                <div class="qty-nav-thumb">
+                                    <div class="qty-slide">
+                                        <img class="img-responsive" src="assets/images/product-image/3_1.jpg" alt="">
+                                    </div>
+                                    <div class="qty-slide">
+                                        <img class="img-responsive" src="assets/images/product-image/3_2.jpg" alt="">
+                                    </div>
+                                    <div class="qty-slide">
+                                        <img class="img-responsive" src="assets/images/product-image/3_3.jpg" alt="">
+                                    </div>
+                                    <div class="qty-slide">
+                                        <img class="img-responsive" src="assets/images/product-image/3_4.jpg" alt="">
+                                    </div>
+                                    <div class="qty-slide">
+                                        <img class="img-responsive" src="assets/images/product-image/3_5.jpg" alt="">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="qty-nav-thumb">
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_1.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_2.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_3.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_4.jpg" alt="">
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive" src="assets/images/product-image/3_5.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-7 col-sm-12 col-xs-12">
-                            <div class="quickview-pro-content">
-                                <h5 class="ec-quick-title"><a href="product-left-sidebar.jsp">Handbag leather purse for women</a>
-                                </h5>
-                                <div class="ec-quickview-rating">
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star"></i>
-                                </div>
+                            <div class="col-md-7 col-sm-12 col-xs-12">
+                                <div class="quickview-pro-content">
+                                    <h5 class="ec-quick-title"><a href="product-left-sidebar.jsp">Handbag leather purse for women</a>
+                                    </h5>
+                                    <div class="ec-quickview-rating">
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star"></i>
+                                    </div>
 
-                                <div class="ec-quickview-desc">Lorem Ipsum is simply dummy text of the printing and
-                                    typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
-                                    since the 1500s,</div>
-                                <div class="ec-quickview-price">
-                                    <span class="old-price">$100.00</span>
-                                    <span class="new-price">$80.00</span>
-                                </div>
+                                    <div class="ec-quickview-desc">Lorem Ipsum is simply dummy text of the printing and
+                                        typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
+                                        since the 1500s,</div>
+                                    <div class="ec-quickview-price">
+                                        <span class="old-price">$100.00</span>
+                                        <span class="new-price">$80.00</span>
+                                    </div>
 
-                                <div class="ec-pro-variation">
-                                    <div class="ec-pro-variation-inner ec-pro-variation-color">
-                                        <span>Color</span>
-                                        <div class="ec-pro-color">
-                                            <ul class="ec-opt-swatch">
-                                                <li><span style="background-color:#696d62;"></span></li>
-                                                <li><span style="background-color:#d73808;"></span></li>
-                                                <li><span style="background-color:#577023;"></span></li>
-                                                <li><span style="background-color:#2ea1cd;"></span></li>
-                                            </ul>
+                                    <div class="ec-pro-variation">
+                                        <div class="ec-pro-variation-inner ec-pro-variation-color">
+                                            <span>Color</span>
+                                            <div class="ec-pro-color">
+                                                <ul class="ec-opt-swatch">
+                                                    <li><span style="background-color:#696d62;"></span></li>
+                                                    <li><span style="background-color:#d73808;"></span></li>
+                                                    <li><span style="background-color:#577023;"></span></li>
+                                                    <li><span style="background-color:#2ea1cd;"></span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="ec-pro-variation-inner ec-pro-variation-size ec-pro-size">
+                                            <span>Size</span>
+                                            <div class="ec-pro-variation-content">
+                                                <ul class="ec-opt-size">
+                                                    <li class="active"><a href="#" class="ec-opt-sz"
+                                                                          data-tooltip="Small">S</a></li>
+                                                    <li><a href="#" class="ec-opt-sz" data-tooltip="Medium">M</a></li>
+                                                    <li><a href="#" class="ec-opt-sz" data-tooltip="Large">X</a></li>
+                                                    <li><a href="#" class="ec-opt-sz" data-tooltip="Extra Large">XL</a></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="ec-pro-variation-inner ec-pro-variation-size ec-pro-size">
-                                        <span>Size</span>
-                                        <div class="ec-pro-variation-content">
-                                            <ul class="ec-opt-size">
-                                                <li class="active"><a href="#" class="ec-opt-sz"
-                                                                      data-tooltip="Small">S</a></li>
-                                                <li><a href="#" class="ec-opt-sz" data-tooltip="Medium">M</a></li>
-                                                <li><a href="#" class="ec-opt-sz" data-tooltip="Large">X</a></li>
-                                                <li><a href="#" class="ec-opt-sz" data-tooltip="Extra Large">XL</a></li>
-                                            </ul>
+                                    <div class="ec-quickview-qty">
+                                        <div class="qty-plus-minus">
+                                            <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="ec-quickview-qty">
-                                    <div class="qty-plus-minus">
-                                        <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
-                                    </div>
-                                    <div class="ec-quickview-cart ">
-                                        <button class="btn btn-primary"><i class="fi-rr-shopping-basket"></i> Add To Cart</button>
+                                        <div class="ec-quickview-cart ">
+                                            <button class="btn btn-primary"><i class="fi-rr-shopping-basket"></i> Add To Cart</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -592,31 +692,30 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Modal end -->
+        <!-- Modal end -->
 
-    <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm7vkewxc03kpn8lwqnmkoz6d"></script>
+        <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm7vkewxc03kpn8lwqnmkoz6d"></script>
 
-    <!-- Vendor JS -->
-    <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
-    <script src="assets/js/vendor/popper.min.js"></script>
-    <script src="assets/js/vendor/bootstrap.min.js"></script>
-    <script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
-    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+        <!-- Vendor JS -->
+        <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+        <script src="assets/js/vendor/popper.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.min.js"></script>
+        <script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+        <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
 
-    <!--Plugins JS-->
-    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
-    <script src="assets/js/plugins/countdownTimer.min.js"></script>
-    <script src="assets/js/plugins/scrollup.js"></script>
-    <script src="assets/js/plugins/jquery.zoom.min.js"></script>
-    <script src="assets/js/plugins/slick.min.js"></script>
-    <script src="assets/js/plugins/infiniteslidev2.js"></script>
-    <script src="assets/js/vendor/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/plugins/jquery.sticky-sidebar.js"></script>
+        <!--Plugins JS-->
+        <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+        <script src="assets/js/plugins/countdownTimer.min.js"></script>
+        <script src="assets/js/plugins/scrollup.js"></script>
+        <script src="assets/js/plugins/jquery.zoom.min.js"></script>
+        <script src="assets/js/plugins/slick.min.js"></script>
+        <script src="assets/js/plugins/infiniteslidev2.js"></script>
+        <script src="assets/js/vendor/jquery.magnific-popup.min.js"></script>
+        <script src="assets/js/plugins/jquery.sticky-sidebar.js"></script>
 
-    <!-- Main Js -->
-    <script src="assets/js/vendor/index.js"></script>
-    <script src="assets/js/main.js"></script>
+        <!-- Main Js -->
+        <script src="assets/js/vendor/index.js"></script>
+        <script src="assets/js/main.js"></script>
 
-</body>
+    </body>
 </html>

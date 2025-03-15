@@ -25,6 +25,7 @@ public class CartServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        CartWishlistUtils.prepareCartAndWishlistData(request);
         String id_raw = request.getParameter("productId");
         String quantity_raw = request.getParameter("quantity");
         String action = request.getParameter("action");
@@ -33,7 +34,6 @@ public class CartServlet extends HttpServlet {
             response.sendRedirect("cart.jsp");
             return;
         }
-
         int id;
         int quantity = 1; // Mặc định là 1 nếu không có số lượng
         try {
@@ -112,7 +112,7 @@ public class CartServlet extends HttpServlet {
                 updatedCart.deleteCharAt(updatedCart.length() - 1);
             }
             newCookie = new Cookie("cart", updatedCart.toString());
-            newCookie.setMaxAge(30 * 24 * 60 * 60); // 30 ngày
+            newCookie.setMaxAge(7 * 24 * 60 * 60); // Lưu 7 ngày
         }
 
         response.addCookie(newCookie);

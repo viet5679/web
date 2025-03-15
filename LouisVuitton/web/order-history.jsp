@@ -40,6 +40,8 @@
 
         <!-- Background css -->
         <link rel="stylesheet" id="bg-switcher-css" href="assets/css/backgrounds/bg-4.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
     </head>
     <body class="shop_page">
         <div id="ec-overlay">
@@ -169,28 +171,17 @@
 
                                         <ul class="dropdown-menu dropdown-menu-right">
                                             <% if (user == null) { %>
-                                            <!-- chưa đăng nhập -->
                                             <li><a class="dropdown-item" href="register">Register</a></li>
                                             <li><a class="dropdown-item" href="login">Login</a></li>
                                                 <% } else { %>
-                                            <!-- đã đăng nhập -->
-                                            <% if (user.getRole() == 1) { %>
-                                            <!-- User -->
+                                                <% if (user.getRole() == 1) { %>
                                             <li><a class="dropdown-item" href="profile">Edit Profile</a></li>
-                                            <li><a class="dropdown-item" href="checkout">Checkout</a></li>
-
-                                            <% } else if (user.getRole() == 0) { %>
-                                            <!-- Admin -->
+                                            <li><a class="dropdown-item" href="order-history">Order History</a></li>
+                                                <% } else if (user.getRole() == 0) { %>
                                             <li><a class="dropdown-item" href="admin-dashboard.jsp">ADMIN</a></li>
                                                 <% } %>
-                                            <li><a class="dropdown-item" href="index.jsp?logout=true">Log out</a></li>
+                                            <li><a class="dropdown-item" href="logout">Log out</a></li>
                                                 <% } %>
-                                                <%
-                                                    if (request.getParameter("logout") != null) {
-                                                        session.invalidate(); // Xóa session
-                                                        response.sendRedirect("home"); // Chuyển hướng về trang chủ
-                                                    }
-                                                %>
                                         </ul>
                                     </div>
                                     <!-- Header User End -->
@@ -418,7 +409,7 @@
             </div>
         </section>
         <!-- End User history section -->
-        
+
         <!-- Footer Start -->
         <jsp:include page="footer.jsp"></jsp:include>
         <!-- Footer Area End -->

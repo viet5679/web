@@ -57,7 +57,6 @@ public class ChangePasswordServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String token = request.getParameter("token");
-        System.out.println("Token nhận được (GET): " + token);
         if (token == null || token.isEmpty() || usersDAO.getEmailByToken(token) == null) {
             response.sendRedirect("forgot-password.jsp?error=invalid_token"); // Chuyển hướng về forgot-password.jsp nếu token không hợp lệ
             return;
@@ -76,23 +75,22 @@ public class ChangePasswordServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        CartWishlistUtils.prepareCartAndWishlistData(request);
         String token = request.getParameter("token");
-        System.out.println("Token nhận được (POST): " + token);
         String newPassword = request.getParameter("new_password");
-
+        
+        // Kiểm tra token có hợp lệ không
         if (token == null || newPassword == null || newPassword.isEmpty()) {
-            request.setAttribute("error", "Thông tin không hợp lệ!");
+            request.setAttribute("error", "Invalid information!");
             request.getRequestDispatcher("change-password.jsp").forward(request, response);
             return;
         }
-
-        // Kiểm tra token có hợp lệ không
+        
         String email = usersDAO.getEmailByToken(token);
-        System.out.println("email user : " + email);
         if (email != null) {
             // Cập nhật mật khẩu mới đồng thời reset lại cả token
             usersDAO.updatePassword(email, newPassword);
-            request.setAttribute("message", "Password changed successfully! Please login.");
+            request.setAttribute("successMess", "Login now");
             request.getRequestDispatcher("change-password.jsp").forward(request, response);
         } else {
             request.setAttribute("error", "Token is invalid or expired!");

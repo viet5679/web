@@ -16,7 +16,7 @@
                 <li class="gi-sb-item-separator"></li>
                 <li class="gi-sb-title condense">Apps</li>
                 <li class="gi-sb-item">
-                    <a href="admin/todo.jsp" class="gi-page-link">
+                    <a href="todo.jsp" class="gi-page-link">
                         <i class="ri-todo-line"></i><span class="condense"><span
                                 class="hover-title">Todo</span></span>
                     </a>

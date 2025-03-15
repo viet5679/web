@@ -184,13 +184,44 @@
   font-weight: 700;
   font-style: normal;
 }
+/* Quicksand Font */
+@font-face {
+  font-family: "Quicksand";
+  src: url("../fonts/quicksand/Quicksand-Light.ttf") format("truetype");
+  font-weight: 300; /* Light */
+  font-style: normal;
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url("../fonts/quicksand/Quicksand-Regular.ttf") format("truetype");
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url("../fonts/quicksand/Quicksand-Medium.ttf") format("truetype");
+  font-weight: 500; /* Medium */
+  font-style: normal;
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url("../fonts/quicksand/Quicksand-SemiBold.ttf") format("truetype");
+  font-weight: 600; /* SemiBold */
+  font-style: normal;
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url("../fonts/quicksand/Quicksand-Bold.ttf") format("truetype");
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
 /*-------------------------------------------------
   Helper Class
 ---------------------------------------------------*/
 body {
   margin: 0 auto;
   background-color: #ffffff;
-  font-family: "Poppins, sans-serif";
+  font-family: "Quicksand, sans-serif";
   font-size: 14px;
   font-weight: 400;
   font-style: normal;
@@ -5274,7 +5305,7 @@ textarea.form-control.is-invalid {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Poppins, sans-serif";
+  font-family: "Quicksand, sans-serif";
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5429,7 +5460,7 @@ textarea.form-control.is-invalid {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Poppins, sans-serif";
+  font-family: "Quicksand, sans-serif";
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -13933,8 +13964,8 @@ body {
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  font-family: "Poppins, sans-serif";
-  font-weight: 300;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400; /* Regular Mofified*/
   top: 0 !important;
 }
 
@@ -17327,7 +17358,7 @@ body.ec-open:before {
 .ec-side-cart .ec-menu-title .menu_title {
   font-size: 18px;
   color: #3474d4;
-  font-family: "Poppins, sans-serif";
+  font-family: "Quicksand, sans-serif";
   font-weight: 600;
 }
 .ec-side-cart .ec-menu-title .ec-close {
@@ -21529,7 +21560,7 @@ h4.ec-faq-title::after {
   line-height: 1.5;
   letter-spacing: 0.5px;
   font-weight: 400;
-  font-family: "Poppins, sans-serif";
+  font-family: "Quicksand, sans-serif";
 }
 .product_page
   .ec-sidebar-slider
@@ -26695,7 +26726,7 @@ i.ecicon.eci-star-o {
 ---------------------------------------------------*/
 /* ----------- Start Product-DS -----------*/
 .ec-product-ds {
-  font-family: "Poppins", sans-serif;
+  font-family: "Quicksand", sans-serif;
   text-align: center;
   border: 1px solid #eeeeee;
   overflow: hidden;
@@ -26936,7 +26967,7 @@ i.ecicon.eci-star-o {
 
 /* ----------- START Product-csc -----------*/
 .ec-product-csc {
-  font-family: "Poppins", sans-serif;
+  font-family: "Quicksand", sans-serif;
   text-align: center;
   border: 1px solid #eeeeee;
   overflow: hidden;
@@ -27090,7 +27121,7 @@ i.ecicon.eci-star-o {
 /* -----------/ END Product-csc -----------*/
 /* ----------- START Product-fw -----------*/
 .ec-product-fw {
-  font-family: "Poppins", sans-serif;
+  font-family: "Quicksand", sans-serif;
   text-align: center;
   background: #fff;
   overflow: hidden;
@@ -27239,7 +27270,7 @@ i.ecicon.eci-star-o {
 /* -----------/ END Product-fw -----------*/
 /* ----------- START Product-tp -----------*/
 .ec-product-tp {
-  font-family: "Poppins", sans-serif;
+  font-family: "Quicksand", sans-serif;
   text-align: center;
   overflow: hidden;
   -webkit-transition: all 0.4s ease-out;
@@ -27396,7 +27427,7 @@ i.ecicon.eci-star-o {
   padding: 15px;
   border: 1px solid;
   border-color: #eeeeee;
-  font-family: "Poppins", sans-serif;
+  font-family: "Quicksand", sans-serif;
   text-align: center;
   background-color: #fff;
   overflow: hidden;
@@ -28376,7 +28407,7 @@ i.ecicon.eci-star-o {
 .ec-product-sbtn .ec-title a {
   -webkit-transition: all 500ms;
   transition: all 500ms;
-  font-family: "Poppins", sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 .ec-product-sbtn .ec-title a:hover {
   text-decoration: none;
@@ -29537,10 +29568,10 @@ input[type="email"]:focus::-webkit-input-placeholder {
   font-weight: 500;
 }
 .ec-coming-soon-02 .number {
-  font-family: Poppins;
+  font-family: Quicksand;
 }
 .ec-coming-soon-02 ::-webkit-input-placeholder {
-  font-family: Poppins;
+  font-family: Quicksand;
 }
 .ec-coming-soon-02 .countdown > div {
   float: left;
@@ -29563,7 +29594,7 @@ input[type="email"]:focus::-webkit-input-placeholder {
 .ec-coming-soon-02 p.t-text {
   line-height: 26px;
   opacity: 0.9;
-  font-family: Poppins;
+  font-family: Quicksand;
 }
 .ec-coming-soon-02 .countdown span {
   position: relative;
@@ -31107,7 +31138,7 @@ input[type="email"]:focus::-webkit-input-placeholder {
   .info
   .ec-catalog-pro-count
   h6 {
-  font-family: "Poppins, sans-serif";
+  font-family: "Quicksand, sans-serif";
   color: #777;
   font-size: 14px;
 }

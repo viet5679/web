@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-
 package controller;
 
 import dal.UserDAO;
@@ -21,36 +20,39 @@ import utils.Validation;
  *
  * @author adim
  */
-@WebServlet(name="RegisterServlet", urlPatterns={"/register"})
+@WebServlet(name = "RegisterServlet", urlPatterns = {"/register"})
 public class RegisterServlet extends HttpServlet {
-   
-    /** 
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet RegisterServlet</title>");  
+            out.println("<title>Servlet RegisterServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet RegisterServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet RegisterServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
-    } 
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
+    /**
      * Handles the HTTP <code>GET</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -58,13 +60,14 @@ public class RegisterServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         CartWishlistUtils.prepareCartAndWishlistData(request);
         request.getRequestDispatcher("register.jsp").forward(request, response);
-    } 
+    }
 
-    /** 
+    /**
      * Handles the HTTP <code>POST</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -83,47 +86,51 @@ public class RegisterServlet extends HttpServlet {
         String phonenumber = request.getParameter("phonenumber");
         String address = request.getParameter("address");
 
+        HttpSession session = request.getSession(); // Lấy session
+
         if (!Validation.isValidEmail(email)) {
-            request.setAttribute("error", "Invalid email.");
+            session.setAttribute("error", "Invalid email");
             request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
         }
 
         if (!password.equals(confirmPassword)) {
-            request.setAttribute("error", "The confirmation password doesn't match.");
+            session.setAttribute("error", "The confirmation password doesn't match");
+            System.out.println("Set mess: " + session.getAttribute("mess"));
             request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
         }
 
         if (!Validation.isValidPhone(phonenumber)) {
-            request.setAttribute("error", "Invalid phone number.");
+            session.setAttribute("error", "Invalid phone number");
+            System.out.println("Set mess: " + session.getAttribute("mess"));
             request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
         }
 
         UserDAO userDAO = new UserDAO();
         if (userDAO.isEmailExist(email)) {
-            request.setAttribute("error", "Email already exists.");
+            session.setAttribute("error", "Email already exists");
+            System.out.println("Set mess: " + session.getAttribute("mess"));
             request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
         }
-        
+
         boolean success = userDAO.insertUser(name, password, email, phonenumber, address);
         CartWishlistUtils.prepareCartAndWishlistData(request);
         if (!success) {
-            request.setAttribute("error", "Registration failed. Please try again.");
+            session.setAttribute("error", "Registration failed. Please try again !");
             request.getRequestDispatcher("register.jsp").forward(request, response);
         } else {
-            // Chuyển hướng sau khi đăng ký thành công
-            HttpSession session = request.getSession();
             session.setAttribute("registeredUser", email);
-            request.setAttribute("mess", "Registration successfully.");
+            session.setAttribute("mess", "Registration successfully !");
             request.getRequestDispatcher("register.jsp").forward(request, response);
         }
     }
 
-    /** 
+    /**
      * Returns a short description of the servlet.
+     *
      * @return a String containing servlet description
      */
     @Override

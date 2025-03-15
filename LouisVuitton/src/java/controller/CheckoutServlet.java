@@ -88,30 +88,45 @@ public class CheckoutServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        CartWishlistUtils.prepareCartAndWishlistData(request);
         HttpSession session = request.getSession();
         Users user = (Users) session.getAttribute("user");
-        boolean isOrderCreated = false; // Cờ kiểm tra đơn hàng có được tạo không
-        // Lấy thông tin từ form thanh toán
+
+        // Kiểm tra user đã đăng nhập chưa
+        if (user == null) {
+            response.sendRedirect("login.jsp");
+            return;
+        }
+
+        // Lấy thông tin từ form
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
-        String address = request.getParameter("address");
+        String province = request.getParameter("provinceName");
+        String district = request.getParameter("districtName");
+        String ward = request.getParameter("wardName");
+        String street = request.getParameter("street");
         String comments = request.getParameter("comments");
+
+        // Ghép địa chỉ đầy đủ
+        String address = street + ", " + ward + ", " + district + ", " + province;
 
         ProductsDAO pDAO = new ProductsDAO();
         List<Products> list = pDAO.getAll();
+        // Lấy dữ liệu giỏ hàng từ cookie
         Cookie[] cookieArr = request.getCookies();
         String cartData = "";
         if (cookieArr != null) {
             for (Cookie o : cookieArr) {
                 if (o.getName().equals("cart")) {
-                    cartData += o.getValue();
+                    cartData = o.getValue();
                 }
             }
         }
         Cart cart = new Cart(cartData, list);
         request.setAttribute("cart", cart);
+
         try {
-            // Tạo đơn hàng mới
+            // Tạo đơn hàng
             Orders order = new Orders();
             order.setUser(user);
             order.setName(name);
@@ -120,14 +135,14 @@ public class CheckoutServlet extends HttpServlet {
             order.setComments(comments);
             order.setTotalPrice(cart.getTotalMoney());
             order.setTotalProduct(cart.getItems().size());
-            order.setStatus("Pending"); // Trạng thái "Đang chờ xử lý"
+            order.setStatus("Pending");
 
-            // Lưu đơn hàng vào DB và lấy order_id
+            // Lưu đơn hàng vào DB
             OrderDAO orderDAO = new OrderDAO();
             int orderId = orderDAO.addOrder(order);
-            order.setId(orderId); // Gán ID cho order
+            order.setId(orderId); // Gán ID vừa tạo
 
-            // Thêm từng sản phẩm vào bảng OrderDetails
+            // Thêm chi tiết đơn hàng
             OrderDetailsDAO orderDetailsDAO = new OrderDetailsDAO();
             for (Item item : cart.getItems()) {
                 OrderDetails orderDetails = new OrderDetails();
@@ -136,34 +151,32 @@ public class CheckoutServlet extends HttpServlet {
                 orderDetails.setQuantity(item.getQuantity());
                 orderDetails.setPrice(item.getPrice());
 
-                // Tính giảm giá chính xác hơn
-                double d = 0;
-                d += item.getProduct().getPrice() - item.getProduct().getTotalPay();
-                if (d < 0) {
-                    d = 0; // Đảm bảo không bị âm
-                }
-                double discount = Math.round(d * 100.0) / 100.0; // Làm tròn để không bị thừa nhiều số 
-                orderDetails.setDiscount(discount);
+                // Tính toán giảm giá và tổng tiền 2 chữ số sau dấu ,
+                double discount = Math.max(0, item.getProduct().getPrice() - item.getProduct().getTotalPay());
+                discount = Math.round(discount * 100.0) / 100.0;
                 double totalPrice = item.getQuantity() * (item.getPrice() - discount);
                 orderDetails.setTotalPrice(Math.round(totalPrice * 100.0) / 100.0);
+                orderDetails.setDiscount(discount);
                 orderDetails.setName(item.getProduct().getName());
                 orderDetails.setAvatar(item.getProduct().getAvatar());
                 orderDetails.setStatus("Pending");
-                orderDetailsDAO.addOrderDetail(orderDetails); // Lưu vào DB
-                request.setAttribute("orderSuccess", true);
+
+                orderDetailsDAO.addOrderDetail(orderDetails);
             }
 
-            // Xóa cookie giỏ hàng
+            // Xóa cookie giỏ hàng sau khi đặt hàng thành công
             Cookie cartCookie = new Cookie("cart", "");
             cartCookie.setMaxAge(0);
             response.addCookie(cartCookie);
 
-            // Chuyển hướng về checkout.jsp
+            // Set attribute để hiển thị thông báo đặt hàng thành công
+            request.setAttribute("orderSuccess", true);
             request.getRequestDispatcher("checkout.jsp").forward(request, response);
+
         } catch (SQLException ex) {
             Logger.getLogger(CheckoutServlet.class.getName()).log(Level.SEVERE, null, ex);
+            response.sendRedirect("error.jsp");
         }
-
     }
 
     /**

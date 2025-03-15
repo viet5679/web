@@ -178,7 +178,8 @@ public class ShopServlet extends HttpServlet {
         }
 
     }
-
+    
+    // Phân trang, mỗi trang 9 sản phẩm
     public List<Products> productPage(int index, List<Products> list) {
         int max = list.size() / 9;
 

@@ -84,49 +84,33 @@
                             <div class="section-title">
                                 <h2 class="ec-bg-title">Privacy & Policy</h2>
                                 <h2 class="ec-title">Privacy & Policy</h2>
-                                <p class="sub-title mb-3">Welcome to the ekka multivendor marketplace</p>
+                                <p class="sub-title mb-3">Committed to Your Trust and Excellence</p>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="ec-common-wrapper">
                                 <div class="col-sm-12 ec-cms-block">
                                     <div class="ec-cms-block-inner">
-                                        <h3 class="ec-cms-block-title">Welcome to Ekka Multi Market.</h3>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <b>Lorem
-                                                Ipsum is simply dutmmy text</b> ever since the 1500s, when an unknown printer
-                                            took a galley of type and scrambled it to make a type specimen book. It has survived
-                                            not only five centuries, but also the leap into electronic typesetting, remaining
-                                            essentially unchanged. <b>Lorem Ipsum is simply dutmmy text</b></p>
+                                        <h3 class="ec-cms-block-title">Welcome to Louis Vuitton</h3>
+                                        <p>At Louis Vuitton, we are dedicated to safeguarding your privacy while delivering an exceptional experience. This Privacy & Policy outlines how we collect, use, and protect your personal information as you engage with our services, whether online, in boutiques, or through our client services. Your trust is integral to our legacy of excellence since 1854.</p>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 ec-cms-block">
                                     <div class="ec-cms-block-inner">
-                                        <h3 class="ec-cms-block-title">Ekka Websites</h3>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <b>Lorem
-                                                Ipsum is simply dutmmy text</b> ever since the 1500s, when an unknown printer
-                                            took a galley of type and scrambled it to make a type specimen book. It has survived
-                                            not only five centuries, but also the leap into electronic typesetting, remaining
-                                            essentially unchanged. <b>Lorem Ipsum is simply dutmmy text</b></p>
+                                        <h3 class="ec-cms-block-title">Louis Vuitton Websites</h3>
+                                        <p>When you visit our official website, we may collect information such as your browsing preferences, IP address, and purchase history to enhance your shopping experience. <b>We employ advanced security measures</b> to ensure your data remains confidential and is only used to provide tailored services, exclusive offers, and updates on our collections.</p>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 ec-cms-block">
                                     <div class="ec-cms-block-inner">
-                                        <h3 class="ec-cms-block-title">How browsing and vendor works?</h3>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <b>Lorem
-                                                Ipsum is simply dutmmy text</b> ever since the 1500s, when an unknown printer
-                                            took a galley of type and scrambled it to make a type specimen book. It has survived
-                                            not only five centuries, but also the leap into electronic typesetting, remaining
-                                            essentially unchanged. <b>Lorem Ipsum is simply dutmmy text</b></p>
+                                        <h3 class="ec-cms-block-title">How We Use Your Information</h3>
+                                        <p>Your personal details, including name, contact information, and payment data, are processed to fulfill orders, manage your account, and offer personalized client support. <b>We do not share your information with third parties</b> except as necessary for order fulfillment or with your explicit consent, ensuring your privacy remains paramount.</p>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 ec-cms-block">
                                     <div class="ec-cms-block-inner">
-                                        <h3 class="ec-cms-block-title">Becoming an vendor</h3>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <b>Lorem
-                                                Ipsum is simply dutmmy text</b> ever since the 1500s, when an unknown printer
-                                            took a galley of type and scrambled it to make a type specimen book. It has survived
-                                            not only five centuries, but also the leap into electronic typesetting, remaining
-                                            essentially unchanged. <b>Lorem Ipsum is simply dutmmy text</b></p>
+                                        <h3 class="ec-cms-block-title">Your Rights and Choices</h3>
+                                        <p>As a valued client, you have the right to access, update, or request the deletion of your personal information at any time. You may also opt out of marketing communications while retaining access to essential services. <b>Contact our Client Services</b> for assistance or to exercise your rights under applicable privacy laws.</p>
                                     </div>
                                 </div>
                             </div>

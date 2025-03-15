@@ -52,6 +52,7 @@ public class ForgotPasswordServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        CartWishlistUtils.prepareCartAndWishlistData(request);
         String email = request.getParameter("email");
 
         // Kiểm tra email có trong database không
@@ -74,7 +75,7 @@ public class ForgotPasswordServlet extends HttpServlet {
         // Gửi email đặt lại mật khẩu
         boolean isSent = sendResetEmail(email, token);
         if (isSent) {
-            request.setAttribute("message", "Password reset email has been sent!");
+            request.setAttribute("mess", "Password reset email has been sent!");
         } else {
             request.setAttribute("error", "Error sending email!");
         }

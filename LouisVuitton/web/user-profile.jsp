@@ -166,28 +166,17 @@
 
                                         <ul class="dropdown-menu dropdown-menu-right">
                                             <% if (user == null) { %>
-                                            <!-- chưa đăng nhập -->
                                             <li><a class="dropdown-item" href="register">Register</a></li>
                                             <li><a class="dropdown-item" href="login">Login</a></li>
                                                 <% } else { %>
-                                            <!-- đã đăng nhập -->
-                                            <% if (user.getRole() == 1) { %>
-                                            <!-- User -->
+                                                <% if (user.getRole() == 1) { %>
                                             <li><a class="dropdown-item" href="profile">Edit Profile</a></li>
-                                            <li><a class="dropdown-item" href="checkout.jsp">Checkout</a></li>
-
-                                            <% } else if (user.getRole() == 0) { %>
-                                            <!-- Admin -->
+                                            <li><a class="dropdown-item" href="order-history">Order History</a></li>
+                                                <% } else if (user.getRole() == 0) { %>
                                             <li><a class="dropdown-item" href="admin-dashboard.jsp">ADMIN</a></li>
                                                 <% } %>
-                                            <li><a class="dropdown-item" href="index.jsp?logout=true">Log out</a></li>
+                                            <li><a class="dropdown-item" href="logout">Log out</a></li>
                                                 <% } %>
-                                                <%
-                                                    if (request.getParameter("logout") != null) {
-                                                        session.invalidate(); // Xóa session
-                                                        response.sendRedirect("home"); // Chuyển hướng về trang chủ
-                                                    }
-                                                %>
                                         </ul>
                                     </div>
                                     <!-- Header User End -->
@@ -427,7 +416,7 @@
                                                     <div class="ec-vendor-detail-block ec-vendor-block-address space-bottom-30">
                                                         <h6>Address</h6>
                                                         <ul>
-                                                            <li><strong>Home : </strong><%= user.getAddress() != null ? user.getAddress() : "N/A" %></li>
+                                                            <li><strong>Address : </strong><%= user.getAddress() != null ? user.getAddress() : "N/A" %></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -464,13 +453,9 @@
                                 <div class="ec-vendor-block-img space-bottom-30">
                                     <div class="ec-vendor-block-bg cover-upload">
                                         <div class="thumb-upload">
-                                            <div class="thumb-edit">
-                                                <input type='file' id="thumbUpload01" class="ec-image-upload" accept=".png, .jpg, .jpeg" />
-                                                <label><i class="fi-rr-edit"></i></label>
-                                            </div>
                                             <div class="thumb-preview ec-preview">
                                                 <div class="image-thumb-preview">
-                                                    <img class="image-thumb-preview ec-image-preview v-img" src="assets/images/banner/8.jpg" alt="edit" />
+                                                    <img class="image-thumb-preview" src="assets/images/banner/8.jpg" alt="edit" />
                                                 </div>
                                             </div>
                                         </div>
@@ -478,18 +463,19 @@
                                     <div class="ec-vendor-block-detail">
                                         <div class="thumb-upload">
                                             <div class="thumb-edit">
-                                                <input type='file' id="thumbUpload02" class="ec-image-upload" accept=".png, .jpg, .jpeg" />
+                                                <input type='file' id="thumbUpload02" class="ec-image-upload" name="avatar" accept=".png, .jpg, .jpeg" />
                                                 <label><i class="fi-rr-edit"></i></label>
                                             </div>
                                             <div class="thumb-preview ec-preview">
                                                 <div class="image-thumb-preview">
-                                                    <img class="image-thumb-preview ec-image-preview v-img" src="assets/images/user/<%= user.getAvatar() %>" alt="edit" />
+                                                    <img class="image-thumb-preview ec-image-preview v-img" 
+                                                         src="<%= user != null && user.getAvatar() != null && !user.getAvatar().isEmpty() ? user.getAvatar() : "assets/images/user/default.jpg" %>" alt="edit" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="ec-vendor-upload-detail">
-                                    <form class="row g-3" id="editForm" action="profile" method="POST" >
+                                    <form class="row g-3" id="editForm" action="profile" method="POST" enctype="multipart/form-data">
                                         <div class="col-md-6 space-t-15">
                                             <label class="form-label">First name</label>
                                             <input type="text" class="form-control" name="firstName" value="<%= user != null ? user.getName().split(" ")[0] : "" %>">
@@ -518,12 +504,36 @@
                                                 <option value="Other" <%= (user != null && "Other".equals(user.getGender())) ? "selected" : "" %>>Other</option>
                                             </select>
                                         </div>
-
+                                        <!-- Input ẩn để lưu đường dẫn ảnh -->
+                                        <input type="hidden" id="avatarInput" name="avatar">
                                         <div class="col-md-12 space-t-15">
                                             <button type="submit" class="btn btn-primary">Update</button>
                                             <a href="#" class="btn btn-lg btn-secondary qty_close" data-bs-dismiss="modal" aria-label="Close">Close</a>
                                         </div>
                                     </form>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function () {
+                                            console.log("Script loaded");
+
+                                            let fileInput = document.getElementById("thumbUpload02");
+                                            let avatarInput = document.getElementById("avatarInput");
+
+                                            if (fileInput && avatarInput) {
+                                                fileInput.addEventListener("change", function () {
+                                                    let file = fileInput.files[0];
+                                                    if (file) {
+                                                        let reader = new FileReader();
+                                                        reader.onload = function (e) {
+                                                            document.querySelector(".v-img").src = e.target.result; // Hiển thị ảnh mới
+                                                            avatarInput.value = e.target.result; // Gán dữ liệu ảnh vào input ẩn
+                                                            console.log("Avatar updated:", e.target.result);
+                                                        };
+                                                        reader.readAsDataURL(file);
+                                                    }
+                                                });
+                                            }
+                                        });
+                                    </script>
                                 </div>
                             </div>
                         </div>
@@ -532,13 +542,36 @@
             </div>
         </div>
 
-        <% String message = (String) request.getAttribute("message"); %>
-        <% String status = (String) request.getAttribute("status"); %>
-        <% if (message != null) { %>
-        <div class="alert alert-<%= "success".equals(status) ? "success" : "danger" %>">
-            <%= message %>
-        </div>
-        <% } %>
+        <% 
+            String message = (String) request.getAttribute("mess"); 
+            String error = (String) request.getAttribute("error"); 
+        %>
+
+        <!-- Load SweetAlert2 -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+                                                document.addEventListener("DOMContentLoaded", function () {
+                                                    console.log("Script loaded"); // Debugging: Ensure script runs
+
+            <% if (message != null && !message.isEmpty()) { %>
+                                                    console.log("Success message: <%= message %>"); // Debugging
+                                                    Swal.fire({
+                                                        title: "Profile Updated!",
+                                                        text: "<%= message %>",
+                                                        icon: "success",
+                                                        confirmButtonText: "OK"
+                                                    });
+            <% } else if (error != null && !error.isEmpty()) { %>
+                                                    console.log("Error message: <%= error %>"); // Debugging
+                                                    Swal.fire({
+                                                        title: "Update Failed!",
+                                                        text: "<%= error %>",
+                                                        icon: "error",
+                                                        confirmButtonText: "Try Again"
+                                                    });
+            <% } %>
+                                                });
+        </script>
 
 
         <!-- Modal end -->

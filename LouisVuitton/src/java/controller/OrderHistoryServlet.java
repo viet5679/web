@@ -66,13 +66,12 @@ public class OrderHistoryServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Chuẩn bị data từ cookie 
         CartWishlistUtils.prepareCartAndWishlistData(request);
         // Kiểm tra xem user đã đăng nhập chưa
         HttpSession session = request.getSession();
         Users user = (Users) session.getAttribute("user");
-
-        if (user != null) { // Chỉ lấy danh sách đơn hàng nếu user đã đăng nhập
+        // Chỉ lấy danh sách order nếu user đã đăng nhập
+        if (user != null) { 
             OrderDAO orderDAO = new OrderDAO();
             try {
                 List<Orders> listOrder = orderDAO.getOrdersByUserId(user.getId());
