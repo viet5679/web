@@ -3,11 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
+package controller;
 
-package controller_admin.controller_admin;
-
-import dal.OrderDAO;
-import dal.ProductsDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -15,16 +12,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.List;
-import model.Orders;
-import model.Products;
+import utils.CartWishlistUtils;
 
 /**
  *
- * @author NTMy
+ * @author adim
  */
-@WebServlet(name="OrderListServlet", urlPatterns={"/admin/order"})
-public class OrderListServlet extends HttpServlet {
+@WebServlet(name="TermConditionServlet", urlPatterns={"/terms-condition"})
+public class TermConditionServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -41,10 +36,10 @@ public class OrderListServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet OrderListServlet</title>");  
+            out.println("<title>Servlet TermConditionServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet OrderListServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet TermConditionServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,22 +53,12 @@ public class OrderListServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-        @Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-            OrderDAO od = new OrderDAO();
-            List<Orders> listO = od.getAll();
-
-            for (Orders orders : listO) {
-                System.out.println(orders.getId());
-            }
-
-            request.setAttribute("ordersList", listO);
-            request.getRequestDispatcher("order-list.jsp").forward(request, response);
-        }
-
-    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+        CartWishlistUtils.prepareCartAndWishlistData(request);
+        request.getRequestDispatcher("terms-condition.jsp").forward(request, response);
+    } 
 
     /** 
      * Handles the HTTP <code>POST</code> method.

@@ -38,6 +38,7 @@
 
         <!-- Background css -->
         <link rel="stylesheet" id="bg-switcher-css" href="assets/css/backgrounds/bg-4.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <body class="register_page">
         <div id="ec-overlay">
@@ -51,93 +52,107 @@
 
         <!-- Header start  -->
         <jsp:include page="header.jsp"></jsp:include>
-        <!-- Header End  -->
+            <!-- Header End  -->
 
-        <!-- Ec breadcrumb start -->
-        <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="row ec_breadcrumb_inner">
-                            <div class="col-md-6 col-sm-12">
-                                <h2 class="ec-breadcrumb-title">Register</h2>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <!-- ec-breadcrumb-list start -->
-                                <ul class="ec-breadcrumb-list">
-                                    <li class="ec-breadcrumb-item"><a href="home">Home</a></li>
-                                    <li class="ec-breadcrumb-item active">Register</li>
-                                </ul>
-                                <!-- ec-breadcrumb-list end -->
+            <!-- Ec breadcrumb start -->
+            <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row ec_breadcrumb_inner">
+                                <div class="col-md-6 col-sm-12">
+                                    <h2 class="ec-breadcrumb-title">Register</h2>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <!-- ec-breadcrumb-list start -->
+                                    <ul class="ec-breadcrumb-list">
+                                        <li class="ec-breadcrumb-item"><a href="home">Home</a></li>
+                                        <li class="ec-breadcrumb-item active">Register</li>
+                                    </ul>
+                                    <!-- ec-breadcrumb-list end -->
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Ec breadcrumb end -->
+            <!-- Ec breadcrumb end -->
 
-        <!-- Start Register -->
-        <section class="ec-page-content section-space-p">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div class="section-title">
-                            <h2 class="ec-bg-title">Register</h2>
-                            <h2 class="ec-title">Register</h2>
-                            <p class="sub-title mb-3">Best place to buy and sell digital products</p>
+            <!-- Start Register -->
+            <section class="ec-page-content section-space-p">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div class="section-title">
+                                <h2 class="ec-bg-title">Register</h2>
+                                <h2 class="ec-title">Register</h2>
+                                <p class="sub-title mb-3">Best place to buy and sell digital products</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="ec-register-wrapper">
-                        <div class="ec-register-container">
-                            <div class="ec-register-form">
-                                <form action="register" method="post">
-                                    <span class="ec-register-wrap ec-register-half">
-                                        <label>First Name*</label>
-                                        <input type="text" name="firstname" placeholder="Enter your first name" required />
-                                    </span>
-                                    <span class="ec-register-wrap ec-register-half">
-                                        <label>Last Name*</label>
-                                        <input type="text" name="lastname" placeholder="Enter your last name" required />
-                                    </span>
-                                    <span class="ec-register-wrap ec-register-half">
-                                        <label>Email*</label>
-                                        <input type="email" name="email" placeholder="Enter your email add..." required />
-                                    </span>
-                                    <span class="ec-register-wrap ec-register-half">
-                                        <label>Phone Number*</label>
-                                        <input type="text" name="phonenumber" placeholder="Enter your phone number"
-                                               required />
-                                    </span>
-                                    <span class="ec-register-wrap">
-                                        <label>Password</label>
-                                        <input type="password" name="password" placeholder="Enter your password" />
-                                    </span>
-                                    <span class="ec-register-wrap">
-                                        <label>Confirm password</label>
-                                        <input type="password" name="confirmpassword" placeholder="Enter your password" />
-                                    </span>
-                                    <c:choose>
-                                        <c:when test="${not empty requestScope.error}">
-                                            <p style="color: red" id="error-message">${requestScope.error}</p>
-                                        </c:when>
-                                        <c:when test="${not empty requestScope.mess}">
-                                            <p class="ec-register-wrap" style="color: green" id="success-message">${requestScope.mess}</p>
-                                        </c:when>
-                                    </c:choose>
-                                    <!-- Chuyển hướng về login.jsp sau 5 giây nếu có thông báo thành công -->
-                                    <script>
-                                        document.addEventListener("DOMContentLoaded", function () {
-                                            let successMessage = document.getElementById("success-message");
-                                            if (successMessage && successMessage.innerText.trim() !== "") {
-                                                setTimeout(() => {window.location.href = "login";}, 5000);
-                                            }
-                                        });
-                                    </script>
+                        <div class="ec-register-wrapper">
+                            <div class="ec-register-container">
+                                <div class="ec-register-form">
+                                    <form action="register" method="post">
+                                        <span class="ec-register-wrap ec-register-half">
+                                            <label>First Name*</label>
+                                            <input type="text" name="firstname" placeholder="Enter your first name" required />
+                                        </span>
+                                        <span class="ec-register-wrap ec-register-half">
+                                            <label>Last Name*</label>
+                                            <input type="text" name="lastname" placeholder="Enter your last name" required />
+                                        </span>
+                                        <span class="ec-register-wrap ec-register-half">
+                                            <label>Email*</label>
+                                            <input type="email" name="email" placeholder="Enter your email add..." required />
+                                        </span>
+                                        <span class="ec-register-wrap ec-register-half">
+                                            <label>Phone Number*</label>
+                                            <input type="text" name="phonenumber" placeholder="Enter your phone number"
+                                                   required />
+                                        </span>
+                                        <span class="ec-register-wrap">
+                                            <label>Password</label>
+                                            <input type="password" name="password" placeholder="Enter your password" />
+                                        </span>
+                                        <span class="ec-register-wrap">
+                                            <label>Confirm password</label>
+                                            <input type="password" name="confirmpassword" placeholder="Enter your password" />
+                                        </span>
+                                        <c:if test="${not empty sessionScope.error}">
+                                        <script>
+                                            document.addEventListener("DOMContentLoaded", function () {
+                                                let errorMessage = "${sessionScope.error}";
+                                                if (errorMessage && errorMessage.trim() !== "") { // Kiểm tra tránh hiển thị nếu chuỗi rỗng
+                                                    Swal.fire({
+                                                        icon: "error",
+                                                        title: "Registration Failed",
+                                                        text: errorMessage,
+                                                        confirmButtonText: "Try Again"
+                                                    })
+                                                }
+                                            });
+                                        </script>
+                                        <% session.removeAttribute("error"); %> <%-- Xóa session ngay sau khi hiển thị --%>
+                                    </c:if>
 
-
-
-
+                                    <c:if test="${not empty sessionScope.mess}">
+                                        <script>
+                                            document.addEventListener("DOMContentLoaded", function () {
+                                                let successMessage = "${sessionScope.mess}";
+                                                if (successMessage && successMessage.trim() !== "") {
+                                                    Swal.fire({
+                                                        icon: "success",
+                                                        title: "Registration Successful!",
+                                                        text: successMessage,
+                                                        confirmButtonText: "Go to Login"
+                                                    }).then(() => {
+                                                        window.location.href = "login"; 
+                                                    });
+                                                }
+                                            });
+                                        </script>
+                                        <% session.removeAttribute("mess"); %> <%-- Xóa session ngay sau khi hiển thị --%>
+                                    </c:if>
                                     <span class="ec-register-wrap ec-register-btn">
                                         <button class="btn btn-primary" type="submit">Register</button>
                                     </span>

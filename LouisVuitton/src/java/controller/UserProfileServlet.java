@@ -9,9 +9,19 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.Part;
+import java.io.File;
 import model.Users;
 import utils.CartWishlistUtils;
+import jakarta.servlet.annotation.MultipartConfig;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+        maxFileSize = 1024 * 1024 * 10, // 10MB
+        maxRequestSize = 1024 * 1024 * 50 // 50MB
+)
 /**
  *
  * @author adim
@@ -72,6 +82,8 @@ public class UserProfileServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        CartWishlistUtils.prepareCartAndWishlistData(request);
+
         HttpSession session = request.getSession();
         Users user = (Users) session.getAttribute("user");
         if (user == null) {
@@ -79,6 +91,7 @@ public class UserProfileServlet extends HttpServlet {
             return;
         }
 
+        // Lấy thông tin từ form
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String address = request.getParameter("address");
@@ -86,25 +99,71 @@ public class UserProfileServlet extends HttpServlet {
         String phone = request.getParameter("phone");
         String gender = request.getParameter("gender");
 
-        String fullName = firstName + " " + lastName;
-        user.setName(fullName);
+        user.setName(firstName + " " + lastName);
         user.setAddress(address);
         user.setEmail(email);
+        user.setPhone(phone);
         user.setGender(gender);
 
+        // Thư mục lưu ảnh trên server
+        String uploadDir = request.getServletContext().getRealPath("/") + "assets/images/user";
+        uploadDir = uploadDir.replace("\\build", ""); // Loại bỏ thư mục `build`
+
+        File uploadFolder = new File(uploadDir);
+        if (!uploadFolder.exists()) {
+            uploadFolder.mkdirs(); // Tạo thư mục nếu chưa tồn tại
+        }
+
+// Xử lý file ảnh
+        Part filePart = request.getPart("avatar");
+        if (filePart != null && filePart.getSize() > 0) {
+            // Lấy tên file gốc
+            String fileName = filePart.getSubmittedFileName();
+
+            // Kiểm tra định dạng file
+            String fileExtension = fileName.substring(fileName.lastIndexOf("."));
+            if (!fileExtension.matches("\\.(jpg|jpeg|png|gif)$")) {
+                request.setAttribute("error", "Định dạng file không hợp lệ!");
+                request.getRequestDispatcher("user-profile.jsp").forward(request, response);
+                return;
+            }
+
+            // Tạo tên file mới tránh trùng lặp
+            String newFileName = "avatar_" + user.getId() + "_" + System.currentTimeMillis() + fileExtension;
+            String filePath = uploadDir + File.separator + newFileName;
+
+            // Ghi file bằng InputStream để tránh lỗi format
+            try (InputStream fileContent = filePart.getInputStream(); FileOutputStream fos = new FileOutputStream(filePath)) {
+                byte[] buffer = new byte[1024];
+                int bytesRead;
+                while ((bytesRead = fileContent.read(buffer)) != -1) {
+                    fos.write(buffer, 0, bytesRead);
+                }
+            }
+
+            // Kiểm tra file có tồn tại không
+            File checkFile = new File(filePath);
+            if (checkFile.exists()) {
+                System.out.println("✅ File uploaded successfully: " + filePath);
+                // Lưu đường dẫn tương đối vào DB
+                user.setAvatar("assets/images/user/" + newFileName);
+            } else {
+                System.out.println("❌ File upload failed!");
+            }
+        }
+
+        // Cập nhật database
         UserDAO userDAO = new UserDAO();
         boolean isUpdated = userDAO.updateUser(user);
 
         if (isUpdated) {
-            request.setAttribute("message", "Cập nhật thành công!");
-            request.setAttribute("status", "success");
+            session.setAttribute("user", user);
+            request.setAttribute("mess", "Cập nhật thành công!");
         } else {
-            request.setAttribute("message", "Cập nhật thất bại!");
-            request.setAttribute("status", "error");
+            request.setAttribute("error", "Cập nhật thất bại!");
         }
-        
-        request.getRequestDispatcher("user-profile.jsp").forward(request, response);
 
+        request.getRequestDispatcher("user-profile.jsp").forward(request, response);
     }
 
     /**

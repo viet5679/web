@@ -3,28 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package controller_admin;
+package controller;
 
-import dal.CategoriesDAO;
-import dal.ProductsDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
-import model.Categories;
-import model.ProductImages;
-import model.Products;
+import utils.CartWishlistUtils;
 
 /**
  *
- * @author vuhuu
+ * @author adim
  */
-public class EditProductServlet extends HttpServlet {
+@WebServlet(name="FAQServlet", urlPatterns={"/faq"})
+public class FAQServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -41,10 +36,10 @@ public class EditProductServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet EditProductServlet</title>");  
+            out.println("<title>Servlet FAQServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet EditProductServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet FAQServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -61,23 +56,8 @@ public class EditProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String id_raw = request.getParameter("id");
-        int id;
-        ProductsDAO pd = new ProductsDAO();
-        CategoriesDAO cd = new CategoriesDAO();
-        try {
-            id = Integer.parseInt(id_raw);
-            Products pro = pd.getProductById(id);
-            List<ProductImages> listI = pd.getImagesByPid(id);
-            List<Categories> listC = cd.getAllCategory();
-            String subDescription = pro.getSubDescription().replace("$", "\n");
-            request.setAttribute("sub", subDescription);
-            request.setAttribute("listC", listC);
-            request.setAttribute("listI", listI);
-            request.setAttribute("pro", pro);
-            request.getRequestDispatcher("edit_product.jsp").forward(request, response);
-        } catch (Exception e) {
-        }
+        CartWishlistUtils.prepareCartAndWishlistData(request);
+        request.getRequestDispatcher("faq.jsp").forward(request, response);
     } 
 
     /** 
@@ -90,7 +70,7 @@ public class EditProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        
+        processRequest(request, response);
     }
 
     /** 

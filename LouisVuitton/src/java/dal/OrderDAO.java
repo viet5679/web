@@ -4,9 +4,7 @@ package dal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import model.OrderDetails;
 import model.Orders;
-import model.Products;
 
 public class OrderDAO extends DBContext {
 
@@ -109,64 +107,4 @@ public class OrderDAO extends DBContext {
     }
 }
 
-public List<Orders> getAll() {
-    List<Orders> list = new ArrayList<>();
-    String sql = "SELECT " +
-                    "o.id, " +
-                    "STRING_AGG(od.name, ', ') AS products, " +
-                    "u.name AS customer_name, " +
-                    "o.total_price, " +
-                    "o.total_product, " +
-                    "o.status, " +
-                    "o.address " +
-                  "FROM " +
-                    "orders o " +
-                  "JOIN order_details od " +
-                    "ON o.id = od.order_id " +
-                  "JOIN users u " +
-                    "ON o.user_id = u.id " +
-                  "GROUP BY " +
-                    "o.id, u.name, o.total_price, o.total_product, o.status, o.address;";
-
-  
-
-    try (PreparedStatement st = connection.prepareStatement(sql); 
-         ResultSet rs = st.executeQuery()) {
-
-        while (rs.next()) {
-            Orders order = new Orders();
-            order.setId(rs.getInt("id"));
-            order.setName(rs.getString("customer_name"));
-            order.setTotalPrice(rs.getDouble("total_price"));
-            order.setTotalProduct(rs.getInt("total_product"));
-            order.setStatus(rs.getString("status"));
-            order.setAddress(rs.getString("address"));
- 
-
-            String products = rs.getString("products");
-            System.out.println("Products: " + products); 
-
-            
-            String[] productNames = products.split(", ");
-            List<OrderDetails> orderDetailsList = new ArrayList<>();
-            for (String productName : productNames) {
-                OrderDetails orderDetail = new OrderDetails();
-                orderDetail.setName(productName);
-                orderDetailsList.add(orderDetail);
-            }
-
-            order.setOrderDetails(orderDetailsList);
-            list.add(order);
-        }
-    } catch (SQLException e) {
-        System.out.println("Error: " + e.getMessage());
-    }
-    return list;
 }
-
-
-
-
-}
-    
-

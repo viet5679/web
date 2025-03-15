@@ -1,8 +1,6 @@
-
 package controller;
 
- // @author xu4nvi3t
-
+// @author xu4nvi3t
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,13 +11,14 @@ import model.Users;
 
 @WebFilter({"/*"})
 public class AuthFilter implements Filter {
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) 
+
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        
+
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
         HttpSession session = req.getSession(false);
-        
+
         Users user = (session != null) ? (Users) session.getAttribute("user") : null;
         String uri = req.getRequestURI();
         String contextPath = req.getContextPath();
@@ -32,7 +31,6 @@ public class AuthFilter implements Filter {
 //            res.sendRedirect(contextPath + "/"); // Về trang chủ
 //            return;
 //        }
-
         // Chặn truy cập vào các trang yêu cầu đăng nhập
         if ((uri.contains("/checkout") || uri.contains("/order-history")) && user == null) {
             res.sendRedirect(contextPath + "/login");

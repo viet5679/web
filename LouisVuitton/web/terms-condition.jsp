@@ -47,92 +47,76 @@
 
         <!-- Header start  -->
         <jsp:include page="header.jsp"></jsp:include>
-        <!-- Header End  -->
-        <!-- Ec breadcrumb start -->
-        <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="row ec_breadcrumb_inner">
-                            <div class="col-md-6 col-sm-12">
-                                <h2 class="ec-breadcrumb-title">Terms & Condition</h2>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <!-- ec-breadcrumb-list start -->
-                                <ul class="ec-breadcrumb-list">
-                                    <li class="ec-breadcrumb-item"><a href="home">Home</a></li>
-                                    <li class="ec-breadcrumb-item active">Condition</li>
-                                </ul>
-                                <!-- ec-breadcrumb-list end -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Ec breadcrumb end -->
-
-        <!-- Start Terms & Condition page -->
-        <section class="ec-page-content section-space-p">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div class="section-title">
-                            <h2 class="ec-bg-title">Terms & Condition</h2>
-                            <h2 class="ec-title">Terms & Condition</h2>
-                            <p class="sub-title mb-3">Welcome to the ekka multivendor marketplace</p>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="ec-common-wrapper">
-                            <div class="col-sm-12 ec-cms-block">
-                                <div class="ec-cms-block-inner">
-                                    <h3 class="ec-cms-block-title">Welcome to Ekka Multi Market.</h3>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <b>Lorem
-                                            Ipsum is simply dutmmy text</b> ever since the 1500s, when an unknown printer
-                                        took a galley of type and scrambled it to make a type specimen book. It has survived
-                                        not only five centuries, but also the leap into electronic typesetting, remaining
-                                        essentially unchanged. <b>Lorem Ipsum is simply dutmmy text</b></p>
+            <!-- Header End  -->
+            <!-- Ec breadcrumb start -->
+            <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row ec_breadcrumb_inner">
+                                <div class="col-md-6 col-sm-12">
+                                    <h2 class="ec-breadcrumb-title">Terms & Condition</h2>
                                 </div>
-                            </div>
-                            <div class="col-sm-12 ec-cms-block">
-                                <div class="ec-cms-block-inner">
-                                    <h3 class="ec-cms-block-title">Ekka Websites</h3>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <b>Lorem
-                                            Ipsum is simply dutmmy text</b> ever since the 1500s, when an unknown printer
-                                        took a galley of type and scrambled it to make a type specimen book. It has survived
-                                        not only five centuries, but also the leap into electronic typesetting, remaining
-                                        essentially unchanged. <b>Lorem Ipsum is simply dutmmy text</b></p>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 ec-cms-block">
-                                <div class="ec-cms-block-inner">
-                                    <h3 class="ec-cms-block-title">How browsing and vendor works?</h3>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <b>Lorem
-                                            Ipsum is simply dutmmy text</b> ever since the 1500s, when an unknown printer
-                                        took a galley of type and scrambled it to make a type specimen book. It has survived
-                                        not only five centuries, but also the leap into electronic typesetting, remaining
-                                        essentially unchanged. <b>Lorem Ipsum is simply dutmmy text</b></p>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 ec-cms-block">
-                                <div class="ec-cms-block-inner">
-                                    <h3 class="ec-cms-block-title">Becoming an vendor</h3>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <b>Lorem
-                                            Ipsum is simply dutmmy text</b> ever since the 1500s, when an unknown printer
-                                        took a galley of type and scrambled it to make a type specimen book. It has survived
-                                        not only five centuries, but also the leap into electronic typesetting, remaining
-                                        essentially unchanged. <b>Lorem Ipsum is simply dutmmy text</b></p>
+                                <div class="col-md-6 col-sm-12">
+                                    <!-- ec-breadcrumb-list start -->
+                                    <ul class="ec-breadcrumb-list">
+                                        <li class="ec-breadcrumb-item"><a href="home">Home</a></li>
+                                        <li class="ec-breadcrumb-item active">Condition</li>
+                                    </ul>
+                                    <!-- ec-breadcrumb-list end -->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- End Terms & Condition page -->
+            <!-- Ec breadcrumb end -->
 
-        <!-- Footer Start -->
+            <!-- Start Terms & Condition page -->
+            <section class="ec-page-content section-space-p">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div class="section-title">
+                                <h2 class="ec-bg-title">Terms & Conditions</h2>
+                                <h2 class="ec-title">Terms & Conditions</h2>
+                                <p class="sub-title mb-3">Your Agreement with Louis Vuitton</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="ec-common-wrapper">
+                                <div class="col-sm-12 ec-cms-block">
+                                    <div class="ec-cms-block-inner">
+                                        <h3 class="ec-cms-block-title">Welcome to Louis Vuitton</h3>
+                                        <p>By accessing or purchasing from Louis Vuitton - whether through our website, boutiques, or authorized channels - you agree to abide by these Terms & Conditions. These terms govern your use of our services and products, ensuring a mutual understanding rooted in our commitment to excellence since 1854. <b>Please read them carefully.</b></p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 ec-cms-block">
+                                    <div class="ec-cms-block-inner">
+                                        <h3 class="ec-cms-block-title">Use of Louis Vuitton Websites</h3>
+                                        <p>Our website is intended for personal, non-commercial use. You may not reproduce, distribute, or modify any content - including images, designs, or trademarks - without prior written consent from Louis Vuitton. <b>We reserve the right to suspend access</b> if these terms are violated, protecting the integrity of our brand and intellectual property.</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 ec-cms-block">
+                                    <div class="ec-cms-block-inner">
+                                        <h3 class="ec-cms-block-title">Purchasing and Payment Terms</h3>
+                                        <p>All orders are subject to availability and acceptance by Louis Vuitton. Prices are displayed in your local currency and include applicable taxes, though additional shipping fees may apply. <b>Payment must be completed in full</b> at the time of purchase via approved methods. We reserve the right to cancel orders in cases of suspected fraud or pricing errors.</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 ec-cms-block">
+                                    <div class="ec-cms-block-inner">
+                                        <h3 class="ec-cms-block-title">Returns and Intellectual Property</h3>
+                                        <p>Eligible items may be returned within 30 days of delivery in their original, unused condition with proof of purchase, though personalized items are non-returnable. All Louis Vuitton products, designs, and logos are protected by copyright and trademark laws. <b>Unauthorized use or reproduction is strictly prohibited</b> and may result in legal action.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Terms & Condition page -->
+
+            <!-- Footer Start -->
         <jsp:include page="footer.jsp"></jsp:include>
         <!-- Footer Area End -->
 

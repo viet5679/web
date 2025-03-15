@@ -51,40 +51,40 @@
 
         <!-- Header start  -->
         <jsp:include page="header.jsp"></jsp:include>
-        <!-- Header End  -->
+            <!-- Header End  -->
 
-        <!-- Ec breadcrumb start -->
-        <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="row ec_breadcrumb_inner">
-                            <div class="col-md-6 col-sm-12">
-                                <h2 class="ec-breadcrumb-title">Login</h2>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <!-- ec-breadcrumb-list start -->
-                                <ul class="ec-breadcrumb-list">
-                                    <li class="ec-breadcrumb-item"><a href="home">Home</a></li>
-                                    <li class="ec-breadcrumb-item active">Login</li>
-                                </ul>
-                                <!-- ec-breadcrumb-list end -->
+            <!-- Ec breadcrumb start -->
+            <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row ec_breadcrumb_inner">
+                                <div class="col-md-6 col-sm-12">
+                                    <h2 class="ec-breadcrumb-title">Login</h2>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <!-- ec-breadcrumb-list start -->
+                                    <ul class="ec-breadcrumb-list">
+                                        <li class="ec-breadcrumb-item"><a href="home">Home</a></li>
+                                        <li class="ec-breadcrumb-item active">Login</li>
+                                    </ul>
+                                    <!-- ec-breadcrumb-list end -->
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Ec breadcrumb end -->
+            <!-- Ec breadcrumb end -->
 
-        <!-- Change Password Start -->
-        <section class="change-password-section">
-            <div class="change-password-container">
-                <h2>Change your password</h2>
-                <form action="change-password" method="post" id="change-password-form">
-                    <!-- Lấy email & token từ URL -->
-                    <input type="hidden" id="email" name="email">
-                    <input type="hidden" id="<%= request.getParameter("token")%>" name="token" value="<%= request.getParameter("token") %>">
+            <!-- Change Password Start -->
+            <section class="change-password-section">
+                <div class="change-password-container">
+                    <h2>Change your password</h2>
+                    <form action="change-password" method="post" id="change-password-form">
+                        <!-- Lấy email & token từ URL -->
+                        <input type="hidden" id="email" name="email">
+                        <input type="hidden" id="<%= request.getParameter("token")%>" name="token" value="<%= request.getParameter("token") %>">
 
                     <div class="form-group">
                         <input type="password" id="new_password" name="new_password" placeholder="New password" required>
@@ -102,28 +102,35 @@
                     </div>
                 </form>
                 <!-- Hiển thị thông báo nếu có -->
-                <% String message = (String) request.getAttribute("message"); %>
-                <% String error = (String) request.getAttribute("error"); %>
-                <% if (message != null) { %>
-                <p id="success-message" style="color: green; margin-top: 10px"><%= message %></p>
-                <% } %>
-                <% if (error != null) { %>
-                <p id="error-message" style="color: red; margin-top: 10px"><%= error %></p>
-                <% } %>
+                <% 
+    String message = (String) request.getAttribute("successMess"); 
+    String error = (String) request.getAttribute("error"); 
+                %>
 
-                <!-- Chuyển hướng về login.jsp sau 5 giây nếu có thông báo thành công -->
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                 <script>
                     document.addEventListener("DOMContentLoaded", function () {
-                        let successMessage = document.getElementById("success-message");
-                        if (successMessage && successMessage.innerText.trim() !== "") {
-                            setTimeout(() => {window.location.href = "login";}, 5000);
-                        }
+                    <% if (message != null && !message.isEmpty()) { %>
+                        Swal.fire({
+                            title: "Password Changed Successfully!",
+                            text: "<%= message %>",
+                            icon: "success",
+                            confirmButtonText: "Go to Login"
+                        }).then(() => {
+                            window.location.href = "login";
+                        });
+                    <% } else if (error != null && !error.isEmpty()) { %>
+                        Swal.fire({
+                            title: "Error!",
+                            text: "<%= error %>",
+                            icon: "error",
+                            confirmButtonText: "Try Again"
+                        });
+                    <% } %>
                     });
                 </script>
-
             </div>
         </section>
-
         <script>
             const newPasswordInput = document.getElementById('new_password');
             const confirmPasswordInput = document.getElementById('confirm_password');

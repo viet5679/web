@@ -1,7 +1,6 @@
 package dal;
 
 // @author xu4nvi3t
-import com.sun.jdi.connect.spi.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -307,20 +306,6 @@ public class ProductsDAO extends DBContext {
             }
         }
         return null;
-    }
-    
-    //update stutas
-    public boolean updateStatus(int productId) {
-        String sql = "UPDATE products SET status = 0 WHERE id = ?";
-        try {
-            PreparedStatement st = connection.prepareStatement(sql);
-            st.setInt(1, productId);
-            int rowsUpdated = st.executeUpdate();
-            return rowsUpdated > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
     }
 
     public List<Products> getProductsByFilderSearch(List<Integer> gid, List<Integer> cid, List<Integer> sid, Double price_low, Double price_high, String text) {

@@ -33,7 +33,6 @@
 
         <!-- Main CSS -->
         <link id="main-css" href="assets/css/style.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     </head>
 
@@ -404,7 +403,7 @@
                                                                 </button>
                                                                 <div class="dropdown-menu">
                                                                     <a class="dropdown-item" href="edit?id=${c.id}">Edit</a>
-                                                                    <a class="dropdown-item delete-btn" href="#" data-id="${c.id}">Delete</a>
+                                                                    <a class="dropdown-item" href="#">Delete</a>
                                                                 </div>
                                                             </div>
                                                         </td>
@@ -419,58 +418,6 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- delete handle -->
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    document.querySelectorAll(".delete-btn").forEach(button => {
-                         button.addEventListener("click", function (event) {
-                             event.preventDefault();
-                             let productId = this.getAttribute("data-id");
-
-                             Swal.fire({
-                                 title: "Are you sure?",
-                                 text: "This action will mark the product as Deleted.",
-                                 icon: "warning",
-                                 showCancelButton: true,
-                                 confirmButtonColor: "#3085d6",
-                                 cancelButtonColor: "#d33",
-                                 confirmButtonText: "Yes, delete it!"
-                             }).then((result) => {
-                                 if (result.isConfirmed) {
-                                     console.log("Sending delete request for product ID:", productId);
-
-                                    fetch("/louisvuitton/admin/deleteproductservlet", {
-                                         method: "POST",
-                                         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                                         body: new URLSearchParams({ id: productId })
-                                     })
-                                     .then(response => response.text())
-                                     .then(text => {
-                                         console.log("Response from server:", text);
-                                         if (text.trim() === "success") {
-                                             Swal.fire("Deleted!", "Product has been deleted.", "success").then(() => {
-                                                 window.location.reload();
-                                             });
-                                         } else {
-                                             Swal.fire("Error!", text, "error");
-                                         }
-                                     })
-                                     .catch(error => {
-                                         console.error("Fetch error:", error);
-                                         Swal.fire("Error!", "Something went wrong.", "error");
-                                     });
-                                 }
-                             });
-                         });
-                     });
-                 });
-            </script>
-
-
-
-
-
 
             <!-- Footer -->
             <footer>
