@@ -2,6 +2,9 @@
 package model;
 
  // @author xu4nvi3t
+import java.util.List;
+
+
 public class Orders {
     private int id;
     private Users user;
@@ -17,6 +20,8 @@ public class Orders {
 
     public Orders() {
     }
+    
+    private List<OrderDetails> orderDetails;
 
     public Orders(int id, Users user, double totalPrice,int totalProduct, String status, String createdAt, String updatedAt, String name, String phone, String address, String comments) {
         this.id = id;
@@ -118,6 +123,14 @@ public class Orders {
 
     public void setComments(String comments) {
         this.comments = comments;
+    }
+    
+    public List<OrderDetails> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetails> orderDetails) {
+        this.orderDetails = orderDetails;
     }
     
 }
