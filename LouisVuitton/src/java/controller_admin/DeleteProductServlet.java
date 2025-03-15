@@ -5,27 +5,26 @@
 
 package controller_admin;
 
-import dal.CategoriesDAO;
 import dal.ProductsDAO;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
-import model.Categories;
-import model.ProductImages;
 import model.Products;
+
 
 /**
  *
- * @author vuhuu
+ * @author NTMy
  */
-public class EditProductServlet extends HttpServlet {
-   
+@WebServlet(name="DeleteProductServlet", urlPatterns={"/admin/deleteproductservlet"})
+public class DeleteProductServlet extends HttpServlet {
+     private static final long serialVersionUID = 1L;
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -41,10 +40,10 @@ public class EditProductServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet EditProductServlet</title>");  
+            out.println("<title>Servlet DeleteProductServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet EditProductServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet DeleteProductServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,26 +58,12 @@ public class EditProductServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        String id_raw = request.getParameter("id");
-        int id;
-        ProductsDAO pd = new ProductsDAO();
-        CategoriesDAO cd = new CategoriesDAO();
-        try {
-            id = Integer.parseInt(id_raw);
-            Products pro = pd.getProductById(id);
-            List<ProductImages> listI = pd.getImagesByPid(id);
-            List<Categories> listC = cd.getAllCategory();
-            String subDescription = pro.getSubDescription().replace("$", "\n");
-            request.setAttribute("sub", subDescription);
-            request.setAttribute("listC", listC);
-            request.setAttribute("listI", listI);
-            request.setAttribute("pro", pro);
-            request.getRequestDispatcher("edit_product.jsp").forward(request, response);
-        } catch (Exception e) {
-        }
-    } 
+            throws ServletException, IOException {
+       
+    }
+
 
     /** 
      * Handles the HTTP <code>POST</code> method.
@@ -87,11 +72,42 @@ public class EditProductServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        
-    }
+        @Override
+        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            String id = request.getParameter("id");
+            System.out.println("Received ID: " + id); 
+
+            if (id == null || id.isEmpty()) {
+                request.setAttribute("errorMessage", "Invalid product ID");
+                request.getRequestDispatcher("product-list.jsp").forward(request, response);
+                return;
+            }
+
+            try {
+                int productId = Integer.parseInt(id);
+                ProductsDAO dao = new ProductsDAO();
+                boolean isUpdated = dao.updateStatus(productId);
+
+                if (isUpdated) {
+
+                    List<Products> listP = dao.getAll();
+                    request.setAttribute("listP", listP);
+                    request.setAttribute("successMessage", "Product deleted successfully!");
+                    response.getWriter().write("success");
+
+                } else {
+                    request.setAttribute("errorMessage", "Failed to delete the product");
+                    response.getWriter().write("success");
+
+                    }
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                request.setAttribute("errorMessage", "Invalid product ID format");
+                request.getRequestDispatcher(request.getContextPath() + "/admin/product-list.jsp").forward(request, response);
+
+            }
+        }
+
 
     /** 
      * Returns a short description of the servlet.

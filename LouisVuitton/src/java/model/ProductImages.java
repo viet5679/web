@@ -3,7 +3,7 @@ package model;
 
  // @author xu4nvi3t
 public class ProductImages {
-    private int productId;
+    private int productId, imagesId;
     private String path;
     private String createdAt;
     private String updatedAt;
@@ -11,8 +11,9 @@ public class ProductImages {
     public ProductImages() {
     }
 
-    public ProductImages(int productId, String path, String createdAt, String updatedAt) {
+    public ProductImages(int productId, int imagesId, String path, String createdAt, String updatedAt) {
         this.productId = productId;
+        this.imagesId = imagesId;
         this.path = path;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -24,6 +25,14 @@ public class ProductImages {
 
     public void setProductId(int productId) {
         this.productId = productId;
+    }
+
+    public int getImagesId() {
+        return imagesId;
+    }
+
+    public void setImagesId(int imagesId) {
+        this.imagesId = imagesId;
     }
 
     public String getPath() {
@@ -49,6 +58,10 @@ public class ProductImages {
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    
+
+   
 
     
 }

@@ -1,3 +1,4 @@
+
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -373,7 +374,7 @@
                         <div class="col-md-12">
                             <div class="gi-card card-default">
                                 <div class="gi-card-content">
-                                    <form action="edit" method="post" class="row g-3" enctype="multipart/form-data" >
+                                    <form action="add" method="post" class="row g-3" enctype="multipart/form-data" >
                                         <div class="row gi-product-uploads">
                                             <div class="col-lg-4 mb-991">
                                                 <div class="gi-vendor-img-upload">
@@ -381,19 +382,19 @@
                                                         <div class="avatar-container">
                                                             <div class="avatar-upload">
                                                                 <div class="avatar-edit">
-                                                                    <input type='file' id="product_main" class="gi-image-upload" accept=".png, .jpg, .jpeg">
+                                                                    <input type='file' id="product_main" class="gi-image-upload" accept=".png, .jpg, .jpeg" name="picture" required>
                                                                     <label><i class="ri-pencil-line"></i></label>
                                                                 </div>
                                                                 <div class="avatar-preview gi-preview">
                                                                     <div class="imagePreview gi-div-preview">
-                                                                        <img class="gi-image-preview" src="assets/images/product/preview.jpg" alt="edit">
+                                                                        <img  class="gi-image-preview" src="assets/images/product/preview.jpg" alt="edit " >
                                                                     </div>
                                                                 </div>
                                                             </div>
 
                                                             <div class="avatar-upload">
                                                                 <div class="avatar-edit">
-                                                                    <input type='file' id="product_main" class="gi-image-upload" accept=".png, .jpg, .jpeg">
+                                                                    <input type='file' id="product_main1" class="gi-image-upload" accept=".png, .jpg, .jpeg" name="picture" required>
                                                                     <label><i class="ri-pencil-line"></i></label>
                                                                 </div>
                                                                 <div class="avatar-preview gi-preview">
@@ -409,8 +410,8 @@
                                                             <div class="thumb-upload">
                                                                 <div class="thumb-edit">
                                                                     <input type='file' id="thumbUpload01"
-                                                                           class="gi-image-upload"
-                                                                           accept=".png, .jpg, .jpeg">
+                                                                           class="gi-image-upload" 
+                                                                           accept=".png, .jpg, .jpeg" name="picture">
                                                                     <label><i class="ri-pencil-line"></i></label>
                                                                 </div>
                                                                 <div class="thumb-preview gi-preview">
@@ -425,7 +426,7 @@
                                                                 <div class="thumb-edit">
                                                                     <input type='file' id="thumbUpload01"
                                                                            class="gi-image-upload"
-                                                                           accept=".png, .jpg, .jpeg">
+                                                                           accept=".png, .jpg, .jpeg" name="picture">
                                                                     <label><i class="ri-pencil-line"></i></label>
                                                                 </div>
                                                                 <div class="thumb-preview gi-preview">
@@ -440,7 +441,7 @@
                                                                 <div class="thumb-edit">
                                                                     <input type='file' id="thumbUpload01"
                                                                            class="gi-image-upload"
-                                                                           accept=".png, .jpg, .jpeg">
+                                                                           accept=".png, .jpg, .jpeg" name="picture">
                                                                     <label><i class="ri-pencil-line"></i></label>
                                                                 </div>
                                                                 <div class="thumb-preview gi-preview">
@@ -455,7 +456,7 @@
                                                                 <div class="thumb-edit">
                                                                     <input type='file' id="thumbUpload01"
                                                                            class="gi-image-upload"
-                                                                           accept=".png, .jpg, .jpeg">
+                                                                           accept=".png, .jpg, .jpeg" name="picture">
                                                                     <label><i class="ri-pencil-line"></i></label>
                                                                 </div>
                                                                 <div class="thumb-preview gi-preview">
@@ -470,7 +471,7 @@
                                                                 <div class="thumb-edit">
                                                                     <input type='file' id="thumbUpload01"
                                                                            class="gi-image-upload"
-                                                                           accept=".png, .jpg, .jpeg">
+                                                                           accept=".png, .jpg, .jpeg" name="picture">
                                                                     <label><i class="ri-pencil-line"></i></label>
                                                                 </div>
                                                                 <div class="thumb-preview gi-preview">
@@ -485,7 +486,7 @@
                                                                 <div class="thumb-edit">
                                                                     <input type='file' id="thumbUpload01"
                                                                            class="gi-image-upload"
-                                                                           accept=".png, .jpg, .jpeg">
+                                                                           accept=".png, .jpg, .jpeg" name="picture">
                                                                     <label><i class="ri-pencil-line"></i></label>
                                                                 </div>
                                                                 <div class="thumb-preview gi-preview">
@@ -507,13 +508,34 @@
                                                 <div class="gi-vendor-upload-detail">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <label for="inputEmail4" class="col-12 col-form-label">Product name</label>
-                                                            <input type="text" class="form-control slug-title" id="inputEmail4">
+                                                            <label for="inputEmail4" class="col-12 col-form-label">Id</label>
+                                                            <input type="text" class="form-control slug-title" id="inputEmail4" value="${requestScope.id}" name="id" readonly>
                                                         </div>
+                                                        <div class="col-md-6">
+                                                            <label for="inputEmail4" class="col-12 col-form-label">Product name</label>
+                                                            <input type="text" class="form-control slug-title" id="inputEmail4" name="name" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6 ">
+                                                            <label class="col-12 col-form-label">Select Gender</label>
+                                                            <select class="form-control form-select" name="opg">
+
+                                                                
+                                                                <option value="1">Women</option>
+                                                                <option value="2">Men</option>
+                                                                <option value="3">Both</option>
+                                                                
+
+
+
+                                                            </select>
+                                                        </div>
+
                                                         <div class="col-md-6 ">
                                                             <label class="col-12 col-form-label">Select Categories</label>
-                                                            <select class="form-control form-select" name="op">
-                                                                <c:forEach var="c" items="${requestScope.listC}">
+                                                            <select class="form-control form-select" name="opc">
+                                                                <c:forEach var="c" items="${requestScope.listC1}">
 
                                                                     <option value="${c.id}">${c.name}</option>
 
@@ -537,17 +559,17 @@
 
 
                                                     <div class="col-md-6 pt-2">
-                                                        <label class="col-12 col-form-label ">Price <span>( In USD
+                                                        <label class="col-12 col-form-label " >Price <span>( In USD
                                                                 )</span></label>
-                                                        <input type="number" class="form-control" id="price1">
+                                                        <input type="number" step="0.01" class="form-control" id="price1" name="price" required>
                                                     </div>
                                                     <div class="col-md-6 pt-2">
                                                         <label class="col-12 col-form-label ">Quantity</label>
-                                                        <input type="number" class="form-control" id="quantity1">
+                                                        <input type="number" class="form-control" id="quantity1" name="quantity" requireds>
                                                     </div>
                                                     <div class="col-md-6  pt-2">
-                                                        <label class="col-12 col-form-label">Offer <span></span></label>
-                                                        <input type="number" class="form-control" id="price1">
+                                                        <label class="col-12 col-form-label">Sale <span></span></label>
+                                                        <input type="number" step="0.01" class="form-control" id="price1" name="sale" required>
                                                     </div><br/>
 
                                                     <div class="col-md-12">

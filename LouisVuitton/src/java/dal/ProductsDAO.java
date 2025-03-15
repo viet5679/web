@@ -1,6 +1,7 @@
 package dal;
 
 // @author xu4nvi3t
+import java.lang.reflect.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,28 +10,168 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import model.ProductGender;
 import model.ProductImages;
 import model.ProductSizes;
 import model.Products;
 
 public class ProductsDAO extends DBContext {
-    
-    public List<ProductImages> getImagesByPid(int pid){
+
+    //update stutas
+    public boolean updateStatus(int productId) {
+        String sql = "UPDATE products SET status = 0 WHERE id = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, productId);
+            int rowsUpdated = st.executeUpdate();
+            return rowsUpdated > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public void editProduct(Products pro) {
+        String sql = "UPDATE [dbo].[products]\n"
+                + "   SET \n"
+                + "      [name] = ?\n"
+                + "      ,[description] = ?\n"
+                + "      ,[sub_description] = ?\n"
+                + "      ,[avatar] = ?\n"
+                + "      ,[stock_quantity] = ? \n"
+                + "      ,[updated_at] = GETDATE()\n"
+                + "      ,[hover_avatar] = ?\n"
+                + "      ,[price] = ?\n"
+                + "      ,[sale] = ?\n"
+                + " WHERE id = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, pro.getName());
+            st.setString(2, pro.getDescription());
+            st.setString(3, pro.getSubDescription());
+            st.setString(4, pro.getAvatar());
+            st.setInt(5, pro.getStockQuantity());
+            st.setString(6, pro.getHoverAvatar());
+            st.setDouble(7, pro.getPrice());
+            st.setDouble(8, pro.getSale());
+            st.setInt(9, pro.getId());
+            st.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public void editImgProduct(ProductImages pi) {
+        String sql = "UPDATE [dbo].[products_images]\n"
+                + "   SET\n"
+                + "      [path] = ?\n"
+                + "      ,[updated_at] = GETDATE()\n"
+                + " WHERE  [product_id] = ?  and image_id = ?";
+        try {
+            PreparedStatement stI = connection.prepareStatement(sql);
+            stI.setString(1, pi.getPath());
+            stI.setInt(2, pi.getProductId());
+            stI.setInt(3, pi.getImagesId());
+
+            stI.executeUpdate();
+        } catch (Exception e) {
+        }
+
+    }
+
+    public void addProduct(Products pro) {
+        String sql = "INSERT INTO [dbo].[products]\n"
+                + "           ([id]\n"
+                + "           ,[category_id]\n"
+                + "           ,[name]\n"
+                + "           ,[description]\n"
+                + "           ,[sub_description]\n"
+                + "           ,[avatar]\n"
+                + "           ,[status]\n"
+                + "           ,[hot]\n"
+                + "           ,[total_ratings]\n"
+                + "           ,[total_stars]\n"
+                + "           ,[stock_quantity]\n"
+                + "           ,[total_sold]\n"
+                + "           ,[created_at]\n"
+                + "           ,[updated_at]\n"
+                + "           ,[hover_avatar]\n"
+                + "           ,[price]\n"
+                + "           ,[sale]\n"
+                + "           ,[total_pay]\n"
+                + "           ,[tag])\n"
+                + "     VALUES (?, ?, ?, ?, ?, ?, 1, 0, 0, 0, ?, 0, GETDATE(), GETDATE(), ?, ?, ?, 0, null)";
+
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, pro.getId());
+            st.setInt(2, pro.getCategoryId().getId());
+            st.setString(3, pro.getName());
+            st.setString(4, pro.getDescription());
+            st.setString(5, pro.getSubDescription());
+            st.setString(6, pro.getAvatar());
+            st.setInt(7, pro.getStockQuantity());
+            st.setString(8, pro.getHoverAvatar());
+            st.setDouble(9, pro.getPrice());
+            st.setDouble(10, pro.getSale());
+            st.executeUpdate();
+
+        } catch (Exception e) {
+        }
+    }
+
+    public void addPImg(ProductImages pi) {
+        String sqlI = "INSERT INTO [dbo].[products_images]\n"
+                + "           ([product_id]\n"
+                + "           ,[path]\n"
+                + "           ,[created_at]\n"
+                + "           ,[updated_at])\n"
+                + "     VALUES (?, ?, GETDATE(),GETDATE())";
+        try {
+            PreparedStatement stI = connection.prepareStatement(sqlI);
+            stI.setInt(1, pi.getProductId());
+            stI.setString(2, pi.getPath());
+            stI.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public void addPGender(ProductGender pg) {
+        String sqlG = "INSERT INTO [dbo].[product_gender]\n"
+                + "           ([product_id]\n"
+                + "           ,[gender_id])\n"
+                + "     VALUES (?, ?)";
+        try {
+            PreparedStatement stG = connection.prepareStatement(sqlG);
+            stG.setInt(1, pg.getProductId().getId());
+            stG.setInt(2, pg.getGenderId().getId());
+            stG.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public List<ProductImages> getImagesByPid(int pid) {
         List<ProductImages> list = new ArrayList();
         String sql = "  select * from products_images where product_id = ?";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, pid);
             ResultSet rs = st.executeQuery();
-            while(rs.next()){
-                ProductImages pi = new ProductImages(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+            while (rs.next()) {
+                ProductImages pi = new ProductImages(
+                        rs.getInt("product_id"),
+                        rs.getInt("image_id"),
+                        rs.getString("path"),
+                        rs.getString("created_at"),
+                        rs.getString("updated_at")
+                );
+
                 list.add(pi);
             }
         } catch (SQLException e) {
         }
         return list;
     }
-    
+
     public List<Products> getAll() {
         List<Products> list = new ArrayList();
         String sql = "select * from products";
