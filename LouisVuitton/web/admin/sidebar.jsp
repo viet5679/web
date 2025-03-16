@@ -16,7 +16,7 @@
                 <li class="gi-sb-item-separator"></li>
                 <li class="gi-sb-title condense">Apps</li>
                 <li class="gi-sb-item">
-                    <a href="admin/todo.jsp" class="gi-page-link">
+                    <a href="todo.jsp" class="gi-page-link">
                         <i class="ri-todo-line"></i><span class="condense"><span
                                 class="hover-title">Todo</span></span>
                     </a>
@@ -28,9 +28,9 @@
                     <ul class="gi-sb-drop condense">
                         <li><a href="pmanager" class="gi-page-link drop"><i
                                     class="ri-checkbox-blank-circle-line"></i>Product list</a></li>
-                        <li><a href="add-product.jsp" class="gi-page-link drop"><i
+                        <li><a href="add" class="gi-page-link drop"><i
                                     class="ri-checkbox-blank-circle-line"></i>Add Product</a></li>
-                        <li><a href="admin/add-category.jsp" class="gi-page-link drop"><i
+                        <li><a href="add-category.jsp" class="gi-page-link drop"><i
                                     class="ri-checkbox-blank-circle-line"></i>Add Category</a></li>
                         <li><a href="order-list.jsp" class="gi-page-link drop"><i
                                     class="ri-checkbox-blank-circle-line"></i>Order List</a></li>

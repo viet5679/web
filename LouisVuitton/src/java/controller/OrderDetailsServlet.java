@@ -68,6 +68,7 @@ public class OrderDetailsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         CartWishlistUtils.prepareCartAndWishlistData(request);
+        // Lấy order và orderDetail bằng orderId
         String id_raw = request.getParameter("id");
         OrderDetailsDAO odDAO = new OrderDetailsDAO();
         List<OrderDetails> listOrderDetails = new ArrayList<>();

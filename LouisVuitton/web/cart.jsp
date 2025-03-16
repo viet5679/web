@@ -42,6 +42,11 @@
     </head>
 
     <body class="cart_page">
+        <style>
+            .ec_cart_qtybtn {
+                display: none !important;
+            }
+        </style>
         <div id="ec-overlay">
             <div class="ec-ellipsis">
                 <div></div>
@@ -110,8 +115,7 @@
                                                                         src="${i.product.avatar}" alt="" />${i.product.name}</a></td>
                                                             <td data-label="Price" class="ec-cart-pro-price"><span
                                                                     class="amount">$${i.product.price}</span></td>
-                                                            <td data-label="Quantity" class="ec-cart-pro-qty"
-                                                                style="text-align: center;">
+                                                            <td data-label="Quantity" class="ec-cart-pro-qty" style="text-align: center;">
                                                                 <div class="cart-qty-plus-minus">
                                                                     <button class="qty-minus" type="button" data-product-id="${i.product.id}" onclick="changeQuantity(this, -1)">-</button>
                                                                     <input class="cart-plus-minus qty-input" type="text"

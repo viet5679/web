@@ -27,6 +27,7 @@ public class HomeServlet extends HttpServlet {
         ProductsDAO p = new ProductsDAO();
         GendersDAO g = new GendersDAO();
         
+        // Lấy list gender
         List<Genders> genders = g.getAllGender();
         if (genders != null && !genders.isEmpty()) {
             genders.forEach(gender -> {
@@ -36,7 +37,8 @@ public class HomeServlet extends HttpServlet {
                 }
             });
         }
-
+        
+        // Lấy sản phẩm theo từng gender và all
         Map<String, List<Products>> productLists = new HashMap<>();
         List<Products> allProducts = p.get12ProductByGid(0);
         productLists.put("all", (allProducts != null) ? allProducts : Collections.emptyList());
@@ -61,7 +63,7 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request, response); // Gọi doGet nếu không có logic riêng cho POST
+        doGet(request, response);
     }
 
     @Override

@@ -13,9 +13,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author adim
@@ -78,7 +75,6 @@ public class CancelOrderServlet extends HttpServlet {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        
         // Chuyển hướng về trang lịch sử đơn hàng
         response.sendRedirect("order-history");
     }

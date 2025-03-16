@@ -96,13 +96,12 @@
                                                                                               aria-hidden="true"></i><span>Email :</span><a>louisvuittonstore102@gmail.com</a></li>
                                         </ul><br>
                                         <span class="ec_contact_info_head">How to Reach Us</span>
-                                        <p>For urgent assistance, please contact us via phone or email. For general inquiries, you can visit our <a href="/faq">FAQ page</a>.</p>
+                                        <p>For urgent assistance, please contact us via phone or email. For general inquiries, you can visit our <a href="faq">FAQ page</a>.</p>
 
                                         <div class="ec-contact-social">
                                             <span class="ec_contact_info_head">Connect With Us</span><br>
                                             <a href="https://www.facebook.com/LouisVuitton" target="_blank">Facebook</a> | 
-                                            <a href="https://www.instagram.com/louisvuitton" target="_blank">Instagram</a> | 
-                                            <a href="https://www.twitter.com/" target="_blank">Twitter</a>
+                                            <a href="https://www.instagram.com/louisvuitton" target="_blank">Instagram</a> 
                                         </div>
                                     </div>
                                 </div>

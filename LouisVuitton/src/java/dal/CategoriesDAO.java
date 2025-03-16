@@ -9,6 +9,10 @@ import model.Categories;
 
 
 public class CategoriesDAO extends DBContext{
+    public void insert(){
+        
+    }
+        
     public ArrayList<Categories> getAllCategory() {
         ArrayList<Categories> listCategory = new ArrayList<>();
         if (connection != null) {

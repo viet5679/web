@@ -470,7 +470,7 @@
                                             <li>A dialog with three buttons<button class="pop-save gi-btn-primary">Click</button></li>
                                             <li>A custom positioned dialog<button class="pop-positioned-timeout gi-btn-primary">Click</button></li>
                                             <li>Custom animation with Animate.css<button class="pop-fade-down gi-btn-primary">Click</button></li>
-                                            <li>A confirm dialog, with a function attached to the "Confirm"-button<button class="pop-delete gi-btn-primary">Click</button></li>
+                                         
                                             <li>By passing a parameter, you can execute something else for "Cancel"<button class="pop-delete-cancel gi-btn-primary">Click</button></li>
                                             <li>A message with a custom image<button class="pop-img gi-btn-primary">Click</button></li>
                                             <li>A message with custom width, padding, background<button class="pop-custom gi-btn-primary">Click</button></li>

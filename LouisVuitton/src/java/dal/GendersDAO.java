@@ -8,6 +8,23 @@ import java.util.List;
 import model.Genders;
 
 public class GendersDAO extends DBContext {
+    
+    public Genders getGenderById(int id){
+        String sql = "select * from genders where id = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()){
+                Genders ge = new Genders();
+                ge.setId(rs.getInt(1));
+                ge.setName(rs.getString(2));
+                return ge;
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
 
     public ArrayList<Genders> getAllGender() {
         ArrayList<Genders> ListGender = new ArrayList<>();

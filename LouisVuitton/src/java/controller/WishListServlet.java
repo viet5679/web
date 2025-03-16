@@ -63,7 +63,7 @@ public class WishListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Lay so luong cookie CART gửi sang
+        // Lấy số lượng cookie CART
         ProductsDAO pDAO = new ProductsDAO();
         List<Products> listProduct = pDAO.getAll();
         Cookie[] cookieArr = request.getCookies();
@@ -77,6 +77,7 @@ public class WishListServlet extends HttpServlet {
         }
         Cart cart = new Cart(cartData, listProduct);
         request.setAttribute("cart", cart);
+        
         // Đếm số lượng sản phẩm
         int numCartItem = 0;
         if (!cartData.isEmpty()) {
@@ -115,7 +116,6 @@ public class WishListServlet extends HttpServlet {
             }
         }
 
-        // Gửi dữ liệu sang JSP
         request.setAttribute("wishlistProducts", wishlistProducts);
         request.setAttribute("numWishListItem", wishlistProducts.size());
         request.setAttribute("numCartItem", numCartItem);

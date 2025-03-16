@@ -73,8 +73,10 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        CartWishlistUtils.prepareCartAndWishlistData(request);
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        // Cehck user 
         UserDAO userD = new UserDAO();
         Users user = userD.checkUser(email, password);
         HttpSession session = request.getSession();

@@ -50,6 +50,8 @@
         <link rel="stylesheet" id="bg-switcher-css"
               href="assets/css/backgrounds/bg-4.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+
     </head>
 
     <body>
@@ -551,28 +553,9 @@
                             width: "400px", // Giảm chiều rộng
                             padding: "5px" // Giảm padding
                         });
-                        // Cập nhật số lượng trong giỏ hàng từ cookie
-                        updateCartCount();
                     }
                 });
             }
-            // Hàm lấy số lượng từ cookie và cập nhật giao diện
-            function updateCartCount() {
-                let cartCountElement = document.querySelector(".ec-header-count");
-
-                $.ajax({
-                    type: "GET",
-                    url: "cart-count", // Servlet mới để lấy số lượng từ cookie
-                    success: function (response) {
-                        cartCountElement.innerText = response; // Cập nhật số lượng giỏ hàng
-                    },
-                    error: function () {
-                        console.error("Lỗi khi lấy số lượng giỏ hàng");
-                    }
-                });
-            }
-
-
             function addToWishList(productId, element) {
                 $.ajax({
                     type: "POST",

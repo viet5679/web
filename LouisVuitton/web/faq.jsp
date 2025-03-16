@@ -50,105 +50,85 @@
 
         <!-- Header start  -->
         <jsp:include page="header.jsp"></jsp:include>
-        <!-- Header End  -->
+            <!-- Header End  -->
 
-        <!-- Ec breadcrumb start -->
-        <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="row ec_breadcrumb_inner">
-                            <div class="col-md-6 col-sm-12">
-                                <h2 class="ec-breadcrumb-title">FAQ</h2>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <!-- ec-breadcrumb-list start -->
-                                <ul class="ec-breadcrumb-list">
-                                    <li class="ec-breadcrumb-item"><a href="index.jsp">Home</a></li>
-                                    <li class="ec-breadcrumb-item active">FAQ</li>
-                                </ul>
-                                <!-- ec-breadcrumb-list end -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Ec breadcrumb end -->
-
-        <!-- Ec FAQ page -->
-        <section class="ec-page-content section-space-p">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div class="section-title">
-                            <h2 class="ec-bg-title">FAQ</h2>
-                            <h2 class="ec-title">FAQ</h2>
-                            <p class="sub-title mb-3">Customer service management</p>
-                        </div>
-                    </div>
-                    <div class="ec-faq-wrapper">
-                        <div class="ec-faq-container">
-                            <h2 class="ec-faq-heading">What is ekka services?</h2>
-                            <div id="ec-faq">
-                                <div class="col-sm-12 ec-faq-block">
-                                    <h4 class="ec-faq-title">What is the multi vendor services?</h4>
-                                    <div class="ec-faq-content">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                            Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                            unknown printer took a galley of type and scrambled it to make a type specimen
-                                            book. It has survived not only five centuries, but also the leap into electronic
-                                            typesetting, remaining essentially unchanged. </p>
-                                    </div>
+            <!-- Ec breadcrumb start -->
+            <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row ec_breadcrumb_inner">
+                                <div class="col-md-6 col-sm-12">
+                                    <h2 class="ec-breadcrumb-title">FAQ</h2>
                                 </div>
-                                <div class="col-sm-12 ec-faq-block">
-                                    <h4 class="ec-faq-title">How to buy many products at a time?</h4>
-                                    <div class="ec-faq-content">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                            Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                            unknown printer took a galley of type and scrambled it to make a type specimen
-                                            book. It has survived not only five centuries, but also the leap into electronic
-                                            typesetting, remaining essentially unchanged. </p>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 ec-faq-block">
-                                    <h4 class="ec-faq-title">Refund policy for customer</h4>
-                                    <div class="ec-faq-content">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                            Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                            unknown printer took a galley of type and scrambled it to make a type specimen
-                                            book. It has survived not only five centuries, but also the leap into electronic
-                                            typesetting, remaining essentially unchanged. </p>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 ec-faq-block">
-                                    <h4 class="ec-faq-title">Exchange policy for customer</h4>
-                                    <div class="ec-faq-content">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                            Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                            unknown printer took a galley of type and scrambled it to make a type specimen
-                                            book. It has survived not only five centuries, but also the leap into electronic
-                                            typesetting, remaining essentially unchanged. </p>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 ec-faq-block">
-                                    <h4 class="ec-faq-title">Give a way products available</h4>
-                                    <div class="ec-faq-content">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                            Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                            unknown printer took a galley of type and scrambled it to make a type specimen
-                                            book. It has survived not only five centuries, but also the leap into electronic
-                                            typesetting, remaining essentially unchanged. </p>
-                                    </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <!-- ec-breadcrumb-list start -->
+                                    <ul class="ec-breadcrumb-list">
+                                        <li class="ec-breadcrumb-item"><a href="index.jsp">Home</a></li>
+                                        <li class="ec-breadcrumb-item active">FAQ</li>
+                                    </ul>
+                                    <!-- ec-breadcrumb-list end -->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+            <!-- Ec breadcrumb end -->
 
-        <!-- Footer Start -->
+            <!-- Louis Vuitton FAQ page -->
+            <section class="ec-page-content section-space-p">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div class="section-title">
+                                <h2 class="ec-bg-title">FAQ</h2>
+                                <h2 class="ec-title">Frequently Asked Questions</h2>
+                                <p class="sub-title mb-3">Excellence in Customer Care</p>
+                            </div>
+                        </div>
+                        <div class="ec-faq-wrapper">
+                            <div class="ec-faq-container">
+                                <h2 class="ec-faq-heading">What is Louis Vuitton Services?</h2>
+                                <div id="ec-faq">
+                                    <div class="col-sm-12 ec-faq-block">
+                                        <h4 class="ec-faq-title">What distinguishes Louis Vuitton’s bespoke services?</h4>
+                                        <div class="ec-faq-content">
+                                            <p>At Louis Vuitton, we offer an unparalleled bespoke experience, allowing clients to personalize select items with exquisite craftsmanship. From custom monogramming to exclusive designs, our artisans bring your vision to life using the finest materials, upholding our legacy of luxury since 1854.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 ec-faq-block">
+                                        <h4 class="ec-faq-title">How can I purchase multiple Louis Vuitton products at once?</h4>
+                                        <div class="ec-faq-content">
+                                            <p>For a seamless shopping experience, visit our official website or a Louis Vuitton boutique. Our client advisors are available to assist with bulk purchases, ensuring every detail—from selection to delivery—meets your expectations. For special orders, please contact our Client Services team.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 ec-faq-block">
+                                        <h4 class="ec-faq-title">What is Louis Vuitton’s refund policy?</h4>
+                                        <div class="ec-faq-content">
+                                            <p>We strive to ensure your complete satisfaction. Items purchased online may be returned within 30 days of delivery in their original, unused condition, accompanied by proof of purchase. Please note that personalized or bespoke items are final sale. Contact our Client Services for assistance.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 ec-faq-block">
+                                        <h4 class="ec-faq-title">What is the exchange policy for customers?</h4>
+                                        <div class="ec-faq-content">
+                                            <p>Louis Vuitton offers exchanges on eligible items within 30 days of purchase, provided they remain unused and in their original packaging. Exchanges are subject to availability. For further details or to initiate an exchange, please reach out to our dedicated Client Services team or visit a boutique.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 ec-faq-block">
+                                        <h4 class="ec-faq-title">Are there exclusive gifts or giveaways available?</h4>
+                                        <div class="ec-faq-content">
+                                            <p>Louis Vuitton occasionally offers exclusive gifts or limited-edition items as part of special promotions or events. These offerings are reserved for our valued clients and may vary by region. Stay informed by subscribing to our newsletter or contacting your nearest Louis Vuitton boutique.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer Start -->
         <jsp:include page="footer.jsp"></jsp:include>
         <!-- Footer Area End -->
 

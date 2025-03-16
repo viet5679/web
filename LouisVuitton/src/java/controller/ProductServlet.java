@@ -68,6 +68,7 @@ public class ProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        CartWishlistUtils.prepareCartAndWishlistData(request);
         String id_raw = request.getParameter("id");
         int id;
         ProductsDAO pd = new ProductsDAO();
@@ -86,7 +87,6 @@ public class ProductServlet extends HttpServlet {
             request.setAttribute("listS", listS);
             request.setAttribute("listI", listI);
             request.setAttribute("p", p);
-            CartWishlistUtils.prepareCartAndWishlistData(request);
             request.setAttribute("bestSeller", pd.getBestSellerProduct());
             request.getRequestDispatcher("product-full-width.jsp").forward(request, response);
         } catch (Exception e) {
@@ -116,7 +116,7 @@ public class ProductServlet extends HttpServlet {
         RatingDAO rd = new RatingDAO();
         ProductsDAO pd = new ProductsDAO();
         UserDAO ud = new UserDAO();
-
+        
         try {
             rating = Integer.parseInt(rating_raw);
             pid = Integer.parseInt(pid_raw);

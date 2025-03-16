@@ -38,8 +38,8 @@
                             <div class="ec-footer-links">
                                 <ul class="align-items-center">
                                     <li class="ec-footer-link"><a href="about-us">About us</a></li>
-                                    <li class="ec-footer-link"><a href="faq.jsp">FAQ</a></li>
-                                    <li class="ec-footer-link"><a href="#">Delivery Information</a></li>
+                                    <li class="ec-footer-link"><a href="faq">FAQ</a></li>
+                                    <li class="ec-footer-link"><a href="order-history">Delivery Information</a></li>
                                     <li class="ec-footer-link"><a href="contact-us">Contact us</a></li>
                                 </ul>
                             </div>
@@ -51,18 +51,18 @@
                             <h4 class="ec-footer-heading">Services</h4>
                             <div class="ec-footer-links">
                                 <ul class="align-items-center">
-                                    <li class="ec-footer-link"><a href="privacy-policy.jsp">Private & policy </a></li>
-                                    <li class="ec-footer-link"><a href="terms-condition.jsp">Term & condition</a></li>
+                                    <li class="ec-footer-link"><a href="privacy-policy">Private & policy </a></li>
+                                    <li class="ec-footer-link"><a href="terms-condition">Term & condition</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-12 col-lg-3 ec-footer-news">
                         <div class="ec-footer-widget">
-                            <h4 class="ec-footer-heading">Newsletter</h4>
+                            <h4 class="ec-footer-heading">Stay Connected</h4>
                             <div class="ec-footer-links">
                                 <ul class="align-items-center">
-                                    <li class="ec-footer-link">Get instant updates about our new products and special promos!</li>
+                                    <li class="ec-footer-link">Subscribe to explore exclusive collections, bespoke services, and invitations to Louis Vuitton events.</li>
                                 </ul>
                             </div>
                         </div>

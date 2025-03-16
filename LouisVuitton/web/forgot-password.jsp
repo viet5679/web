@@ -101,7 +101,7 @@
                     </form>
 
                     <!-- Hiển thị thông báo từ server -->
-                    <% String message = (String) request.getAttribute("message"); %>
+                    <% String message = (String) request.getAttribute("mess"); %>
                     <% String error = (String) request.getAttribute("error"); %>
 
                     <% if (message != null) { %>

@@ -373,7 +373,7 @@
                         <div class="col-md-12">
                             <div class="gi-card card-default">
                                 <div class="gi-card-content">
-                                    <form action="edit" method="post" class="row g-3" enctype="multipart/form-data" >
+                                    <form class="row g-3" enctype="multipart/form-data">
                                         <div class="row gi-product-uploads">
                                             <div class="col-lg-4 mb-991">
                                                 <div class="gi-vendor-img-upload">
@@ -381,24 +381,24 @@
                                                         <div class="avatar-container">
                                                             <div class="avatar-upload">
                                                                 <div class="avatar-edit">
-                                                                    <input type='file' id="product_main" class="gi-image-upload" accept=".png, .jpg, .jpeg">
+                                                                    <input type='file' id="product_main" class="gi-image-upload" accept=".png, .jpg, .jpeg" name="picture">
                                                                     <label><i class="ri-pencil-line"></i></label>
                                                                 </div>
                                                                 <div class="avatar-preview gi-preview">
                                                                     <div class="imagePreview gi-div-preview">
-                                                                        <img class="gi-image-preview" src="${p.avatar}" alt="edit">
+                                                                        <img class="gi-image-preview" src="${p.avatar == null?'assets/images/product/preview.jpg': p.avatar}" alt="edit">
                                                                     </div>
                                                                 </div>
                                                             </div>
 
                                                             <div class="avatar-upload">
                                                                 <div class="avatar-edit">
-                                                                    <input type='file' id="product_main" class="gi-image-upload" accept=".png, .jpg, .jpeg">
+                                                                    <input type='file' id="product_main" class="gi-image-upload" accept=".png, .jpg, .jpeg" name="picture">
                                                                     <label><i class="ri-pencil-line"></i></label>
                                                                 </div>
                                                                 <div class="avatar-preview gi-preview">
                                                                     <div class="imagePreview gi-div-preview">
-                                                                        <img class="gi-image-preview" src="${p.hoverAvatar}" alt="edit">
+                                                                        <img class="gi-image-preview" src="${p.hoverAvatar == null?'assets/images/product/preview.jpg':p.hoverAvatar}" alt="edit">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -410,7 +410,7 @@
                                                                     <div class="thumb-edit">
                                                                         <input type='file' id="thumbUpload01"
                                                                                class="gi-image-upload"
-                                                                               accept=".png, .jpg, .jpeg">
+                                                                               accept=".png, .jpg, .jpeg" name="picture" value="${i.imagesId}" onchange="document.getElementById('imageIdInput').value = '${i.imagesId}'">
                                                                         <label><i class="ri-pencil-line"></i></label>
                                                                     </div>
                                                                     <div class="thumb-preview gi-preview">
@@ -433,7 +433,7 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <label for="inputEmail4" class="col-12 col-form-label">Product name</label>
-                                                            <input type="text" class="form-control slug-title" id="inputEmail4" value="${p.name}">
+                                                            <input type="text" class="form-control slug-title" id="inputEmail4" value="${p.name}" name="name">
                                                         </div>
                                                         <div class="col-md-6 ">
                                                             <label class="col-12 col-form-label">Select Categories</label>
@@ -464,29 +464,29 @@
                                                     <div class="col-md-6 pt-2">
                                                         <label class="col-12 col-form-label ">Price <span>( In USD
                                                                 )</span></label>
-                                                        <input type="number" class="form-control" id="price1" value="${p.price}">
+                                                        <input type="number" class="form-control" id="price1" value="${p.price}" name="price">
                                                     </div>
                                                     <div class="col-md-6 pt-2">
                                                         <label class="col-12 col-form-label ">Quantity</label>
-                                                        <input type="number" class="form-control" id="quantity1" value="${p.stockQuantity}">
+                                                        <input type="number" class="form-control" id="quantity1" value="${p.stockQuantity}" name="quantity">
                                                     </div>
                                                     <div class="col-md-6  pt-2">
-                                                        <label class="col-12 col-form-label">Offer <span></span></label>
-                                                        <input type="number" class="form-control" id="price1" value="${p.sale}">
+                                                        <label class="col-12 col-form-label">Sale <span></span></label>
+                                                        <input type="number" class="form-control" id="price1" value="${p.sale}" name="sale">
                                                     </div><br/>
+                                                    <input type="hidden" id="imageIdInput" name="imageId" value="">
 
                                                     <div class="col-md-12">
                                                         <button type="submit" class="btn gi-btn-primary">Submit</button>
                                                     </div>
 
-
+                                                    <script>
+                                                        CKEDITOR.replaceAll('ckeditor');
+                                                    </script>
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>    
-                                    <script>
-                                        CKEDITOR.replaceAll('ckeditor');
-                                    </script>
+                                    </form>             
                                 </div>
                             </div>
                         </div>
@@ -647,11 +647,11 @@
         <script src="assets/js/main.js"></script>
 
         <script>
-                                                        CKEDITOR.replace('slug', {
-                                                            removePlugins: 'toolbar,elementspath',
-                                                            resize_enabled: false,
-                                                            enterMode: CKEDITOR.ENTER_BR
-                                                        });
+                                        CKEDITOR.replace('slug', {
+                                            removePlugins: 'toolbar,elementspath',
+                                            resize_enabled: false,
+                                            enterMode: CKEDITOR.ENTER_BR
+                                        });
         </script>
 
     </body>

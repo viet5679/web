@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class UserDAO extends DBContext {
-    
+
     public Users getUserById(int id) {
         String sql = "select * from users where id = ?";
         try {
@@ -23,7 +23,7 @@ public class UserDAO extends DBContext {
         }
         return null;
     }
-    
+
     public Users checkUser(String email, String password) {
         String sql = "SELECT * FROM users WHERE email = ? AND password = ?";
         try {
@@ -42,22 +42,22 @@ public class UserDAO extends DBContext {
     }
 
     public boolean updateUser(Users user) {
-        String sql = "UPDATE users SET name=?, email=?, phone=?, address=?, gender=? WHERE id=?";
+        String sql = "UPDATE Users SET name=?, address=?, email=?, phone=?, gender=?, avatar=? WHERE id=?";
         try {
-            PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setString(1, user.getName());
-            stm.setString(2, user.getEmail());
-            stm.setString(3, user.getPhone());
-            stm.setString(4, user.getAddress());
-            stm.setString(5, user.getGender());
-            stm.setInt(6, user.getId());
-            System.out.println(user.getAddress());
-            System.out.println(user.getGender());
-            int rowsUpdated = stm.executeUpdate();
-            System.out.println(sql);
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, user.getName());
+            stmt.setString(2, user.getAddress());
+            stmt.setString(3, user.getEmail());
+            stmt.setString(4, user.getPhone());
+            stmt.setString(5, user.getGender());
+            stmt.setString(6, user.getAvatar()); // Ảnh từ input ẩn
+            stmt.setInt(7, user.getId());
+
+            int rowsUpdated = stmt.executeUpdate();
+            System.out.println("Rows updated: " + rowsUpdated);
             return rowsUpdated > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // In lỗi SQL ra console
         }
         return false;
     }
