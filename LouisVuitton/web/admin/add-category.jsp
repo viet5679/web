@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>`n<!DOCTYPE html>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <html lang="en" dir="ltr">
 
 
