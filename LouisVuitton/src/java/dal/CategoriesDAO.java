@@ -2,6 +2,8 @@
 package dal;
 
  // @author xu4nvi3t
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -9,9 +11,29 @@ import model.Categories;
 
 
 public class CategoriesDAO extends DBContext{
-    public void insert(){
-        
+    public void insert(Categories c) {
+        String sql = "INSERT INTO [dbo].[categories]\n"
+                + "           ([id]\n"
+                + "           ,[name]\n"
+                + "           ,[status]\n"
+                + "           ,[created_at]\n"
+                + "           ,[updated_at])\n"
+                + "     VALUES\n"
+                + "           (?\n"
+                + "           ,?\n"
+                + "           ,1\n"
+                + "           ,getdate()\n"
+                + "           ,getdate())";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, c.getId());
+            ps.setString(2, c.getName());
+            ps.executeUpdate();
+        } catch (Exception e) {
+                e.printStackTrace();
+        }
     }
+
         
     public ArrayList<Categories> getAllCategory() {
         ArrayList<Categories> listCategory = new ArrayList<>();

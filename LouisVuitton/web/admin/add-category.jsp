@@ -340,9 +340,9 @@
             </div>
 
             <!-- main content -->
-            <div class="gi-main-content">
+             <div class="gi-main-content">
                 <div class="container-fluid">
-                    <!-- Page title & breadcrumb -->
+                    
                     <div class="gi-page-title gi-page-title-2">
                         <div class="gi-breadcrumb">
                             <h5>Category</h5>
@@ -360,43 +360,59 @@
                                         <div class="gi-card-content">
                                             <div class="gi-cat-form">
                                                 <h3>Add New Category</h3>
-
-                                                <form>
-                                                    <div class="form-group">
-                                                        <label>Id</label>
-                                                        <div class="col-12">
-                                                            <input id="text" name="text"
-                                                                   class="form-control here slug-title" type="text" >
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label>Name</label>
-                                                        <div class="col-12">
-                                                            <input id="text" name="text"
-                                                                   class="form-control here slug-title" type="text" name="">
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="row">
-                                                        <div class="col-12 d-flex">
-                                                            <button type="submit" class="gi-btn-primary">Submit</button>
-                                                        </div>
-                                                    </div>
-
-                                                </form>
-
+                                                    <form action="categories" method="POST">                                               
+                                                       <div class="form-group">
+                                                           <label for="id">Id</label>
+                                                           <div class="col-12">
+                                                               <input id="id" name="id" class="form-control here slug-title" type="text" value="${requestScope.id}" readonly />
+                                                           </div>
+                                                       </div>
+                                                       <div class="form-group">
+                                                           <label for="name">Name</label>
+                                                           <div class="col-12">
+                                                               <input id="name" name="name" class="form-control here slug-title" type="text" required />
+                                                           </div>
+                                                       </div>
+                                                       <div class="form-group">
+                                                           <div class="col-12">
+                                                               <button type="submit" class="btn btn-primary">Submit</button>
+                                                           </div>
+                                                       </div>
+                                                   </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
+
+            
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    
+                    document.querySelector('form').addEventListener('submit', function (event) {
+                        event.preventDefault();  
+
+                        Swal.fire({
+                            title: "Are you sure?",
+                            text: "You are about to submit this form.",
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#3085d6",
+                            cancelButtonColor: "#d33",
+                            confirmButtonText: "Yes, Submit!"
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                
+                                this.submit();  
+                            }
+                        });
+                    });
+                });
+            </script>
 
             <!-- Footer -->
             <footer>
