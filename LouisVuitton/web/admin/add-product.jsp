@@ -1,9 +1,6 @@
-
-
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-
 <html lang="en" dir="ltr">
 
 
@@ -36,6 +33,27 @@
 
         <!-- Main CSS -->
         <link id="main-css" href="assets/css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
+        <style>
+            .avatar-container {
+                display: flex;
+                gap: 20px; /* Khoảng cách giữa hai ảnh */
+                justify-content: center; /* Canh giữa */
+                align-items: center;
+            }
+
+            .avatar-upload {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .gi-image-preview {
+                width: 250px; /* Điều chỉnh kích thước ảnh */
+                height: 250px;
+                object-fit: cover;
+            }
+        </style>
 
     </head>
 
@@ -350,11 +368,11 @@
                             </ul>
                         </div>
                     </div>
+                    <c:set var="p" value="${requestScope.pro}"/>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="gi-card card-default">
                                 <div class="gi-card-content">
-                                    <<<<<<< HEAD
                                     <form action="add" method="post" class="row g-3" enctype="multipart/form-data" >
                                         <div class="row gi-product-uploads">
                                             <div class="col-lg-4 mb-991">
@@ -478,6 +496,8 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -559,267 +579,173 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-8">
-                                            <div class="gi-vendor-upload-detail">
-                                                <form class="row g-3">
-                                                    <div class="col-md-6">
-                                                        <label for="inputEmail4" class="form-label">Product name</label>
-                                                        <input type="text" class="form-control slug-title" id="inputEmail4">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label class="form-label">Select Categories</label>
-                                                        <select class="form-control form-select">
-                                                            <optgroup label="Fashion">
-                                                                <option value="t-shirt">T-shirt</option>
-                                                                <option value="dress">Dress</option>
-                                                            </optgroup>
-                                                            <optgroup label="Furniture">
-                                                                <option value="table">Table</option>
-                                                                <option value="sofa">Sofa</option>
-                                                            </optgroup>
-                                                            <optgroup label="Electronic">
-                                                                <option value="phone">I Phone</option>
-                                                                <option value="laptop">Laptop</option>
-                                                            </optgroup>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <label for="slug" class="col-12 col-form-label">Slug</label> 
-                                                        <div class="col-12">
-                                                            <input id="slug" name="slug" class="form-control here set-slug" type="text">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <label class="form-label">Sort Description</label>
-                                                        <textarea class="form-control" rows="2"></textarea>
-                                                    </div>
-                                                    <div class="col-md-4 mb-25">
-                                                        <label class="form-label color-label">Colors</label>
-                                                        <input type="color" class="form-control form-control-color"
-                                                               id="exampleColorInput1" value="#ff6191"
-                                                               title="Choose your color">
-                                                        <input type="color" class="form-control form-control-color"
-                                                               id="exampleColorInput2" value="#33317d"
-                                                               title="Choose your color">
-                                                        <input type="color" class="form-control form-control-color"
-                                                               id="exampleColorInput3" value="#56d4b7"
-                                                               title="Choose your color">
-                                                        <input type="color" class="form-control form-control-color"
-                                                               id="exampleColorInput4" value="#009688"
-                                                               title="Choose your color">
-                                                    </div>
-                                                    <div class="col-md-8 mb-25">
-                                                        <label class="form-label">Size</label>
-                                                        <div class="form-checkbox-box">
-                                                            <div class="form-check form-check-inline">
-                                                                <input type="checkbox" name="size1" value="size">
-                                                                <label>S</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input type="checkbox" name="size1" value="size">
-                                                                <label>M</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input type="checkbox" name="size1" value="size">
-                                                                <label>L</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input type="checkbox" name="size1" value="size">
-                                                                <label>XL</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input type="checkbox" name="size1" value="size">
-                                                                <label>XXL</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label class="form-label">Price <span>( In USD
-                                                                )</span></label>
-                                                        <input type="number" class="form-control" id="price1">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label class="form-label">Quantity</label>
-                                                        <input type="number" class="form-control" id="quantity1">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <label class="form-label">Ful Detail</label>
-                                                        <textarea class="form-control" rows="4"></textarea>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <label class="form-label">Product Tags <span>( Type and
-                                                                make comma to separate tags )</span></label>
-                                                        <input type="text" class="form-control" id="group_tag"
-                                                               name="group_tag" value="" placeholder=""
-                                                               data-role="tagsinput">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <button type="submit" class="btn gi-btn-primary">Submit</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
+                                    </form>    
+                                    <script>
+                                        CKEDITOR.replaceAll('ckeditor');
+                                    </script>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Footer -->
-        <footer>
-            <div class="container-fluid">
-                <div class="copyright">
-                    <p><span id="copyright_year"></span> © Grabit, All rights Reserved.</p>
-                    <p>Design by MaraviyaInfotech.</p>
+            <!-- Footer -->
+            <footer>
+                <div class="container-fluid">
+                    <div class="copyright">
+                        <p><span id="copyright_year"></span> © Grabit, All rights Reserved.</p>
+                        <p>Design by MaraviyaInfotech.</p>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- Feature tools -->
+            <div class="gi-tools-sidebar-overlay"></div>
+            <div class="gi-tools-sidebar">
+                <a href="javascript:void(0)" class="gi-tools-sidebar-toggle in-out">
+                    <i class="ri-settings-4-line"></i>
+                </a>
+                <div class="gi-bar-title">
+                    <h6>Tools</h6>
+                    <a href="javascript:void(0)" class="close-tools"><i class="ri-close-line"></i></a>
+                </div>
+                <div class="gi-tools-detail">
+                    <div class="gi-tools-block">
+                        <h3>Modes</h3>
+                        <div class="gi-tools-info">
+                            <div class="gi-tools-item mode active" data-gi-mode-tool="light">
+                                <img src="assets/img/tools/light.png" alt="light">
+                                <p>light</p>
+                            </div>
+                            <div class="gi-tools-item mode" data-gi-mode-tool="dark">
+                                <img src="assets/img/tools/dark.png" alt="dark">
+                                <p>dark</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gi-tools-block">
+                        <h3>Sidebar</h3>
+                        <div class="gi-tools-info">
+                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="light">
+                                <img src="assets/img/tools/side-light.png" alt="light">
+                                <p>light</p>
+                            </div>
+                            <div class="gi-tools-item sidebar active" data-sidebar-mode-tool="dark">
+                                <img src="assets/img/tools/side-dark.png" alt="dark">
+                                <p>dark</p>
+                            </div>
+                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-1">
+                                <img src="assets/img/tools/side-bg-1.png" alt="background">
+                                <p>Bg-1</p>
+                            </div>
+                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-2">
+                                <img src="assets/img/tools/side-bg-2.png" alt="background">
+                                <p>Bg-2</p>
+                            </div>
+                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-3">
+                                <img src="assets/img/tools/side-bg-3.png" alt="background">
+                                <p>Bg-3</p>
+                            </div>
+                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-4">
+                                <img src="assets/img/tools/side-bg-4.png" alt="background">
+                                <p>Bg-4</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gi-tools-block">
+                        <h3>Header</h3>
+                        <div class="gi-tools-info">
+                            <div class="gi-tools-item header active" data-header-mode="light">
+                                <img src="assets/img/tools/header-light.png" alt="light">
+                                <p>light</p>
+                            </div>
+                            <div class="gi-tools-item header" data-header-mode="dark">
+                                <img src="assets/img/tools/header-dark.png" alt="dark">
+                                <p>dark</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gi-tools-block">
+                        <h3>Backgrounds</h3>
+                        <div class="gi-tools-info">
+                            <div class="gi-tools-item bg active" data-bg-mode="default">
+                                <img src="assets/img/tools/bg-0.png" alt="default">
+                                <p>Default</p>
+                            </div>
+                            <div class="gi-tools-item bg" data-bg-mode="bg-1">
+                                <img src="assets/img/tools/bg-1.png" alt="bg-1">
+                                <p>Bg-1</p>
+                            </div>
+                            <div class="gi-tools-item bg" data-bg-mode="bg-2">
+                                <img src="assets/img/tools/bg-2.png" alt="bg-2">
+                                <p>Bg-2</p>
+                            </div>
+                            <div class="gi-tools-item bg" data-bg-mode="bg-3">
+                                <img src="assets/img/tools/bg-3.png" alt="bg-3">
+                                <p>Bg-3</p>
+                            </div>
+                            <div class="gi-tools-item bg" data-bg-mode="bg-4">
+                                <img src="assets/img/tools/bg-4.png" alt="bg-4">
+                                <p>Bg-4</p>
+                            </div>
+                            <div class="gi-tools-item bg" data-bg-mode="bg-5">
+                                <img src="assets/img/tools/bg-5.png" alt="bg-5">
+                                <p>Bg-5</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gi-tools-block">
+                        <h3>Box Design</h3>
+                        <div class="gi-tools-info">
+                            <div class="gi-tools-item box active" data-box-mode-tool="default">
+                                <img src="assets/img/tools/box-0.png" alt="default">
+                                <p>Default</p>
+                            </div>
+                            <div class="gi-tools-item box" data-box-mode-tool="box-1">
+                                <img src="assets/img/tools/box-1.png" alt="box-1">
+                                <p>Box-1</p>
+                            </div>
+                            <div class="gi-tools-item box" data-box-mode-tool="box-2">
+                                <img src="assets/img/tools/box-2.png" alt="box-2">
+                                <p>Box-2</p>
+                            </div>
+                            <div class="gi-tools-item box" data-box-mode-tool="box-3">
+                                <img src="assets/img/tools/box-3.png" alt="box-3">
+                                <p>Box-3</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </footer>
+        </main>
 
-        <!-- Feature tools -->
-        <div class="gi-tools-sidebar-overlay"></div>
-        <div class="gi-tools-sidebar">
-            <a href="javascript:void(0)" class="gi-tools-sidebar-toggle in-out">
-                <i class="ri-settings-4-line"></i>
-            </a>
-            <div class="gi-bar-title">
-                <h6>Tools</h6>
-                <a href="javascript:void(0)" class="close-tools"><i class="ri-close-line"></i></a>
-            </div>
-            <div class="gi-tools-detail">
-                <div class="gi-tools-block">
-                    <h3>Modes</h3>
-                    <div class="gi-tools-info">
-                        <div class="gi-tools-item mode active" data-gi-mode-tool="light">
-                            <img src="assets/img/tools/light.png" alt="light">
-                            <p>light</p>
-                        </div>
-                        <div class="gi-tools-item mode" data-gi-mode-tool="dark">
-                            <img src="assets/img/tools/dark.png" alt="dark">
-                            <p>dark</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="gi-tools-block">
-                    <h3>Sidebar</h3>
-                    <div class="gi-tools-info">
-                        <div class="gi-tools-item sidebar" data-sidebar-mode-tool="light">
-                            <img src="assets/img/tools/side-light.png" alt="light">
-                            <p>light</p>
-                        </div>
-                        <div class="gi-tools-item sidebar active" data-sidebar-mode-tool="dark">
-                            <img src="assets/img/tools/side-dark.png" alt="dark">
-                            <p>dark</p>
-                        </div>
-                        <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-1">
-                            <img src="assets/img/tools/side-bg-1.png" alt="background">
-                            <p>Bg-1</p>
-                        </div>
-                        <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-2">
-                            <img src="assets/img/tools/side-bg-2.png" alt="background">
-                            <p>Bg-2</p>
-                        </div>
-                        <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-3">
-                            <img src="assets/img/tools/side-bg-3.png" alt="background">
-                            <p>Bg-3</p>
-                        </div>
-                        <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-4">
-                            <img src="assets/img/tools/side-bg-4.png" alt="background">
-                            <p>Bg-4</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="gi-tools-block">
-                    <h3>Header</h3>
-                    <div class="gi-tools-info">
-                        <div class="gi-tools-item header active" data-header-mode="light">
-                            <img src="assets/img/tools/header-light.png" alt="light">
-                            <p>light</p>
-                        </div>
-                        <div class="gi-tools-item header" data-header-mode="dark">
-                            <img src="assets/img/tools/header-dark.png" alt="dark">
-                            <p>dark</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="gi-tools-block">
-                    <h3>Backgrounds</h3>
-                    <div class="gi-tools-info">
-                        <div class="gi-tools-item bg active" data-bg-mode="default">
-                            <img src="assets/img/tools/bg-0.png" alt="default">
-                            <p>Default</p>
-                        </div>
-                        <div class="gi-tools-item bg" data-bg-mode="bg-1">
-                            <img src="assets/img/tools/bg-1.png" alt="bg-1">
-                            <p>Bg-1</p>
-                        </div>
-                        <div class="gi-tools-item bg" data-bg-mode="bg-2">
-                            <img src="assets/img/tools/bg-2.png" alt="bg-2">
-                            <p>Bg-2</p>
-                        </div>
-                        <div class="gi-tools-item bg" data-bg-mode="bg-3">
-                            <img src="assets/img/tools/bg-3.png" alt="bg-3">
-                            <p>Bg-3</p>
-                        </div>
-                        <div class="gi-tools-item bg" data-bg-mode="bg-4">
-                            <img src="assets/img/tools/bg-4.png" alt="bg-4">
-                            <p>Bg-4</p>
-                        </div>
-                        <div class="gi-tools-item bg" data-bg-mode="bg-5">
-                            <img src="assets/img/tools/bg-5.png" alt="bg-5">
-                            <p>Bg-5</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="gi-tools-block">
-                    <h3>Box Design</h3>
-                    <div class="gi-tools-info">
-                        <div class="gi-tools-item box active" data-box-mode-tool="default">
-                            <img src="assets/img/tools/box-0.png" alt="default">
-                            <p>Default</p>
-                        </div>
-                        <div class="gi-tools-item box" data-box-mode-tool="box-1">
-                            <img src="assets/img/tools/box-1.png" alt="box-1">
-                            <p>Box-1</p>
-                        </div>
-                        <div class="gi-tools-item box" data-box-mode-tool="box-2">
-                            <img src="assets/img/tools/box-2.png" alt="box-2">
-                            <p>Box-2</p>
-                        </div>
-                        <div class="gi-tools-item box" data-box-mode-tool="box-3">
-                            <img src="assets/img/tools/box-3.png" alt="box-3">
-                            <p>Box-3</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+        <!-- Vendor Custom -->
+        <script src="assets/js/vendor/jquery-3.6.4.min.js"></script>
+        <script src="assets/js/vendor/simplebar.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/vendor/apexcharts.min.js"></script>
+        <script src="assets/js/vendor/bootstrap-tagsinput.js"></script>
+        <script src="assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+        <!-- Data Tables -->
+        <script src='assets/js/vendor/jquery.datatables.min.js'></script>
+        <script src='assets/js/vendor/datatables.bootstrap5.min.js'></script>
+        <script src='assets/js/vendor/datatables.responsive.min.js'></script>
+        <!-- Caleddar -->
+        <script src="assets/js/vendor/jquery.simple-calendar.js"></script>
+        <!-- Date Range Picker -->
+        <script src="assets/js/vendor/moment.min.js"></script>
+        <script src="assets/js/vendor/daterangepicker.js"></script>
+        <script src="assets/js/vendor/date-range.js"></script>
 
-    <!-- Vendor Custom -->
-    <script src="assets/js/vendor/jquery-3.6.4.min.js"></script>
-    <script src="assets/js/vendor/simplebar.min.js"></script>
-    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/vendor/apexcharts.min.js"></script>
-    <script src="assets/js/vendor/bootstrap-tagsinput.js"></script>
-    <script src="assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
-    <!-- Data Tables -->
-    <script src='assets/js/vendor/jquery.datatables.min.js'></script>
-    <script src='assets/js/vendor/datatables.bootstrap5.min.js'></script>
-    <script src='assets/js/vendor/datatables.responsive.min.js'></script>
-    <!-- Caleddar -->
-    <script src="assets/js/vendor/jquery.simple-calendar.js"></script>
-    <!-- Date Range Picker -->
-    <script src="assets/js/vendor/moment.min.js"></script>
-    <script src="assets/js/vendor/daterangepicker.js"></script>
-    <script src="assets/js/vendor/date-range.js"></script>
-
-    <!-- Main Custom -->
-    <script src="assets/js/main.js"></script>
-</body>
+        <!-- Main Custom -->
+        <script src="assets/js/main.js"></script>
 
 
-<!-- Mirrored from maraviyainfotech.com/wrapbootstrap/grabit-html/admin-html/add-product.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Mar 2025 14:25:41 GMT -->
+
+    </body>
+
+
+    <!-- Mirrored from maraviyainfotech.com/wrapbootstrap/grabit-html/admin-html/add-product.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Mar 2025 14:25:41 GMT -->
 </html>
