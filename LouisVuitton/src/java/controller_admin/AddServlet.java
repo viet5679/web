@@ -78,7 +78,7 @@ public class AddServlet extends HttpServlet {
 
         CategoriesDAO cd = new CategoriesDAO();
         ProductsDAO pd = new ProductsDAO();
-        List<Products> list = pd.getAll();
+        List<Products> list = pd.getAllProductInAdmin();
         int id = nextIdProduct(list);
         List<Categories> listC = cd.getAllCategory();
         request.setAttribute("id", id);

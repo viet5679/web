@@ -1,4 +1,6 @@
-<%@ page contentType="text/html; charset=UTF-8" %>`n<!DOCTYPE html>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 
@@ -31,6 +33,10 @@
 
         <!-- Main CSS -->
         <link id="main-css" href="assets/css/style.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     </head>
 
@@ -372,164 +378,49 @@
                                                 <thead>
                                                     <tr>
                                                         <th>ID</th>
-                                                        <th>Product</th>
+                                                        <th>Email</th>
                                                         <th>Customer</th>
-                                                        <th>Amount</th>
+                                                        <th>Total Amount</th>
                                                         <th>Quantity</th>
-                                                        <th>stock</th>
                                                         <th>Status</th>
                                                         <th>Address</th>
+                                                        <th>Action</th> <!-- Thêm cột Action -->
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td class="token">#fx2650</td>
-                                                        <td><img class="cat-thumb" src="assets/img/product/1.jpg"
-                                                                 alt="clients Image"><span class="name">Mens t-shirt</span>
-                                                        </td>
-                                                        <td>Avira Venusio</td>
-                                                        <td>$15</td>
-                                                        <td>4</td>
-                                                        <td>65</td>
-                                                        <td class="cod">COD</td>
-                                                        <td>24, Lorem Ipsum, the printing, typesetting industry.</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">#fx2650</td>
-                                                        <td><img class="cat-thumb" src="assets/img/product/2.jpg"
-                                                                 alt="clients Image"><span class="name">Sofa chair</span>
-                                                        </td>
-                                                        <td>Zara nails</td>
-                                                        <td>$52</td>
-                                                        <td>2</td>
-                                                        <td>658</td>
-                                                        <td class="pending">Pending</td>
-                                                        <td>A-568, Lorem Ipsum, the printing, typesetting industry.</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">#fx2365</td>
-                                                        <td><img class="cat-thumb" src="assets/img/product/3.jpg"
-                                                                 alt="clients Image"><span class="name">Night Lamp</span>
-                                                        </td>
-                                                        <td>Olive Yew</td>
-                                                        <td>$69</td>
-                                                        <td>1</td>
-                                                        <td>987</td>
-                                                        <td class="wallet">wallet</td>
-                                                        <td>32-b, Lorem Ipsum, the printing, typesetting industry.</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">#fx2205</td>
-                                                        <td><img class="cat-thumb" src="assets/img/product/4.jpg"
-                                                                 alt="clients Image"><span class="name">Mens hoodie</span>
-                                                        </td>
-                                                        <td>Allie Grater</td>
-                                                        <td>$49</td>
-                                                        <td>3</td>
-                                                        <td>458</td>
-                                                        <td class="paid">Paid</td>
-                                                        <td>857, Lorem Ipsum, the printing, typesetting industry.</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">#fx2187</td>
-                                                        <td><img class="cat-thumb" src="assets/img/product/5.jpg"
-                                                                 alt="clients Image"><span class="name">Digital Watch</span>
-                                                        </td>
-                                                        <td>Stanley Knife</td>
-                                                        <td>$559</td>
-                                                        <td>2</td>
-                                                        <td>857</td>
-                                                        <td class="cod">COD</td>
-                                                        <td>65-D, Lorem Ipsum, the printing, typesetting industry.</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">#fx2050</td>
-                                                        <td><img class="cat-thumb" src="assets/img/product/6.jpg"
-                                                                 alt="clients Image"><span class="name">DSLR Camera.</span>
-                                                        </td>
-                                                        <td>Nick Carlet</td>
-                                                        <td>$1546</td>
-                                                        <td>1</td>
-                                                        <td>857</td>
-                                                        <td class="wallet">Wallet</td>
-                                                        <td>1/ab, Lorem Ipsum, the printing, typesetting industry.</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">#fx1995</td>
-                                                        <td><img class="cat-thumb" src="assets/img/product/7.jpg"
-                                                                 alt="clients Image"><span class="name">Head phone</span>
-                                                        </td>
-                                                        <td>Moris Nency</td>
-                                                        <td>$525</td>
-                                                        <td>1</td>
-                                                        <td>54</td>
-                                                        <td class="paid">Paid</td>
-                                                        <td>985, Lorem Ipsum, the printing, typesetting industry.</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">#fx1985</td>
-                                                        <td><img class="cat-thumb" src="assets/img/product/8.jpg"
-                                                                 alt="clients Image"><span class="name">Camera Dron</span>
-                                                        </td>
-                                                        <td>Wiley Waites</td>
-                                                        <td>$1255</td>
-                                                        <td>1</td>
-                                                        <td>658</td>
-                                                        <td class="paid">Paid</td>
-                                                        <td>265, Lorem Ipsum, the printing, typesetting industry.</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">#fx1945</td>
-                                                        <td><img class="cat-thumb" src="assets/img/product/9.jpg"
-                                                                 alt="clients Image"><span class="name">Drill machine</span>
-                                                        </td>
-                                                        <td>Sarah Moanees</td>
-                                                        <td>$684</td>
-                                                        <td>4</td>
-                                                        <td>754</td>
-                                                        <td class="pending">pending</td>
-                                                        <td>265, Lorem Ipsum, the printing, typesetting industry.</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">#fx1865</td>
-                                                        <td><img class="cat-thumb" src="assets/img/product/10.jpg"
-                                                                 alt="clients Image"><span class="name">Camera Dron</span>
-                                                        </td>
-                                                        <td>Anne Ortha</td>
-                                                        <td>$854</td>
-                                                        <td>12</td>
-                                                        <td>985</td>
-                                                        <td class="cod">COD</td>
-                                                        <td>AB-1, Lorem Ipsum, the printing, typesetting industry.</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">#fx1945</td>
-                                                        <td><img class="cat-thumb" src="assets/img/product/5.jpg"
-                                                                 alt="clients Image"><span class="name">Drill machine</span>
-                                                        </td>
-                                                        <td>John dolittle</td>
-                                                        <td>$56</td>
-                                                        <td>3</td>
-                                                        <td>65</td>
-                                                        <td class="pending">pending</td>
-                                                        <td>58, Lorem Ipsum, the printing, typesetting industry.</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">#fx1865</td>
-                                                        <td><img class="cat-thumb" src="assets/img/product/6.jpg"
-                                                                 alt="clients Image"><span class="name">Camera Dron</span>
-                                                        </td>
-                                                        <td>Marsel Wilson</td>
-                                                        <td>$754</td>
-                                                        <td>6</td>
-                                                        <td>857</td>
-                                                        <td class="paid">paid</td>
-                                                        <td>z-zone 1/e, Lorem Ipsum, the printing, typesetting industry.
-                                                        </td>
-                                                    </tr>
+                                                    <c:forEach var="o" items="${requestScope.listO}">
+                                                        <tr>
+                                                            <td class="token">#${o.id}</td>
+                                                            <td><img class="cat-thumb" src="${o.user.avatar}" alt="clients Image">
+                                                                <span class="name">${c.user.email}</span>
+                                                            </td>
+                                                            <td>${o.name}</td>
+                                                            <td>${o.totalPrice}</td>
+                                                            <td>${o.totalProduct}</td>
+                                                            <td class="cod">${o.status}</td>
+                                                            <td>${c.address}</td>
+
+                                                            <td>
+                                                                <button class="btn btn-sm btn-secondary invoice-btn">
+                                                                    <i class="fa fa-file-invoice"></i> <!-- Icon hóa đơn -->
+                                                                </button>
+                                                                <div class="dropdown-menu invoice-options">
+                                                                    <button class="dropdown-item accept-btn">✔ Accept</button>
+                                                                    <button class="dropdown-item reject-btn">✖ Reject</button>
+                                                                </div>
+                                                                <button class="btn btn-sm btn-primary" onclick="window.location.href = 'invoice.jsp'">
+                                                                    <i class="fa fa-eye"></i>
+                                                                </button>
+                                                            </td>
+
+
+                                                            </td> <!-- Nút xem chi tiết -->
+                                                        </tr>
+                                                    </c:forEach>
                                                 </tbody>
                                             </table>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -688,6 +579,63 @@
 
         <!-- Main Custom -->
         <script src="assets/js/main.js"></script>
+        <script>
+                                                                    document.addEventListener("DOMContentLoaded", function () {
+                                                                        document.querySelectorAll(".invoice-btn").forEach(button => {
+                                                                            button.addEventListener("click", function (event) {
+                                                                                event.stopPropagation();
+                                                                                let menu = this.nextElementSibling;
+                                                                                document.querySelectorAll(".invoice-options").forEach(m => {
+                                                                                    if (m !== menu)
+                                                                                        m.style.display = "none";
+                                                                                });
+                                                                                menu.style.display = menu.style.display === "block" ? "none" : "block";
+                                                                            });
+                                                                        });
+
+                                                                        document.addEventListener("click", function () {
+                                                                            document.querySelectorAll(".invoice-options").forEach(menu => {
+                                                                                menu.style.display = "none";
+                                                                            });
+                                                                        });
+
+                                                                        // Xử lý Accept
+                                                                        document.querySelectorAll(".accept-btn").forEach(button => {
+                                                                            button.addEventListener("click", function () {
+                                                                                Swal.fire({
+                                                                                    title: "Order Accepted!",
+                                                                                    text: "This order has been successfully accepted.",
+                                                                                    icon: "success",
+                                                                                    confirmButtonText: "OK"
+                                                                                });
+                                                                            });
+                                                                        });
+
+                                                                        // Xử lý Reject
+                                                                        document.querySelectorAll(".reject-btn").forEach(button => {
+                                                                            button.addEventListener("click", function () {
+                                                                                Swal.fire({
+                                                                                    title: "Reject Order?",
+                                                                                    text: "Are you sure you want to reject this order?",
+                                                                                    icon: "warning",
+                                                                                    showCancelButton: true,
+                                                                                    confirmButtonColor: "#d33",
+                                                                                    cancelButtonColor: "#3085d6",
+                                                                                    confirmButtonText: "Yes, reject it!"
+                                                                                }).then((result) => {
+                                                                                    if (result.isConfirmed) {
+                                                                                        Swal.fire(
+                                                                                                "Rejected!",
+                                                                                                "The order has been rejected.",
+                                                                                                "error"
+                                                                                                );
+                                                                                    }
+                                                                                });
+                                                                            });
+                                                                        });
+                                                                    });
+
+        </script>
     </body>
 
 

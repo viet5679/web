@@ -5,7 +5,7 @@
 
 package controller_admin;
 
-import dal.ProductsDAO;
+import dal.OrderDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -14,14 +14,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
-import model.Products;
+import model.Orders;
 
 /**
  *
  * @author vuhuu
  */
-@WebServlet(name="ProductManagerServlet", urlPatterns={"/admin/pmanager"})
-public class ProductManagerServlet extends HttpServlet {
+@WebServlet(name="OrderListServlet", urlPatterns={"admin/order"})
+public class OrderListServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -38,10 +38,10 @@ public class ProductManagerServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProductManagerServlet</title>");  
+            out.println("<title>Servlet OrderListServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProductManagerServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet OrderListServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,13 +58,11 @@ public class ProductManagerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        ProductsDAO pd = new ProductsDAO();
-        List<Products> listP = pd.getAllProductInAdmin();
-        for (Products products : listP) {
-            System.out.println(products.getId());
-        }
-        request.setAttribute("listP", listP);
-        request.getRequestDispatcher("product-list.jsp").forward(request, response);
+        OrderDAO od = new OrderDAO();
+        List<Orders> listO = od.getAllO();
+        request.setAttribute("listO", listO);
+        request.getRequestDispatcher("order-list.jsp").forward(request, response);
+        
     } 
 
     /** 

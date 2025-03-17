@@ -5,8 +5,37 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import model.Orders;
+import model.Users;
 
 public class OrderDAO extends DBContext {
+
+    public List<Orders> getAllO() {
+        List<Orders> list = new ArrayList();
+        String sql = "select * from orders";
+        UserDAO ud = new UserDAO();
+        try {
+
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Orders od = new Orders();
+                od.setId(rs.getInt(1));
+                Users us = ud.getUserById(rs.getInt(2));
+                od.setUser(us);
+                od.setTotalPrice(rs.getDouble(3));
+                od.setTotalProduct(rs.getInt(4));
+                od.setStatus(rs.getString(5));
+                od.setName(rs.getString(6));
+                od.setPhone(rs.getString(7));
+                od.setAddress(rs.getString(8));
+                od.setComments(rs.getString(9));
+                list.add(od);
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    
 
     // Thêm đơn hàng vào bảng orders
     public int addOrder(Orders order) throws SQLException {
@@ -94,17 +123,17 @@ public class OrderDAO extends DBContext {
         }
         return null;
     }
-    
+
     public void updateOrderStatus(int orderId, String status) throws SQLException {
-    String sql = "UPDATE orders SET status = ? WHERE id = ?";
-    try {
-        PreparedStatement ps = connection.prepareStatement(sql);
-        ps.setString(1, status);
-        ps.setInt(2, orderId);
-        ps.executeUpdate();
-    }catch(SQLException e){
-        e.printStackTrace();
+        String sql = "UPDATE orders SET status = ? WHERE id = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, status);
+            ps.setInt(2, orderId);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
-}
 
 }

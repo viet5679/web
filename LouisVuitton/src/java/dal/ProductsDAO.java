@@ -17,6 +17,23 @@ import model.Products;
 
 public class ProductsDAO extends DBContext {
 
+    public List<Products> getAllProductInAdmin() {
+        List<Products> list = new ArrayList();
+        String sql = "select * from products";
+        CategoriesDAO ca = new CategoriesDAO();
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Products pro = new Products(rs.getInt(1), ca.getCategoryById(rs.getInt(2)), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getInt(9), rs.getInt(10), rs.getInt(11), rs.getInt(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getDouble(16), rs.getDouble(17), rs.getDouble(18), rs.getString(19));
+                list.add(pro);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+
     //update stutas
     public boolean updateStatus(int productId) {
         String sql = "UPDATE products SET status = 0 WHERE id = ?";
@@ -174,7 +191,7 @@ public class ProductsDAO extends DBContext {
 
     public List<Products> getAll() {
         List<Products> list = new ArrayList();
-        String sql = "select * from products";
+        String sql = "select * from products where status = 1";
         CategoriesDAO ca = new CategoriesDAO();
         try {
             PreparedStatement st = connection.prepareStatement(sql);
@@ -189,13 +206,21 @@ public class ProductsDAO extends DBContext {
         return list;
     }
 
+    public static void main(String[] args) {
+        ProductsDAO pd = new ProductsDAO();
+        List<Products> list = pd.getAll();
+        for (Products products : list) {
+            System.out.println(products.getId());
+        }
+    }
+
     public List<Products> getProductsByFilder(List<Integer> gid, List<Integer> cid, List<Integer> sid, Double price_low, Double price_high) {
         List<Products> list = new ArrayList();
         String sql = " SELECT \n"
                 + "   *\n"
                 + "FROM products p\n"
                 + "LEFT JOIN product_sizes ps ON p.id = ps.product_id\n"
-                + "LEFT JOIN product_gender pg ON p.id = pg.product_id where 1 = 1";
+                + "LEFT JOIN product_gender pg ON p.id = pg.product_id where 1 = 1 and status = 1";
         if (!gid.isEmpty()) {
             sql += " AND gender_id IN (" + gid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
         }
@@ -338,7 +363,7 @@ public class ProductsDAO extends DBContext {
         if (connection != null) {
             try {
                 String sqlQuery = "SELECT TOP 8 * FROM products\n"
-                        + "WHERE 1=1\n"
+                        + "WHERE 1=1 and status = 1\n"
                         + "ORDER BY total_sold DESC;";
                 PreparedStatement stm = connection.prepareStatement(sqlQuery);
                 ResultSet res = stm.executeQuery();
@@ -420,7 +445,7 @@ public class ProductsDAO extends DBContext {
         CategoriesDAO cg = new CategoriesDAO();
         if (connection != null) {
             try {
-                StringBuilder sql = new StringBuilder("SELECT TOP 12 p.* FROM products p JOIN product_gender pg ON p.id = pg.product_id WHERE 1=1");
+                StringBuilder sql = new StringBuilder("SELECT TOP 12 p.* FROM products p JOIN product_gender pg ON p.id = pg.product_id WHERE 1=1 and status = 1");
                 if (gender_id != 0) {
                     sql.append(" AND pg.gender_id = ").append(gender_id);
                 } else {

@@ -53,6 +53,62 @@
                 height: 250px;
                 object-fit: cover;
             }
+
+            /* Nút dấu cộng */
+            .add-thumb {
+                width: 60px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                background-color: #7bc043; /* Xanh lá */
+                color: white;
+                font-size: 30px;
+                cursor: pointer;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease-in-out;
+            }
+
+            .add-thumb:hover {
+                background-color: #6aa634;
+            }
+
+            /* Đặt dấu cộng ở giữa dòng cuối */
+            .thumb-upload-container::after {
+                content: "";
+                flex: auto;
+            }
+
+            .thumb-upload-set {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center; /* Căn giữa thay vì chạy từ trái */
+                gap: 10px; /* Tạo khoảng cách đều giữa các ảnh */
+                max-width: 450px; /* Điều chỉnh theo giao diện */
+                margin: 0 auto; /* Giữ vị trí giữa trang */
+            }
+
+            .thumb-remove {
+                position: absolute;
+                top: 5px;  /* Đưa lên cao hơn */
+                left: 5px; /* Đảm bảo nằm sát góc trái */
+                width: 30px;
+                height: 30px;
+                background-color: white;
+                border-radius: 50%;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                z-index: 10;
+            }
+
+            .thumb-remove i {
+                font-size: 18px;
+                color: red; /* Chuyển màu đỏ */
+            }
         </style>
 
     </head>
@@ -373,55 +429,68 @@
                         <div class="col-md-12">
                             <div class="gi-card card-default">
                                 <div class="gi-card-content">
-                                    <form class="row g-3" enctype="multipart/form-data">
+                                    <form action="edit" method="post" class="row g-3" enctype="multipart/form-data">
                                         <div class="row gi-product-uploads">
                                             <div class="col-lg-4 mb-991">
                                                 <div class="gi-vendor-img-upload">
+
                                                     <div class="gi-vendor-main-img">
                                                         <div class="avatar-container">
                                                             <div class="avatar-upload">
-                                                                <div class="avatar-edit">
-                                                                    <input type='file' id="product_main" class="gi-image-upload" accept=".png, .jpg, .jpeg" name="picture">
-                                                                    <label><i class="ri-pencil-line"></i></label>
-                                                                </div>
+                                                                <div class="avatar-edit">                                                                     
+                                                                    <input type='file' id="product_main_1" class="image gi-image-upload" 
+                                                                           data-index="1" accept=".png, .jpg, .jpeg" name="picture" 
+                                                                           >
+                                                                    <label><i class="ri-pencil-line"></i></label>                                                                 
+                                                                </div>                                                                        
                                                                 <div class="avatar-preview gi-preview">
                                                                     <div class="imagePreview gi-div-preview">
-                                                                        <img class="gi-image-preview" src="${p.avatar == null?'assets/images/product/preview.jpg': p.avatar}" alt="edit">
+                                                                        <img class="image gi-image-preview" data-index="1" src="${p.avatar == null?'assets/images/product/preview.jpg': p.avatar}" alt="edit">
                                                                     </div>
                                                                 </div>
                                                             </div>
 
                                                             <div class="avatar-upload">
-                                                                <div class="avatar-edit">
-                                                                    <input type='file' id="product_main" class="gi-image-upload" accept=".png, .jpg, .jpeg" name="picture">
-                                                                    <label><i class="ri-pencil-line"></i></label>
-                                                                </div>
+                                                                <div class="avatar-edit">                                                                     
+                                                                    <input type='file' id="product_main_2" class="image gi-image-upload" 
+                                                                           data-index="2" accept=".png, .jpg, .jpeg" name="picture" 
+                                                                           >
+                                                                    <label><i class="ri-pencil-line"></i></label>                                                                 
+                                                                </div>     
                                                                 <div class="avatar-preview gi-preview">
                                                                     <div class="imagePreview gi-div-preview">
-                                                                        <img class="gi-image-preview" src="${p.hoverAvatar == null?'assets/images/product/preview.jpg':p.hoverAvatar}" alt="edit">
+                                                                        <img class="image big-image-upload gi-image-preview" data-index="2" src="${p.hoverAvatar == null?'assets/images/product/preview.jpg':p.hoverAvatar}" alt="edit">
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
 
                                                         <div class="thumb-upload-set colo-md-12">
-                                                            <c:forEach var="i" items="${requestScope.listI}">
+                                                            <c:forEach var="i" items="${requestScope.listI}" varStatus="status">
                                                                 <div class="thumb-upload">
-                                                                    <div class="thumb-edit">
-                                                                        <input type='file' id="thumbUpload01"
-                                                                               class="gi-image-upload"
-                                                                               accept=".png, .jpg, .jpeg" name="picture" value="${i.imagesId}" onchange="document.getElementById('imageIdInput').value = '${i.imagesId}'">
-                                                                        <label><i class="ri-pencil-line"></i></label>
-                                                                    </div>
-                                                                    <div class="thumb-preview gi-preview">
-                                                                        <div class="image-thumb-preview">
-                                                                            <img class="image-thumb-preview gi-image-preview"
-                                                                                 src="${i.path}"
-                                                                                 alt="edit">
-                                                                        </div>
-                                                                    </div>
+
+                                                                    <div class="thumb-remove" onclick="removeThumbnail(this)"><i class="ri-close-line"></i></div>
+
+                                                                    <div class="thumb-edit">                                                                         
+                                                                        <input type="file" class="image gi-image-upload thumb-image-upload"
+                                                                               data-index="${status.index + 1}" accept=".png, .jpg, .jpeg" name="picture" 
+                                                                               onchange="updateThumbnail(this)">
+                                                                        <label><i class="ri-pencil-line"></i></label>                                                                     
+                                                                    </div>                                                                     
+                                                                    <div class="thumb-preview gi-preview">                                                                         
+                                                                        <div class="image-thumb-preview">                                                                             
+                                                                            <img class="image image-thumb-preview gi-image-preview"
+                                                                                 data-index="${not empty status.index ? status.index + 1 : 'default'}"
+                                                                                 src="${i.path}" alt="edit">                                                                         
+                                                                        </div>                                                                     
+                                                                    </div>                 
                                                                 </div>
                                                             </c:forEach>
+                                                            <div class="thumb-upload-container thumb-upload">
+
+                                                                <!-- Đây là nơi các thumbnail sẽ được thêm vào -->
+                                                            </div>
+                                                            <div class="add-thumb" onclick="addThumbnail()">+</div>
 
                                                         </div>
                                                     </div>
@@ -647,12 +716,125 @@
         <script src="assets/js/main.js"></script>
 
         <script>
-                                        CKEDITOR.replace('slug', {
-                                            removePlugins: 'toolbar,elementspath',
-                                            resize_enabled: false,
-                                            enterMode: CKEDITOR.ENTER_BR
-                                        });
+                                                        CKEDITOR.replace('slug', {
+                                                            removePlugins: 'toolbar,elementspath',
+                                                            resize_enabled: false,
+                                                            enterMode: CKEDITOR.ENTER_BR
+                                                        });
         </script>
+
+        <script>
+            function removeThumbnail(element) {
+                let thumbDiv = element.closest(".thumb-upload"); // Lấy div chứa ảnh
+                let img = thumbDiv.querySelector("img");
+                let imagePath = img ? img.getAttribute("src") : null;
+
+                if (imagePath) {
+                    let input = document.createElement("input");
+                    input.type = "hidden";
+                    input.name = "deletedImages";
+                    input.value = imagePath;
+                    document.forms[0].appendChild(input);
+                }
+
+                // Xóa ảnh khỏi giao diện
+                thumbDiv.remove();
+            }
+            document.addEventListener("DOMContentLoaded", function () {
+                const container = document.querySelector(".thumb-upload-container");
+                if (!container) {
+                    console.error("⚠️ LỖI: Không tìm thấy .thumb-upload-container! Kiểm tra lại HTML.");
+                    return;
+                }
+
+                console.log("✅ Đã tìm thấy .thumb-upload-container!");
+                function addThumbnail() {
+                    console.log("Thêm ảnh mới...");
+                    // Tạo một thẻ div mới cho ảnh thumbnail
+                    const newThumb = document.createElement("div");
+                    newThumb.classList.add("thumb-upload");
+                    newThumb.innerHTML = `
+                                                <div class="thumb-remove" onclick="removeThumbnail(this)"><i class="ri-close-line"></i></div> 
+                <div class="thumb-edit">
+                    <input type="file" class="gi-image-upload" accept=".png, .jpg, .jpeg" name="picture">
+                    <label><i class="ri-pencil-line"></i></label>
+                </div>
+                <div class="thumb-preview gi-preview">
+                    <div class="image-thumb-preview">
+                        <img class="gi-image-preview" src="assets/images/product/preview.jpg" alt="edit">
+                    </div>
+                </div>
+            `;
+                    // Thêm thumbnail mới vào container
+                    container.appendChild(newThumb);
+                }
+
+                // Lắng nghe sự kiện click cho nút "+"
+                const addButton = document.querySelector(".add-thumb");
+                if (addButton) {
+                    addButton.addEventListener("click", function (event) {
+                        event.preventDefault(); // Ngăn chặn hành vi mặc định
+                        addThumbnail();
+                    });
+                } else {
+                    console.error("⚠️ LỖI: Không tìm thấy nút thêm ảnh (+)!");
+                }
+            });
+
+
+            // Vô hiệu hóa xóa và chỉnh sửa hai ảnh đầu tiên
+            document.querySelectorAll(".thumb-upload").forEach((item, index) => {
+                if (index < 2) {
+                    let removeBtn = item.querySelector(".thumb-remove");
+                    let editBtn = item.querySelector(".thumb-edit");
+                    if (removeBtn)
+                        removeBtn.style.display = "none";
+                    if (editBtn)
+                        editBtn.style.display = "none";
+                }
+            });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                document.querySelectorAll(".image").forEach(input => {
+                    input.addEventListener("change", function (event) {
+                        let groupId = this.dataset.index;
+                        console.log("Nhóm ảnh:", groupId);
+
+                        let file = event.target.files[0];
+                        if (!file) {
+                            console.log("Không có file được chọn");
+                            return;
+                        }
+
+                        let reader = new FileReader();
+                        reader.onload = function (e) {
+                            let newSrc = e.target.result;
+                            console.log("Đường dẫn ảnh mới:", newSrc);
+
+                            let imageElements = Array.from(document.getElementsByClassName("gi-image-preview"))
+                                    .filter(img => img.getAttribute("data-index") === groupId);
+
+                            console.log("Các ảnh tìm thấy:", imageElements);
+
+                            imageElements.forEach(img => {
+                                img.src = "";
+                                setTimeout(() => {
+                                    img.setAttribute("src", newSrc);
+                                    img.style.display = "block";
+                                    img.style.opacity = "1";
+                                }, 10);
+                            });
+                        };
+                        reader.readAsDataURL(file);
+                    });
+                });
+            });
+
+        </script>
+
+
+
 
     </body>
 

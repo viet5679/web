@@ -182,129 +182,131 @@
                             <div class="shop-pro-inner">
                                 <div class="row">
                                     <c:forEach var="c" items="${requestScope.list}">
-                                        <div
-                                            class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content" >
-                                            <input type="hidden" name="productId" value="${c.id}">
+                                        <c:if test="${c.status == 1}">
+                                            <div
+                                                class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content" >
+                                                <input type="hidden" name="productId" value="${c.id}">
 
-                                            <div class="ec-product-inner">
-                                                <div class="ec-pro-image-outer">
-                                                    <div class="ec-pro-image">
-                                                        <a href="product?id=${product.id}" class="image">
-                                                            <img class="main-image" src="${c.avatar}" alt="Product" />
-                                                            <img class="hover-image" src="${c.hoverAvatar}" alt="Product" />
-                                                        </a>
-                                                        <c:if test="${c.tag == 'NEW'}">
-                                                            <span class="flags">
-                                                                <span
-                                                                    class="new">New</span>
-                                                            </span>
-                                                        </c:if>
-                                                        <c:if test="${c.tag == 'SALE'}">
-                                                            <span class="flags"> 
-                                                                <span class="sale">Sale</span> 
-                                                            </span>
-                                                        </c:if>
-                                                        <c:if test="${c.tag != 'SALE' && c.tag != 'NEW' && c.tag != NULL}">
-                                                            <span class="percentage">${c.tag}</span>
-                                                        </c:if>
-                                                        <div class="ec-pro-actions">
-                                                            <button title="Add To Cart" class="add-to-cart" onclick="addToCart(${c.id}, 1)">
-                                                                <i class="fi-rr-shopping-basket"></i> Add To Cart
-                                                            </button>
-                                                            <button title="Wishlist" class="ec-btn-group wishlist-btn" 
-                                                                    data-product-id="${c.id}" 
-                                                                    onclick="addToWishList(${c.id}, this)">
-                                                                <i class="fi-rr-heart"></i>
-                                                            </button>
+                                                <div class="ec-product-inner">
+                                                    <div class="ec-pro-image-outer">
+                                                        <div class="ec-pro-image">
+                                                            <a href="product?id=${product.id}" class="image">
+                                                                <img class="main-image" src="${c.avatar}" alt="Product" />
+                                                                <img class="hover-image" src="${c.hoverAvatar}" alt="Product" />
+                                                            </a>
+                                                            <c:if test="${c.tag == 'NEW'}">
+                                                                <span class="flags">
+                                                                    <span
+                                                                        class="new">New</span>
+                                                                </span>
+                                                            </c:if>
+                                                            <c:if test="${c.tag == 'SALE'}">
+                                                                <span class="flags"> 
+                                                                    <span class="sale">Sale</span> 
+                                                                </span>
+                                                            </c:if>
+                                                            <c:if test="${c.tag != 'SALE' && c.tag != 'NEW' && c.tag != NULL}">
+                                                                <span class="percentage">${c.tag}</span>
+                                                            </c:if>
+                                                            <div class="ec-pro-actions">
+                                                                <button title="Add To Cart" class="add-to-cart" onclick="addToCart(${c.id}, 1)">
+                                                                    <i class="fi-rr-shopping-basket"></i> Add To Cart
+                                                                </button>
+                                                                <button title="Wishlist" class="ec-btn-group wishlist-btn" 
+                                                                        data-product-id="${c.id}" 
+                                                                        onclick="addToWishList(${c.id}, this)">
+                                                                    <i class="fi-rr-heart"></i>
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="ec-pro-content">
-                                                    <h5 class="ec-pro-title"><a href="product?id=${c.id}">${c.name}</a></h5>
-                                                    <div class="ec-pro-rating">
-                                                        <c:forEach var="i" begin="1" end="5">
-                                                            <c:choose>
-                                                                <c:when test="${i <= product.totalStars}">
-                                                                    <i class="ecicon eci-star fill"></i>  <!-- Filled star -->
-                                                                </c:when>
-                                                                <c:otherwise>
-                                                                    <i class="ecicon eci-star"></i> <!-- Empty star -->
-                                                                </c:otherwise>
-                                                            </c:choose>
-                                                        </c:forEach>
+                                                    <div class="ec-pro-content">
+                                                        <h5 class="ec-pro-title"><a href="product?id=${c.id}">${c.name}</a></h5>
+                                                        <div class="ec-pro-rating">
+                                                            <c:forEach var="i" begin="1" end="5">
+                                                                <c:choose>
+                                                                    <c:when test="${i <= product.totalStars}">
+                                                                        <i class="ecicon eci-star fill"></i>  <!-- Filled star -->
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <i class="ecicon eci-star"></i> <!-- Empty star -->
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            </c:forEach>
+                                                        </div>
+                                                        <div
+                                                            class="ec-pro-list-desc">${c.description}</div>
+
+                                                        <c:if test="${c.sale == 0}">
+                                                            <span class="ec-price">
+                                                                <span
+                                                                    class="new-price">$${c.totalPay}</span>
+                                                            </span>
+                                                            <c:if test="${c.categoryId.id == 3 || c.categoryId.id == 5 || c.categoryId.id == 6 || c.categoryId.id == 7 || c.categoryId.id == 8}">
+                                                                <div class="ec-pro-option">
+
+                                                                    <div class="ec-pro-size">
+                                                                        <span
+                                                                            class="ec-pro-opt-label">Size</span>
+                                                                        <ul class="ec-opt-size">
+                                                                            <c:forEach var="si" items="${requestScope.data}">
+                                                                                <p>Product ID: ${si.products.id}, Size: ${si.sizes.name}</p>
+                                                                                <c:if test="${si.products.id == c}">
+
+                                                                                    <li
+                                                                                        class="active"><a
+                                                                                            href="#"
+                                                                                            class="ec-opt-sz"
+                                                                                            data-new="$${c.totalPay}"
+                                                                                            data-tooltip="${si.sizes.name}">${si.sizes.name}</a>
+                                                                                    </li>
+                                                                                </c:if>
+                                                                            </c:forEach>
+
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </c:if>
+
+                                                        </c:if>
+                                                        <c:if test="${c.sale != 0}">
+                                                            <span class="ec-price">
+                                                                <span
+                                                                    class="old-price">$${c.price}</span>
+                                                                <span
+                                                                    class="new-price">$${c.totalPay}</span>
+                                                            </span>
+                                                            <c:if test="${c.categoryId.id == 3}  or ${c.categoryId.id == 5}  or ${c.categoryId.id == 6} or ${c.categoryId.id == 7} or ${c.categoryId.id == 8}">
+                                                                <div class="ec-pro-option">
+
+                                                                    <div class="ec-pro-size">
+                                                                        <span
+                                                                            class="ec-pro-opt-label">Size</span>
+                                                                        <ul class="ec-opt-size">
+                                                                            <c:forEach var="si" items="${requestScope.data}">
+                                                                                <c:if test="${si.products.id == c}">
+                                                                                    <li
+                                                                                        class="active"><a
+                                                                                            href="#"
+                                                                                            class="ec-opt-sz"
+                                                                                            data-old="$${c.price}"
+                                                                                            data-new="$${c.totalPay}"
+                                                                                            data-tooltip="${si.sizes.name}">${si.sizes.name}</a>
+                                                                                    </li>
+                                                                                </c:if>
+                                                                            </c:forEach>
+
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </c:if>
+
+                                                        </c:if>
+
                                                     </div>
-                                                    <div
-                                                        class="ec-pro-list-desc">${c.description}</div>
-
-                                                    <c:if test="${c.sale == 0}">
-                                                        <span class="ec-price">
-                                                            <span
-                                                                class="new-price">$${c.totalPay}</span>
-                                                        </span>
-                                                        <c:if test="${c.categoryId.id == 3 || c.categoryId.id == 5 || c.categoryId.id == 6 || c.categoryId.id == 7 || c.categoryId.id == 8}">
-                                                            <div class="ec-pro-option">
-
-                                                                <div class="ec-pro-size">
-                                                                    <span
-                                                                        class="ec-pro-opt-label">Size</span>
-                                                                    <ul class="ec-opt-size">
-                                                                        <c:forEach var="si" items="${requestScope.data}">
-                                                                            <p>Product ID: ${si.products.id}, Size: ${si.sizes.name}</p>
-                                                                            <c:if test="${si.products.id == c}">
-
-                                                                                <li
-                                                                                    class="active"><a
-                                                                                        href="#"
-                                                                                        class="ec-opt-sz"
-                                                                                        data-new="$${c.totalPay}"
-                                                                                        data-tooltip="${si.sizes.name}">${si.sizes.name}</a>
-                                                                                </li>
-                                                                            </c:if>
-                                                                        </c:forEach>
-
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </c:if>
-
-                                                    </c:if>
-                                                    <c:if test="${c.sale != 0}">
-                                                        <span class="ec-price">
-                                                            <span
-                                                                class="old-price">$${c.price}</span>
-                                                            <span
-                                                                class="new-price">$${c.totalPay}</span>
-                                                        </span>
-                                                        <c:if test="${c.categoryId.id == 3}  or ${c.categoryId.id == 5}  or ${c.categoryId.id == 6} or ${c.categoryId.id == 7} or ${c.categoryId.id == 8}">
-                                                            <div class="ec-pro-option">
-
-                                                                <div class="ec-pro-size">
-                                                                    <span
-                                                                        class="ec-pro-opt-label">Size</span>
-                                                                    <ul class="ec-opt-size">
-                                                                        <c:forEach var="si" items="${requestScope.data}">
-                                                                            <c:if test="${si.products.id == c}">
-                                                                                <li
-                                                                                    class="active"><a
-                                                                                        href="#"
-                                                                                        class="ec-opt-sz"
-                                                                                        data-old="$${c.price}"
-                                                                                        data-new="$${c.totalPay}"
-                                                                                        data-tooltip="${si.sizes.name}">${si.sizes.name}</a>
-                                                                                </li>
-                                                                            </c:if>
-                                                                        </c:forEach>
-
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </c:if>
-
-                                                    </c:if>
-
                                                 </div>
                                             </div>
-                                        </div>
+                                        </c:if>
                                     </c:forEach>
                                 </div>
                             </div>

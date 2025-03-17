@@ -30,9 +30,9 @@
                                     class="ri-checkbox-blank-circle-line"></i>Product list</a></li>
                         <li><a href="add" class="gi-page-link drop"><i
                                     class="ri-checkbox-blank-circle-line"></i>Add Product</a></li>
-                        <li><a href="add-category.jsp" class="gi-page-link drop"><i
+                        <li><a href="categories" class="gi-page-link drop"><i
                                     class="ri-checkbox-blank-circle-line"></i>Add Category</a></li>
-                        <li><a href="order-list.jsp" class="gi-page-link drop"><i
+                        <li><a href="orderlist" class="gi-page-link drop"><i
                                     class="ri-checkbox-blank-circle-line"></i>Order List</a></li>
                     </ul>
                 </li>

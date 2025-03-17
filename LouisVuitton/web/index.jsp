@@ -445,67 +445,66 @@
                                     <div class="row">
                                         <!-- Product Content -->
                                         <c:forEach var="product" items="${entry.value}">
-                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6  ec-product-content" data-animation="fadeIn">
-                                                <div class="ec-product-inner">
-                                                    <div class="ec-pro-image-outer">
-                                                        <div class="ec-pro-image">
-                                                            <a href="product?id=${product.id}" class="image">
-                                                                <img class="main-image" src="${product.avatar}" alt="Product" />
-                                                                <img class="hover-image" src="${product.hoverAvatar}" alt="Product" />
-                                                            </a>
-                                                            <c:choose>
-                                                                <c:when test="${fn:contains(product.tag, '%')}">
-                                                                    <span class="percentage">${product.tag}</span>
-                                                                </c:when>
-                                                                <c:when test="${product.tag == 'SALE'}">
-                                                                    <span class="flags">
-                                                                        <span class="sale">${product.tag}</span>
-                                                                    </span>
-                                                                </c:when>
-                                                                <c:otherwise>
-                                                                    <span class="flags">
-                                                                        <span class="new">${product.tag}</span>
-                                                                    </span>
-                                                                </c:otherwise>
-                                                            </c:choose>
-                                                            <div class="ec-pro-actions">
-                                                                <button title="Add To Cart" class="add-to-cart" onclick="addToCart(${product.id}, 1)">
-                                                                    <i class="fi-rr-shopping-basket"></i> Add To Cart
-                                                                </button>
-                                                                <button title="Wishlist" class="ec-btn-group wishlist-btn" 
-                                                                        data-product-id="${product.id}" 
-                                                                        onclick="addToWishList(${product.id}, this)">
-                                                                    <i class="fi-rr-heart"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ec-pro-content">
-                                                        <h5 class="ec-pro-title"><a
-                                                                href="product?id=${product.id}">${product.name}</a></h5>
-                                                        <div class="ec-pro-rating">
-                                                            <c:forEach var="i" begin="1" end="5">
+                                            <c:if test="${product.status == 1}">
+                                                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6 ec-product-content" data-animation="fadeIn">
+                                                    <div class="ec-product-inner">
+                                                        <div class="ec-pro-image-outer">
+                                                            <div class="ec-pro-image">
+                                                                <a href="product?id=${product.id}" class="image">
+                                                                    <img class="main-image" src="${product.avatar}" alt="Product" />
+                                                                    <img class="hover-image" src="${product.hoverAvatar}" alt="Product" />
+                                                                </a>
                                                                 <c:choose>
-                                                                    <c:when test="${i <= product.totalStars}">
-                                                                        <i class="ecicon eci-star fill"></i>  <!-- Filled star -->
+                                                                    <c:when test="${fn:contains(product.tag, '%')}">
+                                                                        <span class="percentage">${product.tag}</span>
+                                                                    </c:when>
+                                                                    <c:when test="${product.tag == 'SALE'}">
+                                                                        <span class="flags">
+                                                                            <span class="sale">${product.tag}</span>
+                                                                        </span>
                                                                     </c:when>
                                                                     <c:otherwise>
-                                                                        <i class="ecicon eci-star"></i> <!-- Empty star -->
+                                                                        <span class="flags">
+                                                                            <span class="new">${product.tag}</span>
+                                                                        </span>
                                                                     </c:otherwise>
                                                                 </c:choose>
-                                                            </c:forEach>
+                                                                <div class="ec-pro-actions">
+                                                                    <button title="Add To Cart" class="add-to-cart" onclick="addToCart(${product.id}, 1)">
+                                                                        <i class="fi-rr-shopping-basket"></i> Add To Cart
+                                                                    </button>
+                                                                    <button title="Wishlist" class="ec-btn-group wishlist-btn" 
+                                                                            data-product-id="${product.id}" 
+                                                                            onclick="addToWishList(${product.id}, this)">
+                                                                        <i class="fi-rr-heart"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
                                                         </div>
-
-                                                        <span class="ec-price">
-                                                            <span
-                                                                class="old-price">$${product.price}</span>
-                                                            <span
-                                                                class="new-price">$${product.totalPay}</span>
-                                                        </span>
+                                                        <div class="ec-pro-content">
+                                                            <h5 class="ec-pro-title"><a href="product?id=${product.id}">${product.name}</a></h5>
+                                                            <div class="ec-pro-rating">
+                                                                <c:forEach var="i" begin="1" end="5">
+                                                                    <c:choose>
+                                                                        <c:when test="${i <= product.totalStars}">
+                                                                            <i class="ecicon eci-star fill"></i>
+                                                                        </c:when>
+                                                                        <c:otherwise>
+                                                                            <i class="ecicon eci-star"></i>
+                                                                        </c:otherwise>
+                                                                    </c:choose>
+                                                                </c:forEach>
+                                                            </div>
+                                                            <span class="ec-price">
+                                                                <span class="old-price">$${product.price}</span>
+                                                                <span class="new-price">$${product.totalPay}</span>
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </c:if>
                                         </c:forEach>
+
                                         <div class="col-sm-12 shop-all-btn"><a href="shop">Shop All Collection</a></div>
                                     </div>
                                 </div>
