@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=UTF-8" %>`n<!DOCTYPE html>
+<%@ page contentType="text/html; charset=UTF-8" %>`n
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 
@@ -31,6 +32,18 @@
 
         <!-- Main CSS -->
         <link id="main-css" href="assets/css/style.css" rel="stylesheet">
+        <style>
+            .table-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; /* Điều chỉnh nếu cần */
+            }
+
+            .table {
+                width: 80%; /* Điều chỉnh nếu cần */
+            }
+        </style>
 
     </head>
 
@@ -348,723 +361,373 @@
                             <h5>Todo</h5>
                             <ul>
                                 <li><a href="index.jsp">Grabit</a></li>
-                                <li>Todo</li>
+                                <li>User Management</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xl-4 col-md-12">
-                            <div class="gi-card">
-                                <div class="gi-card-header">
-                                    <h4 class="gi-card-title">Project List</h4>
-                                    <div class="header-tools">
-                                        <a href="#" class="link" title="Add Project"><i class="ri-add-line"></i></a>
-                                    </div>
-                                </div>
-                                <div class="gi-card-content">
-                                    <div class="todo-list project-list project-max-height" data-simplebar>
-                                        <form>
-                                            <div class="accordion" id="accordionExample">
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="headingOne">
-                                                        <button class="accordion-button" type="button"
-                                                                data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                                                                aria-expanded="true" aria-controls="collapseOne">
-                                                            Grabit admin site
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapseOne" class="accordion-collapse collapse show"
-                                                         aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
-                                                            <div class="form-group">
-                                                                <span>Website in this browser for the
-                                                                    next time I
-                                                                    comment</span>
-                                                                <div class="dropdown todo-settings drop-settings">
-                                                                    <button class="btn btn-secondary dropdown-toggle"
-                                                                            type="button" data-bs-toggle="dropdown"
-                                                                            aria-expanded="false">
-                                                                        <i class="mdi mdi-dots-vertical"></i>
-                                                                    </button>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li><a class="dropdown-item" href="#">Rename</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">Add note</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">Remove</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">edit note</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                            <ul class="gi-task-assig">
-                                                                <li><img src="assets/img/user/1.jpg"
-                                                                         alt="employee"><span>John Doe</span></li>
-                                                                <li><img src="assets/img/user/2.jpg"
-                                                                         alt="employee"><span>Emma Grater</span></li>
-                                                                <li><img src="assets/img/user/3.jpg"
-                                                                         alt="employee"><span>Olive Yew</span></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="headingTwo">
-                                                        <button class="accordion-button collapsed" type="button"
-                                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                                                aria-expanded="false" aria-controls="collapseTwo">
-                                                            Ekka eCommerce
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapseTwo" class="accordion-collapse collapse"
-                                                         aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
-                                                            <div class="form-group">
-                                                                <span>Lorem Ipsum is simply dummy
-                                                                    text</span>
-                                                                <div class="dropdown todo-settings drop-settings">
-                                                                    <button class="btn btn-secondary dropdown-toggle"
-                                                                            type="button" data-bs-toggle="dropdown"
-                                                                            aria-expanded="false">
-                                                                        <i class="mdi mdi-dots-vertical"></i>
-                                                                    </button>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li><a class="dropdown-item" href="#">Rename</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">Add note</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">Remove</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">edit note</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                            <ul class="gi-task-assig">
-                                                                <li><img src="assets/img/user/4.jpg"
-                                                                         alt="employee"><span>John Doe</span></li>
-                                                                <li><img src="assets/img/user/5.jpg"
-                                                                         alt="employee"><span>Emma Grater</span></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="headingThree">
-                                                        <button class="accordion-button collapsed" type="button"
-                                                                data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                                                aria-expanded="false" aria-controls="collapseThree">
-                                                            Masterly Personal Portfolio
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapseThree" class="accordion-collapse collapse"
-                                                         aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
-                                                            <div class="form-group">
-                                                                <span>Website in this browser for the
-                                                                    next time I
-                                                                    comment</span>
-                                                                <div class="dropdown todo-settings drop-settings">
-                                                                    <button class="btn btn-secondary dropdown-toggle"
-                                                                            type="button" data-bs-toggle="dropdown"
-                                                                            aria-expanded="false">
-                                                                        <i class="mdi mdi-dots-vertical"></i>
-                                                                    </button>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li><a class="dropdown-item" href="#">Rename</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">Add note</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">Remove</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">edit note</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                            <ul class="gi-task-assig">
-                                                                <li><img src="assets/img/user/6.jpg"
-                                                                         alt="employee"><span>John Doe</span></li>
-                                                                <li><img src="assets/img/user/2.jpg"
-                                                                         alt="employee"><span>Emma Grater</span></li>
-                                                                <li><img src="assets/img/user/3.jpg"
-                                                                         alt="employee"><span>Olive Yew</span></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="headingFour">
-                                                        <button class="accordion-button collapsed" type="button"
-                                                                data-bs-toggle="collapse" data-bs-target="#collapseFour"
-                                                                aria-expanded="false" aria-controls="collapseFour">
-                                                            Google manager
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapseFour" class="accordion-collapse collapse"
-                                                         aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
-                                                            <div class="form-group">
-                                                                <span>Website in this browser for the next time I
-                                                                    comment</span>
-                                                                <div class="dropdown todo-settings drop-settings">
-                                                                    <button class="btn btn-secondary dropdown-toggle"
-                                                                            type="button" data-bs-toggle="dropdown"
-                                                                            aria-expanded="false">
-                                                                        <i class="mdi mdi-dots-vertical"></i>
-                                                                    </button>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li><a class="dropdown-item" href="#">Rename</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">Add note</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">Remove</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">edit note</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                            <ul class="gi-task-assig">
-                                                                <li><img src="assets/img/user/2.jpg"
-                                                                         alt="employee"><span>Emma Grater</span></li>
-                                                                <li><img src="assets/img/user/3.jpg"
-                                                                         alt="employee"><span>Olive Yew</span></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="headingFive">
-                                                        <button class="accordion-button collapsed" type="button"
-                                                                data-bs-toggle="collapse" data-bs-target="#collapseFive"
-                                                                aria-expanded="false" aria-controls="collapseFive">
-                                                            Facebook ads manager
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapseFive" class="accordion-collapse collapse"
-                                                         aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
-                                                            <div class="form-group">
-                                                                <span>Website in this browser for the next time I
-                                                                    comment</span>
-                                                                <div class="dropdown todo-settings drop-settings">
-                                                                    <button class="btn btn-secondary dropdown-toggle"
-                                                                            type="button" data-bs-toggle="dropdown"
-                                                                            aria-expanded="false">
-                                                                        <i class="mdi mdi-dots-vertical"></i>
-                                                                    </button>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li><a class="dropdown-item" href="#">Rename</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">Add note</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">Remove</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">edit note</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                            <ul class="gi-task-assig">
-                                                                <li><img src="assets/img/user/1.jpg"
-                                                                         alt="employee"><span>John Doe</span></li>
-                                                                <li><img src="assets/img/user/3.jpg"
-                                                                         alt="employee"><span>Olive Yew</span></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="headingSix">
-                                                        <button class="accordion-button collapsed" type="button"
-                                                                data-bs-toggle="collapse" data-bs-target="#collapseSix"
-                                                                aria-expanded="false" aria-controls="collapseSix">
-                                                            Wrapbootstrap studio
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapseSix" class="accordion-collapse collapse"
-                                                         aria-labelledby="headingSix" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
-                                                            <div class="form-group">
-                                                                <span>Website in this browser for the next time I
-                                                                    comment</span>
-                                                                <div class="dropdown todo-settings drop-settings">
-                                                                    <button class="btn btn-secondary dropdown-toggle"
-                                                                            type="button" data-bs-toggle="dropdown"
-                                                                            aria-expanded="false">
-                                                                        <i class="mdi mdi-dots-vertical"></i>
-                                                                    </button>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li><a class="dropdown-item" href="#">Rename</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">Add note</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">Remove</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">edit note</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                            <ul class="gi-task-assig">
-                                                                <li><img src="assets/img/user/3.jpg"
-                                                                         alt="employee"><span>Olive Yew</span></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="headingSeven">
-                                                        <button class="accordion-button collapsed" type="button"
-                                                                data-bs-toggle="collapse" data-bs-target="#collapseSeven"
-                                                                aria-expanded="false" aria-controls="collapseSeven">
-                                                            Car Washing Service
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapseSeven" class="accordion-collapse collapse"
-                                                         aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
-                                                            <div class="form-group">
-                                                                <span>Website in this browser for the next time I
-                                                                    comment</span>
-                                                                <div class="dropdown todo-settings drop-settings">
-                                                                    <button class="btn btn-secondary dropdown-toggle"
-                                                                            type="button" data-bs-toggle="dropdown"
-                                                                            aria-expanded="false">
-                                                                        <i class="mdi mdi-dots-vertical"></i>
-                                                                    </button>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li><a class="dropdown-item" href="#">Rename</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">Add note</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">Remove</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">edit note</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                            <ul class="gi-task-assig">
-                                                                <li><img src="assets/img/user/1.jpg"
-                                                                         alt="employee"><span>John Doe</span></li>
-                                                                <li><img src="assets/img/user/3.jpg"
-                                                                         alt="employee"><span>Olive Yew</span></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="headingEight">
-                                                        <button class="accordion-button collapsed" type="button"
-                                                                data-bs-toggle="collapse" data-bs-target="#collapseEight"
-                                                                aria-expanded="false" aria-controls="collapseEight">
-                                                            Martins App Dev
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapseEight" class="accordion-collapse collapse"
-                                                         aria-labelledby="headingEight" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
-                                                            <div class="form-group">
-                                                                <span>Website in this browser for the next time I
-                                                                    comment</span>
-                                                                <div class="dropdown todo-settings drop-settings">
-                                                                    <button class="btn btn-secondary dropdown-toggle"
-                                                                            type="button" data-bs-toggle="dropdown"
-                                                                            aria-expanded="false">
-                                                                        <i class="mdi mdi-dots-vertical"></i>
-                                                                    </button>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li><a class="dropdown-item" href="#">Rename</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">Add note</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">Remove</a>
-                                                                        </li>
-                                                                        <li><a class="dropdown-item" href="#">edit note</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                            <ul class="gi-task-assig">
-                                                                <li><img src="assets/img/user/6.jpg"
-                                                                         alt="employee"><span>Merry Jems</span></li>
-                                                                <li><img src="assets/img/user/3.jpg"
-                                                                         alt="employee"><span>Olive Yew</span></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
+
+
+                    <div class="col-xl-8 col-md-12 flex justify-center items-center min-h-screen">
+                        <div class="gi-card" id="assigntbl">
+                            <div class="gi-card-header">
+                                <h4 class="gi-card-title">Grabit admin site</h4>
+                                <div class="header-tools">
+                                    <a href="javascript:void(0)" class="m-r-10 gi-full-card" title="Full Screen"><i
+                                            class="ri-fullscreen-line"></i></a>
+                                    <a href="javascript:void(0)" class="button-add" title="Add Task"><i
+                                            class="ri-add-line"></i>Task</a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xl-8 col-md-12">
-                            <div class="gi-card" id="assigntbl">
-                                <div class="gi-card-header">
-                                    <h4 class="gi-card-title">Grabit admin site</h4>
-                                    <div class="header-tools">
-                                        <a href="javascript:void(0)" class="m-r-10 gi-full-card" title="Full Screen"><i
-                                                class="ri-fullscreen-line"></i></a>
-                                        <a href="javascript:void(0)" class="button-add" title="Add Task"><i
-                                                class="ri-add-line"></i>Task</a>
-                                    </div>
-                                </div>
-                                <div class="gi-card-content card-default">
-                                    <div class="assign-table">
-                                        <div class="table-responsive">
-                                            <table id="todo-data-table" class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>ID</th>
-                                                        <th>Team</th>
-                                                        <th>Task</th>
-                                                        <th>Date</th>
-                                                        <th>Status</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="token">2650</td>
-                                                        <td>
-                                                            <span class="assign-person">
-                                                                <a href="javascript:void(0)" title="John Doe"><img
-                                                                        class="cat-thumb" src="assets/img/user/1.jpg"
-                                                                        alt="clients Image"></a>
-                                                                <a href="javascript:void(0)" title="Emma Grater"><img
-                                                                        class="cat-thumb" src="assets/img/user/2.jpg"
-                                                                        alt="clients Image"></a>
-                                                                <a href="javascript:void(0)" title="Olive Yew"><img
-                                                                        class="cat-thumb" src="assets/img/user/3.jpg"
-                                                                        alt="clients Image"></a>
-                                                            </span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="name">Chat app bugs fixing</span>
-                                                        </td>
-                                                        <td>15/01/2023</td>
-                                                        <td class="active">ACTIVE</td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center">
-                                                                <button type="button"
-                                                                        class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
-                                                                        data-bs-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false" data-display="static">
-                                                                    <span class="sr-only"><i
-                                                                            class="ri-settings-3-line"></i></span>
-                                                                </button>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                </div>
+                            <div class="gi-card-content card-default">
+                                <div class="assign-table">
+                                    <div class="table-responsive flex justify-center items-center min-h-screen">
+                                        <table id="todo-data-table" class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Team</th>
+                                                    <th>Task</th>
+                                                    <th>Date</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="token">2650</td>
+                                                    <td>
+                                                        <span class="assign-person">
+                                                            <a href="javascript:void(0)" title="John Doe"><img
+                                                                    class="cat-thumb" src="assets/img/user/1.jpg"
+                                                                    alt="clients Image"></a>
+                                                            <a href="javascript:void(0)" title="Emma Grater"><img
+                                                                    class="cat-thumb" src="assets/img/user/2.jpg"
+                                                                    alt="clients Image"></a>
+                                                            <a href="javascript:void(0)" title="Olive Yew"><img
+                                                                    class="cat-thumb" src="assets/img/user/3.jpg"
+                                                                    alt="clients Image"></a>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="name">Chat app bugs fixing</span>
+                                                    </td>
+                                                    <td>15/01/2023</td>
+                                                    <td class="active">ACTIVE</td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center">
+                                                            <button type="button"
+                                                                    class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
+                                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false" data-display="static">
+                                                                <span class="sr-only"><i
+                                                                        class="ri-settings-3-line"></i></span>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item" href="#">Edit</a>
+                                                                <a class="dropdown-item" href="#">Delete</a>
                                                             </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">2650</td>
-                                                        <td>
-                                                            <span class="assign-person">
-                                                                <a href="javascript:void(0)" title="Emma Grater"><img
-                                                                        class="cat-thumb" src="assets/img/user/2.jpg"
-                                                                        alt="clients Image"></a>
-                                                                <a href="javascript:void(0)" title="Olive Yew"><img
-                                                                        class="cat-thumb" src="assets/img/user/3.jpg"
-                                                                        alt="clients Image"></a>
-                                                            </span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="name">Dashboard changes</span>
-                                                        </td>
-                                                        <td>15/01/2023</td>
-                                                        <td class="pending">Pending</td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center">
-                                                                <button type="button"
-                                                                        class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
-                                                                        data-bs-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false" data-display="static">
-                                                                    <span class="sr-only"><i
-                                                                            class="ri-settings-3-line"></i></span>
-                                                                </button>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="token">2650</td>
+                                                    <td>
+                                                        <span class="assign-person">
+                                                            <a href="javascript:void(0)" title="Emma Grater"><img
+                                                                    class="cat-thumb" src="assets/img/user/2.jpg"
+                                                                    alt="clients Image"></a>
+                                                            <a href="javascript:void(0)" title="Olive Yew"><img
+                                                                    class="cat-thumb" src="assets/img/user/3.jpg"
+                                                                    alt="clients Image"></a>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="name">Dashboard changes</span>
+                                                    </td>
+                                                    <td>15/01/2023</td>
+                                                    <td class="pending">Pending</td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center">
+                                                            <button type="button"
+                                                                    class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
+                                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false" data-display="static">
+                                                                <span class="sr-only"><i
+                                                                        class="ri-settings-3-line"></i></span>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item" href="#">Edit</a>
+                                                                <a class="dropdown-item" href="#">Delete</a>
                                                             </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">2365</td>
-                                                        <td>
-                                                            <span class="assign-person">
-                                                                <a href="javascript:void(0)" title="John Doe"><img
-                                                                        class="cat-thumb" src="assets/img/user/1.jpg"
-                                                                        alt="clients Image"></a>
-                                                                <a href="javascript:void(0)" title="Olive Yew"><img
-                                                                        class="cat-thumb" src="assets/img/user/3.jpg"
-                                                                        alt="clients Image"></a>
-                                                            </span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="name">Set todo list for notify</span>
-                                                        </td>
-                                                        <td>02/08/2023</td>
-                                                        <td class="close">Close</td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center">
-                                                                <button type="button"
-                                                                        class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
-                                                                        data-bs-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false" data-display="static">
-                                                                    <span class="sr-only"><i
-                                                                            class="ri-settings-3-line"></i></span>
-                                                                </button>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="token">2365</td>
+                                                    <td>
+                                                        <span class="assign-person">
+                                                            <a href="javascript:void(0)" title="John Doe"><img
+                                                                    class="cat-thumb" src="assets/img/user/1.jpg"
+                                                                    alt="clients Image"></a>
+                                                            <a href="javascript:void(0)" title="Olive Yew"><img
+                                                                    class="cat-thumb" src="assets/img/user/3.jpg"
+                                                                    alt="clients Image"></a>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="name">Set todo list for notify</span>
+                                                    </td>
+                                                    <td>02/08/2023</td>
+                                                    <td class="close">Close</td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center">
+                                                            <button type="button"
+                                                                    class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
+                                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false" data-display="static">
+                                                                <span class="sr-only"><i
+                                                                        class="ri-settings-3-line"></i></span>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item" href="#">Edit</a>
+                                                                <a class="dropdown-item" href="#">Delete</a>
                                                             </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">2205</td>
-                                                        <td>
-                                                            <span class="assign-person">
-                                                                <a href="javascript:void(0)" title="John Doe"><img
-                                                                        class="cat-thumb" src="assets/img/user/1.jpg"
-                                                                        alt="clients Image"></a>
-                                                                <a href="javascript:void(0)" title="Emma Grater"><img
-                                                                        class="cat-thumb" src="assets/img/user/2.jpg"
-                                                                        alt="clients Image"></a>
-                                                            </span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="name">Create maintenance page</span>
-                                                        </td>
-                                                        <td>23/02/2023</td>
-                                                        <td class="success">Success</td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center">
-                                                                <button type="button"
-                                                                        class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
-                                                                        data-bs-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false" data-display="static">
-                                                                    <span class="sr-only"><i
-                                                                            class="ri-settings-3-line"></i></span>
-                                                                </button>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="token">2205</td>
+                                                    <td>
+                                                        <span class="assign-person">
+                                                            <a href="javascript:void(0)" title="John Doe"><img
+                                                                    class="cat-thumb" src="assets/img/user/1.jpg"
+                                                                    alt="clients Image"></a>
+                                                            <a href="javascript:void(0)" title="Emma Grater"><img
+                                                                    class="cat-thumb" src="assets/img/user/2.jpg"
+                                                                    alt="clients Image"></a>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="name">Create maintenance page</span>
+                                                    </td>
+                                                    <td>23/02/2023</td>
+                                                    <td class="success">Success</td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center">
+                                                            <button type="button"
+                                                                    class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
+                                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false" data-display="static">
+                                                                <span class="sr-only"><i
+                                                                        class="ri-settings-3-line"></i></span>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item" href="#">Edit</a>
+                                                                <a class="dropdown-item" href="#">Delete</a>
                                                             </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">2187</td>
-                                                        <td>
-                                                            <span class="assign-person">
-                                                                <a href="javascript:void(0)" title="Olive Yew"><img
-                                                                        class="cat-thumb" src="assets/img/user/3.jpg"
-                                                                        alt="clients Image"></a>
-                                                            </span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="name">Set event date</span>
-                                                        </td>
-                                                        <td>17/01/2023</td>
-                                                        <td class="active">ACTIVE</td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center">
-                                                                <button type="button"
-                                                                        class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
-                                                                        data-bs-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false" data-display="static">
-                                                                    <span class="sr-only"><i
-                                                                            class="ri-settings-3-line"></i></span>
-                                                                </button>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="token">2187</td>
+                                                    <td>
+                                                        <span class="assign-person">
+                                                            <a href="javascript:void(0)" title="Olive Yew"><img
+                                                                    class="cat-thumb" src="assets/img/user/3.jpg"
+                                                                    alt="clients Image"></a>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="name">Set event date</span>
+                                                    </td>
+                                                    <td>17/01/2023</td>
+                                                    <td class="active">ACTIVE</td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center">
+                                                            <button type="button"
+                                                                    class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
+                                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false" data-display="static">
+                                                                <span class="sr-only"><i
+                                                                        class="ri-settings-3-line"></i></span>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item" href="#">Edit</a>
+                                                                <a class="dropdown-item" href="#">Delete</a>
                                                             </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">2050</td>
-                                                        <td>
-                                                            <span class="assign-person">
-                                                                <a href="javascript:void(0)" title="John Doe"><img
-                                                                        class="cat-thumb" src="assets/img/user/1.jpg"
-                                                                        alt="clients Image"></a>
-                                                                <a href="javascript:void(0)" title="Emma Grater"><img
-                                                                        class="cat-thumb" src="assets/img/user/2.jpg"
-                                                                        alt="clients Image"></a>
-                                                                <a href="javascript:void(0)" title="Olive Yew"><img
-                                                                        class="cat-thumb" src="assets/img/user/3.jpg"
-                                                                        alt="clients Image"></a>
-                                                            </span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="name">Update profile info add button</span>
-                                                        </td>
-                                                        <td>09/09/2023</td>
-                                                        <td class="close">Close</td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center">
-                                                                <button type="button"
-                                                                        class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
-                                                                        data-bs-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false" data-display="static">
-                                                                    <span class="sr-only"><i
-                                                                            class="ri-settings-3-line"></i></span>
-                                                                </button>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="token">2050</td>
+                                                    <td>
+                                                        <span class="assign-person">
+                                                            <a href="javascript:void(0)" title="John Doe"><img
+                                                                    class="cat-thumb" src="assets/img/user/1.jpg"
+                                                                    alt="clients Image"></a>
+                                                            <a href="javascript:void(0)" title="Emma Grater"><img
+                                                                    class="cat-thumb" src="assets/img/user/2.jpg"
+                                                                    alt="clients Image"></a>
+                                                            <a href="javascript:void(0)" title="Olive Yew"><img
+                                                                    class="cat-thumb" src="assets/img/user/3.jpg"
+                                                                    alt="clients Image"></a>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="name">Update profile info add button</span>
+                                                    </td>
+                                                    <td>09/09/2023</td>
+                                                    <td class="close">Close</td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center">
+                                                            <button type="button"
+                                                                    class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
+                                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false" data-display="static">
+                                                                <span class="sr-only"><i
+                                                                        class="ri-settings-3-line"></i></span>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item" href="#">Edit</a>
+                                                                <a class="dropdown-item" href="#">Delete</a>
                                                             </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">1995</td>
-                                                        <td>
-                                                            <span class="assign-person">
-                                                                <a href="javascript:void(0)" title="Emma Grater"><img
-                                                                        class="cat-thumb" src="assets/img/user/2.jpg"
-                                                                        alt="clients Image"></a>
-                                                            </span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="name">Create employee profile.</span>
-                                                        </td>
-                                                        <td>11/08/2023</td>
-                                                        <td class="success">success</td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center">
-                                                                <button type="button"
-                                                                        class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
-                                                                        data-bs-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false" data-display="static">
-                                                                    <span class="sr-only"><i
-                                                                            class="ri-settings-3-line"></i></span>
-                                                                </button>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="token">1995</td>
+                                                    <td>
+                                                        <span class="assign-person">
+                                                            <a href="javascript:void(0)" title="Emma Grater"><img
+                                                                    class="cat-thumb" src="assets/img/user/2.jpg"
+                                                                    alt="clients Image"></a>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="name">Create employee profile.</span>
+                                                    </td>
+                                                    <td>11/08/2023</td>
+                                                    <td class="success">success</td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center">
+                                                            <button type="button"
+                                                                    class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
+                                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false" data-display="static">
+                                                                <span class="sr-only"><i
+                                                                        class="ri-settings-3-line"></i></span>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item" href="#">Edit</a>
+                                                                <a class="dropdown-item" href="#">Delete</a>
                                                             </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">1985</td>
-                                                        <td>
-                                                            <span class="assign-person">
-                                                                <a href="javascript:void(0)" title="John Doe"><img
-                                                                        class="cat-thumb" src="assets/img/user/1.jpg"
-                                                                        alt="clients Image"></a>
-                                                                <a href="javascript:void(0)" title="Olive Yew"><img
-                                                                        class="cat-thumb" src="assets/img/user/3.jpg"
-                                                                        alt="clients Image"></a>
-                                                            </span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="name">Project bug fix.</span>
-                                                        </td>
-                                                        <td>19/12/2023</td>
-                                                        <td class="success">success</td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center">
-                                                                <button type="button"
-                                                                        class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
-                                                                        data-bs-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false" data-display="static">
-                                                                    <span class="sr-only"><i
-                                                                            class="ri-settings-3-line"></i></span>
-                                                                </button>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="token">1985</td>
+                                                    <td>
+                                                        <span class="assign-person">
+                                                            <a href="javascript:void(0)" title="John Doe"><img
+                                                                    class="cat-thumb" src="assets/img/user/1.jpg"
+                                                                    alt="clients Image"></a>
+                                                            <a href="javascript:void(0)" title="Olive Yew"><img
+                                                                    class="cat-thumb" src="assets/img/user/3.jpg"
+                                                                    alt="clients Image"></a>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="name">Project bug fix.</span>
+                                                    </td>
+                                                    <td>19/12/2023</td>
+                                                    <td class="success">success</td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center">
+                                                            <button type="button"
+                                                                    class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
+                                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false" data-display="static">
+                                                                <span class="sr-only"><i
+                                                                        class="ri-settings-3-line"></i></span>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item" href="#">Edit</a>
+                                                                <a class="dropdown-item" href="#">Delete</a>
                                                             </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">1945</td>
-                                                        <td>
-                                                            <span class="assign-person">
-                                                                <a href="javascript:void(0)" title="John Doe"><img
-                                                                        class="cat-thumb" src="assets/img/user/1.jpg"
-                                                                        alt="clients Image"></a>
-                                                                <a href="javascript:void(0)" title="Emma Grater"><img
-                                                                        class="cat-thumb" src="assets/img/user/2.jpg"
-                                                                        alt="clients Image"></a>
-                                                                <a href="javascript:void(0)" title="Olive Yew"><img
-                                                                        class="cat-thumb" src="assets/img/user/3.jpg"
-                                                                        alt="clients Image"></a>
-                                                            </span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="name">Update database.</span>
-                                                        </td>
-                                                        <td>06/05/2023</td>
-                                                        <td class="pending">pending</td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center">
-                                                                <button type="button"
-                                                                        class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
-                                                                        data-bs-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false" data-display="static">
-                                                                    <span class="sr-only"><i
-                                                                            class="ri-settings-3-line"></i></span>
-                                                                </button>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="token">1945</td>
+                                                    <td>
+                                                        <span class="assign-person">
+                                                            <a href="javascript:void(0)" title="John Doe"><img
+                                                                    class="cat-thumb" src="assets/img/user/1.jpg"
+                                                                    alt="clients Image"></a>
+                                                            <a href="javascript:void(0)" title="Emma Grater"><img
+                                                                    class="cat-thumb" src="assets/img/user/2.jpg"
+                                                                    alt="clients Image"></a>
+                                                            <a href="javascript:void(0)" title="Olive Yew"><img
+                                                                    class="cat-thumb" src="assets/img/user/3.jpg"
+                                                                    alt="clients Image"></a>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="name">Update database.</span>
+                                                    </td>
+                                                    <td>06/05/2023</td>
+                                                    <td class="pending">pending</td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center">
+                                                            <button type="button"
+                                                                    class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
+                                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false" data-display="static">
+                                                                <span class="sr-only"><i
+                                                                        class="ri-settings-3-line"></i></span>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item" href="#">Edit</a>
+                                                                <a class="dropdown-item" href="#">Delete</a>
                                                             </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="token">1865</td>
-                                                        <td>
-                                                            <span class="assign-person">
-                                                                <a href="javascript:void(0)" title="John Doe"><img
-                                                                        class="cat-thumb" src="assets/img/user/1.jpg"
-                                                                        alt="clients Image"></a>
-                                                                <a href="javascript:void(0)" title="Olive Yew"><img
-                                                                        class="cat-thumb" src="assets/img/user/3.jpg"
-                                                                        alt="clients Image"></a>
-                                                            </span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="name">Analysis chart update.</span>
-                                                        </td>
-                                                        <td>01/01/2023</td>
-                                                        <td class="active">ACTIVE</td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center">
-                                                                <button type="button"
-                                                                        class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
-                                                                        data-bs-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false" data-display="static">
-                                                                    <span class="sr-only"><i
-                                                                            class="ri-settings-3-line"></i></span>
-                                                                </button>
-                                                                <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="token">1865</td>
+                                                    <td>
+                                                        <span class="assign-person">
+                                                            <a href="javascript:void(0)" title="John Doe"><img
+                                                                    class="cat-thumb" src="assets/img/user/1.jpg"
+                                                                    alt="clients Image"></a>
+                                                            <a href="javascript:void(0)" title="Olive Yew"><img
+                                                                    class="cat-thumb" src="assets/img/user/3.jpg"
+                                                                    alt="clients Image"></a>
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="name">Analysis chart update.</span>
+                                                    </td>
+                                                    <td>01/01/2023</td>
+                                                    <td class="active">ACTIVE</td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-center">
+                                                            <button type="button"
+                                                                    class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
+                                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false" data-display="static">
+                                                                <span class="sr-only"><i
+                                                                        class="ri-settings-3-line"></i></span>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item" href="#">Edit</a>
+                                                                <a class="dropdown-item" href="#">Delete</a>
                                                             </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -1072,6 +735,7 @@
                     </div>
                 </div>
             </div>
+
 
             <!-- Footer -->
             <footer>

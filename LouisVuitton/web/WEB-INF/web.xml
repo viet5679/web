@@ -8,6 +8,10 @@
         <servlet-name>EditProductServlet</servlet-name>
         <servlet-class>controller_admin.EditProductServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListOrderServlet</servlet-name>
+        <servlet-class>controller_admin.ListOrderServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ShopServlet</servlet-name>
         <url-pattern>/shop</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>EditProductServlet</servlet-name>
         <url-pattern>/admin/edit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListOrderServlet</servlet-name>
+        <url-pattern>/admin/listo</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home</welcome-file>

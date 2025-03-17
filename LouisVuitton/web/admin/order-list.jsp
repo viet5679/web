@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.List" %>
+<%@ page import="model.Orders" %> 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -35,6 +37,132 @@
         <link id="main-css" href="assets/css/style.css" rel="stylesheet">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                table-layout: fixed; /* Cố định bố cục để không bị kéo giãn */
+            }
+
+            td, th {
+                padding: 2px; /* Giảm padding để tiết kiệm không gian */
+                text-align: center;
+                font-size: 11px; /* Thu nhỏ font hơn nữa */
+            }
+
+            /* Giảm kích thước avatar */
+            .cat-thumb {
+                width: 20px;
+                height: 20px;
+                object-fit: cover;
+            }
+
+            /* Tinh chỉnh độ rộng từng cột */
+            td:nth-child(1), th:nth-child(1) {
+                width: 40px;
+            }  /* ID */
+            td:nth-child(2), th:nth-child(2) {
+                width: 100px;
+            } /* Email */
+            td:nth-child(3), th:nth-child(3) {
+                width: 100px;
+            } /* Customer */
+            td:nth-child(4), th:nth-child(4) {
+                width: 60px;
+            }  /* Total Amount */
+            td:nth-child(5), th:nth-child(5) {
+                width: 30px;
+            }  /* Quantity */
+            td:nth-child(6), th:nth-child(6) {
+                width: 40px;
+            }  /* Status */
+            td:nth-child(7), th:nth-child(7) {
+                width: 120px;
+            } /* Address */
+            td:nth-child(8), th:nth-child(8) {
+                width: 80px;
+            }  /* Action */
+
+            /* Giảm padding nút bấm */
+            button {
+                padding: 2px 4px;
+                font-size: 10px;
+            }
+
+            .fa {
+                font-size: 10px;
+            }
+
+            /* Ẩn bớt nội dung trên màn hình nhỏ */
+            @media (max-width: 1024px) {
+                td:nth-child(2), th:nth-child(2) {
+                    display: none;
+                } /* Ẩn Email nếu không cần thiết */
+            }
+            /* Giới hạn chiều rộng của Address */
+            td:nth-child(7), th:nth-child(7) {
+                max-width: 120px; /* Thu nhỏ hơn nữa */
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+
+            /* Khi hover vào thì hiển thị tooltip đầy đủ */
+            td:nth-child(7):hover::after {
+                content: attr(data-full-address); /* Hiển thị nội dung đầy đủ */
+                position: absolute;
+                background: rgba(0, 0, 0, 0.8);
+                color: white;
+                padding: 5px;
+                border-radius: 5px;
+                white-space: normal;
+                max-width: 250px; /* Giới hạn chiều rộng tooltip */
+                word-break: break-word;
+                top: 100%;
+                left: 0;
+                z-index: 10;
+            }
+
+            .highlight-row {
+                background-color: peachpuff !important;
+                font-weight: bold;
+            }
+
+            .highlight-text {
+                color: orange !important;
+                font-weight: bold;
+            }
+
+            .action-buttons {
+                display: none; /* Ẩn mặc định */
+                margin-top: 5px;
+            }
+            .invoice-btn:hover + .action-buttons {
+                display: block; /* Hiện khi hover vào icon */
+            }
+            .btn-group.dropup .dropdown-menu {
+                background-color: white;
+                border-radius: 10px;
+                padding: 5px;
+                min-width: 120px;
+                text-align: center;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .btn-group.dropup .dropdown-menu button {
+                width: 100%;
+                padding: 8px;
+                border: none;
+                background: none;
+            }
+
+            .btn-group.dropup .dropdown-menu button:hover {
+                background-color: rgba(0, 0, 0, 0.05);
+                border-radius: 8px;
+            }
+
+
+        </style>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
@@ -384,30 +512,61 @@
                                                         <th>Quantity</th>
                                                         <th>Status</th>
                                                         <th>Address</th>
-                                                        <th>Action</th> <!-- Thêm cột Action -->
+                                                        <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <c:forEach var="o" items="${requestScope.listO}">
                                                         <tr>
                                                             <td class="token">#${o.id}</td>
-                                                            <td><img class="cat-thumb" src="${o.user.avatar}" alt="clients Image">
-                                                                <span class="name">${c.user.email}</span>
+                                                            <td><img class="cat-thumb" src="${o.user.avatar}">
+                                                                <span class="name">${o.user.email}</span>
                                                             </td>
                                                             <td>${o.name}</td>
                                                             <td>${o.totalPrice}</td>
                                                             <td>${o.totalProduct}</td>
-                                                            <td class="cod">${o.status}</td>
-                                                            <td>${c.address}</td>
+                                                            <c:if test="${o.status == 'Canceled'}">
+                                                                <td class="cod" style="color: red">${o.status}</td>
+                                                            </c:if>
+                                                            <c:if test="${o.status == 'Pending'}">
+                                                                <td class="cod" style="color: orange; font-weight: bold;background-color: peachpuff ">${o.status}</td>
+                                                            </c:if>
+                                                            <c:if test="${o.status == 'Delivered'}">
+                                                                <td class="cod" style="color: greenyellow">${o.status}</td>
+                                                            </c:if>
+
+                                                            <td>${o.address}</td>
 
                                                             <td>
-                                                                <button class="btn btn-sm btn-secondary invoice-btn">
-                                                                    <i class="fa fa-file-invoice"></i> <!-- Icon hóa đơn -->
-                                                                </button>
-                                                                <div class="dropdown-menu invoice-options">
-                                                                    <button class="dropdown-item accept-btn">✔ Accept</button>
-                                                                    <button class="dropdown-item reject-btn">✖ Reject</button>
-                                                                </div>
+                                                                <c:if test="${o.status == 'Pending'}">
+                                                                    <button class="btn btn-sm btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                               <i class="fa fa-file-invoice"></i>
+                                                                    </button>
+
+                                                                    <!-- Danh sách tùy chọn Accept & Reject -->
+                                                                    <ul class="dropdown-menu">
+                                                                        <li>
+                                                                            <form action="listo" method="post">
+                                                                                <input type="hidden" name="orderId" value="${o.id}">
+                                                                                <input type="hidden" name="status" value="Delivered">
+                                                                                <button type="submit" class="dropdown-item text-success fw-bold">
+                                                                                    ✔ Accept
+                                                                                </button>
+                                                                            </form>
+                                                                                                                                    </li>
+                                                                        <li>
+                                                                            <form action="listo" method="post">
+                                                                                <input type="hidden" name="orderId" value="${o.id}">
+                                                                                <input type="hidden" name="status" value="Canceled">
+                                                                                <button type="submit" class="dropdown-item text-danger fw-bold">
+                                                                                    ✖ Reject
+                                                                                </button>
+                                                                            </form>
+                                                                        </li>
+                                                                    </ul>
+
+
+                                                                </c:if>
                                                                 <button class="btn btn-sm btn-primary" onclick="window.location.href = 'invoice.jsp'">
                                                                     <i class="fa fa-eye"></i>
                                                                 </button>
@@ -559,6 +718,7 @@
             </div>
         </main>
 
+
         <!-- Vendor Custom -->
         <script src="assets/js/vendor/jquery-3.6.4.min.js"></script>
         <script src="assets/js/vendor/simplebar.min.js"></script>
@@ -579,61 +739,43 @@
 
         <!-- Main Custom -->
         <script src="assets/js/main.js"></script>
+
+
         <script>
-                                                                    document.addEventListener("DOMContentLoaded", function () {
-                                                                        document.querySelectorAll(".invoice-btn").forEach(button => {
-                                                                            button.addEventListener("click", function (event) {
-                                                                                event.stopPropagation();
-                                                                                let menu = this.nextElementSibling;
-                                                                                document.querySelectorAll(".invoice-options").forEach(m => {
-                                                                                    if (m !== menu)
-                                                                                        m.style.display = "none";
-                                                                                });
-                                                                                menu.style.display = menu.style.display === "block" ? "none" : "block";
-                                                                            });
-                                                                        });
 
-                                                                        document.addEventListener("click", function () {
-                                                                            document.querySelectorAll(".invoice-options").forEach(menu => {
-                                                                                menu.style.display = "none";
-                                                                            });
-                                                                        });
+<!-- Thêm thư viện SweetAlert2 (nếu chưa có) -->
+                                                                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-                                                                        // Xử lý Accept
-                                                                        document.querySelectorAll(".accept-btn").forEach(button => {
-                                                                            button.addEventListener("click", function () {
-                                                                                Swal.fire({
-                                                                                    title: "Order Accepted!",
-                                                                                    text: "This order has been successfully accepted.",
-                                                                                    icon: "success",
-                                                                                    confirmButtonText: "OK"
-                                                                                });
-                                                                            });
-                                                                        });
-
-                                                                        // Xử lý Reject
-                                                                        document.querySelectorAll(".reject-btn").forEach(button => {
-                                                                            button.addEventListener("click", function () {
-                                                                                Swal.fire({
-                                                                                    title: "Reject Order?",
-                                                                                    text: "Are you sure you want to reject this order?",
-                                                                                    icon: "warning",
+        <script>
+        function showOrderOptions(orderId) {
+                                                                            Swal.fire({
+                                                                            title: "Xác nhận đơn hàng",
+                                                                                    text: "Bạn muốn chấp nhận hay từ chối đơn hàng này?",
+                                                                                    icon: "question",
                                                                                     showCancelButton: true,
-                                                                                    confirmButtonColor: "#d33",
-                                                                                    cancelButtonColor: "#3085d6",
-                                                                                    confirmButtonText: "Yes, reject it!"
-                                                                                }).then((result) => {
-                                                                                    if (result.isConfirmed) {
-                                                                                        Swal.fire(
-                                                                                                "Rejected!",
-                                                                                                "The order has been rejected.",
-                                                                                                "error"
-                                                                                                );
-                                                                                    }
-                                                                                });
-                                                                            });
-                                                                        });
+                                                                                    confirmButtonText: "✔ Accept",
+                                                                                    cancelButtonText: "✖ Reject",
+                                                                                    cancelButtonColor: "#d33",
+                                                                                    confirmButtonColor: "#28a745",
+                                                                                    reverseButtons: true
+                                                                            }).then((result) => {
+                                                                    if (result.isConfirmed) {
+                                                                    // Nếu chọn Accept
+                                                                    document.getElementById("orderStatus-" + orderId).value = "Delivered";
+                                                                    } else if (result.dismiss === Swal.DismissReason.cancel) {
+                                                                    // Nếu chọn Reject
+                                                                    document.getElementById("orderStatus-" + orderId).value = "Canceled";
+                                                                    } else {
+                                                                    return;
+                                                                    }
+
+                                                                    // Gửi form
+                                                                    document.getElementById("orderForm-" + orderId).submit();
                                                                     });
+            }
+                                                         
+            
+            </script>
 
         </script>
     </body>

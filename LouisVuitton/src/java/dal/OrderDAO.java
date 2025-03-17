@@ -9,33 +9,63 @@ import model.Users;
 
 public class OrderDAO extends DBContext {
 
+    public void updateStatus(int id, String status) {
+        String sql = "UPDATE [dbo].[orders]\n"
+                + "   SET\n"
+                + "      [status] = ?\n"
+                + "      \n"
+                + " WHERE id = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, status);
+            st.setInt(2, id);
+            st.executeUpdate();
+        } catch (Exception e) {
+        }
+        
+    }
+    
+    public void updateStatusReject(int id) {
+        String sql = "UPDATE [dbo].[orders]\n"
+                + "   SET\n"
+                + "      [status] = 'Canceled'\n"
+                + "      \n"
+                + " WHERE id = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            st.executeUpdate();
+        } catch (Exception e) {
+        }
+        
+    }
+
     public List<Orders> getAllO() {
         List<Orders> list = new ArrayList();
         String sql = "select * from orders";
         UserDAO ud = new UserDAO();
+
         try {
 
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
+
             while (rs.next()) {
-                Orders od = new Orders();
-                od.setId(rs.getInt(1));
-                Users us = ud.getUserById(rs.getInt(2));
-                od.setUser(us);
-                od.setTotalPrice(rs.getDouble(3));
-                od.setTotalProduct(rs.getInt(4));
-                od.setStatus(rs.getString(5));
-                od.setName(rs.getString(6));
-                od.setPhone(rs.getString(7));
-                od.setAddress(rs.getString(8));
-                od.setComments(rs.getString(9));
+                Orders od = new Orders(rs.getInt(1), ud.getUserById(rs.getInt(2)), rs.getDouble(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11));
                 list.add(od);
             }
         } catch (Exception e) {
         }
         return list;
     }
-    
+
+    public static void main(String[] args) {
+        OrderDAO od = new OrderDAO();
+        List<Orders> list = od.getAllO();
+        for (Orders orders : list) {
+            System.out.println(orders.getName());
+        }
+    }
 
     // Thêm đơn hàng vào bảng orders
     public int addOrder(Orders order) throws SQLException {

@@ -32,7 +32,7 @@
                                     class="ri-checkbox-blank-circle-line"></i>Add Product</a></li>
                         <li><a href="categories" class="gi-page-link drop"><i
                                     class="ri-checkbox-blank-circle-line"></i>Add Category</a></li>
-                        <li><a href="orderlist" class="gi-page-link drop"><i
+                        <li><a href="listo" class="gi-page-link drop"><i
                                     class="ri-checkbox-blank-circle-line"></i>Order List</a></li>
                     </ul>
                 </li>
