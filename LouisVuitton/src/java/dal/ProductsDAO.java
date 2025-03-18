@@ -1,7 +1,7 @@
 package dal;
 
 // @author xu4nvi3t
-import java.lang.reflect.Array;
+import utils.DBContext;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,29 +12,98 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import model.ProductGender;
 import model.ProductImages;
-import model.ProductSizes;
 import model.Products;
 
 public class ProductsDAO extends DBContext {
 
-    public List<Products> getAllProductInAdmin() {
-        List<Products> list = new ArrayList();
-        String sql = "select * from products";
-        CategoriesDAO ca = new CategoriesDAO();
+    public boolean deleteProduct(int productId) {
+        PreparedStatement ps1 = null;
+        PreparedStatement ps2 = null;
+        PreparedStatement ps3 = null;
+        PreparedStatement ps4 = null;
+        boolean isDeleted = false;
+
         try {
-            PreparedStatement st = connection.prepareStatement(sql);
-            ResultSet rs = st.executeQuery();
-            while (rs.next()) {
-                Products pro = new Products(rs.getInt(1), ca.getCategoryById(rs.getInt(2)), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getInt(9), rs.getInt(10), rs.getInt(11), rs.getInt(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getDouble(16), rs.getDouble(17), rs.getDouble(18), rs.getString(19));
-                list.add(pro);
+            connection.setAutoCommit(false); // Bắt đầu transaction
+
+            // Xóa dữ liệu trong bảng product_gender trước
+            String sql1 = "DELETE FROM product_gender WHERE product_id = ?";
+            ps1 = connection.prepareStatement(sql1);
+            ps1.setInt(1, productId);
+            ps1.executeUpdate();
+            
+            // Xóa dữ liệu trong bảng products_images trước
+            String sql3 = "DELETE FROM products_images WHERE product_id = ?";
+            ps3 = connection.prepareStatement(sql3);
+            ps3.setInt(1, productId);
+            ps3.executeUpdate();
+            
+            // Xóa dữ liệu trong bảng order_details trước
+            String sql4 = "DELETE FROM order_details WHERE product_id = ?";
+            ps4 = connection.prepareStatement(sql4);
+            ps4.setInt(1, productId);
+            ps4.executeUpdate();
+
+            // Xóa sản phẩm trong bảng products
+            String sql2 = "DELETE FROM products WHERE id = ?";
+            ps2 = connection.prepareStatement(sql2);
+            ps2.setInt(1, productId);
+            int rowsAffected = ps2.executeUpdate();
+
+            if (rowsAffected > 0) {
+                isDeleted = true;
             }
+
+            connection.commit(); // Xác nhận thay đổi
         } catch (Exception e) {
-            System.out.println(e);
+            if (connection != null) {
+                try {
+                    connection.rollback(); // Hoàn tác nếu lỗi
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            e.printStackTrace();
+        } finally {
+            // Đóng tài nguyên an toàn
+            try {
+                if (ps1 != null) {
+                    ps1.close();
+                }
+                if (ps2 != null) {
+                    ps2.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
-        return list;
+        return isDeleted;
     }
 
-    //update stutas
+    public int getTotalProductByCategoryId(int categoryId) {
+        int productCount = 0;
+        String sql = "SELECT COUNT(p.id) as product_count "
+                + "FROM products p "
+                + "JOIN categories c ON c.id = p.category_id "
+                + "WHERE c.id = ?";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, categoryId);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                productCount = rs.getInt("product_count");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return productCount;
+    }
+
+    //update status
     public boolean updateStatus(int productId) {
         String sql = "UPDATE products SET status = 0 WHERE id = ?";
         try {
@@ -191,7 +260,7 @@ public class ProductsDAO extends DBContext {
 
     public List<Products> getAll() {
         List<Products> list = new ArrayList();
-        String sql = "select * from products where status = 1";
+        String sql = "select * from products";
         CategoriesDAO ca = new CategoriesDAO();
         try {
             PreparedStatement st = connection.prepareStatement(sql);
@@ -206,21 +275,13 @@ public class ProductsDAO extends DBContext {
         return list;
     }
 
-    public static void main(String[] args) {
-        ProductsDAO pd = new ProductsDAO();
-        List<Products> list = pd.getAll();
-        for (Products products : list) {
-            System.out.println(products.getId());
-        }
-    }
-
     public List<Products> getProductsByFilder(List<Integer> gid, List<Integer> cid, List<Integer> sid, Double price_low, Double price_high) {
         List<Products> list = new ArrayList();
         String sql = " SELECT \n"
                 + "   *\n"
                 + "FROM products p\n"
                 + "LEFT JOIN product_sizes ps ON p.id = ps.product_id\n"
-                + "LEFT JOIN product_gender pg ON p.id = pg.product_id where 1 = 1 and status = 1";
+                + "LEFT JOIN product_gender pg ON p.id = pg.product_id where 1 = 1";
         if (!gid.isEmpty()) {
             sql += " AND gender_id IN (" + gid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
         }
@@ -277,22 +338,6 @@ public class ProductsDAO extends DBContext {
         } catch (Exception e) {
         }
         return null;
-    }
-
-    public List<ProductSizes> getProductsSizes(int id) {
-        List<ProductSizes> list = new ArrayList();
-        String sql = "select * from product_sizes where product_size = " + id;
-        SizesDAO si = new SizesDAO();
-        try {
-            PreparedStatement st = connection.prepareStatement(sql);
-            ResultSet rs = st.executeQuery();
-            while (rs.next()) {
-                ProductSizes ps = new ProductSizes(getProductById(rs.getInt(1)), si.getSizeById(rs.getInt(2)), rs.getInt(3), rs.getInt(4), rs.getString(5));
-                list.add(ps);
-            }
-        } catch (Exception e) {
-        }
-        return list;
     }
 
     // get product by Cid
@@ -363,7 +408,7 @@ public class ProductsDAO extends DBContext {
         if (connection != null) {
             try {
                 String sqlQuery = "SELECT TOP 8 * FROM products\n"
-                        + "WHERE 1=1 and status = 1\n"
+                        + "WHERE 1=1\n"
                         + "ORDER BY total_sold DESC;";
                 PreparedStatement stm = connection.prepareStatement(sqlQuery);
                 ResultSet res = stm.executeQuery();
@@ -445,7 +490,7 @@ public class ProductsDAO extends DBContext {
         CategoriesDAO cg = new CategoriesDAO();
         if (connection != null) {
             try {
-                StringBuilder sql = new StringBuilder("SELECT TOP 12 p.* FROM products p JOIN product_gender pg ON p.id = pg.product_id WHERE 1=1 and status = 1");
+                StringBuilder sql = new StringBuilder("SELECT TOP 12 p.* FROM products p JOIN product_gender pg ON p.id = pg.product_id WHERE 1=1");
                 if (gender_id != 0) {
                     sql.append(" AND pg.gender_id = ").append(gender_id);
                 } else {

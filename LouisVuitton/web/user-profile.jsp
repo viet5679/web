@@ -305,7 +305,7 @@
                         <ul>
                             <li><a href="home">Home</a></li>
                             <li><a href="shop">Shop</a></li>
-                            <li><a href="checkout.jsp">Checkout</a></li>
+                            <li><a href="checkout">Checkout</a></li>
                             <li><a href="blog-full-width.jsp">Blog</a></li>
                             <li><a href="offer.jsp">Hot Offers</a></li>
                         </ul>
@@ -361,12 +361,9 @@
                                     </div> 
                                     <div class="ec-vendor-block-items">
                                         <ul>
-                                            <li><a href="profile">User Profile</a></li>
-                                            <li><a href="user-history.jsp">History</a></li>
-                                            <li><a href="wishlist.jsp">Wishlist</a></li>
-                                            <li><a href="cart.jsp">Cart</a></li>
-                                            <li><a href="checkout.jsp">Checkout</a></li>
-                                            <li><a href="user-invoice.jsp">Invoice</a></li>
+                                            <li><a href="order-history">Order History</a></li>
+                                            <li><a href="wishlist">Wishlist</a></li>
+                                            <li><a href="cart">Cart</a></li>
                                         </ul>
                                     </div>
                                 </div>

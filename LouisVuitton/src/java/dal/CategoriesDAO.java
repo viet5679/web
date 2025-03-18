@@ -1,40 +1,14 @@
-
 package dal;
 
- // @author xu4nvi3t
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
+// @author xu4nvi3t
+import utils.DBContext;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import model.Categories;
 
+public class CategoriesDAO extends DBContext {
 
-public class CategoriesDAO extends DBContext{
-    public void insert(Categories c) {
-        String sql = "INSERT INTO [dbo].[categories]\n"
-                + "           ([id]\n"
-                + "           ,[name]\n"
-                + "           ,[status]\n"
-                + "           ,[created_at]\n"
-                + "           ,[updated_at])\n"
-                + "     VALUES\n"
-                + "           (?\n"
-                + "           ,?\n"
-                + "           ,1\n"
-                + "           ,getdate()\n"
-                + "           ,getdate())";
-        try {
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setInt(1, c.getId());
-            ps.setString(2, c.getName());
-            ps.executeUpdate();
-        } catch (Exception e) {
-                e.printStackTrace();
-        }
-    }
-
-        
     public ArrayList<Categories> getAllCategory() {
         ArrayList<Categories> listCategory = new ArrayList<>();
         if (connection != null) {
@@ -53,6 +27,18 @@ public class CategoriesDAO extends DBContext{
             }
         }
         return null;
+    }
+
+    public boolean deleteCategory(int categoryID) {
+        String sql = "DELETE FROM categories WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, categoryID);
+            return stmt.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public Categories getCategoryById(int id) {
@@ -74,25 +60,26 @@ public class CategoriesDAO extends DBContext{
         return null;
     }
 
-//    public Categories getCategoryByProductGenderId(int pid) {
-//        if (connection != null) {
-//            try {
-//                String sqlQuery = "SELECT C.categoryID, C.categoryName, C.Description "
-//                        + "FROM categories C "
-//                        + "JOIN Products P ON C.categoryID = P.categoryID "
-//                        + "WHERE P.ProductID = ?";
-//                PreparedStatement stm = connection.prepareStatement(sqlQuery);
-//                stm.setInt(1, pid);
-//                ResultSet rs = stm.executeQuery();
-//                while (rs.next()) {
-//                    Categories c = new Categories(rs.getInt(1), rs.getString(2),
-//                            rs.getInt(3), rs.getString(4), rs.getString(5));
-//                    return c;
-//                }
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        return null;
-//    }
+    public void insert(Categories c) {
+        String sql = "INSERT INTO [dbo].[categories]\n"
+                + "           ([id]\n"
+                + "           ,[name]\n"
+                + "           ,[status]\n"
+                + "           ,[created_at]\n"
+                + "           ,[updated_at])\n"
+                + "     VALUES\n"
+                + "           (?\n"
+                + "           ,?\n"
+                + "           ,1\n"
+                + "           ,getdate()\n"
+                + "           ,getdate())";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, c.getId());
+            ps.setString(2, c.getName());
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

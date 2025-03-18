@@ -10,13 +10,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="keywords" content="admin, dashboard, crm, analytics, ecommerce, team, vendor, ai chat bot, backend, panel" />
-        <meta name="description" content="Grabit - Admin.">
-        <meta name="author" content="Maraviya Infotech">
+        <meta name="description" content="LouisVuitton - Admin.">
+        <meta name="author" content="LouisVuitton">
 
-        <title>Grabit - Admin.</title>
+        <title>LouisVuitton - Admin.</title>
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/img/favicon/favicon.ico">
+        <link rel="shortcut icon" href="assets/images/favicon/favicon.ico">
 
         <!-- Icon CSS -->
         <link href="assets/css/vendor/materialdesignicons.min.css" rel="stylesheet">
@@ -33,7 +33,6 @@
 
         <!-- Main CSS -->
         <link id="main-css" href="assets/css/style.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     </head>
 
@@ -114,7 +113,7 @@
                                         <div class="detail">
                                             <div class="title">Budget threshold exceeded!</div>
                                             <p class="time">4:15AM - 01/04/2023</p>
-                                            <p class="message">Budget threshold was exceeded for project "Grabit" B612
+                                            <p class="message">Budget threshold was exceeded for project "LouisVuitton" B612
                                                 elements.</p>
                                         </div>
                                     </li>
@@ -149,7 +148,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/img/user/9.jpg" alt="user">
+                                            <img src="assets/images/user/9.jpg" alt="user">
                                             <span class="label online"></span>
                                         </div>
                                         <div class="detail">
@@ -159,11 +158,11 @@
                                                 page. And make sure this all files are comppress.</p>
                                             <span class="download-files">
                                                 <span class="download">
-                                                    <img src="assets/img/other/1.jpg" alt="image">
+                                                    <img src="assets/images/other/1.jpg" alt="image">
                                                     <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                                 </span>
                                                 <span class="download">
-                                                    <img src="assets/img/other/2.jpg" alt="image">
+                                                    <img src="assets/images/other/2.jpg" alt="image">
                                                     <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                                 </span>
                                                 <span class="download">
@@ -178,7 +177,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/img/user/8.jpg" alt="user">
+                                            <img src="assets/images/user/8.jpg" alt="user">
                                             <span class="label offline"></span>
                                         </div>
                                         <div class="detail">
@@ -191,7 +190,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/img/user/7.jpg" alt="user">
+                                            <img src="assets/images/user/7.jpg" alt="user">
                                             <span class="label busy"></span>
                                         </div>
                                         <div class="detail">
@@ -224,7 +223,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/img/user/6.jpg" alt="user">
+                                            <img src="assets/images/user/6.jpg" alt="user">
                                             <span class="label busy"></span>
                                         </div>
                                         <div class="detail">
@@ -237,7 +236,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/img/user/5.jpg" alt="user">
+                                            <img src="assets/images/user/5.jpg" alt="user">
                                             <span class="label busy"></span>
                                         </div>
                                         <div class="detail">
@@ -261,11 +260,11 @@
                                             lorem is typesetting industry.</p>
                                         <span class="download-files">
                                             <span class="download">
-                                                <img src="assets/img/other/1.jpg" alt="image">
+                                                <img src="assets/images/other/1.jpg" alt="image">
                                                 <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                             </span>
                                             <span class="download">
-                                                <img src="assets/img/other/2.jpg" alt="image">
+                                                <img src="assets/images/other/2.jpg" alt="image">
                                                 <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                             </span>
                                             <span class="download">
@@ -295,7 +294,7 @@
                                                 <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                             </span>
                                             <span class="download">
-                                                <img src="assets/img/other/3.jpg" alt="image">
+                                                <img src="assets/images/other/3.jpg" alt="image">
                                                 <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                             </span>
                                         </span>
@@ -350,7 +349,7 @@
                         <div class="gi-breadcrumb">
                             <h5>Product List</h5>
                             <ul>
-                                <li><a href="index.jsp">Grabit</a></li>
+                                <li><a href="dashboard">LouisVuitton</a></li>
                                 <li>Product List</li>
                             </ul>
                         </div>
@@ -404,7 +403,7 @@
                                                                 </button>
                                                                 <div class="dropdown-menu">
                                                                     <a class="dropdown-item" href="edit?id=${c.id}">Edit</a>
-                                                                    <a class="dropdown-item delete-btn" href="#" data-id="${c.id}">Delete</a>
+                                                                    <a class="dropdown-item" href="javascript:void(0);" onclick="deleteProduct(${c.id})">Delete</a>
                                                                 </div>
                                                             </div>
                                                         </td>
@@ -419,188 +418,52 @@
                     </div>
                 </div>
             </div>
-            <!-- delete handle -->
+            <!-- footer -->
+            <jsp:include page="footer.jsp"/>
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            function deleteProduct(productID) {
+                Swal.fire({
+                    title: "Are you sure you want to delete?",
+                    text: "This product will be permanently deleted!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#d33",
+                    cancelButtonColor: "#3085d6",
+                    confirmButtonText: "Delete",
+                    cancelButtonText: "Cancel"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "deleteProduct?productID=" + productID;
+                    }
+                });
+            }
+        </script>
+
+        <%-- Display notification if exists --%>
+        <c:if test="${not empty success}">
             <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    document.querySelectorAll(".delete-btn").forEach(button => {
-                        button.addEventListener("click", function (event) {
-                            event.preventDefault();
-                            let productId = this.getAttribute("data-id");
-
-                            Swal.fire({
-                                title: "Are you sure?",
-                                text: "This action will mark the product as Deleted.",
-                                icon: "warning",
-                                showCancelButton: true,
-                                confirmButtonColor: "#3085d6",
-                                cancelButtonColor: "#d33",
-                                confirmButtonText: "Yes, delete it!"
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    console.log("Sending delete request for product ID:", productId);
-
-                                    fetch("/louisvuitton/admin/deleteproductservlet", {
-                                        method: "POST",
-                                        headers: {"Content-Type": "application/x-www-form-urlencoded"},
-                                        body: new URLSearchParams({id: productId})
-                                    })
-                                            .then(response => response.text())
-                                            .then(text => {
-                                                console.log("Response from server:", text);
-                                                if (text.trim() === "success") {
-                                                    Swal.fire("Deleted!", "Product has been deleted.", "success").then(() => {
-                                                        window.location.reload();
-                                                    });
-                                                } else {
-                                                    Swal.fire("Error!", text, "error");
-                                                }
-                                            })
-                                            .catch(error => {
-                                                console.error("Fetch error:", error);
-                                                Swal.fire("Error!", "Something went wrong.", "error");
-                                            });
-                                }
-                            });
-                        });
-                    });
+                Swal.fire({
+                    title: "Success!",
+                    text: "${success}",
+                    icon: "success",
+                    confirmButtonText: "OK"
                 });
             </script>
+        </c:if>
 
-
-
-
-
-
-
-            <!-- Footer -->
-            <footer>
-                <div class="container-fluid">
-                    <div class="copyright">
-                        <p><span id="copyright_year"></span> © Grabit, All rights Reserved.</p>
-                        <p>Design by MaraviyaInfotech.</p>
-                    </div>
-                </div>
-            </footer>
-
-            <!-- Feature tools -->
-            <div class="gi-tools-sidebar-overlay"></div>
-            <div class="gi-tools-sidebar">
-                <a href="javascript:void(0)" class="gi-tools-sidebar-toggle in-out">
-                    <i class="ri-settings-4-line"></i>
-                </a>
-                <div class="gi-bar-title">
-                    <h6>Tools</h6>
-                    <a href="javascript:void(0)" class="close-tools"><i class="ri-close-line"></i></a>
-                </div>
-                <div class="gi-tools-detail">
-                    <div class="gi-tools-block">
-                        <h3>Modes</h3>
-                        <div class="gi-tools-info">
-                            <div class="gi-tools-item mode active" data-gi-mode-tool="light">
-                                <img src="assets/img/tools/light.png" alt="light">
-                                <p>light</p>
-                            </div>
-                            <div class="gi-tools-item mode" data-gi-mode-tool="dark">
-                                <img src="assets/img/tools/dark.png" alt="dark">
-                                <p>dark</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gi-tools-block">
-                        <h3>Sidebar</h3>
-                        <div class="gi-tools-info">
-                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="light">
-                                <img src="assets/img/tools/side-light.png" alt="light">
-                                <p>light</p>
-                            </div>
-                            <div class="gi-tools-item sidebar active" data-sidebar-mode-tool="dark">
-                                <img src="assets/img/tools/side-dark.png" alt="dark">
-                                <p>dark</p>
-                            </div>
-                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-1">
-                                <img src="assets/img/tools/side-bg-1.png" alt="background">
-                                <p>Bg-1</p>
-                            </div>
-                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-2">
-                                <img src="assets/img/tools/side-bg-2.png" alt="background">
-                                <p>Bg-2</p>
-                            </div>
-                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-3">
-                                <img src="assets/img/tools/side-bg-3.png" alt="background">
-                                <p>Bg-3</p>
-                            </div>
-                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-4">
-                                <img src="assets/img/tools/side-bg-4.png" alt="background">
-                                <p>Bg-4</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gi-tools-block">
-                        <h3>Header</h3>
-                        <div class="gi-tools-info">
-                            <div class="gi-tools-item header active" data-header-mode="light">
-                                <img src="assets/img/tools/header-light.png" alt="light">
-                                <p>light</p>
-                            </div>
-                            <div class="gi-tools-item header" data-header-mode="dark">
-                                <img src="assets/img/tools/header-dark.png" alt="dark">
-                                <p>dark</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gi-tools-block">
-                        <h3>Backgrounds</h3>
-                        <div class="gi-tools-info">
-                            <div class="gi-tools-item bg active" data-bg-mode="default">
-                                <img src="assets/img/tools/bg-0.png" alt="default">
-                                <p>Default</p>
-                            </div>
-                            <div class="gi-tools-item bg" data-bg-mode="bg-1">
-                                <img src="assets/img/tools/bg-1.png" alt="bg-1">
-                                <p>Bg-1</p>
-                            </div>
-                            <div class="gi-tools-item bg" data-bg-mode="bg-2">
-                                <img src="assets/img/tools/bg-2.png" alt="bg-2">
-                                <p>Bg-2</p>
-                            </div>
-                            <div class="gi-tools-item bg" data-bg-mode="bg-3">
-                                <img src="assets/img/tools/bg-3.png" alt="bg-3">
-                                <p>Bg-3</p>
-                            </div>
-                            <div class="gi-tools-item bg" data-bg-mode="bg-4">
-                                <img src="assets/img/tools/bg-4.png" alt="bg-4">
-                                <p>Bg-4</p>
-                            </div>
-                            <div class="gi-tools-item bg" data-bg-mode="bg-5">
-                                <img src="assets/img/tools/bg-5.png" alt="bg-5">
-                                <p>Bg-5</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gi-tools-block">
-                        <h3>Box Design</h3>
-                        <div class="gi-tools-info">
-                            <div class="gi-tools-item box active" data-box-mode-tool="default">
-                                <img src="assets/img/tools/box-0.png" alt="default">
-                                <p>Default</p>
-                            </div>
-                            <div class="gi-tools-item box" data-box-mode-tool="box-1">
-                                <img src="assets/img/tools/box-1.png" alt="box-1">
-                                <p>Box-1</p>
-                            </div>
-                            <div class="gi-tools-item box" data-box-mode-tool="box-2">
-                                <img src="assets/img/tools/box-2.png" alt="box-2">
-                                <p>Box-2</p>
-                            </div>
-                            <div class="gi-tools-item box" data-box-mode-tool="box-3">
-                                <img src="assets/img/tools/box-3.png" alt="box-3">
-                                <p>Box-3</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
+        <c:if test="${not empty error}">
+            <script>
+                Swal.fire({
+                    title: "Error!",
+                    text: "${error}",
+                    icon: "error",
+                    confirmButtonText: "OK"
+                });
+            </script>
+        </c:if>
 
         <!-- Vendor Custom -->
         <script src="assets/js/vendor/jquery-3.6.4.min.js"></script>

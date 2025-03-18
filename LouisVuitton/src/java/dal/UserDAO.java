@@ -1,13 +1,69 @@
 package dal;
 
 // @author xu4nvi3t
+import utils.DBContext;
 import model.Users;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO extends DBContext {
+    
+    public List<Users> getUsersByRole(int roleId) {
+        List<Users> users = new ArrayList<>();
+        String query = "SELECT * FROM Users WHERE role = ?";
 
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setInt(1, roleId);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Users user = new Users();
+                user.setId(rs.getInt("id"));
+                user.setEmail(rs.getString("email"));
+                user.setName(rs.getString("name"));
+                user.setPassword(rs.getString("password"));
+                user.setGender(rs.getString("gender"));
+                user.setRole(rs.getInt("role"));
+                user.setAvatar(rs.getString("avatar"));
+                user.setAddress(rs.getString("Address"));
+                user.setPhone(rs.getString("Phone"));
+                user.setStatus(rs.getInt("status"));
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
+    }
+    
+    public boolean disableUser(String userId) {
+        String sql = "UPDATE users SET status = 2 WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, userId);
+            return stmt.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean enableUser(String userId) {
+        String sql = "UPDATE users SET status = 1 WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, userId);
+            return stmt.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
     public Users getUserById(int id) {
         String sql = "select * from users where id = ?";
         try {

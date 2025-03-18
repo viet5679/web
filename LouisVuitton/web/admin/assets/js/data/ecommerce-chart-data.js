@@ -1,8 +1,17 @@
 /* ====== Chart ====== */
 
-(function ($) {
+(function () {
     "use strict";
+
     function newrevenueChart() {
+        // Lấy dữ liệu từ biến toàn cục được đặt trong JSP
+        var revenueData = window.revenueData || [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var ordersData = window.ordersData || [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var customersData = window.customersData || [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+        // Chuyển đổi revenueData sang đơn vị k$
+        var revenueDataK = revenueData.map(value => parseFloat((value / 1000).toFixed(2)));
+
         var options = {
             chart: {
                 height: 365,
@@ -10,11 +19,10 @@
                 stacked: false,
                 foreColor: '#373d3f',
                 sparkline: {
-                    enabled: !1
+                    enabled: false
                 },
                 dropShadow: {
                     enabled: true,
-                    enabledOnSeries: undefined,
                     top: 5,
                     left: 5,
                     blur: 3,
@@ -22,32 +30,32 @@
                     opacity: 0.1
                 },
                 toolbar: {
-                    show: !1
+                    show: false
                 }
             },
             dataLabels: {
-                enabled: !1
+                enabled: false
             },
             series: [
                 {
-                    name: 'Revenue',
-                    data: [9, 16, 17, 15, 16, 17, 15, 18, 15, 17, 20],
+                    name: 'Revenue (k$)',
+                    data: revenueDataK
                 }, {
                     name: 'Orders',
-                    data: [8, 13, 15, 13, 13, 15, 13, 16, 14, 16, 18],
+                    data: ordersData
                 }, {
-                    name: 'Expence',
-                    data: [7, 11, 12, 10, 9, 12, 10, 12, 13, 12, 14],
+                    name: 'Customers',
+                    data: customersData
                 },
             ],
             plotOptions: {
                 bar: {
-                  horizontal: false,
-                  columnWidth: '20%',
+                    horizontal: false,
+                    columnWidth: '20%',
                 }
-              },
-              stroke: {
-                width: [2, 2, 2],
+            },
+            stroke: {
+                width: [3, 2, 2],
                 curve: "smooth",
             },
             fill: {
@@ -56,8 +64,8 @@
                     inverseColors: false,
                     shade: 'light',
                     type: "vertical",
-                    opacityFrom: .45,
-                    opacityTo: .05,
+                    opacityFrom: 0.45,
+                    opacityTo: 0.05,
                     stops: [50, 100, 100, 100]
                 }
             },
@@ -65,22 +73,36 @@
             xaxis: {
                 categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
                 axisTicks: {
-                    show: !1
+                    show: false
                 },
                 axisBorder: {
-                    show: !1
+                    show: false
                 }
             },
             yaxis: {
                 labels: {
-                    formatter: function (e) {
-                        return e + "k"
-                    },
-                    offsetX: -15
+                    formatter: function (val) {
+                        return val;
+                    }
+                },
+                title: {
+                    text: "Value"
+                }
+            },
+            tooltip: {
+                shared: true,
+                intersect: false,
+                y: {
+                    formatter: function (y, { seriesIndex }) {
+                        if (seriesIndex === 0) {
+                            return "$" + y + "k";
+                        }
+                        return y;
+                    }
                 }
             },
             legend: {
-                show: !0,
+                show: true,
                 horizontalAlign: "center",
                 offsetX: 0,
                 offsetY: -5,
@@ -95,15 +117,15 @@
                 }
             },
             grid: {
-                show: !1,
+                show: false,
                 xaxis: {
                     lines: {
-                        show: !1
+                        show: false
                     }
                 },
                 yaxis: {
                     lines: {
-                        show: !1
+                        show: false
                     }
                 },
                 padding: {
@@ -125,58 +147,14 @@
                 }
             }]
         };
-        var newrevenueChart = new ApexCharts(document.querySelector("#newrevenueChart"), options);
-        newrevenueChart.render();
-    }
-    function newcampaignsChart() {
-        var options = {
-            series: [{
-                name: 'Social',
-                data: [80, 50, 60, 40, 100, 50],
-            }, {
-                name: 'Referral',
-                data: [40, 100, 50, 80, 60, 90],
-            }, {
-                name: 'Organic',
-                data: [30, 70, 20, 60, 30, 30],
-            }
-            ],
-            chart: {
-                height: 300,
-                type: 'radar',
-                toolbar: {
-                    show: false,
-                },
-            },
-            colors: ["#556fbd", "#ff4f7f", "#5caf90"],
-            title: {
-                text: undefined,
-                align: 'left',
-                margin: 10,
-                offsetX: 0,
-                offsetY: 0,
-                floating: false,
-                style: {
-                    fontSize: '14px',
-                    fontWeight: 'bold',
-                    fontFamily: undefined,
-                    color: '#263238'
-                },
-            },
-            legend: {
-                show: false,
-            },
-            xaxis: {
-                categories: ['January', 'February', 'March', 'April', 'May', 'June']
-            }
-        };
-        var newcampaignsChart = new ApexCharts(document.querySelector("#newcampaignsChart"), options);
-        newcampaignsChart.render();
+
+        var chart = new ApexCharts(document.querySelector("#newrevenueChart"), options);
+        chart.render();
     }
 
-    jQuery(window).on('load', function () {
+    // Chạy khi DOM đã sẵn sàng
+    document.addEventListener("DOMContentLoaded", function () {
         newrevenueChart();
-        newcampaignsChart();
     });
 
-})(jQuery);
+})();

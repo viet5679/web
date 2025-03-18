@@ -102,45 +102,39 @@
                         </div>
                     </div>
                     <!-- Ec Header Search End -->
-
                     <!-- Ec Header Button Start -->
                     <div class="align-self-center">
                         <div class="ec-header-bottons">
-
                             <!-- Header User Start -->
-                            <%
-                                Users user = null;
-                                if (session != null) {
-                                    user = (Users) session.getAttribute("user");
-                                }
-                            %>
-
                             <div class="ec-header-user dropdown">
                                 <button class="dropdown-toggle" data-bs-toggle="dropdown">
-                                    <% if (user != null) { %>
-                                    <span class="ec-pro-title" style="margin-right: 10px"><%= user.getName() %></span>
-                                    <% } %>
+                                    <c:if test="${not empty sessionScope.user}">
+                                        <span class="ec-pro-title" style="margin-right: 10px">${sessionScope.user.name}</span>
+                                    </c:if>
                                     <i class="fi-rr-user"></i>
                                 </button>
-
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <% if (user == null) { %>
-                                    <!-- chưa đăng nhập -->
-                                    <li><a class="dropdown-item" href="register">Register</a></li>
-                                    <li><a class="dropdown-item" href="login">Login</a></li>
-                                        <% } else { %>
-                                    <!-- đã đăng nhập -->
-                                    <% if (user.getRole() == 1) { %>
-                                    <!-- User -->
-                                    <li><a class="dropdown-item" href="profile">Edit Profile</a></li>
-                                    <li><a class="dropdown-item" href="order-history">Order History</a></li>
+                                    <!-- Nếu chưa đăng nhập -->
+                                    <c:if test="${empty sessionScope.user}">
+                                        <li><a class="dropdown-item" href="register">Register</a></li>
+                                        <li><a class="dropdown-item" href="login">Login</a></li>
+                                        </c:if>
 
-                                    <% } else if (user.getRole() == 0) { %>
-                                    <!-- Admin -->
-                                    <li><a class="dropdown-item" href="admin/index.jsp">ADMIN</a></li>
-                                        <% } %>
-                                    <li><a class="dropdown-item" href="logout">Log out</a></li>
-                                        <% } %>
+                                    <!-- Nếu đã đăng nhập -->
+                                    <c:if test="${not empty sessionScope.user}">
+                                        <!-- Nếu là User -->
+                                        <c:if test="${sessionScope.user.role == 1}">
+                                            <li><a class="dropdown-item" href="profile">Edit Profile</a></li>
+                                            <li><a class="dropdown-item" href="order-history">Order History</a></li>
+                                            </c:if>
+
+                                        <!-- Nếu là Admin -->
+                                        <c:if test="${sessionScope.user.role == 0}">
+                                            <li><a class="dropdown-item" href="admin/dashboard">ADMIN</a></li>
+                                            </c:if>
+
+                                        <li><a class="dropdown-item" href="logout">Log out</a></li>
+                                        </c:if>
                                 </ul>
                             </div>
                             <!-- Header User End -->

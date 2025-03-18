@@ -1,5 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" %>`n<!DOCTYPE html>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <html lang="en" dir="ltr">
 
 
@@ -9,13 +9,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="keywords" content="admin, dashboard, crm, analytics, ecommerce, team, vendor, ai chat bot, backend, panel" />
-        <meta name="description" content="Grabit - Admin.">
-        <meta name="author" content="Maraviya Infotech">
+        <meta name="description" content="LouisVuitton - Admin.">
+        <meta name="author" content="LouisVuitton">
 
-        <title>Grabit - Admin.</title>
+        <title>LouisVuitton - Admin.</title>
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/img/favicon/favicon.ico">
+        <link rel="shortcut icon" href="assets/images/favicon/favicon.ico">
 
         <!-- Icon CSS -->
         <link href="assets/css/vendor/materialdesignicons.min.css" rel="stylesheet">
@@ -112,7 +112,7 @@
                                         <div class="detail">
                                             <div class="title">Budget threshold exceeded!</div>
                                             <p class="time">4:15AM - 01/04/2023</p>
-                                            <p class="message">Budget threshold was exceeded for project "Grabit" B612
+                                            <p class="message">Budget threshold was exceeded for project "LouisVuitton" B612
                                                 elements.</p>
                                         </div>
                                     </li>
@@ -147,7 +147,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/img/user/9.jpg" alt="user">
+                                            <img src="assets/images/user/9.jpg" alt="user">
                                             <span class="label online"></span>
                                         </div>
                                         <div class="detail">
@@ -157,11 +157,11 @@
                                                 page. And make sure this all files are comppress.</p>
                                             <span class="download-files">
                                                 <span class="download">
-                                                    <img src="assets/img/other/1.jpg" alt="image">
+                                                    <img src="assets/images/other/1.jpg" alt="image">
                                                     <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                                 </span>
                                                 <span class="download">
-                                                    <img src="assets/img/other/2.jpg" alt="image">
+                                                    <img src="assets/images/other/2.jpg" alt="image">
                                                     <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                                 </span>
                                                 <span class="download">
@@ -176,7 +176,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/img/user/8.jpg" alt="user">
+                                            <img src="assets/images/user/8.jpg" alt="user">
                                             <span class="label offline"></span>
                                         </div>
                                         <div class="detail">
@@ -189,7 +189,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/img/user/7.jpg" alt="user">
+                                            <img src="assets/images/user/7.jpg" alt="user">
                                             <span class="label busy"></span>
                                         </div>
                                         <div class="detail">
@@ -222,7 +222,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/img/user/6.jpg" alt="user">
+                                            <img src="assets/images/user/6.jpg" alt="user">
                                             <span class="label busy"></span>
                                         </div>
                                         <div class="detail">
@@ -235,7 +235,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/img/user/5.jpg" alt="user">
+                                            <img src="assets/images/user/5.jpg" alt="user">
                                             <span class="label busy"></span>
                                         </div>
                                         <div class="detail">
@@ -259,11 +259,11 @@
                                             lorem is typesetting industry.</p>
                                         <span class="download-files">
                                             <span class="download">
-                                                <img src="assets/img/other/1.jpg" alt="image">
+                                                <img src="assets/images/other/1.jpg" alt="image">
                                                 <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                             </span>
                                             <span class="download">
-                                                <img src="assets/img/other/2.jpg" alt="image">
+                                                <img src="assets/images/other/2.jpg" alt="image">
                                                 <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                             </span>
                                             <span class="download">
@@ -293,7 +293,7 @@
                                                 <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                             </span>
                                             <span class="download">
-                                                <img src="assets/img/other/3.jpg" alt="image">
+                                                <img src="assets/images/other/3.jpg" alt="image">
                                                 <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                             </span>
                                         </span>
@@ -341,19 +341,19 @@
             </div>
 
             <!-- main content -->
-             <div class="gi-main-content">
+            <div class="gi-main-content">
                 <div class="container-fluid">
-                    
+                    <!-- Page title & breadcrumb -->
                     <div class="gi-page-title gi-page-title-2">
                         <div class="gi-breadcrumb">
                             <h5>Category</h5>
                             <ul>
-                                <li><a href="index.jsp">Grabit</a></li>
+                                <li><a href="dashboard">LouisVuitton</a></li>
                                 <li>Category</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="row gi-category justify-content-center">
+                    <div class="row gi-category">
                         <div class="col-xl-4 col-lg-12">
                             <div class="team-sticky-bar">
                                 <div class="col-md-12">
@@ -361,27 +361,85 @@
                                         <div class="gi-card-content">
                                             <div class="gi-cat-form">
                                                 <h3>Add New Category</h3>
-                                                    <form action="categories" method="POST">                                               
-                                                       <div class="form-group">
-                                                           <label for="id">Id</label>
-                                                           <div class="col-12">
-                                                               <input id="id" name="id" class="form-control here slug-title" type="text" value="${requestScope.id}" readonly />
-                                                           </div>
-                                                       </div>
-                                                       <div class="form-group">
-                                                           <label for="name">Name</label>
-                                                           <div class="col-12">
-                                                               <input id="name" name="name" class="form-control here slug-title" type="text" required />
-                                                           </div>
-                                                       </div>
-                                                       <div class="form-group">
-                                                           <div class="col-12">
-                                                               <button type="submit" class="btn btn-primary">Submit</button>
-                                                           </div>
-                                                       </div>
-                                                   </form>
+                                                <form action="add-categories" method="POST">   
+                                                    <div class="form-group">
+                                                        <label for="id">Id</label>
+                                                        <div class="col-12">
+                                                            <input id="id" name="id" class="form-control here slug-title" type="text" value="${requestScope.id}" readonly />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Name</label>
+                                                        <div class="col-12">
+                                                            <input id="text" name="name" class="form-control here slug-title" type="text">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12 d-flex">
+                                                            <button type="submit" class="gi-btn-primary">Submit</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-12">
+                            <div class="gi-cat-list gi-card card-default">
+                                <div class="gi-card-content ">
+                                    <div class="table-responsive tbl-800">
+                                        <table id="cat_data_table" class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Id</th>
+                                                    <th>Name</th>
+                                                    <th>Total Product</th>
+                                                    <th>Status</th>
+                                                    <th>Create At</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <c:forEach items="${categoryProductCountMap}" var="c">
+                                                    <tr>
+                                                        <td>${c.key.id}</td>
+                                                        <td>${c.key.name}</td>
+                                                        <td><span class="gi-sub-cat-list">
+                                                                <span class="gi-sub-cat-count"
+                                                                      title="Total Sub Categories">${c.value}</span>
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <c:choose>
+                                                                <c:when test="${c.key.status == 1}">
+                                                                    <div class="dropdown-menu">
+                                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                                    </div>
+                                                                    <span style="color: green" class="active">ACTIVE</span>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <span class="inactive">Inactive</span>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </td>    
+                                                        <td>${c.key.createdAt}</td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
+                                                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                                                <span class="sr-only"><i class="ri-settings-3-line"></i></span>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item" href="javascript:void(0);" onclick="deleteCategory(${c.key.id})">Delete</a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </c:forEach>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -389,161 +447,51 @@
                     </div>
                 </div>
             </div>
+            <!-- footer -->
+            <jsp:include page="footer.jsp"/>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            function deleteCategory(categoryID) {
+                Swal.fire({
+                    title: "Are you sure you want to delete?",
+                    text: "This category will be permanently deleted!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#d33",
+                    cancelButtonColor: "#3085d6",
+                    confirmButtonText: "Delete",
+                    cancelButtonText: "Cancel"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "deleteCategory?categoryID=" + categoryID;
+                    }
+                });
+            }
+        </script>
 
-            
+        <%-- Display notification if exists --%>
+        <c:if test="${not empty success}">
             <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    
-                    document.querySelector('form').addEventListener('submit', function (event) {
-                        event.preventDefault();  
-
-                        Swal.fire({
-                            title: "Are you sure?",
-                            text: "You are about to submit this form.",
-                            icon: "warning",
-                            showCancelButton: true,
-                            confirmButtonColor: "#3085d6",
-                            cancelButtonColor: "#d33",
-                            confirmButtonText: "Yes, Submit!"
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                
-                                this.submit();  
-                            }
-                        });
-                    });
+                Swal.fire({
+                    title: "Success!",
+                    text: "${success}",
+                    icon: "success",
+                    confirmButtonText: "OK"
                 });
             </script>
+        </c:if>
 
-            <!-- Footer -->
-            <footer>
-                <div class="container-fluid">
-                    <div class="copyright">
-                        <p><span id="copyright_year"></span> © Grabit, All rights Reserved.</p>
-                        <p>Design by MaraviyaInfotech.</p>
-                    </div>
-                </div>
-            </footer>
-
-            <!-- Feature tools -->
-            <div class="gi-tools-sidebar-overlay"></div>
-            <div class="gi-tools-sidebar">
-                <a href="javascript:void(0)" class="gi-tools-sidebar-toggle in-out">
-                    <i class="ri-settings-4-line"></i>
-                </a>
-                <div class="gi-bar-title">
-                    <h6>Tools</h6>
-                    <a href="javascript:void(0)" class="close-tools"><i class="ri-close-line"></i></a>
-                </div>
-                <div class="gi-tools-detail">
-                    <div class="gi-tools-block">
-                        <h3>Modes</h3>
-                        <div class="gi-tools-info">
-                            <div class="gi-tools-item mode active" data-gi-mode-tool="light">
-                                <img src="assets/img/tools/light.png" alt="light">
-                                <p>light</p>
-                            </div>
-                            <div class="gi-tools-item mode" data-gi-mode-tool="dark">
-                                <img src="assets/img/tools/dark.png" alt="dark">
-                                <p>dark</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gi-tools-block">
-                        <h3>Sidebar</h3>
-                        <div class="gi-tools-info">
-                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="light">
-                                <img src="assets/img/tools/side-light.png" alt="light">
-                                <p>light</p>
-                            </div>
-                            <div class="gi-tools-item sidebar active" data-sidebar-mode-tool="dark">
-                                <img src="assets/img/tools/side-dark.png" alt="dark">
-                                <p>dark</p>
-                            </div>
-                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-1">
-                                <img src="assets/img/tools/side-bg-1.png" alt="background">
-                                <p>Bg-1</p>
-                            </div>
-                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-2">
-                                <img src="assets/img/tools/side-bg-2.png" alt="background">
-                                <p>Bg-2</p>
-                            </div>
-                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-3">
-                                <img src="assets/img/tools/side-bg-3.png" alt="background">
-                                <p>Bg-3</p>
-                            </div>
-                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-4">
-                                <img src="assets/img/tools/side-bg-4.png" alt="background">
-                                <p>Bg-4</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gi-tools-block">
-                        <h3>Header</h3>
-                        <div class="gi-tools-info">
-                            <div class="gi-tools-item header active" data-header-mode="light">
-                                <img src="assets/img/tools/header-light.png" alt="light">
-                                <p>light</p>
-                            </div>
-                            <div class="gi-tools-item header" data-header-mode="dark">
-                                <img src="assets/img/tools/header-dark.png" alt="dark">
-                                <p>dark</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gi-tools-block">
-                        <h3>Backgrounds</h3>
-                        <div class="gi-tools-info">
-                            <div class="gi-tools-item bg active" data-bg-mode="default">
-                                <img src="assets/img/tools/bg-0.png" alt="default">
-                                <p>Default</p>
-                            </div>
-                            <div class="gi-tools-item bg" data-bg-mode="bg-1">
-                                <img src="assets/img/tools/bg-1.png" alt="bg-1">
-                                <p>Bg-1</p>
-                            </div>
-                            <div class="gi-tools-item bg" data-bg-mode="bg-2">
-                                <img src="assets/img/tools/bg-2.png" alt="bg-2">
-                                <p>Bg-2</p>
-                            </div>
-                            <div class="gi-tools-item bg" data-bg-mode="bg-3">
-                                <img src="assets/img/tools/bg-3.png" alt="bg-3">
-                                <p>Bg-3</p>
-                            </div>
-                            <div class="gi-tools-item bg" data-bg-mode="bg-4">
-                                <img src="assets/img/tools/bg-4.png" alt="bg-4">
-                                <p>Bg-4</p>
-                            </div>
-                            <div class="gi-tools-item bg" data-bg-mode="bg-5">
-                                <img src="assets/img/tools/bg-5.png" alt="bg-5">
-                                <p>Bg-5</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gi-tools-block">
-                        <h3>Box Design</h3>
-                        <div class="gi-tools-info">
-                            <div class="gi-tools-item box active" data-box-mode-tool="default">
-                                <img src="assets/img/tools/box-0.png" alt="default">
-                                <p>Default</p>
-                            </div>
-                            <div class="gi-tools-item box" data-box-mode-tool="box-1">
-                                <img src="assets/img/tools/box-1.png" alt="box-1">
-                                <p>Box-1</p>
-                            </div>
-                            <div class="gi-tools-item box" data-box-mode-tool="box-2">
-                                <img src="assets/img/tools/box-2.png" alt="box-2">
-                                <p>Box-2</p>
-                            </div>
-                            <div class="gi-tools-item box" data-box-mode-tool="box-3">
-                                <img src="assets/img/tools/box-3.png" alt="box-3">
-                                <p>Box-3</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
+        <c:if test="${not empty error}">
+            <script>
+                Swal.fire({
+                    title: "Error!",
+                    text: "${error}",
+                    icon: "error",
+                    confirmButtonText: "OK"
+                });
+            </script>
+        </c:if>
 
         <!-- Vendor Custom -->
         <script src="assets/js/vendor/jquery-3.6.4.min.js"></script>

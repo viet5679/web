@@ -1,14 +1,16 @@
 package dal;
 
 // @author xu4nvi3t
+import utils.DBContext;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Orders;
-import model.Users;
 
 public class OrderDAO extends DBContext {
-
+    
     public void updateStatus(int id, String status) {
         String sql = "UPDATE [dbo].[orders]\n"
                 + "   SET\n"
@@ -58,15 +60,8 @@ public class OrderDAO extends DBContext {
         }
         return list;
     }
-
-    public static void main(String[] args) {
-        OrderDAO od = new OrderDAO();
-        List<Orders> list = od.getAllO();
-        for (Orders orders : list) {
-            System.out.println(orders.getName());
-        }
-    }
-
+    
+    private static final Logger LOGGER = Logger.getLogger(OrderDAO.class.getName());
     // Thêm đơn hàng vào bảng orders
     public int addOrder(Orders order) throws SQLException {
         String insertSQL = "INSERT INTO orders (user_id, name, phone, address, comments, total_price, total_product, status, created_at, updated_at) "
@@ -165,5 +160,44 @@ public class OrderDAO extends DBContext {
             e.printStackTrace();
         }
     }
+    
+    
+    // Lấy totalRevenue và  totalOrder cho Dashboard
+    public int getTotalOrders() {
+        if (connection == null) {
+            LOGGER.severe("Database connection is null");
+            return 0;
+        }
 
+        String sql = "SELECT COUNT(*) FROM Orders";
+
+        try (PreparedStatement ps = connection.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+            return 0;
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "Error fetching total orders", e);
+            return 0;
+        }
+    }
+
+    public double getTotalRevenue() {
+        if (connection == null) {
+            LOGGER.severe("Database connection is null");
+            return 0;
+        }
+
+        String sql = "SELECT SUM(total_price) FROM orders WHERE MONTH(created_at) = MONTH(GETDATE())";
+
+        try (PreparedStatement ps = connection.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                return rs.getDouble(1);
+            }
+            return 0;
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "Error fetching total revenue", e);
+            return 0;
+        }
+    }
 }

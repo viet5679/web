@@ -1,5 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="model.Users" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -170,7 +171,11 @@
                                                                         <td class="border-none m-m15" colspan="3"><span class="text-600 text-90">Comments : </span><span class="note-text-color">${order.comments}</span></td>
                                                                         <td class="border-color m-m15" colspan="1"><span><strong>Total</strong></span>
                                                                         </td>
-                                                                        <td class="border-color m-m15"><span><b>$${order.totalPrice}</b></span></td>
+                                                                        <td class="border-color m-m15">
+                                                                            <span><b>
+                                                                                    <fmt:formatNumber value="${order.totalPrice}" type="number" minFractionDigits="2" maxFractionDigits="2"/>
+                                                                                </b></span>
+                                                                        </td>
                                                                     </tr>
                                                                 </tfoot>
                                                             </table>

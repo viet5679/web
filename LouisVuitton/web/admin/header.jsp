@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <header class="gi-header">
     <div class="container-fluid">
         <div class="gi-header-items">
@@ -7,7 +8,6 @@
                         <span class="inner-ring"></span>
                     </span>
                 </a>
-                
             </div>
             <div class="right-header">
                 <div class="gi-right-tool display-screen">
@@ -28,22 +28,17 @@
                 <div class="gi-right-tool gi-user-drop">
                     <div class="gi-hover-drop">
                         <div class="gi-hover-tool">
-                            <img class="user" src="assets/images/user/1.jpg" alt="user">
+                            <img class="user" src="assets/images/user/default.jpg" alt="user">
                         </div>
                         <div class="gi-hover-drop-panel right">
                             <div class="details">
-                                <h6>Wiley Waites</h6>
-                                <p>wiley@example.com</p>
+                                <c:if test="${not empty sessionScope.user}">
+                                    <h6>${sessionScope.user.name}</h6>
+                                    <p>${sessionScope.user.email}</p>
+                                </c:if>
                             </div>
                             <ul class="border-top">
-                                <li><a href="team-profile.jsp">Profile</a></li>
-                                <li><a href="faq.jsp">Help</a></li>
-                                <li><a href="chatapp.jsp">Messages</a></li>
-                                <li><a href="project-overview.jsp">Projects</a></li>
-                                <li><a href="team-update.jsp">Settings</a></li>
-                            </ul>
-                            <ul class="border-top">
-                                <li><a href="signin.jsp"><i class="ri-logout-circle-r-line"></i>Logout</a></li>
+                                <li><a href="/louisvuitton/logout"><i class="ri-logout-circle-r-line"></i>Logout</a></li>
                             </ul>
                         </div>
                     </div>

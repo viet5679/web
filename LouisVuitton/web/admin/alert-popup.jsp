@@ -8,13 +8,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="keywords" content="admin, dashboard, crm, analytics, ecommerce, team, vendor, ai chat bot, backend, panel" />
-        <meta name="description" content="Grabit - Admin.">
-        <meta name="author" content="Maraviya Infotech">
+        <meta name="description" content="LouisVuitton - Admin.">
+        <meta name="author" content="LouisVuitton">
 
-        <title>Grabit - Admin.</title>
+        <title>LouisVuitton - Admin.</title>
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/img/favicon/favicon.ico">
+        <link rel="shortcut icon" href="assets/images/favicon/favicon.ico">
 
         <!-- Icon CSS -->
         <link href="assets/css/vendor/materialdesignicons.min.css" rel="stylesheet">
@@ -68,19 +68,19 @@
                             <div class="gi-right-tool gi-flag-drop language">
                                 <div class="gi-hover-drop">
                                     <div class="gi-hover-tool">
-                                        <img class="flag" src="assets/img/flag/us.png" alt="flag">
+                                        <img class="flag" src="assets/images/flag/us.png" alt="flag">
                                     </div>
                                     <div class="gi-hover-drop-panel right">
                                         <ul>
-                                            <li><a href="javascript:void(0)"><img class="flag" src="assets/img/flag/us.png"
+                                            <li><a href="javascript:void(0)"><img class="flag" src="assets/images/flag/us.png"
                                                                                   alt="flag">English</a></li>
-                                            <li><a href="javascript:void(0)"><img class="flag" src="assets/img/flag/in.png"
+                                            <li><a href="javascript:void(0)"><img class="flag" src="assets/images/flag/in.png"
                                                                                   alt="flag">Hindi</a></li>
-                                            <li><a href="javascript:void(0)"><img class="flag" src="assets/img/flag/de.png"
+                                            <li><a href="javascript:void(0)"><img class="flag" src="assets/images/flag/de.png"
                                                                                   alt="flag"> Deutsch</a></li>
-                                            <li><a href="javascript:void(0)"><img class="flag" src="assets/img/flag/it.png"
+                                            <li><a href="javascript:void(0)"><img class="flag" src="assets/images/flag/it.png"
                                                                                   alt="flag">Italian</a></li>
-                                            <li><a href="javascript:void(0)"><img class="flag" src="assets/img/flag/jp.png"
+                                            <li><a href="javascript:void(0)"><img class="flag" src="assets/images/flag/jp.png"
                                                                                   alt="flag">Japanese</a></li>
                                         </ul>
                                     </div>
@@ -94,17 +94,17 @@
                                     <div class="gi-hover-drop-panel right">
                                         <h6 class="title">Apps</h6>
                                         <ul>
-                                            <li><a href="javascript:void(0)"><img class="app" src="assets/img/apps/1.png"
+                                            <li><a href="javascript:void(0)"><img class="app" src="assets/images/apps/1.png"
                                                                                   alt="flag">English</a></li>
-                                            <li><a href="javascript:void(0)"><img class="app" src="assets/img/apps/2.png"
+                                            <li><a href="javascript:void(0)"><img class="app" src="assets/images/apps/2.png"
                                                                                   alt="flag">Hindi</a></li>
-                                            <li><a href="javascript:void(0)"><img class="app" src="assets/img/apps/3.png"
+                                            <li><a href="javascript:void(0)"><img class="app" src="assets/images/apps/3.png"
                                                                                   alt="flag">Deutsch</a></li>
-                                            <li><a href="javascript:void(0)"><img class="app" src="assets/img/apps/4.png"
+                                            <li><a href="javascript:void(0)"><img class="app" src="assets/images/apps/4.png"
                                                                                   alt="flag">Italian</a></li>
-                                            <li><a href="javascript:void(0)"><img class="app" src="assets/img/apps/5.png"
+                                            <li><a href="javascript:void(0)"><img class="app" src="assets/images/apps/5.png"
                                                                                   alt="flag">Japanese</a></li>
-                                            <li><a href="javascript:void(0)"><img class="app" src="assets/img/apps/6.png"
+                                            <li><a href="javascript:void(0)"><img class="app" src="assets/images/apps/6.png"
                                                                                   alt="flag">Japanese</a></li>
                                         </ul>
                                     </div>
@@ -128,7 +128,7 @@
                             <div class="gi-right-tool gi-user-drop">
                                 <div class="gi-hover-drop">
                                     <div class="gi-hover-tool">
-                                        <img class="user" src="assets/img/user/1.jpg" alt="user">
+                                        <img class="user" src="assets/images/user/1.jpg" alt="user">
                                     </div>
                                     <div class="gi-hover-drop-panel right">
                                         <div class="details">
@@ -219,7 +219,7 @@
                                         <div class="detail">
                                             <div class="title">Budget threshold exceeded!</div>
                                             <p class="time">4:15AM - 01/04/2023</p>
-                                            <p class="message">Budget threshold was exceeded for project "Grabit" B612 elements.</p>
+                                            <p class="message">Budget threshold was exceeded for project "LouisVuitton" B612 elements.</p>
                                         </div>
                                     </li>
                                     <li>
@@ -252,7 +252,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/img/user/9.jpg" alt="user">
+                                            <img src="assets/images/user/9.jpg" alt="user">
                                             <span class="label online"></span>
                                         </div>
                                         <div class="detail">
@@ -261,11 +261,11 @@
                                             <p class="message">Hello,  I am sending some file. Please use this in landing page. And make sure this all files are comppress.</p>
                                             <span class="download-files">
                                                 <span class="download">
-                                                    <img src="assets/img/other/1.jpg" alt="image">
+                                                    <img src="assets/images/other/1.jpg" alt="image">
                                                     <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                                 </span>
                                                 <span class="download">
-                                                    <img src="assets/img/other/2.jpg" alt="image">
+                                                    <img src="assets/images/other/2.jpg" alt="image">
                                                     <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                                 </span>
                                                 <span class="download">
@@ -280,7 +280,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/img/user/8.jpg" alt="user">
+                                            <img src="assets/images/user/8.jpg" alt="user">
                                             <span class="label offline"></span>
                                         </div>
                                         <div class="detail">
@@ -292,7 +292,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/img/user/7.jpg" alt="user">
+                                            <img src="assets/images/user/7.jpg" alt="user">
                                             <span class="label busy"></span>
                                         </div>
                                         <div class="detail">
@@ -324,7 +324,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/img/user/6.jpg" alt="user">
+                                            <img src="assets/images/user/6.jpg" alt="user">
                                             <span class="label busy"></span>
                                         </div>
                                         <div class="detail">
@@ -336,7 +336,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/img/user/5.jpg" alt="user">
+                                            <img src="assets/images/user/5.jpg" alt="user">
                                             <span class="label busy"></span>
                                         </div>
                                         <div class="detail">
@@ -360,11 +360,11 @@
                                             lorem is typesetting industry.</p>
                                         <span class="download-files">
                                             <span class="download">
-                                                <img src="assets/img/other/1.jpg" alt="image">
+                                                <img src="assets/images/other/1.jpg" alt="image">
                                                 <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                             </span>
                                             <span class="download">
-                                                <img src="assets/img/other/2.jpg" alt="image">
+                                                <img src="assets/images/other/2.jpg" alt="image">
                                                 <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                             </span>
                                             <span class="download">
@@ -394,7 +394,7 @@
                                                 <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                             </span>
                                             <span class="download">
-                                                <img src="assets/img/other/3.jpg" alt="image">
+                                                <img src="assets/images/other/3.jpg" alt="image">
                                                 <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                             </span>
                                         </span>
@@ -449,7 +449,7 @@
                         <div class="gi-breadcrumb">
                             <h5>Alert Popup</h5>
                             <ul>
-                                <li><a href="index.jsp">Grabit</a></li>
+                                <li><a href="index.jsp">LouisVuitton</a></li>
                                 <li><a href="index.jsp">CRM</a></li>
                                 <li>Alert Popup</li>
                             </ul>
@@ -470,7 +470,7 @@
                                             <li>A dialog with three buttons<button class="pop-save gi-btn-primary">Click</button></li>
                                             <li>A custom positioned dialog<button class="pop-positioned-timeout gi-btn-primary">Click</button></li>
                                             <li>Custom animation with Animate.css<button class="pop-fade-down gi-btn-primary">Click</button></li>
-                                         
+                                            <li>A confirm dialog, with a function attached to the "Confirm"-button<button class="pop-delete gi-btn-primary">Click</button></li>
                                             <li>By passing a parameter, you can execute something else for "Cancel"<button class="pop-delete-cancel gi-btn-primary">Click</button></li>
                                             <li>A message with a custom image<button class="pop-img gi-btn-primary">Click</button></li>
                                             <li>A message with custom width, padding, background<button class="pop-custom gi-btn-primary">Click</button></li>
@@ -486,134 +486,8 @@
                 </div>
             </div>
 
-            <!-- Footer -->
-            <footer>
-                <div class="container-fluid">
-                    <div class="copyright">
-                        <p><span id="copyright_year"></span> © Grabit, All rights Reserved.</p>
-                        <p>Design by MaraviyaInfotech.</p>
-                    </div>
-                </div>
-            </footer>
-
-            <!-- Feature tools -->
-            <div class="gi-tools-sidebar-overlay"></div>
-            <div class="gi-tools-sidebar">
-                <a href="javascript:void(0)" class="gi-tools-sidebar-toggle in-out">
-                    <i class="ri-settings-4-line"></i>
-                </a>
-                <div class="gi-bar-title">
-                    <h6>Tools</h6>
-                    <a href="javascript:void(0)" class="close-tools"><i class="ri-close-line"></i></a>
-                </div>
-                <div class="gi-tools-detail">
-                    <div class="gi-tools-block">
-                        <h3>Modes</h3>
-                        <div class="gi-tools-info">
-                            <div class="gi-tools-item mode active" data-gi-mode-tool="light">
-                                <img src="assets/img/tools/light.png" alt="light">
-                                <p>light</p>
-                            </div>
-                            <div class="gi-tools-item mode" data-gi-mode-tool="dark">
-                                <img src="assets/img/tools/dark.png" alt="dark">
-                                <p>dark</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gi-tools-block">
-                        <h3>Sidebar</h3>
-                        <div class="gi-tools-info">
-                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="light">
-                                <img src="assets/img/tools/side-light.png" alt="light">
-                                <p>light</p>
-                            </div>
-                            <div class="gi-tools-item sidebar active" data-sidebar-mode-tool="dark">
-                                <img src="assets/img/tools/side-dark.png" alt="dark">
-                                <p>dark</p>
-                            </div>
-                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-1">
-                                <img src="assets/img/tools/side-bg-1.png" alt="background">
-                                <p>Bg-1</p>
-                            </div>
-                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-2">
-                                <img src="assets/img/tools/side-bg-2.png" alt="background">
-                                <p>Bg-2</p>
-                            </div>
-                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-3">
-                                <img src="assets/img/tools/side-bg-3.png" alt="background">
-                                <p>Bg-3</p>
-                            </div>
-                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-4">
-                                <img src="assets/img/tools/side-bg-4.png" alt="background">
-                                <p>Bg-4</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gi-tools-block">
-                        <h3>Header</h3>
-                        <div class="gi-tools-info">
-                            <div class="gi-tools-item header active" data-header-mode="light">
-                                <img src="assets/img/tools/header-light.png" alt="light">
-                                <p>light</p>
-                            </div>
-                            <div class="gi-tools-item header" data-header-mode="dark">
-                                <img src="assets/img/tools/header-dark.png" alt="dark">
-                                <p>dark</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gi-tools-block">
-                        <h3>Backgrounds</h3>
-                        <div class="gi-tools-info">
-                            <div class="gi-tools-item bg active" data-bg-mode="default">
-                                <img src="assets/img/tools/bg-0.png" alt="default">
-                                <p>Default</p>
-                            </div>
-                            <div class="gi-tools-item bg" data-bg-mode="bg-1">
-                                <img src="assets/img/tools/bg-1.png" alt="bg-1">
-                                <p>Bg-1</p>
-                            </div>
-                            <div class="gi-tools-item bg" data-bg-mode="bg-2">
-                                <img src="assets/img/tools/bg-2.png" alt="bg-2">
-                                <p>Bg-2</p>
-                            </div>
-                            <div class="gi-tools-item bg" data-bg-mode="bg-3">
-                                <img src="assets/img/tools/bg-3.png" alt="bg-3">
-                                <p>Bg-3</p>
-                            </div>
-                            <div class="gi-tools-item bg" data-bg-mode="bg-4">
-                                <img src="assets/img/tools/bg-4.png" alt="bg-4">
-                                <p>Bg-4</p>
-                            </div>
-                            <div class="gi-tools-item bg" data-bg-mode="bg-5">
-                                <img src="assets/img/tools/bg-5.png" alt="bg-5">
-                                <p>Bg-5</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gi-tools-block">
-                        <h3>Box Design</h3>
-                        <div class="gi-tools-info">
-                            <div class="gi-tools-item box active" data-box-mode-tool="default">
-                                <img src="assets/img/tools/box-0.png" alt="default">
-                                <p>Default</p>
-                            </div>
-                            <div class="gi-tools-item box" data-box-mode-tool="box-1">
-                                <img src="assets/img/tools/box-1.png" alt="box-1">
-                                <p>Box-1</p>
-                            </div>
-                            <div class="gi-tools-item box" data-box-mode-tool="box-2">
-                                <img src="assets/img/tools/box-2.png" alt="box-2">
-                                <p>Box-2</p>
-                            </div>
-                            <div class="gi-tools-item box" data-box-mode-tool="box-3">
-                                <img src="assets/img/tools/box-3.png" alt="box-3">
-                                <p>Box-3</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- footer -->
+            <jsp:include page="footer.jsp"/>
         </main>
 
         <!-- Vendor Custom -->

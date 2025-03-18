@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ page import="model.Users" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -379,7 +380,7 @@
                                                     <th scope="row"><span>${o.id}</span></th>
                                                     <td><span>${o.createdAt}</span></td>
                                                     <td><span>${o.totalProduct}</span></td>
-                                                    <td><span>${o.totalPrice}</span></td>
+                                                    <td><span><fmt:formatNumber value="${o.totalPrice}" type="number" minFractionDigits="2" maxFractionDigits="2"/></span></td>
                                                     <td>
                                                         <c:choose>
                                                             <c:when test="${o.status eq 'Pending'}">

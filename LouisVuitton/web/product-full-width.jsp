@@ -237,24 +237,6 @@
                                                     </c:if>
                                                 </div>
                                             </div>
-                                            <c:set value="${requestScope.listS}" var="sc"/>
-                                            <c:if test="${not empty sc}">
-                                                <div class="ec-pro-variation">
-                                                    <div class="ec-pro-variation-inner ec-pro-variation-size">
-                                                        <span>SIZE</span>
-                                                        <div class="ec-pro-variation-content">
-                                                            <ul>
-                                                                <c:forEach var="s" items="${sc}">
-                                                                    <li class="active" value="${s.sizeId.id}">
-                                                                        <span>${s.sizeId.name}</span>
-                                                                    </li>
-                                                                </c:forEach>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </c:if>
-
                                             <div class="ec-single-qty">
                                                 <div class="qty-plus-minus">
                                                     <input id="qty-${p.id}" class="qty-input" min="1" value="1" data-product-id="${p.id}" />
@@ -374,7 +356,6 @@
                                     class="tab-content  ec-single-pro-tab-content">
                                     <div id="ec-spt-nav-details"
                                          class="tab-pane fade show active">
-
                                         <div class="ec-single-pro-tab-desc">
                                             <p>${p.description}
                                             </p>
@@ -382,12 +363,9 @@
                                                 <c:forEach var="sub" items="${requestScope.sub}">
                                                     <li>${sub}</li>
                                                     </c:forEach>
-
                                             </ul>
                                         </div>
                                     </div>
-
-
                                     <div id="ec-spt-nav-review"
                                          class="tab-pane fade">
                                         <div class="row">
@@ -458,7 +436,6 @@
                                                         </div>
                                                     </c:if>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
@@ -466,7 +443,6 @@
                             </div>
                             <!-- product details description area end -->
                         </div>
-
                     </div>
                 </div>
         </section>
