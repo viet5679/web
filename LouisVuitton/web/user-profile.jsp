@@ -158,11 +158,22 @@
                                     %>
                                     <div class="ec-header-user dropdown">
                                         <button class="dropdown-toggle" data-bs-toggle="dropdown">
-                                            <% if (user != null) { %>
-                                            <span class="ec-pro-title" style="margin-right: 10px"><%= user.getName() %></span>
-                                            <% } %>
+                                            <% if (user != null) { 
+                                                String avatar = (user.getAvatar() != null && !user.getAvatar().isEmpty()) 
+                                                                ? user.getAvatar() 
+                                                                : request.getContextPath() + "/assets/images/default-avatar.png"; 
+                                            %>
+                                            <span class="ec-pro-title" style="margin-right: 10px;">
+                                                <%= user.getName() %>
+                                            </span>
+                                            <img src="<%= avatar %>" 
+                                                 alt="User Avatar" class="user-avatar" 
+                                                 style="width: 35px; height: 35px; border-radius: 50%;">
+                                            <% } else { %>
                                             <i class="fi-rr-user"></i>
+                                            <% } %>
                                         </button>
+
 
                                         <ul class="dropdown-menu dropdown-menu-right">
                                             <% if (user == null) { %>
@@ -457,22 +468,23 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="ec-vendor-block-detail">
-                                        <div class="thumb-upload">
-                                            <div class="thumb-edit">
-                                                <input type='file' id="thumbUpload02" class="ec-image-upload" name="avatar" accept=".png, .jpg, .jpeg" />
-                                                <label><i class="fi-rr-edit"></i></label>
-                                            </div>
-                                            <div class="thumb-preview ec-preview">
-                                                <div class="image-thumb-preview">
-                                                    <img class="image-thumb-preview ec-image-preview v-img" 
-                                                         src="<%= user != null && user.getAvatar() != null && !user.getAvatar().isEmpty() ? user.getAvatar() : "assets/images/user/default.jpg" %>" alt="edit" />
+
+                                    <div class="ec-vendor-upload-detail">
+                                        <form class="row g-3" id="editForm" action="profile" method="POST" enctype="multipart/form-data">
+                                            <div class="ec-vendor-block-detail">
+                                                <div class="thumb-upload">
+                                                    <div class="thumb-edit">
+                                                        <input type='file' id="thumbUpload02" class="ec-image-upload" name="avatar" accept=".png, .jpg, .jpeg" />
+                                                        <label><i class="fi-rr-edit"></i></label>
+                                                    </div>
+                                                    <div class="thumb-preview ec-preview">
+                                                        <div class="image-thumb-preview">
+                                                            <img class="image-thumb-preview ec-image-preview v-img" 
+                                                                 src="<%= user != null && user.getAvatar() != null && !user.getAvatar().isEmpty() ? user.getAvatar() : "assets/images/user/default.jpg" %>" alt="edit" />
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="ec-vendor-upload-detail">
-                                    <form class="row g-3" id="editForm" action="profile" method="POST" enctype="multipart/form-data">
                                         <div class="col-md-6 space-t-15">
                                             <label class="form-label">First name</label>
                                             <input type="text" class="form-control" name="firstName" value="<%= user != null ? user.getName().split(" ")[0] : "" %>">
@@ -547,27 +559,27 @@
         <!-- Load SweetAlert2 -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
-                                                document.addEventListener("DOMContentLoaded", function () {
-                                                    console.log("Script loaded"); // Debugging: Ensure script runs
+                                        document.addEventListener("DOMContentLoaded", function () {
+                                            console.log("Script loaded"); // Debugging: Ensure script runs
 
             <% if (message != null && !message.isEmpty()) { %>
-                                                    console.log("Success message: <%= message %>"); // Debugging
-                                                    Swal.fire({
-                                                        title: "Profile Updated!",
-                                                        text: "<%= message %>",
-                                                        icon: "success",
-                                                        confirmButtonText: "OK"
-                                                    });
+                                            console.log("Success message: <%= message %>"); // Debugging
+                                            Swal.fire({
+                                                title: "Profile Updated!",
+                                                text: "<%= message %>",
+                                                icon: "success",
+                                                confirmButtonText: "OK"
+                                            });
             <% } else if (error != null && !error.isEmpty()) { %>
-                                                    console.log("Error message: <%= error %>"); // Debugging
-                                                    Swal.fire({
-                                                        title: "Update Failed!",
-                                                        text: "<%= error %>",
-                                                        icon: "error",
-                                                        confirmButtonText: "Try Again"
-                                                    });
+                                            console.log("Error message: <%= error %>"); // Debugging
+                                            Swal.fire({
+                                                title: "Update Failed!",
+                                                text: "<%= error %>",
+                                                icon: "error",
+                                                confirmButtonText: "Try Again"
+                                            });
             <% } %>
-                                                });
+                                        });
         </script>
 
 

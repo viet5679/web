@@ -9,6 +9,8 @@ import dal.ProductsDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
+import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -21,6 +23,11 @@ import jakarta.servlet.http.HttpServlet;
  *
  * @author vuhuu
  */
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+        maxFileSize = 1024 * 1024 * 10, // 10MB
+        maxRequestSize = 1024 * 1024 * 50 // 50MB
+)
 public class EditProductServlet extends HttpServlet {
 
     /**
@@ -95,19 +102,19 @@ public class EditProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String imageId = request.getParameter("imageId"); // Lấy imageId từ form
 
-        // Xử lý tiếp theo với imageId
-        System.out.println("Selected Image ID: " + imageId);
-//        String id_raw = request.getParameter("id");
-//        String name = request.getParameter("name");
-//        String cid_raw = request.getParameter("opc");
-//        String des = request.getParameter("description");
-//        String subD = request.getParameter("subDescription");
-//        String price_raw = request.getParameter("price");
-//        String quantity_raw = request.getParameter("quantity");
-//        String sale_raw = request.getParameter("sale");
-//        int quantity, id;
+        String id_raw = request.getParameter("id");
+        String name = request.getParameter("name");
+        String cid_raw = request.getParameter("op");
+        String des = request.getParameter("description");
+        String subD = request.getParameter("subDescription");
+        String price_raw = request.getParameter("price");
+        String quantity_raw = request.getParameter("quantity");
+        String sale_raw = request.getParameter("sale");
+        String[] deletedImages = request.getParameterValues("deletedImages");
+        
+
+//        int quantity, id, cid;
 //        double price, sale;
 //        Collection<Part> parts = request.getParts();
 //        String projectRoot = new File(request.getServletContext().getRealPath("/")).getParentFile().getParent();
@@ -159,54 +166,43 @@ public class EditProductServlet extends HttpServlet {
 //        }
 //        ProductsDAO pd = new ProductsDAO();
 //        CategoriesDAO cd = new CategoriesDAO();
-//        GendersDAO gd = new GendersDAO();
+//
 //        try {
 //            id = Integer.parseInt(id_raw);
-//            
+//            cid = Integer.parseInt(cid_raw);
+//
 //            quantity = Integer.parseInt(quantity_raw);
 //            price = Double.parseDouble(price_raw);
 //            sale = Double.parseDouble(sale_raw);
 //
 //            Products pro = pd.getProductById(id);
+//            pro.setCategoryId(cd.getCategoryById(cid));
 //            pro.setName(name);
 //            pro.setDescription(des);
 //            pro.setSubDescription(subD);
 //            if (!file.isEmpty()) {
 //                pro.setAvatar("uploads-add/" + file.get(0));
+//            } else {
+//                pro.setAvatar(pro.getAvatar());
 //            }
 //
-//            pro.setStockQuantity(quantity);
 //            if (file.size() > 1) {
 //                pro.setHoverAvatar("uploads-add/" + file.get(1));
+//            } else {
+//                pro.setHoverAvatar(pro.getHoverAvatar());
 //            }
 //
 //            pro.setPrice(price);
 //            pro.setSale(sale);
-//            pd.editProduct(pro);
+//            pd.updateProduct(pro);
 //
-//            ProductImages pi = pd.getImagesByPid(id);
-//
-//            for (String namePath : file) {
-//                pi.setProductId(id);
-//                pi.setPath("uploads-add/" + namePath);
-//                pd.addPImg(pi);
-//            }
-//
-//            ProductGender pg = new ProductGender();
-//            Products pro1 = pd.getProductById(id);
-//            Genders ge = gd.getGenderById(gid);
-//            if (gid == 3) {
-//                pg.setProductId(pro1);
-//                pg.setGenderId(gd.getGenderById(1));
-//                pd.addPGender(pg);
-//                pg.setProductId(pro1);
-//                pg.setGenderId(gd.getGenderById(2));
-//                pd.addPGender(pg);
-//            } else {
-//                pg.setProductId(pro1);
-//                pg.setGenderId(ge);
-//                pd.addPGender(pg);
-//            }
+////            List<ProductImages> pi = pd.getImagesByPid(id);
+////
+////            for (String namePath : file) {
+////               
+////                pi.setPath("uploads-add/" + namePath);
+////                pd.addPImg(pi);
+////            }
 //            response.sendRedirect("pmanager");
 //
 //        } catch (NumberFormatException e) {
@@ -222,6 +218,7 @@ public class EditProductServlet extends HttpServlet {
      * /**
      * Returns a short description of the servlet. >>>>>>>
      * 7897f4d2f066a1a8274ac1a2b21c3ce0f01e18ad
+     *
      * @return a String containing servlet description
      */
     @Override

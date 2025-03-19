@@ -53,7 +53,64 @@
                 height: 250px;
                 object-fit: cover;
             }
+
+            /* Nút dấu cộng */
+            .add-thumb {
+                width: 60px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                background-color: #7bc043; /* Xanh lá */
+                color: white;
+                font-size: 30px;
+                cursor: pointer;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease-in-out;
+            }
+
+            .add-thumb:hover {
+                background-color: #6aa634;
+            }
+
+            /* Đặt dấu cộng ở giữa dòng cuối */
+            .thumb-upload-container::after {
+                content: "";
+                flex: auto;
+            }
+
+            .thumb-upload-set {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center; /* Căn giữa thay vì chạy từ trái */
+                gap: 10px; /* Tạo khoảng cách đều giữa các ảnh */
+                max-width: 450px; /* Điều chỉnh theo giao diện */
+                margin: 0 auto; /* Giữ vị trí giữa trang */
+            }
+
+            .thumb-remove {
+                position: absolute;
+                top: 5px;  /* Đưa lên cao hơn */
+                left: 5px; /* Đảm bảo nằm sát góc trái */
+                width: 30px;
+                height: 30px;
+                background-color: white;
+                border-radius: 50%;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                z-index: 10;
+            }
+
+            .thumb-remove i {
+                font-size: 18px;
+                color: red; /* Chuyển màu đỏ */
+            }
         </style>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     </head>
 
@@ -407,6 +464,7 @@
                                                         <div class="thumb-upload-set colo-md-12">
 
                                                             <div class="thumb-upload">
+                                                                <div class="thumb-remove" onclick="removeThumbnail(this)"><i class="ri-close-line"></i></div>
                                                                 <div class="thumb-edit">
                                                                     <input type='file' id="thumbUpload01"
                                                                            class="gi-image-upload" 
@@ -422,6 +480,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="thumb-upload">
+                                                                <div class="thumb-remove" onclick="removeThumbnail(this)"><i class="ri-close-line"></i></div>
                                                                 <div class="thumb-edit">
                                                                     <input type='file' id="thumbUpload01"
                                                                            class="gi-image-upload"
@@ -437,6 +496,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="thumb-upload">
+                                                                <div class="thumb-remove" onclick="removeThumbnail(this)"><i class="ri-close-line"></i></div>
                                                                 <div class="thumb-edit">
                                                                     <input type='file' id="thumbUpload01"
                                                                            class="gi-image-upload"
@@ -452,6 +512,24 @@
                                                                 </div>
                                                             </div>
                                                             <div class="thumb-upload">
+                                                                <div class="thumb-remove" onclick="removeThumbnail(this)"><i class="ri-close-line"></i></div>
+                                                                <div class="thumb-edit">
+                                                                    <input type='file' id="thumbUpload01"
+                                                                           class="gi-image-upload"
+                                                                           accept=".png, .jpg, .jpeg" name="picture">
+                                                                    <label><i class="ri-pencil-line"></i></label>
+                                                                </div>
+                                                                <div class="thumb-preview gi-preview">
+
+                                                                    <div class="image-thumb-preview">
+                                                                        <img class="image-thumb-preview gi-image-preview"
+                                                                             src="assets/images/product/preview.jpg"
+                                                                             alt="edit">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="thumb-upload">
+                                                                <div class="thumb-remove" onclick="removeThumbnail(this)"><i class="ri-close-line"></i></div>
                                                                 <div class="thumb-edit">
                                                                     <input type='file' id="thumbUpload01"
                                                                            class="gi-image-upload"
@@ -467,6 +545,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="thumb-upload">
+                                                                <div class="thumb-remove" onclick="removeThumbnail(this)"><i class="ri-close-line"></i></div>
                                                                 <div class="thumb-edit">
                                                                     <input type='file' id="thumbUpload01"
                                                                            class="gi-image-upload"
@@ -481,21 +560,11 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="thumb-upload">
-                                                                <div class="thumb-edit">
-                                                                    <input type='file' id="thumbUpload01"
-                                                                           class="gi-image-upload"
-                                                                           accept=".png, .jpg, .jpeg" name="picture">
-                                                                    <label><i class="ri-pencil-line"></i></label>
-                                                                </div>
-                                                                <div class="thumb-preview gi-preview">
-                                                                    <div class="image-thumb-preview">
-                                                                        <img class="image-thumb-preview gi-image-preview"
-                                                                             src="assets/images/product/preview.jpg"
-                                                                             alt="edit">
-                                                                    </div>
-                                                                </div>
+                                                            <div class="thumb-upload-container thumb-upload">
+
+                                                                <!-- Đây là nơi các thumbnail sẽ được thêm vào -->
                                                             </div>
+                                                            <div class="add-thumb" onclick="addThumbnail()">+</div>
 
 
                                                         </div>
@@ -614,7 +683,75 @@
 
         <!-- Main Custom -->
         <script src="assets/js/main.js"></script>
+        <script>
+                                        let deletedImages = [];
+                                        function removeThumbnail(element) {
+                                            Swal.fire({
+                                                title: "Are you sure you want to delete this image?",
+                                                text: "This action cannot be undone!",
+                                                icon: "warning",
+                                                showCancelButton: true,
+                                                confirmButtonColor: "#d33",
+                                                cancelButtonColor: "#3085d6",
+                                                confirmButtonText: "Delete",
+                                                cancelButtonText: "Cancel"
+                                            }).then((result) => {
+                                                if (result.isConfirmed) {
+                                                    let thumbnail = element.closest('.thumb-upload'); // Find the parent element
+                                                    let imgElement = thumbnail.querySelector('img'); // Get the <img> element
+                                                    let imageId = imgElement.getAttribute('data-id'); // Get image ID
 
+                                                    if (imageId) {
+                                                        deletedImages.push(imageId); // Store the ID in the array
+                                                    }
+
+                                                    thumbnail.remove(); // Remove the image from UI
+
+                                                    Swal.fire("Deleted!", "The image has been successfully deleted.", "success");
+                                                }
+                                            });
+                                        }
+                                        document.addEventListener("DOMContentLoaded", function () {
+                                            const container = document.querySelector(".thumb-upload-container");
+                                            if (!container) {
+                                                console.error("⚠️ LỖI: Không tìm thấy .thumb-upload-container! Kiểm tra lại HTML.");
+                                                return;
+                                            }
+
+                                            console.log("✅ Đã tìm thấy .thumb-upload-container!");
+                                            function addThumbnail() {
+                                                console.log("Thêm ảnh mới...");
+                                                // Tạo một thẻ div mới cho ảnh thumbnail
+                                                const newThumb = document.createElement("div");
+                                                newThumb.classList.add("thumb-upload");
+                                                newThumb.innerHTML = `
+                                                <div class="thumb-remove" onclick="removeThumbnail(this)"><i class="ri-close-line"></i></div> 
+                <div class="thumb-edit">
+                    <input type="file" class="gi-image-upload" accept=".png, .jpg, .jpeg" name="picture">
+                    <label><i class="ri-pencil-line"></i></label>
+                </div>
+                <div class="thumb-preview gi-preview">
+                    <div class="image-thumb-preview">
+                        <img class="gi-image-preview" src="assets/images/product/preview.jpg" alt="edit">
+                    </div>
+                </div>
+            `;
+                                                // Thêm thumbnail mới vào container
+                                                container.appendChild(newThumb);
+                                            }
+
+                                            // Lắng nghe sự kiện click cho nút "+"
+                                            const addButton = document.querySelector(".add-thumb");
+                                            if (addButton) {
+                                                addButton.addEventListener("click", function (event) {
+                                                    event.preventDefault(); // Ngăn chặn hành vi mặc định
+                                                    addThumbnail();
+                                                });
+                                            } else {
+                                                console.error("⚠️ LỖI: Không tìm thấy nút thêm ảnh (+)!");
+                                            }
+                                        });
+        </script>
 
 
     </body>

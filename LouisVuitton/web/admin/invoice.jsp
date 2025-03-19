@@ -1,25 +1,21 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ page import="java.util.List" %>
-<%@ page import="model.Orders" %> 
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" %>`n<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 
-    <!-- Mirrored from maraviyainfotech.com/wrapbootstrap/grabit-html/admin-html/order-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Mar 2025 14:25:41 GMT -->
+    <!-- Mirrored from maraviyainfotech.com/wrapbootstrap/grabit-html/admin-html/invoice.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Mar 2025 14:25:42 GMT -->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="keywords" content="admin, dashboard, crm, analytics, ecommerce, team, vendor, ai chat bot, backend, panel" />
-        <meta name="description" content="LouisVuitton - Admin.">
-        <meta name="author" content="LouisVuitton">
+        <meta name="description" content="Grabit - Admin.">
+        <meta name="author" content="Maraviya Infotech">
 
-        <title>LouisVuitton - Admin.</title>
+        <title>Grabit - Admin.</title>
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon/favicon.ico">
+        <link rel="shortcut icon" href="assets/img/favicon/favicon.ico">
 
         <!-- Icon CSS -->
         <link href="assets/css/vendor/materialdesignicons.min.css" rel="stylesheet">
@@ -36,136 +32,13 @@
 
         <!-- Main CSS -->
         <link id="main-css" href="assets/css/style.css" rel="stylesheet">
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <style>
-            table {
-                width: 100%;
-                border-collapse: collapse;
-                table-layout: fixed; /* Cố định bố cục để không bị kéo giãn */
-            }
+            #logo{
+                width: 191px;
+                height: 100px
 
-            td, th {
-                padding: 2px; /* Giảm padding để tiết kiệm không gian */
-                text-align: center;
-                font-size: 11px; /* Thu nhỏ font hơn nữa */
             }
-
-            /* Giảm kích thước avatar */
-            .cat-thumb {
-                width: 20px;
-                height: 20px;
-                object-fit: cover;
-            }
-
-            /* Tinh chỉnh độ rộng từng cột */
-            td:nth-child(1), th:nth-child(1) {
-                width: 40px;
-            }  /* ID */
-            td:nth-child(2), th:nth-child(2) {
-                width: 100px;
-            } /* Email */
-            td:nth-child(3), th:nth-child(3) {
-                width: 100px;
-            } /* Customer */
-            td:nth-child(4), th:nth-child(4) {
-                width: 60px;
-            }  /* Total Amount */
-            td:nth-child(5), th:nth-child(5) {
-                width: 30px;
-            }  /* Quantity */
-            td:nth-child(6), th:nth-child(6) {
-                width: 40px;
-            }  /* Status */
-            td:nth-child(7), th:nth-child(7) {
-                width: 120px;
-            } /* Address */
-            td:nth-child(8), th:nth-child(8) {
-                width: 80px;
-            }  /* Action */
-
-            /* Giảm padding nút bấm */
-            button {
-                padding: 2px 4px;
-                font-size: 10px;
-            }
-
-            .fa {
-                font-size: 10px;
-            }
-
-            /* Ẩn bớt nội dung trên màn hình nhỏ */
-            @media (max-width: 1024px) {
-                td:nth-child(2), th:nth-child(2) {
-                    display: none;
-                } /* Ẩn Email nếu không cần thiết */
-            }
-            /* Giới hạn chiều rộng của Address */
-            td:nth-child(7), th:nth-child(7) {
-                max-width: 120px; /* Thu nhỏ hơn nữa */
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-            }
-
-            /* Khi hover vào thì hiển thị tooltip đầy đủ */
-            td:nth-child(7):hover::after {
-                content: attr(data-full-address); /* Hiển thị nội dung đầy đủ */
-                position: absolute;
-                background: rgba(0, 0, 0, 0.8);
-                color: white;
-                padding: 5px;
-                border-radius: 5px;
-                white-space: normal;
-                max-width: 250px; /* Giới hạn chiều rộng tooltip */
-                word-break: break-word;
-                top: 100%;
-                left: 0;
-                z-index: 10;
-            }
-
-            .highlight-row {
-                background-color: peachpuff !important;
-                font-weight: bold;
-            }
-
-            .highlight-text {
-                color: orange !important;
-                font-weight: bold;
-            }
-
-            .action-buttons {
-                display: none; /* Ẩn mặc định */
-                margin-top: 5px;
-            }
-            .invoice-btn:hover + .action-buttons {
-                display: block; /* Hiện khi hover vào icon */
-            }
-            .btn-group.dropup .dropdown-menu {
-                background-color: white;
-                border-radius: 10px;
-                padding: 5px;
-                min-width: 120px;
-                text-align: center;
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            }
-
-            .btn-group.dropup .dropdown-menu button {
-                width: 100%;
-                padding: 8px;
-                border: none;
-                background: none;
-            }
-
-            .btn-group.dropup .dropdown-menu button:hover {
-                background-color: rgba(0, 0, 0, 0.05);
-                border-radius: 8px;
-            }
-
-
         </style>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 
     </head>
 
@@ -246,7 +119,7 @@
                                         <div class="detail">
                                             <div class="title">Budget threshold exceeded!</div>
                                             <p class="time">4:15AM - 01/04/2023</p>
-                                            <p class="message">Budget threshold was exceeded for project "LouisVuitton" B612
+                                            <p class="message">Budget threshold was exceeded for project "Grabit" B612
                                                 elements.</p>
                                         </div>
                                     </li>
@@ -281,7 +154,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/images/user/9.jpg" alt="user">
+                                            <img src="assets/img/user/9.jpg" alt="user">
                                             <span class="label online"></span>
                                         </div>
                                         <div class="detail">
@@ -291,11 +164,11 @@
                                                 page. And make sure this all files are comppress.</p>
                                             <span class="download-files">
                                                 <span class="download">
-                                                    <img src="assets/images/other/1.jpg" alt="image">
+                                                    <img src="assets/img/other/1.jpg" alt="image">
                                                     <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                                 </span>
                                                 <span class="download">
-                                                    <img src="assets/images/other/2.jpg" alt="image">
+                                                    <img src="assets/img/other/2.jpg" alt="image">
                                                     <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                                 </span>
                                                 <span class="download">
@@ -310,7 +183,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/images/user/8.jpg" alt="user">
+                                            <img src="assets/img/user/8.jpg" alt="user">
                                             <span class="label offline"></span>
                                         </div>
                                         <div class="detail">
@@ -323,7 +196,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/images/user/7.jpg" alt="user">
+                                            <img src="assets/img/user/7.jpg" alt="user">
                                             <span class="label busy"></span>
                                         </div>
                                         <div class="detail">
@@ -356,7 +229,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/images/user/6.jpg" alt="user">
+                                            <img src="assets/img/user/6.jpg" alt="user">
                                             <span class="label busy"></span>
                                         </div>
                                         <div class="detail">
@@ -369,7 +242,7 @@
                                     <li>
                                         <a href="chatapp.jsp" class="reply">Reply</a>
                                         <div class="user">
-                                            <img src="assets/images/user/5.jpg" alt="user">
+                                            <img src="assets/img/user/5.jpg" alt="user">
                                             <span class="label busy"></span>
                                         </div>
                                         <div class="detail">
@@ -393,11 +266,11 @@
                                             lorem is typesetting industry.</p>
                                         <span class="download-files">
                                             <span class="download">
-                                                <img src="assets/images/other/1.jpg" alt="image">
+                                                <img src="assets/img/other/1.jpg" alt="image">
                                                 <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                             </span>
                                             <span class="download">
-                                                <img src="assets/images/other/2.jpg" alt="image">
+                                                <img src="assets/img/other/2.jpg" alt="image">
                                                 <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                             </span>
                                             <span class="download">
@@ -427,7 +300,7 @@
                                                 <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                             </span>
                                             <span class="download">
-                                                <img src="assets/images/other/3.jpg" alt="image">
+                                                <img src="assets/img/other/3.jpg" alt="image">
                                                 <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
                                             </span>
                                         </span>
@@ -477,145 +350,257 @@
             <!-- main content -->
             <div class="gi-main-content">
                 <div class="container-fluid">
-                    <!-- Page title & breadcrumb -->
-                    <div class="gi-page-title gi-page-title-2">
-                        <div class="gi-breadcrumb">
-                            <h5>Order List</h5>
-                            <ul>
-                                <li><a href="dashboard">LouisVuitton</a></li>
-                                <li>Order List</li>
-                            </ul>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="gi-card" id="ordertbl">
+                            <div class="gi-card gi-invoice max-width-1170">
                                 <div class="gi-card-header">
-                                    <h4 class="gi-card-title">Recent Orders</h4>
-                                    <div class="header-tools">
-                                        <a href="javascript:void(0)" class="m-r-10 gi-full-card"><i
-                                                class="ri-fullscreen-line"></i></a>
-                                        <div class="gi-date-range dots">
-                                            <span></span>
-                                        </div>
-                                    </div>
+                                    <h4 class="gi-card-title">Invoice</h4>
+
                                 </div>
                                 <div class="gi-card-content card-default">
-                                    <div class="order-table">
-                                        <div class="table-responsive tbl-1200">
-                                            <table id="recent_order" class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>ID</th>
-                                                        <th>Email</th>
-                                                        <th>Customer</th>
-                                                        <th>Total Amount</th>
-                                                        <th>Quantity</th>
-                                                        <th>Status</th>
-                                                        <th>Address</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <c:forEach var="o" items="${requestScope.listO}">
+
+                                    <c:set var="o" value="${requestScope.order}"/>
+                                    <div class="invoice-wrapper">
+
+                                        <div class="row">
+                                            <div class="d-flex justify-content-between align-items-start flex-wrap">
+                                                <div class="col-md-6 col-lg-3 col-sm-6">
+                                                    <img id="logo" src="assets/images/logo/full-logo.png" alt="logo">
+
+                                                    <address>
+                                                        <br> Hoa Lac Hi-tech Park, km 29, Đại lộ Thăng Long, Hà Nội, Vietnam
+                                                    </address>
+                                                </div>
+                                                <div class="col-md-6 col-lg-3 col-sm-6">
+                                                    <p class="text-dark mb-2">From</p>
+
+                                                    <address>
+                                                        <span>LouisVuitton</span>
+
+                                                        <br> <span>Email:</span> louisvuittonstore102@gmail.com
+                                                        <br> <span>Phone:</span> 0967870138
+                                                    </address>
+                                                </div>
+                                                <div class="col-md-6 col-lg-3 col-sm-6">
+                                                    <p class="text-dark mb-2">To</p>
+
+                                                    <address>
+                                                        <span>${o.name}</span>
+                                                        <br> ${o.address}
+                                                        <br> <span>Email</span>: ${o.user.email}
+                                                        <br> <span>Phone:</span> ${o.phone}
+                                                    </address>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="gi-chart-header">
+                                            <div class="block">
+                                                <h6>Invoice</h6>
+                                                <h5>#${o.id}
+                                                </h5>
+                                            </div>
+
+                                            <div class="block">
+                                                <h6>Quantity</h6>
+                                                <h5>${o.totalProduct}
+                                                </h5>
+                                            </div>
+                                            <div class="block">
+                                                <h6>Date</h6>
+                                                <h5>${o.createdAt}
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive tbl-800">
+                                            <div>
+                                                <table class="table-invoice table-striped" style="width:100%">
+                                                    <thead>
                                                         <tr>
-                                                            <td class="token">#${o.id}</td>
-                                                            <td><img class="cat-thumb" src="${o.user.avatar}"><br/>
-                                                                <span class="name">${o.user.email}</span>
-                                                            </td>
-                                                            <td>${o.name}</td>
-                                                            <td><fmt:formatNumber value="${o.totalPrice}" type="currency" currencySymbol="$" /></td>
-                                                            <td>${o.totalProduct}</td>
-
-                                                            <td>
-                                                                <c:choose>
-                                                                    <c:when test="${o.status == 'Pending'}">
-                                                                        <span class="badge bg-warning text-dark w-100 py-2 d-flex align-items-center justify-content-center">
-                                                                            <i class="fa-solid fa-hourglass-half fs-5 me-1"></i> Pending
-                                                                        </span>
-                                                                    </c:when>
-                                                                    <c:when test="${o.status == 'Processing'}">
-                                                                        <span class="badge bg-primary w-100 py-2 d-flex align-items-center justify-content-center">
-                                                                            <i class="fa-solid fa-cogs fs-5 me-1"></i> Processing
-                                                                        </span>
-                                                                    </c:when>
-                                                                    <c:when test="${o.status == 'Shipped'}">
-                                                                        <span class="badge bg-info text-dark w-100 py-2 d-flex align-items-center justify-content-center">
-                                                                            <i class="fa-solid fa-truck fs-5 me-1"></i> Shipped
-                                                                        </span>
-                                                                    </c:when>
-                                                                    <c:when test="${o.status == 'Delivered'}">
-                                                                        <span class="badge bg-success w-100 py-2 d-flex align-items-center justify-content-center">
-                                                                            <i class="fa-solid fa-check-circle fs-5 me-1"></i> Delivered
-                                                                        </span>
-                                                                    </c:when>
-                                                                    <c:when test="${o.status == 'Canceled'}">
-                                                                        <span class="badge bg-danger w-100 py-2 d-flex align-items-center justify-content-center">
-                                                                            <i class="fa-solid fa-times-circle fs-5 me-1"></i> Canceled
-                                                                        </span>
-                                                                    </c:when>
-                                                                    <c:when test="${o.status == 'Returned'}">
-                                                                        <span class="badge bg-secondary w-100 py-2 d-flex align-items-center justify-content-center">
-                                                                            <i class="fa-solid fa-undo fs-5 me-1"></i> Returned
-                                                                        </span>
-                                                                    </c:when>
-                                                                    <c:otherwise>
-                                                                        <span class="badge bg-dark w-100 py-2 d-flex align-items-center justify-content-center">
-                                                                            <i class="fa-solid fa-question-circle fs-5 me-1"></i> Unknown
-                                                                        </span>
-                                                                    </c:otherwise>
-                                                                </c:choose>
-                                                            </td>
-                                                            <td>${o.address}</td>
-                                                            <td>
-                                                                <c:if test="${o.status == 'Pending'}">
-                                                                    <div class="btn-group">
-                                                                        <button class="btn btn-sm btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                            <i class="fa fa-file-invoice"></i>
-                                                                        </button>
-
-                                                                        <ul class="dropdown-menu">
-                                                                            <li>
-                                                                                <form action="listo" method="post">
-                                                                                    <input type="hidden" name="orderId" value="${o.id}">
-                                                                                    <input type="hidden" name="status" value="Delivered">
-                                                                                    <button type="submit" class="dropdown-item text-success fw-bold">
-                                                                                        ✔ Accept
-                                                                                    </button>
-                                                                                </form>
-                                                                            </li>
-                                                                            <li>
-                                                                                <form action="listo" method="post">
-                                                                                    <input type="hidden" name="orderId" value="${o.id}">
-                                                                                    <input type="hidden" name="status" value="Canceled">
-                                                                                    <button type="submit" class="dropdown-item text-danger fw-bold">
-                                                                                        ✖ Reject
-                                                                                    </button>
-                                                                                </form>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </c:if>
-
-                                                                <button class="btn btn-sm btn-primary" onclick="window.location.href = 'orderdetail?id=${o.id}'">
-                                                                    <i class="fa fa-eye"></i>
-                                                                </button>
-                                                            </td>
+                                                            <th>#</th>
+                                                            <th>Image</th>
+                                                            <th>Item</th>
+                                                            <th>Quantity</th>
+                                                            <th>Unit_Cost</th>
+                                                            <th>Total</th>
                                                         </tr>
-                                                    </c:forEach>
+                                                    </thead>
 
-                                                </tbody>
-                                            </table>
+                                                    <tbody>
+                                                        <c:forEach var="od" items="${requestScope.listOD}">
+
+                                                            <c:set var="totalAmount" value="${totalAmount + od.totalPrice}"/>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td><img class="invoice-item-img" src="${od.avatar}"
+                                                                         alt="product-image"></td>
+                                                                <td>${od.name} </td>
+                                                                <td>${od.quantity}</td>
+                                                                <td>$${od.price}</td>
+                                                                <td>$${od.totalPrice}</td>
+                                                            </tr>
+                                                        </c:forEach>
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                        <div class="row justify-content-end inc-total">
+                                            <div class="col-lg-9 order-lg-1 order-md-2 order-sm-2">
+                                                <div class="note">
+                                                    <label>Note</label>
+                                                    <p>${order.comments}</p>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 order-lg-2 order-md-1 order-sm-1">
+                                                <ul class="list-unstyled">
+
+                                                    <li class="text-dark">Total
+                                                        <span class="d-inline-block float-right">$${totalAmount}</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- footer -->
-            <jsp:include page="footer.jsp"/>
+
+            <!-- Footer -->
+            <footer>
+                <div class="container-fluid">
+                    <div class="copyright">
+                        <p><span id="copyright_year"></span> © Grabit, All rights Reserved.</p>
+                        <p>Design by MaraviyaInfotech.</p>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- Feature tools -->
+            <div class="gi-tools-sidebar-overlay"></div>
+            <div class="gi-tools-sidebar">
+                <a href="javascript:void(0)" class="gi-tools-sidebar-toggle in-out">
+                    <i class="ri-settings-4-line"></i>
+                </a>
+                <div class="gi-bar-title">
+                    <h6>Tools</h6>
+                    <a href="javascript:void(0)" class="close-tools"><i class="ri-close-line"></i></a>
+                </div>
+                <div class="gi-tools-detail">
+                    <div class="gi-tools-block">
+                        <h3>Modes</h3>
+                        <div class="gi-tools-info">
+                            <div class="gi-tools-item mode active" data-gi-mode-tool="light">
+                                <img src="assets/img/tools/light.png" alt="light">
+                                <p>light</p>
+                            </div>
+                            <div class="gi-tools-item mode" data-gi-mode-tool="dark">
+                                <img src="assets/img/tools/dark.png" alt="dark">
+                                <p>dark</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gi-tools-block">
+                        <h3>Sidebar</h3>
+                        <div class="gi-tools-info">
+                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="light">
+                                <img src="assets/img/tools/side-light.png" alt="light">
+                                <p>light</p>
+                            </div>
+                            <div class="gi-tools-item sidebar active" data-sidebar-mode-tool="dark">
+                                <img src="assets/img/tools/side-dark.png" alt="dark">
+                                <p>dark</p>
+                            </div>
+                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-1">
+                                <img src="assets/img/tools/side-bg-1.png" alt="background">
+                                <p>Bg-1</p>
+                            </div>
+                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-2">
+                                <img src="assets/img/tools/side-bg-2.png" alt="background">
+                                <p>Bg-2</p>
+                            </div>
+                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-3">
+                                <img src="assets/img/tools/side-bg-3.png" alt="background">
+                                <p>Bg-3</p>
+                            </div>
+                            <div class="gi-tools-item sidebar" data-sidebar-mode-tool="bg-4">
+                                <img src="assets/img/tools/side-bg-4.png" alt="background">
+                                <p>Bg-4</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gi-tools-block">
+                        <h3>Header</h3>
+                        <div class="gi-tools-info">
+                            <div class="gi-tools-item header active" data-header-mode="light">
+                                <img src="assets/img/tools/header-light.png" alt="light">
+                                <p>light</p>
+                            </div>
+                            <div class="gi-tools-item header" data-header-mode="dark">
+                                <img src="assets/img/tools/header-dark.png" alt="dark">
+                                <p>dark</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gi-tools-block">
+                        <h3>Backgrounds</h3>
+                        <div class="gi-tools-info">
+                            <div class="gi-tools-item bg active" data-bg-mode="default">
+                                <img src="assets/img/tools/bg-0.png" alt="default">
+                                <p>Default</p>
+                            </div>
+                            <div class="gi-tools-item bg" data-bg-mode="bg-1">
+                                <img src="assets/img/tools/bg-1.png" alt="bg-1">
+                                <p>Bg-1</p>
+                            </div>
+                            <div class="gi-tools-item bg" data-bg-mode="bg-2">
+                                <img src="assets/img/tools/bg-2.png" alt="bg-2">
+                                <p>Bg-2</p>
+                            </div>
+                            <div class="gi-tools-item bg" data-bg-mode="bg-3">
+                                <img src="assets/img/tools/bg-3.png" alt="bg-3">
+                                <p>Bg-3</p>
+                            </div>
+                            <div class="gi-tools-item bg" data-bg-mode="bg-4">
+                                <img src="assets/img/tools/bg-4.png" alt="bg-4">
+                                <p>Bg-4</p>
+                            </div>
+                            <div class="gi-tools-item bg" data-bg-mode="bg-5">
+                                <img src="assets/img/tools/bg-5.png" alt="bg-5">
+                                <p>Bg-5</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gi-tools-block">
+                        <h3>Box Design</h3>
+                        <div class="gi-tools-info">
+                            <div class="gi-tools-item box active" data-box-mode-tool="default">
+                                <img src="assets/img/tools/box-0.png" alt="default">
+                                <p>Default</p>
+                            </div>
+                            <div class="gi-tools-item box" data-box-mode-tool="box-1">
+                                <img src="assets/img/tools/box-1.png" alt="box-1">
+                                <p>Box-1</p>
+                            </div>
+                            <div class="gi-tools-item box" data-box-mode-tool="box-2">
+                                <img src="assets/img/tools/box-2.png" alt="box-2">
+                                <p>Box-2</p>
+                            </div>
+                            <div class="gi-tools-item box" data-box-mode-tool="box-3">
+                                <img src="assets/img/tools/box-3.png" alt="box-3">
+                                <p>Box-3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <!-- Vendor Custom -->
@@ -638,46 +623,8 @@
 
         <!-- Main Custom -->
         <script src="assets/js/main.js"></script>
-
-        <!-- Thêm thư viện SweetAlert2 (nếu chưa có) -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script>
-                                                                    function showOrderOptions(orderId) {
-                                                                    Swal.fire({
-                                                                    title: "Xác nhận đơn hàng",
-                                                                            text: "Bạn muốn chấp nhận hay từ chối đơn hàng này?",
-                                                                            icon: "question",
-                                                                            showCancelButton: true,
-                                                                            confirmButtonText: "✔ Accept",
-                                                                            cancelButtonText: "✖ Reject",
-                                                                            cancelButtonColor: "#d33",
-                                                                            confirmButtonColor: "#28a745",
-                                                                            reverseButtons: true
-                                                                    }).then((result) => {
-                                                                    if (result.isConfirmed) {
-                                                                    // Nếu chọn Accept
-                                                                    document.getElementById("orderStatus-" + orderId).value = "Delivered";
-                                                                    } else if (result.dismiss === Swal.DismissReason.cancel) {
-                                                                    // Nếu chọn Reject
-                                                                    document.getElementById("orderStatus-" + orderId).value = "Canceled";
-                                                                    } else {
-                                                                    return;
-                                                                    }
-                                                                    // Gửi form
-                                                                    document.getElementById("orderForm-" + orderId).submit();
-                                                                    });
-                                                                    }
-
-                                                                    // Gửi form
-                                                                    document.getElementById("orderForm-" + orderId).submit();
-                                                                    });
-                                                                    }
-
-
-        </script>
-
-
-
     </body>
-    <!-- Mirrored from maraviyainfotech.com/wrapbootstrap/grabit-html/admin-html/order-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Mar 2025 14:25:41 GMT -->
+
+
+    <!-- Mirrored from maraviyainfotech.com/wrapbootstrap/grabit-html/admin-html/invoice.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Mar 2025 14:25:42 GMT -->
 </html>

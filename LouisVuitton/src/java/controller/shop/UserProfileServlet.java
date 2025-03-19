@@ -16,6 +16,10 @@ import utils.CartWishlistUtils;
 import jakarta.servlet.annotation.MultipartConfig;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024 * 2, // 2MB
@@ -105,51 +109,70 @@ public class UserProfileServlet extends HttpServlet {
         user.setPhone(phone);
         user.setGender(gender);
 
-        // Thư mục lưu ảnh trên server
-        String uploadDir = request.getServletContext().getRealPath("/") + "assets/images/user";
-        uploadDir = uploadDir.replace("\\build", ""); // Loại bỏ thư mục `build`
+        // Lấy thư mục gốc của dự án
+        String projectRoot = new File(request.getServletContext().getRealPath("/")).getParentFile().getParent();
 
-        File uploadFolder = new File(uploadDir);
-        if (!uploadFolder.exists()) {
-            uploadFolder.mkdirs(); // Tạo thư mục nếu chưa tồn tại
-        }
+// Định nghĩa 4 thư mục lưu ảnh
+        String uploadDirWeb = projectRoot + File.separator + "web" + File.separator + "assets" + File.separator + "images" + File.separator + "user";
+        String uploadDirAdmin = projectRoot + File.separator + "web" + File.separator + "admin" + File.separator + "assets" + File.separator + "images" + File.separator + "user";
+        String uploadDirBuildWeb = projectRoot + File.separator + "build" + File.separator + "web" + File.separator + "assets" + File.separator + "images" + File.separator + "user";
+        String uploadDirBuildAdmin = projectRoot + File.separator + "build" + File.separator + "web" + File.separator + "admin" + File.separator + "assets" + File.separator + "images" + File.separator + "user";
+
+// Tạo thư mục nếu chưa có
+        new File(uploadDirWeb).mkdirs();
+        new File(uploadDirAdmin).mkdirs();
+        new File(uploadDirBuildWeb).mkdirs();
+        new File(uploadDirBuildAdmin).mkdirs();
 
 // Xử lý file ảnh
-        Part filePart = request.getPart("avatar");
-        if (filePart != null && filePart.getSize() > 0) {
-            // Lấy tên file gốc
-            String fileName = filePart.getSubmittedFileName();
+        Part part = request.getPart("avatar");
+        if (part != null && part.getSize() > 0) {
+            // Lấy tên file gốc và tạo tên file mới
+            String originalFileName = Paths.get(part.getSubmittedFileName()).getFileName().toString();
+            String fileExt = originalFileName.substring(originalFileName.lastIndexOf(".")); // Lấy đuôi file (.jpg, .png,...)
+            String fileName = "img_" + System.currentTimeMillis() + fileExt; // Đặt tên file mới
 
-            // Kiểm tra định dạng file
-            String fileExtension = fileName.substring(fileName.lastIndexOf("."));
-            if (!fileExtension.matches("\\.(jpg|jpeg|png|gif)$")) {
-                request.setAttribute("error", "Định dạng file không hợp lệ!");
-                request.getRequestDispatcher("user-profile.jsp").forward(request, response);
-                return;
-            }
+            // Đường dẫn lưu file
+            String uploadPathWeb = uploadDirWeb + File.separator + fileName;
+            String uploadPathAdmin = uploadDirAdmin + File.separator + fileName;
+            String uploadPathBuildWeb = uploadDirBuildWeb + File.separator + fileName;
+            String uploadPathBuildAdmin = uploadDirBuildAdmin + File.separator + fileName;
 
-            // Tạo tên file mới tránh trùng lặp
-            String newFileName = "avatar_" + user.getId() + "_" + System.currentTimeMillis() + fileExtension;
-            String filePath = uploadDir + File.separator + newFileName;
+            try (InputStream input = part.getInputStream()) {
+                byte[] fileData = input.readAllBytes();
 
-            // Ghi file bằng InputStream để tránh lỗi format
-            try (InputStream fileContent = filePart.getInputStream(); FileOutputStream fos = new FileOutputStream(filePath)) {
-                byte[] buffer = new byte[1024];
-                int bytesRead;
-                while ((bytesRead = fileContent.read(buffer)) != -1) {
-                    fos.write(buffer, 0, bytesRead);
+                // Lưu vào thư mục `web/assets/images/user`
+                try (FileOutputStream outputWeb = new FileOutputStream(uploadPathWeb)) {
+                    outputWeb.write(fileData);
                 }
+
+                // Lưu vào thư mục `web/admin/assets/images/user`
+                try (FileOutputStream outputAdmin = new FileOutputStream(uploadPathAdmin)) {
+                    outputAdmin.write(fileData);
+                }
+
+                // Lưu vào thư mục `build/web/assets/images/user`
+                try (FileOutputStream outputBuildWeb = new FileOutputStream(uploadPathBuildWeb)) {
+                    outputBuildWeb.write(fileData);
+                }
+
+                // Lưu vào thư mục `build/web/admin/assets/images/user`
+                try (FileOutputStream outputBuildAdmin = new FileOutputStream(uploadPathBuildAdmin)) {
+                    outputBuildAdmin.write(fileData);
+                }
+
+                System.out.println("Ảnh đã lưu: " + fileName);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
-            // Kiểm tra file có tồn tại không
-            File checkFile = new File(filePath);
-            if (checkFile.exists()) {
-                System.out.println("✅ File uploaded successfully: " + filePath);
-                // Lưu đường dẫn tương đối vào DB
-                user.setAvatar("assets/images/user/" + newFileName);
-            } else {
-                System.out.println("❌ File upload failed!");
-            }
+            // Cập nhật đường dẫn ảnh trong user
+            user.setAvatar("assets/images/user/" + fileName);
+
+            // Lưu đường dẫn file vào request (nếu cần hiển thị lại trong JSP)
+            request.setAttribute("uploadedFile", "assets/images/user/" + fileName);
+        } else {
+            System.out.println("Không có ảnh nào được upload.");
         }
 
         // Cập nhật database

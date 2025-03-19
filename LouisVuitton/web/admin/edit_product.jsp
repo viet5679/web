@@ -110,6 +110,7 @@
                 color: red; /* Chuyển màu đỏ */
             }
         </style>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     </head>
 
@@ -439,7 +440,7 @@
                                                             <div class="avatar-upload">
                                                                 <div class="avatar-edit">                                                                     
                                                                     <input type='file' id="product_main_1" class="image gi-image-upload" 
-                                                                           data-index="1" accept=".png, .jpg, .jpeg" name="picture" 
+                                                                           data-index="1" accept=".png, .jpg, .jpeg" name="mainImg" 
                                                                            >
                                                                     <label><i class="ri-pencil-line"></i></label>                                                                 
                                                                 </div>                                                                        
@@ -453,7 +454,7 @@
                                                             <div class="avatar-upload">
                                                                 <div class="avatar-edit">                                                                     
                                                                     <input type='file' id="product_main_2" class="image gi-image-upload" 
-                                                                           data-index="2" accept=".png, .jpg, .jpeg" name="picture" 
+                                                                           data-index="2" accept=".png, .jpg, .jpeg" name="hoverImg" 
                                                                            >
                                                                     <label><i class="ri-pencil-line"></i></label>                                                                 
                                                                 </div>     
@@ -470,6 +471,7 @@
                                                                 <div class="thumb-upload">
 
                                                                     <div class="thumb-remove" onclick="removeThumbnail(this)"><i class="ri-close-line"></i></div>
+                                                                    <input type="hidden" name="deletedImages" id="deletedImagesInput">
 
                                                                     <div class="thumb-edit">                                                                         
                                                                         <input type="file" class="image gi-image-upload thumb-image-upload"
@@ -480,7 +482,7 @@
                                                                     <div class="thumb-preview gi-preview">                                                                         
                                                                         <div class="image-thumb-preview">                                                                             
                                                                             <img class="image image-thumb-preview gi-image-preview"
-                                                                                 data-index="${not empty status.index ? status.index + 1 : 'default'}"
+                                                                                 data-index="${not empty status.index ? status.index + 1 : 'default'}" data-id="${i.imagesId}"
                                                                                  src="${i.path}" alt="edit">                                                                         
                                                                         </div>                                                                     
                                                                     </div>                 
@@ -519,7 +521,7 @@
 
                                                     <div class="col-md-12">
                                                         <label for="slug" class="col-12 col-form-label">Description</label> 
-                                                        <textarea name="description" id="slug" name="slug" class="form-control here set-slug ckeditor" rows="3">${p.description}</textarea>
+                                                        <textarea name="description" id="slug"  class="form-control here set-slug ckeditor" rows="3">${p.description}</textarea>
 
                                                     </div>
                                                     <div class="col-md-12">
@@ -543,19 +545,20 @@
                                                         <label class="col-12 col-form-label">Sale <span></span></label>
                                                         <input type="number" class="form-control" id="price1" value="${p.sale}" name="sale">
                                                     </div><br/>
-                                                    <input type="hidden" id="imageIdInput" name="imageId" value="">
+                                                    <input type="hidden" id="imageIdInput" name="id" value="${p.id}">
 
                                                     <div class="col-md-12">
                                                         <button type="submit" class="btn gi-btn-primary">Submit</button>
                                                     </div>
 
-                                                    <script>
-                                                        CKEDITOR.replaceAll('ckeditor');
-                                                    </script>
+
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>             
+                                    </form>    
+                                    <script>
+                                        CKEDITOR.replaceAll('ckeditor');
+                                    </script>
                                 </div>
                             </div>
                         </div>
@@ -589,30 +592,42 @@
         <script src="assets/js/main.js"></script>
 
         <script>
-                                                        CKEDITOR.replace('slug', {
-                                                            removePlugins: 'toolbar,elementspath',
-                                                            resize_enabled: false,
-                                                            enterMode: CKEDITOR.ENTER_BR
-                                                        });
+                                        CKEDITOR.replace('slug', {
+                                            removePlugins: 'toolbar,elementspath',
+                                            resize_enabled: false,
+                                            enterMode: CKEDITOR.ENTER_BR
+                                        });
         </script>
 
         <script>
+            let deletedImages = [];
             function removeThumbnail(element) {
-                let thumbDiv = element.closest(".thumb-upload"); // Lấy div chứa ảnh
-                let img = thumbDiv.querySelector("img");
-                let imagePath = img ? img.getAttribute("src") : null;
+                Swal.fire({
+                    title: "Are you sure you want to delete this image?",
+                    text: "This action cannot be undone!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#d33",
+                    cancelButtonColor: "#3085d6",
+                    confirmButtonText: "Delete",
+                    cancelButtonText: "Cancel"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        let thumbnail = element.closest('.thumb-upload'); // Find the parent element
+                        let imgElement = thumbnail.querySelector('img'); // Get the <img> element
+                        let imageId = imgElement.getAttribute('data-id'); // Get image ID
 
-                if (imagePath) {
-                    let input = document.createElement("input");
-                    input.type = "hidden";
-                    input.name = "deletedImages";
-                    input.value = imagePath;
-                    document.forms[0].appendChild(input);
-                }
+                        if (imageId) {
+                            deletedImages.push(imageId); // Store the ID in the array
+                        }
 
-                // Xóa ảnh khỏi giao diện
-                thumbDiv.remove();
+                        thumbnail.remove(); // Remove the image from UI
+
+                        Swal.fire("Deleted!", "The image has been successfully deleted.", "success");
+                    }
+                });
             }
+
             document.addEventListener("DOMContentLoaded", function () {
                 const container = document.querySelector(".thumb-upload-container");
                 if (!container) {
@@ -666,6 +681,24 @@
                         editBtn.style.display = "none";
                 }
             });
+            document.querySelector("form").addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent default submission to handle manually
+
+                document.getElementById("deletedImagesInput").value = JSON.stringify(deletedImages);
+
+                Swal.fire({
+                    title: "Submit data?",
+                    text: "Are you sure you want to update this information?",
+                    icon: "info",
+                    showCancelButton: true,
+                    confirmButtonText: "Submit",
+                    cancelButtonText: "Cancel"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        event.target.submit(); // Submit form if confirmed
+                    }
+                });
+            });
         </script>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
@@ -704,7 +737,10 @@
                 });
             });
 
+
+
         </script>
+
 
 
 
