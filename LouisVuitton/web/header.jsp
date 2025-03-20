@@ -106,13 +106,14 @@
                     <div class="align-self-center">
                         <div class="ec-header-bottons">
                             <!-- Header User Start -->
+                            <%
+                                       Users user = null;
+                                       if (session != null) {
+                                           user = (Users) session.getAttribute("user");
+                                       }
+                            %>
                             <div class="ec-header-user dropdown">
                                 <button class="dropdown-toggle" data-bs-toggle="dropdown">
-
-                                    <c:if test="${not empty sessionScope.user}">
-                                        <span class="ec-pro-title" style="margin-right: 10px">${sessionScope.user.name}</span>
-                                    </c:if>
-
                                     <% if (user != null) { 
                                         String avatar = (user.getAvatar() != null && !user.getAvatar().isEmpty()) 
                                                         ? user.getAvatar() 
@@ -125,7 +126,6 @@
                                          alt="User Avatar" class="user-avatar" 
                                          style="width: 35px; height: 35px; border-radius: 50%;">
                                     <% } else { %>
-
                                     <i class="fi-rr-user"></i>
                                     <% } %>
                                 </button>

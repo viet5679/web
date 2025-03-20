@@ -1,7 +1,7 @@
 package dal;
 
 // @author xu4nvi3t
-import utils.DBContext;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,54 +15,6 @@ import model.ProductImages;
 import model.Products;
 
 public class ProductsDAO extends DBContext {
-
-    public void updateProduct(Products pro) {
-        String sql = "UPDATE [dbo].[products]\n"
-                + "   SET \n"
-                + "      ,[category_id] = ?\n"
-                + "      ,[name] = ?\n"
-                + "      ,[description] = ?\n"
-                + "      ,[sub_description] = ?\n"
-                + "      ,[avatar] = ?\n"
-                + "      ,[stock_quantity] = ?\n"
-                + "      ,[updated_at] = getdate()\n"
-                + "      ,[hover_avatar] = ?\n"
-                + "      ,[price] = ?\n"
-                + "      ,[sale] = ?\n"
-                + " WHERE [id] = ?";
-        try {
-            PreparedStatement st = connection.prepareStatement(sql);
-            st.setInt(1, pro.getCategoryId().getId());
-            st.setString(2, pro.getName());
-            st.setString(3, pro.getDescription());
-            st.setString(4, pro.getSubDescription());
-            st.setString(5, pro.getAvatar());
-            st.setInt(6, pro.getStockQuantity());
-            st.setString(7, pro.getHoverAvatar());
-            st.setDouble(8, pro.getPrice());
-            st.setDouble(9, pro.getSale());
-            st.executeUpdate();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public List<Products> getAllProductInAdmin() {
-        List<Products> list = new ArrayList();
-        String sql = "select * from products";
-        CategoriesDAO ca = new CategoriesDAO();
-        try {
-            PreparedStatement st = connection.prepareStatement(sql);
-            ResultSet rs = st.executeQuery();
-            while (rs.next()) {
-                Products pro = new Products(rs.getInt(1), ca.getCategoryById(rs.getInt(2)), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getInt(9), rs.getInt(10), rs.getInt(11), rs.getInt(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getDouble(16), rs.getDouble(17), rs.getDouble(18), rs.getString(19));
-                list.add(pro);
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return list;
-    }
 
     public boolean deleteProduct(int productId) {
         PreparedStatement ps1 = null;
@@ -79,13 +31,13 @@ public class ProductsDAO extends DBContext {
             ps1 = connection.prepareStatement(sql1);
             ps1.setInt(1, productId);
             ps1.executeUpdate();
-
+            
             // Xóa dữ liệu trong bảng products_images trước
             String sql3 = "DELETE FROM products_images WHERE product_id = ?";
             ps3 = connection.prepareStatement(sql3);
             ps3.setInt(1, productId);
             ps3.executeUpdate();
-
+            
             // Xóa dữ liệu trong bảng order_details trước
             String sql4 = "DELETE FROM order_details WHERE product_id = ?";
             ps4 = connection.prepareStatement(sql4);
@@ -308,7 +260,7 @@ public class ProductsDAO extends DBContext {
 
     public List<Products> getAll() {
         List<Products> list = new ArrayList();
-        String sql = "select * from products where status = 1";
+        String sql = "select * from products";
         CategoriesDAO ca = new CategoriesDAO();
         try {
             PreparedStatement st = connection.prepareStatement(sql);

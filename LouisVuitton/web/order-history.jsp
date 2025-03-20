@@ -164,10 +164,20 @@
                                     %>
                                     <div class="ec-header-user dropdown">
                                         <button class="dropdown-toggle" data-bs-toggle="dropdown">
-                                            <% if (user != null) { %>
-                                            <span class="ec-pro-title" style="margin-right: 10px"><%= user.getName() %></span>
-                                            <% } %>
+                                            <% if (user != null) { 
+                                                String avatar = (user.getAvatar() != null && !user.getAvatar().isEmpty()) 
+                                                                ? user.getAvatar() 
+                                                                : request.getContextPath() + "/assets/images/default-avatar.png"; 
+                                            %>
+                                            <span class="ec-pro-title" style="margin-right: 10px;">
+                                                <%= user.getName() %>
+                                            </span>
+                                            <img src="<%= avatar %>" 
+                                                 alt="User Avatar" class="user-avatar" 
+                                                 style="width: 35px; height: 35px; border-radius: 50%;">
+                                            <% } else { %>
                                             <i class="fi-rr-user"></i>
+                                            <% } %>
                                         </button>
 
                                         <ul class="dropdown-menu dropdown-menu-right">

@@ -430,7 +430,7 @@
                         <div class="col-md-12">
                             <div class="gi-card card-default">
                                 <div class="gi-card-content">
-                                    <form action="add" method="post" class="row g-3" enctype="multipart/form-data" >
+                                    <form action="add-product" method="post" class="row g-3" enctype="multipart/form-data" >
                                         <div class="row gi-product-uploads">
                                             <div class="col-lg-4 mb-991">
                                                 <div class="gi-vendor-img-upload">

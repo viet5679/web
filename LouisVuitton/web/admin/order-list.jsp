@@ -520,8 +520,9 @@
                                                     <c:forEach var="o" items="${requestScope.listO}">
                                                         <tr>
                                                             <td class="token">#${o.id}</td>
-                                                            <td><img class="cat-thumb" src="${o.user.avatar}"><br/>
-                                                                <span class="name">${o.user.email}</span>
+                                                            <td>
+                                                                <img class="cat-thumb" src="${o.user.avatar}">
+                                                                <p class="">${o.user.email}</p>
                                                             </td>
                                                             <td>${o.name}</td>
                                                             <td><fmt:formatNumber value="${o.totalPrice}" type="currency" currencySymbol="$" /></td>
@@ -576,7 +577,7 @@
 
                                                                         <ul class="dropdown-menu">
                                                                             <li>
-                                                                                <form action="listo" method="post">
+                                                                                <form action="list-order" method="post">
                                                                                     <input type="hidden" name="orderId" value="${o.id}">
                                                                                     <input type="hidden" name="status" value="Delivered">
                                                                                     <button type="submit" class="dropdown-item text-success fw-bold">
@@ -585,7 +586,7 @@
                                                                                 </form>
                                                                             </li>
                                                                             <li>
-                                                                                <form action="listo" method="post">
+                                                                                <form action="list-order" method="post">
                                                                                     <input type="hidden" name="orderId" value="${o.id}">
                                                                                     <input type="hidden" name="status" value="Canceled">
                                                                                     <button type="submit" class="dropdown-item text-danger fw-bold">
@@ -596,10 +597,13 @@
                                                                         </ul>
                                                                     </div>
                                                                 </c:if>
-
-                                                                <button class="btn btn-sm btn-primary" onclick="window.location.href = 'orderdetail?id=${o.id}'">
-                                                                    <i class="fa fa-eye"></i>
-                                                                </button>
+                                                                <form action="order-detail" method="post">
+                                                                    <input type="hidden" name="orderId" value="${o.id}">
+                                                                    <!-- Nút xem chi tiết -->
+                                                                    <button type="submit" class="btn btn-sm btn-primary" onclick="window.location.href = 'invoice.jsp'">
+                                                                        <i class="fa fa-eye"></i>
+                                                                    </button>
+                                                                </form>
                                                             </td>
                                                         </tr>
                                                     </c:forEach>
@@ -643,8 +647,8 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
                                                                     function showOrderOptions(orderId) {
-                                                                    Swal.fire({
-                                                                    title: "Xác nhận đơn hàng",
+                                                                        Swal.fire({
+                                                                            title: "Xác nhận đơn hàng",
                                                                             text: "Bạn muốn chấp nhận hay từ chối đơn hàng này?",
                                                                             icon: "question",
                                                                             showCancelButton: true,
@@ -653,31 +657,21 @@
                                                                             cancelButtonColor: "#d33",
                                                                             confirmButtonColor: "#28a745",
                                                                             reverseButtons: true
-                                                                    }).then((result) => {
-                                                                    if (result.isConfirmed) {
-                                                                    // Nếu chọn Accept
-                                                                    document.getElementById("orderStatus-" + orderId).value = "Delivered";
-                                                                    } else if (result.dismiss === Swal.DismissReason.cancel) {
-                                                                    // Nếu chọn Reject
-                                                                    document.getElementById("orderStatus-" + orderId).value = "Canceled";
-                                                                    } else {
-                                                                    return;
+                                                                        }).then((result) => {
+                                                                            if (result.isConfirmed) {
+                                                                                // Nếu chọn Accept
+                                                                                document.getElementById("orderStatus-" + orderId).value = "Delivered";
+                                                                            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                                                                                // Nếu chọn Reject
+                                                                                document.getElementById("orderStatus-" + orderId).value = "Canceled";
+                                                                            } else {
+                                                                                return;
+                                                                            }
+                                                                            // Gửi form
+                                                                            document.getElementById("orderForm-" + orderId).submit();
+                                                                        });
                                                                     }
-                                                                    // Gửi form
-                                                                    document.getElementById("orderForm-" + orderId).submit();
-                                                                    });
-                                                                    }
-
-                                                                    // Gửi form
-                                                                    document.getElementById("orderForm-" + orderId).submit();
-                                                                    });
-                                                                    }
-
-
         </script>
-
-
-
     </body>
     <!-- Mirrored from maraviyainfotech.com/wrapbootstrap/grabit-html/admin-html/order-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Mar 2025 14:25:41 GMT -->
 </html>

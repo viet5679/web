@@ -157,7 +157,6 @@
                                                                 </thead>
                                                                 <tbody>
                                                                     <c:forEach items="${listOrderDetails}" var="od">
-                                                                        <c:set var="totalAmount" value="${totalAmount + od.totalPrice}"/>
                                                                         <tr>
                                                                             <td><a href="product?id=${od.product.id}"><img class="prod-img" src="${od.avatar}"></a></td>
                                                                             <td><a href="product?id=${od.product.id}"><span>${od.name}</span></a></td>
@@ -172,15 +171,11 @@
                                                                         <td class="border-none m-m15" colspan="3"><span class="text-600 text-90">Comments : </span><span class="note-text-color">${order.comments}</span></td>
                                                                         <td class="border-color m-m15" colspan="1"><span><strong>Total</strong></span>
                                                                         </td>
-
-                                                                        <!--                                                                        <td class="border-color m-m15">
-                                                                                                                                                    <span><b>
-                                                                        <fmt:formatNumber value="${order.totalPrice}" type="number" minFractionDigits="2" maxFractionDigits="2"/>
-                                                                    </b></span>
-                                                            </td>-->
-
-                                                                        <td class="border-color m-m15"><span><b>$${totalAmount}</b></span></td>
-
+                                                                        <td class="border-color m-m15">
+                                                                            <span><b>
+                                                                                    <fmt:formatNumber value="${order.totalPrice}" type="number" minFractionDigits="2" maxFractionDigits="2"/>
+                                                                                </b></span>
+                                                                        </td>
                                                                     </tr>
                                                                 </tfoot>
                                                             </table>

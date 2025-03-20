@@ -52,87 +52,17 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
 
+    </head>
 
-    </style>
-</head>
-
-<body>
-    <div id="ec-overlay">
-        <div class="ec-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-
-    <header class="ec-header">
-        <!--Ec Header Top Start -->
-        <div class="header-top">
-            <div class="container">
-                <div class="row align-items-center">
-                    <!-- Header Top social Start -->
-                    <div
-                        class="col text-left header-top-left d-none d-lg-block">
-                        <div class="header-top-social">
-                            <span class="social-text text-upper">Follow us on:</span>
-                        </div>
-                    </div>
-                    <!-- Header Top social End -->
-
-                    <!-- Header Top responsive Action -->
-                    <div class="col d-lg-none ">
-                        <div class="ec-header-bottons">
-                            <!-- Header User Start -->
-                            <div class="ec-header-user dropdown">
-                                <button class="dropdown-toggle" data-bs-toggle="dropdown">
-
-                                </button>
-                                <i class="fi-rr-user">
-
-                                </i>
-
-                                <ul
-                                    class="dropdown-menu dropdown-menu-right">
-                                    <li><a class="dropdown-item"
-                                           href="register">Register</a></li>
-                                    <li><a class="dropdown-item"
-                                           href="checkout">Checkout</a></li>
-                                    <li><a class="dropdown-item"
-                                           href="login">Login</a></li>
-                                </ul>
-                            </div>
-                            <!-- Header User End -->
-
-                            <!-- Header Cart Start -->
-                            <a href="wishlist"
-                               class="ec-header-btn ec-header-wishlist">
-                                <div class="header-icon"><i
-                                        class="fi-rr-heart"></i></div>
-                                <span
-                                    class="ec-header-count wishlist-count-label">${requestScope.numWishListItem}</span>
-                            </a>
-                            <!-- Header Cart End -->
-
-                            <!-- Header Cart Start -->
-                            <a href="cart"
-                               class="ec-header-btn ec-side-toggle">
-                                <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
-                                <span class="ec-header-count cart-count-lable">${requestScope.numCartItem}</span>
-                            </a>
-                            <!-- Header menu Start -->
-                            <a href="#ec-mobile-menu"
-                               class="ec-header-btn ec-side-toggle d-lg-none">
-                                <i class="fi fi-rr-menu-burger"></i>
-                            </a>
-                            <!-- Header menu End -->
-                        </div>
-                    </div>
-                    <!-- Header Top responsive Action -->
-                </div>
+    <body>
+        <div id="ec-overlay">
+            <div class="ec-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
         </div>
-
 
         <header class="ec-header">
             <!--Ec Header Top Start -->
@@ -242,10 +172,20 @@
 
                                     <div class="ec-header-user dropdown">
                                         <button class="dropdown-toggle" data-bs-toggle="dropdown">
-                                            <% if (user != null) { %>
-                                            <span class="ec-pro-title" style="margin-right: 10px"><%= user.getName() %></span>
-                                            <% } %>
+                                            <% if (user != null) { 
+                                                String avatar = (user.getAvatar() != null && !user.getAvatar().isEmpty()) 
+                                                                ? user.getAvatar() 
+                                                                : request.getContextPath() + "/assets/images/default-avatar.png"; 
+                                            %>
+                                            <span class="ec-pro-title" style="margin-right: 10px;">
+                                                <%= user.getName() %>
+                                            </span>
+                                            <img src="<%= avatar %>" 
+                                                 alt="User Avatar" class="user-avatar" 
+                                                 style="width: 35px; height: 35px; border-radius: 50%;">
+                                            <% } else { %>
                                             <i class="fi-rr-user"></i>
+                                            <% } %>
                                         </button>
 
                                         <ul class="dropdown-menu dropdown-menu-right">
@@ -299,28 +239,14 @@
             <div class="ec-header-bottom d-lg-none">
                 <div class="container position-relative">
                     <div class="row ">
-
-                        <!--         Ec Header Top  End 
-                                 Ec Header Bottom  Start 
-                                <div class="ec-header-bottom d-none d-lg-block">
-                                    <div class="container position-relative">
-                                        <div class="row">
-                                            <div class="ec-flex">-->
-
                         <!-- Ec Header Logo Start -->
-                        <div class="align-self-center">
+                        <div class="col">
                             <div class="header-logo">
-                                <a href="home"><img
-                                        src="assets/images/logo/logo4.png"
-                                        alt="Site Logo" /><img
-                                        class="dark-logo"
-                                        src="assets/images/logo/logo4.png"
-                                        alt="Site Logo"
-                                        style="display: none;" /></a>
+                                <a href="home"><img src="assets/images/logo/logo4.png" alt="Site Logo" />
+                                    <img class="dark-logo" src="assets/images/logo/logo4.png" alt="Site Logo" style="display: none;" /></a>
                             </div>
                         </div>
                         <!-- Ec Header Logo End -->
-
                         <!-- Ec Header Search Start -->
                         <div class="align-self-center">
                             <div class="header-search">
@@ -332,248 +258,66 @@
                             </div>
                         </div>
                         <!-- Ec Header Search End -->
-
-                        <!-- Ec Header Button Start -->
-                        <div class="align-self-center">
-                            <div class="ec-header-bottons">
-
-                                <!-- Header User Start -->
-                                <%
-                                    Users user = null;
-                                    if (session != null) {
-                                        user = (Users) session.getAttribute("user");
-                                    }
-                                %>
-
-                                <div class="ec-header-user dropdown">
-                                    <button class="dropdown-toggle" data-bs-toggle="dropdown">
-                                        <% if (user != null) { 
-                                            String avatar = (user.getAvatar() != null && !user.getAvatar().isEmpty()) 
-                                                            ? user.getAvatar() 
-                                                            : request.getContextPath() + "/assets/images/default-avatar.png"; 
-                                        %>
-                                        <span class="ec-pro-title" style="margin-right: 10px;">
-                                            <%= user.getName() %>
-                                        </span>
-                                        <img src="<%= avatar %>" 
-                                             alt="User Avatar" class="user-avatar" 
-                                             style="width: 35px; height: 35px; border-radius: 50%;">
-                                        <% } else { %>
-                                        <i class="fi-rr-user"></i>
-                                        <% } %>
-                                    </button>
-
-
-
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <% if (user == null) { %>
-                                        <!-- chưa đăng nhập -->
-                                        <li><a class="dropdown-item" href="register">Register</a></li>
-                                        <li><a class="dropdown-item" href="login">Login</a></li>
-                                            <% } else { %>
-                                        <!-- đã đăng nhập -->
-                                        <% if (user.getRole() == 1) { %>
-                                        <!-- User -->
-                                        <li><a class="dropdown-item" href="profile">Edit Profile</a></li>
-                                        <li><a class="dropdown-item" href="order-history">Order History</a></li>
-
-                                        <% } else if (user.getRole() == 0) { %>
-                                        <!-- Admin -->
-                                        <li><a class="dropdown-item" href="admin/index.jsp">ADMIN</a></li>
-                                            <% } %>
-                                        <li><a class="dropdown-item" href="logout">Log out</a></li>
-                                            <% } %>
-                                    </ul>
-                                </div>
-                                <!-- Header User End -->
-                                <!-- Header wishlist Start -->
-                                <a href="wishlist"
-                                   class="ec-header-btn ec-header-wishlist">
-                                    <div class="header-icon"><i
-                                            class="fi-rr-heart"></i></div>
-                                    <span
-                                        class="ec-header-count">${requestScope.numWishListItem}</span>
-                                </a>
-                                <!-- Header wishlist End -->
-                                <!-- Header Cart Start -->
-
-                                <a href="cart"
-                                   class="ec-header-btn">
-                                    <div class="header-icon"><i
-                                            class="fi-rr-shopping-bag"></i></div>
-                                    <span
-                                        class="ec-header-count">${requestScope.numCartItem}</span>
-                                </a>
-                                <!-- Header Cart End -->
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
-            </div>
-            <!-- Ec Header Button End -->
-            <!-- Header responsive Bottom  Start -->
-            <div class="ec-header-bottom d-lg-none">
+            <!-- Header responsive Bottom  End -->
+            <!-- EC Main Menu Start -->
+            <div id="ec-main-menu-desk" class="d-none d-lg-block sticky-nav">
                 <div class="container position-relative">
-                    <div class="row ">
-                        <!-- Ec Header Logo Start -->
-                        <div class="col">
-
-                            <div class="tab-content">
-                                <!-- 1st Product tab start -->
-                                <!--Tab All is show active : default-->
-                                <c:set var="firstTab" value="true"/>
-                                <c:forEach var="entry" items="${productLists}">
-                                    <div class="tab-pane fade ${firstTab ? 'show active' : ''}" id="tab-pro-for-${entry.key}">
-                                        <c:set var="firstTab" value="false"/>
-                                        <div class="row">
-                                            <!-- Product Content -->
-                                            <c:forEach var="product" items="${entry.value}">
-                                                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6  ec-product-content" data-animation="fadeIn">
-                                                    <div class="ec-product-inner">
-                                                        <div class="ec-pro-image-outer">
-                                                            <div class="ec-pro-image">
-                                                                <a href="product?id=${product.id}" class="image">
-                                                                    <img class="main-image" src="${product.avatar}" alt="Product" />
-                                                                    <img class="hover-image" src="${product.hoverAvatar}" alt="Product" />
-                                                                </a>
-                                                                <c:choose>
-                                                                    <c:when test="${fn:contains(product.tag, '%')}">
-                                                                        <span class="percentage">${product.tag}</span>
-                                                                    </c:when>
-                                                                    <c:when test="${product.tag == 'SALE'}">
-                                                                        <span class="flags">
-                                                                            <span class="sale">${product.tag}</span>
-                                                                        </span>
-                                                                    </c:when>
-                                                                    <c:otherwise>
-                                                                        <span class="flags">
-                                                                            <span class="new">${product.tag}</span>
-                                                                        </span>
-                                                                    </c:otherwise>
-                                                                </c:choose>
-                                                                <div class="ec-pro-actions">
-                                                                    <button title="Add To Cart" class="add-to-cart" onclick="addToCart(${product.id}, 1)">
-                                                                        <i class="fi-rr-shopping-basket"></i> Add To Cart
-                                                                    </button>
-                                                                    <button title="Wishlist" class="ec-btn-group wishlist-btn" 
-                                                                            data-product-id="${product.id}" 
-                                                                            onclick="addToWishList(${product.id}, this)">
-                                                                        <i class="fi-rr-heart"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="ec-pro-content">
-                                                            <h5 class="ec-pro-title"><a
-                                                                    href="product?id=${product.id}">${product.name}</a></h5>
-                                                            <div class="ec-pro-rating">
-                                                                <c:forEach var="i" begin="1" end="5">
-                                                                    <c:choose>
-                                                                        <c:when test="${i <= product.totalStars}">
-                                                                            <i class="ecicon eci-star fill"></i>  <!-- Filled star -->
-                                                                        </c:when>
-                                                                        <c:otherwise>
-                                                                            <i class="ecicon eci-star"></i> <!-- Empty star -->
-                                                                        </c:otherwise>
-                                                                    </c:choose>
-                                                                </c:forEach>
-                                                            </div>
-
-                                                            <span class="ec-price">
-                                                                <span
-                                                                    class="old-price">$${product.price}</span>
-                                                                <span
-                                                                    class="new-price">$${product.totalPay}</span>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </c:forEach>
-                                            <div class="col-sm-12 shop-all-btn"><a href="shop">Shop All Collection</a></div>
-                                        </div>
-                                    </div>
-                                </c:forEach>
-                                <!-- ec 1st Product tab end -->
-
-                                <div class="header-logo">
-                                    <a href="home"><img src="assets/images/logo/logo4.png" alt="Site Logo" />
-                                        <img class="dark-logo" src="assets/images/logo/logo4.png" alt="Site Logo" style="display: none;" /></a>
-
-                                </div>
-                            </div>
-                            <!-- Ec Header Logo End -->
-                            <!-- Ec Header Search Start -->
-                            <div class="align-self-center">
-                                <div class="header-search">
-                                    <form class="ec-btn-group-form" action="shop" method="get">
-                                        <input class="form-control ec-search-bar" name="search" placeholder="Search products..."
-                                               type="text">
-                                        <button class="submit" type="submit"><i class="fi-rr-search"></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- Ec Header Search End -->
-                        </div>
-                    </div>
-                </div>
-                <!-- Header responsive Bottom  End -->
-                <!-- EC Main Menu Start -->
-                <div id="ec-main-menu-desk" class="d-none d-lg-block sticky-nav">
-                    <div class="container position-relative">
-                        <div class="row">
-                            <div class="col-md-12 align-self-center">
-                                <div class="ec-main-menu">
-                                    <a href="javascript:void(0)"
-                                       class="ec-header-btn ec-sidebar-toggle">
-                                        <i class="fi fi-rr-apps"></i>
-                                    </a>
-                                    <ul>
-                                        <li><a href="home">Home</a></li>
-                                        <li><a href="shop">Shop</a></li>
-                                        <li><a href="about-us">About Us</a></li>
-                                        <li><a href="contact-us">Contact Us</a></li>
-                                        <li class="dropdown scroll-to"><a href="javascript:void(0)"><i class="fi fi-rr-sort-amount-down-alt"></i></a>
-                                            <ul class="sub-menu">
-                                                <li class="menu_title">Scroll To Section</li>
-                                                <li><a href="javascript:void(0)" data-scroll="collection" class="nav-scroll">Top Collection</a></li>
-                                                <li><a href="shop-left-sidebar-col-3.jsp" data-scroll="categories" class="nav-scroll">Categories</a></li>
-                                                <li><a href="javascript:void(0)" data-scroll="services" class="nav-scroll">Services</a></li>
-                                                <li><a href="javascript:void(0)" data-scroll="arrivals" class="nav-scroll">New Arrivals</a></li>
-                                                <li><a href="javascript:void(0)" data-scroll="reviews" class="nav-scroll">Client Review</a></li>
-                                                <li><a href="javascript:void(0)" data-scroll="insta" class="nav-scroll">Fashion style</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
+                    <div class="row">
+                        <div class="col-md-12 align-self-center">
+                            <div class="ec-main-menu">
+                                <a href="javascript:void(0)"
+                                   class="ec-header-btn ec-sidebar-toggle">
+                                    <i class="fi fi-rr-apps"></i>
+                                </a>
+                                <ul>
+                                    <li><a href="home">Home</a></li>
+                                    <li><a href="shop">Shop</a></li>
+                                    <li><a href="about-us">About Us</a></li>
+                                    <li><a href="contact-us">Contact Us</a></li>
+                                    <li class="dropdown scroll-to"><a href="javascript:void(0)"><i class="fi fi-rr-sort-amount-down-alt"></i></a>
+                                        <ul class="sub-menu">
+                                            <li class="menu_title">Scroll To Section</li>
+                                            <li><a href="javascript:void(0)" data-scroll="collection" class="nav-scroll">Top Collection</a></li>
+                                            <li><a href="shop" data-scroll="categories" class="nav-scroll">Shop</a></li>
+                                            <li><a href="javascript:void(0)" data-scroll="services" class="nav-scroll">Services</a></li>
+                                            <li><a href="javascript:void(0)" data-scroll="arrivals" class="nav-scroll">New Arrivals</a></li>
+                                            <li><a href="javascript:void(0)" data-scroll="reviews" class="nav-scroll">Client Review</a></li>
+                                            <li><a href="javascript:void(0)" data-scroll="insta" class="nav-scroll">Fashion style</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Ec Main Menu End -->
-                <!-- ekka Mobile Menu Start -->
-                <div id="ec-mobile-menu" class="ec-side-cart ec-mobile-menu">
-                    <div class="ec-menu-title">
-                        <span class="menu_title">My Menu</span>
-                        <button class="ec-close">x</button>
+            </div>
+            <!-- Ec Main Menu End -->
+            <!-- ekka Mobile Menu Start -->
+            <div id="ec-mobile-menu" class="ec-side-cart ec-mobile-menu">
+                <div class="ec-menu-title">
+                    <span class="menu_title">My Menu</span>
+                    <button class="ec-close">x</button>
+                </div>
+                <div class="ec-menu-inner">
+                    <div class="ec-menu-content">
+                        <ul>
+                            <li><a href="home">Home</a></li>
+                            <li><a href="shop">Shop</a></li>
+                            <li><a href="checkout.jsp">Checkout</a></li>
+                            <li><a href="blog-full-width.jsp">Blog</a></li>
+                            <li><a href="offer.jsp">Hot Offers</a></li>
+                        </ul>
                     </div>
-                    <div class="ec-menu-inner">
-                        <div class="ec-menu-content">
-                            <ul>
-                                <li><a href="home">Home</a></li>
-                                <li><a href="shop">Shop</a></li>
-                                <li><a href="checkout.jsp">Checkout</a></li>
-                                <li><a href="blog-full-width.jsp">Blog</a></li>
-                                <li><a href="offer.jsp">Hot Offers</a></li>
-                            </ul>
-                        </div>
-                        <div class="header-res-lan-curr">
-                            <!-- Social Start -->
-                            <!-- Social End -->
-                        </div>
+                    <div class="header-res-lan-curr">
+                        <!-- Social Start -->
+                        <!-- Social End -->
                     </div>
                 </div>
-                <!-- ekka mobile Menu End -->
+            </div>
+            <!-- ekka mobile Menu End -->
         </header>
         <!-- Header End  -->
 
@@ -711,66 +455,67 @@
                                     <div class="row">
                                         <!-- Product Content -->
                                         <c:forEach var="product" items="${entry.value}">
-                                            <c:if test="${product.status == 1}">
-                                                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6 ec-product-content" data-animation="fadeIn">
-                                                    <div class="ec-product-inner">
-                                                        <div class="ec-pro-image-outer">
-                                                            <div class="ec-pro-image">
-                                                                <a href="product?id=${product.id}" class="image">
-                                                                    <img class="main-image" src="${product.avatar}" alt="Product" />
-                                                                    <img class="hover-image" src="${product.hoverAvatar}" alt="Product" />
-                                                                </a>
-                                                                <c:choose>
-                                                                    <c:when test="${fn:contains(product.tag, '%')}">
-                                                                        <span class="percentage">${product.tag}</span>
-                                                                    </c:when>
-                                                                    <c:when test="${product.tag == 'SALE'}">
-                                                                        <span class="flags">
-                                                                            <span class="sale">${product.tag}</span>
-                                                                        </span>
-                                                                    </c:when>
-                                                                    <c:otherwise>
-                                                                        <span class="flags">
-                                                                            <span class="new">${product.tag}</span>
-                                                                        </span>
-                                                                    </c:otherwise>
-                                                                </c:choose>
-                                                                <div class="ec-pro-actions">
-                                                                    <button title="Add To Cart" class="add-to-cart" onclick="addToCart(${product.id}, 1)">
-                                                                        <i class="fi-rr-shopping-basket"></i> Add To Cart
-                                                                    </button>
-                                                                    <button title="Wishlist" class="ec-btn-group wishlist-btn" 
-                                                                            data-product-id="${product.id}" 
-                                                                            onclick="addToWishList(${product.id}, this)">
-                                                                        <i class="fi-rr-heart"></i>
-                                                                    </button>
-                                                                </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6  ec-product-content" data-animation="fadeIn">
+                                                <div class="ec-product-inner">
+                                                    <div class="ec-pro-image-outer">
+                                                        <div class="ec-pro-image">
+                                                            <a href="product?id=${product.id}" class="image">
+                                                                <img class="main-image" src="${product.avatar}" alt="Product" />
+                                                                <img class="hover-image" src="${product.hoverAvatar}" alt="Product" />
+                                                            </a>
+                                                            <c:choose>
+                                                                <c:when test="${fn:contains(product.tag, '%')}">
+                                                                    <span class="percentage">${product.tag}</span>
+                                                                </c:when>
+                                                                <c:when test="${product.tag == 'SALE'}">
+                                                                    <span class="flags">
+                                                                        <span class="sale">${product.tag}</span>
+                                                                    </span>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <span class="flags">
+                                                                        <span class="new">${product.tag}</span>
+                                                                    </span>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                            <div class="ec-pro-actions">
+                                                                <button title="Add To Cart" class="add-to-cart" onclick="addToCart(${product.id}, 1)">
+                                                                    <i class="fi-rr-shopping-basket"></i> Add To Cart
+                                                                </button>
+                                                                <button title="Wishlist" class="ec-btn-group wishlist-btn" 
+                                                                        data-product-id="${product.id}" 
+                                                                        onclick="addToWishList(${product.id}, this)">
+                                                                    <i class="fi-rr-heart"></i>
+                                                                </button>
                                                             </div>
-                                                        </div>
-                                                        <div class="ec-pro-content">
-                                                            <h5 class="ec-pro-title"><a href="product?id=${product.id}">${product.name}</a></h5>
-                                                            <div class="ec-pro-rating">
-                                                                <c:forEach var="i" begin="1" end="5">
-                                                                    <c:choose>
-                                                                        <c:when test="${i <= product.totalStars}">
-                                                                            <i class="ecicon eci-star fill"></i>
-                                                                        </c:when>
-                                                                        <c:otherwise>
-                                                                            <i class="ecicon eci-star"></i>
-                                                                        </c:otherwise>
-                                                                    </c:choose>
-                                                                </c:forEach>
-                                                            </div>
-                                                            <span class="ec-price">
-                                                                <span class="old-price">$${product.price}</span>
-                                                                <span class="new-price">$${product.totalPay}</span>
-                                                            </span>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </c:if>
-                                        </c:forEach>
+                                                    <div class="ec-pro-content">
+                                                        <h5 class="ec-pro-title"><a
+                                                                href="product?id=${product.id}">${product.name}</a></h5>
+                                                        <div class="ec-pro-rating">
+                                                            <c:forEach var="i" begin="1" end="5">
+                                                                <c:choose>
+                                                                    <c:when test="${i <= product.totalStars}">
+                                                                        <i class="ecicon eci-star fill"></i>  <!-- Filled star -->
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <i class="ecicon eci-star"></i> <!-- Empty star -->
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            </c:forEach>
+                                                        </div>
 
+                                                        <span class="ec-price">
+                                                            <span
+                                                                class="old-price">$${product.price}</span>
+                                                            <span
+                                                                class="new-price">$${product.totalPay}</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </c:forEach>
                                         <div class="col-sm-12 shop-all-btn"><a href="shop">Shop All Collection</a></div>
                                     </div>
                                 </div>
@@ -1386,6 +1131,6 @@
         src="<%= request.getContextPath() %>/assets/js/vendor/index.js"></script>
         <script
         src="<%= request.getContextPath() %>/assets/js/main.js"></script>
-</body>
+    </body>
 
 </html>

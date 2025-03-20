@@ -1,7 +1,7 @@
 package dal;
 
 // @author xu4nvi3t
-import utils.DBContext;
+
 import model.Users;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
@@ -106,24 +106,17 @@ public class UserDAO extends DBContext {
             stmt.setString(3, user.getEmail());
             stmt.setString(4, user.getPhone());
             stmt.setString(5, user.getGender());
-            stmt.setString(6, user.getAvatar()); // Đường dẫn ảnh
+            stmt.setString(6, user.getAvatar()); // Ảnh từ input ẩn
             stmt.setInt(7, user.getId());
-
-            System.out.println("SQL Query: " + sql);
-            System.out.println("Values: " + user.getName() + ", " + user.getAddress() + ", " + user.getEmail() + ", " + user.getPhone() + ", " + user.getGender() + ", " + user.getAvatar() + ", " + user.getId());
 
             int rowsUpdated = stmt.executeUpdate();
             System.out.println("Rows updated: " + rowsUpdated);
-
-            connection.commit(); // Đảm bảo dữ liệu được lưu
             return rowsUpdated > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // In lỗi SQL ra console
         }
         return false;
     }
-    
-  
 
     public boolean insertUser(String name, String password, String email, String phone, String address) {
         String sql = "INSERT INTO users (name, password, email, phone, address, avatar, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, GETDATE(), GETDATE())";
