@@ -37,8 +37,8 @@
         <style>
             .avatar-container {
                 display: flex;
-                gap: 20px; /* Khoảng cách giữa hai ảnh */
-                justify-content: center; /* Canh giữa */
+                gap: 20px; /* Khoáº£ng cÃ¡ch giá»¯a hai áº£nh */
+                justify-content: center; /* Canh giá»¯a */
                 align-items: center;
             }
 
@@ -49,12 +49,12 @@
             }
 
             .gi-image-preview {
-                width: 250px; /* Điều chỉnh kích thước ảnh */
+                width: 250px; /* Äiá»u chá»‰nh kÃ­ch thÆ°á»›c áº£nh */
                 height: 250px;
                 object-fit: cover;
             }
 
-            /* Nút dấu cộng */
+            /* NÃºt dáº¥u cá»™ng */
             .add-thumb {
                 width: 60px;
                 height: 60px;
@@ -62,7 +62,7 @@
                 align-items: center;
                 justify-content: center;
                 border-radius: 50%;
-                background-color: #7bc043; /* Xanh lá */
+                background-color: #7bc043; /* Xanh lÃ¡ */
                 color: white;
                 font-size: 30px;
                 cursor: pointer;
@@ -74,7 +74,7 @@
                 background-color: #6aa634;
             }
 
-            /* Đặt dấu cộng ở giữa dòng cuối */
+            /* Äáº·t dáº¥u cá»™ng á»Ÿ giá»¯a dÃ²ng cuá»‘i */
             .thumb-upload-container::after {
                 content: "";
                 flex: auto;
@@ -83,16 +83,16 @@
             .thumb-upload-set {
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: center; /* Căn giữa thay vì chạy từ trái */
-                gap: 10px; /* Tạo khoảng cách đều giữa các ảnh */
-                max-width: 450px; /* Điều chỉnh theo giao diện */
-                margin: 0 auto; /* Giữ vị trí giữa trang */
+                justify-content: center; /* CÄƒn giá»¯a thay vÃ¬ cháº¡y tá»« trÃ¡i */
+                gap: 10px; /* Táº¡o khoáº£ng cÃ¡ch Ä‘á»u giá»¯a cÃ¡c áº£nh */
+                max-width: 450px; /* Äiá»u chá»‰nh theo giao diá»‡n */
+                margin: 0 auto; /* Giá»¯ vá»‹ trÃ­ giá»¯a trang */
             }
 
             .thumb-remove {
                 position: absolute;
-                top: 5px;  /* Đưa lên cao hơn */
-                left: 5px; /* Đảm bảo nằm sát góc trái */
+                top: 5px;  /* ÄÆ°a lÃªn cao hÆ¡n */
+                left: 5px; /* Äáº£m báº£o náº±m sÃ¡t gÃ³c trÃ¡i */
                 width: 30px;
                 height: 30px;
                 background-color: white;
@@ -107,10 +107,10 @@
 
             .thumb-remove i {
                 font-size: 18px;
-                color: red; /* Chuyển màu đỏ */
+                color: red; /* Chuyá»ƒn mÃ u Ä‘á» */
             }
         </style>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        
 
     </head>
 
@@ -126,291 +126,6 @@
 
             <!-- sidebar -->
             <jsp:include page="sidebar.jsp"/>
-
-            <!-- Notify sidebar -->
-            <div class="gi-notify-bar-overlay"></div>
-            <div class="gi-notify-bar">
-                <div class="gi-bar-title">
-                    <h6>Notifications<span class="label">12</span></h6>
-                    <a href="javascript:void(0)" class="close-notify"><i class="ri-close-line"></i></a>
-                </div>
-                <div class="gi-bar-content">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="alert-tab" data-bs-toggle="tab" data-bs-target="#alert"
-                                    type="button" role="tab" aria-controls="alert" aria-selected="true">Alert</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages"
-                                    type="button" role="tab" aria-controls="messages" aria-selected="false">Messages</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="log-tab" data-bs-toggle="tab" data-bs-target="#log" type="button"
-                                    role="tab" aria-controls="log" aria-selected="false">Log</button>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="alert" role="tabpanel" aria-labelledby="alert-tab">
-                            <div class="gi-alert-list">
-                                <ul>
-                                    <li>
-                                        <div class="icon gi-alert">
-                                            <i class="ri-alarm-warning-line"></i>
-                                        </div>
-                                        <div class="detail">
-                                            <div class="title">Your final report is overdue</div>
-                                            <p class="time">Just now</p>
-                                            <p class="message">Please submit your quarterly report before - June 15.</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon gi-warn">
-                                            <i class="ri-error-warning-line"></i>
-                                        </div>
-                                        <div class="detail">
-                                            <div class="title">Your product campaign is stop!</div>
-                                            <p class="time">5:45AM - 25/05/2023</p>
-                                            <p class="message">Please submit your quarterly report before Jun 15.</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon gi-success">
-                                            <i class="ri-check-double-line"></i>
-                                        </div>
-                                        <div class="detail">
-                                            <div class="title">Your payment is successfully processed</div>
-                                            <p class="time">9:20PM - 19/06/2023</p>
-                                            <p class="message">Check your account wallet. if there is any issue, create support ticket.</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon gi-warn">
-                                            <i class="ri-error-warning-line"></i>
-                                        </div>
-                                        <div class="detail">
-                                            <div class="title">Budget threshold exceeded!</div>
-                                            <p class="time">4:15AM - 01/04/2023</p>
-                                            <p class="message">Budget threshold was exceeded for project "LouisVuitton" B612 elements.</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon gi-warn">
-                                            <i class="ri-close-line"></i>
-                                        </div>
-                                        <div class="detail">
-                                            <div class="title">Project submission was decline!</div>
-                                            <p class="time">4:15AM - 01/04/2023</p>
-                                            <p class="message">Your project "B126" is declined by Theresa Mayeras.</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon gi-success">
-                                            <i class="ri-check-double-line"></i>
-                                        </div>
-                                        <div class="detail">
-                                            <div class="title">Your payment is successfully processed</div>
-                                            <p class="time">9:20PM - 19/06/2023</p>
-                                            <p class="message">Check your account wallet. if there is any issue, create support ticket.</p>
-                                        </div>
-                                    </li>
-                                    <li class="check"><a class="gi-primary-btn" href="chatapp.jsp">View all</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">
-                            <div class="gi-message-list">
-                                <ul>
-                                    <li>
-                                        <a href="chatapp.jsp" class="reply">Reply</a>
-                                        <div class="user">
-                                            <img src="assets/img/user/9.jpg" alt="user">
-                                            <span class="label online"></span>
-                                        </div>
-                                        <div class="detail">
-                                            <a href="chatapp.jsp" class="name">Boris Whisli</a>
-                                            <p class="time">5:30AM, Today</p>
-                                            <p class="message">Hello,  I am sending some file. Please use this in landing page. And make sure this all files are comppress.</p>
-                                            <span class="download-files">
-                                                <span class="download">
-                                                    <img src="assets/img/other/1.jpg" alt="image">
-                                                    <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
-                                                </span>
-                                                <span class="download">
-                                                    <img src="assets/img/other/2.jpg" alt="image">
-                                                    <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
-                                                </span>
-                                                <span class="download">
-                                                    <span class="file">
-                                                        <i class="ri-file-ppt-line"></i>
-                                                    </span>
-                                                    <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
-                                                </span>
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="chatapp.jsp" class="reply">Reply</a>
-                                        <div class="user">
-                                            <img src="assets/img/user/8.jpg" alt="user">
-                                            <span class="label offline"></span>
-                                        </div>
-                                        <div class="detail">
-                                            <a href="chatapp.jsp" class="name">Frank N. Stein</a>
-                                            <p class="time">8:30PM, 05/12/2023</p>
-                                            <p class="message">Please take a look on landing page. There is some bus to open popup model. and save form data.</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="chatapp.jsp" class="reply">Reply</a>
-                                        <div class="user">
-                                            <img src="assets/img/user/7.jpg" alt="user">
-                                            <span class="label busy"></span>
-                                        </div>
-                                        <div class="detail">
-                                            <a href="chatapp.jsp" class="name">Frank N. Stein</a>
-                                            <p class="time">8:30PM, 05/12/2023</p>
-                                            <p class="message">Please take a look on landing page. There is some bus to open popup model. and save form data.</p>
-                                            <span class="download-files">
-                                                <span class="download">
-                                                    <span class="file">
-                                                        <i class="ri-file-zip-line"></i>
-                                                    </span>
-                                                    <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
-                                                </span>
-                                                <span class="download">
-                                                    <span class="file">
-                                                        <i class="ri-file-text-line"></i>
-                                                    </span>
-                                                    <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
-                                                </span>
-                                                <span class="download">
-                                                    <span class="file">
-                                                        <i class="ri-file-ppt-line"></i>
-                                                    </span>
-                                                    <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
-                                                </span>
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="chatapp.jsp" class="reply">Reply</a>
-                                        <div class="user">
-                                            <img src="assets/img/user/6.jpg" alt="user">
-                                            <span class="label busy"></span>
-                                        </div>
-                                        <div class="detail">
-                                            <a href="chatapp.jsp" class="name">Paige Turner</a>
-                                            <p class="time">4:30PM, 12/12/2023</p>
-                                            <p class="message">Landing page issues are done. and now i am working on admin user module.</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="chatapp.jsp" class="reply">Reply</a>
-                                        <div class="user">
-                                            <img src="assets/img/user/5.jpg" alt="user">
-                                            <span class="label busy"></span>
-                                        </div>
-                                        <div class="detail">
-                                            <a href="chatapp.jsp" class="name">Allie Grater</a>
-                                            <p class="time">8:30PM, 05/12/2023</p>
-                                            <p class="message">Take marketing module task.</p>
-                                        </div>
-                                    </li>
-                                    <li class="check"><a class="gi-primary-btn" href="chatapp.jsp">View all</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="log" role="tabpanel" aria-labelledby="log-tab">
-                            <div class="gi-activity-list activity-list">
-                                <ul>
-                                    <li>
-                                        <span class="date-time">8 Thu<span class="time">11:30 AM - 05:10 PM
-                                            </span></span>
-                                        <p class="title">Project Submitted from Smith</p>
-                                        <p class="detail">Lorem Ipsum is simply dummy text of the printing and
-                                            lorem is typesetting industry.</p>
-                                        <span class="download-files">
-                                            <span class="download">
-                                                <img src="assets/img/other/1.jpg" alt="image">
-                                                <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
-                                            </span>
-                                            <span class="download">
-                                                <img src="assets/img/other/2.jpg" alt="image">
-                                                <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
-                                            </span>
-                                            <span class="download">
-                                                <span class="file">
-                                                    <i class="ri-file-ppt-line"></i>
-                                                </span>
-                                                <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
-                                            </span>
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span class="date-time warn">7 Wed<span class="time">1:30 PM - 02:30 PM
-                                            </span></span>
-                                        <p class="title">Morgus pvt - project due</p>
-                                        <p class="detail">Project modul delay for some bugs.</p>
-                                        <span class="download-files">
-                                            <span class="download">
-                                                <span class="file">
-                                                    <i class="ri-file-zip-line"></i>
-                                                </span>
-                                                <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
-                                            </span>
-                                            <span class="download">
-                                                <span class="file">
-                                                    <i class="ri-file-text-line"></i>
-                                                </span>
-                                                <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
-                                            </span>
-                                            <span class="download">
-                                                <img src="assets/img/other/3.jpg" alt="image">
-                                                <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
-                                            </span>
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span class="date-time">6 Tue<span class="time">9:30 AM - 11:00 AM
-                                            </span></span>
-                                        <p class="title">Interview for management dept.</p>
-                                        <p class="detail">There are many variations of passages of Lorem Ipsum
-                                            available, but the majority have suffered alteration in some form,
-                                            by injected humour.</p>
-                                        <span class="download-files">
-                                            <span class="download">
-                                                <span class="file">
-                                                    <i class="ri-file-zip-line"></i>
-                                                </span>
-                                                <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
-                                            </span>
-                                            <span class="download">
-                                                <span class="file">
-                                                    <i class="ri-file-text-line"></i>
-                                                </span>
-                                                <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
-                                            </span>
-                                            <span class="download">
-                                                <span class="file">
-                                                    <i class="ri-file-ppt-line"></i>
-                                                </span>
-                                                <a href="javascript:void(0)"><i class="ri-download-2-line"></i></a>
-                                            </span>
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span class="date-time">5 Mon<span class="time">3:30 AM - 4:00 PM
-                                            </span></span>
-                                        <p class="title">Meeting with mr. Ken doe</p>
-                                        <p class="detail">The majority have suffered alteration in some form,
-                                            by injected humour.</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <!-- main content -->
             <div class="gi-main-content">
@@ -562,7 +277,7 @@
                                                             </div>
                                                             <div class="thumb-upload-container thumb-upload">
 
-                                                                <!-- Đây là nơi các thumbnail sẽ được thêm vào -->
+                                                                <!-- ÄÃ¢y lÃ  nÆ¡i cÃ¡c thumbnail sáº½ Ä‘Æ°á»£c thÃªm vÃ o -->
                                                             </div>
                                                             <div class="add-thumb" onclick="addThumbnail()">+</div>
 
@@ -684,44 +399,33 @@
         <!-- Main Custom -->
         <script src="assets/js/main.js"></script>
         <script>
-                                        let deletedImages = [];
                                         function removeThumbnail(element) {
-                                            Swal.fire({
-                                                title: "Are you sure you want to delete this image?",
-                                                text: "This action cannot be undone!",
-                                                icon: "warning",
-                                                showCancelButton: true,
-                                                confirmButtonColor: "#d33",
-                                                cancelButtonColor: "#3085d6",
-                                                confirmButtonText: "Delete",
-                                                cancelButtonText: "Cancel"
-                                            }).then((result) => {
-                                                if (result.isConfirmed) {
-                                                    let thumbnail = element.closest('.thumb-upload'); // Find the parent element
-                                                    let imgElement = thumbnail.querySelector('img'); // Get the <img> element
-                                                    let imageId = imgElement.getAttribute('data-id'); // Get image ID
+                                            let thumbDiv = element.closest(".thumb-upload"); // Láº¥y div chá»©a áº£nh
+                                            let img = thumbDiv.querySelector("img");
+                                            let imagePath = img ? img.getAttribute("src") : null;
 
-                                                    if (imageId) {
-                                                        deletedImages.push(imageId); // Store the ID in the array
-                                                    }
+                                            if (imagePath) {
+                                                let input = document.createElement("input");
+                                                input.type = "hidden";
+                                                input.name = "deletedImages";
+                                                input.value = imagePath;
+                                                document.forms[0].appendChild(input);
+                                            }
 
-                                                    thumbnail.remove(); // Remove the image from UI
-
-                                                    Swal.fire("Deleted!", "The image has been successfully deleted.", "success");
-                                                }
-                                            });
+                                            // XÃ³a áº£nh khá»i giao diá»‡n
+                                            thumbDiv.remove();
                                         }
                                         document.addEventListener("DOMContentLoaded", function () {
                                             const container = document.querySelector(".thumb-upload-container");
                                             if (!container) {
-                                                console.error("⚠️ LỖI: Không tìm thấy .thumb-upload-container! Kiểm tra lại HTML.");
+                                                console.error("âš ï¸ Lá»–I: KhÃ´ng tÃ¬m tháº¥y .thumb-upload-container! Kiá»ƒm tra láº¡i HTML.");
                                                 return;
                                             }
 
-                                            console.log("✅ Đã tìm thấy .thumb-upload-container!");
+                                            console.log("âœ… ÄÃ£ tÃ¬m tháº¥y .thumb-upload-container!");
                                             function addThumbnail() {
-                                                console.log("Thêm ảnh mới...");
-                                                // Tạo một thẻ div mới cho ảnh thumbnail
+                                                console.log("ThÃªm áº£nh má»›i...");
+                                                // Táº¡o má»™t tháº» div má»›i cho áº£nh thumbnail
                                                 const newThumb = document.createElement("div");
                                                 newThumb.classList.add("thumb-upload");
                                                 newThumb.innerHTML = `
@@ -736,19 +440,19 @@
                     </div>
                 </div>
             `;
-                                                // Thêm thumbnail mới vào container
+                                                // ThÃªm thumbnail má»›i vÃ o container
                                                 container.appendChild(newThumb);
                                             }
 
-                                            // Lắng nghe sự kiện click cho nút "+"
+                                            // Láº¯ng nghe sá»± kiá»‡n click cho nÃºt "+"
                                             const addButton = document.querySelector(".add-thumb");
                                             if (addButton) {
                                                 addButton.addEventListener("click", function (event) {
-                                                    event.preventDefault(); // Ngăn chặn hành vi mặc định
+                                                    event.preventDefault(); // NgÄƒn cháº·n hÃ nh vi máº·c Ä‘á»‹nh
                                                     addThumbnail();
                                                 });
                                             } else {
-                                                console.error("⚠️ LỖI: Không tìm thấy nút thêm ảnh (+)!");
+                                                console.error("Lỗi");
                                             }
                                         });
         </script>

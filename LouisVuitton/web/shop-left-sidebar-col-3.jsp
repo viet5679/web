@@ -148,16 +148,76 @@
         <section class="ec-page-content section-space-p">
             <div class="container">
                 <div class="row">
-                    <div
-                        class="ec-shop-rightside col-lg-9 order-lg-last col-md-12 order-md-first margin-b-30">
+                    <!-- Sidebar Area Start (Moved to the Left) -->
+                    <div class="ec-shop-leftside col-lg-3 col-md-12 order-lg-first order-md-last">
+                        <div id="shop_sidebar">
+                            <div class="ec-sidebar-heading">
+                                <h1>Filter Products By</h1>
+                            </div>
+                            <div class="ec-sidebar-wrap">
+                                <!-- Sidebar Category Block -->
+                                <div class="ec-sidebar-block">
+                                    <div class="ec-sb-title">
+                                        <h3 class="ec-sidebar-title">Gender</h3>
+                                    </div>
+                                    <div class="ec-sb-block-content">
+                                        <ul>
+                                            <c:forEach var="c" items="${requestScope.listg}">
+                                                <li>
+                                                    <div class="ec-sidebar-block-item">
+                                                        <input type="checkbox" name="gid" value="${c.id}" ${selectedGid.contains(c.id) ? "checked" : ""}/> 
+                                                        <a>${c.name}</a><span class="checked"></span>
+                                                    </div>
+                                                </li>
+                                            </c:forEach>
+                                        </ul>
+                                    </div>
+
+                                    <div class="ec-sb-title">
+                                        <h3 class="ec-sidebar-title">Category</h3>
+                                    </div>
+                                    <div class="ec-sb-block-content">
+                                        <ul>
+                                            <c:forEach var="h" items="${requestScope.litsc}">
+                                                <li>
+                                                    <div class="ec-sidebar-block-item">
+                                                        <input type="checkbox" name="cid" value="${h.id}" ${selectedCid.contains(h.id) ? "checked" : ""}/> 
+                                                        <a>${h.name}</a><span class="checked"></span>
+                                                    </div>
+                                                </li>
+                                            </c:forEach>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Sidebar Price Block -->
+                                <div class="ec-sidebar-block">
+                                    <div class="ec-sb-title">
+                                        <h3 class="ec-sidebar-title">Price</h3>
+                                    </div>
+                                    <div class="ec-sb-block-content es-price-slider">
+                                        <div class="ec-price-filter">
+                                            <div id="ec-sliderPrice" class="filter__slider-price" data-min="0" data-max="500" data-step="10"></div>
+                                            <div class="ec-price-input">
+                                                <label class="filter__label"><input type="text" class="filter__input" name="price_low" id="price_low"></label>
+                                                <span class="ec-price-divider"></span>
+                                                <label class="filter__label"><input type="text" class="filter__input" name="price_high" id="price_high"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shop Content (Right Side) -->
+                    <div class="ec-shop-rightside col-lg-9 col-md-12 order-lg-last order-md-first margin-b-30">
                         <!-- Shop Top Start -->
                         <div class="ec-pro-list-top d-flex">
                             <div class="col-md-6 ec-grid-list">
                                 <div class="ec-gl-btn">
-                                    <button class="btn btn-grid active"><i
-                                            class="fi-rr-apps"></i></button>
-                                    <button class="btn btn-list"><i
-                                            class="fi-rr-list"></i></button>
+                                    <button class="btn btn-grid active"><i class="fi-rr-apps"></i></button>
+                                    <button class="btn btn-list"><i class="fi-rr-list"></i></button>
                                 </div>
                             </div>
                             <div class="col-md-6 ec-sort-select">
@@ -165,7 +225,7 @@
                                 <div class="ec-select-inner">
                                     <form method="get">
                                         <select name="sort_by" id="ec-select" onchange="this.form.submit()">
-                                            <<option selected disabled>Position</option>
+                                            <option selected disabled>Position</option>
                                             <option value="1" ${sort_by == '1' ? 'selected' : ''}>Name, A to Z</option>
                                             <option value="2" ${sort_by == '2' ? 'selected' : ''}>Name, Z to A</option>
                                             <option value="3" ${sort_by == '3' ? 'selected' : ''}>Price, low to high</option>
@@ -182,10 +242,9 @@
                             <div class="shop-pro-inner">
                                 <div class="row">
                                     <c:forEach var="c" items="${requestScope.list}">
-                                        <div
-                                            class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content" >
+                                        <!-- Changed col-lg-3 to col-lg-4 to display 3 products per row -->
+                                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
                                             <input type="hidden" name="productId" value="${c.id}">
-
                                             <div class="ec-product-inner">
                                                 <div class="ec-pro-image-outer">
                                                     <div class="ec-pro-image">
@@ -195,8 +254,7 @@
                                                         </a>
                                                         <c:if test="${c.tag == 'NEW'}">
                                                             <span class="flags">
-                                                                <span
-                                                                    class="new">New</span>
+                                                                <span class="new">New</span>
                                                             </span>
                                                         </c:if>
                                                         <c:if test="${c.tag == 'SALE'}">
@@ -233,52 +291,42 @@
                                                             </c:choose>
                                                         </c:forEach>
                                                     </div>
-                                                    <div
-                                                        class="ec-pro-list-desc">${c.description}</div>
+                                                    <div class="ec-pro-list-desc">${c.description}</div>
 
                                                     <c:if test="${c.sale == 0}">
                                                         <span class="ec-price">
-                                                            <span
-                                                                class="new-price">$${c.totalPay}</span>
+                                                            <span class="new-price">$${c.totalPay}</span>
                                                         </span>
-                                                        <c:if test="${c.categoryId.id == 3 || c.categoryId.id == 5 || c.categoryId.id == 6 || c.categoryId.id == 7 || c.categoryId.id == 8}">
-                                                        </div>
                                                     </c:if>
-
-                                                </c:if>
-                                                <c:if test="${c.sale != 0}">
-                                                    <span class="ec-price">
-                                                        <span
-                                                            class="old-price">$${c.price}</span>
-                                                        <span
-                                                            class="new-price">$${c.totalPay}</span>
-                                                    </span>
-                                                </c:if>
+                                                    <c:if test="${c.sale != 0}">
+                                                        <span class="ec-price">
+                                                            <span class="old-price">$${c.price}</span>
+                                                            <span class="new-price">$${c.totalPay}</span>
+                                                        </span>
+                                                    </c:if>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </c:forEach>
+                                    </c:forEach>
+                                </div>
                             </div>
                         </div>
+                        <!-- Shop content End -->
+
                         <!-- Ec Pagination Start -->
                         <div class="ec-pro-pagination">
                             <span></span>
                             <ul class="ec-pro-pagination-inner">
                                 <c:forEach var="p" begin="1" end="${endP}">
                                     <li>
-                                    <li>
-                                        <a class="${(currentIndex == p) ? 'active' : ''} pagination-link"  data-page="${p}" 
+                                        <a class="${(currentIndex == p) ? 'active' : ''} pagination-link" data-page="${p}" 
                                            onclick="updatePage(event, ${p})">${p}</a>
                                     </li>
-                                    </li>
-
                                 </c:forEach>
                                 <c:if test="${endP > 5 }">
-                                    <li><a class="next" href="#">Next 
-                                            <i
-                                                class="ecicon eci-angle-right">
-
-                                            </i>
+                                    <li>
+                                        <a class="next" href="#">Next 
+                                            <i class="ecicon eci-angle-right"></i>
                                         </a>
                                     </li>
                                 </c:if>
@@ -287,348 +335,220 @@
                         <!-- Ec Pagination End -->
                     </div>
                 </div>
-                <!--Shop content End -->
+            </div>
+        </section>
+        <!-- End Shop page -->
 
-                <script>
-                    function addToCart(productId, isProductDetails = false) {
-                        let quantity = 1; // Mặc định là 1
+        <!-- JavaScript (Unchanged) -->
+        <script>
+            function addToCart(productId, isProductDetails = false) {
+                let quantity = 1; // Mặc định là 1
 
-                        if (isProductDetails) {
-                            // Nếu ở trang Product Details, lấy số lượng từ input
-                            let input = document.getElementById(`qty-${p.id}`);
-                            if (input) {
-                                quantity = parseInt(input.value) || 1;
+                if (isProductDetails) {
+                    // Nếu ở trang Product Details, lấy số lượng từ input
+                    let input = document.getElementById(`qty-${p.id}`);
+                    if (input) {
+                        quantity = parseInt(input.value) || 1;
 
-                                // Kiểm tra số lượng hợp lệ
-                                if (isNaN(quantity) || quantity < 1) {
-                                    alert("Vui lòng nhập số lượng hợp lệ!");
-                                    return;
-                                }
-                            }
+                        // Kiểm tra số lượng hợp lệ
+                        if (isNaN(quantity) || quantity < 1) {
+                            alert("Vui lòng nhập số lượng hợp lệ!");
+                            return;
                         }
+                    }
+                }
 
-                        $.ajax({
-                            type: "POST",
-                            url: "cart",
-                            data: {
-                                productId: productId,
-                                quantity: quantity,
-                                action: "addToCart"
-                            },
-                            success: function () {
-                                Swal.fire({
-                                    position: "center",
-                                    icon: "success",
-                                    title: "Added to cart",
-                                    showConfirmButton: false,
-                                    timer: 700,
-                                    width: "400px", // Giảm chiều rộng
-                                    height: "250px",
-                                    padding: "5px", // Giảm padding
-                                });
-                            }
+                $.ajax({
+                    type: "POST",
+                    url: "cart",
+                    data: {
+                        productId: productId,
+                        quantity: quantity,
+                        action: "addToCart"
+                    },
+                    success: function () {
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: "Added to cart",
+                            showConfirmButton: false,
+                            timer: 700,
+                            width: "400px", // Giảm chiều rộng
+                            height: "250px",
+                            padding: "5px", // Giảm padding
                         });
                     }
+                });
+            }
 
-
-                    function addToWishList(productId, element) {
-                        $.ajax({
-                            type: "POST",
-                            url: "wishlist",
-                            data: {productId: productId},
-                            success: function (response) {
-                                if (response.isWishlisted) {
-                                    $(element).addClass("active"); // Nếu đã thêm, đổi màu nút
-                                } else {
-                                    $(element).removeClass("active"); // Nếu đã xóa, trở lại bình thường
-                                }
-                            },
-                            error: function () {
-                                alert("Có lỗi xảy ra!");
-                            }
-                        });
+            function addToWishList(productId, element) {
+                $.ajax({
+                    type: "POST",
+                    url: "wishlist",
+                    data: {productId: productId},
+                    success: function (response) {
+                        if (response.isWishlisted) {
+                            $(element).addClass("active"); // Nếu đã thêm, đổi màu nút
+                        } else {
+                            $(element).removeClass("active"); // Nếu đã xóa, trở lại bình thường
+                        }
+                    },
+                    error: function () {
+                        alert("Có lỗi xảy ra!");
                     }
-                    // Duyệt qua cookie Wishlist
-                    document.addEventListener("DOMContentLoaded", function () {
-                        let wishlist = getCookie("wishlist"); // Lấy giá trị từ cookie
-                        if (wishlist) {
-                            let wishlistItems = wishlist.split("/"); // Chuyển chuỗi thành mảng ID
-                            document.querySelectorAll(".wishlist-btn").forEach(function (btn) {
-                                let productId = btn.getAttribute("data-product-id"); // Lấy ID từ nút
-                                if (wishlistItems.includes(productId)) {
-                                    btn.classList.add("active"); // Thêm class "active"
-                                }
-                            });
+                });
+            }
+
+            // Duyệt qua cookie Wishlist
+            document.addEventListener("DOMContentLoaded", function () {
+                let wishlist = getCookie("wishlist"); // Lấy giá trị từ cookie
+                if (wishlist) {
+                    let wishlistItems = wishlist.split("/"); // Chuyển chuỗi thành mảng ID
+                    document.querySelectorAll(".wishlist-btn").forEach(function (btn) {
+                        let productId = btn.getAttribute("data-product-id"); // Lấy ID từ nút
+                        if (wishlistItems.includes(productId)) {
+                            btn.classList.add("active"); // Thêm class "active"
                         }
                     });
+                }
+            });
 
-                    // Hàm lấy cookie theo tên
-                    function getCookie(name) {
-                        let cookies = document.cookie.split("; ");
-                        for (let i = 0; i < cookies.length; i++) {
-                            let parts = cookies[i].split("=");
-                            if (parts[0] === name) {
-                                return parts[1];
-                            }
-                        }
-                        return "";
+            // Hàm lấy cookie theo tên
+            function getCookie(name) {
+                let cookies = document.cookie.split("; ");
+                for (let i = 0; i < cookies.length; i++) {
+                    let parts = cookies[i].split("=");
+                    if (parts[0] === name) {
+                        return parts[1];
                     }
-                </script>
-                <!-- Sidebar Area Start -->
-                <div
-                    class="ec-shop-leftside col-lg-3 order-lg-first col-md-12 order-md-last">
-                    <div id="shop_sidebar">
-                        <div class="ec-sidebar-heading">
-                            <h1>Filter Products By</h1>
-                        </div>
-                        <div class="ec-sidebar-wrap">
-                            <!-- Sidebar Category Block -->
-                            <div class="ec-sidebar-block">
-                                <div class="ec-sb-title">
-                                    <h3 class="ec-sidebar-title">Gender</h3>
-                                </div>
-                                <div class="ec-sb-block-content">
-                                    <ul>
-                                        <c:forEach var="c" items="${requestScope.listg}">
-                                            <li>
-                                                <div
-                                                    class="ec-sidebar-block-item">
-                                                    <input type="checkbox" name="gid" value="${c.id}" ${selectedGid.contains(c.id) ? "checked" : ""}/> <a
-                                                        >${c.name}</a><span
-                                                        class="checked"></span>
-                                                </div>
-                                            </li>
-                                        </c:forEach>
-                                    </ul>
-                                </div>
+                }
+                return "";
+            }
+        </script>
 
-                                <div class="ec-sb-title">
-                                    <h3
-                                        class="ec-sidebar-title">Category</h3>
-                                </div>
-                                <div class="ec-sb-block-content">
-                                    <ul>
-                                        <c:forEach var="h" items="${requestScope.litsc}">
-                                            <li>
-                                                <div
-                                                    class="ec-sidebar-block-item">
-                                                    <input type="checkbox" name="cid" value="${h.id}" ${selectedCid.contains(h.id) ? "checked" : ""}/> <a
-                                                        >${h.name}</a><span
-                                                        class="checked"></span>
-                                                </div>
-                                            </li>
-                                        </c:forEach>
+        <!-- Footer Start -->
+        <jsp:include page="footer.jsp"></jsp:include>
+        <!-- Footer Area End -->
 
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Sidebar Size Block -->
-                            <div class="ec-sidebar-block">
-                                <div class="ec-sb-title">
-                                    <h3 class="ec-sidebar-title">Size</h3>
-                                </div>
-                                <div class="ec-sb-block-content">
-                                    <ul>
-                                        <c:forEach var="s" items="${requestScope.lists}">
-                                            <li>
-                                                <div
-                                                    class="ec-sidebar-block-item">
-                                                    <input type="checkbox" name="sid"
-                                                           value="${s.id}" ${selectedSid.contains(s.id) ? "checked" : ""}/><a
-                                                           >${s.name}</a><span
-                                                           class="checked"></span>
-                                                </div>
-                                            </li>
-                                        </c:forEach>
-
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Sidebar Price Block -->
-                            <div class="ec-sidebar-block">
-                                <div class="ec-sb-title">
-                                    <h3 class="ec-sidebar-title">Price</h3>
-                                </div>
-
-
-                                <div
-                                    class="ec-sb-block-content es-price-slider">
-                                    <div class="ec-price-filter">
-                                        <div id="ec-sliderPrice"
-                                             class="filter__slider-price"
-                                             data-min="0"
-                                             data-max="500"
-                                             data-step="10"></div>
-                                        <div class="ec-price-input">
-                                            <label
-                                                class="filter__label"><input
-                                                    type="text"
-                                                    class="filter__input" name="price_low" id="price_low"></label>
-                                            <span
-                                                class="ec-price-divider"></span>
-                                            <label
-                                                class="filter__label"><input
-                                                    type="text"
-                                                    class="filter__input" name="price_high" id="price_high"></label>
-                                        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="ec_quickview_modal" tabindex="-1"
+             role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <button type="button" class="btn-close qty_close"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-5 col-sm-12 col-xs-12">
+                                <!-- Swiper -->
+                                <div class="qty-product-cover">
+                                    <div class="qty-slide">
+                                        <img class="img-responsive"
+                                             src="assets/images/product-image/3_1.jpg"
+                                             alt>
+                                    </div>
+                                    <div class="qty-slide">
+                                        <img class="img-responsive"
+                                             src="assets/images/product-image/3_2.jpg"
+                                             alt>
+                                    </div>
+                                    <div class="qty-slide">
+                                        <img class="img-responsive"
+                                             src="assets/images/product-image/3_3.jpg"
+                                             alt>
+                                    </div>
+                                    <div class="qty-slide">
+                                        <img class="img-responsive"
+                                             src="assets/images/product-image/3_4.jpg"
+                                             alt>
+                                    </div>
+                                    <div class="qty-slide">
+                                        <img class="img-responsive"
+                                             src="assets/images/product-image/3_5.jpg"
+                                             alt>
                                     </div>
                                 </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- End Shop page -->
-
-    <!-- Footer Start -->
-    <jsp:include page="footer.jsp"></jsp:include>
-    <!-- Footer Area End -->
-
-    <!-- Modal -->
-    <div class="modal fade" id="ec_quickview_modal" tabindex="-1"
-         role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <button type="button" class="btn-close qty_close"
-                        data-bs-dismiss="modal" aria-label="Close"></button>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-5 col-sm-12 col-xs-12">
-                            <!-- Swiper -->
-                            <div class="qty-product-cover">
-                                <div class="qty-slide">
-                                    <img class="img-responsive"
-                                         src="assets/images/product-image/3_1.jpg"
-                                         alt>
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive"
-                                         src="assets/images/product-image/3_2.jpg"
-                                         alt>
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive"
-                                         src="assets/images/product-image/3_3.jpg"
-                                         alt>
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive"
-                                         src="assets/images/product-image/3_4.jpg"
-                                         alt>
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive"
-                                         src="assets/images/product-image/3_5.jpg"
-                                         alt>
-                                </div>
-                            </div>
-                            <div class="qty-nav-thumb">
-                                <div class="qty-slide">
-                                    <img class="img-responsive"
-                                         src="assets/images/product-image/3_1.jpg"
-                                         alt>
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive"
-                                         src="assets/images/product-image/3_2.jpg"
-                                         alt>
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive"
-                                         src="assets/images/product-image/3_3.jpg"
-                                         alt>
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive"
-                                         src="assets/images/product-image/3_4.jpg"
-                                         alt>
-                                </div>
-                                <div class="qty-slide">
-                                    <img class="img-responsive"
-                                         src="assets/images/product-image/3_5.jpg"
-                                         alt>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-7 col-sm-12 col-xs-12">
-                            <div class="quickview-pro-content">
-                                <h5 class="ec-quick-title"><a
-                                        href="product-left-sidebar.jsp">Handbag
-                                        leather purse for women</a>
-                                </h5>
-                                <div class="ec-quickview-rating">
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star fill"></i>
-                                    <i class="ecicon eci-star"></i>
-                                </div>
-
-                                <div class="ec-quickview-desc">Lorem Ipsum
-                                    is simply dummy text of the printing and
-                                    typesetting industry. Lorem Ipsum has
-                                    been the industry's standard dummy text
-                                    ever
-                                    since the 1500s,</div>
-                                <div class="ec-quickview-price">
-                                    <span class="old-price">$100.00</span>
-                                    <span class="new-price">$80.00</span>
-                                </div>
-
-                                <div class="ec-pro-variation">
-                                    <div
-                                        class="ec-pro-variation-inner ec-pro-variation-color">
-                                        <span>Color</span>
-                                        <div class="ec-pro-color">
-                                            <ul class="ec-opt-swatch">
-                                                <li><span
-                                                        style="background-color:#696d62;"></span></li>
-                                                <li><span
-                                                        style="background-color:#d73808;"></span></li>
-                                                <li><span
-                                                        style="background-color:#577023;"></span></li>
-                                                <li><span
-                                                        style="background-color:#2ea1cd;"></span></li>
-                                            </ul>
-                                        </div>
+                                <div class="qty-nav-thumb">
+                                    <div class="qty-slide">
+                                        <img class="img-responsive"
+                                             src="assets/images/product-image/3_1.jpg"
+                                             alt>
                                     </div>
-                                    <div
-                                        class="ec-pro-variation-inner ec-pro-variation-size ec-pro-size">
-                                        <span>Size</span>
+                                    <div class="qty-slide">
+                                        <img class="img-responsive"
+                                             src="assets/images/product-image/3_2.jpg"
+                                             alt>
+                                    </div>
+                                    <div class="qty-slide">
+                                        <img class="img-responsive"
+                                             src="assets/images/product-image/3_3.jpg"
+                                             alt>
+                                    </div>
+                                    <div class="qty-slide">
+                                        <img class="img-responsive"
+                                             src="assets/images/product-image/3_4.jpg"
+                                             alt>
+                                    </div>
+                                    <div class="qty-slide">
+                                        <img class="img-responsive"
+                                             src="assets/images/product-image/3_5.jpg"
+                                             alt>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7 col-sm-12 col-xs-12">
+                                <div class="quickview-pro-content">
+                                    <h5 class="ec-quick-title"><a
+                                            href="product-left-sidebar.jsp">Handbag
+                                            leather purse for women</a>
+                                    </h5>
+                                    <div class="ec-quickview-rating">
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star fill"></i>
+                                        <i class="ecicon eci-star"></i>
+                                    </div>
+
+                                    <div class="ec-quickview-desc">Lorem Ipsum
+                                        is simply dummy text of the printing and
+                                        typesetting industry. Lorem Ipsum has
+                                        been the industry's standard dummy text
+                                        ever
+                                        since the 1500s,</div>
+                                    <div class="ec-quickview-price">
+                                        <span class="old-price">$100.00</span>
+                                        <span class="new-price">$80.00</span>
+                                    </div>
+
+                                    <div class="ec-pro-variation">
                                         <div
-                                            class="ec-pro-variation-content">
-                                            <ul class="ec-opt-size">
-                                                <li class="active"><a
-                                                        href="#"
-                                                        class="ec-opt-sz"
-                                                        data-tooltip="Small">S</a></li>
-                                                <li><a href="#"
-                                                       class="ec-opt-sz"
-                                                       data-tooltip="Medium">M</a></li>
-                                                <li><a href="#"
-                                                       class="ec-opt-sz"
-                                                       data-tooltip="Large">X</a></li>
-                                                <li><a href="#"
-                                                       class="ec-opt-sz"
-                                                       data-tooltip="Extra Large">XL</a></li>
-                                            </ul>
+                                            class="ec-pro-variation-inner ec-pro-variation-color">
+                                            <span>Color</span>
+                                            <div class="ec-pro-color">
+                                                <ul class="ec-opt-swatch">
+                                                    <li><span
+                                                            style="background-color:#696d62;"></span></li>
+                                                    <li><span
+                                                            style="background-color:#d73808;"></span></li>
+                                                    <li><span
+                                                            style="background-color:#577023;"></span></li>
+                                                    <li><span
+                                                            style="background-color:#2ea1cd;"></span></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="ec-quickview-qty">
-                                    <div class="qty-plus-minus">
-                                        <input class="qty-input" type="text"
-                                               name="ec_qtybtn" value="1" />
-                                    </div>
-                                    <div class="ec-quickview-cart ">
-                                        <button class="btn btn-primary"><i
-                                                class="fi-rr-shopping-basket"></i>
-                                            Add To Cart</button>
+                                    <div class="ec-quickview-qty">
+                                        <div class="qty-plus-minus">
+                                            <input class="qty-input" type="text"
+                                                   name="ec_qtybtn" value="1" />
+                                        </div>
+                                        <div class="ec-quickview-cart ">
+                                            <button class="btn btn-primary"><i
+                                                    class="fi-rr-shopping-basket"></i>
+                                                Add To Cart</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -637,207 +557,206 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Modal end -->
-    <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm7vkewxc03kpn8lwqnmkoz6d"></script>
+        <!-- Modal end -->
+        <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm7vkewxc03kpn8lwqnmkoz6d"></script>
 
-    <!-- Vendor JS -->
-    <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
-    <script src="assets/js/vendor/popper.min.js"></script>
-    <script src="assets/js/vendor/bootstrap.min.js"></script>
-    <script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
-    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+        <!-- Vendor JS -->
+        <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+        <script src="assets/js/vendor/popper.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.min.js"></script>
+        <script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+        <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
 
-    <!--Plugins JS-->
-    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
-    <script src="assets/js/plugins/countdownTimer.min.js"></script>
-    <script src="assets/js/plugins/scrollup.js"></script>
-    <script src="assets/js/plugins/jquery.zoom.min.js"></script>
-    <script src="assets/js/plugins/slick.min.js"></script>
-    <script src="assets/js/plugins/infiniteslidev2.js"></script>
-    <script src="assets/js/vendor/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/plugins/jquery.sticky-sidebar.js"></script>
-    <script src="assets/js/plugins/nouislider.js"></script>
+        <!--Plugins JS-->
+        <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+        <script src="assets/js/plugins/countdownTimer.min.js"></script>
+        <script src="assets/js/plugins/scrollup.js"></script>
+        <script src="assets/js/plugins/jquery.zoom.min.js"></script>
+        <script src="assets/js/plugins/slick.min.js"></script>
+        <script src="assets/js/plugins/infiniteslidev2.js"></script>
+        <script src="assets/js/vendor/jquery.magnific-popup.min.js"></script>
+        <script src="assets/js/plugins/jquery.sticky-sidebar.js"></script>
+        <script src="assets/js/plugins/nouislider.js"></script>
 
-    <!-- Main Js -->
+        <!-- Main Js -->
 
-    <script src="assets/js/vendor/index.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                        let params = new URLSearchParams(window.location.search);
-
-                        // 🔹 Giữ trạng thái checkbox khi tải trang
-                        document.querySelectorAll("input[type=checkbox]").forEach(input => {
-                            if (params.has(input.name) && params.getAll(input.name).includes(input.value.trim())) {
-                                input.checked = true; // Giữ trạng thái checked
-                                input.parentElement.classList.add("selected"); // Giữ màu xanh
-                            }
-
-                            input.addEventListener("change", function () {
-                                let newParams = new URLSearchParams(window.location.search);
-
-                                if (this.checked) {
-                                    newParams.append(this.name, this.value.trim()); // Thêm filter
-                                    this.parentElement.classList.add("selected"); // Giữ màu xanh
-                                } else {
-                                    let values = params.getAll(this.name).filter(v => v !== this.value.trim());
-                                    newParams.delete(this.name);
-                                    values.forEach(v => newParams.append(this.name, v));
-                                    this.parentElement.classList.remove("selected"); // Bỏ màu xanh
-                                }
-
-                                // 🔹 Khi chọn filter, xóa index để quay về trang đầu
-                                newParams.delete("index");
-
-                                console.log("Redirecting to:", "shop?" + newParams.toString());
-                                window.location.href = "shop?" + newParams.toString();
-                            });
-                        });
-
-                        // 🔹 Xử lý phân trang
-                        document.querySelectorAll(".pagination a").forEach(link => {
-                            link.addEventListener("click", function (e) {
-                                e.preventDefault();
-                                let newParams = new URLSearchParams(window.location.search);
-
-                                // Giữ filter, chỉ cập nhật index mới
-                                params.forEach((value, key) => {
-                                    if (key !== "index") {
-                                        newParams.append(key, value);
-                                    }
-                                });
-
-                                newParams.set("index", this.dataset.page); // Cập nhật index mới
-
-                                console.log("Redirecting to:", "shop?" + newParams.toString());
-                                window.location.href = "shop?" + newParams.toString();
-                            });
-                        });
-                    });
-
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let params = new URLSearchParams(window.location.search);
-            let currentIndex = params.get("index") || "1"; // Mặc định trang 1 nếu không có index
-
-            document.querySelectorAll(".pagination-link").forEach(link => {
-                if (link.dataset.page === currentIndex) {
-                    link.classList.add("active"); // Đánh dấu trang hiện tại
-                }
-            });
-        });
-
-        function updatePage(event, page) {
-            event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ <a>
-
-            let params = new URLSearchParams(window.location.search);
-
-            // 🔹 Giữ lại toàn bộ filter, chỉ thay đổi index
-            params.set("index", page);
-
-            // 🔹 Cập nhật class active trước khi chuyển trang
-            document.querySelectorAll(".pagination-link").forEach(link => {
-                link.classList.remove("active"); // Xóa active khỏi tất cả
-            });
-
-            event.target.classList.add("active"); // Thêm active vào trang được chọn
-
-            console.log("Redirecting to:", "shop?" + params.toString());
-
-            // 🔹 Chờ 100ms để thấy hiệu ứng màu xanh trước khi load trang
-            setTimeout(() => {
-                window.location.href = "shop?" + params.toString();
-            }, 100);
-        }
-
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let slider = document.getElementById("ec-sliderPrice");
-            let priceLow = document.getElementById("price_low");
-            let priceHigh = document.getElementById("price_high");
-
-            // Hàm lấy tham số từ URL
-            function getParameterByName(name) {
-                let urlParams = new URLSearchParams(window.location.search);
-                return urlParams.get(name);
-            }
-
-            // Lấy giá trị từ URL (hoặc đặt mặc định nếu không có)
-            let minValue = parseInt(getParameterByName("price_low")) || 0;
-            let maxValue = parseInt(getParameterByName("price_high")) || 500;
-
-            // Nếu thanh trượt đã tồn tại, hủy nó trước khi khởi tạo lại
-            if (slider.noUiSlider) {
-                slider.noUiSlider.destroy();
-            }
-
-            // Tạo thanh trượt với giá trị lấy từ URL
-            noUiSlider.create(slider, {
-                start: [minValue, maxValue],
-                connect: true,
-                range: {
-                    min: 0,
-                    max: 500
-                },
-                step: 10
-            });
-
-            // Cập nhật ô nhập liệu khi kéo thanh trượt
-            slider.noUiSlider.on("update", function (values) {
-                priceLow.value = Math.round(values[0]);
-                priceHigh.value = Math.round(values[1]);
-            });
-
-            // Khi buông chuột, thay đổi URL và xóa `index`
-            slider.noUiSlider.on("change", function (values) {
-                updateURL(values[0], values[1], true);
-            });
-
-            // Xử lý khi nhập số vào ô input (gõ số rồi enter)
-            priceLow.addEventListener("change", function () {
-                let min = parseInt(priceLow.value) || 0;
-                let max = parseInt(priceHigh.value) || 500;
-
-                if (min >= 0 && min <= max) {
-                    slider.noUiSlider.set([min, null]);
-                    updateURL(min, max, true);
-                } else {
-                    priceLow.value = Math.round(slider.noUiSlider.get()[0]);
-                }
-            });
-
-            priceHigh.addEventListener("change", function () {
-                let min = parseInt(priceLow.value) || 0;
-                let max = parseInt(priceHigh.value) || 500;
-
-                if (max >= min && max <= 500) {
-                    slider.noUiSlider.set([null, max]);
-                    updateURL(min, max, true);
-                } else {
-                    priceHigh.value = Math.round(slider.noUiSlider.get()[1]);
-                }
-            });
-
-            // Hàm cập nhật URL và tải lại trang
-            function updateURL(min, max, resetIndex) {
+        <script src="assets/js/vendor/index.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
                 let params = new URLSearchParams(window.location.search);
 
-                // Cập nhật giá mới
-                params.set("price_low", Math.round(min));
-                params.set("price_high", Math.round(max));
+                // 🔹 Giữ trạng thái checkbox khi tải trang
+                document.querySelectorAll("input[type=checkbox]").forEach(input => {
+                    if (params.has(input.name) && params.getAll(input.name).includes(input.value.trim())) {
+                        input.checked = true; // Giữ trạng thái checked
+                        input.parentElement.classList.add("selected"); // Giữ màu xanh
+                    }
 
-                // Nếu thay đổi giá, xóa `index` để quay về trang 1
-                if (resetIndex) {
-                    params.delete("index");
+                    input.addEventListener("change", function () {
+                        let newParams = new URLSearchParams(window.location.search);
+
+                        if (this.checked) {
+                            newParams.append(this.name, this.value.trim()); // Thêm filter
+                            this.parentElement.classList.add("selected"); // Giữ màu xanh
+                        } else {
+                            let values = params.getAll(this.name).filter(v => v !== this.value.trim());
+                            newParams.delete(this.name);
+                            values.forEach(v => newParams.append(this.name, v));
+                            this.parentElement.classList.remove("selected"); // Bỏ màu xanh
+                        }
+
+                        // 🔹 Khi chọn filter, xóa index để quay về trang đầu
+                        newParams.delete("index");
+
+                        console.log("Redirecting to:", "shop?" + newParams.toString());
+                        window.location.href = "shop?" + newParams.toString();
+                    });
+                });
+
+                // 🔹 Xử lý phân trang
+                document.querySelectorAll(".pagination a").forEach(link => {
+                    link.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        let newParams = new URLSearchParams(window.location.search);
+
+                        // Giữ filter, chỉ cập nhật index mới
+                        params.forEach((value, key) => {
+                            if (key !== "index") {
+                                newParams.append(key, value);
+                            }
+                        });
+
+                        newParams.set("index", this.dataset.page); // Cập nhật index mới
+
+                        console.log("Redirecting to:", "shop?" + newParams.toString());
+                        window.location.href = "shop?" + newParams.toString();
+                    });
+                });
+            });
+
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let params = new URLSearchParams(window.location.search);
+                let currentIndex = params.get("index") || "1"; // Mặc định trang 1 nếu không có index
+
+                document.querySelectorAll(".pagination-link").forEach(link => {
+                    if (link.dataset.page === currentIndex) {
+                        link.classList.add("active"); // Đánh dấu trang hiện tại
+                    }
+                });
+            });
+
+            function updatePage(event, page) {
+                event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ <a>
+
+                let params = new URLSearchParams(window.location.search);
+
+                // 🔹 Giữ lại toàn bộ filter, chỉ thay đổi index
+                params.set("index", page);
+
+                // 🔹 Cập nhật class active trước khi chuyển trang
+                document.querySelectorAll(".pagination-link").forEach(link => {
+                    link.classList.remove("active"); // Xóa active khỏi tất cả
+                });
+
+                event.target.classList.add("active"); // Thêm active vào trang được chọn
+
+                console.log("Redirecting to:", "shop?" + params.toString());
+
+                // 🔹 Chờ 100ms để thấy hiệu ứng màu xanh trước khi load trang
+                setTimeout(() => {
+                    window.location.href = "shop?" + params.toString();
+                }, 100);
+            }
+
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let slider = document.getElementById("ec-sliderPrice");
+                let priceLow = document.getElementById("price_low");
+                let priceHigh = document.getElementById("price_high");
+
+                // Hàm lấy tham số từ URL
+                function getParameterByName(name) {
+                    let urlParams = new URLSearchParams(window.location.search);
+                    return urlParams.get(name);
                 }
 
-                // Cập nhật URL và tải lại trang
-                window.location.href = "shop?" + params.toString();
-            }
-        });
-    </script>
-</body>
+                // Lấy giá trị từ URL (hoặc đặt mặc định nếu không có)
+                let minValue = parseInt(getParameterByName("price_low")) || 0;
+                let maxValue = parseInt(getParameterByName("price_high")) || 500;
+
+                // Nếu thanh trượt đã tồn tại, hủy nó trước khi khởi tạo lại
+                if (slider.noUiSlider) {
+                    slider.noUiSlider.destroy();
+                }
+
+                // Tạo thanh trượt với giá trị lấy từ URL
+                noUiSlider.create(slider, {
+                    start: [minValue, maxValue],
+                    connect: true,
+                    range: {
+                        min: 0,
+                        max: 500
+                    },
+                    step: 10
+                });
+
+                // Cập nhật ô nhập liệu khi kéo thanh trượt
+                slider.noUiSlider.on("update", function (values) {
+                    priceLow.value = Math.round(values[0]);
+                    priceHigh.value = Math.round(values[1]);
+                });
+
+                // Khi buông chuột, thay đổi URL và xóa `index`
+                slider.noUiSlider.on("change", function (values) {
+                    updateURL(values[0], values[1], true);
+                });
+
+                // Xử lý khi nhập số vào ô input (gõ số rồi enter)
+                priceLow.addEventListener("change", function () {
+                    let min = parseInt(priceLow.value) || 0;
+                    let max = parseInt(priceHigh.value) || 500;
+
+                    if (min >= 0 && min <= max) {
+                        slider.noUiSlider.set([min, null]);
+                        updateURL(min, max, true);
+                    } else {
+                        priceLow.value = Math.round(slider.noUiSlider.get()[0]);
+                    }
+                });
+
+                priceHigh.addEventListener("change", function () {
+                    let min = parseInt(priceLow.value) || 0;
+                    let max = parseInt(priceHigh.value) || 500;
+
+                    if (max >= min && max <= 500) {
+                        slider.noUiSlider.set([null, max]);
+                        updateURL(min, max, true);
+                    } else {
+                        priceHigh.value = Math.round(slider.noUiSlider.get()[1]);
+                    }
+                });
+
+                // Hàm cập nhật URL và tải lại trang
+                function updateURL(min, max, resetIndex) {
+                    let params = new URLSearchParams(window.location.search);
+
+                    // Cập nhật giá mới
+                    params.set("price_low", Math.round(min));
+                    params.set("price_high", Math.round(max));
+
+                    // Nếu thay đổi giá, xóa `index` để quay về trang 1
+                    if (resetIndex) {
+                        params.delete("index");
+                    }
+
+                    // Cập nhật URL và tải lại trang
+                    window.location.href = "shop?" + params.toString();
+                }
+            });
+        </script>
+    </body>
 </html>

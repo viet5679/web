@@ -1,7 +1,7 @@
 package dal;
 
 // @author xu4nvi3t
-
+import utils.DBContext;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,6 +15,67 @@ import model.ProductImages;
 import model.Products;
 
 public class ProductsDAO extends DBContext {
+    
+    public void insertImg(ProductImages pi) {
+        String sql = "INSERT INTO [dbo].[products_images]\n"
+                + "           ([product_id]\n"
+                + "           ,[path]\n"
+                + "           ,[created_at]\n"
+                + "           ,[updated_at])\n"
+                + "     VALUES\n"
+                + "           (?\n"
+                + "           ,?\n"
+                + "           ,GETDATE()\n"
+                + "           ,GETDATE())";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, pi.getProductId());
+            st.setString(2, pi.getPath());
+            st.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public void updateImg(ProductImages pi) {
+        String sql = "UPDATE [dbo].[products_images]\n"
+                + "   SET\n"
+                + "      [path] = ?\n"
+                + "      ,[updated_at] = getdate()\n"
+                + " WHERE image_id = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, pi.getPath());
+            st.setInt(2, pi.getImagesId());
+            st.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public String getPath(int iid) {
+        String sql = "  select path from products_images where image_id = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, iid);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+
+                return rs.getString("path");
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public void deleteImg(int iid) {
+        String sql = "DELETE FROM [dbo].[products_images]\n"
+                + "      WHERE image_id = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, iid);
+            st.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
 
     public boolean deleteProduct(int productId) {
         PreparedStatement ps1 = null;
@@ -280,16 +341,12 @@ public class ProductsDAO extends DBContext {
         String sql = " SELECT \n"
                 + "   *\n"
                 + "FROM products p\n"
-                + "LEFT JOIN product_sizes ps ON p.id = ps.product_id\n"
                 + "LEFT JOIN product_gender pg ON p.id = pg.product_id where 1 = 1";
         if (!gid.isEmpty()) {
             sql += " AND gender_id IN (" + gid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
         }
         if (!cid.isEmpty()) {
             sql += " AND category_id IN (" + cid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
-        }
-        if (!sid.isEmpty()) {
-            sql += " AND size_id IN (" + sid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
         }
         if (price_low != null) {
             sql += "and total_pay >= " + price_low;
@@ -347,6 +404,36 @@ public class ProductsDAO extends DBContext {
         if (connection != null) {
             try {
                 StringBuilder sql = new StringBuilder("SELECT * FROM products WHERE 1=1");
+                if (cid != 0) {
+                    sql.append(" AND category_id = ").append(cid);
+                }
+                PreparedStatement stm = connection.prepareStatement(sql.toString());
+                ResultSet res = stm.executeQuery();
+                while (res.next()) {
+                    Products p = new Products(res.getInt(1), cg.getCategoryById(res.getInt(2)), res.getString(3),
+                            res.getString(4), res.getString(5), res.getString(6),
+                            res.getInt(7), res.getInt(8), res.getInt(9),
+                            res.getInt(10), res.getInt(11), res.getInt(12),
+                            res.getString(13), res.getString(14), res.getString(15),
+                            res.getDouble(16), res.getDouble(17),
+                            res.getDouble(18), res.getString(19));
+                    listProduct.add(p);
+                }
+                return listProduct;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+    
+    // get 4 product by Cid
+    public ArrayList<Products> get4ProductByCid(int cid) {
+        ArrayList<Products> listProduct = new ArrayList<>();
+        CategoriesDAO cg = new CategoriesDAO();
+        if (connection != null) {
+            try {
+                StringBuilder sql = new StringBuilder("SELECT TOP 4 FROM products WHERE 1=1");
                 if (cid != 0) {
                     sql.append(" AND category_id = ").append(cid);
                 }
@@ -523,20 +610,16 @@ public class ProductsDAO extends DBContext {
         List<Products> list = new ArrayList<>();
         String sql = "SELECT p.*, c.name AS category_name "
                 + "FROM products p "
-                + "LEFT JOIN product_sizes ps ON p.id = ps.product_id "
                 + "LEFT JOIN product_gender pg ON p.id = pg.product_id "
                 + "LEFT JOIN dbo.categories c ON c.id = p.category_id "
                 + "WHERE (p.name LIKE ? OR c.name LIKE ?)";  // Tìm kiếm theo tên sản phẩm hoặc tên danh mục
 
-        // Thêm các điều kiện lọc khác (gender, category, size, price)
+        // Thêm các điều kiện lọc khác (gender, category, price)
         if (!gid.isEmpty()) {
             sql += " AND pg.gender_id IN (" + gid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
         }
         if (!cid.isEmpty()) {
             sql += " AND category_id IN (" + cid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
-        }
-        if (!sid.isEmpty()) {
-            sql += " AND size_id IN (" + sid.stream().map(String::valueOf).collect(Collectors.joining(",")) + ")";
         }
         if (price_low != null) {
             sql += " AND total_pay >= ?";

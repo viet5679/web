@@ -1,4 +1,3 @@
-
 package model;
 
  // @author xu4nvi3t
@@ -59,9 +58,4 @@ public class ProductImages {
         this.updatedAt = updatedAt;
     }
 
-    
-
-   
-
-    
 }

@@ -4,6 +4,7 @@
  */
 package controller.shop;
 
+import dal.OrderDAO;
 import dal.ProductsDAO;
 import dal.RatingDAO;
 import dal.UserDAO;
@@ -14,6 +15,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import model.ProductImages;
@@ -68,24 +71,52 @@ public class ProductServlet extends HttpServlet {
             throws ServletException, IOException {
         CartWishlistUtils.prepareCartAndWishlistData(request);
         String id_raw = request.getParameter("id");
-        int id;
+        int id, cid;
         ProductsDAO pd = new ProductsDAO();
         RatingDAO rd = new RatingDAO();
+        OrderDAO orderDAO = new OrderDAO();
+
         try {
             id = Integer.parseInt(id_raw);
             Products p = pd.getProductById(id);
+            cid = p.getCategoryId().getId();
+            System.out.println(cid);
+            // Kiểm tra nếu sản phẩm không tồn tại
+            if (p == null) {
+                response.sendRedirect("home");
+                return;
+            }
+
+            // Lấy dữ liệu sản phẩm
             String str = p.getSubDescription();
-            List<String> subDescription = Arrays.asList(str.split("\\$"));
-            List<ProductImages> listI = pd.getImagesByPid(id);
-            List<Rating> listR = rd.getAllRatingWithId(id);
+            List<String> subDescription = (str != null) ? Arrays.asList(str.split("\\$")) : new ArrayList<>();
+            List<ProductImages> listI = (pd.getImagesByPid(id) != null) ? pd.getImagesByPid(id) : new ArrayList<>();
+            List<Rating> listR = (rd.getAllRatingWithId(id) != null) ? rd.getAllRatingWithId(id) : new ArrayList<>();
+
+            // Kiểm tra xem user đã mua hàng chưa
+            boolean hasPurchased = false;
+            Users user = (Users) request.getSession().getAttribute("user");
+            if (user != null) {
+                hasPurchased = orderDAO.hasUserPurchasedProduct(user.getId(), id);
+            }
+
+            // Gán dữ liệu vào request
+            request.setAttribute("relatedProduct", pd.get4ProductByCid(cid));
             request.setAttribute("listR", listR);
             request.setAttribute("sub", subDescription);
             request.setAttribute("listI", listI);
             request.setAttribute("p", p);
             request.setAttribute("bestSeller", pd.getBestSellerProduct());
+            request.setAttribute("hasPurchased", hasPurchased);  // Thêm biến này
+
             request.getRequestDispatcher("product-full-width.jsp").forward(request, response);
+
+        } catch (NumberFormatException e) {
+            response.sendRedirect("error.jsp");
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
+            request.setAttribute("errorMessage", "Error loading product details.");
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
 
     }
@@ -101,33 +132,59 @@ public class ProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String pid_raw = request.getParameter("pid");
-        String uid_raw = request.getParameter("uid");
-
-        String rating_raw = request.getParameter("rating");
-        String comment = request.getParameter("comment");
-
-        int rating, pid, uid;
-        RatingDAO rd = new RatingDAO();
+        HttpSession session = request.getSession();
         ProductsDAO pd = new ProductsDAO();
-        UserDAO ud = new UserDAO();
-        
-        try {
-            rating = Integer.parseInt(rating_raw);
-            pid = Integer.parseInt(pid_raw);
-            uid = Integer.parseInt(uid_raw);
-            Products product = pd.getProductById(pid);
-            Users user = ud.getUserById(uid);
+        RatingDAO rd = new RatingDAO();
 
-            System.out.println("Product: " + product);
-            System.out.println("User: " + user);
-            Rating ra = new Rating(comment, pd.getProductById(pid), ud.getUserById(uid), rating);
+        // Check if the user is logged in
+        Users user = (Users) session.getAttribute("user");
+        if (user == null) {
+            response.sendRedirect("login");
+            return;
+        }
+
+        try {
+            // Retrieve data from the form
+            String pid_raw = request.getParameter("pid");
+            String rating_raw = request.getParameter("rating");
+            String comment = request.getParameter("comment");
+
+            // Convert data types
+            int pid = Integer.parseInt(pid_raw);
+            int rating = Integer.parseInt(rating_raw);
+
+            // Validate rating range
+            if (rating < 1 || rating > 5) {
+                request.setAttribute("error", "Rating must be between 1 and 5.");
+                request.setAttribute("pid", pid);
+                request.getRequestDispatcher("product.jsp").forward(request, response);
+                return;
+            }
+
+            // Check if the product exists
+            Products product = pd.getProductById(pid);
+            if (product == null) {
+                request.setAttribute("error", "Product not found.");
+                request.getRequestDispatcher("product.jsp").forward(request, response);
+                return;
+            }
+
+            // Insert the review into the database
+            Rating ra = new Rating(comment, product, user, rating);
             rd.insertRating(ra);
 
+            // Redirect back to the product page after a successful review
             response.sendRedirect("product?id=" + pid);
 
+        } catch (NumberFormatException e) {
+            request.setAttribute("error", "Invalid data format.");
+            request.setAttribute("pid", request.getParameter("pid")); // Truyền lại pid
+            request.getRequestDispatcher("product.jsp").forward(request, response);
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
+            request.setAttribute("error", "An error occurred while submitting your review.");
+            request.setAttribute("pid", request.getParameter("pid"));
+            request.getRequestDispatcher("product.jsp").forward(request, response);
         }
     }
 

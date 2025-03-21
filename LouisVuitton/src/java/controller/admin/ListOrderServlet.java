@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller.admin;
+package controller_admin;
 
 import dal.OrderDAO;
 import java.io.IOException;
@@ -64,9 +64,7 @@ public class ListOrderServlet extends HttpServlet {
             throws ServletException, IOException {
         OrderDAO od = new OrderDAO();
         List<Orders> listO = od.getAllO();
-
         Collections.sort(listO, Comparator.comparing(o -> !o.getStatus().equals("Pending")));
-
         request.setAttribute("listO", listO);
         request.getRequestDispatcher("order-list.jsp").forward(request, response);
     }
@@ -90,7 +88,6 @@ public class ListOrderServlet extends HttpServlet {
             id = Integer.parseInt(id_raw);
             od.updateStatus(id, status);
             response.sendRedirect("list-order");
-            
         } catch (Exception e) {
         }
     }

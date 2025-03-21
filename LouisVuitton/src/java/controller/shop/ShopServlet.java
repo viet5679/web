@@ -57,7 +57,6 @@ public class ShopServlet extends HttpServlet {
             throws ServletException, IOException {
         String[] gid_raw = request.getParameterValues("gid");
         String[] cid_raw = request.getParameterValues("cid");
-        String[] sid_raw = request.getParameterValues("sid");
         String id_raw = request.getParameter("productId");
         String sort_by = request.getParameter("sort_by");
         String index_page = request.getParameter("index");
@@ -85,13 +84,6 @@ public class ShopServlet extends HttpServlet {
             if (cid_raw != null) {
                 for (String c : cid_raw) {
                     selectedCid.add(Integer.parseInt(c.trim()));
-                }
-            } else {
-
-            }
-            if (sid_raw != null) {
-                for (String s : sid_raw) {
-                    selectedSid.add(Integer.parseInt(s.trim()));
                 }
             }
 

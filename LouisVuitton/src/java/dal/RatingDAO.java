@@ -4,7 +4,7 @@
  */
 package dal;
 
-
+import utils.DBContext;
 import java.util.ArrayList;
 import java.util.List;
 import model.Rating;

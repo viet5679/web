@@ -1,3 +1,4 @@
+<!--Side bar start-->
 <div class="gi-sidebar-overlay"></div>
 <div class="gi-sidebar" data-mode="light">
     <div class="gi-sb-logo">
@@ -44,3 +45,4 @@
         </div>
     </div>
 </div>
+<!--Side bar end-->

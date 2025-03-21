@@ -106,12 +106,12 @@
                     <div class="align-self-center">
                         <div class="ec-header-bottons">
                             <!-- Header User Start -->
-                            <%
-                                       Users user = null;
-                                       if (session != null) {
-                                           user = (Users) session.getAttribute("user");
-                                       }
-                            %>
+                                    <%
+                                        Users user = null;
+                                        if (session != null) {
+                                            user = (Users) session.getAttribute("user");
+                                        }
+                                    %>
                             <div class="ec-header-user dropdown">
                                 <button class="dropdown-toggle" data-bs-toggle="dropdown">
                                     <% if (user != null) { 

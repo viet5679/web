@@ -1,7 +1,7 @@
 package dal;
 
 // @author xu4nvi3t
-
+import utils.DBContext;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +10,27 @@ import java.util.logging.Logger;
 import model.Orders;
 
 public class OrderDAO extends DBContext {
+        
+    public boolean hasUserPurchasedProduct(int uid, int pid) {
+        String sql = "SELECT * FROM users u "
+                + "JOIN orders o ON o.user_id = u.id "
+                + "JOIN order_details od ON od.order_id = o.id "
+                + "WHERE u.id = ? AND od.product_id = ? AND o.status = 'Delivered'";
+
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, uid);
+            st.setInt(2, pid);
+
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0; // Nếu có ít nhất một dòng thì trả về true
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false; // Nếu lỗi hoặc không có sản phẩm nào thì trả về false
+    }
     
     public void updateStatus(int id, String status) {
         String sql = "UPDATE [dbo].[orders]\n"

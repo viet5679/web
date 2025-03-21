@@ -175,9 +175,7 @@
         <section class="ec-page-content section-space-p">
             <div class="container">
                 <div class="row">
-                    <div
-                        class="ec-pro-rightside ec-common-rightside col-lg-12 col-md-12">
-
+                    <div class="ec-pro-rightside ec-common-rightside col-lg-12 col-md-12">
                         <!-- Single product content Start -->
                         <div class="single-pro-block">
                             <div class="single-pro-inner">
@@ -410,10 +408,10 @@
                                                     <h3>Add a Review</h3>
 
                                                     <c:if test="${empty sessionScope.user}">
-                                                        <p>You must <a href="login.jsp">Login</a> to review.</p>
+                                                        <p>You must <a href="login">Login</a> to review.</p>
                                                     </c:if>
 
-                                                    <c:if test="${not empty sessionScope.user}">
+                                                    <c:if test="${not empty sessionScope.user and hasPurchased}">
                                                         <div class="ec-ratting-form">
                                                             <form action="product" method="POST">
                                                                 <input type="hidden" name="pid" value="${p.id}">
@@ -421,11 +419,11 @@
                                                                 <div class="ec-ratting-star">
                                                                     <span>Your rating:</span>
                                                                     <div class="ec-t-review-rating star-rating">
-                                                                        <input type="radio" name="rating" id="star5" value="5"><label for="star5">★</label>
-                                                                        <input type="radio" name="rating" id="star4" value="4"><label for="star4">★</label>
-                                                                        <input type="radio" name="rating" id="star3" value="3"><label for="star3">★</label>
-                                                                        <input type="radio" name="rating" id="star2" value="2"><label for="star2">★</label>
-                                                                        <input type="radio" name="rating" id="star1" value="1"><label for="star1">★</label>
+                                                                        <input type="radio" name="rating" id="star5" value="5" required=""><label for="star5">★</label>
+                                                                        <input type="radio" name="rating" id="star4" value="4" required=""><label for="star4">★</label>
+                                                                        <input type="radio" name="rating" id="star3" value="3" required=""><label for="star3">★</label>
+                                                                        <input type="radio" name="rating" id="star2" value="2" required=""><label for="star2">★</label>
+                                                                        <input type="radio" name="rating" id="star1" value="1" required=""><label for="star1">★</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="ec-ratting-input">
@@ -435,6 +433,12 @@
                                                             </form>
                                                         </div>
                                                     </c:if>
+                                                    <c:if test="${not empty sessionScope.user and not hasPurchased}">
+                                                        <p style="color: red;">You can only rate this product after purchasing it.</p>
+                                                    </c:if>
+                                                    <c:if test="${not empty sessionScope.user and not empty error}">
+                                                        <p style="color: red;">${error}</p>
+                                                    </c:if>   
                                                 </div>
                                             </div>
                                         </div>
@@ -447,34 +451,256 @@
                 </div>
         </section>
         <!-- End Single product -->
+        <!-- Related Product Start -->
+        <section class="section ec-releted-product section-space-p">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="section-title">
+                            <h2 class="ec-bg-title">Related products</h2>
+                            <h2 class="ec-title">Related products</h2>
+                            <p class="sub-title">Browse The Collection of Top Products</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row margin-minus-b-30">
+                    <!-- Related Product Content -->
+                    <c:forEach var="relatedProduct" items="${relatedProduct}">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6 pro-gl-content">
+                            <div class="ec-product-inner">
+                                <div class="ec-pro-image-outer">
+                                    <div class="ec-pro-image">
+                                        <a href="product-left-sidebar.html" class="image">
+                                            <img class="main-image"
+                                                 src="${relatedProduct.avatar}" alt="Product" />
+                                            <img class="hover-image"
+                                                 src="${relatedProduct.hoverAvatar}" alt="Product" />
+                                        </a>
+                                        <span class="flags">
+                                            <span class="new">New</span>
+                                        </span>
+                                        <div class="ec-pro-actions">
+                                            <button title="Add To Cart" class="add-to-cart" onclick="addToCart(${relatedProduct.id}, 1)">
+                                                <i class="fi-rr-shopping-basket"></i> Add To Cart
+                                            </button>
+                                            <button title="Wishlist" class="ec-btn-group wishlist-btn" 
+                                                    data-product-id="${relatedProduct.id}" 
+                                                    onclick="addToWishList(${relatedProduct.id}, this)">
+                                                <i class="fi-rr-heart"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ec-pro-content">
+                                    <h5 class="ec-pro-title"><a
+                                            href="product-left-sidebar.jsp">${relatedProduct.name}</a>
+                                    </h5>
+                                    <div class="ec-pro-rating">
+                                        <c:forEach var="i" begin="1" end="5">
+                                            <c:choose>
+                                                <c:when
+                                                    test="${i <= relatedProduct.totalStars}">
+                                                    <i
+                                                        class="ecicon eci-star fill"></i>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <i
+                                                        class="ecicon eci-star"></i>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </c:forEach>
+                                    </div>
+                                    <span class="ec-price">
+                                        <span
+                                            class="old-price">$${relatedProduct.price}</span>
+                                        <span
+                                            class="new-price">$${relatedProduct.totalPay}</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+    </div>
+</section>
+<!-- Related Product end -->
 
-        <!-- Footer Start -->
-        <jsp:include page="footer.jsp"></jsp:include>
-        <!-- Footer Area End -->
+<div class="row">
+    <!-- Related Product Content -->
+    <c:forEach var="relatedProduct" items="${requestScope.relatedProduct}">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 mb-6  ec-product-content"
+             data-animation="flipInY">
+            <div class="ec-product-inner">
+                <div class="ec-pro-image-outer">
+                    <div class="ec-pro-image">
+                        <a href="product-left-sidebar.jsp"
+                           class="image">
+                            <img class="main-image"
+                                 src="${relatedProduct.avatar}"
+                                 alt="Product" />
+                            <img class="hover-image"
+                                 src="${relatedProduct.hoverAvatar}"
+                                 alt="Product" />
+                        </a>
+                        <span class="flags">
+                            <span class="new">New</span>
+                        </span>
+                        <div class="ec-pro-actions">
+                            <button title="Add To Cart" class="add-to-cart" onclick="addToCart(${relatedProduct.id}, 1)">
+                                <i class="fi-rr-shopping-basket"></i> Add To Cart
+                            </button>
+                            <button title="Wishlist" class="ec-btn-group wishlist-btn" 
+                                    data-product-id="${relatedProduct.id}" 
+                                    onclick="addToWishList(${relatedProduct.id}, this)">
+                                <i class="fi-rr-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ec-pro-content">
+                    <h5 class="ec-pro-title"><a
+                            href="product-left-sidebar.jsp">${relatedProduct.name}</a>
+                    </h5>
+                    <div class="ec-pro-rating">
+                        <c:forEach var="i" begin="1" end="5">
+                            <c:choose>
+                                <c:when
+                                    test="${i <= relatedProduct.totalStars}">
+                                    <i
+                                        class="ecicon eci-star fill"></i>
+                                </c:when>
+                                <c:otherwise>
+                                    <i
+                                        class="ecicon eci-star"></i>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:forEach>
+                    </div>
+                    <span class="ec-price">
+                        <span
+                            class="old-price">$${relatedProduct.price}</span>
+                        <span
+                            class="new-price">$${relatedProduct.totalPay}</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </c:forEach>
+    <div class="col-sm-12 shop-all-btn"><a href="shop">Shop All Collection</a>
+    </div>
+</div>
+<script>
+    function addToCart(productId, isProductDetails = false) {
+        let quantity = 1; // Mặc định là 1
 
-        <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm7vkewxc03kpn8lwqnmkoz6d"></script>
+        if (isProductDetails) {
+            // Nếu ở trang Product Details, lấy số lượng từ input
+            let input = document.getElementById(`qty-${p.id}`);
+            if (input) {
+                quantity = parseInt(input.value) || 1;
 
-        <!-- Vendor JS -->
-        <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
-        <script src="assets/js/vendor/popper.min.js"></script>
-        <script src="assets/js/vendor/bootstrap.min.js"></script>
-        <script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
-        <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+                // Kiểm tra số lượng hợp lệ
+                if (isNaN(quantity) || quantity < 1) {
+                    alert("Vui lòng nhập số lượng hợp lệ!");
+                    return;
+                }
+            }
+        }
 
-        <!--Plugins JS-->
-        <script src="assets/js/plugins/swiper-bundle.min.js"></script>
-        <script src="assets/js/plugins/countdownTimer.min.js"></script>
-        <script src="assets/js/plugins/scrollup.js"></script>
-        <script src="assets/js/plugins/jquery.zoom.min.js"></script>
-        <script src="assets/js/plugins/slick.min.js"></script>
-        <script src="assets/js/plugins/infiniteslidev2.js"></script>
-        <script src="assets/js/vendor/jquery.magnific-popup.min.js"></script>
-        <script src="assets/js/plugins/jquery.sticky-sidebar.js"></script>
+        $.ajax({
+            type: "POST",
+            url: "cart",
+            data: {
+                productId: productId,
+                quantity: quantity,
+                action: "addToCart"
+            },
+            success: function () {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Added to cart",
+                    showConfirmButton: false,
+                    timer: 700,
+                    width: "400px", // Giảm chiều rộng
+                    padding: "5px" // Giảm padding
+                });
+            }
+        });
+    }
+    function addToWishList(productId, element) {
+        $.ajax({
+            type: "POST",
+            url: "wishlist",
+            data: {productId: productId},
+            success: function (response) {
+                if (response.isWishlisted) {
+                    $(element).addClass("active"); // Nếu đã thêm, đổi màu nút
+                } else {
+                    $(element).removeClass("active"); // Nếu đã xóa, trở lại bình thường
+                }
+            },
+            error: function () {
+                alert("Có lỗi xảy ra!");
+            }
+        });
+    }
+    // Duyệt qua cookie Wishlist
+    document.addEventListener("DOMContentLoaded", function () {
+        let wishlist = getCookie("wishlist"); // Lấy giá trị từ cookie
+        if (wishlist) {
+            let wishlistItems = wishlist.split("/"); // Chuyển chuỗi thành mảng ID
+            document.querySelectorAll(".wishlist-btn").forEach(function (btn) {
+                let productId = btn.getAttribute("data-product-id"); // Lấy ID từ nút
+                if (wishlistItems.includes(productId)) {
+                    btn.classList.add("active"); // Thêm class "active"
+                }
+            });
+        }
+    });
 
-        <!-- Main Js -->
-        <script src="assets/js/vendor/index.js"></script>
-        <script src="assets/js/main.js"></script>
+    // Hàm lấy cookie theo tên
+    function getCookie(name) {
+        let cookies = document.cookie.split("; ");
+        for (let i = 0; i < cookies.length; i++) {
+            let parts = cookies[i].split("=");
+            if (parts[0] === name) {
+                return parts[1];
+            }
+        }
+        return "";
+    }
+</script>
 
-    </body>
+<!-- Footer Start -->
+<jsp:include page="footer.jsp"></jsp:include>
+<!-- Footer Area End -->
+
+<script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm7vkewxc03kpn8lwqnmkoz6d"></script>
+
+<!-- Vendor JS -->
+<script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+<script src="assets/js/vendor/popper.min.js"></script>
+<script src="assets/js/vendor/bootstrap.min.js"></script>
+<script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+<script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+
+<!--Plugins JS-->
+<script src="assets/js/plugins/swiper-bundle.min.js"></script>
+<script src="assets/js/plugins/countdownTimer.min.js"></script>
+<script src="assets/js/plugins/scrollup.js"></script>
+<script src="assets/js/plugins/jquery.zoom.min.js"></script>
+<script src="assets/js/plugins/slick.min.js"></script>
+<script src="assets/js/plugins/infiniteslidev2.js"></script>
+<script src="assets/js/vendor/jquery.magnific-popup.min.js"></script>
+<script src="assets/js/plugins/jquery.sticky-sidebar.js"></script>
+
+<!-- Main Js -->
+<script src="assets/js/vendor/index.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
 
 </html>

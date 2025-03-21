@@ -26,7 +26,7 @@ import utils.CartWishlistUtils;
  *
  * @author adim
  */
-@WebServlet(name = "OrderDetailsServlet", urlPatterns = {"/order-details"})
+@WebServlet(name = "OrderDetailServlet", urlPatterns = {"/order-details"})
 public class OrderDetailsServlet extends HttpServlet {
 
     /**

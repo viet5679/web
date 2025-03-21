@@ -1,15 +1,15 @@
 package dal;
 
 // @author xu4nvi3t
-
+import utils.DBContext;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import model.Categories;
 
 public class CategoriesDAO extends DBContext {
-
-    public ArrayList<Categories> getAllCategory() {
+    
+    public ArrayList<Categories> getAll() {
         ArrayList<Categories> listCategory = new ArrayList<>();
         if (connection != null) {
             try {
@@ -27,6 +27,50 @@ public class CategoriesDAO extends DBContext {
             }
         }
         return null;
+    }
+    
+    public ArrayList<Categories> getAllCategory() {
+        ArrayList<Categories> listCategory = new ArrayList<>();
+        if (connection != null) {
+            try {
+                String sqlQuery = "SELECT * FROM categories where status = 1";
+                PreparedStatement stm = connection.prepareStatement(sqlQuery);
+                ResultSet rs = stm.executeQuery();
+                while (rs.next()) {
+                    Categories c = new Categories(rs.getInt(1), rs.getString(2),
+                            rs.getInt(3), rs.getString(4), rs.getString(5));
+                    listCategory.add(c);
+                }
+                return listCategory;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+    
+    public boolean disableCategory(String categoryId) {
+        String sql = "UPDATE categories SET status = 0 WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, categoryId);
+            return stmt.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean enableCategory(String categoryId) {
+        String sql = "UPDATE categories SET status = 1 WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, categoryId);
+            return stmt.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public boolean deleteCategory(int categoryID) {

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller.admin;
+package controller_admin;
 
 import dal.CategoriesDAO;
 import dal.ProductsDAO;
@@ -64,7 +64,7 @@ public class AddCategoriesServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         CategoriesDAO cd = new CategoriesDAO();
-        List<Categories> listCategory = cd.getAllCategory();
+        List<Categories> listCategory = cd.getAll();
         ProductsDAO pDao = new ProductsDAO();
         int id = nextIdCategories(listCategory);
         request.setAttribute("id", id);
@@ -108,7 +108,6 @@ public class AddCategoriesServlet extends HttpServlet {
         category.setId(id);
         category.setName(categoryName);
         cd.insert(category);
-        
         response.sendRedirect("add-categories");
     }
 

@@ -20,9 +20,9 @@ import model.Orders;
 
 /**
  *
- * @author vuhuu
+ * @author adim
  */
-@WebServlet(name="OrderDetailServlet", urlPatterns={"admin/order-detail"})
+@WebServlet(name="OrderDetailsServlet", urlPatterns={"/admin/order-detail"})
 public class OrderDetailServlet extends HttpServlet {
    
     /** 
@@ -40,10 +40,10 @@ public class OrderDetailServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet OrderDetailServlet</title>");  
+            out.println("<title>Servlet OrderDetailsServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet OrderDetailServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet OrderDetailsServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,12 +59,13 @@ public class OrderDetailServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        processRequest(request, response);
-    } 
+            throws ServletException, IOException {
+        doPost(request, response);
+    }
 
-    /** 
+    /**
      * Handles the HTTP <code>POST</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -72,7 +73,7 @@ public class OrderDetailServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         String id_raw = request.getParameter("orderId");
         OrderDetailsDAO odd = new OrderDetailsDAO();
         OrderDAO od = new OrderDAO();
@@ -84,10 +85,9 @@ public class OrderDetailServlet extends HttpServlet {
             request.setAttribute("order", order);
             request.setAttribute("listOD", listOD);
             request.getRequestDispatcher("invoice.jsp").forward(request, response);
-            
         } catch (Exception e) {
         }
-        
+
     }
 
     /** 

@@ -281,7 +281,7 @@
                                         <ul class="sub-menu">
                                             <li class="menu_title">Scroll To Section</li>
                                             <li><a href="javascript:void(0)" data-scroll="collection" class="nav-scroll">Top Collection</a></li>
-                                            <li><a href="shop" data-scroll="categories" class="nav-scroll">Shop</a></li>
+                                            <li><a href="shop-left-sidebar-col-3.jsp" data-scroll="categories" class="nav-scroll">Categories</a></li>
                                             <li><a href="javascript:void(0)" data-scroll="services" class="nav-scroll">Services</a></li>
                                             <li><a href="javascript:void(0)" data-scroll="arrivals" class="nav-scroll">New Arrivals</a></li>
                                             <li><a href="javascript:void(0)" data-scroll="reviews" class="nav-scroll">Client Review</a></li>
@@ -767,7 +767,7 @@
                             <div class="ec-product-inner">
                                 <div class="ec-pro-image-outer">
                                     <div class="ec-pro-image">
-                                        <a href="product-left-sidebar.jsp"
+                                        <a href="product?id=${newArrivals.id}"
                                            class="image">
                                             <img class="main-image"
                                                  src="${newArrivals.avatar}"
@@ -793,7 +793,7 @@
                                 </div>
                                 <div class="ec-pro-content">
                                     <h5 class="ec-pro-title"><a
-                                            href="product-left-sidebar.jsp">${newArrivals.name}</a>
+                                            href="product?id=${newArrivals.id}">${newArrivals.name}</a>
                                     </h5>
                                     <div class="ec-pro-rating">
                                         <c:forEach var="i" begin="1" end="5">

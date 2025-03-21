@@ -164,20 +164,10 @@
                                     %>
                                     <div class="ec-header-user dropdown">
                                         <button class="dropdown-toggle" data-bs-toggle="dropdown">
-                                            <% if (user != null) { 
-                                                String avatar = (user.getAvatar() != null && !user.getAvatar().isEmpty()) 
-                                                                ? user.getAvatar() 
-                                                                : request.getContextPath() + "/assets/images/default-avatar.png"; 
-                                            %>
-                                            <span class="ec-pro-title" style="margin-right: 10px;">
-                                                <%= user.getName() %>
-                                            </span>
-                                            <img src="<%= avatar %>" 
-                                                 alt="User Avatar" class="user-avatar" 
-                                                 style="width: 35px; height: 35px; border-radius: 50%;">
-                                            <% } else { %>
-                                            <i class="fi-rr-user"></i>
+                                            <% if (user != null) { %>
+                                            <span class="ec-pro-title" style="margin-right: 10px"><%= user.getName() %></span>
                                             <% } %>
+                                            <i class="fi-rr-user"></i>
                                         </button>
 
                                         <ul class="dropdown-menu dropdown-menu-right">
@@ -390,7 +380,7 @@
                                                     <th scope="row"><span>${o.id}</span></th>
                                                     <td><span>${o.createdAt}</span></td>
                                                     <td><span>${o.totalProduct}</span></td>
-                                                    <td><span><fmt:formatNumber value="${o.totalPrice}" type="number" minFractionDigits="2" maxFractionDigits="2"/></span></td>
+                                                    <td><span>$<fmt:formatNumber value="${o.totalPrice}" type="number" minFractionDigits="2" maxFractionDigits="2"/></span></td>
                                                     <td>
                                                         <c:choose>
                                                             <c:when test="${o.status eq 'Pending'}">
