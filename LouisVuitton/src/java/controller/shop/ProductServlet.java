@@ -79,7 +79,7 @@ public class ProductServlet extends HttpServlet {
         try {
             id = Integer.parseInt(id_raw);
             Products p = pd.getProductById(id);
-            cid = p.getCategoryId().getId();
+            cid = p.getCategoryId().getId();          
             System.out.println(cid);
             // Kiểm tra nếu sản phẩm không tồn tại
             if (p == null) {
@@ -99,9 +99,12 @@ public class ProductServlet extends HttpServlet {
             if (user != null) {
                 hasPurchased = orderDAO.hasUserPurchasedProduct(user.getId(), id);
             }
-
+            List<Products> listP = pd.getAllProductWithSameCategories(cid);
+            for (Products products : listP) {
+                System.out.println(products.getId());
+            }
             // Gán dữ liệu vào request
-            request.setAttribute("relatedProduct", pd.get4ProductByCid(cid));
+            request.setAttribute("relatedProduct", listP);
             request.setAttribute("listR", listR);
             request.setAttribute("sub", subDescription);
             request.setAttribute("listI", listI);

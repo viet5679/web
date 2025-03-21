@@ -1,7 +1,6 @@
 package dal;
 
 // @author xu4nvi3t
-import utils.DBContext;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +14,42 @@ import model.ProductImages;
 import model.Products;
 
 public class ProductsDAO extends DBContext {
-    
+
+    public List<Products> getAllProductWithSameCategories(int cid) {
+        List<Products> list = new ArrayList();
+        String sql = "SELECT TOP 4 * \n"
+                + "FROM products \n"
+                + "WHERE category_id = ?\n"
+                + "ORDER BY id DESC;";
+        CategoriesDAO cd = new CategoriesDAO();
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, cid);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Products pro = new Products(
+                        rs.getInt(1), cd.getCategoryById(rs.getInt(2)), rs.getString(3), rs.getString(4),
+                        rs.getString(5), rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getInt(9),
+                        rs.getInt(10), rs.getInt(11), rs.getInt(12), rs.getString(13), rs.getString(14),
+                        rs.getString(15), rs.getDouble(16), rs.getDouble(17), rs.getDouble(18),
+                        rs.getString(19)
+                );
+                list.add(pro);
+            }
+        } catch (Exception e) {
+        }
+
+        return list;
+    }
+
+    public static void main(String[] args) {
+        ProductsDAO dao = new ProductsDAO();
+        List<Products> listP = dao.getAllProductWithSameCategories(4);
+        for (Products products : listP) {
+            System.out.println(products.getName());
+        }
+    }
+
     public void insertImg(ProductImages pi) {
         String sql = "INSERT INTO [dbo].[products_images]\n"
                 + "           ([product_id]\n"
@@ -92,13 +126,13 @@ public class ProductsDAO extends DBContext {
             ps1 = connection.prepareStatement(sql1);
             ps1.setInt(1, productId);
             ps1.executeUpdate();
-            
+
             // Xóa dữ liệu trong bảng products_images trước
             String sql3 = "DELETE FROM products_images WHERE product_id = ?";
             ps3 = connection.prepareStatement(sql3);
             ps3.setInt(1, productId);
             ps3.executeUpdate();
-            
+
             // Xóa dữ liệu trong bảng order_details trước
             String sql4 = "DELETE FROM order_details WHERE product_id = ?";
             ps4 = connection.prepareStatement(sql4);
@@ -426,7 +460,7 @@ public class ProductsDAO extends DBContext {
         }
         return null;
     }
-    
+
     // get 4 product by Cid
     public ArrayList<Products> get4ProductByCid(int cid) {
         ArrayList<Products> listProduct = new ArrayList<>();
