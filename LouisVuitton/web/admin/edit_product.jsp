@@ -16,7 +16,7 @@
         <title>LouisVuitton - Admin.</title>
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon/favicon.ico">
+        <link rel="shortcut icon" href="assets/images/logo/full-lo.png">
 
         <!-- Icon CSS -->
         <link href="assets/css/vendor/materialdesignicons.min.css" rel="stylesheet">

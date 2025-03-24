@@ -88,11 +88,9 @@ public class Cart {
                     Item t = new Item(p, quantity, p.getPrice());
                     addItem(t);
                 } else {
-                    System.out.println("Product not found for ID: " + id);
                 }
             }
         } catch (Exception e) {
-            System.out.println("Unexpected error in cart initialization: " + e.getMessage());
         }
     }
 }

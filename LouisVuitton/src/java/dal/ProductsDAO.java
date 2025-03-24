@@ -1,6 +1,7 @@
 package dal;
 
 // @author xu4nvi3t
+import utils.DBContext;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,14 +41,6 @@ public class ProductsDAO extends DBContext {
         }
 
         return list;
-    }
-
-    public static void main(String[] args) {
-        ProductsDAO dao = new ProductsDAO();
-        List<Products> listP = dao.getAllProductWithSameCategories(4);
-        for (Products products : listP) {
-            System.out.println(products.getName());
-        }
     }
 
     public void insertImg(ProductImages pi) {
@@ -215,7 +208,8 @@ public class ProductsDAO extends DBContext {
     public void editProduct(Products pro) {
         String sql = "UPDATE [dbo].[products]\n"
                 + "   SET \n"
-                + "      [name] = ?\n"
+                + "      [category_id] = ?\n"
+                + "      ,[name] = ?\n"
                 + "      ,[description] = ?\n"
                 + "      ,[sub_description] = ?\n"
                 + "      ,[avatar] = ?\n"
@@ -227,15 +221,16 @@ public class ProductsDAO extends DBContext {
                 + " WHERE id = ?";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
-            st.setString(1, pro.getName());
-            st.setString(2, pro.getDescription());
-            st.setString(3, pro.getSubDescription());
-            st.setString(4, pro.getAvatar());
-            st.setInt(5, pro.getStockQuantity());
-            st.setString(6, pro.getHoverAvatar());
-            st.setDouble(7, pro.getPrice());
-            st.setDouble(8, pro.getSale());
-            st.setInt(9, pro.getId());
+            st.setInt(1, pro.getCategoryId().getId());
+            st.setString(2, pro.getName());
+            st.setString(3, pro.getDescription());
+            st.setString(4, pro.getSubDescription());
+            st.setString(5, pro.getAvatar());
+            st.setInt(6, pro.getStockQuantity());
+            st.setString(7, pro.getHoverAvatar());
+            st.setDouble(8, pro.getPrice());
+            st.setDouble(9, pro.getSale());
+            st.setInt(10, pro.getId());
             st.executeUpdate();
         } catch (Exception e) {
         }

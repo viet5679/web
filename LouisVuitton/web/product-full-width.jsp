@@ -7,6 +7,7 @@
  ============================================================-->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="model.Users" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -227,11 +228,11 @@
                                                 <div class="ec-single-price">
                                                     <span class="ec-single-ps-title">Price</span>
                                                     <c:if test="${p.sale == 0}">
-                                                        <span class="new-price">$${p.totalPay} </span>
+                                                        <span class="new-price">$<fmt:formatNumber value="${p.totalPay}" type="number" minFractionDigits="2" maxFractionDigits="2"/></span>
                                                     </c:if>
                                                     <c:if test="${p.sale != 0}">
-                                                        <span class="new-price">$${p.totalPay} </span>
-                                                        <span class="old-price" style="color: grey;"><del>$${p.price}</del></span>
+                                                        <span class="new-price">$<fmt:formatNumber value="${p.totalPay}" type="number" minFractionDigits="2" maxFractionDigits="2"/></span>
+                                                        <span class="old-price" style="color: grey;"><del>$<fmt:formatNumber value="${p.price}" type="number" minFractionDigits="2" maxFractionDigits="2"/></del></span>
                                                     </c:if>
                                                 </div>
                                             </div>
@@ -514,12 +515,17 @@
                                             </c:choose>
                                         </c:forEach>
                                     </div>
-                                    <span class="ec-price">
-                                        <span
-                                            class="old-price">$${relatedProduct.price}</span>
-                                        <span
-                                            class="new-price">$${relatedProduct.totalPay}</span>
-                                    </span>
+                                    <c:if test="${relatedProduct.sale == 0}">
+                                        <span class="ec-price">
+                                            <span class="new-price">$${relatedProduct.totalPay}</span>
+                                        </span>
+                                    </c:if>
+                                    <c:if test="${relatedProduct.sale != 0}">
+                                        <span class="ec-price">
+                                            <span class="old-price">$<fmt:formatNumber value="${relatedProduct.price}" type="number" minFractionDigits="2" maxFractionDigits="2"/></span>
+                                            <span class="new-price">$<fmt:formatNumber value="${relatedProduct.totalPay}" type="number" minFractionDigits="2" maxFractionDigits="2"/></span>
+                                        </span>
+                                    </c:if>
                                 </div>
                             </div>
                         </div>

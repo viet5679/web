@@ -96,14 +96,12 @@ public class RegisterServlet extends HttpServlet {
 
         if (!password.equals(confirmPassword)) {
             session.setAttribute("error", "The confirmation password doesn't match");
-            System.out.println("Set mess: " + session.getAttribute("mess"));
             request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
         }
 
         if (!Validation.isValidPhone(phonenumber)) {
             session.setAttribute("error", "Invalid phone number");
-            System.out.println("Set mess: " + session.getAttribute("mess"));
             request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
         }
@@ -111,7 +109,6 @@ public class RegisterServlet extends HttpServlet {
         UserDAO userDAO = new UserDAO();
         if (userDAO.isEmailExist(email)) {
             session.setAttribute("error", "Email already exists");
-            System.out.println("Set mess: " + session.getAttribute("mess"));
             request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
         }

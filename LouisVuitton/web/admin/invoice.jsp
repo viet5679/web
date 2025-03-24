@@ -140,7 +140,7 @@
                                                                 <td>${od.name}</td>
                                                                 <td>${od.quantity}</td>
                                                                 <td>$${od.price}</td>
-                                                                <td>$${od.totalPrice}</td>
+                                                                <td>$${od.quantity * od.price}</td>
                                                             </tr>
                                                         </c:forEach>
                                                     </tbody>

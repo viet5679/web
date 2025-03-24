@@ -8,6 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="model.Users" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -323,13 +324,6 @@
                                            onclick="updatePage(event, ${p})">${p}</a>
                                     </li>
                                 </c:forEach>
-                                <c:if test="${endP > 5 }">
-                                    <li>
-                                        <a class="next" href="#">Next 
-                                            <i class="ecicon eci-angle-right"></i>
-                                        </a>
-                                    </li>
-                                </c:if>
                             </ul>
                         </div>
                         <!-- Ec Pagination End -->

@@ -1,14 +1,14 @@
 package dal;
 
 // @author xu4nvi3t
-
+import utils.DBContext;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import model.Categories;
 
 public class CategoriesDAO extends DBContext {
-    
+
     public ArrayList<Categories> getAll() {
         ArrayList<Categories> listCategory = new ArrayList<>();
         if (connection != null) {
@@ -28,7 +28,7 @@ public class CategoriesDAO extends DBContext {
         }
         return null;
     }
-    
+
     public ArrayList<Categories> getAllCategory() {
         ArrayList<Categories> listCategory = new ArrayList<>();
         if (connection != null) {
@@ -48,7 +48,7 @@ public class CategoriesDAO extends DBContext {
         }
         return null;
     }
-    
+
     public boolean disableCategory(String categoryId) {
         String sql = "UPDATE categories SET status = 0 WHERE id = ?";
         try {
@@ -96,6 +96,26 @@ public class CategoriesDAO extends DBContext {
                     Categories c = new Categories(rs.getInt(1), rs.getString(2),
                             rs.getInt(3), rs.getString(4), rs.getString(5));
                     return c;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    public Categories getCategoryByProductId(int productId) {
+        if (connection != null) {
+            try {
+                String sqlQuery = "SELECT c.* FROM Categories c "
+                        + "JOIN Products p ON c.id = p.category_id "
+                        + "WHERE p.id = ?";
+                PreparedStatement stm = connection.prepareStatement(sqlQuery);
+                stm.setInt(1, productId);
+                ResultSet rs = stm.executeQuery();
+                if (rs.next()) {
+                    return new Categories(rs.getInt(1), rs.getString(2),
+                            rs.getInt(3), rs.getString(4), rs.getString(5));
                 }
             } catch (Exception e) {
                 e.printStackTrace();

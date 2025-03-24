@@ -76,7 +76,7 @@ public class LoginServlet extends HttpServlet {
         CartWishlistUtils.prepareCartAndWishlistData(request);
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        // Cehck user 
+        // Check user 
         UserDAO userD = new UserDAO();
         Users user = userD.checkUser(email, password);
         HttpSession session = request.getSession();

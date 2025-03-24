@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-
+import utils.DBContext;
 
 public class NotificationDAO extends DBContext {
 

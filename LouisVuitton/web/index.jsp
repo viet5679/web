@@ -5,6 +5,7 @@
  ============================================================-->
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="model.Users" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -357,12 +358,17 @@
                                                 </c:forEach>
                                             </div>
                                         </div>
-                                        <span class="ec-price">
-                                            <span
-                                                class="old-price">$${bestSeller.price}</span>
-                                            <span
-                                                class="new-price">$${bestSeller.totalPay}</span>
-                                        </span>
+                                        <c:if test="${bestSeller.sale == 0}">
+                                            <span class="ec-price">
+                                                <span class="new-price">$${bestSeller.totalPay}</span>
+                                            </span>
+                                        </c:if>
+                                        <c:if test="${bestSeller.sale != 0}">
+                                            <span class="ec-price">
+                                                <span class="old-price">$<fmt:formatNumber value="${bestSeller.price}" type="number" minFractionDigits="2" maxFractionDigits="2"/></span>
+                                                <span class="new-price">$<fmt:formatNumber value="${bestSeller.totalPay}" type="number" minFractionDigits="2" maxFractionDigits="2"/></span>
+                                            </span>
+                                        </c:if>
                                     </div>
                                 </div>
                             </div>
@@ -505,13 +511,17 @@
                                                                 </c:choose>
                                                             </c:forEach>
                                                         </div>
-
-                                                        <span class="ec-price">
-                                                            <span
-                                                                class="old-price">$${product.price}</span>
-                                                            <span
-                                                                class="new-price">$${product.totalPay}</span>
-                                                        </span>
+                                                        <c:if test="${product.sale == 0}">
+                                                            <span class="ec-price">
+                                                                <span class="new-price">$${product.totalPay}</span>
+                                                            </span>
+                                                        </c:if>
+                                                        <c:if test="${product.sale != 0}">
+                                                            <span class="ec-price">
+                                                                <span class="old-price">$${product.price}</span>
+                                                                <span class="new-price">$${product.totalPay}</span>
+                                                            </span>
+                                                        </c:if>
                                                     </div>
                                                 </div>
                                             </div>

@@ -17,9 +17,6 @@ import jakarta.servlet.annotation.MultipartConfig;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024 * 2, // 2MB
@@ -172,7 +169,6 @@ public class UserProfileServlet extends HttpServlet {
             // Lưu đường dẫn file vào request (nếu cần hiển thị lại trong JSP)
             request.setAttribute("uploadedFile", "assets/images/user/" + fileName);
         } else {
-            System.out.println("Không có ảnh nào được upload.");
         }
 
         // Cập nhật database
