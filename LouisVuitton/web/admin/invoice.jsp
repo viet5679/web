@@ -107,7 +107,7 @@
                                             </div>
 
                                             <div class="block">
-                                                <h6>Quantity</h6>
+                                                <h6>Number of products</h6>
                                                 <h5>${o.totalProduct}
                                                 </h5>
                                             </div>
@@ -127,6 +127,7 @@
                                                             <th>Item</th>
                                                             <th>Quantity</th>
                                                             <th>Unit_Cost</th>
+                                                            <th>Discount($)</th>
                                                             <th>Total</th>
                                                         </tr>
                                                     </thead>
@@ -140,7 +141,8 @@
                                                                 <td>${od.name}</td>
                                                                 <td>${od.quantity}</td>
                                                                 <td>$${od.price}</td>
-                                                                <td>$${od.quantity * od.price}</td>
+                                                                <td>$${od.discount * od.quantity}</td>
+                                                                <td>$${od.totalPrice}</td>
                                                             </tr>
                                                         </c:forEach>
                                                     </tbody>
@@ -149,18 +151,17 @@
                                         </div>
 
                                         <div class="row justify-content-end inc-total">
-                                            <div class="col-lg-9 order-lg-1 order-md-2 order-sm-2">
+                                            <div class="col-lg-8 order-lg-1 order-md-2 order-sm-2">
                                                 <div class="note">
                                                     <label>Note</label>
                                                     <p>${order.comments}</p>
 
                                                 </div>
                                             </div>
-                                            <div class="col-lg-3 order-lg-2 order-md-1 order-sm-1">
+                                            <div class="col-lg-4 order-lg-2 order-md-1 order-sm-1">
                                                 <ul class="list-unstyled">
-
                                                     <li class="text-dark">Total
-                                                        <span class="d-inline-block float-right">$${totalAmount}</span>
+                                                        <span style="margin-right: 15%" class="d-inline-block float-right">$${totalAmount}</span>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -177,7 +178,7 @@
             <footer>
                 <div class="container-fluid">
                     <div class="copyright">
-                        <p><span id="copyright_year"></span> © Grabit, All rights Reserved.</p>
+                        <p><span id="copyright_year"></span> © LouisVuitton, All rights Reserved.</p>
                         <p>Design by MaraviyaInfotech.</p>
                     </div>
                 </div>

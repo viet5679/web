@@ -273,6 +273,8 @@
                                                                 height: "250px",
                                                                 padding: "5px", // Giảm padding
                                                             });
+                                                            // Reset số lượng về 1 sau khi thêm vào giỏ hàng
+                                                            inputField.value = 1;
                                                         }
                                                     });
                                                 }
@@ -537,90 +539,6 @@
 
         </section>
         <!-- Related Product end -->
-
-
-        <script>
-            function addToCart(productId, isProductDetails = false) {
-                let quantity = 1; // Mặc định là 1
-
-                if (isProductDetails) {
-                    // Nếu ở trang Product Details, lấy số lượng từ input
-                    let input = document.getElementById(`qty-${p.id}`);
-                    if (input) {
-                        quantity = parseInt(input.value) || 1;
-
-                        // Kiểm tra số lượng hợp lệ
-                        if (isNaN(quantity) || quantity < 1) {
-                            alert("Vui lòng nhập số lượng hợp lệ!");
-                            return;
-                        }
-                    }
-                }
-
-                $.ajax({
-                    type: "POST",
-                    url: "cart",
-                    data: {
-                        productId: productId,
-                        quantity: quantity,
-                        action: "addToCart"
-                    },
-                    success: function () {
-                        Swal.fire({
-                            position: "center",
-                            icon: "success",
-                            title: "Added to cart",
-                            showConfirmButton: false,
-                            timer: 700,
-                            width: "400px", // Giảm chiều rộng
-                            padding: "5px" // Giảm padding
-                        });
-                    }
-                });
-            }
-            function addToWishList(productId, element) {
-                $.ajax({
-                    type: "POST",
-                    url: "wishlist",
-                    data: {productId: productId},
-                    success: function (response) {
-                        if (response.isWishlisted) {
-                            $(element).addClass("active"); // Nếu đã thêm, đổi màu nút
-                        } else {
-                            $(element).removeClass("active"); // Nếu đã xóa, trở lại bình thường
-                        }
-                    },
-                    error: function () {
-                        alert("Có lỗi xảy ra!");
-                    }
-                });
-            }
-            // Duyệt qua cookie Wishlist
-            document.addEventListener("DOMContentLoaded", function () {
-                let wishlist = getCookie("wishlist"); // Lấy giá trị từ cookie
-                if (wishlist) {
-                    let wishlistItems = wishlist.split("/"); // Chuyển chuỗi thành mảng ID
-                    document.querySelectorAll(".wishlist-btn").forEach(function (btn) {
-                        let productId = btn.getAttribute("data-product-id"); // Lấy ID từ nút
-                        if (wishlistItems.includes(productId)) {
-                            btn.classList.add("active"); // Thêm class "active"
-                        }
-                    });
-                }
-            });
-
-            // Hàm lấy cookie theo tên
-            function getCookie(name) {
-                let cookies = document.cookie.split("; ");
-                for (let i = 0; i < cookies.length; i++) {
-                    let parts = cookies[i].split("=");
-                    if (parts[0] === name) {
-                        return parts[1];
-                    }
-                }
-                return "";
-            }
-        </script>
 
         <!-- Footer Start -->
         <jsp:include page="footer.jsp"></jsp:include>

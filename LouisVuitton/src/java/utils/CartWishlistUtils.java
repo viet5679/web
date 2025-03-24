@@ -4,6 +4,7 @@ import dal.ProductsDAO;
 import jakarta.servlet.http.*;
 import java.util.List;
 import model.Cart;
+import model.Item;
 import model.Products;
 import model.WishList;
 
@@ -50,6 +51,5 @@ public class CartWishlistUtils {
     private static int countItems(String data) {
         return (!data.isEmpty()) ? data.split("/").length : 0;
     }
-    
     
 }

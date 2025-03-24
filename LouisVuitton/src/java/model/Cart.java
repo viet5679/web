@@ -51,7 +51,9 @@ public class Cart {
     public double getTotalMoney() {
         double total = 0;
         for (Item item : items) {
-            total += (item.getQuantity() * item.getPrice());
+            double discountPercentage = item.getProduct().getSale() / 100.0;
+            double priceAfterDiscount = item.getProduct().getPrice() * (1 - discountPercentage); // Giá sau giảm
+            total += priceAfterDiscount * item.getQuantity();
         }
         return total;
     }

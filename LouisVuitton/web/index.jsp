@@ -164,49 +164,44 @@
                                 <div class="ec-header-bottons">
 
                                     <!-- Header User Start -->
-                                    <%
-                                        Users user = null;
-                                        if (session != null) {
-                                            user = (Users) session.getAttribute("user");
-                                        }
-                                    %>
+                                    <c:set var="user" value="${sessionScope.user}" />
 
                                     <div class="ec-header-user dropdown">
                                         <button class="dropdown-toggle" data-bs-toggle="dropdown">
-                                            <% if (user != null) { 
-                                                String avatar = (user.getAvatar() != null && !user.getAvatar().isEmpty()) 
-                                                                ? user.getAvatar() 
-                                                                : request.getContextPath() + "/assets/images/default-avatar.png"; 
-                                            %>
-                                            <span class="ec-pro-title" style="margin-right: 10px;">
-                                                <%= user.getName() %>
-                                            </span>
-                                            <img src="<%= avatar %>" 
-                                                 alt="User Avatar" class="user-avatar" 
-                                                 style="width: 35px; height: 35px; border-radius: 50%;">
-                                            <% } else { %>
-                                            <i class="fi-rr-user"></i>
-                                            <% } %>
+                                            <c:choose>
+                                                <c:when test="${not empty user}">
+                                                    <c:set var="avatar" value="${empty user.avatar ? pageContext.request.contextPath.concat('/assets/images/default-avatar.png') : user.avatar}" />
+                                                    <span class="ec-pro-title" style="margin-right: 10px;">
+                                                        ${user.name}
+                                                    </span>
+                                                    <img src="${avatar}" alt="User Avatar" class="user-avatar" 
+                                                         style="width: 35px; height: 35px; border-radius: 50%;">
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <i class="fi-rr-user"></i>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </button>
 
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <% if (user == null) { %>
-                                            <!-- chưa đăng nhập -->
-                                            <li><a class="dropdown-item" href="register">Register</a></li>
-                                            <li><a class="dropdown-item" href="login">Login</a></li>
-                                                <% } else { %>
-                                            <!-- đã đăng nhập -->
-                                            <% if (user.getRole() == 1) { %>
-                                            <!-- User -->
-                                            <li><a class="dropdown-item" href="profile">Edit Profile</a></li>
-                                            <li><a class="dropdown-item" href="order-history">Order History</a></li>
-
-                                            <% } else if (user.getRole() == 0) { %>
-                                            <!-- Admin -->
-                                            <li><a class="dropdown-item" href="admin/dashboard">ADMIN</a></li>
-                                                <% } %>
-                                            <li><a class="dropdown-item" href="logout">Log out</a></li>
-                                                <% } %>
+                                            <c:choose>
+                                                <c:when test="${empty user}">
+                                                    <li><a class="dropdown-item" href="register">Register</a></li>
+                                                    <li><a class="dropdown-item" href="login">Login</a></li>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <c:choose>
+                                                            <c:when test="${user.role == 1}">
+                                                            <li><a class="dropdown-item" href="profile">Edit Profile</a></li>
+                                                            <li><a class="dropdown-item" href="order-history">Order History</a></li>
+                                                            </c:when>
+                                                            <c:when test="${user.role == 0}">
+                                                            <li><a class="dropdown-item" href="admin/dashboard">ADMIN</a></li>
+                                                            </c:when>
+                                                        </c:choose>
+                                                    <li><a class="dropdown-item" href="logout">Log out</a></li>
+                                                    </c:otherwise>
+                                                </c:choose>
                                         </ul>
                                     </div>
                                     <!-- Header User End -->
