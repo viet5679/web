@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import utils.CartWishlistUtils;
+import utils.MaHoa;
 import utils.Validation;
 
 /**
@@ -79,7 +80,9 @@ public class RegisterServlet extends HttpServlet {
         CartWishlistUtils.prepareCartAndWishlistData(request);
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String passwordEncry = MaHoa.toSHA1(password);
         String confirmPassword = request.getParameter("confirmpassword");
+        String confirmPasswordEncry = MaHoa.toSHA1(confirmPassword);
         String firstname = request.getParameter("firstname").trim();
         String lastname = request.getParameter("lastname").trim();
         String name = firstname + " " + lastname;
@@ -94,14 +97,16 @@ public class RegisterServlet extends HttpServlet {
             return;
         }
 
-        if (!password.equals(confirmPassword)) {
+        if (!passwordEncry.equals(confirmPasswordEncry)) {
             session.setAttribute("error", "The confirmation password doesn't match");
+            System.out.println("Set mess: " + session.getAttribute("mess"));
             request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
         }
 
         if (!Validation.isValidPhone(phonenumber)) {
             session.setAttribute("error", "Invalid phone number");
+            System.out.println("Set mess: " + session.getAttribute("mess"));
             request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
         }
@@ -109,11 +114,12 @@ public class RegisterServlet extends HttpServlet {
         UserDAO userDAO = new UserDAO();
         if (userDAO.isEmailExist(email)) {
             session.setAttribute("error", "Email already exists");
+            System.out.println("Set mess: " + session.getAttribute("mess"));
             request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
         }
 
-        boolean success = userDAO.insertUser(name, password, email, phonenumber, address);
+        boolean success = userDAO.insertUser(name, passwordEncry, email, phonenumber, address);
         CartWishlistUtils.prepareCartAndWishlistData(request);
         if (!success) {
             session.setAttribute("error", "Registration failed. Please try again !");

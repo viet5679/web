@@ -157,6 +157,7 @@
 
                                     <!-- Header User Start -->
                                     <c:set var="user" value="${sessionScope.user}" />
+                                    
 
                                     <div class="ec-header-user dropdown">
                                         <button class="dropdown-toggle" data-bs-toggle="dropdown">

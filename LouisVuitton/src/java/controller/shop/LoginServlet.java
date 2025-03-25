@@ -16,6 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.Users;
 import utils.CartWishlistUtils;
+import utils.MaHoa;
 
 /**
  *
@@ -76,9 +77,10 @@ public class LoginServlet extends HttpServlet {
         CartWishlistUtils.prepareCartAndWishlistData(request);
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        // Check user 
+        String passwordEncry = MaHoa.toSHA1(password);
+        // Cehck user 
         UserDAO userD = new UserDAO();
-        Users user = userD.checkUser(email, password);
+        Users user = userD.checkUser(email, passwordEncry);
         HttpSession session = request.getSession();
         if(user == null || user.getStatus() == 0){
             request.setAttribute("error", "Email or password invalid. Please try again.");

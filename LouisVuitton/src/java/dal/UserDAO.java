@@ -1,7 +1,6 @@
 package dal;
 
 // @author xu4nvi3t
-import utils.DBContext;
 import model.Users;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
@@ -10,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO extends DBContext {
-    
+
     public List<Users> getUsersByRole(int roleId) {
         List<Users> users = new ArrayList<>();
         String query = "SELECT * FROM Users WHERE role = ?";
@@ -39,7 +38,7 @@ public class UserDAO extends DBContext {
         }
         return users;
     }
-    
+
     public boolean disableUser(String userId) {
         String sql = "UPDATE users SET status = 2 WHERE id = ?";
         try {
@@ -63,7 +62,7 @@ public class UserDAO extends DBContext {
             return false;
         }
     }
-    
+
     public Users getUserById(int id) {
         String sql = "select * from users where id = ?";
         try {

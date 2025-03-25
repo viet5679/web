@@ -763,6 +763,44 @@
                 });
             });
         </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const form = document.querySelector("form");
+
+                form.addEventListener("submit", function (event) {
+                    event.preventDefault();
+
+                    let formData = new FormData(form);
+
+                    fetch("edit", {
+                        method: "POST",
+                        body: formData
+                    })
+                            .then(response => response.text())
+                            .then(data => {
+                                Swal.fire({
+                                    title: "Edit successful",
+                                    text: "The product has been updated successfully!",
+                                    icon: "success",
+                                    confirmButtonColor: "#3085d6",
+                                    confirmButtonText: "OK"
+                                }).then(() => {
+                                    window.location.href = "pmanager";
+                                });
+                            })
+                            .catch(error => {
+                                Swal.fire({
+                                    title: "Error!",
+                                    text: "Something went wrong. Please try again!",
+                                    icon: "error",
+                                    confirmButtonColor: "#d33",
+                                    confirmButtonText: "OK"
+                                });
+                            });
+                });
+            });
+        </script>
     </body>
     <!-- Mirrored from maraviyainfotech.com/wrapbootstrap/grabit-html/admin-html/add-product.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Mar 2025 14:25:41 GMT -->
 </html>

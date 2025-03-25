@@ -392,7 +392,6 @@
                                                         <select id="district" name="district" required>
                                                             <option value="">Select District</option>
                                                         </select>
-                                                    </span>
                                                     <span class="ec-bill-wrap" style="margin-bottom: 15px">
                                                         <label>Ward*</label>
                                                         <select id="ward" name="ward" required>

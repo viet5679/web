@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import utils.CartWishlistUtils;
+import utils.MaHoa;
 
 /**
  *
@@ -78,18 +79,19 @@ public class ChangePasswordServlet extends HttpServlet {
         CartWishlistUtils.prepareCartAndWishlistData(request);
         String token = request.getParameter("token");
         String newPassword = request.getParameter("new_password");
-        
+        String newPasswordEncry = MaHoa.toSHA1(newPassword);
+
         // Kiểm tra token có hợp lệ không
         if (token == null || newPassword == null || newPassword.isEmpty()) {
             request.setAttribute("error", "Invalid information!");
             request.getRequestDispatcher("change-password.jsp").forward(request, response);
             return;
         }
-        
+
         String email = usersDAO.getEmailByToken(token);
         if (email != null) {
             // Cập nhật mật khẩu mới đồng thời reset lại cả token
-            usersDAO.updatePassword(email, newPassword);
+            usersDAO.updatePassword(email, newPasswordEncry);
             request.setAttribute("successMess", "Login now");
             request.getRequestDispatcher("change-password.jsp").forward(request, response);
         } else {

@@ -110,7 +110,8 @@
                 color: red; /* Chuyá»ƒn mÃ u Ä‘á» */
             }
         </style>
-        
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     </head>
 
@@ -455,6 +456,43 @@
                                                 console.error("Lỗi");
                                             }
                                         });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const form = document.querySelector("form");
+
+                form.addEventListener("submit", function (event) {
+                    event.preventDefault();
+
+                    let formData = new FormData(form);
+
+                    fetch("add-product", {
+                        method: "POST",
+                        body: formData
+                    })
+                            .then(response => response.text())
+                            .then(data => {
+                                Swal.fire({
+                                    title: "Add successful",
+                                    text: "The product has been added successfully!",
+                                    icon: "success",
+                                    confirmButtonColor: "#3085d6",
+                                    confirmButtonText: "OK"
+                                }).then(() => {
+                                    window.location.href = "pmanager";
+                                });
+                            })
+                            .catch(error => {
+                                Swal.fire({
+                                    title: "Error!",
+                                    text: "Something went wrong. Please try again!",
+                                    icon: "error",
+                                    confirmButtonColor: "#d33",
+                                    confirmButtonText: "OK"
+                                });
+                            });
+                });
+            });
         </script>
 
 
