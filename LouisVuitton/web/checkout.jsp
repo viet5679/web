@@ -375,11 +375,13 @@
                                                 <form action="checkout" method="post">
                                                     <span class="ec-bill-wrap">
                                                         <label>Name*</label>
-                                                        <input type="text" name="name" placeholder="Enter your name" value="<%= (user != null) ? user.getName() : "" %>" required />
+                                                        <input type="text" name="name" placeholder="Enter your name" value="<c:out value='${user != null ? user.name : ""}'/>" required />"
                                                     </span>
                                                     <span class="ec-bill-wrap">
                                                         <label>Phone number*</label>
-                                                        <input type="text" name="phone" placeholder="Phone" value="<%= (user != null) ? user.getPhone() : "" %>" required />
+                                                        <input type="text" name="phone" placeholder="Phone" 
+                                                               value="<c:out value='${user != null ? user.phone : ""}'/>" required />
+
                                                     </span>
                                                     <span class="ec-bill-wrap" style="margin-bottom: 15px">
                                                         <label>Province/City*</label>
@@ -387,25 +389,31 @@
                                                             <option value="">Select Province</option>
                                                         </select>
                                                     </span>
+
                                                     <span class="ec-bill-wrap" style="margin-bottom: 15px">
                                                         <label>District*</label>
                                                         <select id="district" name="district" required>
                                                             <option value="">Select District</option>
                                                         </select>
+                                                    </span>
+
                                                     <span class="ec-bill-wrap" style="margin-bottom: 15px">
                                                         <label>Ward*</label>
                                                         <select id="ward" name="ward" required>
                                                             <option value="">Select Ward</option>
                                                         </select>
                                                     </span>
+
                                                     <span class="ec-bill-wrap" style="margin-bottom: 15px">
                                                         <label>Street Address*</label>
                                                         <input type="text" name="street" placeholder="Street Address" required />
                                                     </span>
+
                                                     <span class="ec-bill-wrap">
                                                         <label>Comments</label>
                                                         <textarea style="height: 20vh; border-color: #ededed;" name="comments" placeholder="Enter your comments here"></textarea>
                                                     </span>
+
 
                                                     <!-- Input ẩn để gửi tên tỉnh/thành, quận/huyện, phường/xã -->
                                                     <input type="hidden" name="provinceName">

@@ -212,7 +212,7 @@
                                             <div class="ec-single-rating-wrap">
                                                 <c:forEach var="i" begin="1" end="5">
                                                     <c:choose>
-                                                        <c:when test="${i <= product.totalStars}">
+                                                        <c:when test="${i <= p.totalStars}">
                                                             <i class="ecicon eci-star fill"></i>  <!-- Filled star -->
                                                         </c:when>
                                                         <c:otherwise>
