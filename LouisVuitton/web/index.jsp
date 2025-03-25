@@ -565,8 +565,10 @@
                             title: "Added to cart",
                             showConfirmButton: false,
                             timer: 700,
-                            width: "400px", // Giảm chiều rộng
-                            padding: "5px" // Giảm padding
+                            width: "400px",
+                            padding: "5px"
+                        }).then(() => {
+                            location.reload(); // Load lại trang sau khi hiển thị thông báo
                         });
                     }
                 });
@@ -578,14 +580,13 @@
                     data: {productId: productId},
                     success: function (response) {
                         if (response.isWishlisted) {
-                            $(element).addClass("active"); // Nếu đã thêm, đổi màu nút
+                            $(element).addClass("active");
                         } else {
-                            $(element).removeClass("active"); // Nếu đã xóa, trở lại bình thường
+                            $(element).removeClass("active");
                         }
-                    },
-                    error: function () {
-                        alert("Có lỗi xảy ra!");
+                        location.reload(); // Load lại trang sau khi thay đổi wishlist
                     }
+
                 });
             }
             // Duyệt qua cookie Wishlist
