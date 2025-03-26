@@ -27,6 +27,7 @@ public class AuthFilter implements Filter {
         if (uri.endsWith(".jsp") && 
             !uri.endsWith("login") && 
             !uri.endsWith("register")&& 
+            !uri.endsWith("verify-code.jsp")&& 
             !uri.endsWith("index.jsp")) {
             res.sendRedirect(contextPath + "/"); // Về trang chủ
             return;

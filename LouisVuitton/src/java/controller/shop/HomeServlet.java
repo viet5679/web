@@ -12,9 +12,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Genders;
 import model.Products;
 import utils.CartWishlistUtils;
+import utils.NotificationUtils;
 
 @WebServlet(name = "HomeServlet", urlPatterns = {"/home"})
 public class HomeServlet extends HttpServlet {
@@ -57,6 +61,11 @@ public class HomeServlet extends HttpServlet {
         request.setAttribute("saleProduct", p.getSaleProduct());
         
         CartWishlistUtils.prepareCartAndWishlistData(request);
+        try {
+            NotificationUtils.loadNotifications(request.getSession());
+        } catch (SQLException ex) {
+            Logger.getLogger(AboutUsServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 

@@ -21,6 +21,7 @@ import java.util.logging.Logger;
 import model.OrderDetails;
 import model.Orders;
 import utils.CartWishlistUtils;
+import utils.NotificationUtils;
 
 /**
  *
@@ -68,6 +69,11 @@ public class OrderDetailsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         CartWishlistUtils.prepareCartAndWishlistData(request);
+        try {
+            NotificationUtils.loadNotifications(request.getSession());
+        } catch (SQLException ex) {
+            Logger.getLogger(AboutUsServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         // Lấy order và orderDetail bằng orderId
         String id_raw = request.getParameter("id");
         OrderDetailsDAO odDAO = new OrderDetailsDAO();

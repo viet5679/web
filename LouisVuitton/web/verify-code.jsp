@@ -61,13 +61,13 @@
                         <div class="col-12">
                             <div class="row ec_breadcrumb_inner">
                                 <div class="col-md-6 col-sm-12">
-                                    <h2 class="ec-breadcrumb-title">Register</h2>
+                                    <h2 class="ec-breadcrumb-title">Verify Code</h2>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
                                     <!-- ec-breadcrumb-list start -->
                                     <ul class="ec-breadcrumb-list">
                                         <li class="ec-breadcrumb-item"><a href="home">Home</a></li>
-                                        <li class="ec-breadcrumb-item active">Register</li>
+                                        <li class="ec-breadcrumb-item active">Verify Code</li>
                                     </ul>
                                     <!-- ec-breadcrumb-list end -->
                                 </div>
@@ -84,40 +84,17 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <div class="section-title">
-                                <h2 class="ec-bg-title">Register</h2>
-                                <h2 class="ec-title">Register</h2>
-                                <p class="sub-title mb-3">The best place to buy fashion accessories</p>
+                                <h2 class="ec-bg-title">Verify Code</h2>
+                                <h2 class="ec-title">Verify Code</h2>
+                                <p class="sub-title mb-3">Verify code has been send to your email</p>
                             </div>
                         </div>
                         <div class="ec-register-wrapper">
                             <div class="ec-register-container">
                                 <div class="ec-register-form">
-                                    <form action="register" method="post">
-                                        <span class="ec-register-wrap ec-register-half">
-                                            <label>First Name*</label>
-                                            <input type="text" name="firstname" placeholder="Enter your first name" required />
-                                        </span>
-                                        <span class="ec-register-wrap ec-register-half">
-                                            <label>Last Name*</label>
-                                            <input type="text" name="lastname" placeholder="Enter your last name" required />
-                                        </span>
-                                        <span class="ec-register-wrap ec-register-half">
-                                            <label>Email*</label>
-                                            <input type="email" name="email" placeholder="Enter your email add..." required />
-                                        </span>
-                                        <span class="ec-register-wrap ec-register-half">
-                                            <label>Phone Number*</label>
-                                            <input type="text" name="phonenumber" placeholder="Enter your phone number"
-                                                   required />
-                                        </span>
-                                        <span class="ec-register-wrap">
-                                            <label>Password</label>
-                                            <input type="password" name="password" placeholder="Enter your password" />
-                                        </span>
-                                        <span class="ec-register-wrap">
-                                            <label>Confirm password</label>
-                                            <input type="password" name="confirmpassword" placeholder="Enter your password" />
-                                        </span>
+                                    <form action="verify-code" method="post">
+                                        <label>Enter verification code:</label>
+                                        <input type="text" name="code" required />
                                         <c:if test="${not empty sessionScope.error}">
                                         <script>
                                             document.addEventListener("DOMContentLoaded", function () {
@@ -142,11 +119,11 @@
                                                 if (successMessage && successMessage.trim() !== "") {
                                                     Swal.fire({
                                                         icon: "success",
-                                                        title: "Verify your email to complete register!",
+                                                        title: "Registration Successful!",
                                                         text: successMessage,
-                                                        confirmButtonText: "Verify Now"
+                                                        confirmButtonText: "Go to Login"
                                                     }).then(() => {
-                                                        window.location.href = "verify-code";
+                                                        window.location.href = "login";
                                                     });
                                                 }
                                             });
@@ -154,7 +131,7 @@
                                         <% session.removeAttribute("mess"); %> <%-- Xóa session ngay sau khi hiển thị --%>
                                     </c:if>
                                     <span class="ec-register-wrap ec-register-btn">
-                                        <button class="btn btn-primary" type="submit">Register</button>
+                                        <button class="btn btn-primary" type="submit">VERIFY</button>
                                     </span>
                                 </form>
                             </div>

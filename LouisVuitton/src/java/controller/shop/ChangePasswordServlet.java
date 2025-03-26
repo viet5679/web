@@ -8,8 +8,12 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import utils.CartWishlistUtils;
 import utils.MaHoa;
+import utils.NotificationUtils;
 
 /**
  *
@@ -62,6 +66,11 @@ public class ChangePasswordServlet extends HttpServlet {
             response.sendRedirect("forgot-password.jsp?error=invalid_token"); // Chuyển hướng về forgot-password.jsp nếu token không hợp lệ
             return;
         }
+        try {
+            NotificationUtils.loadNotifications(request.getSession());
+        } catch (SQLException ex) {
+            Logger.getLogger(AboutUsServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         CartWishlistUtils.prepareCartAndWishlistData(request);
         request.getRequestDispatcher("change-password.jsp").forward(request, response);
     }
@@ -77,6 +86,11 @@ public class ChangePasswordServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CartWishlistUtils.prepareCartAndWishlistData(request);
+        try {
+            NotificationUtils.loadNotifications(request.getSession());
+        } catch (SQLException ex) {
+            Logger.getLogger(AboutUsServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String token = request.getParameter("token");
         String newPassword = request.getParameter("new_password");
         String newPasswordEncry = MaHoa.toSHA1(newPassword);

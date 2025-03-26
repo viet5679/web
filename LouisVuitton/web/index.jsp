@@ -52,7 +52,7 @@
               href="assets/css/backgrounds/bg-4.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
-
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     </head>
 
     <body>
@@ -224,6 +224,32 @@
                                             class="ec-header-count">${requestScope.numCartItem}</span>
                                     </a>
                                     <!-- Header Cart End -->
+                                    <!-- Header Notification Start -->
+                                    <a href="javascript:void(0);" class="ec-header-btn" onclick="toggleNotificationPanel()"> 
+                                        <div class="header-icon">
+                                            <i class="material-symbols-outlined">notifications</i> 
+                                        </div>
+                                        <span class="ec-header-count" id="notification-count">0</span>
+                                    </a>
+
+                                    <div id="ec-side-cart" class="ec-side-cart">
+                                        <div class="ec-cart-inner">
+                                            <div class="ec-cart-top">
+                                                <div class="ec-cart-title">
+                                                    <span class="cart_title">Notifications</span>
+                                                    <button class="ec-close" onclick="closeNotificationPanel()">&times;</button>
+                                                </div>
+                                                <ul id="notification-items" class="notification-list"></ul>
+                                            </div>
+                                            <div class="ec-cart-bottom">
+                                                <div class="cart_btn">
+                                                    <button class="btn btn-secondary" onclick="markAllAsRead()">Mark as read</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Header Notification End -->
                                 </div>
                             </div>
                         </div>
@@ -1100,11 +1126,129 @@
             </div>
             <!-- Modal end -->
 
-            <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm7vkewxc03kpn8lwqnmkoz6d"></script>
+            <style>
+                #ec-side-cart {
+                    position: fixed;
+                    right: 0;
+                    top: 0;
+                    width: 300px;
+                    height: 100vh;
+                    background: white;
+                    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+                    transition: transform 0.3s ease-in-out;
+                    transform: translateX(100%); /* Ẩn panel */
+                    z-index: 9999 !important; /* Đảm bảo hiển thị trên tất cả */
+                    visibility: visible; /* Đảm bảo không bị ẩn */
+                    opacity: 1; /* Đảm bảo không bị trong suốt */
+                }
+                #ec-side-cart.show {
+                    transform: translateX(0); /* Hiển thị panel */
+                }
 
-            <!-- Vendor JS -->
-            <script
-            src="<%= request.getContextPath() %>/assets/js/vendor/jquery-3.5.1.min.js"></script>
+            </style>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    loadNotifications();
+                });
+
+                // Hiển thị thông báo
+                function toggleNotificationPanel() {
+                    let panel = document.getElementById("ec-side-cart");
+
+                    // Kiểm tra trạng thái hiện tại của panel
+                    if (panel.classList.contains("show")) {
+                        panel.classList.remove("show"); // Ẩn panel
+                    } else {
+                        panel.classList.add("show"); // Hiển thị panel
+                        loadNotifications(); // Chỉ tải thông báo khi mở panel
+                    }
+                }
+
+
+                // Lấy thông báo từ API
+                function loadNotifications() {
+                    fetch('/louisvuitton/notification')
+                            .then(response => response.json())
+                            .then(data => {
+                                const notificationList = document.getElementById("notification-items");
+                                const notificationCount = document.getElementById("notification-count");
+
+                                notificationList.innerHTML = ""; // Xóa danh sách cũ
+
+                                // Cập nhật số lượng thông báo
+                                const count = data.notifications.length;
+                                notificationCount.textContent = count;
+
+                                if (count > 0) {
+                                    notificationCount.style.display = "inline-block"; // Hiện số thông báo
+                                } else {
+                                    notificationCount.style.display = "none"; // Ẩn nếu không có thông báo
+                                }
+
+                                data.notifications.forEach(notification => {
+                                    const li = document.createElement("li");
+                                    li.style.padding = "10px 0"; // Khoảng cách giữa các thông báo
+
+                                    const div = document.createElement("div");
+                                    div.className = "notification-item";
+                                    div.style.display = "flex";
+                                    div.style.alignItems = "center";
+                                    div.style.gap = "10px"; // Khoảng cách giữa thời gian và nội dung
+
+                                    const timeSpan = document.createElement("span");
+                                    timeSpan.className = "notification-time";
+                                    timeSpan.style.fontWeight = "bold";
+                                    timeSpan.style.color = "#555";
+                                    timeSpan.textContent = new Date(notification.createdAt).toLocaleString();
+
+                                    const messageP = document.createElement("p");
+                                    messageP.textContent = notification.message;
+                                    messageP.style.margin = "0";
+
+                                    div.appendChild(timeSpan);
+                                    div.appendChild(messageP);
+                                    li.appendChild(div);
+                                    notificationList.appendChild(li);
+                                });
+
+                                console.log(`✅ Đã cập nhật danh sách thông báo (${count} thông báo)`, notificationList.innerHTML);
+                            })
+                            .catch(error => console.error("❌ Lỗi tải thông báo:", error));
+                }
+
+
+
+                // Cập nhật số lượng thông báo
+                function updateNotificationCount(count) {
+                    let notificationCount = document.getElementById("notification-count");
+                    if (notificationCount) {
+                        notificationCount.textContent = count;
+                    }
+                }
+
+                function closeNotificationPanel() {
+                    let panel = document.getElementById("ec-side-cart");
+                    panel.classList.remove("show");
+                }
+
+                // Đánh dấu tất cả là đã đọc
+                function markAllAsRead() {
+                    fetch('/louisvuitton/notification', {method: 'POST'})
+                            .then(() => {
+                                document.getElementById("notification-items").innerHTML =
+                                        '<li><div class="notification-item"><p>No notifications</p></div></li>';
+                                updateNotificationCount(0);
+                            })
+                            .catch(error => console.error("Lỗi:", error));
+                }
+        </script>
+
+        <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm7vkewxc03kpn8lwqnmkoz6d"></script>
+
+        <!-- Vendor JS -->
+        <script
+        src="<%= request.getContextPath() %>/assets/js/vendor/jquery-3.5.1.min.js"></script>
         <script
         src="<%= request.getContextPath() %>/assets/js/vendor/popper.min.js"></script>
         <script

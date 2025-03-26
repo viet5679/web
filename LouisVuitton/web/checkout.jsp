@@ -375,7 +375,7 @@
                                                 <form action="checkout" method="post">
                                                     <span class="ec-bill-wrap">
                                                         <label>Name*</label>
-                                                        <input type="text" name="name" placeholder="Enter your name" value="<c:out value='${user != null ? user.name : ""}'/>" required />"
+                                                        <input type="text" name="name" placeholder="Enter your name" value="<c:out value='${user != null ? user.name : ""}'/>" required />
                                                     </span>
                                                     <span class="ec-bill-wrap">
                                                         <label>Phone number*</label>
@@ -474,7 +474,7 @@
                                                         </div>
                                                         <span class="ec-price">
                                                             <span class="old-price">$${i.product.price}</span>
-                                                            <span class="new-price">$${i.product.totalPay}</span>
+                                                            <span class="new-price">$${i.product.totalPay}    x   ${i.quantity}</span>
                                                         </span>
                                                     </div>
                                                 </div>

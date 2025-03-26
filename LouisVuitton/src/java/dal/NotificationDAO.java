@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-
+import model.Notifications;
 
 public class NotificationDAO extends DBContext {
 
@@ -33,7 +33,7 @@ public class NotificationDAO extends DBContext {
                 ));
             }
         }
-        
+
         // 2. Đơn hàng bị hủy (status = 'cancelled')
         String cancelledQuery = "SELECT TOP 5 o.*, u.name AS user_name FROM orders o JOIN users u ON o.user_id = u.id WHERE o.status = 'cancelled' ORDER BY o.updated_at DESC";
         try (PreparedStatement stmt = connection.prepareStatement(cancelledQuery); ResultSet rs = stmt.executeQuery()) {
@@ -48,7 +48,7 @@ public class NotificationDAO extends DBContext {
                 ));
             }
         }
-        
+
         // 3. Đánh giá thấp (number_starts < 3)
         String lowRatingQuery = "SELECT TOP 5 r.*, p.name AS product_name FROM rating r JOIN products p ON r.product_id = p.id WHERE r.number_starts < 3 ORDER BY r.created_at DESC";
         try (PreparedStatement stmt = connection.prepareStatement(lowRatingQuery); ResultSet rs = stmt.executeQuery()) {
@@ -62,7 +62,7 @@ public class NotificationDAO extends DBContext {
                 ));
             }
         }
-        
+
         // 4. Đơn hàng quá hạn (status = 'pending' và quá 7 ngày)
         String overdueQuery = "SELECT * FROM orders WHERE status = 'pending' AND created_at < DATEADD(day, -7, GETDATE())";
         try (PreparedStatement stmt = connection.prepareStatement(overdueQuery); ResultSet rs = stmt.executeQuery()) {
@@ -82,14 +82,13 @@ public class NotificationDAO extends DBContext {
 
     public List<Message> getMessages() throws Exception {
         List<Message> messages = new ArrayList<>();
-        
+
         //1. Ghi chú của đơn hàng mới đặt (trong vòng 24 giờ)
-        String orderNoteQuery = "SELECT TOP 5 o.*, u.name AS user_name, u.avatar, u.updated_at AS user_updated_at " +
-                               "FROM orders o JOIN users u ON o.user_id = u.id " +
-                               "WHERE o.created_at >= DATEADD(hour, -24, GETDATE()) AND o.comments IS NOT NULL " +
-                               "ORDER BY o.created_at DESC";
-        try (PreparedStatement stmt = connection.prepareStatement(orderNoteQuery);
-             ResultSet rs = stmt.executeQuery()) {
+        String orderNoteQuery = "SELECT TOP 5 o.*, u.name AS user_name, u.avatar, u.updated_at AS user_updated_at "
+                + "FROM orders o JOIN users u ON o.user_id = u.id "
+                + "WHERE o.created_at >= DATEADD(hour, -24, GETDATE()) AND o.comments IS NOT NULL "
+                + "ORDER BY o.created_at DESC";
+        try (PreparedStatement stmt = connection.prepareStatement(orderNoteQuery); ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 String status = "offline";
                 if (rs.getTimestamp("user_updated_at") != null) {
@@ -102,13 +101,13 @@ public class NotificationDAO extends DBContext {
                 String note = rs.getString("comments");
                 String messageContent = "Customer Note for Order #" + rs.getInt("id") + ": " + note;
                 messages.add(new Message(
-                    rs.getInt("id"),
-                    rs.getString("user_name"),
-                    rs.getString("avatar") != null ? rs.getString("avatar") : "assets/images/user/default.jpg",
-                    messageContent,
-                    rs.getTimestamp("created_at"),
-                    status,
-                    files
+                        rs.getInt("id"),
+                        rs.getString("user_name"),
+                        rs.getString("avatar") != null ? rs.getString("avatar") : "assets/images/user/default.jpg",
+                        messageContent,
+                        rs.getTimestamp("created_at"),
+                        status,
+                        files
                 ));
             }
         }
@@ -169,4 +168,74 @@ public class NotificationDAO extends DBContext {
         }
         return logs;
     }
+
+    public boolean addNotification(int userId, int orderId, String message) {
+        try {
+            String sql = "INSERT INTO notifications (user_id, order_id, message, is_read) VALUES (?, ?, ?, ?)";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, userId);
+            stmt.setInt(2, orderId);
+            stmt.setString(3, message);
+            stmt.setBoolean(4, false); // ✅ Truyền giá trị `false` đúng cách
+            stmt.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean markAllAsRead(int userId) {
+        String sql = "UPDATE notifications SET is_read = 1 WHERE user_id = ?";
+
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, userId);
+            int affectedRows = stmt.executeUpdate();
+
+            return affectedRows > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public int getUnreadNotificationCount(int userId) {
+        String sql = "SELECT COUNT(*) FROM notifications WHERE user_id = ? AND status = 0";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public List<Notifications> getAllNotifications(int userId) {
+        List<Notifications> notifications = new ArrayList<>();
+        String sql = "SELECT id, order_id, message, is_read, created_at FROM notifications WHERE user_id = ? AND is_read = 0 ORDER BY created_at DESC";
+
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                notifications.add(new Notifications(
+                        rs.getInt("id"),
+                        rs.getInt("order_id"),
+                        rs.getString("message"),
+                        rs.getInt("is_read"),
+                        rs.getString("created_at")
+                ));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return notifications;
+    }
+
 }

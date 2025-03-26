@@ -27,6 +27,7 @@ import model.Orders;
 import model.Products;
 import model.Users;
 import utils.CartWishlistUtils;
+import utils.NotificationUtils;
 
 /**
  *
@@ -74,6 +75,11 @@ public class CheckoutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         CartWishlistUtils.prepareCartAndWishlistData(request);
+        try {
+            NotificationUtils.loadNotifications(request.getSession());
+        } catch (SQLException ex) {
+            Logger.getLogger(AboutUsServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         request.getRequestDispatcher("checkout.jsp").forward(request, response);
     }
 

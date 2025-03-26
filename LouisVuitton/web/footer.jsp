@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!-- Footer Start -->
+<div id="notification-box" style="display: none; position: fixed; top: 10px; right: 10px; background: #f8d7da; padding: 10px; border-radius: 5px;"></div>
 <footer class="ec-footer section-space-mt">
     <div class="footer-container">
         <div class="footer-offer">
@@ -131,3 +132,45 @@
     </div>
 </div>
 <!-- Footer navigation panel for responsive display end -->
+<script>
+    let userId = ${sessionScope.user.id};  // Lấy userId của user đang đăng nhập
+    let socket = new WebSocket("ws://" + window.location.host + "/louisvuitton/notifications");
+
+    socket.onopen = function () {
+        socket.send(userId);  // Gửi userId đến server
+    };
+
+    socket.onerror = function (error) {
+        console.error("❌ Lỗi WebSocket:", error);
+    };
+
+    socket.onmessage = function (event) {
+        console.log("📢 Nhận thông báo:", event.data);
+
+        let notificationBox = document.getElementById("notification-box");
+
+        // Kiểm tra event.data có giá trị không
+        if (!event.data || event.data.trim() === "") {
+            console.warn("❌ Nhận thông báo nhưng nội dung rỗng!");
+            return;
+        }
+
+        // Tạo phần tử p để thêm vào box thay vì dùng innerHTML
+        let p = document.createElement("p");
+        p.textContent = event.data;  // Gán nội dung vào thẻ p
+        p.style.margin = "5px 0";
+
+        notificationBox.appendChild(p); // Thêm vào div thông báo
+        notificationBox.style.display = "block"; // Hiện thông báo
+
+        // Tự động ẩn sau 15 giây
+        setTimeout(() => {
+            notificationBox.style.display = "none";
+            notificationBox.innerHTML = ""; // Xóa thông báo cũ
+        }, 15000);
+    };
+
+
+</script>
+
+

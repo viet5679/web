@@ -13,10 +13,14 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Cart;
 import model.Products;
+import utils.NotificationUtils;
 
 /**
  *
@@ -77,7 +81,7 @@ public class WishListServlet extends HttpServlet {
         }
         Cart cart = new Cart(cartData, listProduct);
         request.setAttribute("cart", cart);
-        
+
         // Đếm số lượng sản phẩm
         int numCartItem = 0;
         if (!cartData.isEmpty()) {
@@ -114,6 +118,12 @@ public class WishListServlet extends HttpServlet {
                     e.printStackTrace();
                 }
             }
+        }
+
+        try {
+            NotificationUtils.loadNotifications(request.getSession());
+        } catch (SQLException ex) {
+            Logger.getLogger(AboutUsServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         request.setAttribute("wishlistProducts", wishlistProducts);

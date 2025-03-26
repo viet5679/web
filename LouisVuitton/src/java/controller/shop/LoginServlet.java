@@ -14,9 +14,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Users;
 import utils.CartWishlistUtils;
 import utils.MaHoa;
+import utils.NotificationUtils;
 
 /**
  *
@@ -61,6 +65,11 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         CartWishlistUtils.prepareCartAndWishlistData(request);
+        try {
+            NotificationUtils.loadNotifications(request.getSession());
+        } catch (SQLException ex) {
+            Logger.getLogger(AboutUsServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         request.getRequestDispatcher("login.jsp").forward(request, response);
     } 
 
@@ -75,6 +84,11 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         CartWishlistUtils.prepareCartAndWishlistData(request);
+        try {
+            NotificationUtils.loadNotifications(request.getSession());
+        } catch (SQLException ex) {
+            Logger.getLogger(AboutUsServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String passwordEncry = MaHoa.toSHA1(password);

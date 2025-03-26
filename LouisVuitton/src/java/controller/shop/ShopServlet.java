@@ -12,16 +12,20 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Categories;
 import model.Genders;
 import model.Products;
 import model.Sizes;
 import utils.CartWishlistUtils;
+import utils.NotificationUtils;
 
 /**
  *
@@ -113,9 +117,9 @@ public class ShopServlet extends HttpServlet {
 
             List<Products> allProducts = pd.getProductsByFilder(selectedGid, selectedCid, selectedSid, price_low, price_high);
             String text = request.getParameter("search");
-            if ( text != null) {
-                 List<Products> allProductsBySearch = pd.getProductsByFilderSearch(selectedGid, selectedCid, selectedSid, price_low, price_high, text);
-                 allProducts = allProductsBySearch;
+            if (text != null) {
+                List<Products> allProductsBySearch = pd.getProductsByFilderSearch(selectedGid, selectedCid, selectedSid, price_low, price_high, text);
+                allProducts = allProductsBySearch;
             }
             int count = allProducts.size();
             int endPage = count / 9;
@@ -156,6 +160,11 @@ public class ShopServlet extends HttpServlet {
             request.setAttribute("selectedSid", selectedSid);
             request.setAttribute("bestSeller", pd.getBestSellerProduct());
 
+            try {
+                NotificationUtils.loadNotifications(request.getSession());
+            } catch (SQLException ex) {
+                Logger.getLogger(AboutUsServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
             CartWishlistUtils.prepareCartAndWishlistData(request);
             request.getRequestDispatcher("shop-left-sidebar-col-3.jsp").forward(request, response);
         } catch (Exception e) {
@@ -163,7 +172,7 @@ public class ShopServlet extends HttpServlet {
         }
 
     }
-    
+
     // Phân trang, mỗi trang 9 sản phẩm
     public List<Products> productPage(int index, List<Products> list) {
         int max = list.size() / 9;

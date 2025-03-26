@@ -17,6 +17,10 @@ import jakarta.servlet.annotation.MultipartConfig;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.nio.file.Paths;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import utils.NotificationUtils;
 
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024 * 2, // 2MB
@@ -69,6 +73,11 @@ public class UserProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         CartWishlistUtils.prepareCartAndWishlistData(request);
+        try {
+            NotificationUtils.loadNotifications(request.getSession());
+        } catch (SQLException ex) {
+            Logger.getLogger(AboutUsServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         request.getRequestDispatcher("user-profile.jsp").forward(request, response);
     }
 
@@ -158,7 +167,6 @@ public class UserProfileServlet extends HttpServlet {
                     outputBuildAdmin.write(fileData);
                 }
 
-                System.out.println("Ảnh đã lưu: " + fileName);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -177,9 +185,9 @@ public class UserProfileServlet extends HttpServlet {
 
         if (isUpdated) {
             session.setAttribute("user", user);
-            request.setAttribute("mess", "Cập nhật thành công!");
+            request.setAttribute("mess", "Update successful!");
         } else {
-            request.setAttribute("error", "Cập nhật thất bại!");
+            request.setAttribute("error", "Update failed!");
         }
 
         request.getRequestDispatcher("user-profile.jsp").forward(request, response);

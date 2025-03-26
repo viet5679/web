@@ -248,6 +248,11 @@
                                                                             <i class="fa-solid fa-cogs fs-5 me-1"></i> Processing
                                                                         </span>
                                                                     </c:when>
+                                                                    <c:when test="${o.status == 'Shipped'}">
+                                                                        <span class="badge bg-info w-100 py-2 d-flex align-items-center justify-content-center">
+                                                                            <i class="fa-solid fa-truck fs-5 me-1"></i> Shipped
+                                                                        </span>
+                                                                    </c:when>
                                                                     <c:when test="${o.status == 'Delivered'}">
                                                                         <span class="badge bg-success w-100 py-2 d-flex align-items-center justify-content-center">
                                                                             <i class="fa-solid fa-check-circle fs-5 me-1"></i> Delivered
@@ -307,7 +312,7 @@
                                                                                 <li>
                                                                                     <form action="list-order" method="post">
                                                                                         <input type="hidden" name="orderId" value="${o.id}">
-                                                                                        <input type="hidden" name="status" value="Delivered">
+                                                                                        <input type="hidden" name="status" value="Shipped">
                                                                                         <button type="submit" class="dropdown-item text-success fw-bold">
                                                                                             Ship
                                                                                         </button>
@@ -315,80 +320,106 @@
                                                                                 </li>
                                                                             </ul>
                                                                         </c:if>
-                                                                        <!-- Nút xem chi tiết -->
-                                                                        <form action="order-detail" method="post">
-                                                                            <input type="hidden" name="orderId" value="${o.id}">
-                                                                            <button type="submit" class="btn btn-sm btn-primary">
-                                                                                <i class="fa fa-eye"></i>
-                                                                            </button>
-                                                                        </form>
-                                                                        </td>
-                                                                        </tr>
-                                                                    </c:forEach>
-                                                                    </tbody>
-                                                                    </table>
+                                                                        <c:if test="${o.status == 'Shipped'}">
+                                                                            <div class="btn-group">
+                                                                                <button class="btn btn-sm btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                                    <i class="fa fa-file-invoice"></i>
+                                                                                </button>
+                                                                                <ul class="dropdown-menu">
+                                                                                    <li>
+                                                                                        <form action="list-order" method="post">
+                                                                                            <input type="hidden" name="orderId" value="${o.id}">
+                                                                                            <input type="hidden" name="status" value="Canceled">
+                                                                                            <button type="submit" class="dropdown-item text-danger fw-bold">
+                                                                                                Reject
+                                                                                            </button>
+                                                                                        </form>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <form action="list-order" method="post">
+                                                                                            <input type="hidden" name="orderId" value="${o.id}">
+                                                                                            <input type="hidden" name="status" value="Delivered">
+                                                                                            <button type="submit" class="dropdown-item text-success fw-bold">
+                                                                                                Success
+                                                                                            </button>
+                                                                                        </form>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </c:if>
+                                                                            <!-- Nút xem chi tiết -->
+                                                                            <form action="order-detail" method="post">
+                                                                                <input type="hidden" name="orderId" value="${o.id}">
+                                                                                <button type="submit" class="btn btn-sm btn-primary">
+                                                                                    <i class="fa fa-eye"></i>
+                                                                                </button>
+                                                                            </form>
+                                                                            </td>
+                                                                            </tr>
+                                                                        </c:forEach>
+                                                                        </tbody>
+                                                                        </table>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- footer -->
-                                    <jsp:include page="footer.jsp"/>
-                                    </main>
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                            <!-- footer -->
+                                                            <jsp:include page="footer.jsp"/>
+                                                            </main>
 
-                                    <!-- Vendor Custom -->
-                                    <script src="assets/js/vendor/jquery-3.6.4.min.js"></script>
-                                    <script src="assets/js/vendor/simplebar.min.js"></script>
-                                    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-                                    <script src="assets/js/vendor/apexcharts.min.js"></script>
-                                    <script src="assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
-                                    <script src="assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
-                                    <!-- Data Tables -->
-                                    <script src='assets/js/vendor/jquery.datatables.min.js'></script>
-                                    <script src='assets/js/vendor/datatables.bootstrap5.min.js'></script>
-                                    <script src='assets/js/vendor/datatables.responsive.min.js'></script>
-                                    <!-- Caleddar -->
-                                    <script src="assets/js/vendor/jquery.simple-calendar.js"></script>
-                                    <!-- Date Range Picker -->
-                                    <script src="assets/js/vendor/moment.min.js"></script>
-                                    <script src="assets/js/vendor/daterangepicker.js"></script>
-                                    <script src="assets/js/vendor/date-range.js"></script>
+                                                            <!-- Vendor Custom -->
+                                                            <script src="assets/js/vendor/jquery-3.6.4.min.js"></script>
+                                                            <script src="assets/js/vendor/simplebar.min.js"></script>
+                                                            <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+                                                            <script src="assets/js/vendor/apexcharts.min.js"></script>
+                                                            <script src="assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+                                                            <script src="assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+                                                            <!-- Data Tables -->
+                                                            <script src='assets/js/vendor/jquery.datatables.min.js'></script>
+                                                            <script src='assets/js/vendor/datatables.bootstrap5.min.js'></script>
+                                                            <script src='assets/js/vendor/datatables.responsive.min.js'></script>
+                                                            <!-- Caleddar -->
+                                                            <script src="assets/js/vendor/jquery.simple-calendar.js"></script>
+                                                            <!-- Date Range Picker -->
+                                                            <script src="assets/js/vendor/moment.min.js"></script>
+                                                            <script src="assets/js/vendor/daterangepicker.js"></script>
+                                                            <script src="assets/js/vendor/date-range.js"></script>
 
-                                    <!-- Main Custom -->
-                                    <script src="assets/js/main.js"></script>
+                                                            <!-- Main Custom -->
+                                                            <script src="assets/js/main.js"></script>
 
-                                    <!-- Thêm thư viện SweetAlert2 (nếu chưa có) -->
-                                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-                                    <script>
-                                        function showOrderOptions(orderId) {
-                                            Swal.fire({
-                                                title: "Xác nhận đơn hàng",
-                                                text: "Bạn muốn chấp nhận hay từ chối đơn hàng này?",
-                                                icon: "question",
-                                                showCancelButton: true,
-                                                confirmButtonText: "✔ Accept",
-                                                cancelButtonText: "✖ Reject",
-                                                cancelButtonColor: "#d33",
-                                                confirmButtonColor: "#28a745",
-                                                reverseButtons: true
-                                            }).then((result) => {
-                                                if (result.isConfirmed) {
-                                                    // Nếu chọn Accept
-                                                    document.getElementById("orderStatus-" + orderId).value = "Delivered";
-                                                } else if (result.dismiss === Swal.DismissReason.cancel) {
-                                                    // Nếu chọn Reject
-                                                    document.getElementById("orderStatus-" + orderId).value = "Canceled";
-                                                } else {
-                                                    return;
-                                                }
-                                                // Gửi form
-                                                document.getElementById("orderForm-" + orderId).submit();
-                                            });
-                                        }
-                                    </script>
-                                    </body>
-                                    <!-- Mirrored from maraviyainfotech.com/wrapbootstrap/grabit-html/admin-html/order-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Mar 2025 14:25:41 GMT -->
-                                    </html>
+                                                            <!-- Thêm thư viện SweetAlert2 (nếu chưa có) -->
+                                                            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                                                            <script>
+                                                                function showOrderOptions(orderId) {
+                                                                    Swal.fire({
+                                                                        title: "Xác nhận đơn hàng",
+                                                                        text: "Bạn muốn chấp nhận hay từ chối đơn hàng này?",
+                                                                        icon: "question",
+                                                                        showCancelButton: true,
+                                                                        confirmButtonText: "✔ Accept",
+                                                                        cancelButtonText: "✖ Reject",
+                                                                        cancelButtonColor: "#d33",
+                                                                        confirmButtonColor: "#28a745",
+                                                                        reverseButtons: true
+                                                                    }).then((result) => {
+                                                                        if (result.isConfirmed) {
+                                                                            // Nếu chọn Accept
+                                                                            document.getElementById("orderStatus-" + orderId).value = "Delivered";
+                                                                        } else if (result.dismiss === Swal.DismissReason.cancel) {
+                                                                            // Nếu chọn Reject
+                                                                            document.getElementById("orderStatus-" + orderId).value = "Canceled";
+                                                                        } else {
+                                                                            return;
+                                                                        }
+                                                                        // Gửi form
+                                                                        document.getElementById("orderForm-" + orderId).submit();
+                                                                    });
+                                                                }
+                                                            </script>
+                                                            </body>
+                                                            <!-- Mirrored from maraviyainfotech.com/wrapbootstrap/grabit-html/admin-html/order-list.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Mar 2025 14:25:41 GMT -->
+                                                            </html>
