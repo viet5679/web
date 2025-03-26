@@ -207,15 +207,26 @@ public class WishListServlet extends HttpServlet {
             updatedWishList.deleteCharAt(updatedWishList.length() - 1);
         }
 
-        // Cập nhật lại cookie
+        // Tính số lượng sản phẩm trong wishlist sau khi cập nhật
+        int totalWishlistItems = updatedWishList.toString().isEmpty() ? 0 : updatedWishList.toString().split("/").length;
+
+// Cập nhật lại cookie wishlist
         Cookie newCookie = new Cookie("wishlist", updatedWishList.toString());
         newCookie.setMaxAge(30 * 24 * 60 * 60); // Lưu 30 ngày
         response.addCookie(newCookie);
 
-        // Phản hồi JSON để cập nhật giao diện mà không cần reload trang
+// Trả về JSON để cập nhật giao diện
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().write("{\"status\": \"success\", \"isWishlisted\": " + (!isExist) + ", \"isRemoved\": " + isRemoved + "}");
+
+// Sửa JSON response để có wishlistCount
+        String jsonResponse = String.format(
+                "{\"status\": \"success\", \"isWishlisted\": %b, \"isRemoved\": %b, \"wishlistCount\": %d}",
+                !isExist, isRemoved, totalWishlistItems
+        );
+
+        response.getWriter().write(jsonResponse);
+
     }
 
     /**

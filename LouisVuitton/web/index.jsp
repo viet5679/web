@@ -206,23 +206,18 @@
                                     </div>
                                     <!-- Header User End -->
                                     <!-- Header wishlist Start -->
-                                    <a href="wishlist"
-                                       class="ec-header-btn ec-header-wishlist">
-                                        <div class="header-icon"><i
-                                                class="fi-rr-heart"></i></div>
-                                        <span
-                                            class="ec-header-count">${requestScope.numWishListItem}</span>
+                                    <!-- Header Wishlist -->
+                                    <a href="wishlist" class="ec-header-btn">
+                                        <div class="header-icon"><i class="fi-rr-heart"></i></div>
+                                        <span id="wishlist-count" class="ec-header-count">${requestScope.numWishListItem}</span>
                                     </a>
-                                    <!-- Header wishlist End -->
-                                    <!-- Header Cart Start -->
 
-                                    <a href="cart"
-                                       class="ec-header-btn">
-                                        <div class="header-icon"><i
-                                                class="fi-rr-shopping-bag"></i></div>
-                                        <span
-                                            class="ec-header-count">${requestScope.numCartItem}</span>
+                                    <!-- Header Cart -->
+                                    <a href="cart" class="ec-header-btn">
+                                        <div class="header-icon"><i class="fi-rr-shopping-bag"></i></div>
+                                        <span id="cart-count" class="ec-header-count">${requestScope.numCartItem}</span>
                                     </a>
+
                                     <!-- Header Cart End -->
                                     <!-- Header Notification Start -->
                                     <a href="javascript:void(0);" class="ec-header-btn" onclick="toggleNotificationPanel()"> 
@@ -559,6 +554,23 @@
         </section>
         <!-- ec Product tab Area End -->
         <script>
+            // Cập nhật số lượng giỏ hàng ngay lập tức
+            function updateCartCount(count) {
+                document.getElementById("cart-count").textContent = count;
+            }
+
+// Cập nhật số lượng wishlist ngay lập tức
+            function updateWishlistCount(count) {
+                let $wishlistCount = $("#wishlist-count");
+
+                if (count > 0) {
+                    $wishlistCount.text(count).show(); // Luôn hiển thị số
+                } else {
+                    $wishlistCount.text("0").show(); // Không ẩn, đặt về 0
+                }
+            }
+
+
             function addToCart(productId, isProductDetails = false) {
                 let quantity = 1; // Mặc định là 1
 
@@ -584,7 +596,7 @@
                         quantity: quantity,
                         action: "addToCart"
                     },
-                    success: function () {
+                    success: function (response) {
                         Swal.fire({
                             position: "center",
                             icon: "success",
@@ -593,9 +605,10 @@
                             timer: 700,
                             width: "400px",
                             padding: "5px"
-                        }).then(() => {
-                            location.reload(); // Load lại trang sau khi hiển thị thông báo
                         });
+
+                        // Cập nhật số lượng giỏ hàng mà không cần reload
+                        updateCartCount(response.cartCount);
                     }
                 });
             }
@@ -604,17 +617,29 @@
                     type: "POST",
                     url: "wishlist",
                     data: {productId: productId},
+                    dataType: "json",
                     success: function (response) {
-                        if (response.isWishlisted) {
-                            $(element).addClass("active");
-                        } else {
-                            $(element).removeClass("active");
-                        }
-                        location.reload(); // Load lại trang sau khi thay đổi wishlist
-                    }
+                        console.log("Response từ server:", response);
 
+                        if (response.status === "success") {
+                            if (response.isWishlisted) {
+                                $(element).addClass("active");
+                            } else {
+                                $(element).removeClass("active");
+                            }
+
+                            // Cập nhật số lượng wishlist
+                            updateWishlistCount(response.wishlistCount);
+                        }
+                    },
+                    error: function (xhr) {
+                        console.error("Lỗi AJAX:", xhr.responseText);
+                    }
                 });
             }
+
+
+
             // Duyệt qua cookie Wishlist
             document.addEventListener("DOMContentLoaded", function () {
                 let wishlist = getCookie("wishlist"); // Lấy giá trị từ cookie
