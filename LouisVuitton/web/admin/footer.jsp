@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="copyright">
             <p><span id="copyright_year"></span> © LouisVuitton, All rights Reserved.</p>
-            <p>Design by MaraviyaInfotech.</p>
+            <p>Design by LouisVuitton Team.</p>
         </div>
     </div>
 </footer>

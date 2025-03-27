@@ -122,7 +122,7 @@ public class EditProductServlet extends HttpServlet {
         String quantity_raw = request.getParameter("quantity");
         String sale_raw = request.getParameter("sale");
 
-        int quantity, id;
+        int quantity, id, cid;
         double price, sale;
         Collection<Part> parts = request.getParts();
 
@@ -150,7 +150,6 @@ public class EditProductServlet extends HttpServlet {
                 if (originalFileName != null) {
                     originalFileName = Paths.get(originalFileName).getFileName().toString();
                 } else {
-                    System.out.println("Không có file nào được tải lên.");
                     continue; // Bỏ qua phần xử lý file nếu không có file
                 }
 
@@ -191,13 +190,58 @@ public class EditProductServlet extends HttpServlet {
         CategoriesDAO cd = new CategoriesDAO();
         try {
             id = Integer.parseInt(id_raw);
+            cid = Integer.parseInt(cid_raw);
 
-            quantity = Integer.parseInt(quantity_raw);
-            price = Double.parseDouble(price_raw);
-            sale = Double.parseDouble(sale_raw);
+            try {
+                quantity = Integer.parseInt(quantity_raw);
+            } catch (NumberFormatException e) {
+                Products pro = pd.getProductById(id);
+                List<ProductImages> listI = pd.getImagesByPid(id);
+                List<Categories> listC = cd.getAllCategory();
+                String subDescription = pro.getSubDescription().replace("$", "\n");
+                request.setAttribute("sub", subDescription);
+                request.setAttribute("listC", listC);
+                request.setAttribute("listI", listI);
+                request.setAttribute("pro", pro);
+                request.setAttribute("error", "You need to input an integer for quantity");
+                request.getRequestDispatcher("edit_product.jsp").forward(request, response);
+                return;
+            }
+
+            try {
+                price = Double.parseDouble(price_raw);
+                sale = Double.parseDouble(sale_raw);
+            } catch (NumberFormatException e) {
+                Products pro = pd.getProductById(id);
+                List<ProductImages> listI = pd.getImagesByPid(id);
+                List<Categories> listC = cd.getAllCategory();
+                String subDescription = pro.getSubDescription().replace("$", "\n");
+                request.setAttribute("sub", subDescription);
+                request.setAttribute("listC", listC);
+                request.setAttribute("listI", listI);
+                request.setAttribute("pro", pro);
+                request.setAttribute("error", "You need to input a number for sale or price");
+                request.getRequestDispatcher("edit_product.jsp").forward(request, response);
+                return;
+            }
+
+            if (price <= 0 || quantity <= 0 || sale < 0 || sale > 100) {
+                Products pro = pd.getProductById(id);
+                List<ProductImages> listI = pd.getImagesByPid(id);
+                List<Categories> listC = cd.getAllCategory();
+                String subDescription = pro.getSubDescription().replace("$", "\n");
+                request.setAttribute("sub", subDescription);
+                request.setAttribute("listC", listC);
+                request.setAttribute("listI", listI);
+                request.setAttribute("pro", pro);
+                request.setAttribute("error", "Please enter a number greater than 0 for Quantity, Price, and 0 <= Sale <= 100.");
+                request.getRequestDispatcher("edit_product.jsp").forward(request, response);
+                return;
+            }
 
             Products pro = pd.getProductById(id);
-            pro.setCategoryId(cd.getCategoryById(id));
+            pro.setCategoryId(cd.getCategoryById(cid));
+            System.out.println(cd.getCategoryById(cid).getName() + " " + cd.getCategoryById(cid).getId());
             pro.setName(name);
             pro.setDescription(des);
             pro.setSubDescription(subD);
@@ -287,10 +331,8 @@ public class EditProductServlet extends HttpServlet {
 
             // Kiểm tra nếu không có ảnh nào được cập nhật
             if (imageIds == null || imageIds.length == 0) {
-                System.out.println("Không có ảnh nào được cập nhật!");
                 imageIds = new String[0]; // Tránh NullPointerException
             } else {
-                System.out.println("Danh sách imageIds nhận được (trước khi lọc): " + Arrays.toString(imageIds));
             }
 
             // Lọc bỏ các imageIds rỗng hoặc null
@@ -304,9 +346,6 @@ public class EditProductServlet extends HttpServlet {
             // Chuyển danh sách đã lọc sang mảng
             imageIds = filteredImageIds.toArray(new String[0]);
 
-            System.out.println("Danh sách imageIds sau khi lọc: " + Arrays.toString(imageIds));
-            System.out.println("Danh sách ảnh cập nhật: " + updatedImagesList.size());
-
             // Kiểm tra số lượng ảnh và ID có khớp nhau không
             if (updatedImagesList.size() == imageIds.length) {
                 for (int i = 0; i < updatedImagesList.size(); i++) {
@@ -316,13 +355,10 @@ public class EditProductServlet extends HttpServlet {
                         pi.setImagesId(imgId); // Gán ID ảnh cũ
                         pi.setPath(updatedImagesList.get(i)); // Cập nhật đường dẫn mới
                         pd.updateImg(pi); // Gọi phương thức update ảnh
-                        System.out.println("✅ Đã cập nhật ảnh ID: " + imgId + " -> " + updatedImagesList.get(i));
                     } catch (NumberFormatException e) {
-                        System.out.println("❌ Lỗi chuyển đổi imageId: " + imageIds[i] + " (Không phải số nguyên hợp lệ)");
                     }
                 }
             } else {
-                System.out.println("⚠️ Số lượng imageIds (" + imageIds.length + ") không khớp với số lượng ảnh mới (" + updatedImagesList.size() + "). Không thể cập nhật!");
             }
             // Lưu message vào session
             request.getSession().setAttribute("successMessage", "Product updated successfully!");
@@ -331,7 +367,6 @@ public class EditProductServlet extends HttpServlet {
             response.sendRedirect("pmanager");
 
         } catch (NumberFormatException e) {
-            System.out.println(e);
         }
     }
 

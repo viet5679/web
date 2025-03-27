@@ -7,6 +7,7 @@
  ============================================================-->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="model.Users" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -109,12 +110,12 @@
                         <c:forEach var="bestSeller" items="${requestScope.bestSeller}">
                             <div>
                                 <div class="ec-sb-pro-sl-item">
-                                    <a href="product-left-sidebar.jsp"
+                                    <a href="product?id=${bestSeller.id}"
                                        class="sidekka_pro_img"><img
                                             src="${bestSeller.avatar}"
                                             alt="product" /></a>
                                     <div class="ec-pro-content">
-                                        <h5 class="ec-pro-title"><a href="product?id=${product.id}">${bestSeller.name}</a></h5>
+                                        <h5 class="ec-pro-title"><a href="product?id=${bestSeller.id}">${bestSeller.name}</a></h5>
                                         <div class="ec-pro-rating">
                                             <div class="ec-pro-rating">
                                                 <c:forEach var="i" begin="1" end="5">
@@ -129,12 +130,17 @@
                                                 </c:forEach>
                                             </div>
                                         </div>
-                                        <span class="ec-price">
-                                            <span
-                                                class="old-price">$${bestSeller.price}</span>
-                                            <span
-                                                class="new-price">$${bestSeller.totalPay}</span>
-                                        </span>
+                                        <c:if test="${bestSeller.sale == 0}">
+                                            <span class="ec-price">
+                                                <span class="new-price">$${bestSeller.totalPay}</span>
+                                            </span>
+                                        </c:if>
+                                        <c:if test="${bestSeller.sale != 0}">
+                                            <span class="ec-price">
+                                                <span class="old-price">$<fmt:formatNumber value="${bestSeller.price}" type="number" minFractionDigits="2" maxFractionDigits="2"/></span>
+                                                <span class="new-price">$<fmt:formatNumber value="${bestSeller.totalPay}" type="number" minFractionDigits="2" maxFractionDigits="2"/></span>
+                                            </span>
+                                        </c:if>
                                     </div>
                                 </div>
                             </div>
@@ -211,7 +217,7 @@
                                             <div class="ec-single-rating-wrap">
                                                 <c:forEach var="i" begin="1" end="5">
                                                     <c:choose>
-                                                        <c:when test="${i <= product.totalStars}">
+                                                        <c:when test="${i <= p.totalStars}">
                                                             <i class="ecicon eci-star fill"></i>  <!-- Filled star -->
                                                         </c:when>
                                                         <c:otherwise>
@@ -227,17 +233,17 @@
                                                 <div class="ec-single-price">
                                                     <span class="ec-single-ps-title">Price</span>
                                                     <c:if test="${p.sale == 0}">
-                                                        <span class="new-price">$${p.totalPay} </span>
+                                                        <span class="new-price">$<fmt:formatNumber value="${p.totalPay}" type="number" minFractionDigits="2" maxFractionDigits="2"/></span>
                                                     </c:if>
                                                     <c:if test="${p.sale != 0}">
-                                                        <span class="new-price">$${p.totalPay} </span>
-                                                        <span class="old-price" style="color: grey;"><del>$${p.price}</del></span>
+                                                        <span class="new-price">$<fmt:formatNumber value="${p.totalPay}" type="number" minFractionDigits="2" maxFractionDigits="2"/></span>
+                                                        <span class="old-price" style="color: grey;"><del>$<fmt:formatNumber value="${p.price}" type="number" minFractionDigits="2" maxFractionDigits="2"/></del></span>
                                                     </c:if>
                                                 </div>
                                             </div>
                                             <div class="ec-single-qty">
                                                 <div class="qty-plus-minus">
-                                                    <input id="qty-${p.id}" class="qty-input" min="1" value="1" data-product-id="${p.id}" />
+                                                    <input id="qty-${p.id}" class="qty-input" min="1" value="1" data-product-id="${p.id}" name="value" />
                                                 </div>
                                                 <div class="ec-single-cart">
                                                     <button class="btn btn-primary" onclick="addToCart(${p.id})">Add To Cart</button>
@@ -245,36 +251,60 @@
                                             </div>
                                             <script>
                                                 function addToCart(productId) {
-                                                    let inputField = document.querySelector(`#qty-${p.id}`);
+                                                    console.log("Product ID:", productId); // Kiểm tra productId có đúng không
+                                                    if (!productId) {
+                                                        console.error("Lỗi: productId không hợp lệ!");
+                                                        return;
+                                                    }
+
+                                                    let inputField = document.querySelector(`#qty-${productId}`);
                                                     let quantity = parseInt(inputField.value) || 1;
 
                                                     if (quantity < 1) {
                                                         quantity = 1;
-                                                        inputField.value = 1; // Reset số lượng về 1 nếu nhập sai
+                                                        inputField.value = 1;
                                                     }
 
-                                                    $.ajax({
-                                                        type: "POST",
-                                                        url: "cart",
-                                                        data: {
-                                                            productId: productId,
-                                                            quantity: quantity,
-                                                            action: "addToCart"
-                                                        },
-                                                        success: function () {
-                                                            Swal.fire({
-                                                                position: "center",
-                                                                icon: "success",
-                                                                title: "Added to cart",
-                                                                showConfirmButton: false,
-                                                                timer: 700,
-                                                                width: "400px", // Giảm chiều rộng
-                                                                height: "250px",
-                                                                padding: "5px", // Giảm padding
-                                                            });
-                                                        }
-                                                    });
+                                                    fetch(`CheckStockServlet?productId=${productId}&quantity=${quantity}`)
+                                                            .then(response => response.json())
+                                                            .then(data => {
+                                                                console.log("Server response:", data);
+                                                                if (!data.available) {
+                                                                    Swal.fire({
+                                                                        icon: "error",
+                                                                        title: "Oops...",
+                                                                        text: `Chỉ còn ${data.maxQuantity} sản phẩm trong kho!`,
+                                                                    });
+                                                                    inputField.value = data.maxQuantity;
+                                                                } else {
+                                                                    $.ajax({
+                                                                        type: "POST",
+                                                                        url: "cart",
+                                                                        data: {
+                                                                            productId: productId,
+                                                                            quantity: quantity,
+                                                                            action: "addToCart"
+                                                                        },
+                                                                        success: function () {
+                                                                            Swal.fire({
+                                                                                position: "center",
+                                                                                icon: "success",
+                                                                                title: "Added to cart",
+                                                                                showConfirmButton: false,
+                                                                                timer: 700,
+                                                                                width: "400px",
+                                                                                padding: "5px"
+                                                                            }).then(() => {
+                                                                                inputField.value = 1;
+                                                                                location.reload();
+                                                                            });
+                                                                        }
+                                                                    });
+                                                                }
+                                                            })
+                                                            .catch(error => console.error("Fetch error:", error));
                                                 }
+
                                             </script>
                                         </div>
                                     </div>
@@ -290,13 +320,11 @@
                                     data: {productId: productId},
                                     success: function (response) {
                                         if (response.isWishlisted) {
-                                            $(element).addClass("active"); // Nếu đã thêm, đổi màu nút
+                                            $(element).addClass("active");
                                         } else {
-                                            $(element).removeClass("active"); // Nếu đã xóa, trở lại bình thường
+                                            $(element).removeClass("active");
                                         }
-                                    },
-                                    error: function () {
-                                        alert("Có lỗi xảy ra!");
+                                        location.reload(); // Load lại trang sau khi thay đổi wishlist
                                     }
                                 });
                             }
@@ -514,12 +542,17 @@
                                             </c:choose>
                                         </c:forEach>
                                     </div>
-                                    <span class="ec-price">
-                                        <span
-                                            class="old-price">$${relatedProduct.price}</span>
-                                        <span
-                                            class="new-price">$${relatedProduct.totalPay}</span>
-                                    </span>
+                                    <c:if test="${relatedProduct.sale == 0}">
+                                        <span class="ec-price">
+                                            <span class="new-price">$${relatedProduct.totalPay}</span>
+                                        </span>
+                                    </c:if>
+                                    <c:if test="${relatedProduct.sale != 0}">
+                                        <span class="ec-price">
+                                            <span class="old-price">$<fmt:formatNumber value="${relatedProduct.price}" type="number" minFractionDigits="2" maxFractionDigits="2"/></span>
+                                            <span class="new-price">$<fmt:formatNumber value="${relatedProduct.totalPay}" type="number" minFractionDigits="2" maxFractionDigits="2"/></span>
+                                        </span>
+                                    </c:if>
                                 </div>
                             </div>
                         </div>
@@ -531,90 +564,6 @@
 
         </section>
         <!-- Related Product end -->
-
-
-        <script>
-            function addToCart(productId, isProductDetails = false) {
-                let quantity = 1; // Mặc định là 1
-
-                if (isProductDetails) {
-                    // Nếu ở trang Product Details, lấy số lượng từ input
-                    let input = document.getElementById(`qty-${p.id}`);
-                    if (input) {
-                        quantity = parseInt(input.value) || 1;
-
-                        // Kiểm tra số lượng hợp lệ
-                        if (isNaN(quantity) || quantity < 1) {
-                            alert("Vui lòng nhập số lượng hợp lệ!");
-                            return;
-                        }
-                    }
-                }
-
-                $.ajax({
-                    type: "POST",
-                    url: "cart",
-                    data: {
-                        productId: productId,
-                        quantity: quantity,
-                        action: "addToCart"
-                    },
-                    success: function () {
-                        Swal.fire({
-                            position: "center",
-                            icon: "success",
-                            title: "Added to cart",
-                            showConfirmButton: false,
-                            timer: 700,
-                            width: "400px", // Giảm chiều rộng
-                            padding: "5px" // Giảm padding
-                        });
-                    }
-                });
-            }
-            function addToWishList(productId, element) {
-                $.ajax({
-                    type: "POST",
-                    url: "wishlist",
-                    data: {productId: productId},
-                    success: function (response) {
-                        if (response.isWishlisted) {
-                            $(element).addClass("active"); // Nếu đã thêm, đổi màu nút
-                        } else {
-                            $(element).removeClass("active"); // Nếu đã xóa, trở lại bình thường
-                        }
-                    },
-                    error: function () {
-                        alert("Có lỗi xảy ra!");
-                    }
-                });
-            }
-            // Duyệt qua cookie Wishlist
-            document.addEventListener("DOMContentLoaded", function () {
-                let wishlist = getCookie("wishlist"); // Lấy giá trị từ cookie
-                if (wishlist) {
-                    let wishlistItems = wishlist.split("/"); // Chuyển chuỗi thành mảng ID
-                    document.querySelectorAll(".wishlist-btn").forEach(function (btn) {
-                        let productId = btn.getAttribute("data-product-id"); // Lấy ID từ nút
-                        if (wishlistItems.includes(productId)) {
-                            btn.classList.add("active"); // Thêm class "active"
-                        }
-                    });
-                }
-            });
-
-            // Hàm lấy cookie theo tên
-            function getCookie(name) {
-                let cookies = document.cookie.split("; ");
-                for (let i = 0; i < cookies.length; i++) {
-                    let parts = cookies[i].split("=");
-                    if (parts[0] === name) {
-                        return parts[1];
-                    }
-                }
-                return "";
-            }
-        </script>
 
         <!-- Footer Start -->
         <jsp:include page="footer.jsp"></jsp:include>

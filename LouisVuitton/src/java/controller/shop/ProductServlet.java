@@ -16,14 +16,19 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.ProductImages;
 import model.Products;
 import model.Rating;
 import model.Users;
+import org.json.JSONObject;
 import utils.CartWishlistUtils;
+import utils.NotificationUtils;
 
 /**
  *
@@ -70,56 +75,81 @@ public class ProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         CartWishlistUtils.prepareCartAndWishlistData(request);
+        try {
+            NotificationUtils.loadNotifications(request.getSession());
+        } catch (SQLException ex) {
+            Logger.getLogger(AboutUsServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String id_raw = request.getParameter("id");
+        String requestedQuantity_raw = request.getParameter("quantity");
+        System.out.println(requestedQuantity_raw);
+       
+        int requestedQuantity;
+
         int id, cid;
         ProductsDAO pd = new ProductsDAO();
         RatingDAO rd = new RatingDAO();
         OrderDAO orderDAO = new OrderDAO();
+        if (requestedQuantity_raw == null || requestedQuantity_raw.isEmpty()) {
+            requestedQuantity = 1; // Gán mặc định là 1 nếu không có giá trị hợp lệ
+        } else {
 
-        try {
-            id = Integer.parseInt(id_raw);
-            Products p = pd.getProductById(id);
-            cid = p.getCategoryId().getId();          
-            System.out.println(cid);
-            // Kiểm tra nếu sản phẩm không tồn tại
-            if (p == null) {
-                response.sendRedirect("home");
-                return;
+            try {
+                id = Integer.parseInt(id_raw);
+                requestedQuantity = Integer.parseInt(requestedQuantity_raw);
+                System.out.println(requestedQuantity);
+
+                Products p = pd.getProductById(id);
+
+                cid = p.getCategoryId().getId();
+                System.out.println(cid);
+                // Kiểm tra nếu sản phẩm không tồn tại
+                if (p == null) {
+                    response.sendRedirect("home");
+                    return;
+                }
+                JSONObject json = new JSONObject();
+                if (requestedQuantity > p.getStockQuantity()) {
+                    json.put("available", false);
+                    json.put("maxQuantity", p.getStockQuantity()); // Giới hạn số lượng tối đa có thể mua
+                } else {
+                    json.put("available", true);
+                }
+
+                // Lấy dữ liệu sản phẩm
+                String str = p.getSubDescription();
+                List<String> subDescription = (str != null) ? Arrays.asList(str.split("\\$")) : new ArrayList<>();
+                List<ProductImages> listI = (pd.getImagesByPid(id) != null) ? pd.getImagesByPid(id) : new ArrayList<>();
+                List<Rating> listR = (rd.getAllRatingWithId(id) != null) ? rd.getAllRatingWithId(id) : new ArrayList<>();
+
+                // Kiểm tra xem user đã mua hàng chưa
+                boolean hasPurchased = false;
+                Users user = (Users) request.getSession().getAttribute("user");
+                if (user != null) {
+                    hasPurchased = orderDAO.hasUserPurchasedProduct(user.getId(), id);
+                }
+                List<Products> listP = pd.getAllProductWithSameCategories(cid);
+                for (Products products : listP) {
+                    System.out.println(products.getId());
+                }
+                // Gán dữ liệu vào request
+                request.setAttribute("relatedProduct", listP);
+                request.setAttribute("listR", listR);
+                request.setAttribute("sub", subDescription);
+                request.setAttribute("listI", listI);
+                request.setAttribute("p", p);
+                request.setAttribute("bestSeller", pd.getBestSellerProduct());
+                request.setAttribute("hasPurchased", hasPurchased);  // Thêm biến này
+
+                request.getRequestDispatcher("product-full-width.jsp").forward(request, response);
+
+            } catch (NumberFormatException e) {
+                response.sendRedirect("error.jsp");
+            } catch (Exception e) {
+                e.printStackTrace();
+                request.setAttribute("errorMessage", "Error loading product details.");
+                request.getRequestDispatcher("error.jsp").forward(request, response);
             }
-
-            // Lấy dữ liệu sản phẩm
-            String str = p.getSubDescription();
-            List<String> subDescription = (str != null) ? Arrays.asList(str.split("\\$")) : new ArrayList<>();
-            List<ProductImages> listI = (pd.getImagesByPid(id) != null) ? pd.getImagesByPid(id) : new ArrayList<>();
-            List<Rating> listR = (rd.getAllRatingWithId(id) != null) ? rd.getAllRatingWithId(id) : new ArrayList<>();
-
-            // Kiểm tra xem user đã mua hàng chưa
-            boolean hasPurchased = false;
-            Users user = (Users) request.getSession().getAttribute("user");
-            if (user != null) {
-                hasPurchased = orderDAO.hasUserPurchasedProduct(user.getId(), id);
-            }
-            List<Products> listP = pd.getAllProductWithSameCategories(cid);
-            for (Products products : listP) {
-                System.out.println(products.getId());
-            }
-            // Gán dữ liệu vào request
-            request.setAttribute("relatedProduct", listP);
-            request.setAttribute("listR", listR);
-            request.setAttribute("sub", subDescription);
-            request.setAttribute("listI", listI);
-            request.setAttribute("p", p);
-            request.setAttribute("bestSeller", pd.getBestSellerProduct());
-            request.setAttribute("hasPurchased", hasPurchased);  // Thêm biến này
-
-            request.getRequestDispatcher("product-full-width.jsp").forward(request, response);
-
-        } catch (NumberFormatException e) {
-            response.sendRedirect("error.jsp");
-        } catch (Exception e) {
-            e.printStackTrace();
-            request.setAttribute("errorMessage", "Error loading product details.");
-            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
 
     }
@@ -135,6 +165,12 @@ public class ProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        CartWishlistUtils.prepareCartAndWishlistData(request);
+        try {
+            NotificationUtils.loadNotifications(request.getSession());
+        } catch (SQLException ex) {
+            Logger.getLogger(AboutUsServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         HttpSession session = request.getSession();
         ProductsDAO pd = new ProductsDAO();
         RatingDAO rd = new RatingDAO();
@@ -151,6 +187,8 @@ public class ProductServlet extends HttpServlet {
             String pid_raw = request.getParameter("pid");
             String rating_raw = request.getParameter("rating");
             String comment = request.getParameter("comment");
+            String number_raw = request.getParameter("value");
+            int number = Integer.parseInt(number_raw);
 
             // Convert data types
             int pid = Integer.parseInt(pid_raw);
@@ -169,6 +207,11 @@ public class ProductServlet extends HttpServlet {
             if (product == null) {
                 request.setAttribute("error", "Product not found.");
                 request.getRequestDispatcher("product.jsp").forward(request, response);
+                return;
+            }
+            if (number > product.getStockQuantity()) {
+                request.setAttribute("error", "The quantity entered exceeds available stock!");
+                request.getRequestDispatcher("product-full-width.jsp").forward(request, response);
                 return;
             }
 

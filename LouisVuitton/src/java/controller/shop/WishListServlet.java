@@ -13,10 +13,14 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Cart;
 import model.Products;
+import utils.NotificationUtils;
 
 /**
  *
@@ -77,7 +81,7 @@ public class WishListServlet extends HttpServlet {
         }
         Cart cart = new Cart(cartData, listProduct);
         request.setAttribute("cart", cart);
-        
+
         // Đếm số lượng sản phẩm
         int numCartItem = 0;
         if (!cartData.isEmpty()) {
@@ -114,6 +118,12 @@ public class WishListServlet extends HttpServlet {
                     e.printStackTrace();
                 }
             }
+        }
+
+        try {
+            NotificationUtils.loadNotifications(request.getSession());
+        } catch (SQLException ex) {
+            Logger.getLogger(AboutUsServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         request.setAttribute("wishlistProducts", wishlistProducts);
@@ -197,15 +207,26 @@ public class WishListServlet extends HttpServlet {
             updatedWishList.deleteCharAt(updatedWishList.length() - 1);
         }
 
-        // Cập nhật lại cookie
+        // Tính số lượng sản phẩm trong wishlist sau khi cập nhật
+        int totalWishlistItems = updatedWishList.toString().isEmpty() ? 0 : updatedWishList.toString().split("/").length;
+
+// Cập nhật lại cookie wishlist
         Cookie newCookie = new Cookie("wishlist", updatedWishList.toString());
         newCookie.setMaxAge(30 * 24 * 60 * 60); // Lưu 30 ngày
         response.addCookie(newCookie);
 
-        // Phản hồi JSON để cập nhật giao diện mà không cần reload trang
+// Trả về JSON để cập nhật giao diện
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().write("{\"status\": \"success\", \"isWishlisted\": " + (!isExist) + ", \"isRemoved\": " + isRemoved + "}");
+
+// Sửa JSON response để có wishlistCount
+        String jsonResponse = String.format(
+                "{\"status\": \"success\", \"isWishlisted\": %b, \"isRemoved\": %b, \"wishlistCount\": %d}",
+                !isExist, isRemoved, totalWishlistItems
+        );
+
+        response.getWriter().write(jsonResponse);
+
     }
 
     /**

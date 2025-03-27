@@ -150,8 +150,9 @@
                                                                     <tr>
                                                                         <th scope="col">Image</th>
                                                                         <th scope="col">Name</th>
-                                                                        <th scope="col">Quantity</th>
                                                                         <th scope="col">Price</th>
+                                                                        <th scope="col">Discount($)</th>
+                                                                        <th scope="col">Quantity</th>
                                                                         <th scope="col">Amount</th>
                                                                     </tr>
                                                                 </thead>
@@ -160,8 +161,9 @@
                                                                         <tr>
                                                                             <td><a href="product?id=${od.product.id}"><img class="prod-img" src="${od.avatar}"></a></td>
                                                                             <td><a href="product?id=${od.product.id}"><span>${od.name}</span></a></td>
-                                                                            <td><span>${od.quantity}</span></td>
                                                                             <td><span>$${od.price}</span></td>
+                                                                            <td><span>$${od.discount * od.quantity}</span></td>
+                                                                            <td><span>${od.quantity}</span></td>
                                                                             <td><span>$${od.totalPrice}</span></td>
                                                                         </tr>
                                                                     </c:forEach>
@@ -169,7 +171,8 @@
                                                                 <tfoot>
                                                                     <tr>
                                                                         <td class="border-none m-m15" colspan="3"><span class="text-600 text-90">Comments : </span><span class="note-text-color">${order.comments}</span></td>
-                                                                        <td class="border-color m-m15" colspan="1"><span><strong>Total</strong></span>
+                                                                        <td class="border-color m-m15" colspan="1"><span><strong></strong></span>
+                                                                            <td class="border-color m-m15" colspan="1"><span><strong>Total</strong></span>
                                                                         </td>
                                                                         <td class="border-color m-m15">
                                                                             <span><b>

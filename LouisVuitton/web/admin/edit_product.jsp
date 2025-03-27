@@ -16,7 +16,7 @@
         <title>LouisVuitton - Admin.</title>
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon/favicon.ico">
+        <link rel="shortcut icon" href="assets/images/logo/full-lo.png">
 
         <!-- Icon CSS -->
         <link href="assets/css/vendor/materialdesignicons.min.css" rel="stylesheet">
@@ -564,20 +564,20 @@
                                                     <div class="col-md-6 pt-2">
                                                         <label class="col-12 col-form-label ">Price <span>( In USD
                                                                 )</span></label>
-                                                        <input type="number" class="form-control" id="price1" value="${p.price}" name="price">
+                                                        <input type="text" class="form-control" id="price1" value="${p.price}" name="price">
                                                     </div>
                                                     <div class="col-md-6 pt-2">
                                                         <label class="col-12 col-form-label ">Quantity</label>
-                                                        <input type="number" class="form-control" id="quantity1" value="${p.stockQuantity}" name="quantity">
+                                                        <input type="text" class="form-control" id="quantity1" value="${p.stockQuantity}" name="quantity">
                                                     </div>
                                                     <div class="col-md-6  pt-2">
                                                         <label class="col-12 col-form-label">Sale <span></span></label>
-                                                        <input type="number" class="form-control" id="price1" value="${p.sale}" name="sale">
+                                                        <input type="text" class="form-control" id="price1" value="${p.sale}" name="sale">
                                                     </div><br/>
                                                     <input type="hidden" name="id" value="${p.id}"/>
                                                     <input type="hidden" id="deletedImages" name="deletedImages">
 
-
+                                                    <div style="color: red">${requestScope.error}</div>
                                                     <div class="col-md-12">
                                                         <button type="submit" class="btn gi-btn-primary">Submit</button>
                                                     </div>
@@ -598,6 +598,44 @@
             <!-- footer -->
             <jsp:include page="footer.jsp"/>
         </main>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+                                                        document.addEventListener("DOMContentLoaded", function () {
+                                                            const form = document.querySelector("form");
+
+                                                            form.addEventListener("submit", function (event) {
+                                                                event.preventDefault();
+
+                                                                let formData = new FormData(form);
+
+                                                                fetch("edit", {
+                                                                    method: "POST",
+                                                                    body: formData
+                                                                })
+                                                                        .then(response => response.text())
+                                                                        .then(data => {
+                                                                            Swal.fire({
+                                                                                title: "Edit successful",
+                                                                                text: "The product has been updated successfully!",
+                                                                                icon: "success",
+                                                                                confirmButtonColor: "#3085d6",
+                                                                                confirmButtonText: "OK"
+                                                                            }).then(() => {
+                                                                                window.location.href = "pmanager";
+                                                                            });
+                                                                        })
+                                                                        .catch(error => {
+                                                                            Swal.fire({
+                                                                                title: "Error!",
+                                                                                text: "Something went wrong. Please try again!",
+                                                                                icon: "error",
+                                                                                confirmButtonColor: "#d33",
+                                                                                confirmButtonText: "OK"
+                                                                            });
+                                                                        });
+                                                            });
+                                                        });
+        </script>
 
         <!-- Vendor Custom -->
         <script src="assets/js/vendor/jquery-3.6.4.min.js"></script>
@@ -763,6 +801,8 @@
                 });
             });
         </script>
+
+
     </body>
     <!-- Mirrored from maraviyainfotech.com/wrapbootstrap/grabit-html/admin-html/add-product.jsp by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Mar 2025 14:25:41 GMT -->
 </html>

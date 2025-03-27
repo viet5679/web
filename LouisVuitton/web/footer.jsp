@@ -6,11 +6,14 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!-- Footer Start -->
+<div id="notification-box" style="display: none; position: fixed; top: 150px; right: 20px; background: #f8d7da; padding: 10px; border-radius: 5px; z-index: 9999;">
+</div>
+
 <footer class="ec-footer section-space-mt">
     <div class="footer-container">
-        <div class="footer-offer">
+<!--        <div class="footer-offer">6
 
-        </div>
+        </div>-->
         <div class="footer-top section-space-footer-p">
             <div class="container">
                 <div class="row">
@@ -131,3 +134,52 @@
     </div>
 </div>
 <!-- Footer navigation panel for responsive display end -->
+<script>
+    let userId = ${sessionScope.user.id};  // Lấy userId của user đang đăng nhập
+    let socket = new WebSocket("ws://" + window.location.host + "/louisvuitton/notifications");
+
+    socket.onopen = function () {
+        socket.send(userId);  // Gửi userId đến server
+    };
+
+    socket.onerror = function (error) {
+        console.error("❌ Lỗi WebSocket:", error);
+    };
+
+    let notificationCount = 0; // Biến đếm số lượng thông báo
+
+    socket.onmessage = function (event) {
+        console.log("📢 Nhận thông báo:", event.data);
+
+        let notificationBox = document.getElementById("notification-box");
+        let notificationCountElement = document.getElementById("notification-count"); // Phần tử hiển thị số lượng
+
+        if (!event.data || event.data.trim() === "") {
+            console.warn("❌ Nhận thông báo nhưng nội dung rỗng!");
+            return;
+        }
+
+        // Tăng số lượng thông báo
+        notificationCount++;
+        notificationCountElement.textContent = notificationCount;
+        notificationCountElement.style.display = "block"; // Hiện số lượng thông báo
+
+        // Thêm thông báo vào box
+        let p = document.createElement("p");
+        p.textContent = event.data;
+        p.style.margin = "5px 0";
+        notificationBox.appendChild(p);
+        notificationBox.style.display = "block";
+
+        // Tự động ẩn thông báo sau 15 giây nhưng vẫn giữ số lượng
+        setTimeout(() => {
+            notificationBox.style.display = "none";
+            notificationBox.innerHTML = "";
+        }, 15000);
+    };
+
+
+
+</script>
+
+

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package controller.shop;
 
 import dal.UserDAO;
@@ -14,7 +10,23 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import utils.CartWishlistUtils;
+import utils.MaHoa;
 import utils.Validation;
+
+import java.security.SecureRandom;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import utils.NotificationUtils;
 
 /**
  *
@@ -62,6 +74,11 @@ public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         CartWishlistUtils.prepareCartAndWishlistData(request);
+        try {
+            NotificationUtils.loadNotifications(request.getSession());
+        } catch (SQLException ex) {
+            Logger.getLogger(AboutUsServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         request.getRequestDispatcher("register.jsp").forward(request, response);
     }
 
@@ -77,6 +94,12 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         CartWishlistUtils.prepareCartAndWishlistData(request);
+        try {
+            NotificationUtils.loadNotifications(request.getSession());
+        } catch (SQLException ex) {
+            Logger.getLogger(AboutUsServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String confirmPassword = request.getParameter("confirmpassword");
@@ -86,7 +109,7 @@ public class RegisterServlet extends HttpServlet {
         String phonenumber = request.getParameter("phonenumber");
         String address = request.getParameter("address");
 
-        HttpSession session = request.getSession(); // Lấy session
+        HttpSession session = request.getSession();
 
         if (!Validation.isValidEmail(email)) {
             session.setAttribute("error", "Invalid email");
@@ -94,16 +117,14 @@ public class RegisterServlet extends HttpServlet {
             return;
         }
 
-        if (!password.equals(confirmPassword)) {
+        if (!MaHoa.toSHA1(password).equals(MaHoa.toSHA1(confirmPassword))) {
             session.setAttribute("error", "The confirmation password doesn't match");
-            System.out.println("Set mess: " + session.getAttribute("mess"));
             request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
         }
 
         if (!Validation.isValidPhone(phonenumber)) {
             session.setAttribute("error", "Invalid phone number");
-            System.out.println("Set mess: " + session.getAttribute("mess"));
             request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
         }
@@ -111,20 +132,82 @@ public class RegisterServlet extends HttpServlet {
         UserDAO userDAO = new UserDAO();
         if (userDAO.isEmailExist(email)) {
             session.setAttribute("error", "Email already exists");
-            System.out.println("Set mess: " + session.getAttribute("mess"));
             request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
         }
 
-        boolean success = userDAO.insertUser(name, password, email, phonenumber, address);
-        CartWishlistUtils.prepareCartAndWishlistData(request);
-        if (!success) {
-            session.setAttribute("error", "Registration failed. Please try again !");
+        // Tạo dãy số ngẫu nhiên
+        int[] verificationCode = generateVerificationCode();
+
+        // Lưu dãy số vào session
+        session.setAttribute("verificationCode", verificationCode);
+
+        // Lưu thông tin người dùng vào session
+        session.setAttribute("userDetails", new String[]{
+            email,
+            password,
+            firstname,
+            lastname,
+            phonenumber,
+            address
+        });
+
+        // Gửi email với dãy số
+        boolean isSent = sendVerificationEmail(email, verificationCode);
+        if (isSent) {
+            session.setAttribute("mess", "Verification email has been sent!");
             request.getRequestDispatcher("register.jsp").forward(request, response);
         } else {
-            session.setAttribute("registeredUser", email);
-            session.setAttribute("mess", "Registration successfully !");
-            request.getRequestDispatcher("register.jsp").forward(request, response);
+            session.setAttribute("error", "Error sending email!");
+        request.getRequestDispatcher("register.jsp").forward(request, response);
+        }
+
+    }
+
+    // Phương thức tạo dãy số ngẫu nhiên
+    private int[] generateVerificationCode() {
+        SecureRandom random = new SecureRandom();
+        int[] verificationCode = new int[5];
+        for (int i = 0; i < 5; i++) {
+            verificationCode[i] = random.nextInt(10); // Tạo số từ 0 đến 9
+        }
+        return verificationCode;
+    }
+
+    // Phương thức gửi email
+    private boolean sendVerificationEmail(String email, int[] verificationCode) throws UnsupportedEncodingException {
+        final String fromEmail = "louisvuittonstore102@gmail.com";
+        final String appPassword = "bofb ktts chzo iath";
+
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+
+        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(fromEmail, appPassword);
+            }
+        });
+
+        try {
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(fromEmail, "No-Reply"));
+            message.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
+            message.setSubject("Verification Code");
+
+            String emailContent = "Your verification code is: ";
+            for (int code : verificationCode) {
+                emailContent += code + " ";
+            }
+
+            message.setContent(emailContent, "text/plain; charset=UTF-8");
+            Transport.send(message);
+            return true;
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            return false;
         }
     }
 

@@ -110,7 +110,8 @@
                 color: red; /* Chuyá»ƒn mÃ u Ä‘á» */
             }
         </style>
-        
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     </head>
 
@@ -308,10 +309,6 @@
                                                                 <option value="1">Women</option>
                                                                 <option value="2">Men</option>
                                                                 <option value="3">Both</option>
-
-
-
-
                                                             </select>
                                                         </div>
 
@@ -344,22 +341,22 @@
                                                     <div class="col-md-6 pt-2">
                                                         <label class="col-12 col-form-label " >Price <span>( In USD
                                                                 )</span></label>
-                                                        <input type="number" step="0.01" class="form-control" id="price1" name="price" required>
+                                                        <input type="text" class="form-control" id="price1" name="price" required>
                                                     </div>
                                                     <div class="col-md-6 pt-2">
                                                         <label class="col-12 col-form-label ">Quantity</label>
-                                                        <input type="number" class="form-control" id="quantity1" name="quantity" requireds>
+                                                        <input type="text" class="form-control" id="quantity1" name="quantity" requireds>
                                                     </div>
                                                     <div class="col-md-6  pt-2">
                                                         <label class="col-12 col-form-label">Sale <span></span></label>
-                                                        <input type="number" step="0.01" class="form-control" id="price1" name="sale" required>
+                                                        <input type="text"  class="form-control" id="price1" name="sale" required>
                                                     </div><br/>
+                                                    
+                                                    <div style="color: red">${requestScope.error}</div>
 
                                                     <div class="col-md-12">
                                                         <button type="submit" class="btn gi-btn-primary">Submit</button>
                                                     </div>
-
-
                                                 </div>
                                             </div>
                                         </div>
@@ -455,6 +452,43 @@
                                                 console.error("Lỗi");
                                             }
                                         });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const form = document.querySelector("form");
+
+                form.addEventListener("submit", function (event) {
+                    event.preventDefault();
+
+                    let formData = new FormData(form);
+
+                    fetch("add-product", {
+                        method: "POST",
+                        body: formData
+                    })
+                            .then(response => response.text())
+                            .then(data => {
+                                Swal.fire({
+                                    title: "Add successful",
+                                    text: "The product has been added successfully!",
+                                    icon: "success",
+                                    confirmButtonColor: "#3085d6",
+                                    confirmButtonText: "OK"
+                                }).then(() => {
+                                    window.location.href = "pmanager";
+                                });
+                            })
+                            .catch(error => {
+                                Swal.fire({
+                                    title: "Error!",
+                                    text: "Something went wrong. Please try again!",
+                                    icon: "error",
+                                    confirmButtonColor: "#d33",
+                                    confirmButtonText: "OK"
+                                });
+                            });
+                });
+            });
         </script>
 
 

@@ -4,6 +4,8 @@
  */
 package controller_admin;
 
+import controller.shop.NotificationSocket;
+import dal.NotificationDAO;
 import dal.OrderDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,7 +23,7 @@ import model.Orders;
  *
  * @author vuhuu
  */
-@WebServlet(name="ListOrderServlet", urlPatterns={"/admin/list-order"})
+@WebServlet(name = "ListOrderServlet", urlPatterns = {"/admin/list-order"})
 public class ListOrderServlet extends HttpServlet {
 
     /**
@@ -80,6 +82,7 @@ public class ListOrderServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        NotificationDAO notiDAO = new NotificationDAO();
         String id_raw = request.getParameter("orderId");
         String status = request.getParameter("status");
         int id;
@@ -87,6 +90,12 @@ public class ListOrderServlet extends HttpServlet {
         try {
             id = Integer.parseInt(id_raw);
             od.updateStatus(id, status);
+            
+            // Lưu thông báo vào database
+            notiDAO.addNotification(od.getOrderById(id).getUser().getId(), id, "Order #" + id + " has been " + status.substring(0, 1).toLowerCase() + status.substring(1));
+           
+            // Gửi thông báo qua WebSocket
+            NotificationSocket.sendNotification(od.getOrderById(id).getUser().getId(), "Order #" + id + " has been " + status.substring(0, 1).toLowerCase() + status.substring(1));
             response.sendRedirect("list-order");
         } catch (Exception e) {
         }

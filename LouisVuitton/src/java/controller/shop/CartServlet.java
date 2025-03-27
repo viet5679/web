@@ -8,7 +8,11 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import utils.CartWishlistUtils;
+import utils.NotificationUtils;
 
 @WebServlet(name = "CartServlet", urlPatterns = {"/cart"})
 public class CartServlet extends HttpServlet {
@@ -16,9 +20,12 @@ public class CartServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ProductsDAO pDAO = new ProductsDAO();
         CartWishlistUtils.prepareCartAndWishlistData(request);
-        request.setAttribute("newArrivals", pDAO.getNewArrivalsProduct());
+        try {
+            NotificationUtils.loadNotifications(request.getSession());
+        } catch (SQLException ex) {
+            Logger.getLogger(AboutUsServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         request.getRequestDispatcher("cart.jsp").forward(request, response);
     }
 
@@ -26,16 +33,24 @@ public class CartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         CartWishlistUtils.prepareCartAndWishlistData(request);
+        try {
+            NotificationUtils.loadNotifications(request.getSession());
+        } catch (SQLException ex) {
+            Logger.getLogger(AboutUsServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         String id_raw = request.getParameter("productId");
         String quantity_raw = request.getParameter("quantity");
         String action = request.getParameter("action");
 
         if (id_raw == null || id_raw.isEmpty()) {
-            response.sendRedirect("cart.jsp");
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.getWriter().write("{\"error\": \"Missing productId\"}");
             return;
         }
+
         int id;
-        int quantity = 1; // Mặc định là 1 nếu không có số lượng
+        int quantity = 1;
         try {
             id = Integer.parseInt(id_raw);
 
@@ -43,13 +58,13 @@ public class CartServlet extends HttpServlet {
                 quantity = Integer.parseInt(quantity_raw);
             }
 
-            // Kiểm tra số lượng hợp lệ
             if (quantity < 1) {
-                quantity = 1; // Không cho phép số lượng < 1
+                quantity = 1;
             }
         } catch (NumberFormatException e) {
             e.printStackTrace();
-            response.sendRedirect("cart.jsp");
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.getWriter().write("{\"error\": \"Invalid productId or quantity\"}");
             return;
         }
 
@@ -67,6 +82,7 @@ public class CartServlet extends HttpServlet {
 
         StringBuilder updatedCart = new StringBuilder();
         boolean isProductInCart = false;
+        int totalItems = 0;
 
         if (!cartData.isEmpty()) {
             String[] items = cartData.split("/");
@@ -79,44 +95,47 @@ public class CartServlet extends HttpServlet {
                     if (existingId == id) {
                         isProductInCart = true;
                         if ("addToCart".equals(action)) {
-                            existingQuantity += quantity; // Cộng dồn số lượng
+                            existingQuantity += quantity;
                         } else if ("updateCart".equals(action)) {
-                            existingQuantity = quantity; // Cập nhật số lượng
+                            existingQuantity = quantity;
                         } else if ("remove".equals(action)) {
-                            continue; // Xóa sản phẩm khỏi giỏ hàng
+                            continue;
                         }
 
                         if (existingQuantity > 0) {
                             updatedCart.append(existingId).append(":").append(existingQuantity).append("/");
+                            totalItems += existingQuantity;
                         }
                     } else {
                         updatedCart.append(item).append("/");
+                        totalItems += existingQuantity;
                     }
                 }
             }
         }
 
-        // Nếu sản phẩm chưa có trong giỏ hàng và không phải hành động "remove", thì thêm vào
         if (!isProductInCart && !"remove".equals(action)) {
             updatedCart.append(id).append(":").append(quantity).append("/");
+            totalItems += quantity;
         }
 
-        // Xử lý cookie
         Cookie newCookie;
         if (updatedCart.length() == 0) {
             newCookie = new Cookie("cart", "");
-            newCookie.setMaxAge(0); // Xóa cookie
+            newCookie.setMaxAge(0);
         } else {
-            // Xóa dấu `/` cuối nếu có
             if (updatedCart.length() > 0 && updatedCart.charAt(updatedCart.length() - 1) == '/') {
                 updatedCart.deleteCharAt(updatedCart.length() - 1);
             }
             newCookie = new Cookie("cart", updatedCart.toString());
-            newCookie.setMaxAge(7 * 24 * 60 * 60); // Lưu 7 ngày
+            newCookie.setMaxAge(7 * 24 * 60 * 60);
         }
 
         response.addCookie(newCookie);
-        response.sendRedirect("cart.jsp");
+
+        // **Trả về JSON để cập nhật giỏ hàng ngay lập tức**
+        response.setContentType("application/json");
+        response.getWriter().write("{\"success\": true, \"cartCount\": " + totalItems + "}");
     }
 
     @Override

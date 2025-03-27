@@ -209,7 +209,7 @@ public class OrderDAO extends DBContext {
             return 0;
         }
 
-        String sql = "SELECT SUM(total_price) FROM orders WHERE MONTH(created_at) = MONTH(GETDATE())";
+        String sql = "SELECT SUM(total_price) FROM orders WHERE MONTH(created_at) = MONTH(GETDATE()) and status = 'Delivered'";
 
         try (PreparedStatement ps = connection.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
             if (rs.next()) {

@@ -100,6 +100,7 @@
                                                         <tr>
                                                             <th>Product</th>
                                                             <th>Price</th>
+                                                            <th>Sale</th>
                                                             <th style="text-align: center;">Quantity</th>
                                                             <th>Total</th>
                                                             <th></th>
@@ -115,6 +116,18 @@
                                                                         src="${i.product.avatar}" alt="" />${i.product.name}</a></td>
                                                             <td data-label="Price" class="ec-cart-pro-price"><span
                                                                     class="amount">$${i.product.price}</span></td>
+                                                            <td data-label="Sale" class="ec-cart-pro-price">
+                                                                <span class="amount">
+                                                                    <c:choose>
+                                                                        <c:when test="${i.product.sale % 1 == 0}">
+                                                                            <fmt:formatNumber value="${i.product.sale}" pattern="#"/>%
+                                                                        </c:when>
+                                                                        <c:otherwise>
+                                                                            <fmt:formatNumber value="${i.product.sale}" pattern="#.##"/>%
+                                                                        </c:otherwise>
+                                                                    </c:choose>
+                                                                </span>
+                                                            </td>
                                                             <td data-label="Quantity" class="ec-cart-pro-qty" style="text-align: center;">
                                                                 <div class="cart-qty-plus-minus">
                                                                     <button class="qty-minus" type="button" data-product-id="${i.product.id}" onclick="changeQuantity(this, -1)">-</button>

@@ -117,6 +117,7 @@ public class AddServlet extends HttpServlet {
         String price_raw = request.getParameter("price");
         String quantity_raw = request.getParameter("quantity");
         String sale_raw = request.getParameter("sale");
+
         int cid, quantity, gid, id;
         double price, sale;
         Collection<Part> parts = request.getParts();
@@ -171,14 +172,39 @@ public class AddServlet extends HttpServlet {
         ProductsDAO pd = new ProductsDAO();
         CategoriesDAO cd = new CategoriesDAO();
         GendersDAO gd = new GendersDAO();
+        List<Categories> listC = cd.getAllCategory();
         try {
             id = Integer.parseInt(id_raw);
             gid = Integer.parseInt(gid_raw);
             cid = Integer.parseInt(cid_raw);
-            quantity = Integer.parseInt(quantity_raw);
-            price = Double.parseDouble(price_raw);
-            sale = Double.parseDouble(sale_raw);
+            try {
+                quantity = Integer.parseInt(quantity_raw);
+            } catch (NumberFormatException e) {
+                request.setAttribute("id", id);
+                request.setAttribute("listC1", listC);
+                request.setAttribute("error", "You need to input an integer for quantity");
+                request.getRequestDispatcher("add-product.jsp").forward(request, response);
+                return;
+            }
 
+            try {
+                price = Double.parseDouble(price_raw);
+                sale = Double.parseDouble(sale_raw);
+            } catch (NumberFormatException e) {
+                request.setAttribute("id", id);
+                request.setAttribute("listC1", listC);
+                request.setAttribute("error", "You need to input a number for sale or price");
+                request.getRequestDispatcher("add-product.jsp").forward(request, response);
+                return;
+            }
+
+            if (price <= 0 || quantity <= 0 || sale < 0 || sale > 100) {
+                request.setAttribute("id", id);
+                request.setAttribute("listC1", listC);
+                request.setAttribute("error", "Please enter a number greater than 0 for Quantity, Price, and 0 <= Sale <= 100.");
+                request.getRequestDispatcher("add-product.jsp").forward(request, response);
+                return;
+            }
             Products pro = new Products();
             pro.setId(id);
             Categories ca = cd.getCategoryById(cid);

@@ -20,6 +20,7 @@ import java.util.logging.Logger;
 import model.Orders;
 import model.Users;
 import utils.CartWishlistUtils;
+import utils.NotificationUtils;
 
 /**
  *
@@ -67,6 +68,11 @@ public class OrderHistoryServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         CartWishlistUtils.prepareCartAndWishlistData(request);
+        try {
+            NotificationUtils.loadNotifications(request.getSession());
+        } catch (SQLException ex) {
+            Logger.getLogger(AboutUsServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         // Kiểm tra xem user đã đăng nhập chưa
         HttpSession session = request.getSession();
         Users user = (Users) session.getAttribute("user");

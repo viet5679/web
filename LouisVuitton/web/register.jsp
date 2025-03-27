@@ -86,7 +86,7 @@
                             <div class="section-title">
                                 <h2 class="ec-bg-title">Register</h2>
                                 <h2 class="ec-title">Register</h2>
-                                <p class="sub-title mb-3">Best place to buy and sell digital products</p>
+                                <p class="sub-title mb-3">The best place to buy fashion accessories</p>
                             </div>
                         </div>
                         <div class="ec-register-wrapper">
@@ -142,11 +142,11 @@
                                                 if (successMessage && successMessage.trim() !== "") {
                                                     Swal.fire({
                                                         icon: "success",
-                                                        title: "Registration Successful!",
+                                                        title: "Verify your email to complete register!",
                                                         text: successMessage,
-                                                        confirmButtonText: "Go to Login"
+                                                        confirmButtonText: "Verify Now"
                                                     }).then(() => {
-                                                        window.location.href = "login"; 
+                                                        window.location.href = "verify-code";
                                                     });
                                                 }
                                             });
